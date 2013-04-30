@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>The codefather's blog</title>
+		<description>About programming and other stuff blog</description>
+		<link>http://thecodefather.github.io/feed.xml</link>
+		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Hello World</title>
+				<description>&lt;p&gt;Hi all.&lt;/p&gt;
+
+&lt;p&gt;This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s get started!&lt;/p&gt;
+
+&lt;h1&gt;About the name&lt;/h1&gt;
+
+&lt;p&gt;Yes, as you can imagine, the name is a joke with the Godfather movie.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/codefather.jpg'/&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
+				<link>http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</guid>
+			</item>
+		
+	</channel>
+</rss>

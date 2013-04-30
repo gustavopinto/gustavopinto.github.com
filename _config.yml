@@ -1,0 +1,14 @@
+markdown: rdiscount
+pygments: true
+rdiscount:
+  extensions: [smart, autolink]
+
+comments :
+   provider: disqus
+   disqus:
+     short_name:  thecodefatherblog
+
+
+name: The codefather's blog
+description: About programming and other stuff blog
+url: http://thecodefather.github.io
