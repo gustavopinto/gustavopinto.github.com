@@ -7,6 +7,113 @@
 		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Improving our line plots with R</title>
+				<description>&lt;p&gt;Hi there.&lt;/p&gt;
+
+&lt;p&gt;As you may know, I&amp;rsquo;m a graduate student and part of my work is spent on wrinting papers. And, frequently, these papers contains a lot of charts. As long as I&amp;rsquo;m a graduate student, I&amp;rsquo;m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/post2/usage-per-thread.png'/&gt;&lt;/p&gt;
+
+&lt;p&gt;It is terrible.&lt;/p&gt;
+
+&lt;p&gt;So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstading to ploting charts, which I had serious doubts. During a long time I&amp;rsquo;m a R-user. Not a fan. Just a user that uses R to plot boxplot, and to use few functions such as &lt;code&gt;summary&lt;/code&gt;, &lt;code&gt;sd&lt;/code&gt;, &lt;code&gt;cor&lt;/code&gt;, among more two or three. Not less, not more. In my imagination, R should had a function like plotanincrediblechart, and I will need only to pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they toguether, you could get a nice chart like this one.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/post2/usage-per-thread-r.png'/&gt;&lt;/p&gt;
+
+&lt;p&gt;Much better, uh?&lt;/p&gt;
+
+&lt;p&gt;So, how can you do this?&lt;/p&gt;
+
+&lt;h3&gt;First&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start by initializing your data array. If you do not have basic knowlegde in R, this article is a good start point.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;seq &lt;- c(78, 78, 78, 78)
+thread &lt;- c(80, 60, 55, 42)
+executors &lt;- c(80, 56, 42, 31)
+forkJoin &lt;- c(79, 55, 52, 54)
+actors &lt;-c(82, 47, 38, 30)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h3&gt;Second&lt;/h3&gt;
+
+&lt;p&gt;Create a simple line chart with one of your data set using the &lt;code&gt;plot&lt;/code&gt; function. In this case, I used the &lt;code&gt;thread&lt;/code&gt; var.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;plot(thread, type=&quot;o&quot;, col=&quot;blue&quot;, pch=18, ylim=c(20, 100))&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;In this function, we passed the &lt;code&gt;thread&lt;/code&gt; var and more four arguments. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt;: the plot type (see &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html&quot;&gt;here&lt;/a&gt; for more information);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;col&lt;/code&gt;: the line color (see &lt;a href=&quot;http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf&quot;&gt;here&lt;/a&gt; to see all colors avaiable in R);&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pch&lt;/code&gt;: the vector of plotting characters or symbols:&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ylim&lt;/code&gt;: the y limits of the plot.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;There are several other parameters that you can use in your chart.&lt;/p&gt;
+
+&lt;p&gt;Now, we have to add the remaining data. To do so, we will use another function called &lt;code&gt;lines&lt;/code&gt;. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the &lt;code&gt;plot&lt;/code&gt; function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lines(seq, type=&quot;o&quot;, pch=23, lty=1, col=&quot;darkred&quot;)
+lines(executors, type=&quot;o&quot;, pch=24, lty=1, col=&quot;purple&quot;)
+lines(forkJoin, type=&quot;o&quot;, pch=25, lty=1, col=&quot;chocolate3&quot;)
+lines(actors, type=&quot;o&quot;, pch=8, lty=1, col=&quot;orangered2 &quot;)&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/post2/middle-chart.png'/&gt;&lt;/p&gt;
+
+&lt;p&gt;Great! Our chart is becoming professional. My mon will be proud of me.&lt;/p&gt;
+
+&lt;h3&gt;Third&lt;/h3&gt;
+
+&lt;p&gt;The third part is to add both vertical and horizontal lines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;abline(v=1,col=1,lty=3)
+abline(v=1.5,col=1,lty=3)
+abline(v=2,col=1,lty=3)
+abline(v=2.5,col=1,lty=3)
+abline(v=3,col=1,lty=3)
+abline(v=3.5,col=1,lty=3)
+abline(v=4,col=1,lty=3)
+
+abline(h=100,col=1,lty=3)
+abline(h=80,col=1,lty=3)
+abline(h=60,col=1,lty=3)
+abline(h=40,col=1,lty=3)
+abline(h=20,col=1,lty=3)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (&lt;code&gt;v&lt;/code&gt; for vertical lines and &lt;code&gt;h&lt;/code&gt; for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, &amp;hellip;) or as one of the character strings &amp;ldquo;blank&amp;rdquo;, &amp;ldquo;solid&amp;rdquo;, etc.&lt;/p&gt;
+
+&lt;h3&gt;Fourth&lt;/h3&gt;
+
+&lt;p&gt;The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: &lt;code&gt;box&lt;/code&gt; and &lt;code&gt;legend&lt;/code&gt;. I think the name of these functions are meaningful. But, the &lt;code&gt;legend&lt;/code&gt; function receives several parameters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;box()
+labels &lt;- c(&quot;Sequential&quot;,&quot;Thread&quot;, &quot;Executors&quot;, &quot;ForkJoin&quot;, &quot;Scala Actors&quot;)
+colors &lt;- c(&quot;blue&quot;,&quot;darkred&quot;, &quot;purple&quot;, &quot;chocolate3&quot;, &quot;orangered2&quot;)
+pch &lt;- c(18,23,24,25,8)
+
+legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;And you&amp;rsquo;ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :&amp;ndash;)&lt;/p&gt;
+
+&lt;p&gt;See you later alligator!&lt;/p&gt;
+</description>
+				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
+				<link>http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
+			</item>
+		
+			<item>
 				<title>Hello World</title>
 				<description>&lt;p&gt;Hi all.&lt;/p&gt;
 
