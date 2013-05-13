@@ -11,13 +11,13 @@ summary: few tips to improving the appearance of your line plots
 
 Hi there.
 
-As you may know, I'm a graduate student and part of my work is spent on wrinting papers. And, frequently, these papers contains a lot of charts. As long as I'm a graduate student, I'm very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.
+As you may know, I'm a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I'm a graduate student, I'm very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.
 
 <img src='/images/post2/usage-per-thread.png'/>
 
 It is terrible. 
 
-So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstading to ploting charts, which I had serious doubts. During a long time I'm a R-user. Not a fan. Just a user that uses R to plot boxplot, and to use few functions such as `summary`, `sd`, `cor`, among more two or three. Not less, not more. In my imagination, R should had a function like plotanincrediblechart, and I will need only to pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they toguether, you could get a nice chart like this one.
+So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as `summary`, `sd`, `cor`, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like `plotanincrediblechart`, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.
 
 <img src='/images/post2/usage-per-thread-r.png'/>
 
@@ -27,7 +27,7 @@ So, how can you do this?
 
 ### First
 
-Let's start by initializing your data array. If you do not have basic knowlegde in R, this article is a good start point.
+Let's start by initializing your data array. If you do not have basic knowledge in R, <a href="http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf">this article</a> is a good start point.
 
 <pre><code>seq <- c(78, 78, 78, 78)
 thread <- c(80, 60, 55, 42)
