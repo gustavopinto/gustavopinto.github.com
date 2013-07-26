@@ -1,102 +1,60 @@
 ---
 layout: post
-title: From where come the brazilian open-source contribuitions?
+title: From where come the Brazilian open-source contributions?
 tags: [github, contributions, brazil]
 year: 2013
 month: 07
 day: 19
 published: true
-summary: an empirical analysis of github contribuitions
+summary: an empirical analysis of github contributions
 ---
 
 Hi there.
 
-As you may know, I'm a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I'm a graduate student, I'm very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.
+Some days ago I was wondering why open-source communities are so cool! You can meet a lot of interesting people, who devote a lot time of their time-lifes just to create stuffs that other people will use. It is strange. Usually, this people actually have their own business, work, family, whatever, and they still find time to work for free. It sounds weird to me (even though I devote part of my time to open-source activities).
 
-<img src='/images/post2/usage-per-thread.png'/>
+But, the point is: how active these communities are? And if you take into consideration only the Brazilian community, what is the general picture that we can drawn from they? Thinking about it, I collected a lot of data about Brazilian developers in the github social coding website. There is a lot of interesting findings.
 
-It is terrible. 
+<h4>1. Are the brazilian open-source community active</h4>
 
-So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as `summary`, `sd`, `cor`, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like `plotanincrediblechart`, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.
+Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones (about 70% of the total) do not have any kind of contribution. The rest of the 30% of users were sub-divided in three groups: low actives (up to 19 contribution per year),  fairly actives (up to 49 contributions per year) and very actives (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. This results show us that the brazilian open-source community is not so active as we may guess. 
 
-<img src='/images/post2/usage-per-thread-r.png'/>
 
-Much better, uh?
+<img src='/images/post3/users-active-percentage.png'/>
 
-So, how can you do this? 
 
-### First
+<h4>2. From where they come?</h4>
 
-Let's start by initializing your data array. If you do not have basic knowledge in R, <a href="http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf">this article</a> is a good start point.
+Ao ser analisado a localidade da comunidade brasileira open-source, 46% desses estão
+localizados na Região Nordeste, 25% na Região Sul, 12% no Sudeste, 12% no CentroOeste e 5% no Norte. Em uma análise por Estado, o maior número de usuários ativos
+encontra-se no Paraná (13.65%), seguido do Ceará (12.37%) e Pernambuco (11.25%).
+A Figura 2 apresenta os dados das contribuições por Estado. É importante ressaltar que
+cerca de 8% dos usuários ativos não preencheram o campo localidade da sua página de
+perﬁl, desta forma, não contabilizados nestes dados. Levando em consideração o totalde contribuições por Estado, Pernambuco é o que mais tem contribuído, com 16.46%
+das contribuições realizadas no período analisado. Seguido do Paraná (10.63%), Bahia
+(10.43%), Ceará (10.27%) e Distrito Federal (10.13%). Os demais Estados juntos somaram 42.04% do total.
 
-<pre><code>seq <- c(78, 78, 78, 78)
-thread <- c(80, 60, 55, 42)
-executors <- c(80, 56, 42, 31)
-forkJoin <- c(79, 55, 52, 54)
-actors <-c(82, 47, 38, 30)
-</code></pre>
 
-### Second
 
-Create a simple line chart with one of your data set using the `plot` function. In this case, I used the `thread` var.
+<h4>3. Which are the most popular programming languages?</h4>
 
-<pre><code>plot(thread, type="o", col="blue", pch=18, ylim=c(20, 100))</code></pre>
+Levando em consideração os projetos originais e forks, as 10 linguagens
+mais utilizadas são: JavaScript (22.77%), Ruby (18.78%), Java (14.19%), PHP (13.95%),
+Python (9.86%), C (3.36%), C++ (2.94%), Shell (2.55%), Objective-C (1.95%) e C#
+(1.88%). A partir desses resultados, é possível observar que, apesar dos desenvolvedores
+contribuirem principalmente com linguagens consolidadas como JavaScript e Java, novas
+comunidades, como Ruby, vem ganhado espaço. Um dos motivos pelo qual JavaScript
+apareceu como a mais utilizada é devido ao fato de que muitos projetos são web, e
+utilizam-a para manipulação de página. No entanto, é comum que estes projetos também
+utilizem de outras linguagens, na camada de negócio do código. Dessa forma, JavaScript
+pode ser facilmente utilizada com uma sub-linguagem em um projeto
 
-In this function, we passed the `thread` var and more four arguments. They are:
+As you may know, in a study like this one, we have a lot of limitations, which could biased the results. The first one is related to the population used. 
 
- * ```type```: the plot type;
- * ```col```: the line color (see <a href="http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf">here</a> to see all colors avaiable in R);
- * ```pch```: the vector of plotting characters or symbols;
- * ```ylim```: the y limits of the plot;
- 
-There are several other parameters that you can use in your chart. If you have the time, take a lot at the <a href="http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html">official documentation</a>.
 
-Now, we have to add the remaining data. To do so, we will use another function called `lines`. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the `plot` function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:
+Moreover, I only looked for github contributors. Is well-know that github is becoming the defacto platform for social coding, and other open-source activities. But, we also have a lot of platforms, such as SourceForm, GoogleCode, CodePlex, etc. Moreover, there are a lot of non-code kind of contributions, such as answer forum questions, , among others. 
 
-<pre><code>lines(seq, type="o", pch=23, lty=1, col="darkred")
-lines(executors, type="o", pch=24, lty=1, col="purple")
-lines(forkJoin, type="o", pch=25, lty=1, col="chocolate3")
-lines(actors, type="o", pch=8, lty=1, col="orangered2 ")</code></pre>
+In summary: Apparently, we are not so involved in code, but, what about other artifacts? 
 
-For the moment, your chart may looks like this one:
 
-<img src='/images/post2/middle-chart.png'/>
 
-Great! Our chart is becoming professional. My mon will be proud of me.
-
-### Third
-
-The third part is to add both vertical and horizontal lines. 
-
-<pre><code>abline(v=1,col=1,lty=3)
-abline(v=1.5,col=1,lty=3)
-abline(v=2,col=1,lty=3)
-abline(v=2.5,col=1,lty=3)
-abline(v=3,col=1,lty=3)
-abline(v=3.5,col=1,lty=3)
-abline(v=4,col=1,lty=3)
-
-abline(h=100,col=1,lty=3)
-abline(h=80,col=1,lty=3)
-abline(h=60,col=1,lty=3)
-abline(h=40,col=1,lty=3)
-abline(h=20,col=1,lty=3)
-</code></pre>
-
-Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (`v` for vertical lines and `h` for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, ...) or as one of the character strings "blank", "solid", etc.
-
-### Fourth
-
-The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: `box` and `legend`. I think the name of these functions are meaningful. But, the `legend` function receives several parameters. 
-
-<pre><code>box()
-labels <- c("Sequential","Thread", "Executors", "ForkJoin", "Scala Actors")
-colors <- c("blue","darkred", "purple", "chocolate3", "orangered2")
-pch <- c(18,23,24,25,8)
-
-legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = "white");
-</code></pre>
-
-And you'll probably see a very similar chart like the second topmost in this post. All code is pasted <a href="https://gist.github.com/gustavopinto/5570951">here</a>. And, that is it! :-) 
-
-See you later alligator!
