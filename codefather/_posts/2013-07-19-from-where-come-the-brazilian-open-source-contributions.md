@@ -17,7 +17,7 @@ But, the point is: how active these communities are? And if you take into consid
 
 <h4>1. Are the brazilian open-source community active</h4>
 
-Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. This results show us that the brazilian open-source community is not so active as we may guess. 
+Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. The <a href="http://en.wikipedia.org/wiki/Pareto_principle">Pareto's principle</a> also works here: from 30% of the users come the 100% of the contributions. This results show us that the brazilian open-source community is not so active as we may guess. 
 
 <img src='/images/post3/users-active-percentage.png'/>
 
