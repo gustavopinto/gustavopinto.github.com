@@ -1,5 +1,7 @@
-gustavopinto.org/blog
+gustavopinto.org
 =====================
 
-The codefather blog content
+My personal site content.
+
+It uses Jekyll. To run, just type `make` from command line.
 
