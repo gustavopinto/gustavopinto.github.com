@@ -7,6 +7,95 @@
 		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Tips to attend OOPSLA</title>
+				<description>&lt;h1&gt;Tips to attend ooplsa&lt;/h1&gt;
+
+&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a top-tier conference such as OOPSLA, but money is a big problem? If so, I may have some tips to share with you.&lt;/p&gt;
+
+&lt;p&gt;In this year (2013) I attend my very first OOPSLA. It was awesome. I shared some histories on twitter. However, one of the things that made it so great was because I don&amp;rsquo;t needed to pay anything. Nor my advisor.&lt;/p&gt;
+
+&lt;p&gt;How I did it?&lt;/p&gt;
+
+&lt;p&gt;It was basically three steps: (i) submit a paper to ACM SRC, (ii) apply to be a student volunteer, and (iii) request PAC funding.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll briefly describe these steps here.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Consider submit a paper on ACM SRC: One good reason to go to a conference is to have a paper accepted (usually on the main track of the conference). In this case, you can request money from your advisor/university. But, if you are in the beginning of your research, or if you have already submitted to the main track and got rejected, you can also consider submit to the ACM SRC track. The goal of the ACM SRC is to .., and also receive good feedback. Another attractive interest to submit in this track is because you can receive up to $ 500 to spend in your trip.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Apply to be a student volunteer: When you are a student volunteer, you don&amp;rsquo;t need to pay your registration. You could also eventually receive others coisas legais, such as a costumed t-shirt, an invitation to a dinner, and, of course, met  great people. Em contra partida, you have to work during the conference. Some kind of works include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Request PAC funding: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. On the other hand, the Poster section is sponsored, and both tracks are held in Splash. Also, if you don&amp;rsquo;t have any paper published, but was accepted to be a student volunteer, you can also request PAC funding.  It is pretty easy. You just have to fill up one form, saying how do you plan to spend this money. I met one guy that received more than $ 1,600 in PAC funding. So, regardless in which country do you live, just this amount of money can help you a lot to attend the conference.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;So, these were my tips.&lt;/p&gt;
+
+&lt;p&gt;Todavia, I&amp;rsquo;m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for oopsla.&lt;/p&gt;
+
+&lt;p&gt;That is it. I hope to see you next year on Portland in 2014 :)&lt;/p&gt;
+</description>
+				<pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
+				<link>http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla.html</guid>
+			</item>
+		
+			<item>
+				<title>Pycon 2014 - Call for posters</title>
+				<description>&lt;h1&gt;About Pycon Poster Section&lt;/h1&gt;
+
+&lt;p&gt;PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.&lt;/p&gt;
+
+&lt;p&gt;How?&lt;/p&gt;
+
+&lt;p&gt;What about presenting a poster in the Python premier conference?&lt;/p&gt;
+
+&lt;h2&gt;How does it work?&lt;/h2&gt;
+
+&lt;p&gt;As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.&lt;/p&gt;
+
+&lt;p&gt;The idea is to present your topic on a 4'x4' poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
+
+&lt;p&gt;Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.&lt;/p&gt;
+
+&lt;h2&gt;What kind of proposal can I submit?&lt;/h2&gt;
+
+&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don&amp;rsquo;t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don&amp;rsquo;t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon'13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon'12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
+
+&lt;h2&gt;Hmm.. I&amp;rsquo;m interested. How to submit a proposal?&lt;/h2&gt;
+
+&lt;p&gt;To submit a poster proposal, you should first create an account in the PyCon site. When you are logged in, you will need to include the following information.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The title of your post&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The category&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The intended audience (assumed level of knowledge)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A brief description - 300 chars max&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A detailed description&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Additional notes for the proposal reviewers. This can include additional background information such as links to other presentations you have done, or links to blog posts, articles or code related to your presentation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Keep in mind that the posters should follow all of the usual &lt;a href=&quot;http://us.pycon.org/2014/speaking/proposal_advice/&quot;&gt;guidelines&lt;/a&gt; that we look for in talk and tutorial proposals.&lt;/p&gt;
+
+&lt;h2&gt;Important Dates&lt;/h2&gt;
+
+&lt;p&gt;Do not miss the application deadline!&lt;/p&gt;
+
+&lt;p&gt;Poster submission deadline: November 1st, 2013.&lt;/p&gt;
+
+&lt;p&gt;Poster announced: December 15th, 2013.&lt;/p&gt;
+
+&lt;p&gt;Poster session at PyCon'14: April 13th, 2014.&lt;/p&gt;
+
+&lt;p&gt;If you need more information, you can see the &lt;a href=&quot;http://us.pycon.org/2014/posters/faq/&quot;&gt;Poster FAQ&lt;/a&gt; and the &lt;a href=&quot;https://us.pycon.org/2014/posters/&quot;&gt;Poster CFP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+				<link>http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</guid>
+			</item>
+		
+			<item>
 				<title>From where come the Brazilian open-source contributions?</title>
 				<description>&lt;p&gt;Hi there.&lt;/p&gt;
 
@@ -35,7 +124,7 @@
 
 &lt;p&gt;Now I&amp;rsquo;m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
 			</item>
@@ -138,11 +227,11 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 &lt;/code&gt;&lt;/pre&gt;
 
 
-&lt;p&gt;And you&amp;rsquo;ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :&amp;ndash;)&lt;/p&gt;
+&lt;p&gt;And you&amp;rsquo;ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :-)&lt;/p&gt;
 
 &lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
-				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
+				<pubDate>Wed, 08 May 2013 00:00:00 -0400</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
 			</item>
@@ -161,7 +250,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;&lt;img src='/images/codefather.jpg'/&gt;&lt;/p&gt;
 </description>
-				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
+				<pubDate>Sun, 07 Apr 2013 00:00:00 -0400</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</guid>
 			</item>

@@ -1,2 +1,2 @@
 all: 
-	jekyll --server --auto
+	jekyll server --watch
