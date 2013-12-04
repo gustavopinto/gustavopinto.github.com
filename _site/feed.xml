@@ -7,6 +7,43 @@
 		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Why do you keep doing surveys?</title>
+				<description>&lt;p&gt;When I say survey, I mean on line questionnaires.&lt;/p&gt;
+
+&lt;p&gt;First of all, don&amp;rsquo;t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.&lt;/p&gt;
+
+&lt;p&gt;Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?&lt;/p&gt;
+
+&lt;p&gt;Yes, of course, you can do a survey.&lt;/p&gt;
+
+&lt;p&gt;But, there are some concerns that you have to keep in mind: First, survey has its own problems (the subject may lie in a difficult questions, or may remember incorrectly about a long time question, or may not fully understand a question and then give a faulty response). Second, the survey response rate is pretty low. If you are a luck guy, you can get 10% or 15% of response rate. So, if you are targeting the entire rails population, you may draw conclusions from a biased part of it. And finally, you may have to wait for several weeks (months?) until you have collected enough data.&lt;/p&gt;
+
+&lt;p&gt;Or you can simply change your data source.&lt;/p&gt;
+
+&lt;p&gt;If you are doing computer science research, you have on hand a number of great on line data sources. All you have to do is pick up the right one, use your programming skill to extract the data, and proceed to the analysis.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Do you want to know what rails core developers eat on lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine they actives in there.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverfow&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and/or &lt;a href=&quot;http://www.sourceforge.com&quot;&gt;SourceForge&lt;/a&gt;, and parse their source code.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you want to know if final users are facing energy consumption problems in mobile applications? Mine &lt;a href=&quot;http://play.google.com&quot;&gt;Google Play&lt;/a&gt; comments.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;And the list goes on.&lt;/p&gt;
+
+&lt;p&gt;You see? Surveys are good. But, you may get more accurate [and a ton of] data if you mine such websites.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, mining software repositories is not only about software, but also human behaviour as well.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 03 Dec 2013 00:00:00 -0500</pubDate>
+				<link>http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</guid>
+			</item>
+		
+			<item>
 				<title>Tips to attend OOPSLA with low budget</title>
 				<description>&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a top-tier conference such as OOPSLA, but you have a low budget? If so, I may have some tips to share with you.&lt;/p&gt;
 
