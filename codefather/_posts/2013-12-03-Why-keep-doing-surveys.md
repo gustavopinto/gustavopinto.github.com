@@ -25,7 +25,7 @@ If you are doing computer science research, you have on hand a number of great o
 
 For example:
 
-- Do you want to know what rails core developers eat on lunch? Find them on [Github](http://www.github.com) and mine they actives in there.
+- Do you want to know what rails core developers eat on lunch? Find them on [Github](http://www.github.com) and mine their actives in there.
  
 - Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on [StackOverfow](http://www.stackoverflow.com). 
 
@@ -37,4 +37,4 @@ And the list goes on.
 
 You see? Surveys are good. But, you may get more accurate [and a ton of] data if you mine such websites. 
 
-Nowadays, mining software repositories is not only about software, but also human behaviour as well. 
+Nowadays, mining software repositories is not only about software, but human behaviour as well. 
