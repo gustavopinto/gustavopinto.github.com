@@ -5,6 +5,10 @@ title: Gustavo Pinto - Publications
 
 <h3>$ cat publications</h3>
 
+<h5>2014</h5>
+
+- Gustavo Pinto and Fernando Kamei. The Census of the Brazilian Open-Source Community. Accepted to the 10th International Conference of Open-Source Systems, San Jose, Costa Rica, 2014.
+
 
 <h5>2013</h5>
 - Gustavo Pinto and Fernando Castor. On The Implications of Language Constructs for Concurrent Execution for the Energy Efficiency of Multicore Applications. Accepted to the 4th ACM Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
