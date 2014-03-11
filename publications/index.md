@@ -7,9 +7,9 @@ title: Gustavo Pinto - Publications
 
 <h5>2014</h5>
 
-- Gustavo Pinto, Fernando Cator and David Liu. Mining Questions About Software Energy Consumption. Accepted to the 11th Working Conference of Mining Software Repositories, Hyderabad, India, 2014.
+- Gustavo Pinto, Fernando Cator and David Liu. Mining Questions About Software Energy Consumption. Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
 
-- Gustavo Pinto and Fernando Kamei. The Census of the Brazilian Open-Source Community. Accepted to the 10th International Conference of Open-Source Systems, San Jose, Costa Rica, 2014.
+- Gustavo Pinto and Fernando Kamei. The Census of the Brazilian Open-Source Community. Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
 
 
 <h5>2013</h5>
@@ -36,7 +36,7 @@ title: Gustavo Pinto - Publications
 
 - Gustavo Pinto and Silvia Vergilio. Gerando Dados de Teste para Programas Orientados a Objeto com um Algoritmo Genético Multiobjetivo. Accepted to the 1st Brazilian Workshop of Search-Based Software Engineering, at the 1st Brazilian Conference on Software: Theory and Practice (CBSoft), Salvador, Brazil, 2010. 
 
-- Gustavo Pinto and Silvia Vergilio. A Multi-Objective Genetic Algorithm to Test Data Generation. Accepted to the 22th International Conference on Tools with Artificial Intelligence, Arras, Italy, 2010.
+- Gustavo Pinto and Silvia Vergilio. A Multi-Objective Genetic Algorithm to Test Data Generation. Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.
 
 <h5>2008</h5>
 - Gustavo Pinto. Uma Análise da Utilização de Testes Baseados em Pertubação e Contratos em WebServices. Accepted to the Sulcomp, 2008, Criciuma, Brazil.
