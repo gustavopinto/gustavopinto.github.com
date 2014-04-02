@@ -7,9 +7,9 @@ title: Gustavo Pinto - Publications
 
 <h5>2014</h5>
 
-- Gustavo Pinto, Fernando Cator and David Liu. Mining Questions About Software Energy Consumption. Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
+- Gustavo Pinto, Fernando Cator and David Liu. [Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr.pdf). Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
 
-- Gustavo Pinto and Fernando Kamei. The Census of the Brazilian Open-Source Community. Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
+- Gustavo Pinto and Fernando Kamei. [The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss.pdf). Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
 
 
 <h5>2013</h5>
