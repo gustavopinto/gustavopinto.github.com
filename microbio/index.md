@@ -17,7 +17,7 @@ University degrees:
 
 I am a member of:
 
-- Software Productivity Group ([SPG](twiki.cin.ufpe.br/twiki/bin/view/SPG/))
+- Software Productivity Group ([SPG](http://twiki.cin.ufpe.br/twiki/bin/view/SPG/))
 - Association for Computing Machinery (ACM)
 - ACM Special Interest Group on Software Engineering (SIGSOFT)
 - ACM Special Interest Group on Programming Languages (SIGPLAN)
