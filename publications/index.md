@@ -7,11 +7,11 @@ title: Gustavo Pinto - Publications
 
 ### 2014
 
-[comment]: <> (**Gustavo Pinto**, Fernando Cator and David Liu. [Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/msr.pdf). Accepted to the ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.)
+**Gustavo Pinto**, Fernando Cator and David Liu. [Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf). Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.
 
-**Gustavo Pinto**, Fernando Cator and David Liu. [Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr.pdf). Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
+**Gustavo Pinto**, Fernando Cator and David Liu. [Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf). Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
 
-**Gustavo Pinto** and Fernando Kamei. [The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss.pdf). Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
+**Gustavo Pinto** and Fernando Kamei. [The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf). Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
 
 
 ### 2013
@@ -39,7 +39,7 @@ Weslley Torres, **Gustavo Pinto**, Benito Fernandes, João Paulo Oliveira, Filip
 
 ### 2010
 
-**Gustavo Pinto** and Silvia Vergilio. Gerando Dados de Teste para Programas Orientados a Objeto com um Algoritmo Genético Multiobjetivo. Accepted to the 1st Brazilian Workshop of Search-Based Software Engineering, at the 1st Brazilian Conference on Software: Theory and Practice (CBSoft), Salvador, Brazil, 2010. 
+**Gustavo Pinto** and Silvia Vergilio. Gerando Dados de Teste para Programas Orientados a Objeto com um Algoritmo Genético Multiobjetivo. Accepted to the 1st Brazilian Workshop of Search-Based Software Engineering, at the 1st Brazilian Conference on Software: Theory and Practice (CBSoft), Salvador, Brazil, 2010.
 
 **Gustavo Pinto** and Silvia Vergilio. A Multi-Objective Genetic Algorithm to Test Data Generation. Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.
 
