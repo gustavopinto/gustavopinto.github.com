@@ -7,7 +7,7 @@ title: Gustavo Pinto - News
 
 ### January (2)
 1 Jan 2014 » I submitted a travel grant proposal to <a href="https://us.pycon.org/2014/">PyCon</a>! (accepted)<br />
-4 Jan 2014 » I submitted a travel grant proposal to <a href="http://www.cin.ufpe.br">Cin-UFPE</a>!<br />
+4 Jan 2014 » I submitted a travel grant proposal to <a href="http://www.cin.ufpe.br">Cin-UFPE</a>! (accepted)<br />
 
 
 ### February (1)
@@ -21,7 +21,7 @@ title: Gustavo Pinto - News
 
 ### April (2)
 11 Apr 2014 » I attended my very first <a href="http://www.sigsoft.org/CAPS/#grad">PyCon</a>! <br />
-25 Apr 2014 » I submitted a paper to <a href="http://ase2014.org">ASE</a>! <br />
+25 Apr 2014 » I submitted a paper to <a href="http://ase2014.org">ASE</a>! (rejected) <br />
 
 
 ### May (1)
