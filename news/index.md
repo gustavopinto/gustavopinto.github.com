@@ -31,4 +31,8 @@ title: Gustavo Pinto - News
 ### Jun (1)
 3 Jun 2014 » I attended my very first <a href="http://icse2014.acm.org">ICSE</a> conf! <br />
 
+### Ago (2)
+5 Ago 2014 » I submitted a proposal to work as a student volunteer in <a href="http://2014.splashcon.org/track/splash2014-sv">Splash Con</a>! (accepted)<br />
+19 Aug 2014 » I submitted a travel grant proposal to <a href="http://www.sigplan.org/PAC.htm">ACM SIGSOFT</a>! (accepted)<br />
+
 See also <a href="2013.html">2013</a>!
