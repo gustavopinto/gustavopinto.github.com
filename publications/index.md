@@ -7,6 +7,8 @@ title: Gustavo Pinto - Publications
 
 ### 2014
 
+**Gustavo Pinto** and Fernando Castor. Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicores Environment. Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014.
+
 **Gustavo Pinto**, Fernando Castor and David Liu. [Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf). Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.
 
 **Gustavo Pinto**, Fernando Castor and David Liu. [Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf). Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
