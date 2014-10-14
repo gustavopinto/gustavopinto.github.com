@@ -5,8 +5,11 @@ title: Gustavo Pinto - News
 
 ## $ cat news
 
+### October (3)
+01 Sep 2014 » I submitted a journal to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
+
 ### Setember (3)
-01 Sep 2014 » I submitted a travel grant proposal to <a href="http://www.cin.ufpe.br">CIn UFPE</a>!<br />
+01 Sep 2014 » I submitted a travel grant proposal to <a href="http://www.cin.ufpe.br">CIn UFPE</a>! (acepted)<br />
 07 Sep 2014 » I moved back to Brazil.<br />
 07 Sep 2014 » I submitted a paper to <a href="http://2014.splashcon.org/track/seps2014">SEPS</a> workshop! (accepted)<br />
 
