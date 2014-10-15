@@ -38,7 +38,7 @@
 
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 03 Dec 2013 00:00:00 -0500</pubDate>
+				<pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</guid>
 			</item>
@@ -68,7 +68,7 @@
 
 &lt;p&gt;That is it. I hope to see you next year on Portland in 2014 :)&lt;/p&gt;
 </description>
-				<pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</guid>
 			</item>
@@ -87,13 +87,13 @@
 
 &lt;p&gt;As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.&lt;/p&gt;
 
-&lt;p&gt;The idea is to present your topic on a 4'x4' poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
+&lt;p&gt;The idea is to present your topic on a 4&#39;x4&#39; poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
 
 &lt;p&gt;Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.&lt;/p&gt;
 
 &lt;h2&gt;What kind of proposal can I submit?&lt;/h2&gt;
 
-&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don&amp;rsquo;t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don&amp;rsquo;t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon'13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon'12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
+&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don&amp;rsquo;t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don&amp;rsquo;t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon&#39;13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon&#39;12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
 
 &lt;h2&gt;Hmm.. I&amp;rsquo;m interested. How to submit a proposal?&lt;/h2&gt;
 
@@ -119,13 +119,13 @@
 
 &lt;p&gt;Poster announced: December 15th, 2013.&lt;/p&gt;
 
-&lt;p&gt;Poster session at PyCon'14: April 13th, 2014.&lt;/p&gt;
+&lt;p&gt;Poster session at PyCon&#39;14: April 13th, 2014.&lt;/p&gt;
 
 &lt;p&gt;If you need more information, you can see the &lt;a href=&quot;http://us.pycon.org/2014/posters/faq/&quot;&gt;Poster FAQ&lt;/a&gt; and the &lt;a href=&quot;https://us.pycon.org/2014/posters/&quot;&gt;Poster CFP&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</guid>
 			</item>
@@ -143,14 +143,14 @@
 
 &lt;p&gt;Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. The &lt;a href=&quot;http://en.wikipedia.org/wiki/Pareto_principle&quot;&gt;Pareto&amp;rsquo;s principle&lt;/a&gt; also works here: from 30% of the users come the 100% of the contributions. This results show us that the brazilian open-source community is not so active as we may guess.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/post3/users-active-percentage.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/post3/users-active-percentage.png&#39;/&gt;&lt;/p&gt;
 
 &lt;h4&gt;2. From where they come?&lt;/h4&gt;
 
 
 &lt;p&gt;If we take into consideration the user locale, we observed that 46% of these users come from the Northeast region, which is very interesting, since, here in Brazil, the most economical region (or, in this case, from where have the most job offers) is the southeast region. If we take into consideration the specific State, the most active are Paraná (13.65%), followed by Ceará (12.37%) and followed by (11.25%). All theses states are not part of the southeast region. Nonetheless, this kind of analysis is very difficult to perform, since the user can omit the location field (which represents 8% of the total), provide unreliable information, or use acronym, nicknames, etc. But, if we can draw a chart of the Brazilian open-source contribution per state, it may look like this one.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/post3/total_commits.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/post3/total_commits.png&#39;/&gt;&lt;/p&gt;
 
 &lt;h4&gt;3. Which are the most popular programming languages?&lt;/h4&gt;
 
@@ -159,7 +159,7 @@
 
 &lt;p&gt;Now I&amp;rsquo;m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
 			</item>
@@ -170,13 +170,13 @@
 
 &lt;p&gt;As you may know, I&amp;rsquo;m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I&amp;rsquo;m a graduate student, I&amp;rsquo;m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/post2/usage-per-thread.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/post2/usage-per-thread.png&#39;/&gt;&lt;/p&gt;
 
 &lt;p&gt;It is terrible.&lt;/p&gt;
 
 &lt;p&gt;So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as &lt;code&gt;summary&lt;/code&gt;, &lt;code&gt;sd&lt;/code&gt;, &lt;code&gt;cor&lt;/code&gt;, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like &lt;code&gt;plotanincrediblechart&lt;/code&gt;, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/post2/usage-per-thread-r.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/post2/usage-per-thread-r.png&#39;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Much better, uh?&lt;/p&gt;
 
@@ -223,7 +223,7 @@ lines(actors, type=&quot;o&quot;, pch=8, lty=1, col=&quot;orangered2 &quot;)&lt;
 
 &lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/post2/middle-chart.png'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/post2/middle-chart.png&#39;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Great! Our chart is becoming professional. My mon will be proud of me.&lt;/p&gt;
 
@@ -266,7 +266,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
-				<pubDate>Wed, 08 May 2013 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
 			</item>
@@ -283,9 +283,9 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;Yes, as you can imagine, the name is a joke with the Godfather movie.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/codefather.jpg'/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/images/codefather.jpg&#39;/&gt;&lt;/p&gt;
 </description>
-				<pubDate>Sun, 07 Apr 2013 00:00:00 -0400</pubDate>
+				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</guid>
 			</item>
