@@ -7,10 +7,11 @@ title: Gustavo Pinto - News
 
 ### Summary
 
-I submitted a total of 5 papers: 1 journal paper (still under review) 3 full conference papers (2 accepted, 1 rejected), 1 workshop papers (1 accepted). I also requested 7 travel grants (6 accepted, 1 rejected).
+I submitted a total of 6 papers: 1 journal paper (still under review) 4 full conference papers (2 accepted, 1 rejected, 1 still under review), 1 workshop papers (1 accepted). I also requested 7 travel grants (6 accepted, 1 rejected).
 
-### October (3)
-01 Oct 2014 » I submitted a journal to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
+### October (2)
+13 Oct 2014 » I submitted a journal to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
+17 Oct 2014 » I submitted a paper to <a href="http://www.etaps.org/index.php/2015/fase">FASE</a>!<br />
 
 ### Setember (3)
 01 Sep 2014 » I requested a travel grant proposal to <a href="http://www.cin.ufpe.br">CIn UFPE</a>! (acepted)<br />
