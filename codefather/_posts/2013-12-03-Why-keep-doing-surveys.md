@@ -11,9 +11,9 @@ summary: when not use surveys?
 
 When I say survey, I mean on line questionnaires.
 
-First of all, don't get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options. 
+First of all, don't get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.
 
-Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch? 
+Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?
 
 Yes, of course, you can do a survey.
 
@@ -25,9 +25,9 @@ If you are doing computer science research, you have on hand a number of great o
 
 For example:
 
-- Do you want to know what rails core developers eat on lunch? Find them on [Github](http://www.github.com) and mine their actives in there.
- 
-- Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on [StackOverfow](http://www.stackoverflow.com). 
+- Do you want to know what rails core developers eat at lunch? Find them on [Github](http://www.github.com) and mine their actives on there.
+
+- Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on [StackOverfow](http://www.stackoverflow.com).
 
 - Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on [Github](http://www.github.com) and/or [SourceForge](http://www.sourceforge.com), and parse their source code.
 
@@ -35,6 +35,6 @@ For example:
 
 And the list goes on.
 
-You see? Surveys are good. But, you may get more accurate [and a ton of] data if you mine such websites. 
+You see? Surveys are good. But, you can get a ton of data if you mine such websites.
 
-Nowadays, mining software repositories is not only about software, but human behaviour as well. 
+Nowadays, mining software repositories is not only about software, but human behaviour as well.

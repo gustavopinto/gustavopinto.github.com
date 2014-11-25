@@ -23,7 +23,7 @@ href="http://www.cesupa.br">University Center of Pará</a>, Brazil.</p>-->
 
 ## $ cat service
 
-<p><b>2015:</b>PyCon (poster co-chair).<br/>
+<p><b>2015:</b> PyCon (poster co-chair).<br/>
 <b>2014:</b> OOPSLA[AeC], SUSCOM, ECOOP, SAC, PyCon (poster co-chair).<br/>
 <b>2013:</b> CBSoft[SBES].<br/>
 <b>2012:</b> CBSoft[SBES], WSL.<br/>

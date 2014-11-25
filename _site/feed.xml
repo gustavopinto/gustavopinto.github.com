@@ -7,6 +7,52 @@
 		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Do Developers Care About Software Energy Consumption?</title>
+				<description>&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
+
+&lt;p&gt;These questions were the start point of our paper, &amp;ldquo;&lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;Mining Questions About Software Energy Consumption&lt;/a&gt;&amp;rdquo;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.&lt;/p&gt;
+
+&lt;p&gt;We filter out all questions that contain at least one energy consumption related word (&lt;em&gt;e.g.,&lt;/em&gt; energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named &lt;a href=&quot;http://en.wikipedia.org/wiki/Thematic_analysis&quot;&gt;Thematic Analysis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse &amp;ndash; we found 5 main themes of questions &amp;ndash; but also often more &lt;em&gt;interesting&lt;/em&gt; and &lt;em&gt;challenging&lt;/em&gt; when compared to the remaining questions on StackOverflow.&lt;/p&gt;
+
+&lt;p&gt;We found five main themes regarding energy consumption questions. They are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Measurements&lt;/strong&gt;. Questions about measurement tools or techniques.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;General Knowledge&lt;/strong&gt;. Questions that do not have a concrete use case.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code Design&lt;/strong&gt;. Questions about programming techniques that can help in saving energy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Context-specific&lt;/strong&gt;. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Noise&lt;/strong&gt;. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Keep IO to a minimum.&lt;/li&gt;
+&lt;li&gt;Bulk operations.&lt;/li&gt;
+&lt;li&gt;Avoid Polling.&lt;/li&gt;
+&lt;li&gt;Hardware Coordination.&lt;/li&gt;
+&lt;li&gt;Concurrent programming.&lt;/li&gt;
+&lt;li&gt;Lazy Initialization.&lt;/li&gt;
+&lt;li&gt;Race to Idle.&lt;/li&gt;
+&lt;li&gt;Efficient Data structure.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The con- ceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.&lt;/p&gt;
+
+&lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
+				<link>http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</link>
+				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</guid>
+			</item>
+		
+			<item>
 				<title>Why do you keep doing surveys?</title>
 				<description>&lt;p&gt;When I say survey, I mean on line questionnaires.&lt;/p&gt;
 
@@ -25,7 +71,7 @@
 &lt;p&gt;For example:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Do you want to know what rails core developers eat on lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine their actives in there.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do you want to know what rails core developers eat at lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine their actives on there.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverfow&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and/or &lt;a href=&quot;http://www.sourceforge.com&quot;&gt;SourceForge&lt;/a&gt;, and parse their source code.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if final users are facing energy consumption problems in mobile applications? Mine &lt;a href=&quot;http://play.google.com&quot;&gt;Google Play&lt;/a&gt; comments.&lt;/p&gt;&lt;/li&gt;
@@ -34,7 +80,7 @@
 
 &lt;p&gt;And the list goes on.&lt;/p&gt;
 
-&lt;p&gt;You see? Surveys are good. But, you may get more accurate [and a ton of] data if you mine such websites.&lt;/p&gt;
+&lt;p&gt;You see? Surveys are good. But, you can get a ton of data if you mine such websites.&lt;/p&gt;
 
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
@@ -158,6 +204,8 @@
 &lt;p&gt;Github can infer the most used language on a given project. Then, analyzing the set of projects contributed, the list of the ten more used programming language are: JavaScript (22.77%), Ruby (18.78%), Java (14.19%), PHP (13.95%), Python (9.86%), C (3.36%), C++ (2.94%), Shell (2.55%), Objective-C (1.95%) e C# (1.88%). I have to tell that these results surprised me a bit. Since I&amp;rsquo;m a Java-guy, my heart used to fell that Java is the most popular language in Brazil. But, it seems that Brazilian hackers are more likely to use untyped languages, such as JS, Ruby, PHP, although the Java language remains in the top-3. It is cool.&lt;/p&gt;
 
 &lt;p&gt;Now I&amp;rsquo;m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
+
+&lt;p&gt;If you want to read more about, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/oss2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
