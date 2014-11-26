@@ -14,20 +14,22 @@ href="http://www.inf.ufpr.br">Federal University of Paraná</a>, Brazil after a 
 href="http://www.cesupa.br">University Center of Pará</a>, Brazil.</p>-->
 
 ## $ cat codefather
-<p>
+<ul class="posts">
 {% for post in site.posts %}
-<span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a><br/>
+<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
-</p>
+</ul>
 
 
 ## $ cat service
 
-<p><b>2015:</b> PyCon (poster co-chair).<br/>
-<b>2014:</b> OOPSLA[AeC], SUSCOM, ECOOP, SAC, PyCon (poster co-chair).<br/>
-<b>2013:</b> CBSoft[SBES].<br/>
-<b>2012:</b> CBSoft[SBES], WSL.<br/>
-<b>2011:</b> CBSoft[SBES, Tools, WBDSDM], CSBC[SEMISH]</p>
+<ul class="posts">
+<li><b>2015:</b> PyCon (poster co-chair).</li>
+<li>2014:</b> OOPSLA[AeC], SUSCOM, ECOOP, SAC, PyCon (poster co-chair).</li>
+<li>2013:</b> CBSoft[SBES].</li>
+<li>2012:</b> CBSoft[SBES], WSL.</li>
+<li>2011:</b> CBSoft[SBES, Tools, WBDSDM], CSBC[SEMISH]</li>
+</ul>
 
 <!-- ### $ cat OSS_projects
 

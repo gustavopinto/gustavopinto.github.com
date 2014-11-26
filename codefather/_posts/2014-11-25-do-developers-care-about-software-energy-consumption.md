@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Do Developers Care About Software Energy Consumption?
+title: Do developers care about software energy consumption?
 tags: [developers, stackoverflow, energy consumption]
 year: 2014
 month: 11
