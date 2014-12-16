@@ -5,7 +5,7 @@ layout: default
 <div id="title">
   <h1>{{ page.title }}</h1>
   <span class="meta">{{ page.date | date_to_string}}</span>
- 
+
 
 <div id="content">
 {{ content }}
@@ -14,7 +14,7 @@ layout: default
 <div id="tags">
 Tagged:
   {% for tag in page.tags %}
-  <a href="/blog/tag/{{tag}}">{{tag}}</a> <br />
+  <a href="/blog/tag/{{tag}}">{{tag}}</a> 
   {% endfor %}
 </div>
 <p></p>
@@ -22,7 +22,7 @@ Tagged:
 
 <!-- the tweet button -->
    <p>
-     <a href="https://twitter.com/share"  class="twitter-share-button" 
+     <a href="https://twitter.com/share"  class="twitter-share-button"
 	data-url="http://joearms.github.com{{page.url}}">Tweet</a>
    </p>
    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

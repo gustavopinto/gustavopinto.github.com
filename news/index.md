@@ -9,12 +9,12 @@ title: Gustavo Pinto - News
 
 * I submitted a total of 7 papers:
   * 1 journal paper (still under review),
-  * 5 full conference papers (2 accepted, 1 rejected, 2 still under review),
+  * 5 full conference papers (2 accepted, 2 rejected, 1 still under review),
   * 1 workshop paper (1 accepted).
 
 ### November (1)
 
-14 Nov 2014 » I submitted a paper to <a href="http://saner.soccerlab.polymtl.ca/">SANER</a>!<br />
+14 Nov 2014 » I submitted a paper to <a href="http://saner.soccerlab.polymtl.ca/">SANER</a> (rejected)!<br />
 
 ### October (3)
 13 Oct 2014 » I submitted a journal paper to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
