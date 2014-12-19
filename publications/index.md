@@ -5,13 +5,17 @@ title: Gustavo Pinto - Publications
 
 ## $ cat publications
 
+### 2015
+Kenan Liu, **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "Data-Oriented Characterization of Application-Level Energy Optimization". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.
+
+
 ### 2014
 
 **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicores Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)". Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014.
 
 **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)". Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.
 
-**Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
+**Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11st Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.
 
 **Gustavo Pinto** and Fernando Kamei. "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.
 

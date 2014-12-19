@@ -7,18 +7,22 @@ title: Gustavo Pinto - News
 
 ### Papers Summary
 
-* I submitted a total of 7 papers:
-  * 1 journal paper (still under review),
-  * 5 full conference papers (2 accepted, 2 rejected, 1 still under review),
+* I submitted a total of 8 papers:
+  * 2 journal paper (both still under review),
+  * 5 full conference papers (3 accepted, 2 rejected),
   * 1 workshop paper (1 accepted).
+
+### December (1)
+20 Dec 2014 » I submitted a journal paper to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
+
 
 ### November (1)
 
-14 Nov 2014 » I submitted a paper to <a href="http://saner.soccerlab.polymtl.ca/">SANER</a> (rejected)!<br />
+14 Nov 2014 » I submitted a paper to <a href="http://saner.soccerlab.polymtl.ca/">SANER</a>! (rejected)<br />
 
 ### October (3)
 13 Oct 2014 » I submitted a journal paper to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
-17 Oct 2014 » I submitted a paper to <a href="http://www.etaps.org/index.php/2015/fase">FASE</a>!<br />
+17 Oct 2014 » I submitted a paper to <a href="http://www.etaps.org/index.php/2015/fase">FASE</a>! (accepted)<br />
 20 Oct 2014 » I was attending <a href="http://2014.splashcon.org/">SPLASH/OOPSLA</a>!<br />
 
 ### Setember (3)
@@ -50,7 +54,7 @@ title: Gustavo Pinto - News
 
 
 ### February (1)
-7 Feb 2014 » I submitted a paper to <a href="http://msrconf.org">MSR</a>! (accepted!)<br />
+7 Feb 2014 » I submitted a paper to <a href="http://msrconf.org">MSR</a>! (accepted)<br />
 
 
 ### January (2)
