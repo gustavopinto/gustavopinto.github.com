@@ -6,7 +6,7 @@ title: Gustavo Pinto - Publications
 ## $ cat publications
 
 ### 2015
-Kenan Liu, **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "Data-Oriented Characterization of Application-Level Energy Optimization". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.
+Kenan Liu, **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.
 
 
 ### 2014
