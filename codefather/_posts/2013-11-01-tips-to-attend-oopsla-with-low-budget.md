@@ -11,7 +11,7 @@ summary: tips to oopsla
 
 Are you a [under]grad student who is wondering how amazing it could be to attend a top-tier conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.
 
-In this year (2013) I attended my very first OOPSLA. It was awesome. [I](https://twitter.com/gustavopinto/status/394562681253810176) [shared](https://twitter.com/gustavopinto/status/395050744291659776) [some](https://twitter.com/gustavopinto/status/395210719022436352) [histories](https://twitter.com/gustavopinto/status/395683470971641856) [on](https://twitter.com/gustavopinto/status/396020564361371648) [twitter](https://twitter.com/gustavopinto/status/396021132479827969). However, one of the things that made it so great was because I didn't needed to pay anything. Neither my advisor.
+In this year (2013) I attended my very first OOPSLA. It was awesome. [I](https://twitter.com/gustavopinto/status/394562681253810176) [shared](https://twitter.com/gustavopinto/status/395050744291659776) [some](https://twitter.com/gustavopinto/status/395210719022436352) [stories](https://twitter.com/gustavopinto/status/395683470971641856) [on](https://twitter.com/gustavopinto/status/396020564361371648) [twitter](https://twitter.com/gustavopinto/status/396021132479827969). However, one of the things that made it so great was because I didn't needed to pay anything. Neither my advisor.
 
 How it could be possible?
 

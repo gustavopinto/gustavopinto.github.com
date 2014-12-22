@@ -3,7 +3,8 @@ layout: default
 title: The CodeFather Blog
 ---
 
-<h3>$ cat blog_posts</h3>
+## $ cat codefather ##
+
 {% for post in site.posts %}
 <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a><br />
 {% endfor %}
