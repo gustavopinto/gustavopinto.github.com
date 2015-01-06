@@ -11,7 +11,7 @@ My research interests are all related to software engineering/programming langua
 
 ### $ cat selected_pubs ###
 
-- Kenan Liu, **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). <br/>
+- [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). <br/>
 "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015 .pdf)". <br/>
 Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering. (accpt. 28%)<br/>
 ([FASE](http://www.etaps.org/index.php/2015/fase)), London, UK, 2015. <br/>
