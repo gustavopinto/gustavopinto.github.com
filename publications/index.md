@@ -6,7 +6,7 @@ title: Gustavo Pinto - Publications
 ## $ cat publications
 
 ### 2015
-1. Kenan Liu, **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015 .pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>
+1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015 .pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [Slides]
 
 ### 2014
@@ -20,7 +20,7 @@ title: Gustavo Pinto - Publications
 1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11st Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2014.pdf) [Slides]
 
-1. **Gustavo Pinto** and Fernando Kamei. "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
+1. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/oss2014.pdf) [Slides]
 
 ### 2013
@@ -31,9 +31,10 @@ title: Gustavo Pinto - Publications
 
 1. **Gustavo Pinto**. "Refactoring Multicore Applications Towards Energy Efficiency". Accepted to the Doctoral Symposium at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
 
-1. **Gustavo Pinto** and Fernando Kamei. "[What Programmers Say About Refactoring Tools? An Empirical Investigation of Stack Overflow](http://gustavopinto.github.io/lost+found/wrt2013.pdf)". Accepted to the 6th International Workshop on Refactoring Tools (WRT) at the 4th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
+1. **Gustavo Pinto** and Fernando Kamei. "[What Programmers Say About Refactoring Tools? An Empirical Investigation of Stack Overflow](http://gustavopinto.github.io/lost+found/wrt2013.pdf)". Accepted to the 6th International Workshop on Refactoring Tools (WRT) at the 4th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/wrt2013.pdf)
 
-1. **Gustavo Pinto** and Fernando Kamei. "[Analisando as Contribui&ccedil;&otilde;es de Desenvolvedores Brasileiros em Projetos Distribu&iacute;dos de Software Open-Source: Um Estudo Inicial](http://gustavopinto.github.io/lost+found/wdds2013.pdf)". Accepted to the 7th Workshop on Distributed Software Development (WDDS), at the 3rd Brazilian Conference on Software: Theory and Practice (CBSoft), Brasilia, Brazil, 2013.<br/>
+1. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[Analisando as Contribui&ccedil;&otilde;es de Desenvolvedores Brasileiros em Projetos Distribu&iacute;dos de Software Open-Source: Um Estudo Inicial](http://gustavopinto.github.io/lost+found/wdds2013.pdf)". Accepted to the 7th Workshop on Distributed Software Development (WDDS), at the 3rd Brazilian Conference on Software: Theory and Practice (CBSoft), Brasilia, Brazil, 2013.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/wdds2013.pdf)
 
 ### 2012
