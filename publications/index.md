@@ -33,8 +33,8 @@ title: Gustavo Pinto - Publications
 
 1. **Gustavo Pinto** and Fernando Kamei. "[What Programmers Say About Refactoring Tools? An Empirical Investigation of Stack Overflow](http://gustavopinto.github.io/lost+found/wrt2013.pdf)". Accepted to the 6th International Workshop on Refactoring Tools (WRT) at the 4th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
 
-1. **Gustavo Pinto** and Fernando Kamei. "[Analisando as Contribui&ccedil;&otilde;es de Desenvolvedores Brasileiros em Projetos Distribu&iacute;dos de Software Open-Source: Um Estudo Inicial](http://gustavopinto.github.io/lost+found/wdds2013.pdf)". Accepted to the 7th Workshop on Distributed Software Development (WDDS), at the 3rd Brazilian Conference on Software: Theory and Practice (CBSoft), Brasilia, Brazil, 2013.
-[Paper](http://gustavopinto.github.io/lost+found/wdds2013.pdf)]
+1. **Gustavo Pinto** and Fernando Kamei. "[Analisando as Contribui&ccedil;&otilde;es de Desenvolvedores Brasileiros em Projetos Distribu&iacute;dos de Software Open-Source: Um Estudo Inicial](http://gustavopinto.github.io/lost+found/wdds2013.pdf)". Accepted to the 7th Workshop on Distributed Software Development (WDDS), at the 3rd Brazilian Conference on Software: Theory and Practice (CBSoft), Brasilia, Brazil, 2013.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/wdds2013.pdf)
 
 ### 2012
 
