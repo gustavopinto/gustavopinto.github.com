@@ -5,9 +5,11 @@ title: Gustavo Pinto - PhD candidate - UFPE/SUNY
 
 ## $ cat welcome! ##
 
-Welcome to Gustavo Pinto's home page. He is currently a PhD Student (since 2011) at the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, working with [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was also a visiting scholar at the [State University of New York](binghamton.edu), working with [David Liu](http://www.cs.binghamton.edu/~davidl).
+Hi all. I'm currently a PhD Student (since 2011) at the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, working with [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was also a visiting scholar at the [State University of New York](binghamton.edu), working with [David Liu](http://www.cs.binghamton.edu/~davidl).
 
 My research interests are all related to software engineering/programming languages. Currently, I'm trying to understand how parallel programming techniques impact on energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save energy knowing that a 32 core processor consumes more power than one with 2 cores?
+
+I am interested in new colleagues at all levels: undergraduates, graduate students, and postdocs. If your research interests overlap with mine, please drop me a letter.
 
 ### $ cat selected_pubs ###
 
