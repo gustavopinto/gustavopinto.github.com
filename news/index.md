@@ -5,61 +5,14 @@ title: Gustavo Pinto - News
 
 ## $ cat news
 
-### Papers Summary
+### Papers Summary ###
 
-* I submitted a total of 8 papers:
-  * 2 journal paper (both still under review),
-  * 5 full conference papers (3 accepted, 2 rejected),
-  * 1 workshop paper (1 accepted).
-
-### December (1)
-20 Dec 2014 » I submitted a journal paper to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
+* I submitted a total of 1 paper:
+  * 1 workshop paper (1 under review).
 
 
-### November (1)
-
-14 Nov 2014 » I submitted a paper to <a href="http://saner.soccerlab.polymtl.ca/">SANER</a>! (rejected)<br />
-
-### October (3)
-13 Oct 2014 » I submitted a journal paper to <a href="http://www.journals.elsevier.com/journal-of-systems-and-software/">The Journal of Systems and Software</a>!<br />
-17 Oct 2014 » I submitted a paper to <a href="http://www.etaps.org/index.php/2015/fase">FASE</a>! (accepted)<br />
-20 Oct 2014 » I was attending <a href="http://2014.splashcon.org/">SPLASH/OOPSLA</a>!<br />
-
-### Setember (3)
-01 Sep 2014 » I requested a travel grant proposal to <a href="http://www.cin.ufpe.br">CIn UFPE</a>! (acepted)<br />
-07 Sep 2014 » I moved back to Brazil.<br />
-07 Sep 2014 » I submitted a paper to <a href="http://2014.splashcon.org/track/seps2014">SEPS</a> workshop! (accepted)<br />
+### January (1) ###
+30 Jan 2015 &#8226; I submitted a paper to [GREENS workshop](http://greens.cs.vu.nl/)!<br />
 
 
-### Ago (3)
-05 Ago 2014 » I submitted a proposal to work as a student volunteer in <a href="http://2014.splashcon.org/track/splash2014-sv">Splash Con</a>! (accepted)<br />
-19 Aug 2014 » I requested a travel grant proposal to <a href="http://www.sigplan.org/PAC.htm">ACM SIGSOFT</a>! (accepted)<br />
-30 Aug 2014 » I requested a travel grant proposal to <a href="http://www.ufpe.br">UFPE</a>! (accepted)<br />
-
-### Jun (1)
-3 Jun 2014 » I attended my very first <a href="http://icse2014.acm.org">ICSE</a> conf! <br />
-
-
-### May (1)
-30 May 2014 » I attended my very first <a href="http://msrconf.org">MSR</a> conf! <br />
-
-### April (2)
-11 Apr 2014 » I attended my very first <a href="http://www.sigsoft.org/CAPS/#grad">PyCon</a>! <br />
-25 Apr 2014 » I submitted a paper to <a href="http://ase2014.org">ASE</a>! (rejected) <br />
-
-### March (3)
-17 Mar 2014 » I requested a travel grant proposal to <a href="www.sigsoft.org/CAPS/#grad">SIGSOFT</a>! (rejected)<br />
-25 Mar 2014 » I submitted a paper to <a href="2014.splashcon.org/track/oopsla2014">OOPSLA</a>! (accepted)<br />
-30 Mar 2014 » I requested a travel grant proposal to <a href="http://www.ufpe.br">UFPE</a>! (accepted)<br />
-
-
-### February (1)
-7 Feb 2014 » I submitted a paper to <a href="http://msrconf.org">MSR</a>! (accepted)<br />
-
-
-### January (2)
-1 Jan 2014 » I requested a travel grant proposal to <a href="https://us.pycon.org/2014/">PyCon</a>! (accepted)<br />
-4 Jan 2014 » I requested a travel grant proposal to <a href="http://www.cin.ufpe.br">Cin-UFPE</a>! (accepted)<br />
-
-
-See also <a href="2013.html">2013</a>!
+See also [2014](/news/2014.html) and [2013](/news/2013.html)!
