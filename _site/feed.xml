@@ -47,7 +47,7 @@
 
 &lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 25 Nov 2014 00:00:00 +0100</pubDate>
+				<pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</guid>
 			</item>
@@ -84,7 +84,7 @@
 
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 03 Dec 2013 00:00:00 +0100</pubDate>
+				<pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</guid>
 			</item>
@@ -113,7 +113,7 @@
 
 &lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA&#39;2014 in Portland :)&lt;/p&gt;
 </description>
-				<pubDate>Fri, 01 Nov 2013 00:00:00 +0100</pubDate>
+				<pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</guid>
 			</item>
@@ -170,7 +170,7 @@
 
 &lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 +0200</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</guid>
 			</item>
@@ -206,7 +206,7 @@
 
 &lt;p&gt;If you want to read more about, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/oss2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 +0200</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
 			</item>
@@ -313,7 +313,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
-				<pubDate>Wed, 08 May 2013 00:00:00 +0200</pubDate>
+				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
 			</item>
@@ -332,7 +332,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;&lt;img src=&#39;/images/codefather.jpg&#39;/&gt;&lt;/p&gt;
 </description>
-				<pubDate>Sun, 07 Apr 2013 00:00:00 +0200</pubDate>
+				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
 				<link>http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</link>
 				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</guid>
 			</item>

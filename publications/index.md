@@ -6,6 +6,9 @@ title: Gustavo Pinto - Publications
 ## $ cat publications
 
 ### 2015
+1. **Gustavo Pinto**, [Francisco Soares-Neto](http://www.cin.ufpe.br/~fmssn/) and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Refactoring for Energy Efficiency: A Roadmap". Accepted to the 4th Workshop on Green and Sustainable Software (GREENS), Florence, Italy, 2015.<br/>
+[Paper] [Slides]
+
 1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [Slides]
 
