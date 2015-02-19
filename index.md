@@ -13,7 +13,7 @@ I am interested in new colleagues at all levels: undergraduates, graduate studen
 
 ### $ cat recent_pubs ###
 
-- Paper to appear at [GREENS 2015](http://greens.cs.vu.nl/) -- "Refactoring for Energy Efficiency: A Roadmap"
+- Paper to appear at [GREENS 2015](http://greens.cs.vu.nl/) -- "[Refactoring for Energy Efficiency: A Roadmap](http://gustavopinto.github.io/lost+found/greens2015.pdf)"
 - Paper to appear at [FASE 2015](http://www.etaps.org/index.php/2015/fase) -- "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)"
 - Paper appeared at [SEPS 2014](http://2014.splashcon.org/track/seps2014) -- "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multi-Core Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)"
 
