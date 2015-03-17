@@ -9,13 +9,13 @@ Hi all. I received my PhD from the [Federal University of Pernambuco](http://cin
 
 During my PhD I spent most of the time trying to understand how parallel programming techniques impact energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save **energy** knowing that a 32 core processor consumes more **power** than one with 2 cores?
 
-Today my research interests are a bit broader, including performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [MSR'2014](http://gustavopinto.github.io/lost+found/msr2014.pdf)), big data analytics (*e.g.*, MSR'2015), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
+Today my research interests are a bit broader, including performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [MSR'2014](http://gustavopinto.github.io/lost+found/msr2014.pdf)), big data analytics (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
 
 I am interested in new colleagues at all levels: undergraduates, graduate students, and postdocs. If your research interests overlap with mine, please drop me a letter.
 
 ### $ cat recent_pubs ###
 
-- Paper to appear at [MSR 2015](http://2015.msrconf.org/) -- "[Mining Energy-Aware Commits](#)"
+- Paper to appear at [MSR 2015](http://2015.msrconf.org/) -- "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)"
 - Paper to appear at [GREENS 2015](http://greens.cs.vu.nl/) -- "[Refactoring for Energy Efficiency:
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)"
 - Paper to appear at [FASE 2015](http://www.etaps.org/index.php/2015/fase) -- "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)"
