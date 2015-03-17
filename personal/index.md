@@ -11,7 +11,7 @@ title: Gustavo Pinto - Microbio
 
 University degrees:
 
-- D.Sc. in Computer Science, [UFPE](http://cin.ufpe.br), March, 2015 (expected).
+- Ph.D. in Computer Science, [UFPE](http://cin.ufpe.br), February, 2015.
 - M.Sc. in Computer Science, [UFPR](http://www.inf.ufpr.br/dinf/), March, 2010.
 - B.Sc. in Computer Science, [CESUPA](http://www.cesupa.br), December, 2007.
 

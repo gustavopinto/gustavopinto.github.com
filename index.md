@@ -7,9 +7,9 @@ title: Gustavo Pinto, PhD
 
 Hi all. I received my PhD from the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under supervision of [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was a visiting scholar at the [State University of New York](binghamton.edu), working with [David Liu](http://www.cs.binghamton.edu/~davidl).
 
-During my PhD I spent most of the time trying to understand how parallel programming techniques impact energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save *energy* knowing that a 32 core processor consumes more *power* than one with 2 cores?
+During my PhD I spent most of the time trying to understand how parallel programming techniques impact energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save **energy** knowing that a 32 core processor consumes more **power** than one with 2 cores?
 
-Today my research interests are a bit broader, including performance & energy consumption (e.g., [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (e.g., [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (e.g., MSR'2015), big data analytics (e.g., [MSR'2014](http://gustavopinto.github.io/lost+found/msr2014.pdf)), and refactoring (e.g., [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
+Today my research interests are a bit broader, including performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [MSR'2014](http://gustavopinto.github.io/lost+found/msr2014.pdf)), big data analytics (*e.g.*, MSR'2015), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
 
 I am interested in new colleagues at all levels: undergraduates, graduate students, and postdocs. If your research interests overlap with mine, please drop me a letter.
 
