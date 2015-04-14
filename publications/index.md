@@ -6,6 +6,9 @@ title: Gustavo Pinto - Publications
 ## $ cat publications
 
 ### 2015
+1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections.](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)
+
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2015.pdf) [Slides]
 
@@ -13,17 +16,17 @@ title: Gustavo Pinto - Publications
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)". Accepted to the 4th Workshop on Green and Sustainable Software (GREENS), Florence, Italy, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/greens2015.pdf) [Slides]
 
-1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [Slides]
+1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [Slides]
 
 ### 2014
 
 1. **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicores Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)". Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/seps2014.pdf) [Slides]
 
-1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)". Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.<br/>
+1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)". Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/oopsla2014.pdf) [Slides]
 
-1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11st Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br/>
+1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11st Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2014.pdf) [Slides]
 
 1. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
