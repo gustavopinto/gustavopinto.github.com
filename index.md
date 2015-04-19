@@ -5,7 +5,7 @@ title: Gustavo Pinto, PhD
 
 ## $ cat welcome! ##
 
-Hi all. I received my PhD from the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under supervision of [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was a visiting scholar at the [State University of New York](binghamton.edu), working with [Yu David Liu](http://www.cs.binghamton.edu/~davidl).
+Hi all. I received my PhD from the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under supervision of [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was a visiting scholar at the [State University of New York](binghamton.edu), working with [Yu David Liu](http://www.cs.binghamton.edu/~davidl). I'm currently a Postdoctoral	Research Fellow at the [Federal University of Pernambuco](http://cin.ufpe.br), Brazil.
 
 During my PhD I spent most of the time trying to understand how parallel programming techniques impact energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save **energy** knowing that a 32 core processor consumes more **power** than one with 2 cores?
 
