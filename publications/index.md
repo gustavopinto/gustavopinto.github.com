@@ -13,7 +13,7 @@ title: Gustavo Pinto - Publications
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)
 
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/msr2015.pdf) [Slides]
+[[Paper]](http://gustavopinto.github.io/lost+found/msr2015.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/msr2015-talk.pdf)
 
 1. **Gustavo Pinto**, [Francisco Soares-Neto](http://www.cin.ufpe.br/~fmssn/) and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Refactoring for Energy Efficiency:
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)". Accepted to the 4th Workshop on Green and Sustainable Software (GREENS), Florence, Italy, 2015.<br/>
