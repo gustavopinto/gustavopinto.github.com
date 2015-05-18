@@ -17,9 +17,9 @@ title: Gustavo Pinto - Publications
 
 1. **Gustavo Pinto**, [Francisco Soares-Neto](http://www.cin.ufpe.br/~fmssn/) and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Refactoring for Energy Efficiency:
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)". Accepted to the 4th Workshop on Green and Sustainable Software (GREENS), Florence, Italy, 2015.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/greens2015.pdf) [Slides]
+[[Paper]](http://gustavopinto.github.io/lost+found/greens2015.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/greens2015-talk.pdf)
 
-1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [Slides]
+1. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[[Paper]](http://gustavopinto.github.io/lost+found/fase2015.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/fase2015-talk.pdf)
 
 ### 2014
 
