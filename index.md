@@ -34,7 +34,7 @@ See full list [here](/publications)
 
 ### $ cat service ###
 
-- 2015: [CBSoft](http://cbsoft.org/cbsoft2015/)[[CTD](http://cbsoft.org/cbsoft2015/wtdsoft?lang=pt)], [J. Science of Computer Programming](http://www.journals.elsevier.com/science-of-computer-programming/), [PyCon](https://us.pycon.org/2015/) (Poster Session Co-Chair).
+- 2015: [CBSoft](http://cbsoft.org/cbsoft2015/)[[SBES](cbsoft.org/sbes2015/), [SBLP](cbsoft.org/sblp2015/)], [CSBC](http://csbc2015.cin.ufpe.br/)[[CTD](http://cbsoft.org/cbsoft2015/wtdsoft?lang=pt)], [J. Science of Computer Programming](http://www.journals.elsevier.com/science-of-computer-programming/), [PyCon](https://us.pycon.org/2015/) (Poster Session Co-Chair).
 - 2014: [OOPSLA](http://2014.splashcon.org/events/oopsla2014)[[AeC](http://2014.splashcon.org/committee/splash2014-artifacts-artifact-evaluation-committee)], SUSCOM, [ECOOP](http://ecoop14.it.uu.se/), SAC, [PyCon](https://us.pycon.org/2014) (Poster Session Co-Chair).
 - 2013: CBSoft[SBES].
 - 2012: CBSoft[SBES], WSL.

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Pycon 2014 - Call for posters
 tags: pycon, 2014, posters, cfp
 year: 2013
@@ -22,7 +22,7 @@ What about presenting a poster in the Python premier conference?
 
 As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.
 
-The idea is to present your topic on a 4'x4' poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it. 
+The idea is to present your topic on a 4'x4' poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.
 
 Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.
 
@@ -46,7 +46,7 @@ To submit a poster proposal, you should first create an account in the PyCon sit
 
 - Additional notes for the proposal reviewers. This can include additional background information such as links to other presentations you have done, or links to blog posts, articles or code related to your presentation.
 
-Keep in mind that the posters should follow all of the usual [guidelines](http://us.pycon.org/2014/speaking/proposal_advice/) that we look for in talk and tutorial proposals. 
+Keep in mind that the posters should follow all of the usual [guidelines](http://us.pycon.org/2014/speaking/proposal_advice/) that we look for in talk and tutorial proposals.
 
 ## Important Dates ##
 

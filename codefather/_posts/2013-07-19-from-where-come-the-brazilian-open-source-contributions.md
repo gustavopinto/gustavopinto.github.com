@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: From where come the Brazilian open-source contributions?
 tags: [github, contributions, brazil]
 year: 2013
@@ -8,6 +8,8 @@ day: 19
 published: true
 summary: an empirical analysis of github contributions
 ---
+
+## From where come the Brazilian open-source contributions? ##
 
 Hi there.
 

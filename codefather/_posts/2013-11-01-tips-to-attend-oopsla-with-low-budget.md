@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Tips to attend OOPSLA with low budget
 tags: [oopsla, pac, trip, splash]
 year: 2013
@@ -8,6 +8,8 @@ day: 1
 published: true
 summary: tips to oopsla
 ---
+
+## Tips to attend OOPSLA with low budget ##
 
 Are you a [under]grad student who is wondering how amazing it could be to attend a top-tier conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.
 

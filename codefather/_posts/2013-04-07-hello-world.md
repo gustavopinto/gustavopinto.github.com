@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Hello World
 tags: [codefather, programming, blog]
 year: 2013
@@ -9,15 +9,17 @@ published: true
 summary: introducing my blog
 ---
 
+## Hello World ##
+
 Hi all.
 
-This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general. 
+This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general.
 
 Let's get started!
 
 About the name
 ==============
 
-Yes, as you can imagine, the name is a joke with the Godfather movie. 
+Yes, as you can imagine, the name is a joke with the Godfather movie.
 
 <img src='/images/codefather.jpg'/>

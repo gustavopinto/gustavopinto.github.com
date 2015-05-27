@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Why do you keep doing surveys?
 tags: [surveys]
 year: 2013

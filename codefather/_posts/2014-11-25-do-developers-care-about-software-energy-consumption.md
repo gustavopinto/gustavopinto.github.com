@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Do developers care about software energy consumption?
 tags: [developers, stackoverflow, energy consumption]
 year: 2014
@@ -8,6 +8,8 @@ day: 25
 published: true
 summary: an empirical study on what developers think about energy consumption
 ---
+
+## Do developers care about software energy consumption?##
 
 Is energy consumption a real issue in the software development process? Do developer really care about that?
 
