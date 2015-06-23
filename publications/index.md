@@ -9,7 +9,7 @@ title: Gustavo Pinto - Publications
 1. **Gustavo Pinto**, Weslley Torres, Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
-1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
+1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections.](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)
 
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015.<br/>
