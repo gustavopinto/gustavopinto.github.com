@@ -6,6 +6,11 @@ title: Gustavo Pinto - Publications
 ## $ cat publications
 
 ### 2015
+
+1. **Gustavo Pinto**. "[A Refactoring Approach to Improve Energy Consumption of Parallel Software Systems](http://gustavopinto.github.io/lost+found/thesis.pdf)". PhD thesis, Federal University of Pernambuco, Brazil, 2015.
+[[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
+[[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
+
 1. **Gustavo Pinto**, Weslley Torres, Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
