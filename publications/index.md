@@ -59,7 +59,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ### 2012
 
-1. Juliana Saraiva, Emanoel Barreiros, Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.github.io/lost+found/ease2014.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.
+1. Juliana Saraiva, Emanoel Barreiros, Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.org/lost+found/ease2012.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.
 
 1. Fl&aacute;vio Abreu, Adauto Almeida, Emanoel Barreiros, Juliana Saraiva, S&eacute;rgio Soares, Aline Ara&uacute;jo and **Gustavo Pinto**. "M&eacute;todos, T&eacute;cnicas e Ferramentas para o Desenvolvimento de Software Educacional: Um Mapeamento Sistem&aacute;tico". Accepted to the Brazilian Symposium of Informatics in the Education (SBIE), Rio de Janeiro, Brazil, 2012.
 
