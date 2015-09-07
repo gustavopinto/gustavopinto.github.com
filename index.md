@@ -16,12 +16,12 @@ I am interested in new colleagues at all levels: undergraduates, graduate studen
 
 ### $ cat recent_pubs ###
 
-- Paper to appear at [JSS 2015](http://gustavopinto.github.io/lost+found/jss_2015.pdf) -- "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_2015.pdf)"
+- Paper to appear at [PLATEAU 2015](http://2015.splashcon.org/track/plateau2015) -- "[A Study on the Most Popular Questions About Concurrent Programming.](http://gustavopinto.github.io/lost+found/plateau2015.pdf)"
+- Paper to appear at [JSS 2015](http://www.journals.elsevier.com/journal-of-systems-and-software/) -- "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_2015.pdf)"
 - Paper to appear at [JSS 2015](http://www.journals.elsevier.com/journal-of-systems-and-software/) -- "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections.](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)"
 - Paper to appear at [MSR 2015](http://2015.msrconf.org/) -- "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)"
 - Paper to appear at [GREENS 2015](http://greens.cs.vu.nl/) -- "[Refactoring for Energy Efficiency:
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)"
-- Paper to appear at [FASE 2015](http://www.etaps.org/index.php/2015/fase) -- "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)"
 
 See full list [here](/publications).
 

@@ -7,7 +7,10 @@ title: Gustavo Pinto - Publications
 
 ### 2015
 
-1. **Gustavo Pinto**. "[A Refactoring Approach to Improve Energy Consumption of Parallel Software Systems](http://gustavopinto.github.io/lost+found/thesis.pdf)". PhD thesis, Federal University of Pernambuco, Brazil, 2015.
+1. **Gustavo Pinto**, Weslley Torres, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[A Study on the Most Popular Questions About Concurrent Programming](http://gustavopinto.github.io/lost+found/plateau2015.pdf)". Accepted to the 6th Workshop on Evaluation and Usability of Programming Languages and Tools (PLATEAU) at the 6th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Pittsburgh, USA, 2015. <br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/plateau2015.pdf)
+
+1. **Gustavo Pinto**. "[A Refactoring Approach to Improve Energy Consumption of Parallel Software Systems](http://gustavopinto.github.io/lost+found/thesis.pdf)". PhD thesis, Federal University of Pernambuco, Brazil, 2015. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
 
