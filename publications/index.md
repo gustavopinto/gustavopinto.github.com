@@ -7,20 +7,20 @@ title: Gustavo Pinto - Publications
 
 ### 2015
 
-1. **Gustavo Pinto**, Weslley Torres, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[A Study on the Most Popular Questions About Concurrent Programming](http://gustavopinto.github.io/lost+found/plateau2015.pdf)". Accepted to the 6th Workshop on Evaluation and Usability of Programming Languages and Tools (PLATEAU) at the 6th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Pittsburgh, USA, 2015. <br/>
+1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[A Study on the Most Popular Questions About Concurrent Programming](http://gustavopinto.github.io/lost+found/plateau2015.pdf)". Accepted to the 6th Workshop on Evaluation and Usability of Programming Languages and Tools (PLATEAU) at the 6th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Pittsburgh, USA, 2015. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/plateau2015.pdf)
 
 1. **Gustavo Pinto**. "[A Refactoring Approach to Improve Energy Consumption of Parallel Software Systems](http://gustavopinto.github.io/lost+found/thesis.pdf)". PhD thesis, Federal University of Pernambuco, Brazil, 2015. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
 
-1. **Gustavo Pinto**, Weslley Torres, Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs.](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
+1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
-1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections.](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
+1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)
 
-1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015.<br/>
+1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015. **[[This paper was highlighted in the November/December 2015 issue of IEEE Software](http://www.computer.org/csdl/mags/so/2015/06/mso2015060098.pdf)]**<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2015.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/msr2015-talk.pdf)
 [[Website]](http://gustavopinto.org/energy-aware-mining/)
 
@@ -62,14 +62,14 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ### 2012
 
-1. Juliana Saraiva, Emanoel Barreiros, Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.org/lost+found/ease2012.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.
+1. [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [Emanoel Barreiros](https://twitter.com/ebarreiros), Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.org/lost+found/ease2012.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.
 
-1. Fl&aacute;vio Abreu, Adauto Almeida, Emanoel Barreiros, Juliana Saraiva, S&eacute;rgio Soares, Aline Ara&uacute;jo and **Gustavo Pinto**. "M&eacute;todos, T&eacute;cnicas e Ferramentas para o Desenvolvimento de Software Educacional: Um Mapeamento Sistem&aacute;tico". Accepted to the Brazilian Symposium of Informatics in the Education (SBIE), Rio de Janeiro, Brazil, 2012.
+1. Fl&aacute;vio Abreu, Adauto Almeida, [Emanoel Barreiros](https://twitter.com/ebarreiros), [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), Aline Ara&uacute;jo and **Gustavo Pinto**. "M&eacute;todos, T&eacute;cnicas e Ferramentas para o Desenvolvimento de Software Educacional: Um Mapeamento Sistem&aacute;tico". Accepted to the Brazilian Symposium of Informatics in the Education (SBIE), Rio de Janeiro, Brazil, 2012.
 
 
 ### 2011
 
-1. Weslley Torres, **Gustavo Pinto**, Benito Fernandes, Jo&atilde;o Paulo Oliveira, Filipe Ximenes, and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.
+1. [Weslley Torres](https://twitter.com/weslleytorres), **Gustavo Pinto**, Benito Fernandes, Jo&atilde;o Paulo Oliveira, [Filipe Ximenes](http://www.vinta.com.br/blog/author/filipe-ximenes.html), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.
 
 ### 2010
 
