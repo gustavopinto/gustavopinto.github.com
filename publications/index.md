@@ -5,6 +5,12 @@ title: Gustavo Pinto - Publications
 
 ## $ cat publications
 
+### 2016
+
+1. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/saner2016.pdf)
+
+
 ### 2015
 
 1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[A Study on the Most Popular Questions About Concurrent Programming](http://gustavopinto.github.io/lost+found/plateau2015.pdf)". Accepted to the 6th Workshop on Evaluation and Usability of Programming Languages and Tools (PLATEAU) at the 6th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Pittsburgh, USA, 2015. <br/>
