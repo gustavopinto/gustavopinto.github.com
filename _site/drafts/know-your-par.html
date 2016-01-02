@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Know Your Par [Introduction]</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://gsutavopinto.org/feed.xml" rel="alternate" type="application/rss+xml" title="Gustavo Pinto" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css2.1.5/base.css">
+  <link rel="stylesheet" href="/css2.1.5/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.5/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.4/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.5/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Typekit
+  ================================================== -->
+  <script type="text/javascript" src="//use.typekit.net/gki1atw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.5/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-three">
+    <div class="ten columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Gustavo Pinto</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <span class="mastdiv">/</span>
+        <a href="/publications">Publications</a>
+        <span class="mastdiv">/</span>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <!--<a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/gustavopinto">Twitter</a>-->
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date"> , </span>
+  <h1 class="post-title"><a href="/drafts/know-your-par.html">Know Your Par [Introduction]</a></h1>
+  <p>If you want to work efficiently with base graphics in R and build high-customized beautiful graphics that clearly tell a story then you need to know <code>par</code> like the back of your hand. In a series of posts I will highlight key arguments in <code>par</code>. I will start by describing what <code>par</code> is.</p>
+
+<h1 id="what-is-par?">What is <code>par</code>?</h1>
+
+<p><code>par</code> is a function that sets graphical parameters for base graphics in R. In plain English, <code>par</code> changes how plots will look. While you can set many graphical options within plotting functions themselves, <code>par</code> affects how the output from all plotting functions will look.  </p>
+
+<p><code>par</code> has an additional function --- it can return currently set graphical parameters. I will focus on that functionality in a later post.</p>
+
+<h1 id="how-to-use-par">How to use <code>par</code></h1>
+
+<p>You use <code>par</code> by calling it <em>before</em> you make a plot or call some graphical function. For example, you might call <code>par</code> to make all future plots a bit smaller and then make a plot:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">par<span class="p">(</span>cex <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+plot<span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</code></pre></div>
+<h1 id="changing-the-rotation-of-axis-labels-with-las">Changing the rotation of axis labels with <code>las</code></h1>
+
+<p>Let&#39;s start with <code>las</code>. It seems that everyone asks at some point &quot;How do I get my y-axis labels to be horizontal?&quot; The idea is that labels are easier to read if they are horizontal. Some journals require labels to be horizontal. One way to achieve this is by setting <code>las</code> in a <code>par</code> call. <code>las</code> accepts values of <code>0</code>, <code>1</code>, <code>2</code>, or <code>3</code>. The default is <code>0</code> --- make all labels perpendicular to the axes. To set all axis labels as horizontal set <code>las</code> to <code>1</code>:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">par<span class="p">(</span>las <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</code></pre></div>
+<p>Be aware that if you subsequently use a command like <code>mtext()</code> then you will have to explicitly set <code>las = 0</code> if you want any text vertical. For example:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">par<span class="p">(</span>las <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+plot<span class="p">(</span><span class="m">1</span><span class="p">)</span>
+mtext<span class="p">(</span><span class="s">&quot;Some vertical text&quot;</span><span class="p">,</span> side <span class="o">=</span> <span class="m">2</span><span class="p">,</span> las <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</code></pre></div>
+<h1 id="suppressing-the-axis-labels-with-ann">Suppressing the axis labels with <code>ann</code></h1>
+
+<p>One strategy to develop highly-customized figures in R is to start with a basic plot with minimal annotations and build the figure piece by piece. A good starting point is to turn off default annotations. You can do this with the <code>ann</code> argument. </p>
+
+<p><code>ann</code> turns off annotations for high-level plotting functions. For example, in <code>plot.default</code>, if <code>ann</code> was set to <code>FALSE</code> then x and y axis labels aren&#39;t plotted. This is a shortcut to setting the x and y axis labels to empty strings. For example, use this:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="m">1</span><span class="p">,</span> ann <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</code></pre></div>
+<p>Instead of this:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="m">1</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You might later add axis labels with <code>mtext</code>:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r">plot<span class="p">(</span><span class="m">1</span><span class="p">,</span> ann <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+mtext<span class="p">(</span><span class="s">&quot;My x-axis label&quot;</span><span class="p">,</span> side <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="https://github.com/seananderson/seananderson.github.com">Template written by
+Sean C. Anderson</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+  var pageTracker = _gat._getTracker("UA-465334-5");
+  pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
+

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>The codefather's blog</title>
-		<description>About programming and other stuff blog</description>
-		<link>http://thecodefather.github.io/feed.xml</link>
-		<atom:link href="http://thecodefather.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<title>Gustavo Pinto</title>
+		<description>Web log by Gustavo Pinto</description>
+		<link>http://gustavopinto.org</link>
+		<atom:link href="http://gustavopinto.org/feed.xml" rel="self" type="application/rss+xml" />
 		
+			
 			<item>
 				<title>Do developers care about software energy consumption?</title>
-				<description>&lt;h2&gt;Do developers care about software energy consumption?&lt;/h2&gt;
+				<description>&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
 
-&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
-
-&lt;p&gt;These questions were the start point of our paper, &amp;ldquo;&lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;Mining Questions About Software Energy Consumption&lt;/a&gt;&amp;rdquo;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.&lt;/p&gt;
+&lt;p&gt;These questions were the start point of our paper, &amp;quot;&lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;Mining Questions About Software Energy Consumption&lt;/a&gt;&amp;quot;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.&lt;/p&gt;
 
 &lt;p&gt;We filter out all questions that contain at least one energy consumption related word (&lt;em&gt;e.g.,&lt;/em&gt; energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named &lt;a href=&quot;http://en.wikipedia.org/wiki/Thematic_analysis&quot;&gt;Thematic Analysis&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse &amp;ndash; we found 5 main themes of questions &amp;ndash; but also often more &lt;em&gt;interesting&lt;/em&gt; and &lt;em&gt;challenging&lt;/em&gt; when compared to the remaining questions on StackOverflow.&lt;/p&gt;
+&lt;p&gt;Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse -- we found 5 main themes of questions -- but also often more &lt;em&gt;interesting&lt;/em&gt; and &lt;em&gt;challenging&lt;/em&gt; when compared to the remaining questions on StackOverflow.&lt;/p&gt;
 
 &lt;p&gt;We found five main themes regarding energy consumption questions. They are:&lt;/p&gt;
 
@@ -27,7 +26,6 @@
 &lt;li&gt;&lt;strong&gt;Context-specific&lt;/strong&gt;. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Noise&lt;/strong&gt;. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption&lt;/li&gt;
 &lt;/ol&gt;
-
 
 &lt;p&gt;Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:&lt;/p&gt;
 
@@ -42,25 +40,24 @@
 &lt;li&gt;Efficient Data structure.&lt;/li&gt;
 &lt;/ol&gt;
 
-
 &lt;p&gt;We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.&lt;/p&gt;
 
-&lt;p&gt;In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The con- ceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.&lt;/p&gt;
+&lt;p&gt;In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.&lt;/p&gt;
 
 &lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</guid>
+				<link>http://gustavopinto.org/2014/11/25/do-developers-care-about-software-energy-consumption.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2014/11/25/do-developers-care-about-software-energy-consumption.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>Why do you keep doing surveys?</title>
-				<description>&lt;h2&gt;Why do you keep doing surveys?&lt;/h2&gt;
+				<description>&lt;p&gt;When I say survey, I mean online questionnaires.&lt;/p&gt;
 
-&lt;p&gt;When I say survey, I mean on line questionnaires.&lt;/p&gt;
-
-&lt;p&gt;First of all, don&amp;rsquo;t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.&lt;/p&gt;
+&lt;p&gt;First of all, don&amp;#39;t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.&lt;/p&gt;
 
 &lt;p&gt;Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?&lt;/p&gt;
 
@@ -74,13 +71,12 @@
 
 &lt;p&gt;For example:&lt;/p&gt;
 
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know what rails core developers eat at lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine their actives on there.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverfow&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and/or &lt;a href=&quot;http://www.sourceforge.com&quot;&gt;SourceForge&lt;/a&gt;, and parse their source code.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do you want to know if final users are facing energy consumption problems in mobile applications? Mine &lt;a href=&quot;http://play.google.com&quot;&gt;Google Play&lt;/a&gt; comments.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+&lt;/ol&gt;
 
 &lt;p&gt;And the list goes on.&lt;/p&gt;
 
@@ -89,64 +85,64 @@
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
 				<pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/12/03/Why-keep-doing-surveys.html</guid>
+				<link>http://gustavopinto.org/2013/12/03/Why-keep-doing-surveys.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/12/03/Why-keep-doing-surveys.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>Tips to attend OOPSLA with low budget</title>
-				<description>&lt;h2&gt;Tips to attend OOPSLA with low budget&lt;/h2&gt;
+				<description>&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a flagship conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.&lt;/p&gt;
 
-&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a top-tier conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.&lt;/p&gt;
-
-&lt;p&gt;In this year (2013) I attended my very first OOPSLA. It was awesome. &lt;a href=&quot;https://twitter.com/gustavopinto/status/394562681253810176&quot;&gt;I&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395050744291659776&quot;&gt;shared&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395210719022436352&quot;&gt;some&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395683470971641856&quot;&gt;stories&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396020564361371648&quot;&gt;on&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396021132479827969&quot;&gt;twitter&lt;/a&gt;. However, one of the things that made it so great was because I didn&amp;rsquo;t needed to pay anything. Neither my advisor.&lt;/p&gt;
+&lt;p&gt;In this year (2013) I attended my very first OOPSLA. It was awesome. &lt;a href=&quot;https://twitter.com/gustavopinto/status/394562681253810176&quot;&gt;I&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395050744291659776&quot;&gt;shared&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395210719022436352&quot;&gt;some&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395683470971641856&quot;&gt;stories&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396020564361371648&quot;&gt;on&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396021132479827969&quot;&gt;twitter&lt;/a&gt;. However, one of the things that made it so great was because I didn&amp;#39;t needed to pay anything. Neither my advisor.&lt;/p&gt;
 
 &lt;p&gt;How it could be possible?&lt;/p&gt;
 
 &lt;p&gt;I basically follow three steps: (i) submit a paper to ACM SRC, (ii) apply to be a student volunteer, and (iii) request PAC funding.&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ll briefly describe these steps here.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;ll briefly describe these steps here.&lt;/p&gt;
 
-&lt;p&gt;Consider submit a paper to ACM SRC: One good reason to go to a conference is to present an accepted paper (usually on the main track of the conference). In this case, you will probably get money from your advisor/university. But, if you are on the early stages of your research, or if you have already submitted to the main track but got rejected, you can also consider submit to the ACM SRC track. The goal of the ACM SRC is to facilitate interaction between researchers and practitioners, providing both sides with the opportunity to learn of ongoing current research. Additionally, the ACM SRC gives students experience with both formal presentations and evaluations. A final attractive to submit in this track is because you can receive up to $ 500 to spend in your trip. Not bad.&lt;/p&gt;
-
-&lt;p&gt;Apply to be a student volunteer: When you are a student volunteer, you don&amp;rsquo;t need to pay for your registration. You could eventually receive other interesting things, such as a costumed t-shirt, or an invitation to a fancy dinner. &lt;strong&gt;Update: Student Volunteers for OOPSLA&#39;2014 also received free hotel&lt;/strong&gt;. On the other hand, you have to work during the conference. Some duties include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms. But, don&amp;rsquo;t worry. You will find time to enjoy the conference.&lt;/p&gt;
-
-&lt;p&gt;Request PAC funding: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. However, the SPLASH/Poster sesssion is sponsored. These two tracks happens together at SPLASH. Also, if you don&amp;rsquo;t have any paper accepted, but was accepted to be a student volunteer, you can also request PAC funding. That is great, hun? And it is pretty easy to apply. You just have to fill up a form, explaing how do you plan to spend this money.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Consider submitting a paper to ACM SRC&lt;/strong&gt;: One good reason to go to a conference is to give a talk about your reasearch (hopefully, in the main track of the conference). In this case, you will probably get money from your advisor/department/university. But, if you are on the early stages of your research, or if you got rejected, you can also consider submitting to the ACM SRC track. The goal of the ACM SRC is to facilitate interaction between researchers and practitioners, providing both sides the opportunity to learn of ongoing research. Additionally, the ACM SRC gives students experience with both formal presentations and evaluations. Finally, you can receive up to $ 500 to spend on your trip. Not bad.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Apply to be a student volunteer&lt;/strong&gt;: When you are a student volunteer, you don&amp;#39;t need to pay for your registration. You could eventually receive other interesting things, such as a costumed t-shirt, or an invitation to a fancy dinner. &lt;strong&gt;Update: Student Volunteers for OOPSLA&amp;#39;2014 also received free hotel&lt;/strong&gt;. On the other hand, you have to work during the conference. Some duties include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms. But, don&amp;#39;t worry. You will find time to enjoy the conference.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Request PAC funding&lt;/strong&gt;: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. However, the SPLASH/Poster sesssion is sponsored. These two tracks happens together at SPLASH. Also, if you don&amp;#39;t have any paper accepted, but was accepted to be a student volunteer, you can also request PAC funding. That is great, hun? And it is pretty easy to apply. You just have to fill up a form, explaing how do you plan to spend this money.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;So, these were my tips.&lt;/p&gt;
 
-&lt;p&gt;Nevertheless, I&amp;rsquo;m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for OOPSLA.&lt;/p&gt;
+&lt;p&gt;Nevertheless, I&amp;#39;m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for OOPSLA.&lt;/p&gt;
 
-&lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA&#39;2014 in Portland :)&lt;/p&gt;
+&lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA&amp;#39;2014 in Portland :)&lt;/p&gt;
 </description>
 				<pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</guid>
+				<link>http://gustavopinto.org/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>Pycon 2014 - Call for posters</title>
-				<description>&lt;h1&gt;About Pycon Poster Section&lt;/h1&gt;
-
-&lt;p&gt;PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.&lt;/p&gt;
+				<description>&lt;p&gt;PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.&lt;/p&gt;
 
 &lt;p&gt;How?&lt;/p&gt;
 
 &lt;p&gt;What about presenting a poster in the Python premier conference?&lt;/p&gt;
 
-&lt;h2&gt;How does it work?&lt;/h2&gt;
+&lt;h1 id=&quot;how-does-it-work?&quot;&gt;How does it work?&lt;/h1&gt;
 
 &lt;p&gt;As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.&lt;/p&gt;
 
-&lt;p&gt;The idea is to present your topic on a 4&#39;x4&#39; poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
+&lt;p&gt;The idea is to present your topic on a 4&amp;#39;x4&amp;#39; poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
 
 &lt;p&gt;Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.&lt;/p&gt;
 
-&lt;h2&gt;What kind of proposal can I submit?&lt;/h2&gt;
+&lt;h1 id=&quot;what-kind-of-proposal-can-i-submit?&quot;&gt;What kind of proposal can I submit?&lt;/h1&gt;
 
-&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don&amp;rsquo;t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don&amp;rsquo;t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon&#39;13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon&#39;12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
+&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don&amp;#39;t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don&amp;#39;t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon&amp;#39;13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon&amp;#39;12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
 
-&lt;h2&gt;Hmm.. I&amp;rsquo;m interested. How to submit a proposal?&lt;/h2&gt;
+&lt;h1 id=&quot;hmm..-i&amp;#39;m-interested.-how-to-submit-a-proposal?&quot;&gt;Hmm.. I&amp;#39;m interested. How to submit a proposal?&lt;/h1&gt;
 
 &lt;p&gt;To submit a poster proposal, you should first create an account in the PyCon site. When you are logged in, you will need to include the following information.&lt;/p&gt;
 
@@ -159,10 +155,9 @@
 &lt;li&gt;&lt;p&gt;Additional notes for the proposal reviewers. This can include additional background information such as links to other presentations you have done, or links to blog posts, articles or code related to your presentation.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
 &lt;p&gt;Keep in mind that the posters should follow all of the usual &lt;a href=&quot;http://us.pycon.org/2014/speaking/proposal_advice/&quot;&gt;guidelines&lt;/a&gt; that we look for in talk and tutorial proposals.&lt;/p&gt;
 
-&lt;h2&gt;Important Dates&lt;/h2&gt;
+&lt;h1 id=&quot;important-dates&quot;&gt;Important Dates&lt;/h1&gt;
 
 &lt;p&gt;Do not miss the application deadline!&lt;/p&gt;
 
@@ -170,20 +165,22 @@
 
 &lt;p&gt;Poster announced: December 15th, 2013.&lt;/p&gt;
 
-&lt;p&gt;Poster session at PyCon&#39;14: April 13th, 2014.&lt;/p&gt;
+&lt;p&gt;Poster session at PyCon&amp;#39;14: April 13th, 2014.&lt;/p&gt;
 
 &lt;p&gt;If you need more information, you can see the &lt;a href=&quot;http://us.pycon.org/2014/posters/faq/&quot;&gt;Poster FAQ&lt;/a&gt; and the &lt;a href=&quot;https://us.pycon.org/2014/posters/&quot;&gt;Poster CFP&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
 </description>
 				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/pycon-2014-call-for-poster.html</guid>
+				<link>http://gustavopinto.org/2013/07/19/pycon-2014-call-for-poster.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/07/19/pycon-2014-call-for-poster.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>From where come the Brazilian open-source contributions?</title>
-				<description>&lt;h2&gt;From where come the Brazilian open-source contributions?&lt;/h2&gt;
+				<description>&lt;h1 id=&quot;from-where-come-the-brazilian-open-source-contributions?&quot;&gt;From where come the Brazilian open-source contributions?&lt;/h1&gt;
 
 &lt;p&gt;Hi there.&lt;/p&gt;
 
@@ -193,13 +190,11 @@
 
 &lt;h4&gt;1. Are the brazilian open-source community active&lt;/h4&gt;
 
-
-&lt;p&gt;Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. The &lt;a href=&quot;http://en.wikipedia.org/wiki/Pareto_principle&quot;&gt;Pareto&amp;rsquo;s principle&lt;/a&gt; also works here: from 30% of the users come the 100% of the contributions. This results show us that the brazilian open-source community is not so active as we may guess.&lt;/p&gt;
+&lt;p&gt;Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. The &lt;a href=&quot;http://en.wikipedia.org/wiki/Pareto_principle&quot;&gt;Pareto&amp;#39;s principle&lt;/a&gt; also works here: from 30% of the users come the 100% of the contributions. This results show us that the brazilian open-source community is not so active as we may guess.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/images/post3/users-active-percentage.png&#39;/&gt;&lt;/p&gt;
 
 &lt;h4&gt;2. From where they come?&lt;/h4&gt;
-
 
 &lt;p&gt;If we take into consideration the user locale, we observed that 46% of these users come from the Northeast region, which is very interesting, since, here in Brazil, the most economical region (or, in this case, from where have the most job offers) is the southeast region. If we take into consideration the specific State, the most active are Paraná (13.65%), followed by Ceará (12.37%) and followed by (11.25%). All theses states are not part of the southeast region. Nonetheless, this kind of analysis is very difficult to perform, since the user can omit the location field (which represents 8% of the total), provide unreliable information, or use acronym, nicknames, etc. But, if we can draw a chart of the Brazilian open-source contribution per state, it may look like this one.&lt;/p&gt;
 
@@ -207,25 +202,24 @@
 
 &lt;h4&gt;3. Which are the most popular programming languages?&lt;/h4&gt;
 
+&lt;p&gt;Github can infer the most used language on a given project. Then, analyzing the set of projects contributed, the list of the ten more used programming language are: JavaScript (22.77%), Ruby (18.78%), Java (14.19%), PHP (13.95%), Python (9.86%), C (3.36%), C++ (2.94%), Shell (2.55%), Objective-C (1.95%) e C# (1.88%). I have to tell that these results surprised me a bit. Since I&amp;#39;m a Java-guy, my heart used to fell that Java is the most popular language in Brazil. But, it seems that Brazilian hackers are more likely to use untyped languages, such as JS, Ruby, PHP, although the Java language remains in the top-3. It is cool.&lt;/p&gt;
 
-&lt;p&gt;Github can infer the most used language on a given project. Then, analyzing the set of projects contributed, the list of the ten more used programming language are: JavaScript (22.77%), Ruby (18.78%), Java (14.19%), PHP (13.95%), Python (9.86%), C (3.36%), C++ (2.94%), Shell (2.55%), Objective-C (1.95%) e C# (1.88%). I have to tell that these results surprised me a bit. Since I&amp;rsquo;m a Java-guy, my heart used to fell that Java is the most popular language in Brazil. But, it seems that Brazilian hackers are more likely to use untyped languages, such as JS, Ruby, PHP, although the Java language remains in the top-3. It is cool.&lt;/p&gt;
-
-&lt;p&gt;Now I&amp;rsquo;m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
+&lt;p&gt;Now I&amp;#39;m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
 
 &lt;p&gt;If you want to read more about, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/oss2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
+				<link>http://gustavopinto.org/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>Improving our line plots with R</title>
-				<description>&lt;h2&gt;Improving our line plots with R&lt;/h2&gt;
+				<description>&lt;p&gt;Hi there.&lt;/p&gt;
 
-&lt;p&gt;Hi there.&lt;/p&gt;
-
-&lt;p&gt;As you may know, I&amp;rsquo;m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I&amp;rsquo;m a graduate student, I&amp;rsquo;m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
+&lt;p&gt;As you may know, I&amp;#39;m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I&amp;#39;m a graduate student, I&amp;#39;m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/images/post2/usage-per-thread.png&#39;/&gt;&lt;/p&gt;
 
@@ -239,25 +233,20 @@
 
 &lt;p&gt;So, how can you do this?&lt;/p&gt;
 
-&lt;h3&gt;First&lt;/h3&gt;
+&lt;h1 id=&quot;first&quot;&gt;First&lt;/h1&gt;
 
-&lt;p&gt;Let&amp;rsquo;s start by initializing your data array. If you do not have basic knowledge in R, &lt;a href=&quot;http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf&quot;&gt;this article&lt;/a&gt; is a good start point.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;seq &lt;- c(78, 78, 78, 78)
-thread &lt;- c(80, 60, 55, 42)
-executors &lt;- c(80, 56, 42, 31)
-forkJoin &lt;- c(79, 55, 52, 54)
-actors &lt;-c(82, 47, 38, 30)
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;h3&gt;Second&lt;/h3&gt;
+&lt;p&gt;Let&amp;#39;s start by initializing your data array. If you do not have basic knowledge in R, &lt;a href=&quot;http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf&quot;&gt;this article&lt;/a&gt; is a good start point.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-R&quot; data-lang=&quot;R&quot;&gt;seq &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+thread &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+executors &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;56&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+forkJoin &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;54&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+actors &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;47&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;second&quot;&gt;Second&lt;/h1&gt;
 
 &lt;p&gt;Create a simple line chart with one of your data set using the &lt;code&gt;plot&lt;/code&gt; function. In this case, I used the &lt;code&gt;thread&lt;/code&gt; var.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;plot(thread, type=&quot;o&quot;, col=&quot;blue&quot;, pch=18, ylim=c(20, 100))&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-R&quot; data-lang=&quot;R&quot;&gt;plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;thread&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In this function, we passed the &lt;code&gt;thread&lt;/code&gt; var and more four arguments. They are:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -267,24 +256,21 @@ actors &lt;-c(82, 47, 38, 30)
 &lt;li&gt;&lt;code&gt;ylim&lt;/code&gt;: the y limits of the plot;&lt;/li&gt;
 &lt;/ul&gt;
 
-
 &lt;p&gt;There are several other parameters that you can use in your chart. If you have the time, take a lot at the &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html&quot;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Now, we have to add the remaining data. To do so, we will use another function called &lt;code&gt;lines&lt;/code&gt;. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the &lt;code&gt;plot&lt;/code&gt; function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lines(seq, type=&quot;o&quot;, pch=23, lty=1, col=&quot;darkred&quot;)
-lines(executors, type=&quot;o&quot;, pch=24, lty=1, col=&quot;purple&quot;)
-lines(forkJoin, type=&quot;o&quot;, pch=25, lty=1, col=&quot;chocolate3&quot;)
-lines(actors, type=&quot;o&quot;, pch=8, lty=1, col=&quot;orangered2 &quot;)&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-R&quot; data-lang=&quot;R&quot;&gt;lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lty&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;darkred&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;executors&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lty&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;purple&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;forkJoin&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lty&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;chocolate3&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;actors&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lty&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;orangered2 &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;code&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/images/post2/middle-chart.png&#39;/&gt;&lt;/p&gt;
 
 &lt;p&gt;Great! Our chart is becoming professional. My mon will be proud of me.&lt;/p&gt;
 
-&lt;h3&gt;Third&lt;/h3&gt;
+&lt;h1 id=&quot;third&quot;&gt;Third&lt;/h1&gt;
 
 &lt;p&gt;The third part is to add both vertical and horizontal lines.&lt;/p&gt;
 
@@ -303,10 +289,9 @@ abline(h=40,col=1,lty=3)
 abline(h=20,col=1,lty=3)
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (&lt;code&gt;v&lt;/code&gt; for vertical lines and &lt;code&gt;h&lt;/code&gt; for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, ...) or as one of the character strings &amp;quot;blank&amp;quot;, &amp;quot;solid&amp;quot;, etc.&lt;/p&gt;
 
-&lt;p&gt;Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (&lt;code&gt;v&lt;/code&gt; for vertical lines and &lt;code&gt;h&lt;/code&gt; for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, &amp;hellip;) or as one of the character strings &amp;ldquo;blank&amp;rdquo;, &amp;ldquo;solid&amp;rdquo;, etc.&lt;/p&gt;
-
-&lt;h3&gt;Fourth&lt;/h3&gt;
+&lt;h1 id=&quot;fourth&quot;&gt;Fourth&lt;/h1&gt;
 
 &lt;p&gt;The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: &lt;code&gt;box&lt;/code&gt; and &lt;code&gt;legend&lt;/code&gt;. I think the name of these functions are meaningful. But, the &lt;code&gt;legend&lt;/code&gt; function receives several parameters.&lt;/p&gt;
 
@@ -318,36 +303,36 @@ pch &lt;- c(18,23,24,25,8)
 legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quot;);
 &lt;/code&gt;&lt;/pre&gt;
 
-
-&lt;p&gt;And you&amp;rsquo;ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :-)&lt;/p&gt;
+&lt;p&gt;And you&amp;#39;ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :-)&lt;/p&gt;
 
 &lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
 				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
+				<link>http://gustavopinto.org/2013/05/08/improving-your-line-plots-with-r.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/05/08/improving-your-line-plots-with-r.html</guid>
 			</item>
+			
 		
+			
 			<item>
 				<title>Hello World</title>
-				<description>&lt;h2&gt;Hello World&lt;/h2&gt;
-
-&lt;p&gt;Hi all.&lt;/p&gt;
+				<description>&lt;p&gt;Hi all.&lt;/p&gt;
 
 &lt;p&gt;This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general.&lt;/p&gt;
 
-&lt;p&gt;Let&amp;rsquo;s get started!&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s get started!&lt;/p&gt;
 
-&lt;h1&gt;About the name&lt;/h1&gt;
+&lt;h1 id=&quot;about-the-name&quot;&gt;About the name&lt;/h1&gt;
 
 &lt;p&gt;Yes, as you can imagine, the name is a joke with the Godfather movie.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/images/codefather.jpg&#39;/&gt;&lt;/p&gt;
 </description>
 				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
-				<link>http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</link>
-				<guid isPermaLink="true">http://thecodefather.github.io/codefather/2013/04/07/hello-world.html</guid>
+				<link>http://gustavopinto.org/2013/04/07/hello-world.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2013/04/07/hello-world.html</guid>
 			</item>
+			
 		
 	</channel>
 </rss>
