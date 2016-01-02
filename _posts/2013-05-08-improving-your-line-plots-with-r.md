@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Improving our line plots with R
-subtitle: Moving away from Excel
+subtitle: Moving way from Excel
 year: 2013
 month: 05
 day: 08

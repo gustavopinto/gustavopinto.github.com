@@ -8,6 +8,137 @@
 		
 			
 			<item>
+				<title>The story behind casual contributors</title>
+				<description>&lt;p&gt;Github changed the way developers contribute to OSS projects, in particular by providing a single process of contribution, which is called pull-based model. Using this model, developers do not need to have write access to the repository in order to provide changes to the software. This kind of environment, together with its contribution model, encourages newcomers to participate in the process.&lt;/p&gt;
+
+&lt;p&gt;However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of &amp;quot;not that involved&amp;quot; developers, which are responsible for a long tail of small contributions.&lt;/p&gt;
+
+&lt;p&gt;Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the casual contributor. In a study published on &lt;a href=&quot;http://saner.inf.usi.ch/&quot;&gt;SANER&amp;#39;16&lt;/a&gt;, we investigated what we call &amp;quot;casual contributors&amp;quot;. In particular, we were interested in understanding (1) how common they are, (2) what are the characteristics of their contributions, and (3) how they are perceived.&lt;/p&gt;
+
+&lt;p&gt;Here in this blog post, we will describe the main findings of the paper. If you want to know more about this research, consider reading the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;pre-print&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;oss-selection&quot;&gt;OSS selection&lt;/h1&gt;
+
+&lt;p&gt;We selected the top 20 most popular projects written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (&lt;em&gt;e.g.,&lt;/em&gt; projects that are not software projects). Our final list of projects included &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;rails&lt;/a&gt;, &lt;a href=&quot;https://github.com/django/django&quot;&gt;django&lt;/a&gt;, and &lt;a href=&quot;https://github.com/torvalds/linux/&quot;&gt;linux&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;surveys-with-practitioners&quot;&gt;Surveys with practitioners&lt;/h1&gt;
+
+&lt;p&gt;We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 361 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2.5 full days. As one reviewer said, &amp;quot;The big deal is the story in the survey part&amp;quot;. &lt;strong&gt;Thank you&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We observed that 65.8% of our respondents contribute to OSS at least once per month, and 75.2% of them are used to making casual contributions.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-common-are-casual-contributors-in-oss-projects?&quot;&gt;How common are casual contributors in OSS projects?&lt;/h1&gt;
+
+&lt;p&gt;Figure 1 presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&quot;/images/post-casual/overall.png&quot; alt=&quot;Contributions per programming language&quot; height=&quot;330&quot;/&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;To some extent, the analyzed projects have a similar characteristic: most of the contributors perform very few contributions. A non-negligible number of contributors (48.98%) performed a single contribution, which varies from programming language to programming language (&lt;em&gt;e.g.,&lt;/em&gt; C projects have 39% of casual contributors, whereas JavaScript has 61%). Based on this finding, we decided that the casual contributor is a contributor that performed at most one commit to a software project.&lt;/p&gt;
+
+&lt;p&gt;This significant number of casual contributors might lead one to believe that an important proportion of the projects are intrinsically made by casual contributions. In reality, we found the opposite: these casual contributors are responsible for only 1.73% of the total number of contributions in our corpus of OSS projects (linux: 1.02%, rails: 3.46%, django: 3.19%). For a more detailed perspective, next figure shows the percentage of the casual contributors (top) and contributions (bottom) for each programming language analyzed.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&quot;/images/post-casual/percentage.png&quot; alt=&quot;Percentage of casual contributors&quot; width=&quot;400&quot; height=&quot;330&quot;/&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;We can see that the programming language used matters. With some exception, projects written in static typed programming languages (&lt;em&gt;e.g.&lt;/em&gt;, C, TypeScript and C++) seem to be less favorable to receive casual contributions than those using dynamic typed ones (&lt;em&gt;e.g.&lt;/em&gt;, Ruby, Python and JavaScript). We believe this is because scripting programming languages are more concise than procedural and object-oriented ones, and size really matters when it comes to casual contributors.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-are-the-characteristics-of-a-casual-contribution?&quot;&gt;What are the characteristics of a casual contribution?&lt;/h1&gt;
+
+&lt;p&gt;We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project &lt;a href=&quot;https://github.com/thoughtbot/paperclip/&quot;&gt;paperclip&lt;/a&gt; is the one with the highest number of additions and deletions among the Ruby projects (Adds mean, 3rd Quartile, and Std. deviation: 4.15, 5.75, and 1.72. Dels mean, 3rd Quartile, and Std. deviation: 1.02, 1.0, and 0.26). With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project&lt;/p&gt;
+
+&lt;p&gt;We also analyzed the contributions with the lowest number of additions and deletions. In fact, 22.7% of the casual contributions performed on Ruby projects changed a single line of code. Some of them include, (1) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/6f2ca93&quot;&gt;preventing a type from being null&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/d49bca2&quot;&gt;updating documentation files&lt;/a&gt;, or (3) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/62a9f64&quot;&gt;setting an option to a default value&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We also analyzed a &lt;a href=&quot;https://en.wikipedia.org/wiki/Statistical_significance&quot;&gt;statistically significant&lt;/a&gt; sample of 384 casual contributions. We identified 8 categories of casual contributions, summarized next. Afterwards, we discuss the top 3 ones.&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;%&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bug Fix&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;116&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;30.20%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Documentation&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;110&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;28.64%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Add new feature&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;72&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;18.75%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Refactoring&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;34&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;8.85%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Update dependencies&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;25&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;6.51%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Improve error message&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;14&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.64%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Improve resource usage&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;2.08%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Add test cases&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.30%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Bug fix&lt;/strong&gt;. It is the most common kind of casual contribution found in our dataset. Some examples include: (1) &lt;a href=&quot;https://github.com/TransitApp/SVProgressHUD/commit/eebd6ec&quot;&gt;layout fix&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/koalaman/shellcheck/commit/f054e2e&quot;&gt;fixing compilation problems&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/lulzlabs/AirChat/commit/03cd91d&quot;&gt;fixing a broken URL&lt;/a&gt;. Still, some bug fixes are far from being trivial, as the one that &lt;a href=&quot;https://github.com/torvalds/linux/commit/ddca3b8&quot;&gt;fixed a race condition at the linux operating system&lt;/a&gt;. Not only difficult to identify (such bugs are non-deterministic), the solution employed was also scattered between C preprocessors, which difficulties the reasoning of the compiled program.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;. This category includes fix for typos, grammar, translation, formatting, and documentation issues. Although these contributions do not require significant programming effort, we found contributions that have &lt;a href=&quot;https://github.com/codecombat/codecombat/commit/237b97a&quot;&gt;thoroughly rewritten the original material&lt;/a&gt;. Also, we found that 27 out of these 110 contributions were fixing typos on code examples. This finding reinforces the importance of complete and verified working code examples.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Add New Feature&lt;/strong&gt;. Some of the examples include (1) &lt;a href=&quot;https://github.com/rg3/youtube-dl/commit/1a2adf3&quot;&gt;adding a new option for a command line tool&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/angular/angular.js/commit/da9eac8&quot;&gt;adding support for disabling an option&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/apenwarr/sshuttle/commit/95c9b78&quot;&gt;adding support for IPv6 remote hosts&lt;/a&gt;. Interestingly, 24 out of the 72 contributions in this category were performed at the Linux operating system. Most of them were adding support for a new driver/device, which usually require few additions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;how-do-casual-contributors-and-integrators-perceive-casual-contributions?&quot;&gt;How do casual contributors and integrators perceive casual contributions?&lt;/h1&gt;
+
+&lt;p&gt;We explicitly asked casual contributors and project maintainers &amp;quot;what motivates casual contributors&amp;#39; behavior&amp;quot;, and the top cited perceived motivation was &lt;strong&gt;scratch their own itch&lt;/strong&gt;, highly mentioned by both casual contributors (90 out of 197) and integrators (23 out of 64). Part of this high number of casual contributions can be explained by the pull-request model, which provided a clear and easy contribution process. It was mentioned by 9 out of 64 integrators.&lt;/p&gt;
+
+&lt;p&gt;Aligned with some studies on the motivation behind OSS contributors, we found that &lt;strong&gt;give back to community&lt;/strong&gt; fosters casual contributions, as said by one casual contributor &amp;quot;As I use a lot of OSS projects, I like to give back to the community&amp;quot;. Another motivation that is inline with the literature is &lt;strong&gt;gaining reputation and prestige&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Not among the top cited motivations, we found that four casual contributors reported that their motivation was &lt;strong&gt;improving the project&lt;/strong&gt;. The following quotes clearly illustrate such motivation: &amp;quot;I want to improve the quality of the project&amp;quot;, &amp;quot;That the project is in better shape after my contribution&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;In addition to motivation, we investigated the reasons why casual contributors do not become full active contributors. &lt;strong&gt;Lack of time&lt;/strong&gt; was far the most cited reason by the casual contributors (96 out of 197), like one mentioned &amp;quot;I don’t have time to devote to a more active role&amp;quot;.  From the perspective of the integrators, &lt;strong&gt;Lack of time&lt;/strong&gt; was also the most mentioned reason why casual contributors do not become a long term contributor (17 out of 64 respondents). The following quote exemplify it: &amp;quot;People often don’t have the time or desire to be long term contributors&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;We also found people who reported that they do not contribute because of their &lt;strong&gt;limited skills or knowledge&lt;/strong&gt;. Some also mentioned that the effort and knowledge needed to become a full contributor was too high. In both cases, they prefer to work on small or peripheral issues, which do not need specific abilities and usually require low effort. Like one of them said: &amp;quot;lack of skills (most of the low hanging fruit is gone)&amp;quot;. Project maintainers noticed this, and eight participants mentioned that &lt;strong&gt;code/project is hard to learn&lt;/strong&gt; was a reason why casual contributors do not become more active.&lt;/p&gt;
+
+&lt;p&gt;We also asked the participants their opinion about the main benefits and problems brought by the casual contributors phenomenon. The overall impression is that the benefits overcome the drawbacks brought by this phenomenon. One quote from a integrator shows: &amp;quot;Every little piece helps everyone else. We stand on the shoulders of many small giants. Problems? None&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;On the other side, the most reported problems were &lt;strong&gt;Time spent by the core members to review newcomers’ code&lt;/strong&gt; (reported by 12 people) and &lt;strong&gt;contributions may go unmaintained&lt;/strong&gt; (reported by 5 people).&lt;/p&gt;
+
+&lt;h1 id=&quot;take-away-message&quot;&gt;Take away message&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Casual contributors can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Project owners can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce &amp;quot;contributions guidelines&amp;quot;, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+				<pubDate>Fri, 01 Jan 2016 00:00:00 -0300</pubDate>
+				<link>http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html</link>
+				<guid isPermaLink="true">http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html</guid>
+			</item>
+			
+		
+			
+			<item>
 				<title>Do developers care about software energy consumption?</title>
 				<description>&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
 
