@@ -8,6 +8,18 @@ day: 1
 published: true
 ---
 
+TL;DR
+
+This a summary of the paper "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". For the impatient, there is a summary of the summary:
+
+1. **Casual contributors are rather common**. 48.98% of the overall contributors that we analyzed are actually casual contributors. However, these contributors are responsible for only 1.73% of the total contributions in our set of analyzed projects.
+
+2. **Casual contributions are far from being trivial**. After a manual inspection of a sample of casual contributions, we found that although 28.64% of them are related to grammar and typo fixes, 30.20% of them fix bugs, 18.75% propose new features, and 8.85% refactor code.
+
+3. **Casual contributions are well liked**. These contributions are perceived as a beneficial phenomenon from the perspective of project maintainters and casual contributors. Personal needs was the most reported motivation for the casual contributors. As a shortcoming, project maintainters reported an increasing number of reviews, which demands time from core developers.
+
+--
+
 Github changed the way developers contribute to OSS projects, in particular by providing a single process of contribution, which is called pull-based model. Using this model, developers do not need to have write access to the repository in order to provide changes to the software. This kind of environment, together with its contribution model, encourages newcomers to participate in the process.
 
 However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of "not that involved" developers, which are responsible for a long tail of small contributions.
@@ -72,20 +84,20 @@ We also analyzed a [statistically significant](https://en.wikipedia.org/wiki/Sta
 
 3. **Add New Feature**. Some of the examples include (1) [adding a new option for a command line tool](https://github.com/rg3/youtube-dl/commit/1a2adf3), (2) [adding support for disabling an option](https://github.com/angular/angular.js/commit/da9eac8), and (3) [adding support for IPv6 remote hosts](https://github.com/apenwarr/sshuttle/commit/95c9b78). Interestingly, 24 out of the 72 contributions in this category were performed at the Linux operating system. Most of them were adding support for a new driver/device, which usually require few additions.
 
-# How do casual contributors and integrators perceive casual contributions?
+# How do casual contributors and project maintainers perceive casual contributions?
 
-We explicitly asked casual contributors and project maintainers "what motivates casual contributors' behavior", and the top cited perceived motivation was **scratch their own itch**, highly mentioned by both casual contributors (90 out of 197) and integrators (23 out of 64). Part of this high number of casual contributions can be explained by the pull-request model, which provided a clear and easy contribution process. It was mentioned by 9 out of 64 integrators.
+We explicitly asked casual contributors and project maintainers "what motivates casual contributors' behavior", and the top cited perceived motivation was **scratch their own itch**, highly mentioned by both casual contributors (90 out of 197) and project maintainers (23 out of 64). Part of this high number of casual contributions can be explained by the pull-request model, which provided a clear and easy contribution process. It was mentioned by 9 out of 64 project maintainters.
 
 
 Aligned with some studies on the motivation behind OSS contributors, we found that **give back to community** fosters casual contributions, as said by one casual contributor "As I use a lot of OSS projects, I like to give back to the community". Another motivation that is inline with the literature is **gaining reputation and prestige**.
 
 Not among the top cited motivations, we found that four casual contributors reported that their motivation was **improving the project**. The following quotes clearly illustrate such motivation: "I want to improve the quality of the project", "That the project is in better shape after my contribution".
 
-In addition to motivation, we investigated the reasons why casual contributors do not become full active contributors. **Lack of time** was far the most cited reason by the casual contributors (96 out of 197), like one mentioned "I don’t have time to devote to a more active role".  From the perspective of the integrators, **Lack of time** was also the most mentioned reason why casual contributors do not become a long term contributor (17 out of 64 respondents). The following quote exemplify it: "People often don’t have the time or desire to be long term contributors".
+In addition to motivation, we investigated the reasons why casual contributors do not become full active contributors. **Lack of time** was far the most cited reason by the casual contributors (96 out of 197), like one mentioned "I don’t have time to devote to a more active role".  From the perspective of the project maintainters, **Lack of time** was also the most mentioned reason why casual contributors do not become a long term contributor (17 out of 64 respondents). The following quote exemplify it: "People often don’t have the time or desire to be long term contributors".
 
 We also found people who reported that they do not contribute because of their **limited skills or knowledge**. Some also mentioned that the effort and knowledge needed to become a full contributor was too high. In both cases, they prefer to work on small or peripheral issues, which do not need specific abilities and usually require low effort. Like one of them said: "lack of skills (most of the low hanging fruit is gone)". Project maintainers noticed this, and eight participants mentioned that **code/project is hard to learn** was a reason why casual contributors do not become more active.
 
-We also asked the participants their opinion about the main benefits and problems brought by the casual contributors phenomenon. The overall impression is that the benefits overcome the drawbacks brought by this phenomenon. One quote from a integrator shows: "Every little piece helps everyone else. We stand on the shoulders of many small giants. Problems? None".
+We also asked the participants their opinion about the main benefits and problems brought by the casual contributors phenomenon. The overall impression is that the benefits overcome the drawbacks brought by this phenomenon. One quote from a project maintainter shows: "Every little piece helps everyone else. We stand on the shoulders of many small giants. Problems? None".
 
 On the other side, the most reported problems were **Time spent by the core members to review newcomers’ code** (reported by 12 people) and **contributions may go unmaintained** (reported by 5 people).
 
