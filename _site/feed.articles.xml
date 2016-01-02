@@ -25,23 +25,23 @@
 
 &lt;p&gt;However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of &amp;quot;not that involved&amp;quot; developers, which are responsible for a long tail of small contributions.&lt;/p&gt;
 
-&lt;p&gt;Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the casual contributor. In a study published on &lt;a href=&quot;http://saner.inf.usi.ch/&quot;&gt;SANER&amp;#39;16&lt;/a&gt;, we investigated what we call &amp;quot;casual contributors&amp;quot;. In particular, we were interested in understanding (1) how common they are, (2) what are the characteristics of their contributions, and (3) how they are perceived.&lt;/p&gt;
+&lt;p&gt;Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the &lt;em&gt;casual contributor&lt;/em&gt;. In a study published on &lt;a href=&quot;http://saner.inf.usi.ch/&quot;&gt;SANER&amp;#39;16&lt;/a&gt;, we investigate (1) how common casual contribtuors are, (2) what are the characteristics of their contributions, and (3) how they are perceived.&lt;/p&gt;
 
 &lt;p&gt;Here in this blog post, we will describe the main findings of the paper. If you want to know more about this research, consider reading the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;pre-print&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;oss-selection&quot;&gt;OSS selection&lt;/h1&gt;
 
-&lt;p&gt;We selected the top 20 most popular projects written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (&lt;em&gt;e.g.,&lt;/em&gt; projects that are not software projects). Our final list of projects included &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;rails&lt;/a&gt;, &lt;a href=&quot;https://github.com/django/django&quot;&gt;django&lt;/a&gt;, and &lt;a href=&quot;https://github.com/torvalds/linux/&quot;&gt;linux&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We selected the top 20 most popular open-source projects hosted on Github written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (&lt;em&gt;e.g.,&lt;/em&gt; projects that are not software projects). Our final list of projects included &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;rails&lt;/a&gt;, &lt;a href=&quot;https://github.com/django/django&quot;&gt;django&lt;/a&gt;, and &lt;a href=&quot;https://github.com/torvalds/linux/&quot;&gt;linux&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;surveys-with-practitioners&quot;&gt;Surveys with practitioners&lt;/h1&gt;
 
-&lt;p&gt;We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 361 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2.5 full days. As one reviewer said, &amp;quot;The big deal is the story in the survey part&amp;quot;. &lt;strong&gt;Thank you&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 261 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2 full days. As one reviewer said, &amp;quot;The big deal is the story in the survey part&amp;quot;. &lt;strong&gt;Thank you&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;We observed that 65.8% of our respondents contribute to OSS at least once per month, and 75.2% of them are used to making casual contributions.&lt;/p&gt;
 
 &lt;h1 id=&quot;how-common-are-casual-contributors-in-oss-projects?&quot;&gt;How common are casual contributors in OSS projects?&lt;/h1&gt;
 
-&lt;p&gt;Figure 1 presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.&lt;/p&gt;
+&lt;p&gt;Figure below presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;img src=&quot;/images/post-casual/overall.png&quot; alt=&quot;Contributions per programming language&quot; height=&quot;330&quot;/&gt;
@@ -59,7 +59,29 @@
 
 &lt;h1 id=&quot;what-are-the-characteristics-of-a-casual-contribution?&quot;&gt;What are the characteristics of a casual contribution?&lt;/h1&gt;
 
-&lt;p&gt;We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project &lt;a href=&quot;https://github.com/thoughtbot/paperclip/&quot;&gt;paperclip&lt;/a&gt; is the one with the highest number of additions and deletions among the Ruby projects (Adds mean, 3rd Quartile, and Std. deviation: 4.15, 5.75, and 1.72. Dels mean, 3rd Quartile, and Std. deviation: 1.02, 1.0, and 0.26). With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project&lt;/p&gt;
+&lt;p&gt;We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project &lt;a href=&quot;https://github.com/thoughtbot/paperclip/&quot;&gt;paperclip&lt;/a&gt; is the one with the highest number of additions and deletions among the Ruby projects. See table below. With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project.&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Change&lt;/th&gt;
+&lt;th&gt;Mean&lt;/th&gt;
+&lt;th&gt;3rd Quartile&lt;/th&gt;
+&lt;th&gt;Std. Dev&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Additions&lt;/td&gt;
+&lt;td&gt;4.15&lt;/td&gt;
+&lt;td&gt;5.75&lt;/td&gt;
+&lt;td&gt;1.72&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deletions&lt;/td&gt;
+&lt;td&gt;1.02&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;0.26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;p&gt;We also analyzed the contributions with the lowest number of additions and deletions. In fact, 22.7% of the casual contributions performed on Ruby projects changed a single line of code. Some of them include, (1) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/6f2ca93&quot;&gt;preventing a type from being null&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/d49bca2&quot;&gt;updating documentation files&lt;/a&gt;, or (3) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/62a9f64&quot;&gt;setting an option to a default value&lt;/a&gt;.&lt;/p&gt;
 
@@ -139,8 +161,8 @@
 &lt;h1 id=&quot;take-away-message&quot;&gt;Take away message&lt;/h1&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Casual contributors can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Project owners can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce &amp;quot;contributions guidelines&amp;quot;, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Casual contributors&lt;/strong&gt; can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Project owners&lt;/strong&gt; can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce &amp;quot;contributions guidelines&amp;quot;, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
 				<pubDate>Fri, 01 Jan 2016 00:00:00 -0300</pubDate>

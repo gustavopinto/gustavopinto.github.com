@@ -115,23 +115,23 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
 <p>However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of &quot;not that involved&quot; developers, which are responsible for a long tail of small contributions.</p>
 
-<p>Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the casual contributor. In a study published on <a href="http://saner.inf.usi.ch/">SANER&#39;16</a>, we investigated what we call &quot;casual contributors&quot;. In particular, we were interested in understanding (1) how common they are, (2) what are the characteristics of their contributions, and (3) how they are perceived.</p>
+<p>Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the <em>casual contributor</em>. In a study published on <a href="http://saner.inf.usi.ch/">SANER&#39;16</a>, we investigate (1) how common casual contribtuors are, (2) what are the characteristics of their contributions, and (3) how they are perceived.</p>
 
 <p>Here in this blog post, we will describe the main findings of the paper. If you want to know more about this research, consider reading the <a href="http://gustavopinto.github.io/lost+found/saner2016.pdf">pre-print</a>.</p>
 
 <h1 id="oss-selection">OSS selection</h1>
 
-<p>We selected the top 20 most popular projects written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (<em>e.g.,</em> projects that are not software projects). Our final list of projects included <a href="https://github.com/rails/rails">rails</a>, <a href="https://github.com/django/django">django</a>, and <a href="https://github.com/torvalds/linux/">linux</a>.</p>
+<p>We selected the top 20 most popular open-source projects hosted on Github written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (<em>e.g.,</em> projects that are not software projects). Our final list of projects included <a href="https://github.com/rails/rails">rails</a>, <a href="https://github.com/django/django">django</a>, and <a href="https://github.com/torvalds/linux/">linux</a>.</p>
 
 <h1 id="surveys-with-practitioners">Surveys with practitioners</h1>
 
-<p>We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 361 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2.5 full days. As one reviewer said, &quot;The big deal is the story in the survey part&quot;. <strong>Thank you</strong>.</p>
+<p>We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 261 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2 full days. As one reviewer said, &quot;The big deal is the story in the survey part&quot;. <strong>Thank you</strong>.</p>
 
 <p>We observed that 65.8% of our respondents contribute to OSS at least once per month, and 75.2% of them are used to making casual contributions.</p>
 
 <h1 id="how-common-are-casual-contributors-in-oss-projects?">How common are casual contributors in OSS projects?</h1>
 
-<p>Figure 1 presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.</p>
+<p>Figure below presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.</p>
 
 <p><center>
 <img src="/images/post-casual/overall.png" alt="Contributions per programming language" height="330"/>
@@ -149,7 +149,29 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
 <h1 id="what-are-the-characteristics-of-a-casual-contribution?">What are the characteristics of a casual contribution?</h1>
 
-<p>We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project <a href="https://github.com/thoughtbot/paperclip/">paperclip</a> is the one with the highest number of additions and deletions among the Ruby projects (Adds mean, 3rd Quartile, and Std. deviation: 4.15, 5.75, and 1.72. Dels mean, 3rd Quartile, and Std. deviation: 1.02, 1.0, and 0.26). With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project</p>
+<p>We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project <a href="https://github.com/thoughtbot/paperclip/">paperclip</a> is the one with the highest number of additions and deletions among the Ruby projects. See table below. With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project.</p>
+
+<table><thead>
+<tr>
+<th>Change</th>
+<th>Mean</th>
+<th>3rd Quartile</th>
+<th>Std. Dev</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Additions</td>
+<td>4.15</td>
+<td>5.75</td>
+<td>1.72</td>
+</tr>
+<tr>
+<td>Deletions</td>
+<td>1.02</td>
+<td>1.0</td>
+<td>0.26</td>
+</tr>
+</tbody></table>
 
 <p>We also analyzed the contributions with the lowest number of additions and deletions. In fact, 22.7% of the casual contributions performed on Ruby projects changed a single line of code. Some of them include, (1) <a href="https://github.com/thoughtbot/paperclip/commit/6f2ca93">preventing a type from being null</a>, (2) <a href="https://github.com/thoughtbot/paperclip/commit/d49bca2">updating documentation files</a>, or (3) <a href="https://github.com/thoughtbot/paperclip/commit/62a9f64">setting an option to a default value</a>.</p>
 
@@ -229,11 +251,34 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 <h1 id="take-away-message">Take away message</h1>
 
 <ol>
-<li><p>Casual contributors can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.</p></li>
-<li><p>Project owners can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (<strong>e.g.</strong>, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce &quot;contributions guidelines&quot;, so that newcomers can read and get acquainted with them, therefore reducing code review effort.</p></li>
+<li><p><strong>Casual contributors</strong> can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.</p></li>
+<li><p><strong>Project owners</strong> can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (<strong>e.g.</strong>, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce &quot;contributions guidelines&quot;, so that newcomers can read and get acquainted with them, therefore reducing code review effort.</p></li>
 </ol>
 
 
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//gustavopinto.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 <div class="end-of-post">
 </div>

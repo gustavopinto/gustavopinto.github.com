@@ -8,7 +8,7 @@ title: Contact
 ## 2016
 
 1. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/saner2016.pdf)
+[[Paper]](http://gustavopinto.github.io/lost+found/saner2016.pdf) [[Blog Post]](http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html)
 
 1. Marcel Rebou&ccedil;as, **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016b.pdf)
@@ -50,7 +50,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11st Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2014.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/msr2014-talk.pdf)
-[[Blog post]](http://gustavopinto.org/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html)
+[[Blog post]](http://gustavopinto.org/2014/11/25/do-developers-care-about-software-energy-consumption.html)
 
 1. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/oss2014.pdf)
