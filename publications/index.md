@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contact
+title: Gustavo Pinto
 ---
 
 # Publications

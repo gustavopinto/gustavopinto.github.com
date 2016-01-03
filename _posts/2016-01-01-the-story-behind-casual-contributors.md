@@ -10,7 +10,7 @@ published: true
 
 TL;DR
 
-This a summary of the paper "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". For the impatient, there is a summary of the summary:
+This is a summary of the paper "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". For the impatient, there is a summary of the summary:
 
 1. **Casual contributors are rather common**. 48.98% of the overall contributors that we analyzed are actually casual contributors. However, these contributors are responsible for only 1.73% of the total contributions in our set of analyzed projects.
 
