@@ -8,7 +8,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Tips to attend OOPSLA with low budget</title>
+  <title>Do developers care about software energy consumption?</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -91,35 +91,50 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
         <span class="mastdiv">/</span>
         <span class="mastdiv">/</span>
         <a href="http://twitter.com/gustavopinto">Twitter</a>-->
-        <a href="/blog.html">Blog</a>
+        <a href="/codefather">Blog</a>
         <span class="mastdiv">/</span>
         <a href="/contact.html">Contact</a>
       </div>
 
 
-<span class="date">November  1, 2013</span>
-  <h1 class="post-title"><a href="/2013/11/01/tips-to-attend-oopsla-with-low-budget.html">Tips to attend OOPSLA with low budget</a></h1>
-  <p>Are you a [under]grad student who is wondering how amazing it could be to attend a flagship conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.</p>
+<span class="date">November 25, 2014</span>
+  <h1 class="post-title"><a href="/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html">Do developers care about software energy consumption?</a></h1>
+  <p>Is energy consumption a real issue in the software development process? Do developer really care about that?</p>
 
-<p>In this year (2013) I attended my very first OOPSLA. It was awesome. <a href="https://twitter.com/gustavopinto/status/394562681253810176">I</a> <a href="https://twitter.com/gustavopinto/status/395050744291659776">shared</a> <a href="https://twitter.com/gustavopinto/status/395210719022436352">some</a> <a href="https://twitter.com/gustavopinto/status/395683470971641856">stories</a> <a href="https://twitter.com/gustavopinto/status/396020564361371648">on</a> <a href="https://twitter.com/gustavopinto/status/396021132479827969">twitter</a>. However, one of the things that made it so great was because I didn&#39;t needed to pay anything. Neither my advisor.</p>
+<p>These questions were the start point of our paper, &quot;<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>&quot;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p>
 
-<p>How it could be possible?</p>
+<p>We filter out all questions that contain at least one energy consumption related word (<em>e.g.,</em> energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named <a href="http://en.wikipedia.org/wiki/Thematic_analysis">Thematic Analysis</a>.</p>
 
-<p>I basically follow three steps: (i) submit a paper to ACM SRC, (ii) apply to be a student volunteer, and (iii) request PAC funding.</p>
+<p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse -- we found 5 main themes of questions -- but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p>
 
-<p>I&#39;ll briefly describe these steps here.</p>
+<p>We found five main themes regarding energy consumption questions. They are:</p>
 
 <ol>
-<li><p><strong>Consider submitting a paper to ACM SRC</strong>: One good reason to go to a conference is to give a talk about your reasearch (hopefully, in the main track of the conference). In this case, you will probably get money from your advisor/department/university. But, if you are on the early stages of your research, or if you got rejected, you can also consider submitting to the ACM SRC track. The goal of the ACM SRC is to facilitate interaction between researchers and practitioners, providing both sides the opportunity to learn of ongoing research. Additionally, the ACM SRC gives students experience with both formal presentations and evaluations. Finally, you can receive up to $ 500 to spend on your trip. Not bad.</p></li>
-<li><p><strong>Apply to be a student volunteer</strong>: When you are a student volunteer, you don&#39;t need to pay for your registration. You could eventually receive other interesting things, such as a costumed t-shirt, or an invitation to a fancy dinner. <strong>Update: Student Volunteers for OOPSLA&#39;2014 also received free hotel</strong>. On the other hand, you have to work during the conference. Some duties include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms. But, don&#39;t worry. You will find time to enjoy the conference.</p></li>
-<li><p><strong>Request PAC funding</strong>: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. However, the SPLASH/Poster sesssion is sponsored. These two tracks happens together at SPLASH. Also, if you don&#39;t have any paper accepted, but was accepted to be a student volunteer, you can also request PAC funding. That is great, hun? And it is pretty easy to apply. You just have to fill up a form, explaing how do you plan to spend this money.</p></li>
+<li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li>
+<li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li>
+<li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li>
+<li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li>
+<li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li>
 </ol>
 
-<p>So, these were my tips.</p>
+<p>Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:</p>
 
-<p>Nevertheless, I&#39;m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for OOPSLA.</p>
+<ol>
+<li>Keep IO to a minimum.</li>
+<li>Bulk operations.</li>
+<li>Avoid Polling.</li>
+<li>Hardware Coordination.</li>
+<li>Concurrent programming.</li>
+<li>Lazy Initialization.</li>
+<li>Race to Idle.</li>
+<li>Efficient Data structure.</li>
+</ol>
 
-<p>That is all. I hope to see you at SPLASH/OOPSLA&#39;2014 in Portland :)</p>
+<p>We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.</p>
+
+<p>In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.</p>
+
+<p>For more details, please check out <a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">our paper</a>.</p>
 
 
 

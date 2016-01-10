@@ -8,7 +8,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Do developers care about software energy consumption?</title>
+  <title>Why do you keep doing surveys?</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -91,50 +91,42 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
         <span class="mastdiv">/</span>
         <span class="mastdiv">/</span>
         <a href="http://twitter.com/gustavopinto">Twitter</a>-->
-        <a href="/blog.html">Blog</a>
+        <a href="/codefather">Blog</a>
         <span class="mastdiv">/</span>
         <a href="/contact.html">Contact</a>
       </div>
 
 
-<span class="date">November 25, 2014</span>
-  <h1 class="post-title"><a href="/2014/11/25/do-developers-care-about-software-energy-consumption.html">Do developers care about software energy consumption?</a></h1>
-  <p>Is energy consumption a real issue in the software development process? Do developer really care about that?</p>
+<span class="date">December  3, 2013</span>
+  <h1 class="post-title"><a href="/codefather/2013/12/03/Why-keep-doing-surveys.html">Why do you keep doing surveys?</a></h1>
+  <p>When I say survey, I mean online questionnaires.</p>
 
-<p>These questions were the start point of our paper, &quot;<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>&quot;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p>
+<p>First of all, don&#39;t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.</p>
 
-<p>We filter out all questions that contain at least one energy consumption related word (<em>e.g.,</em> energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named <a href="http://en.wikipedia.org/wiki/Thematic_analysis">Thematic Analysis</a>.</p>
+<p>Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?</p>
 
-<p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse -- we found 5 main themes of questions -- but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p>
+<p>Yes, of course, you can do a survey.</p>
 
-<p>We found five main themes regarding energy consumption questions. They are:</p>
+<p>But, there are some concerns that you have to keep in mind: First, survey has its own problems (the subject may lie in a difficult questions, or may remember incorrectly about a long time question, or may not fully understand a question and then give a faulty response). Second, the survey response rate is pretty low. If you are a luck guy, you can get 10% or 15% of response rate. So, if you are targeting the entire rails population, you may draw conclusions from a biased part of it. And finally, you may have to wait for several weeks (months?) until you have collected enough data.</p>
 
-<ol>
-<li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li>
-<li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li>
-<li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li>
-<li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li>
-<li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li>
-</ol>
+<p>Or you can simply change your data source.</p>
 
-<p>Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:</p>
+<p>If you are doing computer science research, you have on hand a number of great on line data sources. All you have to do is pick up the right one, use your programming skill to extract the data, and proceed to the analysis.</p>
+
+<p>For example:</p>
 
 <ol>
-<li>Keep IO to a minimum.</li>
-<li>Bulk operations.</li>
-<li>Avoid Polling.</li>
-<li>Hardware Coordination.</li>
-<li>Concurrent programming.</li>
-<li>Lazy Initialization.</li>
-<li>Race to Idle.</li>
-<li>Efficient Data structure.</li>
+<li><p>Do you want to know what rails core developers eat at lunch? Find them on <a href="http://www.github.com">Github</a> and mine their actives on there.</p></li>
+<li><p>Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on <a href="http://www.stackoverflow.com">StackOverfow</a>.</p></li>
+<li><p>Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on <a href="http://www.github.com">Github</a> and/or <a href="http://www.sourceforge.com">SourceForge</a>, and parse their source code.</p></li>
+<li><p>Do you want to know if final users are facing energy consumption problems in mobile applications? Mine <a href="http://play.google.com">Google Play</a> comments.</p></li>
 </ol>
 
-<p>We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.</p>
+<p>And the list goes on.</p>
 
-<p>In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.</p>
+<p>You see? Surveys are good. But, you can get a ton of data if you mine such websites.</p>
 
-<p>For more details, please check out <a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">our paper</a>.</p>
+<p>Nowadays, mining software repositories is not only about software, but human behaviour as well.</p>
 
 
 
