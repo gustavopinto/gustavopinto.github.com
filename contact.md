@@ -5,7 +5,7 @@ title: Gustavo Pinto
 
 # Contact
 
-E-mail: ghlp<span style="display:none">ignorethis</span>@cin.ufpe.br
+E-mail: gustavo.pinto<span style="display:none">ignorethis</span>@ifpa.br
 
 Twitter: [gustavopinto](https://twitter.com/gustavopinto)
 
