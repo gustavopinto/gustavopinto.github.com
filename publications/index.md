@@ -26,9 +26,6 @@ title: Gustavo Pinto
 1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
-<!--1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)-->
-
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015. **[[This paper was highlighted in the November/December 2015 issue of IEEE Software](http://www.computer.org/csdl/mags/so/2015/06/mso2015060098.pdf)]**<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2015.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/msr2015-talk.pdf)
 [[Website]](http://gustavopinto.org/energy-aware-mining/)
@@ -88,3 +85,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ## 2008
 1. **Gustavo Pinto**. Uma An&aacute;lise da Utiliza&ccedil;&atilde;o de Testes Baseados em Pertuba&ccedil;&atilde;o e Contratos em WebServices. Accepted to the Sulcomp, 2008, Criciuma, Brazil.
+
+
+<!--1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)-->
