@@ -5,7 +5,7 @@ title: Gustavo Pinto
 
 # Contact
 
-E-mail: gustavo.pinto<span style="display:none">ignorethis</span>@ifpa.br
+E-mail: gustavo.pinto<span style="display:none">ignorethis</span>@ifpa.edu.br
 
 Twitter: [gustavopinto](https://twitter.com/gustavopinto)
 
