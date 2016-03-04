@@ -101,33 +101,33 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
   <h1 class="post-title"><a href="/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html">Do developers care about software energy consumption?</a></h1>
   <p>Is energy consumption a real issue in the software development process? Do developer really care about that?</p>
 
-<p>These questions were the start point of our paper, &quot;<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>&quot;. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p>
+<p>These questions were the start point of our paper, “<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>”. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p>
 
 <p>We filter out all questions that contain at least one energy consumption related word (<em>e.g.,</em> energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named <a href="http://en.wikipedia.org/wiki/Thematic_analysis">Thematic Analysis</a>.</p>
 
-<p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse -- we found 5 main themes of questions -- but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p>
+<p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse – we found 5 main themes of questions – but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p>
 
 <p>We found five main themes regarding energy consumption questions. They are:</p>
 
 <ol>
-<li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li>
-<li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li>
-<li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li>
-<li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li>
-<li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li>
+  <li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li>
+  <li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li>
+  <li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li>
+  <li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li>
+  <li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li>
 </ol>
 
 <p>Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:</p>
 
 <ol>
-<li>Keep IO to a minimum.</li>
-<li>Bulk operations.</li>
-<li>Avoid Polling.</li>
-<li>Hardware Coordination.</li>
-<li>Concurrent programming.</li>
-<li>Lazy Initialization.</li>
-<li>Race to Idle.</li>
-<li>Efficient Data structure.</li>
+  <li>Keep IO to a minimum.</li>
+  <li>Bulk operations.</li>
+  <li>Avoid Polling.</li>
+  <li>Hardware Coordination.</li>
+  <li>Concurrent programming.</li>
+  <li>Lazy Initialization.</li>
+  <li>Race to Idle.</li>
+  <li>Efficient Data structure.</li>
 </ol>
 
 <p>We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.</p>
