@@ -17,8 +17,10 @@ Today my research brodaly spans the field of performance & energy consumption (*
 1. In 2016, I joined the [Federal Institute of Pará](http://ifpa.edu.br/), as an Assitant Professor.
 2. I had two papers accepted at [SANER 2016](http://saner.inf.usi.ch/): "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)" and "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)"
 
-<!--- # Service
+ # Service upcomming
+1. [SBLP](http://cbsoft.org/cbsoft2016/sblp2016), [SBCARS](http://cbsoft.org/cbsoft2016/sbcars2016), [IWSR](http://www.softrefactoring.com/)
 
+<!--
 2016: [PyCon](https://us.pycon.org/2016/) (Poster Session Co-Chair).
 - 2015: [SUSCOM](http://www.journals.elsevier.com/sustainable-computing/), [CBSoft](http://cbsoft.org/cbsoft2015/)[[SBES](cbsoft.org/sbes2015/), [SBLP](cbsoft.org/sblp2015/)], [CSBC](http://csbc2015.cin.ufpe.br/)[[CTD](http://cbsoft.org/cbsoft2015/wtdsoft?lang=pt)], [J. Science of Computer Programming](http://www.journals.elsevier.com/science-of-computer-programming/), [PyCon](https://us.pycon.org/2015/) (Poster Session Co-Chair).
 - 2014: [OOPSLA](http://2014.splashcon.org/events/oopsla2014)[[AeC](http://2014.splashcon.org/committee/splash2014-artifacts-artifact-evaluation-committee)], [SUSCOM](http://www.journals.elsevier.com/sustainable-computing/), [ECOOP](http://ecoop14.it.uu.se/), SAC, [PyCon](https://us.pycon.org/2014) (Poster Session Co-Chair).
