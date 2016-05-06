@@ -13,7 +13,7 @@ During my Ph.D., I studied how parallel programming techniques, in particular, t
 Today my research brodaly spans the field of performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), big data analytics (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
 
 
-# News
+# News for 2016
 1. I had a paper accepted at [ESEM 2016](http://alarcos.esi.uclm.es/eseiw2016/esem): "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/)"
 2. I had two papers accepted at [SANER 2016](http://saner.inf.usi.ch/): "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)" and "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)"
 3. In 2016, I joined the [Federal Institute of Pará](http://ifpa.edu.br/), as an Assitant Professor.
