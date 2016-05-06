@@ -42,7 +42,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ## 2014
 
-1. **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicores Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)". Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014. <br/>
+1. **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicore Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)". Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/seps2014.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/seps2014-talk.pdf)
 
 1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)". Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.<br/>
