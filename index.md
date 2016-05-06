@@ -14,13 +14,12 @@ Today my research brodaly spans the field of performance & energy consumption (*
 
 
 # News
-1. In 2016, I joined the [Federal Institute of Pará](http://ifpa.edu.br/), as an Assitant Professor.
+1. I had a paper accepted at [ESEM 2016](http://alarcos.esi.uclm.es/eseiw2016/esem): "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/)"
 2. I had two papers accepted at [SANER 2016](http://saner.inf.usi.ch/): "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)" and "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)"
-3. I had a paper accepted at [ESEM 2016](http://alarcos.esi.uclm.es/eseiw2016/esem): "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/)"
-
+3. In 2016, I joined the [Federal Institute of Pará](http://ifpa.edu.br/), as an Assitant Professor.
 
 # Service for 2016
-1. [SBLP](http://cbsoft.org/cbsoft2016/sblp2016), [SBCARS](http://cbsoft.org/cbsoft2016/sbcars2016), [IWSR](http://www.softrefactoring.com/), [PyCon Poster Session](https://us.pycon.org/2016/schedule/posters/list/)
+1. [SBLP](http://cbsoft.org/cbsoft2016/sblp2016), [SBCARS](http://cbsoft.org/cbsoft2016/sbcars2016), [IWSR](http://www.softrefactoring.com/), [PyCon Poster Session (chair)](https://us.pycon.org/2016/schedule/posters/list/)
 
 <!--
 2016: [PyCon](https://us.pycon.org/2016/) (Poster Session Co-Chair).
