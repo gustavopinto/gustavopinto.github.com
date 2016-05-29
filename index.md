@@ -3,7 +3,7 @@ layout: default
 title: Gustavo Pinto
 ---
 
-I'm an Assitant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://ifpa.edu.br/), Brazil. Before that, I did a Post Doc with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) at the [Federal University of Pernambuco](http://cin.ufpe.br). I completed my PhD at the same university, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl).
+I'm an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://ifpa.edu.br/), Brazil. Before that, I did a Post Doc with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) at the [Federal University of Pernambuco](http://cin.ufpe.br). I completed my PhD at the same university, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl).
 
 
 <img src="http://gustavopinto.org/lost+found/ghlp.jpg" alt="Gustavo Pinto" width="220" height="221" class="headshot"/>
