@@ -3,14 +3,14 @@ layout: default
 title: Gustavo Pinto
 ---
 
-I'm an Assitant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://ifpa.edu.br/), Brazil. Before that, I did a Post Doc with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) at the [Federal University of Pernambuco](http://cin.ufpe.br). I completed my PhD at the same university, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl).
+I'm an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://ifpa.edu.br/), Brazil. Before that, I did a Post Doc with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) at the [Federal University of Pernambuco](http://cin.ufpe.br). I completed my PhD at the same university, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl).
 
 
 <img src="http://gustavopinto.org/lost+found/ghlp.jpg" alt="Gustavo Pinto" width="220" height="221" class="headshot"/>
 
 During my Ph.D., I studied how parallel programming techniques, in particular, thread management constructs and thread-safe data-structures, impact energy consumption. For instance, since we are moving from 2 to 32, 64 or even 128 cores, how can we save **energy** knowing that a 32 core processor consumes more **power** than one with 2 cores? My work on this topic, which is presented in a number of [publications](/publications), is synthesized in my Ph.D. thesis, entitled "[A Refactoring Approach to Improve Energy Consumption of Parallel Software Systems](http://gustavopinto.github.io/lost+found/thesis.pdf)".
 
-Today my research brodaly spans the field of performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), big data analytics (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
+Today my research broadly spans the field of performance & energy consumption (*e.g.*, [FASE'2015](http://gustavopinto.github.io/lost+found/fase2015.pdf)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), social aspects of software enginering (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), big data analytics (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)), and refactoring (*e.g.*, [GREENS'2015](http://gustavopinto.github.io/lost+found/greens2015.pdf)).
 
 
 # News for 2016
