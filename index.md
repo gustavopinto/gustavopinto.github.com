@@ -14,7 +14,8 @@ Today my research broadly spans the field of performance & energy consumption (*
 
 
 # News for 2016
-1. I had a paper accepted at [ICSME 2016](http://icsme2016.github.io/program/accepted.html): "[A Comprehensive Study on the Energy Efficiency of Java’s Thread-Safe Collections](http://gustavopinto.github.io/)"
+1. I had two papers accepted at [ICSME 2016](http://icsme2016.github.io/program/accepted.html): "[A Comprehensive Study on the Energy Efficiency of Java’s Thread-Safe Collections](http://gustavopinto.github.io/)" and "[How Does the Shift to GitHub Impact Project Collaboration?](#)"
+
 1. I had a paper accepted at [ESEM 2016](http://alarcos.esi.uclm.es/eseiw2016/esem): "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)"
 2. I had two papers accepted at [SANER 2016](http://saner.inf.usi.ch/): "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)" and "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)"
 3. In 2016, I joined the [Federal Institute of Pará](http://ifpa.edu.br/), as an Assitant Professor.

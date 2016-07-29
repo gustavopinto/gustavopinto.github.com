@@ -119,21 +119,19 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
 <p>Let’s start by initializing your data array. If you do not have basic knowledge in R, <a href="http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf">this article</a> is a good start point.</p>
 
-<p><code>R
-seq &lt;- c(78, 78, 78, 78)
+<pre><code class="language-R">seq &lt;- c(78, 78, 78, 78)
 thread &lt;- c(80, 60, 55, 42)
 executors &lt;- c(80, 56, 42, 31)
 forkJoin &lt;- c(79, 55, 52, 54)
 actors &lt;-c(82, 47, 38, 30)
-</code></p>
+</code></pre>
 
 <h1 id="second">Second</h1>
 
 <p>Create a simple line chart with one of your data set using the <code>plot</code> function. In this case, I used the <code>thread</code> var.</p>
 
-<p><code>R
-plot(thread, type="o", col="blue", pch=18, ylim=c(20, 100))
-</code></p>
+<pre><code class="language-R">plot(thread, type="o", col="blue", pch=18, ylim=c(20, 100))
+</code></pre>
 
 <p>In this function, we passed the <code>thread</code> var and more four arguments. They are:</p>
 
@@ -148,12 +146,11 @@ plot(thread, type="o", col="blue", pch=18, ylim=c(20, 100))
 
 <p>Now, we have to add the remaining data. To do so, we will use another function called <code>lines</code>. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the <code>plot</code> function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:</p>
 
-<p><code>R
-lines(seq, type="o", pch=23, lty=1, col="darkred")
+<pre><code class="language-R">lines(seq, type="o", pch=23, lty=1, col="darkred")
 lines(executors, type="o", pch=24, lty=1, col="purple")
 lines(forkJoin, type="o", pch=25, lty=1, col="chocolate3")
 lines(actors, type="o", pch=8, lty=1, col="orangered2 ")&lt;/code&gt;&lt;/pre&gt;
-</code></p>
+</code></pre>
 
 <p>For the moment, your chart may looks like this one:</p>
 

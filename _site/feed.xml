@@ -45,7 +45,7 @@
 
 &lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;
 </description>
-				<pubDate>Thu, 05 May 2016 00:00:00 -0400</pubDate>
+				<pubDate>Thu, 05 May 2016 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2016/05/05/evidence-briefings.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2016/05/05/evidence-briefings.html</guid>
 			</item>
@@ -232,7 +232,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 </description>
-				<pubDate>Fri, 01 Jan 2016 00:00:00 -0500</pubDate>
+				<pubDate>Fri, 01 Jan 2016 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2016/01/01/the-story-behind-casual-contributors.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2016/01/01/the-story-behind-casual-contributors.html</guid>
 			</item>
@@ -278,7 +278,7 @@
 
 &lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 25 Nov 2014 00:00:00 -0500</pubDate>
+				<pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2014/11/25/do-developers-care-about-software-energy-consumption.html</guid>
 			</item>
@@ -324,7 +324,7 @@
 
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 03 Dec 2013 00:00:00 -0500</pubDate>
+				<pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/12/03/Why-keep-doing-surveys.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/12/03/Why-keep-doing-surveys.html</guid>
 			</item>
@@ -361,7 +361,7 @@
 
 &lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA’2014 in Portland :)&lt;/p&gt;
 </description>
-				<pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/11/01/tips-to-attend-oopsla-with-low-budget.html</guid>
 			</item>
@@ -429,7 +429,7 @@
 
 &lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/07/19/pycon-2014-call-for-poster.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/07/19/pycon-2014-call-for-poster.html</guid>
 			</item>
@@ -466,7 +466,7 @@
 
 &lt;p&gt;If you want to read more about, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/oss2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+				<pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/07/19/from-where-come-the-brazilian-open-source-contributions.html</guid>
 			</item>
@@ -495,21 +495,19 @@
 
 &lt;p&gt;Let’s start by initializing your data array. If you do not have basic knowledge in R, &lt;a href=&quot;http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf&quot;&gt;this article&lt;/a&gt; is a good start point.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;R
-seq &amp;lt;- c(78, 78, 78, 78)
+&lt;pre&gt;&lt;code class=&quot;language-R&quot;&gt;seq &amp;lt;- c(78, 78, 78, 78)
 thread &amp;lt;- c(80, 60, 55, 42)
 executors &amp;lt;- c(80, 56, 42, 31)
 forkJoin &amp;lt;- c(79, 55, 52, 54)
 actors &amp;lt;-c(82, 47, 38, 30)
-&lt;/code&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&quot;second&quot;&gt;Second&lt;/h1&gt;
 
 &lt;p&gt;Create a simple line chart with one of your data set using the &lt;code&gt;plot&lt;/code&gt; function. In this case, I used the &lt;code&gt;thread&lt;/code&gt; var.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;R
-plot(thread, type=&quot;o&quot;, col=&quot;blue&quot;, pch=18, ylim=c(20, 100))
-&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-R&quot;&gt;plot(thread, type=&quot;o&quot;, col=&quot;blue&quot;, pch=18, ylim=c(20, 100))
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;In this function, we passed the &lt;code&gt;thread&lt;/code&gt; var and more four arguments. They are:&lt;/p&gt;
 
@@ -524,12 +522,11 @@ plot(thread, type=&quot;o&quot;, col=&quot;blue&quot;, pch=18, ylim=c(20, 100))
 
 &lt;p&gt;Now, we have to add the remaining data. To do so, we will use another function called &lt;code&gt;lines&lt;/code&gt;. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the &lt;code&gt;plot&lt;/code&gt; function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;R
-lines(seq, type=&quot;o&quot;, pch=23, lty=1, col=&quot;darkred&quot;)
+&lt;pre&gt;&lt;code class=&quot;language-R&quot;&gt;lines(seq, type=&quot;o&quot;, pch=23, lty=1, col=&quot;darkred&quot;)
 lines(executors, type=&quot;o&quot;, pch=24, lty=1, col=&quot;purple&quot;)
 lines(forkJoin, type=&quot;o&quot;, pch=25, lty=1, col=&quot;chocolate3&quot;)
 lines(actors, type=&quot;o&quot;, pch=8, lty=1, col=&quot;orangered2 &quot;)&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&lt;/code&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
 
@@ -574,7 +571,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
-				<pubDate>Wed, 08 May 2013 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/05/08/improving-your-line-plots-with-r.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/05/08/improving-your-line-plots-with-r.html</guid>
 			</item>
@@ -595,7 +592,7 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
 
 &lt;p&gt;&lt;img src=&quot;/images/codefather.jpg&quot; /&gt;&lt;/p&gt;
 </description>
-				<pubDate>Sun, 07 Apr 2013 00:00:00 -0400</pubDate>
+				<pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
 				<link>http://gustavopinto.org/codefather/2013/04/07/hello-world.html</link>
 				<guid isPermaLink="true">http://gustavopinto.org/codefather/2013/04/07/hello-world.html</guid>
 			</item>
