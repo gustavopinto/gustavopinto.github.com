@@ -22,7 +22,8 @@ title: Gustavo Pinto
 1. Marcel Rebou&ccedil;as, **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016b.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/saner2016b-talk)
 
-1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
+1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
+[[PAPER]](http://gustavopinto.github.io/lost+found/vem2016.pdf)"
 
 ## 2015
 
