@@ -7,7 +7,8 @@ title: Gustavo Pinto
 
 ## 2016
 
-1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "How Does the Shift to GitHub Impact Project Collaboration?". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
+1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
+[[Paper]](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)
 
 1. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/icsme2016.pdf) [[Hacker News]](https://news.ycombinator.com/item?id=12256220) [[Artifacts Validated]](http://gustavopinto.github.io/)
