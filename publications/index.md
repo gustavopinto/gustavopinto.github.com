@@ -11,7 +11,7 @@ title: Gustavo Pinto
 [[Paper]](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)
 
 1. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
-[[Paper]](http://gustavopinto.github.io/icsme2016.pdf) [[Hacker News]](https://news.ycombinator.com/item?id=12256220) [[Artifacts Validated]](http://gustavopinto.github.io/)
+[[Paper]](http://gustavopinto.github.io/icsme2016.pdf) [[Slides]](http://gustavopinto.org/lost+found/icsme2016-talk.pdf) [[Video]](https://youtu.be/sj0p2QIiBB4) [[Hacker News]](https://news.ycombinator.com/item?id=12256220) [[Artifacts Validated]](http://gustavopinto.github.io/) 
 
 1. Bruno Cartaxo, **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/esem2016.pdf)
