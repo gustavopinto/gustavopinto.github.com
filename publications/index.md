@@ -5,6 +5,13 @@ title: Gustavo Pinto
 
 # Publications
 
+## 2017
+
+1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017). Proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.
+
+1. Gustavo Pinto, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users. Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE 2017). Buenos Aires, Argentina, 2017.
+
+
 ## 2016
 
 1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
@@ -21,7 +28,7 @@ title: Gustavo Pinto
 1. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/saner2016-talk.pdf) [[Blog Post]](http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html) [[Hacker News]](https://news.ycombinator.com/item?id=11977747)
 
-1. Marcel Rebou&ccedil;as, **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
+1. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016b.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/saner2016b-talk)
 
 1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
@@ -36,7 +43,7 @@ title: Gustavo Pinto
 [[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
 
-1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), Benito Fernandes, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
+1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015. **[[This paper was highlighted in the November/December 2015 issue of IEEE Software](http://www.computer.org/csdl/mags/so/2015/06/mso2015060098.pdf)]**<br/>
@@ -88,7 +95,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ## 2011
 
-1. [Weslley Torres](https://twitter.com/weslleytorres), **Gustavo Pinto**, Benito Fernandes, Jo&atilde;o Paulo Oliveira, [Filipe Ximenes](http://www.vinta.com.br/blog/author/filipe-ximenes.html), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.
+1. [Weslley Torres](https://twitter.com/weslleytorres), **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Jo&atilde;o Paulo Oliveira, [Filipe Ximenes](http://www.vinta.com.br/blog/author/filipe-ximenes.html), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.
 
 ## 2010
 
