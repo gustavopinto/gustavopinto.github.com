@@ -1,13 +1,14 @@
 ---
 layout: default
-title: Gustavo Pinto
+title: Gustavo Pinto, Ph.D.
 ---
 
 # Publications
 
 ## 2017
 
-1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017). Proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.
+1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017). Proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017)
 
 1. Gustavo Pinto, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users. Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE 2017). Buenos Aires, Argentina, 2017.
 
@@ -32,7 +33,7 @@ title: Gustavo Pinto
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016b.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/saner2016b-talk)
 
 1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
-[[PAPER]](http://gustavopinto.github.io/lost+found/vem2016.pdf)"
+[[Paper]](http://gustavopinto.github.io/lost+found/vem2016.pdf)
 
 ## 2015
 

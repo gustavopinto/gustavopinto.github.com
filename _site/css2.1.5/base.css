@@ -280,3 +280,23 @@
 	.remove-bottom { margin-bottom: 0 !important; }
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
+
+
+
+
+div.picture {
+  width: 370px;
+  background: black ;
+  margin-left: auto ;
+  margin-right: auto ;
+  margin-bottom: 20px ;
+  padding: 20px ;
+  padding-left: 40px ;
+  padding-right: 40px ;
+  border-radius: 9px ;
+  -moz-border-radius: 9px ;
+  -o-box-shadow: 0 5px 5px #333333 ;
+  -webkit-box-shadow: 0 5px 5px #333333 ;
+  -moz-box-shadow: 0 5px 5px #333333 ;
+  box-shadow: 0 5px 5px #333333 ;
+}
