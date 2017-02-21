@@ -7,19 +7,19 @@ title: Gustavo Pinto, Ph.D.
 
 ## 2017
 
-1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017). Proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017)
+1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf). Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 1. Gustavo Pinto, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users. Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE 2017). Buenos Aires, Argentina, 2017.
 
 
 ## 2016
 
-1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
+1. Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
 [[Paper]](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)
 [[Slides]](http://gustavopinto.org/lost+found/icsme2016b-talk.pdf)
 
-1. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
+1. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/icsme2016.pdf) [[Slides]](http://gustavopinto.org/lost+found/icsme2016-talk.pdf) [[Video]](https://youtu.be/sj0p2QIiBB4) [[Hacker News]](https://news.ycombinator.com/item?id=12256220) [[Artifacts Validated]](http://gustavopinto.github.io/)
 
 1. Bruno Cartaxo, **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
@@ -44,7 +44,7 @@ title: Gustavo Pinto, Ph.D.
 [[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
 
-1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2015.<br/>
+1. **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Accepted to the Journal of Systems and Software, 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
 1. Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015. **[[This paper was highlighted in the November/December 2015 issue of IEEE Software](http://www.computer.org/csdl/mags/so/2015/06/mso2015060098.pdf)]**<br/>
