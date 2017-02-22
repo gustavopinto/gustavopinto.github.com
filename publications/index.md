@@ -24,6 +24,7 @@ title: Gustavo Pinto, Ph.D.
 
 1. Bruno Cartaxo, **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/esem2016.pdf)
+[[Slides]](https://www.slideshare.net/gustavopinto/evidence-briefings-towards-a-medium-to-transfer-knowledge-from-systematic-reviews-to-practitioners)
 [[Blog Post]](http://gustavopinto.github.io/codefather/2016/05/05/evidence-briefings.html)
 
 1. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
