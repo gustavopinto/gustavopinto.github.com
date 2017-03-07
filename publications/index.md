@@ -7,6 +7,8 @@ title: Gustavo Pinto, Ph.D.
 
 ## 2017
 
+1. Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Energy Efficiency: A New Concern for Application Software Developers. Accepted to the Communications of the ACM, 2017.
+
 1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf). Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
@@ -107,7 +109,3 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 ## 2008
 1. **Gustavo Pinto**. Uma An&aacute;lise da Utiliza&ccedil;&atilde;o de Testes Baseados em Pertuba&ccedil;&atilde;o e Contratos em WebServices. Accepted to the Sulcomp, 2008, Criciuma, Brazil.
-
-
-<!--1. **Gustavo Pinto**, Kenan Liu, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)". Journal of Systems and Software, 2015.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/jss_seps2015.pdf)-->
