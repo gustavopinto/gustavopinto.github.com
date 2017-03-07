@@ -7,12 +7,12 @@ title: Gustavo Pinto, Ph.D.
 
 ## 2017
 
-1. Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Energy Efficiency: A New Concern for Application Software Developers. Accepted to the Communications of the ACM, 2017.
-
-1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf). Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017. Accepted for publication.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
+1. Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Energy Efficiency: A New Concern for Application Software Developers. Accepted to the Communications of the ACM, 2017.<br/>
 
 1. Gustavo Pinto, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf). Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE 2017). Buenos Aires, Argentina, 2017.
+
+1. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf). Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 
 ## 2016
