@@ -8,6 +8,7 @@ title: Gustavo Pinto, Ph.D.
 ## 2017
 
 1. Gustavo Pinto, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Energy Efficiency: A New Concern for Application Software Developers. Accepted to the Communications of the ACM, 2017.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/cacm2017.pdf)
 
 1. [Bruno Cartaxo](http://twitter.com/brunocartaxo), Gustavo Pinto, Danilo Ribeiro, [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). Using Q&A Websites as a Method for Assessing Systematic Reviews. Accepted to the 14th International Conference on Mining Software Repositories. Buenos Aires, Argentina, 2017.
 

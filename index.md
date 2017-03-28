@@ -3,13 +3,21 @@ layout: default
 title: Gustavo Pinto
 ---
 
-I'm an Assistant Professor at the Faculty of Computing of the [Federal University of Pará](http://www.ufpa.br/), Brazil.
+I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) blog and do talks.
 
-I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. My [Ph.D. thesis]((http://gustavopinto.github.io/lost+found/thesis.pdf)) was one of the first to create refactoring tools aiming at reducing energy consumption. Before becoming a professor, I did a Post Doc also with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor). During 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl).
+I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During the academic year of 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl). My [Ph.D. thesis]((http://gustavopinto.github.io/lost+found/thesis.pdf)) is all about software energy consumption.
 
-My primary research area is software engineering.
+From December 2015 to March 2017 I have been an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://www.ifpa.edu.br/), Brazil. Before becoming a professor, I did a Post Doc also with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor).
 
-My broader interests include performance & energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software databases (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)).
+My primary research area is software engineering. My broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories techniques (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)).
+
+
+## Service for 2017
+1. PC member, [SBLP](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/)
+1. PC member, [SBCARS](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/)
+1. Co-Chair [PyCon Poster Session](https://us.pycon.org/2017/speaking/posters/)
+1. Co-Chair [WBMA](#)
+1. Co-Chair [WTDSoft](#)
 
 
 <!--
