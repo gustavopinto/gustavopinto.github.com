@@ -5,7 +5,7 @@ title: Gustavo Pinto, Ph.D.
 
 # Personal
 
-E-mail: gustavo.pinto<span style="display:none">ignorethis</span>@ifpa.edu.br
+E-mail: gpinto<span style="display:none">ignorethis</span>@ufpa.br
 
 Twitter: [gustavopinto](https://twitter.com/gustavopinto)
 

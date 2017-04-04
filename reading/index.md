@@ -10,7 +10,8 @@ A few suggestions for (prospective) grad students, in no particular order:
 ## Must read
 
 1. [The care and maintenance of your adviser](http://www.nature.com/naturejobs/2011/110127/pdf/nj7331-570a.pdf)
-1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf)
+1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
+1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
 
 ## Where to find money
 
