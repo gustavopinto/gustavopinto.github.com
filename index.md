@@ -11,6 +11,7 @@ From December 2015 to March 2017 I have been an Assistant Professor at the [Fede
 
 My primary research area is software engineering. My broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories techniques (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)).
 
+Are you a student looking for an advisor? (If you're unsure of what my research area is, check out one of my [recent papers](/publications).) Are you a researcher and think that our interests overlap? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br
 
 ## Service for 2017
 1. PC member, [SBLP](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/)
