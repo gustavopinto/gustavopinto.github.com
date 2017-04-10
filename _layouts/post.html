@@ -10,7 +10,7 @@ blog: true
 </div>
 {% else %}
 <span class="date">{{ page.date | date: '%B' }} {{ page.date | date: '%e' }}, {{ page.date | date: '%Y' }}</span>
-  <h1 class="post-title"><a href="{{ page.url }}">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</a></h1>
+  <h2 class="post-title"><a href="{{ page.url }}">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</a></h2>
   {{ content }}
 {% endif %}
 
