@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Debugging R Functions</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">August 23, 2013</span>
+  <h1 class="post-title"><a href="/2013/08/23/debugging-r.html">Debugging R Functions</a></h1>
+  <p>Knowing how to debug functions is a critical skill if you want to work
+proficiently in R. In my experience, many graduate student R users aren’t
+aware of the debugging options. Maybe this stems from how many people learn
+R. They attend an introductory course or work their way through a
+introductory book. These courses or books typically touch on using functions
+in R but don’t go into detail (but see Hadley Wickham’s upcoming book
+<a href="http://adv-r.had.co.nz">Advanced R programming</a>). These R users then develop their own expertise.</p>
+
+<p>However, one of the insidious elements of self-teaching a programming
+language is that if a problem isn’t obvious then it’s hard to seek a
+solution. In the context of debugging, I’d bet that many users, and in
+particular those not familiar with other high-level programming languages,
+don’t know how much easier their R coding lives could be.</p>
+
+<p>Read on for an introduction to the basic R debugging strategies that every
+user should be familiar with. To paraphrase Hadley from a talk he gave in
+Vancouver: if you don’t know these strategies, you’re coding blind.</p>
+
+<h1 id="old-school-strategies">Old-school strategies</h1>
+
+<p>These are the lowest-level options. Many users figure these out for
+themselves or learn them from other lower-level programming languages that
+don’t have as advanced debugging options. They are useful strategies, but
+only as part of a complete debugging toolbox.</p>
+
+<h2 id="trial-and-error">Trial and error</h2>
+
+<p>See an error. Guess the solution. Run the code again. A fast solution for
+simple errors. But if the solution was obvious we wouldn’t be
+talking about debuggers, right?</p>
+
+<h2 id="make-your-function-global">Make your function global</h2>
+
+<p>Turn the arguments of a function into global objects. Step through the code
+and figure out the problem. For example, turn this:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>into this:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>This strategy breaks down for functions that receive many arguments. It also
+creates many global objects that match function arguments names, which can
+become confusing. This strategy is rarely the best solution given the options
+I’ll describe below.</p>
+
+<h2 id="add-print-statements">Add print statements</h2>
+
+<p>Add <code class="highlighter-rouge">print()</code> around key objects within your function and read the value of
+the objects as the function runs. This is a robust strategy and one that users
+familiar with lower-level languages (e.g. C, C++, or Fortran) often fall back
+on. Keep this strategy handy, but realize that its key disadvantage is that it
+isn’t interactive. All you see are object values, but you can’t interact with
+them to deduce the cause of a problem.</p>
+
+<h1 id="when-things-get-complicated">When things get complicated</h1>
+
+<p>The following set of functions and options can dramatically improve your
+ability to solve complicated coding problems.</p>
+
+<h2 id="traceback">traceback</h2>
+
+<p>When you encounter an error, your first course of action should be to run the
+function <code class="highlighter-rouge">traceback()</code>. <code class="highlighter-rouge">traceback()</code> will list the chain of functions that
+led to the error. This might be enough to figure out the solution and if not
+you’ll at least get a good idea of which function to debug.</p>
+
+<h2 id="browser">browser</h2>
+
+<p>Similar to Portlandia’s “<a href="http://www.youtube.com/watch?v=iHmLljk2t8M">Put a bird on it</a>”, my go-to solution when I’m
+debugging a function is to “Put a <code class="highlighter-rouge">browser()</code> on it”.</p>
+
+<p>To use <code class="highlighter-rouge">browser()</code> you add the line <code class="highlighter-rouge">browser()</code> somewhere in your function. For example:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">times_two</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nf">browser</span><span class="p">()</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>When you call the function you’ll pop out in the function wherever you put
+the <code class="highlighter-rouge">browser()</code> statement and have access to the local workspace:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">times_two</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Called from: times_two()
+Browse[1]&gt; 
+</code></pre>
+</div>
+
+<p>We can now access the local value of <code class="highlighter-rouge">x</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Browse[1]&gt; x
+[1] 5
+</code></pre>
+</div>
+
+<p>You can either work through the function line by line by typing <code class="highlighter-rouge">n</code> and hit
+enter in the R console, or you can send lines of code to the console line by
+line. When you hit enter the function will continue running until it finishes
+or reaches another <code class="highlighter-rouge">browser()</code> statement. Importantly, to get out, type the
+letter <code class="highlighter-rouge">Q</code> and hit enter. Note that you can nest <code class="highlighter-rouge">browser()</code> statements if you
+need to, just keep track of what function you’re inside.</p>
+
+<h2 id="turn-errors-to-debuggers">Turn errors to debuggers</h2>
+
+<p>If you set the following option before calling your function:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">options</span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recover</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>then the R console will pop out in debugging mode when it encounters an
+error. This is equivalent to placing a <code class="highlighter-rouge">browser()</code> statement at precisely the
+location where the error occurs.</p>
+
+<p>If the problem is associated with a warning instead of an error, then you can
+also set the following option so that the debugger will start on warnings:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">options</span><span class="p">(</span><span class="n">warn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="debugging-installed-packages">Debugging installed packages</h2>
+
+<p>What if the error stems from a function in an installed R package? There are
+various ways to approach this problem.</p>
+
+<p>A first approach might be to set <code class="highlighter-rouge">options(error = recover)</code> and then work
+through the code line by line with <code class="highlighter-rouge">n</code>.</p>
+
+<p>For complicated issues, it might help to have a copy of the function code in
+front of you. For most R functions you can start by printing the name of the
+function in the R console (without parentheses or arguments) and hitting
+enter. If the code is written in R then this will print out function code.
+You can then copy and paste this into a text editor. In many cases you can
+edit this code directly as if it were your own code, load it into the global
+workspace (<code class="highlighter-rouge">source()</code> it in R), and debug it.</p>
+
+<p>This won’t work in all cases because of namespace issues. If all else fails,
+trying Googling for the package and downloading the source code. You are then
+free to read, modify (e.g. <code class="highlighter-rouge">browser()</code> or <code class="highlighter-rouge">print()</code> statements), and install
+it as needed. You might want to consider the <code class="highlighter-rouge">devtools</code> package and the
+<code class="highlighter-rouge">load_all()</code> or <code class="highlighter-rouge">install()</code> functions to make this process more rapid.</p>
+
+<h1 id="error-handling-and-recovery">Error handling and recovery</h1>
+
+<p>What about the case where you don’t want your code to fail on an error? Maybe
+you’re running a series of models but not all models converge. Or maybe some
+iterations of a loop contain a missing value that creates an error during data
+manipulation. These are cases where <code class="highlighter-rouge">try()</code> and <code class="highlighter-rouge">tryCatch()</code> can be useful.
+<code class="highlighter-rouge">try()</code> is a simplified wrapper function for <code class="highlighter-rouge">tryCatch()</code> that prints the
+error and continues. <code class="highlighter-rouge">tryCatch()</code> will let you handle the error cases yourself
+and optionally let the function continue.</p>
+
+<p>Let’s start with a simple function that throws an error if the input value is
+1 and prints the input value otherwise:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">stop</span><span class="p">(</span><span class="s2">"x cannot equal 1"</span><span class="p">)</span><span class="w">
+  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>If we feed this function values of 1 and 2 then the function will stop with an error:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Error in f(i) : x cannot equal 1
+</code></pre>
+</div>
+
+<p>We can use <code class="highlighter-rouge">try()</code> to capture the error message but continue running the function:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">try</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span><span class="w">
+</span><span class="n">y</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[1] "Error in f(i) : x cannot equal 1\n" "2" "3"
+</code></pre>
+</div>
+
+<p>Alternatively, we could use <code class="highlighter-rouge">tryCatch()</code> to do something when we get an error. Here, we’ll return an NA value:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">tryCatch</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="kc">NA</span><span class="p">))</span><span class="w">
+</span><span class="n">y</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[1] NA  2  3
+</code></pre>
+</div>
+
+<p>You could run any simple function you’d like on an error to figure out what’s
+wrong. You could also dump the value of an object with <code class="highlighter-rouge">save()</code> or maybe even
+dump the whole workspace into a file with <code class="highlighter-rouge">save.image()</code>.</p>
+
+<h1 id="summary">Summary</h1>
+
+<p>Hopefully you find these debugging strategies useful. With practice debugging
+small R functions should become easier than debugging a large chunk of global
+code. Many of the options serve a similar purpose. As a result, you may
+choose to become familiar with one or two of them. Just keep the other
+strategies in your debugging toolbox for when you’re stuck. Often approaching the
+same problem from multiple angles is just what you need to understand the
+problem and find a solution.</p>
+
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

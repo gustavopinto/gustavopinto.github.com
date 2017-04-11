@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Cross-Referencing Line Numbers in LaTeX</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">April 28, 2013</span>
+  <h1 class="post-title"><a href="/2013/04/28/cross-referencing-reviewer-replies-in-latex.html">Cross-Referencing Line Numbers in LaTeX</a></h1>
+  <p>One of the more tedious elements of the scientific publishing process is cross-referencing all your revisions in a reply letter to the editor. Typically you make changes in your manuscript and then refer to those changes in the reply letter by page and line number.</p>
+
+<p>For example, you might make a change to your manuscript and then in your reply letter you refer to it:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>We have revised the text. Please see page 3, line 23.
+</code></pre>
+</div>
+
+<p>There are many strategies for dealing with this, but most of them require finding all your changes at the end and adding the page numbers and line numbers in the reply letter. This is fine if you only have to do it once, but inevitably something gets changed in the manuscript and all the cross-references need to be redone. Even worse, in working with Word documents that have track changes enabled I’ve experienced the line numbers changing after all changes are accepted.</p>
+
+<p>I’ve settled on a fairly simple solution in LaTeX which requires minimal markup and automatically cross-references my changes. While this example deals with the case where the line numbers restart on each page, the solution is even simpler if you have continuous line numbers.</p>
+
+<p>This solution assumes that your reply document is being written at the end of your manuscript. This isn’t the only option, but it makes cross-referencing the simplest. At the end, before submitting the manuscript and reply document, I split the PDF in two.</p>
+
+<p>First of all, you’ll need to set up page-wise line numbers. Add the <code class="highlighter-rouge">lineno</code> package to the preamble:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\usepackage</span><span class="na">[pagewise]</span><span class="p">{</span>lineno<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>And wherever you want to start the line numbers in your document add:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\linenumbers</span>
+</code></pre>
+</div>
+
+<p>Now we’ll set up two new commands in the preamble. First, create a new command to label your changes:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\newcommand</span><span class="p">{</span><span class="k">\R</span><span class="p">}</span>[1]<span class="p">{</span><span class="k">\label</span><span class="p">{</span>#1<span class="p">}</span><span class="k">\linelabel</span><span class="p">{</span>#1<span class="p">}}</span>
+</code></pre>
+</div>
+
+<p>Then, create a new command to cross-reference your changes:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\newcommand</span><span class="p">{</span><span class="k">\lr</span><span class="p">}</span>[1]<span class="p">{</span>page~<span class="k">\pageref</span><span class="p">{</span>#1<span class="p">}</span>, line~<span class="k">\lineref</span><span class="p">{</span>#1<span class="p">}}</span>
+</code></pre>
+</div>
+
+<p>Now, say you wanted to revise a sentence to deal with Reviewer comment A1. You can just add something like this within the manuscript:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code><span class="k">\R</span><span class="p">{</span>A1<span class="p">}</span> A sentenced we have revised...
+</code></pre>
+</div>
+
+<p>In the reply document, you can reference this change like this::</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code>We have revised the text. Please see <span class="k">\lr</span><span class="p">{</span>A1<span class="p">}</span>.
+</code></pre>
+</div>
+
+<p>Now, when you compile your document, this will get converted to:</p>
+
+<div class="language-tex highlighter-rouge"><pre class="highlight"><code>We have revised the text. Please see page 3, line 23.
+</code></pre>
+</div>
+
+<p>And as you modify your manuscript, the page and line numbers will update.</p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

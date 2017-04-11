@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>The TMB R package</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">October 17, 2014</span>
+  <h1 class="post-title"><a href="/2014/10/17/tmb.html">The TMB R package</a></h1>
+  <p>I’d heard whispers of this new R package <a href="https://github.com/kaskr/adcomp">TMB</a> and finally spent some time playing with it in the last few days. It’s incredible — fast like ADMB (faster?), has built-in parallel functionality, has other advanced <a href="https://github.com/kaskr/adcomp/wiki">statistical niceties</a>, and it’s built around R. What more could you ask for? (Well better documenation and the option to switch on Bayesian MCMC like you can in ADMB would be nice.) This post just represents some of my initial steps as I learned and played with the package.</p>
+
+<p>The basic idea with TMB is to write a C++ template file and then compile and run it with some R functions. If you’ve used ADMB then the format will look similar. If you haven’t, it’s not too hard to pick up. It helps to <a href="http://adv-r.had.co.nz/Rcpp.html">know a bit about C++</a>, but for the most part it shouldn’t be that hard for anyone familiar with R to pick it up.</p>
+
+<p>The steps to running a TMB model are:</p>
+
+<ol>
+  <li>
+    <p>Write a C++ model template (a <code class="highlighter-rouge">.cpp</code> file).</p>
+  </li>
+  <li>
+    <p>Compile the model with <code class="highlighter-rouge">TMB::compile()</code>.</p>
+  </li>
+  <li>
+    <p>Load the model object with <code class="highlighter-rouge">dyn.load(TMB::dynlib())</code></p>
+  </li>
+  <li>
+    <p>Make an object with data and parameters to pass to the TMB model with 
+<code class="highlighter-rouge">TMB::MakeADFun()</code>. If there are random effects / latent variables / unobserved
+states / coefficients that are allowed to vary (choose your preferred 
+terminology) then set the <code class="highlighter-rouge">random</code> argument in <code class="highlighter-rouge">TMB::MakeADFun()</code> to specify
+the name(s) of the parameters to integrate out of the likelihood.</p>
+  </li>
+  <li>
+    <p>Minimize the objective function with something like <code class="highlighter-rouge">stats::optim()</code> or <code class="highlighter-rouge">stats::nlminb()</code>.</p>
+  </li>
+  <li>
+    <p>Extract the estimates and standard errors from the model fit with 
+<code class="highlighter-rouge">TMB::sdreport()</code> and <code class="highlighter-rouge">TMB::summary.sdreport()</code>.</p>
+  </li>
+</ol>
+
+<p>You can install the TMB package from GitHub. You’ll need a C++ compiler installed. If you’re on Windows then you’ll also need Rtools. See specific instructions on the <a href="https://github.com/kaskr/adcomp">TMB GitHub page</a>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># install.packages("devtools") # if needed
+</span><span class="n">devtools</span><span class="o">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">"kaskr/adcomp"</span><span class="p">,</span><span class="w"> </span><span class="n">subdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"TMB"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>The documentation is still very sparse, but you can find some instructions on <a href="https://github.com/kaskr/adcomp/wiki">the R package GitHub wiki</a> and documentation of the underlying C++ functions and classes <a href="http://folk.uib.no/hsk021/tmbdoc/">here</a>.</p>
+
+<h2 id="a-linear-regression-example">A linear regression example</h2>
+
+<p>Let’s start with a really simple linear regression model.</p>
+
+<p>We’ll start by writing the TMB template file. Here, I’ve written it as inline R code that I then <code class="highlighter-rouge">write()</code> to a <code class="highlighter-rouge">.cpp</code> file. I have only done this so the code shows up here.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">tmb_model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"
+// linear regression
+#include &lt;TMB.hpp&gt;
+
+template&lt;class Type&gt;
+Type objective_function&lt;Type&gt;::operator() () {
+// data:
+DATA_VECTOR(x);
+DATA_VECTOR(y);
+
+// parameters:
+PARAMETER(a); // intercept
+PARAMETER(b); // slope
+PARAMETER(log_sigma); // log(residual SD)
+// we fit sigma on a log scale to keep it &gt; 0
+
+// procedures: (transformed parameters)
+Type sigma = exp(log_sigma);
+
+int n = y.size(); // get number of data points to loop over
+
+Type nll = 0.0; // initialize negative log likelihood
+
+for(int i = 0; i &lt; n; i++){ // C++ starts loops at 0!
+  // get negative log likelihood (last argument is log = TRUE)
+  nll -= dnorm(y[i], a + b * x[i], sigma, true);
+}
+
+return nll;
+}"</span><span class="w">
+</span><span class="n">write</span><span class="p">(</span><span class="n">tmb_model</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"regression.cpp"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>We’ll load the model template:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">TMB</span><span class="p">)</span><span class="w">
+</span><span class="n">compile</span><span class="p">(</span><span class="s2">"regression.cpp"</span><span class="p">)</span><span class="w">
+</span><span class="n">dyn.load</span><span class="p">(</span><span class="n">dynlib</span><span class="p">(</span><span class="s2">"regression"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>And simulate some data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">runif</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2.4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="m">0.3</span><span class="p">))</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/tmb1.png" alt="plot of chunk tmb1" /></p>
+
+<p>Then we’ll fit the model:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">obj</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">MakeADFun</span><span class="p">(</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">),</span><span class="w"> 
+  </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">log_sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w">
+  </span><span class="n">DLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"regression"</span><span class="p">)</span><span class="w">
+</span><span class="n">opt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">do.call</span><span class="p">(</span><span class="s2">"optim"</span><span class="p">,</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w">
+</span><span class="n">rep</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sdreport</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>We can check the estimates against the true values above (<code class="highlighter-rouge">a = 1.8, b = 2.4, log_sigma = 0.3</code>):</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">rep</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#           Estimate Std. Error
+# a           2.8291    0.64964
+# b           2.2028    0.09901
+# log_sigma   0.1969    0.15811
+# 
+# Maximum gradient component: 2.797e-06
+</code></pre>
+</div>
+
+<p>Which is about the same as we’d get from <code class="highlighter-rouge">stats::lm()</code>:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">arm</span><span class="o">::</span><span class="n">display</span><span class="p">(</span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># lm(formula = y ~ x)
+#             coef.est coef.se
+# (Intercept) 2.83     0.68   
+# x           2.20     0.10   
+# ---
+# n = 20, k = 2
+# residual sd = 1.28, R-Squared = 0.96
+</code></pre>
+</div>
+
+<h2 id="gompertz-state-space-model">Gompertz state space model</h2>
+
+<p>Now let’s try something a bit more exciting — a state space Gompertz population dynamics model. We’ll have TMB integrate out the unobserved “true” state that is masked by observation error. You can represent the Gompertz model as:</p>
+
+<p>\[\begin{aligned}
+y_t &amp;= \ln N_t\\    <br />
+U_t &amp;= a + b U_{t-1} + \epsilon_t\\
+\epsilon_t &amp;\sim \mathrm{Normal}(0, \sigma^2_\mathrm{proc})\\
+y_t &amp;\sim \mathrm{Normal}(U_t, \sigma^2_\mathrm{obs}),
+\end{aligned}\]</p>
+
+<p>where \(y_t\) is the observed \(\ln\) abundance (\(N\)) at time \(t\). The model is density independent if \(b = 1\), maximally density dependent if \(b = 0\), and inversely density dependence if \(b &lt; 0\). The parameter \(a\) represents the expected ln abundance at the next time step when \(y_t = 0\). The process noise is modelled as a normal distribution with mean of \(0\), and a standard deviation of \(\sigma_\mathrm{proc}\). \(U\) represents the unobserved state vector, and \(\sigma_\mathrm{obs}\) represents the standard deviation of observation error (on a log scale).</p>
+
+<p>The TMB model for this state-space Gompertz model is:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">tmb_model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"
+// State-space Gompertz model
+#include &lt;TMB.hpp&gt;
+
+template&lt;class Type&gt;
+Type objective_function&lt;Type&gt;::operator() () {
+// data:
+DATA_VECTOR(y);
+
+// parameters:
+PARAMETER(a); // population growth rate parameter
+PARAMETER(b); // density dependence parameter
+PARAMETER(log_sigma_proc); // log(process SD)
+PARAMETER(log_sigma_obs); // log(observation SD)
+PARAMETER_VECTOR(u); // unobserved state vector
+
+// procedures: (transformed parameters)
+Type sigma_proc = exp(log_sigma_proc);
+Type sigma_obs = exp(log_sigma_obs);
+
+// reports on transformed parameters:
+ADREPORT(sigma_proc)
+ADREPORT(sigma_obs)
+
+int n = y.size(); // get time series length
+
+Type nll = 0.0; // initialize negative log likelihood
+
+// process model:
+for(int i = 1; i &lt; n; i++){
+  Type m = a + b * u[i - 1]; // Gompertz
+  nll -= dnorm(u[i], m, sigma_proc, true);
+}
+
+// observation model:
+for(int i = 0; i &lt; n; i++){
+  nll -= dnorm(y[i], u[i], sigma_obs, true);
+}
+
+return nll;
+}"</span><span class="w">
+</span><span class="n">write</span><span class="p">(</span><span class="n">tmb_model</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gompertztmb.cpp"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>We’ll compile the model:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">compile</span><span class="p">(</span><span class="s2">"gompertztmb.cpp"</span><span class="p">)</span><span class="w">
+</span><span class="n">dyn.load</span><span class="p">(</span><span class="n">dynlib</span><span class="p">(</span><span class="s2">"gompertztmb"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>And write a function that simulates some data, fits the model, and plots the estimates:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sim_gomp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">123</span><span class="p">,</span><span class="w"> </span><span class="n">sigma_obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.2</span><span class="p">,</span><span class="w">
+  </span><span class="n">sigma_proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.4</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="m">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  
+  </span><span class="n">set.seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span><span class="w">
+  </span><span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">N</span><span class="w">
+  </span><span class="n">ytrue</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">numeric</span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w">
+  </span><span class="n">ytrue</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">y</span><span class="m">1</span><span class="w">
+  </span><span class="n">log_sigma_proc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">sigma_proc</span><span class="p">)</span><span class="w">
+  </span><span class="n">proc_error</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigma_proc</span><span class="p">)</span><span class="w">
+  </span><span class="n">log_sigma_obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">sigma_obs</span><span class="p">)</span><span class="w">
+  </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">2</span><span class="o">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">ytrue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ytrue</span><span class="p">[</span><span class="n">i</span><span class="m">-1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">proc_error</span><span class="p">[</span><span class="n">i</span><span class="m">-1</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">
+  </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ytrue</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigma_obs</span><span class="p">)</span><span class="w">
+  
+  </span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+  </span><span class="n">parameters</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">log_sigma_proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-1</span><span class="p">,</span><span class="w">
+    </span><span class="n">log_sigma_obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-1</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">))</span><span class="w">
+  </span><span class="n">obj</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">MakeADFun</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">parameters</span><span class="p">,</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"u"</span><span class="p">,</span><span class="w"> </span><span class="n">DLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gompertztmb"</span><span class="p">)</span><span class="w">
+  </span><span class="n">obj</span><span class="o">$</span><span class="n">hessian</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+  </span><span class="n">opt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">do.call</span><span class="p">(</span><span class="s2">"optim"</span><span class="p">,</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w">
+  </span><span class="n">rep</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sdreport</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w">
+  
+  </span><span class="c1"># extract estimated process:
+</span><span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span><span class="w"> </span><span class="s2">"random"</span><span class="p">)[,</span><span class="w"> </span><span class="s2">"Estimate"</span><span class="p">]</span><span class="w">
+  </span><span class="n">u_se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span><span class="w"> </span><span class="s2">"random"</span><span class="p">)[,</span><span class="w"> </span><span class="s2">"Std. Error"</span><span class="p">]</span><span class="w">
+  </span><span class="c1"># extract fixed effects:
+</span><span class="w">  </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">)</span><span class="w">
+  
+  </span><span class="c1"># We'll write a little helper function to plot fixed effect 
+</span><span class="w">  </span><span class="c1"># estimates:
+</span><span class="w">  </span><span class="n">plot_fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">mat</span><span class="p">,</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">points</span><span class="p">(</span><span class="n">trans</span><span class="p">(</span><span class="n">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">par</span><span class="p">))),</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w">
+      </span><span class="n">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000030"</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000080"</span><span class="p">)</span><span class="w">
+    </span><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="s2">"Estimate"</span><span class="p">]</span><span class="w">
+    </span><span class="n">se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mat</span><span class="p">[</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="s2">"Std. Error"</span><span class="p">]</span><span class="w">
+    </span><span class="n">points</span><span class="p">(</span><span class="n">trans</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+    </span><span class="n">segments</span><span class="p">(</span><span class="n">trans</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w">
+      </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  
+  </span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">oma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">.5</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">),</span><span class="w">
+    </span><span class="n">mgp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">tck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.02</span><span class="p">)</span><span class="w">
+  </span><span class="n">plot</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"n"</span><span class="p">,</span><span class="w">
+    </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Coefficient value"</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="n">yaxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"n"</span><span class="p">)</span><span class="w">
+  </span><span class="n">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sigma_obs"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sigma_proc"</span><span class="p">),</span><span class="w">
+    </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+  
+  </span><span class="n">plot_fixed</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="p">)</span><span class="w">
+  </span><span class="n">plot_fixed</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="p">)</span><span class="w">
+  </span><span class="n">plot_fixed</span><span class="p">(</span><span class="s2">"log_sigma_obs"</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w">
+  </span><span class="n">plot_fixed</span><span class="p">(</span><span class="s2">"log_sigma_proc"</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w">
+  
+  </span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000080"</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="n">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000030"</span><span class="p">,</span><span class="w"> </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">
+    </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"log(abundance)"</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"time"</span><span class="p">)</span><span class="w">
+  </span><span class="n">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ytrue</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+  </span><span class="n">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">)</span><span class="w">
+  </span><span class="n">polygon</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">rev</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u_se</span><span class="p">,</span><span class="w"> </span><span class="n">rev</span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u_se</span><span class="p">)),</span><span class="w"> 
+    </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#FF000050"</span><span class="p">)</span><span class="w">
+  </span><span class="n">legend</span><span class="p">(</span><span class="s2">"bottomright"</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Observed"</span><span class="p">,</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Estimated"</span><span class="p">),</span><span class="w">
+    </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1.5</span><span class="p">),</span><span class="w">
+    </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"#00000080"</span><span class="p">,</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w"> </span><span class="s2">"red"</span><span class="p">),</span><span class="w"> 
+    </span><span class="n">pt.bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"#00000030"</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">))</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>One good test that you’ve coded a model correctly is to throw a boat-load of data at it and make sure it comes back with unbiased parameter estimates. In the following plots, the first panel shows the coefficient estimates (“fixed effects”) +/- two standard errors. The red dots are our estimates and the shaded grey dots are the true values. In the lower panels, the red lines are our estimated states, the black line (hidden behind the red in the first plot) is the true underlying state, and the grey dots are our observations.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sim_gomp</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5000</span><span class="p">,</span><span class="w"> </span><span class="n">sigma_obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">sigma_proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.4</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/tmb-test1.png" alt="plot of chunk tmb-test1" /></p>
+
+<p>(We just modelled a 5000 time step state space model in a couple of seconds!)</p>
+
+<p>Now we can try a more realistic 50 data points:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sim_gomp</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/tmb-short.png" alt="plot of chunk tmb-short" /></p>
+
+<p>And with a different seed value but more data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sim_gomp</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">999</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/tmb-seed2.png" alt="plot of chunk tmb-seed2" /></p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

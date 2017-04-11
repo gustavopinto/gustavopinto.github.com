@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Centering factor interactions</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">July 30, 2014</span>
+  <h1 class="post-title"><a href="/2014/07/30/centering-interactions.html">Centering factor interactions</a></h1>
+  <p>I’ve encountered a number of people wondering about centering and scaling predictors in the context of model averaging. Here, centering refers to subtracting the mean and scaling refers to dividing by some measure of variability (<a href="http://www.stat.columbia.edu/~gelman/research/published/standardizing7.pdf">usually one or two standard deviations</a>).</p>
+
+<p>First of all, if you haven’t already, go read the paper <a href="http://doi.org/10.1111/j.2041-210X.2010.00012.x">Simple means to improve the interpretability of
+regression coefficients</a> by Holger Schielzeth. This paper is a wealth of useful information.</p>
+
+<p>Bottom line, if you are going to average coefficients across models with and without interactions you’re going to get gibberish unless you center your predictors by subtracting the mean. This is true across continuous, binary, and multi-level factor predictors, although setting up centered factor predictors can take an extra step.</p>
+
+<p>Whether or not averaging coefficient values across models is a good idea is a separate topic that I won’t get into here. Just realize that subscribing to the church of coefficient averaging is not the only way and there are also good arguments for three alternatives: maintaining multiple models, model selection (e.g. as often suggested in <a href="http://www.highstat.com/books.htm">Zuur’s books</a>), or, assuming reasonable power, fitting the most complicated model you can justify and interpret and drawing inference from that model (e.g. <a href="http://andrewgelman.com/2004/12/10/against_parsimo/">Andrew Gelman</a>). After all, removing a predictor is equivalent to assuming the coefficient for that predictor is precisely zero, which is a strong assumption in itself. (This last philosophy often works best in Bayesian context where weakly informative priors are a possibility.)</p>
+
+<p>First, we’ll simulate some data. <code class="highlighter-rouge">b0</code> is an intercept, <code class="highlighter-rouge">b1</code> a slope on a continuous predictor, <code class="highlighter-rouge">b2</code> a binary factor coefficient, and <code class="highlighter-rouge">b1.2</code> an interaction coefficient between <code class="highlighter-rouge">b1</code> and <code class="highlighter-rouge">b2</code>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="m">0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1.4</span><span class="w"> </span><span class="c1"># intercept
+</span><span class="n">b</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="c1"># continuous slope
+</span><span class="n">b</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1.7</span><span class="w"> </span><span class="c1"># factor level 1 coefficient
+</span><span class="n">b</span><span class="m">1.2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.5</span><span class="w"> </span><span class="c1"># interaction between b1 and b2
+</span><span class="n">sigma</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2.0</span><span class="w"> </span><span class="c1"># residual standard deviation
+</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="c1"># number of data points
+</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">runif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="c1"># continuous predictor data
+</span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rbinom</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span><span class="w"> </span><span class="c1"># binary predictor data
+</span><span class="w">
+</span><span class="c1"># generate response data:
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="m">0</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">b</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">b</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="m">1.2</span><span class="p">,</span><span class="w">
+  </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigma</span><span class="p">)</span><span class="w">
+</span><span class="n">dat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#       x1 x2      y
+# 1  7.781  1  9.832
+# 2 11.661  0  1.519
+# 3  1.893  1  2.656
+# 4 17.053  1 11.929
+# 5 15.735  0  4.294
+# 6  2.387  0  6.643
+</code></pre>
+</div>
+
+<p>Let’s look at the data we created:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">x</span><span class="m">2</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/cent1.png" alt="plot of chunk cent1" /></p>
+
+<p>Now, we’ll fit a model with and without an interaction and look at the coefficients:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">m_no_inter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># (Intercept)          x1          x2       x1:x2 
+#        1.72        0.19        1.27        0.34
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m_no_inter</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># (Intercept)          x1          x2 
+#        0.61        0.30        4.33
+</code></pre>
+</div>
+
+<p>Notice how the main effects (everything except the interaction) change dramatically when the interaction is removed. This is because when the interaction is included the main effects are relevant to when the other predictors are equal to 0. I.e. <code class="highlighter-rouge">x1 = 0</code> or the binary predictor <code class="highlighter-rouge">x2</code> is at its reference <code class="highlighter-rouge">0</code> level. But, when the interaction is excluded the main effects are relevant when the other predictors are at their mean values. So, if we center, the main effects will represent the same thing in both cases:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">m_center</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">m_center_no_inter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w">
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m_center</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#     (Intercept)         x1_cent         x2_cent x1_cent:x2_cent 
+#            5.07            0.31            4.48            0.34
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m_center_no_inter</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># (Intercept)     x1_cent     x2_cent 
+#        4.96        0.30        4.33
+</code></pre>
+</div>
+
+<p>Notice that the intercept, <code class="highlighter-rouge">x1</code>, and <code class="highlighter-rouge">x2</code> coefficient estimates are now similar regardless of whether the interaction is included. Now, because we’ve centered the predictors, the predictors equal zero at their mean. So, the main effects are estimating approximately the same thing regardless of whether we include the interaction. In other words, adding the interaction adds more predictive information but doesn’t modify the meaning of the main effects.</p>
+
+<p>Here’s an illustration:</p>
+
+<p><img src="/images/interactions.png" alt="Illustration of centering interactions" /></p>
+
+<h1 id="a-3-level-factor-example">A 3-level factor example</h1>
+
+<p>Now, let’s repeat the above with a three-level factor predictor to make sure it’s clear how it works.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="m">0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1.4</span><span class="w"> </span><span class="c1"># intercept
+</span><span class="n">b</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="c1"># continuous slope
+</span><span class="n">b</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1.7</span><span class="w"> </span><span class="c1"># factor level 0-1 coefficient
+</span><span class="n">b</span><span class="m">3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2.9</span><span class="w"> </span><span class="c1"># factor level 0-2 coefficient
+</span><span class="n">b</span><span class="m">1.2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.5</span><span class="w"> </span><span class="c1"># interaction between b1 and b2
+</span><span class="n">b</span><span class="m">1.3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.9</span><span class="w"> </span><span class="c1"># interaction between b1 and b3
+</span><span class="n">sigma</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2.0</span><span class="w"> </span><span class="c1"># residual standard deviation
+</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="c1"># number of data points
+</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">runif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="c1"># continuous predictor data
+# 3-factor predictor data:
+</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+
+</span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ifelse</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="m">3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ifelse</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">
+
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="m">0</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">b</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">b</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">b</span><span class="m">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="m">1.2</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="m">1.3</span><span class="p">,</span><span class="w">
+  </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigma</span><span class="p">)</span><span class="w">
+
+</span><span class="n">dat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w">
+  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#       x1 x2 x3      y f
+# 1  7.781  0  0  7.722 1
+# 2 11.661  0  0  4.935 1
+# 3  1.893  1  0  4.784 2
+# 4 17.053  1  0 17.198 2
+# 5 15.735  1  0 13.621 2
+# 6  2.387  0  1  2.698 3
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/cent2.png" alt="plot of chunk cent2" /></p>
+
+<p>Now we’ll fit the model. First with <code class="highlighter-rouge">factor()</code> notation:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">t</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      (Intercept)   x1    f2    f3 x1:f2 x1:f3
+# [1,]        2.68 0.18 -0.81 -0.04  0.57  0.99
+</code></pre>
+</div>
+
+<p>And now with “dummy” variable notation. This will make centering in the next step easier:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="m">2.1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">t</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2.1</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      (Intercept)   x1    x2    x3 x1:x2 x1:x3
+# [1,]        2.68 0.18 -0.81 -0.04  0.57  0.99
+</code></pre>
+</div>
+
+<p>Notice we get the same estimates.</p>
+
+<p>Now, let’s compare to a model without the interaction before we center the data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="m">2.1</span><span class="err">_</span><span class="n">no_inter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">t</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2.1</span><span class="err">_</span><span class="n">no_inter</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      (Intercept)   x1   x2   x3
+# [1,]       -2.48 0.71 4.85 8.95
+</code></pre>
+</div>
+
+<p>The main effects look dramatically different. Again, if we model averaged here across models with and without the interaction, we’d be getting gibberish.</p>
+
+<p>Now, we’ll fit the same model with centered predictors:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">m</span><span class="m">2.2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">m</span><span class="m">2.2</span><span class="err">_</span><span class="n">no_inter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Again, notice that the main effects stay fairly consistent regardless of whether we include the interaction because they are estimated across the centered three-level factor:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">t</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w"> </span><span class="c1"># no interaction 
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      (Intercept) x1_cent x2_cent x3_cent x1_cent:x2_cent x1_cent:x3_cent
+# [1,]        9.09    0.67    4.87    9.86            0.57            0.99
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">t</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="err">_</span><span class="n">no_inter</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w"> </span><span class="c1"># with interaction
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      (Intercept) x1_cent x2_cent x3_cent
+# [1,]        8.91    0.71    4.85    8.95
+</code></pre>
+</div>
+
+<p>You can see how this works across multiple model comparisons using the <code class="highlighter-rouge">MuMIn::dredge()</code> function on any one of the above models.</p>
+
+<p>So, <em>if</em> you’re going to average across models with and without interactions, centering the predictors is important. Even if you’re not going to be averaging or comparing coefficient values across models with and without interactions, centering predictors can be useful for computational and interpretation reasons, but that’s a separate topic.</p>
+
+<h1 id="plotting-the-predictions">Plotting the predictions</h1>
+
+<p>Say we wanted to plot the predicted response from our model on new data. This isn’t quite as simple as normal once we’ve centered our predictors and coded the factor levels as centered dummy variable comparisons.</p>
+
+<p>We’ll make predictions at each of the 3 levels. Note how we create these levels through the 3 valid combinations of high and low values of our dummy variables. We can’t just use <code class="highlighter-rouge">expand.grid()</code> and get all combinations of our dummy variables.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+</span><span class="n">newdata1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w">
+  </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">))</span><span class="w">
+</span><span class="n">newdata2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w">
+  </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">))</span><span class="w">
+</span><span class="n">newdata3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w">
+  </span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">))</span><span class="w">
+</span><span class="n">newdata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rbind</span><span class="p">(</span><span class="n">newdata1</span><span class="p">,</span><span class="w"> </span><span class="n">newdata2</span><span class="p">,</span><span class="w"> </span><span class="n">newdata3</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Now we make our predictions and plot the predictions. We’ll undo the centering of the <code class="highlighter-rouge">x1</code> variable here by adding the mean of the original data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">newdata</span><span class="o">$</span><span class="n">pred</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">predict</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">,</span><span class="w"> </span><span class="n">newdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newdata</span><span class="p">)</span><span class="w">
+</span><span class="n">with</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">))</span><span class="w">
+</span><span class="n">plyr</span><span class="o">::</span><span class="n">d_ply</span><span class="p">(</span><span class="n">newdata</span><span class="p">,</span><span class="w"> </span><span class="s2">"x2_cent"</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">with</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">lines</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">pred</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"grey"</span><span class="p">))</span><span class="w">
+  </span><span class="p">})</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/cent3.png" alt="plot of chunk cent3" /></p>
+
+<h1 id="calculating-slopes-and-standard-errors-at-interaction-levels">Calculating slopes and standard errors at interaction levels</h1>
+
+<p>Currently, our factor variable <code class="highlighter-rouge">f</code> has three levels. Our estimate <code class="highlighter-rouge">b1</code> represents the slope across the mean of the factors. However, we might want to present the slope with confidence intervals at each level of factor <code class="highlighter-rouge">f</code>.</p>
+
+<p>Calculating the slope coefficients is fairly easy but the standard errors require a bit more math. The trick is to correctly combine the coefficient variances (or equivalently the squared standard errors) with the covariances between coefficients.</p>
+
+<p>The way we combine the standard errors is the same way we combine the standard deviation of any normal distributions. For the case:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>N1 ~ N(mu1, sigma1)
+N2 ~ N(mu2, sigma2)
+</code></pre>
+</div>
+
+<p>where <code class="highlighter-rouge">mu</code> represents the mean, <code class="highlighter-rouge">sigma</code> represents the standard deviation, and <code class="highlighter-rouge">N</code> represents a normal distribution.</p>
+
+<p>We can calculate the combination of these two distributions multiplied by the constants <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> as: (we’ll this new distribution <code class="highlighter-rouge">N3</code>)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>N3 = a * N1 + b * N2
+N3 ~ N(mu3, sigma3)
+mu3 = a * mu1 + b * mu2
+sigma3 = sqrt(a^2 * sigma1^2 + b^2 * sigma2^2 + 
+  2 * ab * cov(ab))
+</code></pre>
+</div>
+
+<p>First, to illustrate combining the coefficient means, here’s an example plotting the predictions by specifying the intercept and slopes. The first line in each of these <code class="highlighter-rouge">abline</code> function calls represents the intercepts and each factor level and the second line represents the slopes. As before, notice how we get these slopes by turning the two indicator columns to low or high values.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">with</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="err">_</span><span class="n">cent</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">))</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)</span><span class="w">
+</span><span class="n">se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="c1"># The intercept and slope for the first level of the factor f:
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="m">-0.333</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">-0.3</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">*</span><span class="m">-0.333</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">-0.3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="c1"># And the second level:
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="m">0.667</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">-0.3</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">*</span><span class="m">0.667</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">-0.3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="c1"># And the third:
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="m">-0.333</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">*</span><span class="m">-0.333</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/cent4.png" alt="plot of chunk cent4" /></p>
+
+<p>Before we calculate the standard errors on the slope at the three factor levels let’s return to a more straightforward parameterization so we know what we’re aiming for. I’ll re-write the model here for clarity:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># Slopes:
+</span><span class="n">with</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">))</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">5</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="m">6</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/cent5.png" alt="plot of chunk cent5" /></p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># SEs on those slopes:
+# (as in Schielzeth 2010 Methods Ecol. Evol.)
+</span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#     x1 
+# 0.1115
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">sqrt</span><span class="p">(</span><span class="n">se</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   x1:f2 
+# 0.09118
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">sqrt</span><span class="p">(</span><span class="n">se</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#  x1:f3 
+# 0.1117
+</code></pre>
+</div>
+
+<p>Now, let’s derive those same standard errors for the centered version. We’ll start be extracting the standard errors and covariances of the coefficients. Then we’ll combine them. Although we could do this more elegantly, we’ll write it out in full to make it obvious what’s happening.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">cent</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">dat</span><span class="o">$</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">cent</span><span class="p">)</span><span class="w">
+</span><span class="n">vcov_x1_x1x2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vcov</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)[</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="n">vcov_x1_x1x3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vcov</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="n">vcov_x1x2_x1x3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vcov</span><span class="p">(</span><span class="n">m</span><span class="m">2.2</span><span class="p">)[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">
+</span><span class="n">se_x1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="n">se_x1x2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w">
+</span><span class="n">se_x1x3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Standard error on the slope at the first factor level:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">as.numeric</span><span class="p">(</span><span class="w">
+</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x2</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+     </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x3</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="n">se_x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x3</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1x2_x1x3</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.1115
+</code></pre>
+</div>
+
+<p>This matches the version from the uncentered model:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.1115
+</code></pre>
+</div>
+
+<p>And the second level:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">as.numeric</span><span class="p">(</span><span class="w">
+</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">high</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x2</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+     </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x3</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="n">se_x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x3</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1x2_x1x3</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.09118
+</code></pre>
+</div>
+
+<p>And the third level:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">as.numeric</span><span class="p">(</span><span class="w">
+</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x2</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+     </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">high</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">se_x1x3</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="n">se_x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x2</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1_x1x3</span><span class="w"> </span><span class="o">+</span><span class="w">
+     </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">2</span><span class="err">_</span><span class="n">low</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="m">1</span><span class="n">x</span><span class="m">3</span><span class="err">_</span><span class="n">high</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vcov_x1x2_x1x3</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.1117
+</code></pre>
+</div>
+
+<p>Again, comparing to the uncentered version, they match:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">se</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">se</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   x1:f2 
+# 0.09118
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">sqrt</span><span class="p">(</span><span class="n">se</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">se</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#  x1:f3 
+# 0.1117
+</code></pre>
+</div>
+
+<p>Whether or not you center your predictors, transforming your factor coefficient interactions like the above can be a powerful way of displaying data. For example see Figure 1 in <a href="http://www.esajournals.org/doi/pdf/10.1890/13-0916.1">O’Regan et al. 2014, Ecology, 95(4)</a> where we use this method to illustrate the effect of climate warming and drying on four responses across three amphibian species. Each panel represents a single model and we’ve adjusted the coefficients so that each effect is with respect to zero instead of with respect to another factor level. If this kind of presentation of the results is all you’re after, then there’s no need to center the factor levels. If, however, you also want to apply model averaging to coefficient values that include interactions, you will need to center your predictors and combine the coefficients as in the above example.</p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

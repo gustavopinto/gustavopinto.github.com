@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>dplyr and pipes: the basics</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">September 13, 2014</span>
+  <h1 class="post-title"><a href="/2014/09/13/dplyr-intro.html">dplyr and pipes: the basics</a></h1>
+  <p>The <a href="http://cran.r-project.org/package=dplyr">dplyr</a> R package is awesome. Pipes from the <a href="http://cran.r-project.org/package=magrittr">magrittr</a> R package are awesome. Put the two together and you have one of the most exciting things to happen to R in a long time.</p>
+
+<p>dplyr is <a href="http://had.co.nz/">Hadley Wickham’s</a> re-imagined plyr package (with underlying C++ secret sauce co-written by <a href="http://blog.r-enthusiasts.com/">Romain Francois</a>). plyr 2.0 if you will. It does less than dplyr, but what it does it does more elegantly and much more quickly.</p>
+
+<p>dplyr is built around 5 verbs. These verbs make up the majority of the data manipulation you tend to do. You might need to:</p>
+
+<p><em>Select</em> certain columns of data.</p>
+
+<p><em>Filter</em> your data to select specific rows.</p>
+
+<p><em>Arrange</em> the rows of your data into an order.</p>
+
+<p><em>Mutate</em> your data frame to contain new columns.</p>
+
+<p><em>Summarise</em> chunks of you data in some way.</p>
+
+<p>Let’s look at how those work.</p>
+
+<h1 id="the-data">The data</h1>
+
+<p>We’re going to work with a dataset of mammal life-history, geography, and ecology traits from the PanTHERIA database:</p>
+
+<p>Jones, K.E., <em>et al</em>. PanTHERIA: a species-level database of life history, ecology, and geography of extant and recently extinct mammals. Ecology 90:2648. <a href="http://esapubs.org/archive/ecol/E090/184/">http://esapubs.org/archive/ecol/E090/184/</a></p>
+
+<p>First we’ll download the data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">pantheria</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">
+  </span><span class="s2">"http://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR05_Aug2008.txt"</span><span class="w">
+</span><span class="n">download.file</span><span class="p">(</span><span class="n">pantheria</span><span class="p">,</span><span class="w"> </span><span class="n">destfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"mammals.txt"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Next we’ll read it in and simplify it. This gets a bit ugly, but you can safely just run this code chunk and ignore the details:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mammals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.table</span><span class="p">(</span><span class="s2">"mammals.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\t"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">stringsAsFactors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="s2">"X[0-9._]+"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">))</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="s2">"MSW05_"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">))</span><span class="w">
+</span><span class="n">mammals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">Order</span><span class="p">,</span><span class="w"> </span><span class="n">Binomial</span><span class="p">,</span><span class="w"> </span><span class="n">AdultBodyMass_g</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">AdultHeadBodyLen_mm</span><span class="p">,</span><span class="w"> </span><span class="n">HomeRange_km2</span><span class="p">,</span><span class="w"> </span><span class="n">LitterSize</span><span class="p">)</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">gsub</span><span class="p">(</span><span class="s2">"([A-Z])"</span><span class="p">,</span><span class="w"> </span><span class="s2">"_\\L\\1"</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">),</span><span class="w"> </span><span class="n">perl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^_"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">),</span><span class="w"> </span><span class="n">perl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="n">mammals</span><span class="p">[</span><span class="n">mammals</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">-999</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NA</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)[</span><span class="nf">names</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"binomial"</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"species"</span><span class="w">
+</span><span class="n">mammals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="n">tbl_df</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w"> </span><span class="c1"># for prettier printing
+</span></code></pre>
+</div>
+
+<p>Next we’ll load the dplyr package:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<h1 id="looking-at-the-data">Looking at the data</h1>
+
+<p>Data frames look a bit different in dplyr. Above, I called the <code class="highlighter-rouge">tbl_df()</code> function on our data. This provides more useful printing of data frames in the console. Ever accidentally printed a massive data frame in the console before? Yeah… this avoids that. You don’t need to change your data to a data frame tbl first — the dplyr functions will automatically convert your data when you call them. This is what the data look like on the console:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mammals</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 6]
+# 
+#           order             species adult_body_mass_g
+# 1  Artiodactyla Camelus dromedarius            492714
+# 2     Carnivora       Canis adustus             10392
+# 3     Carnivora        Canis aureus              9659
+# 4     Carnivora       Canis latrans             11989
+# 5     Carnivora         Canis lupus             31757
+# 6  Artiodactyla       Bos frontalis            800143
+# 7  Artiodactyla       Bos grunniens            500000
+# 8  Artiodactyla       Bos javanicus            635974
+# 9      Primates  Callicebus cupreus              1117
+# 10     Primates Callicebus discolor                NA
+# ..          ...                 ...               ...
+# Variables not shown: adult_head_body_len_mm (dbl), home_range_km2 (dbl),
+#   litter_size (dbl)
+</code></pre>
+</div>
+
+<p>dplyr also provides a function <code class="highlighter-rouge">glimpse()</code> that makes it easy to look at our data in a transposed view. It’s similar to the <code class="highlighter-rouge">str()</code> (structure) function, but has a few advantages (see <code class="highlighter-rouge">?glimpse</code>).</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">glimpse</span><span class="p">(</span><span class="n">mammals</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Variables:
+# $ order                  (chr) "Artiodactyla", "Carnivora", "Carnivora...
+# $ species                (chr) "Camelus dromedarius", "Canis adustus",...
+# $ adult_body_mass_g      (dbl) 492714.5, 10392.5, 9658.7, 11989.1, 317...
+# $ adult_head_body_len_mm (dbl) NA, 745.3, 827.5, 872.4, 1055.0, 2700.0...
+# $ home_range_km2         (dbl) 196.32000, 1.01000, 2.95000, 18.88000, ...
+# $ litter_size            (dbl) 0.98, 4.50, 3.74, 5.72, 4.98, 1.22, 1.0...
+</code></pre>
+</div>
+
+<h1 id="selecting-columns">Selecting columns</h1>
+
+<p><code class="highlighter-rouge">select()</code> lets you subset by columns. This is similar to <code class="highlighter-rouge">subset()</code> in base R, but it also allows for some fancy use of helper functions such as <code class="highlighter-rouge">contains()</code>, <code class="highlighter-rouge">starts_with()</code> and, <code class="highlighter-rouge">ends_with()</code>. I think these examples are self explanatory, so I’ll just include them here:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 1]
+# 
+#    adult_head_body_len_mm
+# 1                      NA
+# 2                   745.3
+# 3                   827.5
+# 4                   872.4
+# 5                  1055.0
+# 6                  2700.0
+# 7                      NA
+# 8                  2075.0
+# 9                   355.0
+# 10                     NA
+# ..                    ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">,</span><span class="w"> </span><span class="n">litter_size</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 2]
+# 
+#    adult_head_body_len_mm litter_size
+# 1                      NA        0.98
+# 2                   745.3        4.50
+# 3                   827.5        3.74
+# 4                   872.4        5.72
+# 5                  1055.0        4.98
+# 6                  2700.0        1.22
+# 7                      NA        1.00
+# 8                  2075.0        1.22
+# 9                   355.0        1.01
+# 10                     NA          NA
+# ..                    ...         ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="o">:</span><span class="n">litter_size</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 3]
+# 
+#    adult_head_body_len_mm home_range_km2 litter_size
+# 1                      NA         196.32        0.98
+# 2                   745.3           1.01        4.50
+# 3                   827.5           2.95        3.74
+# 4                   872.4          18.88        5.72
+# 5                  1055.0         159.86        4.98
+# 6                  2700.0             NA        1.22
+# 7                      NA             NA        1.00
+# 8                  2075.0             NA        1.22
+# 9                   355.0             NA        1.01
+# 10                     NA             NA          NA
+# ..                    ...            ...         ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">adult_head_body_len_mm</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 5]
+# 
+#           order             species adult_body_mass_g home_range_km2
+# 1  Artiodactyla Camelus dromedarius            492714         196.32
+# 2     Carnivora       Canis adustus             10392           1.01
+# 3     Carnivora        Canis aureus              9659           2.95
+# 4     Carnivora       Canis latrans             11989          18.88
+# 5     Carnivora         Canis lupus             31757         159.86
+# 6  Artiodactyla       Bos frontalis            800143             NA
+# 7  Artiodactyla       Bos grunniens            500000             NA
+# 8  Artiodactyla       Bos javanicus            635974             NA
+# 9      Primates  Callicebus cupreus              1117             NA
+# 10     Primates Callicebus discolor                NA             NA
+# ..          ...                 ...               ...            ...
+# Variables not shown: litter_size (dbl)
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="s2">"body"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 2]
+# 
+#    adult_body_mass_g adult_head_body_len_mm
+# 1             492714                     NA
+# 2              10392                  745.3
+# 3               9659                  827.5
+# 4              11989                  872.4
+# 5              31757                 1055.0
+# 6             800143                 2700.0
+# 7             500000                     NA
+# 8             635974                 2075.0
+# 9               1117                  355.0
+# 10                NA                     NA
+# ..               ...                    ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">starts_with</span><span class="p">(</span><span class="s2">"adult"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 2]
+# 
+#    adult_body_mass_g adult_head_body_len_mm
+# 1             492714                     NA
+# 2              10392                  745.3
+# 3               9659                  827.5
+# 4              11989                  872.4
+# 5              31757                 1055.0
+# 6             800143                 2700.0
+# 7             500000                     NA
+# 8             635974                 2075.0
+# 9               1117                  355.0
+# 10                NA                     NA
+# ..               ...                    ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">ends_with</span><span class="p">(</span><span class="s2">"g"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 1]
+# 
+#    adult_body_mass_g
+# 1             492714
+# 2              10392
+# 3               9659
+# 4              11989
+# 5              31757
+# 6             800143
+# 7             500000
+# 8             635974
+# 9               1117
+# 10                NA
+# ..               ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 3]
+# 
+#           order             species adult_body_mass_g
+# 1  Artiodactyla Camelus dromedarius            492714
+# 2     Carnivora       Canis adustus             10392
+# 3     Carnivora        Canis aureus              9659
+# 4     Carnivora       Canis latrans             11989
+# 5     Carnivora         Canis lupus             31757
+# 6  Artiodactyla       Bos frontalis            800143
+# 7  Artiodactyla       Bos grunniens            500000
+# 8  Artiodactyla       Bos javanicus            635974
+# 9      Primates  Callicebus cupreus              1117
+# 10     Primates Callicebus discolor                NA
+# ..          ...                 ...               ...
+</code></pre>
+</div>
+
+<h1 id="filtering-rows">Filtering rows</h1>
+
+<p><code class="highlighter-rouge">filter()</code> lets you subset by rows. You can use any valid logical statements:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">filter</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1e7</span><span class="p">)[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [12 x 3]
+# 
+#      order                species adult_body_mass_g
+# 1  Cetacea      Caperea marginata          32000000
+# 2  Cetacea  Balaenoptera musculus         154321304
+# 3  Cetacea  Balaenoptera physalus          47506008
+# 4  Cetacea     Balaena mysticetus          79691179
+# 5  Cetacea  Balaenoptera borealis          22106252
+# 6  Cetacea     Balaenoptera edeni          20000000
+# 7  Cetacea      Berardius bairdii          11380000
+# 8  Cetacea  Eschrichtius robustus          27324024
+# 9  Cetacea    Eubalaena australis          23000000
+# 10 Cetacea    Eubalaena glacialis          23000000
+# 11 Cetacea Megaptera novaeangliae          30000000
+# 12 Cetacea       Physeter catodon          14540960
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">filter</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">species</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Balaena mysticetus"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [1 x 6]
+# 
+#     order            species adult_body_mass_g adult_head_body_len_mm
+# 1 Cetacea Balaena mysticetus          79691179                  12187
+# Variables not shown: home_range_km2 (dbl), litter_size (dbl)
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">filter</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Carnivora"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">200</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [3 x 6]
+# 
+#       order         species adult_body_mass_g adult_head_body_len_mm
+# 1 Carnivora Mustela altaica            180.24                  243.5
+# 2 Carnivora Mustela frenata            190.03                  229.3
+# 3 Carnivora Mustela nivalis             78.45                  188.2
+# Variables not shown: home_range_km2 (dbl), litter_size (dbl)
+</code></pre>
+</div>
+
+<h1 id="arranging-rows">Arranging rows</h1>
+
+<p><code class="highlighter-rouge">arrange()</code> lets you order the rows by one or more columns in ascending or descending order. I’m selecting the first three columns only to make the output easier to read:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">arrange</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="p">)[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 3]
+# 
+#           order                     species adult_body_mass_g
+# 1    Chiroptera Craseonycteris thonglongyai              1.96
+# 2    Chiroptera            Kerivoula minuta              2.03
+# 3  Soricomorpha             Suncus etruscus              2.26
+# 4  Soricomorpha          Sorex minutissimus              2.46
+# 5  Soricomorpha     Suncus madagascariensis              2.47
+# 6  Soricomorpha         Crocidura lusitania              2.48
+# 7  Soricomorpha         Crocidura planiceps              2.50
+# 8    Chiroptera        Pipistrellus nanulus              2.51
+# 9  Soricomorpha                 Sorex nanus              2.57
+# 10 Soricomorpha              Sorex arizonae              2.70
+# ..          ...                         ...               ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">arrange</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">(</span><span class="n">adult_body_mass_g</span><span class="p">))[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 3]
+# 
+#      order                species adult_body_mass_g
+# 1  Cetacea  Balaenoptera musculus         154321304
+# 2  Cetacea     Balaena mysticetus          79691179
+# 3  Cetacea  Balaenoptera physalus          47506008
+# 4  Cetacea      Caperea marginata          32000000
+# 5  Cetacea Megaptera novaeangliae          30000000
+# 6  Cetacea  Eschrichtius robustus          27324024
+# 7  Cetacea    Eubalaena australis          23000000
+# 8  Cetacea    Eubalaena glacialis          23000000
+# 9  Cetacea  Balaenoptera borealis          22106252
+# 10 Cetacea     Balaenoptera edeni          20000000
+# ..     ...                    ...               ...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">arrange</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="p">)[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 3]
+# 
+#           order                species adult_body_mass_g
+# 1  Afrosoricida      Microgale pusilla              3.40
+# 2  Afrosoricida      Microgale parvula              3.53
+# 3  Afrosoricida         Geogale aurita              6.69
+# 4  Afrosoricida   Microgale fotsifotsy              7.70
+# 5  Afrosoricida Microgale longicaudata              8.08
+# 6  Afrosoricida Microgale brevicaudata              8.99
+# 7  Afrosoricida   Microgale principula             10.20
+# 8  Afrosoricida    Microgale drouhardi             10.50
+# 9  Afrosoricida       Microgale cowani             12.27
+# 10 Afrosoricida        Microgale taiva             12.40
+# ..          ...                    ...               ...
+</code></pre>
+</div>
+
+<h1 id="mutating-columns">Mutating columns</h1>
+
+<p><code class="highlighter-rouge">mutate()</code> lets you add new columns. Notice that the new columns you create can build on each other. I will wrap these in <code class="highlighter-rouge">glimpse()</code> to make the new columns easy to see:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">glimpse</span><span class="p">(</span><span class="n">mutate</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">adult_body_mass_kg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1000</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Variables:
+# $ order                  (chr) "Artiodactyla", "Carnivora", "Carnivora...
+# $ species                (chr) "Camelus dromedarius", "Canis adustus",...
+# $ adult_body_mass_g      (dbl) 492714.5, 10392.5, 9658.7, 11989.1, 317...
+# $ adult_head_body_len_mm (dbl) NA, 745.3, 827.5, 872.4, 1055.0, 2700.0...
+# $ home_range_km2         (dbl) 196.32000, 1.01000, 2.95000, 18.88000, ...
+# $ litter_size            (dbl) 0.98, 4.50, 3.74, 5.72, 4.98, 1.22, 1.0...
+# $ adult_body_mass_kg     (dbl) 492.7145, 10.3925, 9.6587, 11.9891, 31....
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">glimpse</span><span class="p">(</span><span class="n">mutate</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">g_per_mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Variables:
+# $ order                  (chr) "Artiodactyla", "Carnivora", "Carnivora...
+# $ species                (chr) "Camelus dromedarius", "Canis adustus",...
+# $ adult_body_mass_g      (dbl) 492714.5, 10392.5, 9658.7, 11989.1, 317...
+# $ adult_head_body_len_mm (dbl) NA, 745.3, 827.5, 872.4, 1055.0, 2700.0...
+# $ home_range_km2         (dbl) 196.32000, 1.01000, 2.95000, 18.88000, ...
+# $ litter_size            (dbl) 0.98, 4.50, 3.74, 5.72, 4.98, 1.22, 1.0...
+# $ g_per_mm               (dbl) NA, 13.9437, 11.6717, 13.7428, 30.1010,...
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">glimpse</span><span class="p">(</span><span class="n">mutate</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">g_per_mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">,</span><span class="w">
+    </span><span class="n">kg_per_mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_per_mm</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1000</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Variables:
+# $ order                  (chr) "Artiodactyla", "Carnivora", "Carnivora...
+# $ species                (chr) "Camelus dromedarius", "Canis adustus",...
+# $ adult_body_mass_g      (dbl) 492714.5, 10392.5, 9658.7, 11989.1, 317...
+# $ adult_head_body_len_mm (dbl) NA, 745.3, 827.5, 872.4, 1055.0, 2700.0...
+# $ home_range_km2         (dbl) 196.32000, 1.01000, 2.95000, 18.88000, ...
+# $ litter_size            (dbl) 0.98, 4.50, 3.74, 5.72, 4.98, 1.22, 1.0...
+# $ g_per_mm               (dbl) NA, 13.9437, 11.6717, 13.7428, 30.1010,...
+# $ kg_per_mm              (dbl) NA, 0.0139437, 0.0116717, 0.0137428, 0....
+</code></pre>
+</div>
+
+<h1 id="summarising-columns">Summarising columns</h1>
+
+<p>Finally, <code class="highlighter-rouge">summarise()</code> lets you calculate summary statistics. On its own <code class="highlighter-rouge">summarise()</code> isn’t that useful, but when combined with <code class="highlighter-rouge">group_by()</code> you can summarise by chunks of data. This is similar to what you might be familiar with through <code class="highlighter-rouge">ddply()</code> and <code class="highlighter-rouge">summarise()</code> from the plyr package:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">summarise</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">mean_mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">adult_body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [1 x 1]
+# 
+#   mean_mass
+# 1    177810
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># summarise with group_by:
+</span><span class="n">head</span><span class="p">(</span><span class="n">summarise</span><span class="p">(</span><span class="n">group_by</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">),</span><span class="w">
+  </span><span class="n">mean_mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">adult_body_mass_g</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [6 x 2]
+# 
+#          order mean_mass
+# 1 Afrosoricida 9.476e+01
+# 2 Artiodactyla 1.213e+05
+# 3    Carnivora 4.739e+04
+# 4      Cetacea 7.373e+06
+# 5   Chiroptera 5.772e+01
+# 6    Cingulata 4.699e+03
+</code></pre>
+</div>
+
+<h1 id="piping-data">Piping data</h1>
+
+<p>Pipes take the output from one function and feed it to the first argument of the next function. You may have encountered the Unix pipe <code class="highlighter-rouge">|</code> before.</p>
+
+<p>The magrittr R package contains the pipe function <code class="highlighter-rouge">%&gt;%</code>. Yes it might look bizarre at first but it makes more sense when you think about it. The R language allows symbols wrapped in <code class="highlighter-rouge">%</code> to be defined as functions, the <code class="highlighter-rouge">&gt;</code> helps imply a chain, and you can hit these 2 characters one after the other very quickly on a keyboard by holding down the Shift key. Try it!</p>
+
+<p>Try pronouncing <code class="highlighter-rouge">%&gt;%</code> “then” whenever you see it. If you want to see the help page, you’ll need to wrap it in back ticks like so:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">?</span><span class="n">magrittr</span><span class="o">::</span><span class="n">`%&gt;%`</span><span class="w">
+</span></code></pre>
+</div>
+
+<h1 id="a-trivial-pipe-example">A trivial pipe example</h1>
+
+<p>Pipes can work with nearly any functions. Let’s start with a non-dplyr example:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">max</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 2.397
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># is the same thing as:
+</span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 2.397
+</code></pre>
+</div>
+
+<p>So, we took the value of <code class="highlighter-rouge">x</code> (what would have been printed on the console), captured it, and fed it to the first argument of <code class="highlighter-rouge">max()</code>. It’s probably not clear why this is cool yet, but hang on.</p>
+
+<h1 id="a-silly-dplyr-example-with-pipes">A silly dplyr example with pipes</h1>
+
+<p>Let’s try a single-pipe dplyr example. We’ll pipe the <code class="highlighter-rouge">mammals</code> data frame to the arrange function’s first argument, and choose to arrange by the <code class="highlighter-rouge">adult_body_mass_g</code> column:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mammals</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">arrange</span><span class="p">(</span><span class="n">adult_body_mass_g</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 6]
+# 
+#           order                     species adult_body_mass_g
+# 1    Chiroptera Craseonycteris thonglongyai              1.96
+# 2    Chiroptera            Kerivoula minuta              2.03
+# 3  Soricomorpha             Suncus etruscus              2.26
+# 4  Soricomorpha          Sorex minutissimus              2.46
+# 5  Soricomorpha     Suncus madagascariensis              2.47
+# 6  Soricomorpha         Crocidura lusitania              2.48
+# 7  Soricomorpha         Crocidura planiceps              2.50
+# 8    Chiroptera        Pipistrellus nanulus              2.51
+# 9  Soricomorpha                 Sorex nanus              2.57
+# 10 Soricomorpha              Sorex arizonae              2.70
+# ..          ...                         ...               ...
+# Variables not shown: adult_head_body_len_mm (dbl), home_range_km2 (dbl),
+#   litter_size (dbl)
+</code></pre>
+</div>
+
+<h1 id="an-awesome-example">An awesome example</h1>
+
+<p>OK, here’s where it gets cool. We can chain dplyr functions in succession. This lets us write data manipulation steps in the order we think of them and avoid creating temporary variables in the middle to capture the output. This works because the output from every dplyr function is a data frame and the first argument of every dplyr function is a data frame.</p>
+
+<p>Say we wanted to find the species with the highest body-mass-to-length ratio:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mammals</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">mass_to_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">mass_to_length</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">select</span><span class="p">(</span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">mass_to_length</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 2]
+# 
+#                   species mass_to_length
+# 1      Balaena mysticetus           6539
+# 2   Balaenoptera musculus           5063
+# 3  Megaptera novaeangliae           2334
+# 4   Eschrichtius robustus           2309
+# 5   Balaenoptera physalus           2302
+# 6         Elephas maximus           1704
+# 7     Eubalaena glacialis           1654
+# 8     Eubalaena australis           1625
+# 9      Balaenoptera edeni           1444
+# 10  Balaenoptera borealis           1203
+# ..                    ...            ...
+</code></pre>
+</div>
+
+<p>So, we took <code class="highlighter-rouge">mammals</code>, fed it to <code class="highlighter-rouge">mutate()</code> to create a mass-length ratio column, arranged the resulting data frame in descending order by that ratio, and selected the columns we wanted to see. This is just the beginning. If you can imagine it, you can string it together. If you want to debug your code, just pull a pipe off the end and run the code down to that step. Or build your analysis up and add successive pipes.</p>
+
+<p>The above is equivalent to:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">select</span><span class="p">(</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="n">mammals</span><span class="p">,</span><span class="w">
+      </span><span class="n">mass_to_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adult_body_mass_g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">adult_head_body_len_mm</span><span class="p">),</span><span class="w">
+    </span><span class="n">desc</span><span class="p">(</span><span class="n">mass_to_length</span><span class="p">)),</span><span class="w">
+  </span><span class="n">species</span><span class="p">,</span><span class="w"> </span><span class="n">mass_to_length</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5,416 x 2]
+# 
+#                   species mass_to_length
+# 1      Balaena mysticetus           6539
+# 2   Balaenoptera musculus           5063
+# 3  Megaptera novaeangliae           2334
+# 4   Eschrichtius robustus           2309
+# 5   Balaenoptera physalus           2302
+# 6         Elephas maximus           1704
+# 7     Eubalaena glacialis           1654
+# 8     Eubalaena australis           1625
+# 9      Balaenoptera edeni           1444
+# 10  Balaenoptera borealis           1203
+# ..                    ...            ...
+</code></pre>
+</div>
+
+<p>But the problem here is that you have to read it inside out, it’s easy to miss a bracket, and the arguments get separated from the function (e.g. see <code class="highlighter-rouge">mutate()</code> and <code class="highlighter-rouge">desc(mass_to_length))</code>). Plus, this is a rather trivial example. Chain together even more steps and it quickly gets out of hand.</p>
+
+<p>Here’s one more example. Let’s ask what taxonomic orders have a median litter size greater than 3.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mammals</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">group_by</span><span class="p">(</span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">median_litter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">median</span><span class="p">(</span><span class="n">litter_size</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">median_litter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">median_litter</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">select</span><span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">median_litter</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Source: local data frame [5 x 2]
+# 
+#             order median_litter
+# 1 Didelphimorphia         6.595
+# 2  Dasyuromorphia         6.190
+# 3  Erinaceomorpha         3.870
+# 4    Soricomorpha         3.660
+# 5        Rodentia         3.280
+</code></pre>
+</div>
+
+<p>These examples don’t even highlight one of the best things about dplyr. It’s <em>really</em> fast. The internal C++ code makes quick work of massive data frames that would make plyr slow to a crawl.</p>
+
+<p>dplyr can do much more, but the above are the basics of the 5 verbs and pipes. Try them for a bit. Once they click I think they’ll revolutionize your data analysis.</p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

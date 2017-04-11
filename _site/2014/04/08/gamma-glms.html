@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Fitting Gamma GLMs Multiple Ways</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">April  8, 2014</span>
+  <h1 class="post-title"><a href="/2014/04/08/gamma-glms.html">Fitting Gamma GLMs Multiple Ways</a></h1>
+  <p>A <a href="http://en.wikipedia.org/wiki/Gamma_distribution">Gamma error distribution</a> with a log link is a common family to fit <a href="http://en.wikipedia.org/wiki/Generalized_linear_model">GLMs</a> with in ecology. It works well for positive-only data with positively-skewed errors. The Gamma distribution is flexible and can mimic, among other shapes, a <a href="http://en.wikipedia.org/wiki/Log-normal_distribution">log-normal</a> shape. The log link can represent an underlying multiplicate process, which is common in ecology.</p>
+
+<p>Here, I’ll fit a GLM with Gamma errors and a log link in four different ways. (1) With the built-in <code class="highlighter-rouge">glm()</code> function in <code class="highlighter-rouge">R</code>, (2) by optimizing our own likelihood function, (3) by the MCMC Gibbs sampler with <a href="http://mcmc-jags.sourceforge.net/">JAGS</a>, and (4) by the MCMC No U-Turn Sampler in <a href="http://mc-stan.org/">Stan</a> (the shiny new Bayesian toolbox toy).</p>
+
+<p>I wrote this code for myself to make sure I understood what was going on during the fitting process, but I thought I’d share it here. When I’m learning a new method, I often find it useful to see the same problem solved using a method I know along with a method I’m learning.</p>
+
+<p>There are <a href="http://stat.ethz.ch/R-manual/R-patched/library/stats/html/GammaDist.html">multiple ways</a> to parameterize the Gamma distribution in <code class="highlighter-rouge">R</code>. Here I’ve chosen to use the “rate” and “shape” parameters to match how it is parameterized in JAGS.</p>
+
+<p>We’ll start by simulating some data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span><span class="w">
+</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">100</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">runif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="m">-1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.5</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1.2</span><span class="w">
+</span><span class="n">y_true</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">
+</span><span class="n">shape</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rgamma</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shape</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Let’s look at what we just simulated:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">y_true</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/plot-gamma-sim-data.png" alt="plot of chunk plot-gamma-sim-data" /></p>
+
+<p>First, we’ll fit a model to our data with <code class="highlighter-rouge">glm()</code> to make sure we can recover the parameters underlying our simulated data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m_glm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gamma</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"log"</span><span class="p">))</span><span class="w">
+</span><span class="n">m_glm_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">confint</span><span class="p">(</span><span class="n">m_glm</span><span class="p">)</span><span class="w">
+</span><span class="n">coef</span><span class="p">(</span><span class="n">m_glm</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># (Intercept)           x 
+#      0.4356      1.1652
+</code></pre>
+</div>
+
+<p>That’s pretty close to our “true” simulated values. We’ll use these values as a reference for our methods below.</p>
+
+<p>To make sure we understand what’s going on, we’ll write our own likelihood function and optimize the fit to the data ourselves with Ben Bolker’s <code class="highlighter-rouge">mle2()</code> function. You’ll need the <code class="highlighter-rouge">bbmle</code> library.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"bbmle"</span><span class="p">)</span><span class="w">
+</span><span class="n">nll_gamma</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">logshape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">linear_predictor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w">
+  </span><span class="c1"># rate = shape / mean:
+</span><span class="w">  </span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">logshape</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">linear_predictor</span><span class="p">)</span><span class="w">
+  </span><span class="c1"># sum of negative log likelihoods:
+</span><span class="w">  </span><span class="o">-</span><span class="nf">sum</span><span class="p">(</span><span class="n">dgamma</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rate</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">logshape</span><span class="p">),</span><span class="w">
+      </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">(</span><span class="n">m_mle2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">bbmle</span><span class="o">::</span><span class="n">mle2</span><span class="p">(</span><span class="n">nll_gamma</span><span class="p">,</span><span class="w">
+  </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w">
+    </span><span class="n">logshape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rlnorm</span><span class="p">(</span><span class="m">1</span><span class="p">))))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># 
+# Call:
+# bbmle::mle2(minuslogl = nll_gamma, start = list(a = rnorm(1), 
+#     b = rnorm(1), logshape = rlnorm(1)))
+# 
+# Coefficients:
+#        a        b logshape 
+#   0.4356   1.1651   2.2459 
+# 
+# Log-likelihood: -66.55
+</code></pre>
+</div>
+
+<p>One of the niceties built into <code class="highlighter-rouge">mle2()</code> is the ability to estimate profile likelihood intervals with a <code class="highlighter-rouge">confint()</code> function:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">m_mle2_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">confint</span><span class="p">(</span><span class="n">m_mle2</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#           2.5 % 97.5 %
+# a        0.3719 0.5007
+# b        1.0507 1.2794
+# logshape 1.9612 2.5070
+</code></pre>
+</div>
+
+<p>Now, we’ll use the same approach to fit our model, but this time via MCMC with JAGS:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"R2jags"</span><span class="p">)</span><span class="w">
+</span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="c1"># Priors:
+</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">dnorm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0.0001</span><span class="p">)</span><span class="w"> </span><span class="c1"># mean, precision = N(0, 10^4)
+</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">dnorm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0.0001</span><span class="p">)</span><span class="w">
+  </span><span class="n">shape</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">dunif</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1"># Likelihood data model:
+</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">linear_predictor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w">
+    </span><span class="c1"># dgamma(shape, rate) in JAGS:
+</span><span class="w">    </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">dgamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">linear_predictor</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">m_jags</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">R</span><span class="m">2</span><span class="n">jags</span><span class="o">::</span><span class="n">jags</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w">
+  </span><span class="n">parameters.to.save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"shape"</span><span class="p">),</span><span class="w"> </span><span class="n">model.file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>It’s important to inspect the output from any MCMC simulation to make sure the chains are mixing well and have converged. Rest assured that I have. Let’s extract the mean estimates:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m_jags_sims</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">m_jags</span><span class="o">$</span><span class="n">BUGSoutput</span><span class="o">$</span><span class="n">sims.list</span><span class="w">
+</span><span class="n">lapply</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># $a
+# [1] 0.4376
+# 
+# $b
+# [1] 1.167
+# 
+# $shape
+# [1] 9.46
+</code></pre>
+</div>
+
+<p>And plot, as an example, the density of MCMC samples for the parameter <em>b</em>:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">density</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="o">$</span><span class="n">b</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/jags-gamma-density-b.png" alt="plot of chunk jags-gamma-density-b" /></p>
+
+<p>We’ll also calculate 95% credible intervals. We’ll use HPD intervals (<a href="http://en.wikipedia.org/wiki/Credible_interval">highest probability density</a>):</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">m_jags_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coda</span><span class="o">::</span><span class="n">HPDinterval</span><span class="p">(</span><span class="n">coda</span><span class="o">::</span><span class="n">as.mcmc</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="o">$</span><span class="n">b</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      lower upper
+# var1 1.052 1.282
+# attr(,"Probability")
+# [1] 0.95
+</code></pre>
+</div>
+
+<p>Now with Stan:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">rstan</span><span class="p">)</span><span class="w">
+</span><span class="n">stan_code</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"
+data {
+  int&lt;lower=0&gt; N;
+  vector[N] x;
+  vector[N] y;
+}
+parameters {
+  real a;
+  real b;
+  real&lt;lower=0.001,upper=100&gt; shape;
+}
+model {
+  a ~ normal(0,100);
+  b ~ normal(0,100);
+  for(i in 1:N)
+    y[i] ~ gamma(shape, (shape / exp(a + b * x[i])));
+}
+"</span><span class="w">
+</span><span class="n">m_stan</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">stan</span><span class="p">(</span><span class="n">model_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stan_code</span><span class="p">,</span><span class="w">
+    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>We’ll look at the means of each estimated parameter:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">lapply</span><span class="p">(</span><span class="n">extract</span><span class="p">(</span><span class="n">m_stan</span><span class="p">),</span><span class="w"> </span><span class="n">mean</span><span class="p">)[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># $a
+# [1] 0.4379
+# 
+# $b
+# [1] 1.165
+# 
+# $shape
+# [1] 9.479
+</code></pre>
+</div>
+
+<p>And we’ll extract the 95% HPD interval again:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="w">
+</span><span class="n">stan_b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">extract</span><span class="p">(</span><span class="n">m_stan</span><span class="p">)</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">(</span><span class="n">m_stan_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coda</span><span class="o">::</span><span class="n">HPDinterval</span><span class="p">(</span><span class="n">coda</span><span class="o">::</span><span class="n">as.mcmc</span><span class="p">(</span><span class="n">as.vector</span><span class="p">(</span><span class="n">stan_b</span><span class="p">))))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#      lower upper
+# var1 1.049 1.275
+# attr(,"Probability")
+# [1] 0.95
+</code></pre>
+</div>
+
+<p>Finally, we’ll plot the four fits to show that they are all qualitatively the same:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">mgp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w">
+  </span><span class="n">tcl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.15</span><span class="p">,</span><span class="w"> </span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">oma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w">
+
+</span><span class="c1"># left panel:
+</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span><span class="w"> </span><span class="n">y_true</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000050"</span><span class="p">,</span><span class="w">
+  </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">X</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m_glm</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m_glm</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="p">),</span><span class="w">
+  </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m_mle2</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m_mle2</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="p">),</span><span class="w">
+  </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="o">$</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="o">$</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="p">),</span><span class="w">
+  </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"green"</span><span class="p">)</span><span class="w">
+</span><span class="n">lines</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">get_posterior_mean</span><span class="p">(</span><span class="n">m_stan</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w">
+    </span><span class="n">get_posterior_mean</span><span class="p">(</span><span class="n">m_stan</span><span class="p">)[</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"black"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># right panel:
+</span><span class="n">plot</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"n"</span><span class="p">,</span><span class="w">
+  </span><span class="n">xaxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"n"</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Estimate of b"</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"#00000050"</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="n">points</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m_glm</span><span class="p">)[</span><span class="m">2</span><span class="p">])</span><span class="w">
+</span><span class="n">segments</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">m_glm_ci</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">m_glm_ci</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">])</span><span class="w">
+</span><span class="n">points</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">coef</span><span class="p">(</span><span class="n">m_mle2</span><span class="p">)[</span><span class="m">2</span><span class="p">])</span><span class="w">
+</span><span class="n">segments</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">m_mle2_ci</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">m_mle2_ci</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">])</span><span class="w">
+</span><span class="n">points</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">m_jags_sims</span><span class="o">$</span><span class="n">b</span><span class="p">))</span><span class="w">
+</span><span class="n">segments</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">m_jags_ci</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">m_jags_ci</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">])</span><span class="w">
+</span><span class="n">points</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">get_posterior_mean</span><span class="p">(</span><span class="n">m_stan</span><span class="p">)[</span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mean-all chains"</span><span class="p">])</span><span class="w">
+</span><span class="n">segments</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">m_stan_ci</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">m_stan_ci</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">])</span><span class="w">
+
+</span><span class="n">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"glm()"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mle2()"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"JAGS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Stan"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/compare-gamma-fits.png" alt="plot of chunk compare-gamma-fits" /></p>
+
+<h1 id="take-home-messages">Take home messages</h1>
+
+<p>As expected, all four methods give us a similar result (although some with different interpretations — Bayesian vs. frequentist).</p>
+
+<p>Simulation, as always, is a great way to understand statistical models.</p>
+
+<p>Although we call it a “log link”, if we’re working with the Gamma distribution directly, we exponentiate the linear predictor instead of logging the data. This ensures that we don’t propose negative mean values to the Gamma distribution.</p>
+
+<p>There are multiple ways to parameterize the Gamma distribution, so it’s important to pay attention when moving between languages and functions.</p>
+
+<p>As with many optimization exercises, we can force a term (here <code class="highlighter-rouge">shape</code>) to be positive by fitting in log-space. Hence, using <code class="highlighter-rouge">logshape</code> and exponentiating within the optimization function for some of the examples. This creates a smooth likelihood or probability surface near the boundaries that optimization algorithms can better navigate.</p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>An Introduction to reshape2</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">October 19, 2013</span>
+  <h1 class="post-title"><a href="/2013/10/19/reshape.html">An Introduction to reshape2</a></h1>
+  <p><a href="http://cran.r-project.org/web/packages/reshape2/index.html"><code class="highlighter-rouge">reshape2</code></a> is an
+<code class="highlighter-rouge">R</code> package written by <a href="http://had.co.nz">Hadley Wickham</a> that makes it easy
+to transform data between wide and long formats.</p>
+
+<h1 id="what-makes-data-wide-or-long">What makes data wide or long?</h1>
+
+<p>Wide data has a column for each variable. For example, this is
+wide-format data:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   ozone   wind  temp
+# 1 23.62 11.623 65.55
+# 2 29.44 10.267 79.10
+# 3 59.12  8.942 83.90
+# 4 59.96  8.794 83.97
+</code></pre>
+</div>
+
+<p>And this is long-format data:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#    variable  value
+# 1     ozone 23.615
+# 2     ozone 29.444
+# 3     ozone 59.115
+# 4     ozone 59.962
+# 5      wind 11.623
+# 6      wind 10.267
+# 7      wind  8.942
+# 8      wind  8.794
+# 9      temp 65.548
+# 10     temp 79.100
+# 11     temp 83.903
+# 12     temp 83.968
+</code></pre>
+</div>
+
+<p>Long-format data has a column for possible variable types and a column
+for the values of those variables. Long-format data isn’t necessarily
+only two columns. For example, we might have ozone measurements for each
+day of the year. In that case, we could have another column for day. In
+other words, there are different levels of “longness”. The ultimate
+shape you want to get your data into will depend on what you are doing
+with it.</p>
+
+<p>It turns out that you need wide-format data for some types of data analysis
+and long-format data for others. In reality, you need long-format data much
+more commonly than wide-format data. For example, <code class="highlighter-rouge">ggplot2</code> requires
+long-format data 
+(technically <a href="http://vita.had.co.nz/papers/tidy-data.html">tidy data</a>),
+<code class="highlighter-rouge">plyr</code> requires long-format data, and most modelling functions (such as
+<code class="highlighter-rouge">lm()</code>, <code class="highlighter-rouge">glm()</code>, and <code class="highlighter-rouge">gam()</code>) require long-format data. But people often find
+it easier to record their data in wide format.</p>
+
+<h1 id="the-reshape2package">The reshape2 package</h1>
+
+<p><code class="highlighter-rouge">reshape2</code> is based around two key functions: <code class="highlighter-rouge">melt</code> and <code class="highlighter-rouge">cast</code>:</p>
+
+<p><code class="highlighter-rouge">melt</code> takes wide-format data and melts it into long-format data.</p>
+
+<p><code class="highlighter-rouge">cast</code> takes long-format data and casts it into wide-format data.</p>
+
+<p>Think of working with metal: if you melt metal, it drips and becomes
+long. If you cast it into a mould, it becomes wide.</p>
+
+<h1 id="wide--to-long-format-data-the-meltfunction">Wide- to long-format data: the melt function</h1>
+
+<p>For this example we’ll work with the <code class="highlighter-rouge">airquality</code> dataset that is built
+into <code class="highlighter-rouge">R</code>. First we’ll change the column names to lower case to make them
+easier to work with. Then we’ll look at the data:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">names</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tolower</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">airquality</span><span class="p">))</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   ozone solar.r wind temp month day
+# 1    41     190  7.4   67     5   1
+# 2    36     118  8.0   72     5   2
+# 3    12     149 12.6   74     5   3
+# 4    18     313 11.5   62     5   4
+# 5    NA      NA 14.3   56     5   5
+# 6    28      NA 14.9   66     5   6
+</code></pre>
+</div>
+
+<p>What happens if we run the function <code class="highlighter-rouge">melt</code> with all the default argument
+values?</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">aql</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">melt</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span><span class="w"> </span><span class="c1"># [a]ir [q]uality [l]ong format
+</span><span class="n">head</span><span class="p">(</span><span class="n">aql</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   variable value
+# 1    ozone    41
+# 2    ozone    36
+# 3    ozone    12
+# 4    ozone    18
+# 5    ozone    NA
+# 6    ozone    28
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">tail</span><span class="p">(</span><span class="n">aql</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#     variable value
+# 913      day    25
+# 914      day    26
+# 915      day    27
+# 916      day    28
+# 917      day    29
+# 918      day    30
+</code></pre>
+</div>
+
+<p>By default, <code class="highlighter-rouge">melt</code> has assumed that all columns with numeric values are
+variables with values. Often this is what you want. Maybe here we want
+to know the values of <code class="highlighter-rouge">ozone</code>, <code class="highlighter-rouge">solar.r</code>, <code class="highlighter-rouge">wind</code>, and <code class="highlighter-rouge">temp</code> for each
+<code class="highlighter-rouge">month</code> and <code class="highlighter-rouge">day</code>. We can do that with <code class="highlighter-rouge">melt</code> by telling it that we want
+<code class="highlighter-rouge">month</code> and <code class="highlighter-rouge">day</code> to be “ID variables”. ID variables are the variables
+that identify individual rows of data.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">aql</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">melt</span><span class="p">(</span><span class="n">airquality</span><span class="p">,</span><span class="w"> </span><span class="n">id.vars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"month"</span><span class="p">,</span><span class="w"> </span><span class="s2">"day"</span><span class="p">))</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">aql</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   month day variable value
+# 1     5   1    ozone    41
+# 2     5   2    ozone    36
+# 3     5   3    ozone    12
+# 4     5   4    ozone    18
+# 5     5   5    ozone    NA
+# 6     5   6    ozone    28
+</code></pre>
+</div>
+
+<p>What if we wanted to control the column names in our long-format data?
+<code class="highlighter-rouge">melt</code> lets us set those too all in one step:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">aql</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">melt</span><span class="p">(</span><span class="n">airquality</span><span class="p">,</span><span class="w"> </span><span class="n">id.vars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"month"</span><span class="p">,</span><span class="w"> </span><span class="s2">"day"</span><span class="p">),</span><span class="w">
+  </span><span class="n">variable.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"climate_variable"</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">value.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"climate_value"</span><span class="p">)</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">aql</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   month day climate_variable climate_value
+# 1     5   1            ozone            41
+# 2     5   2            ozone            36
+# 3     5   3            ozone            12
+# 4     5   4            ozone            18
+# 5     5   5            ozone            NA
+# 6     5   6            ozone            28
+</code></pre>
+</div>
+
+<h1 id="long--to-wide-format-data-the-castfunctions">Long- to wide-format data: the cast functions</h1>
+
+<p>Whereas going from wide- to long-format data is pretty straightforward,
+going from long- to wide-format data can take a bit more thought. It
+usually involves some head scratching and some trial and error for all
+but the simplest cases. Let’s go through some examples.</p>
+
+<p>In <code class="highlighter-rouge">reshape2</code> there are multiple <code class="highlighter-rouge">cast</code> functions. Since you will most
+commonly work with <code class="highlighter-rouge">data.frame</code> objects, we’ll explore the
+<code class="highlighter-rouge">dcast</code> function. (There is also <code class="highlighter-rouge">acast</code> to return a vector, matrix, or
+array.)</p>
+
+<p>Let’s take the long-format <code class="highlighter-rouge">airquality</code> data and <code class="highlighter-rouge">cast</code> it into some
+different wide formats. To start with, we’ll recover the same format we
+started with and compare the two.</p>
+
+<p><code class="highlighter-rouge">dcast</code> uses a formula to describe the shape of the data. The arguments
+on the left refer to the ID variables and the arguments on the right
+refer to the measured variables. Coming up with the right formula can
+take some trial and error at first. So, if you’re stuck don’t feel bad
+about just experimenting with formulas. There are usually only so many
+ways you can write the formula.</p>
+
+<p>Here, we need to tell <code class="highlighter-rouge">dcast</code> that <code class="highlighter-rouge">month</code> and <code class="highlighter-rouge">day</code> are the ID
+variables (we want a column for each) and that <code class="highlighter-rouge">variable</code> describes the
+measured variables. Since there is only one remaining column,
+<code class="highlighter-rouge">dcast</code> will figure out that it contains the values themselves. We could
+explicitly declare this with <code class="highlighter-rouge">value.var</code>. (And in some cases it will be
+necessary to do so.)</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">aql</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">melt</span><span class="p">(</span><span class="n">airquality</span><span class="p">,</span><span class="w"> </span><span class="n">id.vars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"month"</span><span class="p">,</span><span class="w"> </span><span class="s2">"day"</span><span class="p">))</span><span class="w">
+</span><span class="n">aqw</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dcast</span><span class="p">(</span><span class="n">aql</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">variable</span><span class="p">)</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">aqw</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   month day ozone solar.r wind temp
+# 1     5   1    41     190  7.4   67
+# 2     5   2    36     118  8.0   72
+# 3     5   3    12     149 12.6   74
+# 4     5   4    18     313 11.5   62
+# 5     5   5    NA      NA 14.3   56
+# 6     5   6    28      NA 14.9   66
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">airquality</span><span class="p">)</span><span class="w"> </span><span class="c1"># original data
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   ozone solar.r wind temp month day
+# 1    41     190  7.4   67     5   1
+# 2    36     118  8.0   72     5   2
+# 3    12     149 12.6   74     5   3
+# 4    18     313 11.5   62     5   4
+# 5    NA      NA 14.3   56     5   5
+# 6    28      NA 14.9   66     5   6
+</code></pre>
+</div>
+
+<p>So, besides re-arranging the columns, we’ve recovered our original data.</p>
+
+<p>If it isn’t clear to you what just happened there, then have a look at
+this illustration:</p>
+
+<p><img src="/images/dcast-illustration.png" alt="" /></p>
+
+<p>Figure 1: An illustration of the <code class="highlighter-rouge">dcast</code> function. The blue shading indicates
+ID variables that we want to represent individual rows. The red shading
+represents variable names that we want to swing into column names. The grey
+shading represents the data values that we want to fill in the cells with.</p>
+
+<p>One confusing “mistake” you might make is casting a dataset in which
+there is more than one value per data cell. For example, this time we
+won’t include <code class="highlighter-rouge">day</code> as an ID variable:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dcast</span><span class="p">(</span><span class="n">aql</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">variable</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   month ozone solar.r wind temp
+# 1     5    31      31   31   31
+# 2     6    30      30   30   30
+# 3     7    31      31   31   31
+# 4     8    31      31   31   31
+# 5     9    30      30   30   30
+</code></pre>
+</div>
+
+<p>When you run this in <code class="highlighter-rouge">R</code>, you’ll notice the warning message:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Aggregation function missing: defaulting to length
+</code></pre>
+</div>
+
+<p>And if you look at the output, the cells are filled with the number of
+data rows for each month-climate combination. The numbers we’re seeing
+are the number of days recorded in each month. When you <code class="highlighter-rouge">cast</code> your data
+and there are multiple values per cell, you also need to tell
+<code class="highlighter-rouge">dcast</code> how to aggregate the data. For example, maybe you want to take
+the <code class="highlighter-rouge">mean</code>, or the <code class="highlighter-rouge">median</code>, or the <code class="highlighter-rouge">sum</code>. Let’s try the last example,
+but this time we’ll take the mean of the climate values. We’ll also pass
+the option <code class="highlighter-rouge">na.rm = TRUE</code> through the <code class="highlighter-rouge">...</code> argument to remove <code class="highlighter-rouge">NA</code>
+values. (The <code class="highlighter-rouge">...</code> let’s you pass on additional arguments to your
+<code class="highlighter-rouge">fun.aggregate</code> function, here <code class="highlighter-rouge">mean</code>.)</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">dcast</span><span class="p">(</span><span class="n">aql</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">fun.aggregate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   month ozone solar.r   wind  temp
+# 1     5 23.62   181.3 11.623 65.55
+# 2     6 29.44   190.2 10.267 79.10
+# 3     7 59.12   216.5  8.942 83.90
+# 4     8 59.96   171.9  8.794 83.97
+# 5     9 31.45   167.4 10.180 76.90
+</code></pre>
+</div>
+
+<p>Unlike <code class="highlighter-rouge">melt</code>, there are some other fancy things you can do with
+<code class="highlighter-rouge">dcast</code> that I’m not covering here. It’s worth reading the help file
+<code class="highlighter-rouge">?dcast</code>. For example, you can compute summaries for rows and columns,
+subset the columns, and fill in missing cells in one call to <code class="highlighter-rouge">dcast</code>.</p>
+
+<h1 id="additional-help">Additional help</h1>
+
+<p>Read the package help:
+<code class="highlighter-rouge">help(package = "reshape2")</code></p>
+
+<p>See the <code class="highlighter-rouge">reshape2</code> website:
+<a href="http://had.co.nz/reshape/">http://had.co.nz/reshape/</a></p>
+
+<p>And read the paper on <code class="highlighter-rouge">reshape</code>:
+Wickham, H. (2007). Reshaping data with the <code class="highlighter-rouge">reshape</code> package.
+21(12):1–20.
+<a href="http://www.jstatsoft.org/v21/i12">http://www.jstatsoft.org/v21/i12</a><br />
+(But note that the paper is written for the <code class="highlighter-rouge">reshape</code> package not the
+<code class="highlighter-rouge">reshape2</code> package.)</p>
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

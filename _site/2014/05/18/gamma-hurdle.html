@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Gamma Hurdle Models</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- RSS
+  ================================================== -->
+  <link href="http://seananderson.ca/feed.xml" rel="alternate" type="application/rss+xml" title="Sean Anderson" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css2.1.6/base.css">
+  <link rel="stylesheet" href="/css2.1.6/skeleton.css">
+  <link rel="stylesheet" href="/css2.1.6/layout.css">
+  <!--<link rel="stylesheet" href="/css2.1.6/tomorrow.css">-->
+  <link rel="stylesheet" href="/css2.1.6/syntax2.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+  <!-- Lightbox
+  ================================================== -->
+  <script src="/js/jquery-1.10.2.min.js"></script>
+  <script src="/js/lightbox-2.6.min.js"></script>
+  <link href="/css2.1.6/lightbox.css" rel="stylesheet" />
+
+  <!-- Altmetric
+  ================================================== -->
+  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- MathJax
+  ================================================== -->
+  <script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  ================================================== -->
+
+  <div class="container">
+    <div class="offset-by-two">
+    <div class="twelve columns">
+      <div class="masthead">
+        <div class="sean">
+         <a href="/">Sean C. Anderson</a>
+        <br />
+      </div>
+        <a href="/">About</a>
+        <!--<span class="mastdiv">/</span>-->
+        <!--<a href="/portfolio.html">Figures</a>-->
+        <span class="mastdiv">/</span>
+        <a href="/cv.html">CV</a>
+        <span class="mastdiv">/</span>
+        <a href="/blog.html">Blog</a>
+        <span class="mastdiv">/</span>
+        <a href="https://github.com/seananderson">Code</a>
+        <span class="mastdiv">/</span>
+        <a href="/portfolio.html">Figures</a>
+        <span class="mastdiv">/</span>
+        <a href="http://www.flickr.com/photos/seananderson/">Photos</a>
+        <span class="mastdiv">/</span>
+        <a href="http://twitter.com/sean_anderson">Twitter</a>
+        <span class="mastdiv">/</span>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+
+<span class="date">May 18, 2014</span>
+  <h1 class="post-title"><a href="/2014/05/18/gamma-hurdle.html">Gamma Hurdle Models</a></h1>
+  <h1 id="zero-inflation">Zero inflation</h1>
+
+<p>Ecologists often run into a scenario where their response data have more zeros than expected if the process generating their data was purely from a standard probability distribution. For example, there might be more zeros than you’d expect from a negative binomial distribution with a given mean. <a href="http://stats.stackexchange.com/questions/81457/what-is-the-difference-between-zero-inflated-and-hurdle-distributions-models">Two common methods for dealing with zero-inflated data</a> are:</p>
+
+<ol>
+  <li>
+    <p>Modelling a zero-inflation parameter that represents the probability a given zero comes from the main distribution (say the negative binomial distribution) or is an excess zero.</p>
+  </li>
+  <li>
+    <p>Modelling the zero and non-zero data with one model and then modelling the non-zero data with another. This is often called a “hurdle model”.</p>
+  </li>
+</ol>
+
+<p>So, zero-inflation models separate the zeros into “true” and “extra” categories.</p>
+
+<p>Hurdle models model the zeros and non-zeros as two separate processes.</p>
+
+<p>Zero-inflation models may be more elegant and informative if the same predictors are thought to contribute to the extra and real zeros.</p>
+
+<p>Hurdle models can be useful in that they allow you to model the zeros and non-zeros with different predictors or different roles of the same predictors. Maybe one process leads to the zero/non-zero data and another leads to the non-zero magnitude.</p>
+
+<p>For count data (probably the most typical situation where zero inflation is a problem), there are already a variety of R packages to fit either zero-inflated or hurdle models. E.g. <a href="http://cran.r-project.org/web/packages/pscl/index.html">pscl</a> for models without random effects, <a href="http://glmmadmb.r-forge.r-project.org/">glmmADMB</a> for models with or without random effects, and <a href="http://cran.r-project.org/web/packages/MCMCglmm/index.html">MCMCglmm</a> for Bayesian models with or without random effects.</p>
+
+<h1 id="zero-inflated-continuous-data">Zero-inflated continuous data</h1>
+
+<p>Sometimes ecologists end up with a response dataset that is positive and continuous but has zero inflation. (Technically, any number of zeros is “zero inflation” for probability distributions that only represent non-zero positive values.) There are probably many scenarios that can result in this kind of data. Sometimes the “zeros” may not really be zeros but just really small values that weren’t measured. But there are also plausible scenarios where the zeros are real. For example, if the response variable is biomass at a given site, it’s possible there were just no individuals at some sites. If you want to model the biomass with a distribution such as the log-normal or Gamma, these distributions don’t allow for zero values. One solution is to model the zeros separately from the non-zeros in a binomial-Gamma hurdle model.</p>
+
+<p>This post illustrates a small simulated example of one of these hurdle models where we estimate an intercept only. I describe how to fit the model, interpret the coefficients, and generate predictions with confidence intervals.</p>
+
+<p>Note that the methods as illustrated here don’t apply exactly to count-based hurdle models since count-based models require a truncated count distribution. I.e., they need to account for the fact that the negative binomial or Poisson distribution can represent zeros too, but these zeros were already accounted for in the binomial model. Since the Gamma distribution can not represent zero values we don’t need to worry about that. Count hurdle models can be fitted with the packages mentioned above.</p>
+
+<h1 id="fitting-the-models">Fitting the models</h1>
+
+<p>We’ll start by simulating some data and plotting it. First we’ll simulate a binomial process (0 or 1) with a probability of a non-zero value (1) of 0.7. Then we’ll simulate a Gamma process with a shape (mean) of 0.4.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">150</span><span class="w">
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rbinom</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">)</span><span class="w">
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rgamma</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span><span class="w">
+</span><span class="n">non_zero</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ifelse</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">
+</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">non_zero</span><span class="p">)</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#   x       y non_zero
+# 1 1 0.08736        1
+# 2 2 0.28773        1
+# 3 3 0.05731        1
+# 4 4 0.00000        0
+# 5 5 1.07186        1
+# 6 6 0.00000        0
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">non_zero</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/hurdle1.png" title="plot of chunk hurdle1" alt="plot of chunk hurdle1" style="display: block; margin: auto;" /></p>
+
+<p>Now we’ll fit a logistic regression to predict the probability of a non-zero value and a Gamma GLM with a log link to predict the mean of the non-zero data.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">m</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">non_zero</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logit</span><span class="p">))</span><span class="w">
+</span><span class="n">m</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subset</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">non_zero</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gamma</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>We’ll extract the coefficients and show the 95% confidence intervals (derived from profile likelihoods). Note that the Gamma coefficients come out on a log-scale and we’ll exponentiate them as we go. The logistic regression coefficients come out on the logit scale and we’ll inverse that link as we go as well.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">bin_coef</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">plogis</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">1</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]))</span><span class="w"> </span><span class="c1"># close to prob = 0.7 as specified
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.7067
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">gamma_coef</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]))</span><span class="w"> </span><span class="c1"># close to shape = 0.4 as specified
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.4075
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">plogis</span><span class="p">(</span><span class="n">confint</span><span class="p">(</span><span class="n">m</span><span class="m">1</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#  2.5 % 97.5 % 
+# 0.6307 0.7756
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="n">confint</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#  2.5 % 97.5 % 
+# 0.3158 0.5384
+</code></pre>
+</div>
+
+<p>So, we’ve managed to recover our simulated means. The logistic model indicates that the mean probability of observing a non-zero value is about 0.7. The Gamma model indicates that given we have observed a non-zero value, the mean of our response value <code class="highlighter-rouge">y</code> is about 0.4.</p>
+
+<h1 id="predictions">Predictions</h1>
+
+<p>We could plot these coefficients along with their confidence intervals. We could also plot predictions for these two separate processes.
+For example, we’ll plot the predictions along with confidence intervals for these two models here. Note that because we only modelled an intercept, we’ll get the same predictions regardless of the data to be predicted on.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">pred1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">predict</span><span class="p">(</span><span class="n">m</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"link"</span><span class="p">)</span><span class="w">
+</span><span class="n">pred2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">predict</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"link"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Zero/non-zero binomial model:
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">non_zero</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plogis</span><span class="p">(</span><span class="n">pred1</span><span class="o">$</span><span class="n">fit</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plogis</span><span class="p">(</span><span class="n">pred1</span><span class="o">$</span><span class="n">fit</span><span class="w"> </span><span class="o">+</span><span class="w">
+      </span><span class="nf">c</span><span class="p">(</span><span class="m">1.96</span><span class="p">,</span><span class="w"> </span><span class="m">-1.96</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pred1</span><span class="o">$</span><span class="n">se.fit</span><span class="p">),</span><span class="w">
+    </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"darkgrey"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/hurdle21.png" title="plot of chunk hurdle2" alt="plot of chunk hurdle2" style="display: block; margin: auto;" /></p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="w">
+</span><span class="c1"># Non-zero Gamma model:
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">subset</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">non_zero</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w">
+  </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">pred2</span><span class="o">$</span><span class="n">fit</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">pred2</span><span class="o">$</span><span class="n">fit</span><span class="w"> </span><span class="o">+</span><span class="w">
+      </span><span class="nf">c</span><span class="p">(</span><span class="m">1.96</span><span class="p">,</span><span class="w"> </span><span class="m">-1.96</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pred2</span><span class="o">$</span><span class="n">se.fit</span><span class="p">),</span><span class="w">
+    </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"darkgrey"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/hurdle22.png" title="plot of chunk hurdle2" alt="plot of chunk hurdle2" style="display: block; margin: auto;" /></p>
+
+<p>We can also check the predictions incorporating both the binomial and Gamma models. To do that, we take the two means, add them on a log scale and re-exponentiate them. We can check that the predicted mean (intercept) matches the arithmetic mean.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">pred</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">bin_coef</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">gamma_coef</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.288
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="o">$</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="c1"># same
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># [1] 0.288
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/hurdle4.png" title="plot of chunk hurdle4" alt="plot of chunk hurdle4" style="display: block; margin: auto;" /></p>
+
+<h1 id="prediction-confidence-intervals">Prediction confidence intervals</h1>
+
+<p>Let’s derive confidence intervals on our predictions. One way to do that is using a non-parametric bootstrap method. To do that we’ll define a little function that carries out our hurdle model as above. <code class="highlighter-rouge">boot</code> requires that the function’s first argument be the data and the second argument be a vector of row indices for each bootstrap replicate. The function should return the statistic we want to bootstrap (here the prediction).</p>
+
+<p>We’ll run 500 replicates. In a real analysis you’d want to make sure you’d run enough replicates that the estimates had stabilized. You could test this by increasing the number of replicates until you start getting the same confidence intervals (to whatever level of precision you are interested in) regardless of whether you add more replicates.</p>
+
+<p>We’ll use the bias-corrected confidence intervals. Read the documentation for <code class="highlighter-rouge">boot.ci</code> and the recommended references in the documentation for details.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">hurdle_fn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">dat_boot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w">
+  </span><span class="n">m</span><span class="m">1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">non_zero</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dat_boot</span><span class="p">,</span><span class="w">
+    </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logit</span><span class="p">))</span><span class="w">
+  </span><span class="n">m</span><span class="m">2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subset</span><span class="p">(</span><span class="n">dat_boot</span><span class="p">,</span><span class="w"> </span><span class="n">non_zero</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w">
+    </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gamma</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">))</span><span class="w">
+  </span><span class="n">bin_coef</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">plogis</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">1</span><span class="p">)[[</span><span class="m">1</span><span class="p">]])</span><span class="w">
+  </span><span class="n">gamma_coef</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">coef</span><span class="p">(</span><span class="n">m</span><span class="m">2</span><span class="p">)[[</span><span class="m">1</span><span class="p">]])</span><span class="w">
+  </span><span class="nf">exp</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">bin_coef</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">gamma_coef</span><span class="p">))</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">library</span><span class="p">(</span><span class="n">boot</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">boot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">hurdle_fn</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span><span class="p">)</span><span class="w">
+</span><span class="n">b.ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">boot.ci</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">)</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">b.ci</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+# Based on 500 bootstrap replicates
+# 
+# CALL : 
+# boot.ci(boot.out = b, type = "bca")
+# 
+# Intervals : 
+# Level       BCa          
+# 95%   ( 0.2207,  0.3683 )  
+# Calculations and Intervals on Original Scale
+# Some BCa intervals may be unstable
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b.ci</span><span class="o">$</span><span class="n">bca</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="o">:</span><span class="m">5</span><span class="p">)],</span><span class="w">
+    </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"darkgrey"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/knitr-figs/hurdle3.png" title="plot of chunk hurdle3" alt="plot of chunk hurdle3" style="display: block; margin: auto;" /></p>
+
+
+
+
+<div class="end-of-post">
+</div>
+
+<div class="footer">
+        <a href="/colophon.html">Powered by Jekyll and hosted on GitHub</a>
+    <span class="mastdiv">/</span>
+        <a href="/feed.xml">RSS</a>
+    <span class="mastdiv">/</span>
+        <a href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">CC BY-NC Licensed</a>
+</div>
+
+</div>
+</div>
+</div><!-- container -->
+
+<!-- End Document
+================================================== -->
+<script type="text/javascript" src="/js/retina.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11566420-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+
