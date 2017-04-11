@@ -1,14 +1,14 @@
 
 # SEO settings
 title: "Gustavo Pinto"
-title2: "space" # default: ""
-description: "Just another minimalist Jekyll theme for technical writing."
+title2: "" # default: ""
+description: "Professinal webpage for Gustavo Pitno."
 keywords: "Gustavo Pinto, Professor, software engineering, research"
 url: http://gustavopinto.org # site url
 baseurl: "" # apply repo name if use it under gh-pages branch
 # baseurl: null # apply null if repo name is something like username.github.io
 
-google_analytics: UA-XXXXX-XX
+google_analytics: UA-465334-5
 repo: http://github.com/gustavopinto/gustavopinto.github.com
 disqus_shortname: "gustavopinto"
 twitter_username: "gustavopinto"
@@ -32,7 +32,7 @@ author:
   name     : "Gustavo Pinto"
   job      : "Professor"
   bio      : "."
-  thumb    : /images/author.jpg
+  thumb    : /lost+found/ghlp.jpg
   email    : gpinto@ufpa.com
   url      : http://gustavopinto.org
   github   : http://github.com/gustavopinto
@@ -47,12 +47,6 @@ twitter_site: "@gustavopinto"
 gems:
   - bourbon
   - jekyll-paginate
-
-# navbar pages
-navbar:
-  - slug : about
-    title: About
-  - slug : blog
-    title: Blog
+  
 
 exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]

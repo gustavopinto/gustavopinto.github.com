@@ -2,306 +2,656 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gustavo Pinto</title>
-    <description>Just another minimalist Jekyll theme for technical writing.</description>
+    <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Apr 2017 22:51:04 -0300</pubDate>
-    <lastBuildDate>Mon, 10 Apr 2017 22:51:04 -0300</lastBuildDate>
+    <pubDate>Mon, 10 Apr 2017 23:25:46 -0300</pubDate>
+    <lastBuildDate>Mon, 10 Apr 2017 23:25:46 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
-        <title>How to Download or Use This Theme</title>
-        <description>&lt;h3 id=&quot;use-this-theme-as-you-main-site&quot;&gt;Use this theme as you main site&lt;/h3&gt;
+        <title>Where did I submit papers during my phd</title>
+        <description>&lt;p&gt;TL;DR&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Download or fork the master branch of this theme repo into your GitHub account.&lt;/li&gt;
-  &lt;li&gt;Rename the repo into something like &lt;code class=&quot;highlighter-rouge&quot;&gt;your_username.github.io&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file to your preferences.&lt;/li&gt;
-  &lt;li&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;about.md&lt;/code&gt; file for your About page.&lt;/li&gt;
-  &lt;li&gt;Inside &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; folder, there are sample of blog entries. Learn from it and start yours.&lt;/li&gt;
-  &lt;li&gt;Now, visit &lt;code class=&quot;highlighter-rouge&quot;&gt;http://your_username.github.io&lt;/code&gt; and you should see your blog running.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Publishing papers take time. If you want to publish in a good venue, it takes even more time. Start as early as you can.&lt;/p&gt;
 
-&lt;h3 id=&quot;use-this-theme-as-a-project-page&quot;&gt;Use this theme as a project page&lt;/h3&gt;
+&lt;p&gt;–&lt;/p&gt;
 
-&lt;p&gt;If you want to use this theme as a project page blog, you don’t need to rename the theme repo into &lt;code class=&quot;highlighter-rouge&quot;&gt;your_username.github.io&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I often tell students that they should submit papers to good conferences. During my Ph.D., I think I have submitted to &lt;em&gt;some&lt;/em&gt; good conferences. This is a rant about my submissions, while a Ph.D. student. I remember submitting a reasonable number of paper. Most of them were through easychair, which I can see 21 submissions during 2011-2015 (I graduated in Feb 2015). Among them, 11 papers were accepted. I learnt a lot while working on them, although I’m really proud of less than half of them. Let’s tell the story.&lt;/p&gt;
 
-&lt;p&gt;All you need to do, open &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, change &lt;code class=&quot;highlighter-rouge&quot;&gt;baseurl&lt;/code&gt; to your project name which contains this theme, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;baseurl: &quot;/myproject&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;During my first year, I just made one submission. It was to &lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2095067&quot;&gt;Workshop on Transitioning to Multicore (TMC’2011)&lt;/a&gt;. It was co-located with SPLASH, a prestigious SE+PL conference. During that time, I was looking for a problem to work on, and my advisor was interested at better understanding the state of the use of Java’s concurrency constructs. The workshop was a perfect fit. I worked in this paper for months in a row, and I remember working intensively on it during the deadline week. It was the first time in my life that I didn’t sleep trying to finish a paper. My English was terrible at the time and somehow I was responsible for writing most of the stuff. The paper had only 6 pages, and we had a ton of data (needless to say that we didn’t understand some numbers). At the end, the paper was conditionally accepted – and I was super excited about it. As of 2017, it’s on the top-5 of my &lt;a href=&quot;https://scholar.google.com/citations?view_op=view_citation&amp;amp;hl=en&amp;amp;user=dOeggYMAAAAJ&amp;amp;citation_for_view=dOeggYMAAAAJ:u5HHmVD_uO8C&quot;&gt;most cited papers&lt;/a&gt;. I’m really proud of what I learnt during the process. That was it for 2011.&lt;/p&gt;
 
-&lt;h4 id=&quot;cheers&quot;&gt;Cheers!&lt;/h4&gt;
+&lt;p&gt;In 2012, I submitted four papers. One to FASE (rejected; and I don’t even recall), one to EASE (accepted), one to TISE (rejected, I don’t recall either), and another one to ICSM (rejected). I don’t have a major merit for the acceptance of the EASE paper, I just helped reviewing some papers (it is a systematic literature review). The ICSM is another story. It was an extended version of the TMC paper. 10 pages long, much more comprehensive and polished. Again, this submission made me go to bed after 7am. The paper was rejected, and I started to dislike this paper.&lt;/p&gt;
+
+&lt;p&gt;It was 2013 and I was scratching a problem for my Ph.D. I submitted an early version of it to SBLP (a Brazilian PL conference), and it was brutally rejected (scored 0, -2 and -3). That was shocking. I thought I had a competitive paper, but I was wrong. I kept working on it, aiming at PLATEU, another workshop co-located with SPLASH. At the day of the deadline, my advisor called me and said that we must withdraw our submission (we have submitted an abstract). He thought that the paper was so bad that does not even deserve be submitted to this workshop (I also have another last minute canceled paper. But this time I turned down the submission (we were aiming at GREENS, a workshop co-located with ICSE)). I kept working on this paper, and we submitted it to CSMR (reject) and afterwards to ECOOP (rejected). Four rejections in a row. I also submitted to the &lt;a href=&quot;http://refactoring.info/WRT13/&quot;&gt;Workshop on Refactoring Tools (WRT)&lt;/a&gt; – co-located with SPLASH. This was my first submission without my advisor. It was also my first study targeting StackOverflow. Reviewers seem to like it (scored 2, 3, and 3), and it got into. Although naive, I like this paper.&lt;/p&gt;
+
+&lt;p&gt;2014 was the beginning of the end. My advisor liked my WRT paper, and suggested to do the same, but now targeting my Ph.D. subject. We did and submitted to MSR (accepted). This was my first paper related to my Ph.D. – and it was accepted one year before graduating! In parallel, I kept working on the SBLP/PLATEU/CSMR/ECOOP paper. This time, we submitted to OOPSLA, and we made it (YAY!). The second paper related to my Ph.D. was accepted – and I’m very proud of it. I did another spin off, and submitted to OSS (accepted). This was my first paper targeting Github. Still, I submitted a paper to SEPS (another SPLASH co-located workshop, do you see the pattern?). It was accepted, related to my thesis, and invited to submit an extended version. We submitted it right afterwards – three main chapters done.&lt;/p&gt;
+
+&lt;p&gt;In 2015, in cooperation with another students, I submitted to MSR (accepted) and to FASE (accepted; this time I remember). Although I like both of these papers, the FASE paper is very dear to my heart. However, none of them helped me graduating. I also submitted to SANER (former CSMR), but it was rejected. Remember the TMC/ICSM paper? In 2015 we submitted it to JSS (accepted). The complete story of this paper can be found at my advisor &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;blog post&lt;/a&gt;. In 2015 I start submitting more regularly (the rejected SANER paper was also rejected at SBLP, but accepted at PLATEU), but it was after my Ph.D.&lt;/p&gt;
+
+&lt;p&gt;It is April 2017, and I got another contribution of my Ph.D. accepted last month. We submitted it twice to IEEE SW (twice rejected), to IST (rejected), but it landed at CACM (YAY!). The first submission to CACM was more than one year after graduating. I still have one chapter of my Ph.D. thesis not published. We got rejections at ASPLOS and FSE. I think it is a strong paper, and it will eventually be accepted somewhere (maybe 3 years after my Ph.D.!).&lt;/p&gt;
+
+&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;
 </description>
-        <pubDate>Fri, 10 Jun 2016 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/2016/how-to-download-or-use-this-theme/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/how-to-download-or-use-this-theme/</guid>
+        <pubDate>Sat, 08 Apr 2017 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2017/2017-where-did-i-submit-papers-during-my-phd/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/2017-where-did-i-submit-papers-during-my-phd/</guid>
         
+        
+        <category>codefather</category>
         
       </item>
     
       <item>
-        <title>If you have a Guest post..</title>
-        <description>&lt;p&gt;If you think that you’re going to have a guest post… take a look on this post sample. Just add &lt;code class=&quot;highlighter-rouge&quot;&gt;author: GuestName&lt;/code&gt; to the YAML front matter. Then, the &lt;strong&gt;GuestName&lt;/strong&gt; will be appear on the next of post date. Oh, the guest name will be automatically uppercase.&lt;/p&gt;
+        <title>Transfering Knowledge from Systematic Reviews to Practitioners</title>
+        <description>&lt;p&gt;Researchers have few incentives to write to the general public. On the other hand, practitioners are not used to consume software engineering research. This “Two Solitude” problem is well-known, and several attempts have been made in order to remedying it.&lt;/p&gt;
+
+&lt;p&gt;In a study called &lt;a href=&quot;/lost+found/esem2016.pdf&quot;&gt;Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners&lt;/a&gt;, published at &lt;a href=&quot;http://alarcos.esi.uclm.es/eseiw2016/esem/&quot;&gt;ESEM’16&lt;/a&gt;, we propose and evaluate “Evidence Briefings”, a new method for dissaminating research results to practitioners. This model is inspired by the “Rapid Reviews”, a well-known method used in Evidence-Based Medicine (EBM). Rapid Reviews are aimed at reducing the effort of the traditional systematic reviews by provididing brief documents with few pages focusing only on the main findings that are useful to practice. More interestingly, however, is the fact that Rapid Reviews are gaining attention lately. Among 100 rapid reviews published between 1997 and 2013, 51% of them were published between 2009 and 2012.&lt;/p&gt;
+
+&lt;p&gt;Differently than Rapid Reviews, Evidence Briefings are an one-page document, extracted from a systematic review. It uses the principles of Information Design and Gestalt Theory. The primary objective is to develop documents that are comprehensible, accurately retrievable, natural, and as pleasant as possible.&lt;/p&gt;
+
+&lt;h1 id=&quot;method&quot;&gt;Method&lt;/h1&gt;
+
+&lt;p&gt;Figure below shows an example of an Evidence Briefing.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/images/briefing-structure.png&quot; alt=&quot;Gustavo Pinto&quot; width=&quot;320&quot; height=&quot;421&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;There are several design techniques applied in this briefing. Here we discuss only ot ones about the structure of the briefing (represented by the numbers within squares). They are: (1) The title of the briefing. (2) A short paragraph to present the goal of the briefing. (3) The main section that present the findings extracted from the original systematic review. (4) Informative box that outlines the intended audience and explains the nature of the briefings’ content. (5) The reference to the original systematic review. (6) The logos of our research group and university. All concepts obtained in the previous steps were analyzed and applied in an evidence template, which is open-sourced under CC-BY license.&lt;/p&gt;
+
+&lt;p&gt;We create Evidence Briefings to 12 representative systematic reviews that were selected in a tertiary study. All the 12 evidence briefings as well as the briefing’s template can be found in &lt;a href=&quot;http://cin.ufpe.br/eseg/briefings&quot;&gt;http://cin.ufpe.br/eseg/briefings&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We evaluated the evidence briefings in terms of both content and format. We used personal opinion surveys to ask researchers and practitioners what they think about evidence briefings. Our group of practitioners is composed by the authors of the systematic reviews. Our group of practitioners is composed by StackExchange users that posted questions related to the systematic review in charge.&lt;/p&gt;
+
+&lt;p&gt;Our sample of reseachers is composed by 7 authors that answered the questionnaire, which corresponds to 31% of the 22 invitations. Our sample of practitioners is composed by 32 StackExchange users that responded the questionnaire. This corresponds to 21.9% of the 146 invitations.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+
+&lt;p&gt;In the practitioners survey, we asked six questions to evaluate the briefing’s content. Here we discuss only two of them. We start by asking “To what degree do you think the information available in the briefing we sent to you can answer your question on StackExchange?”. Among the answers, 10% said that the briefing has totally answered, and another 20% said that it has partially answered their StackExchange questions. Another 32% said that the briefing touches a related topic, but does not help to answer the question. The remaining 38% said that the briefing is not related to the question and, therefore, it does not help in answering it.&lt;/p&gt;
+
+&lt;p&gt;In the next question, we asked “Regardless the briefing answers or not your question, how important do you think is the research presented on the briefing?”. We found that 62% of the respondents said that the researches presented in the briefings are “Very important” or “Important”. Moreover, 25%, 6% believe they are “Moderately important” and “Slightly Important” respectively. The remaining 6% believe they are “Unwise”.&lt;/p&gt;
+
+&lt;p&gt;In the reseachers survey, we asked “How does the briefing cover the main find- ings of your paper?”. We found that 72% (5) of the respondents describe as “Very good” or “Good”. The remaining 28% (2) said that it is “Acceptable”. This suggests that even though we are not the authors of the research papers, we were capable of creating, at least, acceptable briefings.&lt;/p&gt;
+
+&lt;p&gt;In terms of format, we observed that 71% (5) of them “Strongly agree” or “Agree” that it is easy to find information in the briefings. Another 71% (5) “Strongly agree” or “Agree” that the briefing interface is clear and understandable. Finally, 56% (4) “Strongly agree” or “Agree” that the briefings look reliable.&lt;/p&gt;
+
+&lt;h1 id=&quot;concluding&quot;&gt;Concluding&lt;/h1&gt;
+
+&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Jun 2016 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/2016/if-you-have-a-guest-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/if-you-have-a-guest-post/</guid>
+        <pubDate>Thu, 05 May 2016 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2016/evidence-briefings/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/evidence-briefings/</guid>
         
+        
+        <category>codefather</category>
         
       </item>
     
       <item>
-        <title>Markdown Cheatsheet Demo</title>
-        <description>&lt;h2 id=&quot;typography-elements-in-one&quot;&gt;Typography Elements in One&lt;/h2&gt;
+        <title>The story behind casual contributors</title>
+        <description>&lt;p&gt;TL;DR&lt;/p&gt;
 
-&lt;p&gt;Let’s start with a informative paragraph. &lt;strong&gt;This text is bolded.&lt;/strong&gt; But not this one! &lt;em&gt;How about italic text?&lt;/em&gt; Cool right? Ok, let’s &lt;strong&gt;&lt;em&gt;combine&lt;/em&gt;&lt;/strong&gt; them together. Yeah, that’s right! I have code to highlight, so &lt;code class=&quot;highlighter-rouge&quot;&gt;ThisIsMyCode()&lt;/code&gt;. What a nice! Good people will hyperlink away, so &lt;a href=&quot;#&quot;&gt;here we go&lt;/a&gt; or &lt;a href=&quot;http://www.example.com&quot;&gt;http://www.example.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;headings-h1-to-h6&quot;&gt;Headings H1 to H6&lt;/h2&gt;
-
-&lt;h1 id=&quot;h1-heading&quot;&gt;H1 Heading&lt;/h1&gt;
-
-&lt;h2 id=&quot;h2-heading&quot;&gt;H2 Heading&lt;/h2&gt;
-
-&lt;h3 id=&quot;h3-heading&quot;&gt;H3 Heading&lt;/h3&gt;
-
-&lt;h4 id=&quot;h4-heading&quot;&gt;H4 Heading&lt;/h4&gt;
-
-&lt;h5 id=&quot;h5-heading&quot;&gt;H5 Heading&lt;/h5&gt;
-
-&lt;h6 id=&quot;h6-heading&quot;&gt;H6 Heading&lt;/h6&gt;
-
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;footnote&quot;&gt;Footnote&lt;/h2&gt;
-
-&lt;p&gt;Let’s say you have text that you want to refer with a footnote, you can do that too! This is an example for the footnote number one [&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;]. You can even add more footnotes, with link! [&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;]&lt;/p&gt;
-
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;blockquote&quot;&gt;Blockquote&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Start by doing what’s necessary; then do what’s possible; and suddenly you are doing the impossible. –Francis of Assisi&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This theme does NOT support nested blockquotes.&lt;/p&gt;
-
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;list-items&quot;&gt;List Items&lt;/h2&gt;
+&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;More Common Than You Think: An In-Depth Study of Casual Contributors&lt;/a&gt;”. For the impatient, there is a summary of the summary:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;First order list item&lt;/li&gt;
-  &lt;li&gt;Second item&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Casual contributors are rather common&lt;/strong&gt;. 48.98% of the overall contributors that we analyzed are actually casual contributors. However, these contributors are responsible for only 1.73% of the total contributions in our set of analyzed projects.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Casual contributions are far from being trivial&lt;/strong&gt;. After a manual inspection of a sample of casual contributions, we found that although 28.64% of them are related to grammar and typo fixes, 30.20% of them fix bugs, 18.75% propose new features, and 8.85% refactor code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Casual contributions are well liked&lt;/strong&gt;. These contributions are perceived as a beneficial phenomenon from the perspective of project maintainters and casual contributors. Personal needs was the most reported motivation for the casual contributors. As a shortcoming, project maintainters reported an increasing number of reviews, which demands time from core developers.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Unordered list can use asterisks&lt;/li&gt;
-  &lt;li&gt;Or minuses&lt;/li&gt;
-  &lt;li&gt;Or pluses&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;–&lt;/p&gt;
 
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Github changed the way developers contribute to OSS projects, in particular by providing a single process of contribution, which is called pull-based model. Using this model, developers do not need to have write access to the repository in order to provide changes to the software. This kind of environment, together with its contribution model, encourages newcomers to participate in the process.&lt;/p&gt;
 
-&lt;h2 id=&quot;code-blocks&quot;&gt;Code Blocks&lt;/h2&gt;
+&lt;p&gt;However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of “not that involved” developers, which are responsible for a long tail of small contributions.&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modularpattern&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// your module code goes here&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the &lt;em&gt;casual contributor&lt;/em&gt;. In a study published on &lt;a href=&quot;http://saner.inf.usi.ch/&quot;&gt;SANER’16&lt;/a&gt;, we investigate (1) how common casual contribtuors are, (2) what are the characteristics of their contributions, and (3) how they are perceived.&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
-&lt;span class=&quot;p&quot;&gt;}());&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modularpattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// alerts: 1&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modularpattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// alerts: 2&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modularpattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// alerts: 0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;Here in this blog post, we will describe the main findings of the paper. If you want to know more about this research, consider reading the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;pre-print&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Python syntax highlighting&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;h1 id=&quot;oss-selection&quot;&gt;OSS selection&lt;/h1&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;No language indicated, so no syntax highlighting.
-But let's throw in a &amp;lt;b&amp;gt;tag&amp;lt;/b&amp;gt;.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;We selected the top 20 most popular open-source projects hosted on Github written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (&lt;em&gt;e.g.,&lt;/em&gt; projects that are not software projects). Our final list of projects included &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;rails&lt;/a&gt;, &lt;a href=&quot;https://github.com/django/django&quot;&gt;django&lt;/a&gt;, and &lt;a href=&quot;https://github.com/torvalds/linux/&quot;&gt;linux&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+&lt;h1 id=&quot;surveys-with-practitioners&quot;&gt;Surveys with practitioners&lt;/h1&gt;
 
-&lt;h2 id=&quot;table&quot;&gt;Table&lt;/h2&gt;
+&lt;p&gt;We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 261 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2 full days. As one reviewer said, “The big deal is the story in the survey part”. &lt;strong&gt;Thank you&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;table-1-with-alignment&quot;&gt;Table 1: With Alignment&lt;/h3&gt;
+&lt;p&gt;We observed that 65.8% of our respondents contribute to OSS at least once per month, and 75.2% of them are used to making casual contributions.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-common-are-casual-contributors-in-oss-projects&quot;&gt;How common are casual contributors in OSS projects?&lt;/h1&gt;
+
+&lt;p&gt;Figure below presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/images/post-casual/overall.png&quot; alt=&quot;Contributions per programming language&quot; height=&quot;330&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;To some extent, the analyzed projects have a similar characteristic: most of the contributors perform very few contributions. A non-negligible number of contributors (48.98%) performed a single contribution, which varies from programming language to programming language (&lt;em&gt;e.g.,&lt;/em&gt; C projects have 39% of casual contributors, whereas JavaScript has 61%). Based on this finding, we decided that the casual contributor is a contributor that performed at most one commit to a software project.&lt;/p&gt;
+
+&lt;p&gt;This significant number of casual contributors might lead one to believe that an important proportion of the projects are intrinsically made by casual contributions. In reality, we found the opposite: these casual contributors are responsible for only 1.73% of the total number of contributions in our corpus of OSS projects (linux: 1.02%, rails: 3.46%, django: 3.19%). For a more detailed perspective, next figure shows the percentage of the casual contributors (top) and contributions (bottom) for each programming language analyzed.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/images/post-casual/percentage.png&quot; alt=&quot;Percentage of casual contributors&quot; width=&quot;400&quot; height=&quot;330&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;We can see that the programming language used matters. With some exception, projects written in static typed programming languages (&lt;em&gt;e.g.&lt;/em&gt;, C, TypeScript and C++) seem to be less favorable to receive casual contributions than those using dynamic typed ones (&lt;em&gt;e.g.&lt;/em&gt;, Ruby, Python and JavaScript). We believe this is because scripting programming languages are more concise than procedural and object-oriented ones, and size really matters when it comes to casual contributors.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-are-the-characteristics-of-a-casual-contribution&quot;&gt;What are the characteristics of a casual contribution?&lt;/h1&gt;
+
+&lt;p&gt;We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project &lt;a href=&quot;https://github.com/thoughtbot/paperclip/&quot;&gt;paperclip&lt;/a&gt; is the one with the highest number of additions and deletions among the Ruby projects. See table below. With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Tables&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+      &lt;th&gt;Change&lt;/th&gt;
+      &lt;th&gt;Mean&lt;/th&gt;
+      &lt;th&gt;3rd Quartile&lt;/th&gt;
+      &lt;th&gt;Std. Dev&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;col 3 is&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+      &lt;td&gt;Additions&lt;/td&gt;
+      &lt;td&gt;4.15&lt;/td&gt;
+      &lt;td&gt;5.75&lt;/td&gt;
+      &lt;td&gt;1.72&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;col 2 is&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;zebra stripes&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+      &lt;td&gt;Deletions&lt;/td&gt;
+      &lt;td&gt;1.02&lt;/td&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;0.26&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;table-2-with-typography-elements&quot;&gt;Table 2: With Typography Elements&lt;/h3&gt;
+&lt;p&gt;We also analyzed the contributions with the lowest number of additions and deletions. In fact, 22.7% of the casual contributions performed on Ruby projects changed a single line of code. Some of them include, (1) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/6f2ca93&quot;&gt;preventing a type from being null&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/d49bca2&quot;&gt;updating documentation files&lt;/a&gt;, or (3) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/62a9f64&quot;&gt;setting an option to a default value&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We also analyzed a &lt;a href=&quot;https://en.wikipedia.org/wiki/Statistical_significance&quot;&gt;statistically significant&lt;/a&gt; sample of 384 casual contributions. We identified 8 categories of casual contributions, summarized next. Afterwards, we discuss the top 3 ones.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Markdown&lt;/th&gt;
-      &lt;th&gt;Less&lt;/th&gt;
-      &lt;th&gt;Pretty&lt;/th&gt;
+      &lt;th&gt;Category&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;%&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;Still&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;renders&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;nicely&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Bug Fix&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;116&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;30.20%&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Documentation&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;110&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;28.64%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Add new feature&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;72&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;18.75%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Refactoring&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;34&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.85%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Update dependencies&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;25&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.51%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Improve error message&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.64%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Improve resource usage&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.08%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Add test cases&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.30%&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Bug fix&lt;/strong&gt;. It is the most common kind of casual contribution found in our dataset. Some examples include: (1) &lt;a href=&quot;https://github.com/TransitApp/SVProgressHUD/commit/eebd6ec&quot;&gt;layout fix&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/koalaman/shellcheck/commit/f054e2e&quot;&gt;fixing compilation problems&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/lulzlabs/AirChat/commit/03cd91d&quot;&gt;fixing a broken URL&lt;/a&gt;. Still, some bug fixes are far from being trivial, as the one that &lt;a href=&quot;https://github.com/torvalds/linux/commit/ddca3b8&quot;&gt;fixed a race condition at the linux operating system&lt;/a&gt;. Not only difficult to identify (such bugs are non-deterministic), the solution employed was also scattered between C preprocessors, which difficulties the reasoning of the compiled program.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;. This category includes fix for typos, grammar, translation, formatting, and documentation issues. Although these contributions do not require significant programming effort, we found contributions that have &lt;a href=&quot;https://github.com/codecombat/codecombat/commit/237b97a&quot;&gt;thoroughly rewritten the original material&lt;/a&gt;. Also, we found that 27 out of these 110 contributions were fixing typos on code examples. This finding reinforces the importance of complete and verified working code examples.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Add New Feature&lt;/strong&gt;. Some of the examples include (1) &lt;a href=&quot;https://github.com/rg3/youtube-dl/commit/1a2adf3&quot;&gt;adding a new option for a command line tool&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/angular/angular.js/commit/da9eac8&quot;&gt;adding support for disabling an option&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/apenwarr/sshuttle/commit/95c9b78&quot;&gt;adding support for IPv6 remote hosts&lt;/a&gt;. Interestingly, 24 out of the 72 contributions in this category were performed at the Linux operating system. Most of them were adding support for a new driver/device, which usually require few additions.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h2 id=&quot;horizontal-line&quot;&gt;Horizontal Line&lt;/h2&gt;
+&lt;h1 id=&quot;how-do-casual-contributors-and-project-maintainers-perceive-casual-contributions&quot;&gt;How do casual contributors and project maintainers perceive casual contributions?&lt;/h1&gt;
 
-&lt;p&gt;The HTML &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;hr&amp;gt;&lt;/code&gt; element is for creating a “thematic break” between paragraph-level elements. In markdown, you can create a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;hr&amp;gt;&lt;/code&gt; with any of the following:&lt;/p&gt;
+&lt;p&gt;We explicitly asked casual contributors and project maintainers “what motivates casual contributors’ behavior”, and the top cited perceived motivation was &lt;strong&gt;scratch their own itch&lt;/strong&gt;, highly mentioned by both casual contributors (90 out of 197) and project maintainers (23 out of 64). Part of this high number of casual contributions can be explained by the pull-request model, which provided a clear and easy contribution process. It was mentioned by 9 out of 64 project maintainters.&lt;/p&gt;
+
+&lt;p&gt;Aligned with some studies on the motivation behind OSS contributors, we found that &lt;strong&gt;give back to community&lt;/strong&gt; fosters casual contributions, as said by one casual contributor “As I use a lot of OSS projects, I like to give back to the community”. Another motivation that is inline with the literature is &lt;strong&gt;gaining reputation and prestige&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Not among the top cited motivations, we found that four casual contributors reported that their motivation was &lt;strong&gt;improving the project&lt;/strong&gt;. The following quotes clearly illustrate such motivation: “I want to improve the quality of the project”, “That the project is in better shape after my contribution”.&lt;/p&gt;
+
+&lt;p&gt;In addition to motivation, we investigated the reasons why casual contributors do not become full active contributors. &lt;strong&gt;Lack of time&lt;/strong&gt; was far the most cited reason by the casual contributors (96 out of 197), like one mentioned “I don’t have time to devote to a more active role”.  From the perspective of the project maintainters, &lt;strong&gt;Lack of time&lt;/strong&gt; was also the most mentioned reason why casual contributors do not become a long term contributor (17 out of 64 respondents). The following quote exemplify it: “People often don’t have the time or desire to be long term contributors”.&lt;/p&gt;
+
+&lt;p&gt;We also found people who reported that they do not contribute because of their &lt;strong&gt;limited skills or knowledge&lt;/strong&gt;. Some also mentioned that the effort and knowledge needed to become a full contributor was too high. In both cases, they prefer to work on small or peripheral issues, which do not need specific abilities and usually require low effort. Like one of them said: “lack of skills (most of the low hanging fruit is gone)”. Project maintainers noticed this, and eight participants mentioned that &lt;strong&gt;code/project is hard to learn&lt;/strong&gt; was a reason why casual contributors do not become more active.&lt;/p&gt;
+
+&lt;p&gt;We also asked the participants their opinion about the main benefits and problems brought by the casual contributors phenomenon. The overall impression is that the benefits overcome the drawbacks brought by this phenomenon. One quote from a project maintainter shows: “Every little piece helps everyone else. We stand on the shoulders of many small giants. Problems? None”.&lt;/p&gt;
+
+&lt;p&gt;On the other side, the most reported problems were &lt;strong&gt;Time spent by the core members to review newcomers’ code&lt;/strong&gt; (reported by 12 people) and &lt;strong&gt;contributions may go unmaintained&lt;/strong&gt; (reported by 5 people).&lt;/p&gt;
+
+&lt;h1 id=&quot;take-away-message&quot;&gt;Take away message&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Casual contributors&lt;/strong&gt; can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Project owners&lt;/strong&gt; can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce “contributions guidelines”, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 01 Jan 2016 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2016/the-story-behind-casual-contributors/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/the-story-behind-casual-contributors/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>Do developers care about software energy consumption?</title>
+        <description>&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
+
+&lt;p&gt;These questions were the start point of our paper, “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;Mining Questions About Software Energy Consumption&lt;/a&gt;”. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.&lt;/p&gt;
+
+&lt;p&gt;We filter out all questions that contain at least one energy consumption related word (&lt;em&gt;e.g.,&lt;/em&gt; energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named &lt;a href=&quot;http://en.wikipedia.org/wiki/Thematic_analysis&quot;&gt;Thematic Analysis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse – we found 5 main themes of questions – but also often more &lt;em&gt;interesting&lt;/em&gt; and &lt;em&gt;challenging&lt;/em&gt; when compared to the remaining questions on StackOverflow.&lt;/p&gt;
+
+&lt;p&gt;We found five main themes regarding energy consumption questions. They are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Measurements&lt;/strong&gt;. Questions about measurement tools or techniques.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;General Knowledge&lt;/strong&gt;. Questions that do not have a concrete use case.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Code Design&lt;/strong&gt;. Questions about programming techniques that can help in saving energy.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Context-specific&lt;/strong&gt;. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Noise&lt;/strong&gt;. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Keep IO to a minimum.&lt;/li&gt;
+  &lt;li&gt;Bulk operations.&lt;/li&gt;
+  &lt;li&gt;Avoid Polling.&lt;/li&gt;
+  &lt;li&gt;Hardware Coordination.&lt;/li&gt;
+  &lt;li&gt;Concurrent programming.&lt;/li&gt;
+  &lt;li&gt;Lazy Initialization.&lt;/li&gt;
+  &lt;li&gt;Race to Idle.&lt;/li&gt;
+  &lt;li&gt;Efficient Data structure.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.&lt;/p&gt;
+
+&lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2014/do-developers-care-about-software-energy-consumption/</link>
+        <guid isPermaLink="true">http://localhost:4000/2014/do-developers-care-about-software-energy-consumption/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>Why do you keep doing surveys?</title>
+        <description>&lt;p&gt;When I say survey, I mean online questionnaires.&lt;/p&gt;
+
+&lt;p&gt;First of all, don’t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.&lt;/p&gt;
+
+&lt;p&gt;Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?&lt;/p&gt;
+
+&lt;p&gt;Yes, of course, you can do a survey.&lt;/p&gt;
+
+&lt;p&gt;But, there are some concerns that you have to keep in mind: First, survey has its own problems (the subject may lie in a difficult questions, or may remember incorrectly about a long time question, or may not fully understand a question and then give a faulty response). Second, the survey response rate is pretty low. If you are a luck guy, you can get 10% or 15% of response rate. So, if you are targeting the entire rails population, you may draw conclusions from a biased part of it. And finally, you may have to wait for several weeks (months?) until you have collected enough data.&lt;/p&gt;
+
+&lt;p&gt;Or you can simply change your data source.&lt;/p&gt;
+
+&lt;p&gt;If you are doing computer science research, you have on hand a number of great on line data sources. All you have to do is pick up the right one, use your programming skill to extract the data, and proceed to the analysis.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you want to know what rails core developers eat at lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine their actives on there.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverfow&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and/or &lt;a href=&quot;http://www.sourceforge.com&quot;&gt;SourceForge&lt;/a&gt;, and parse their source code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you want to know if final users are facing energy consumption problems in mobile applications? Mine &lt;a href=&quot;http://play.google.com&quot;&gt;Google Play&lt;/a&gt; comments.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And the list goes on.&lt;/p&gt;
+
+&lt;p&gt;You see? Surveys are good. But, you can get a ton of data if you mine such websites.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/Why-keep-doing-surveys/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/Why-keep-doing-surveys/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>Tips to attend OOPSLA with low budget</title>
+        <description>&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a flagship conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.&lt;/p&gt;
+
+&lt;p&gt;In this year (2013) I attended my very first OOPSLA. It was awesome. &lt;a href=&quot;https://twitter.com/gustavopinto/status/394562681253810176&quot;&gt;I&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395050744291659776&quot;&gt;shared&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395210719022436352&quot;&gt;some&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395683470971641856&quot;&gt;stories&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396020564361371648&quot;&gt;on&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396021132479827969&quot;&gt;twitter&lt;/a&gt;. However, one of the things that made it so great was because I didn’t needed to pay anything. Neither my advisor.&lt;/p&gt;
+
+&lt;p&gt;How it could be possible?&lt;/p&gt;
+
+&lt;p&gt;I basically follow three steps: (i) submit a paper to ACM SRC, (ii) apply to be a student volunteer, and (iii) request PAC funding.&lt;/p&gt;
+
+&lt;p&gt;I’ll briefly describe these steps here.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Consider submitting a paper to ACM SRC&lt;/strong&gt;: One good reason to go to a conference is to give a talk about your reasearch (hopefully, in the main track of the conference). In this case, you will probably get money from your advisor/department/university. But, if you are on the early stages of your research, or if you got rejected, you can also consider submitting to the ACM SRC track. The goal of the ACM SRC is to facilitate interaction between researchers and practitioners, providing both sides the opportunity to learn of ongoing research. Additionally, the ACM SRC gives students experience with both formal presentations and evaluations. Finally, you can receive up to $ 500 to spend on your trip. Not bad.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Apply to be a student volunteer&lt;/strong&gt;: When you are a student volunteer, you don’t need to pay for your registration. You could eventually receive other interesting things, such as a costumed t-shirt, or an invitation to a fancy dinner. &lt;strong&gt;Update: Student Volunteers for OOPSLA’2014 also received free hotel&lt;/strong&gt;. On the other hand, you have to work during the conference. Some duties include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms. But, don’t worry. You will find time to enjoy the conference.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Request PAC funding&lt;/strong&gt;: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. However, the SPLASH/Poster sesssion is sponsored. These two tracks happens together at SPLASH. Also, if you don’t have any paper accepted, but was accepted to be a student volunteer, you can also request PAC funding. That is great, hun? And it is pretty easy to apply. You just have to fill up a form, explaing how do you plan to spend this money.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So, these were my tips.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, I’m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for OOPSLA.&lt;/p&gt;
+
+&lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA’2014 in Portland :)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/tips-to-attend-oopsla-with-low-budget/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/tips-to-attend-oopsla-with-low-budget/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>Pycon 2014 - Call for posters</title>
+        <description>&lt;p&gt;PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.&lt;/p&gt;
+
+&lt;p&gt;How?&lt;/p&gt;
+
+&lt;p&gt;What about presenting a poster in the Python premier conference?&lt;/p&gt;
+
+&lt;h1 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h1&gt;
+
+&lt;p&gt;As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.&lt;/p&gt;
+
+&lt;p&gt;The idea is to present your topic on a 4’x4’ poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
+
+&lt;p&gt;Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-kind-of-proposal-can-i-submit&quot;&gt;What kind of proposal can I submit?&lt;/h1&gt;
+
+&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don’t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don’t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon’13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon’12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
+
+&lt;h1 id=&quot;hmm-im-interested-how-to-submit-a-proposal&quot;&gt;Hmm.. I’m interested. How to submit a proposal?&lt;/h1&gt;
+
+&lt;p&gt;To submit a poster proposal, you should first create an account in the PyCon site. When you are logged in, you will need to include the following information.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;___&lt;/code&gt;: three consecutive underscores&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;---&lt;/code&gt;: three consecutive dashes&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;***&lt;/code&gt;: three consecutive asterisks&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The title of your post&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The category&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The intended audience (assumed level of knowledge)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A brief description - 300 chars max&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A detailed description&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Additional notes for the proposal reviewers. This can include additional background information such as links to other presentations you have done, or links to blog posts, articles or code related to your presentation.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;renders to:&lt;/p&gt;
+&lt;p&gt;Keep in mind that the posters should follow all of the usual &lt;a href=&quot;http://us.pycon.org/2014/speaking/proposal_advice/&quot;&gt;guidelines&lt;/a&gt; that we look for in talk and tutorial proposals.&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h1 id=&quot;important-dates&quot;&gt;Important Dates&lt;/h1&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;Do not miss the application deadline!&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;Poster submission deadline: November 1st, 2013.&lt;/p&gt;
 
-&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+&lt;p&gt;Poster announced: December 15th, 2013.&lt;/p&gt;
 
-&lt;h2 id=&quot;media&quot;&gt;Media&lt;/h2&gt;
+&lt;p&gt;Poster session at PyCon’14: April 13th, 2014.&lt;/p&gt;
 
-&lt;h3 id=&quot;youtube-embedded-iframe&quot;&gt;YouTube Embedded Iframe&lt;/h3&gt;
+&lt;p&gt;If you need more information, you can see the &lt;a href=&quot;http://us.pycon.org/2014/posters/faq/&quot;&gt;Poster FAQ&lt;/a&gt; and the &lt;a href=&quot;https://us.pycon.org/2014/posters/&quot;&gt;Poster CFP&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;video-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/n1a7o44WxNo&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/pycon-2014-call-for-poster/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/pycon-2014-call-for-poster/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>From where come the Brazilian open-source contributions?</title>
+        <description>&lt;h1 id=&quot;from-where-come-the-brazilian-open-source-contributions&quot;&gt;From where come the Brazilian open-source contributions?&lt;/h1&gt;
 
-&lt;h3 id=&quot;image&quot;&gt;Image&lt;/h3&gt;
+&lt;p&gt;Hi there.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://octodex.github.com/images/minion.png&quot; alt=&quot;Minion&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Some days ago I was wondering why open-source communities are so cool! You can meet a lot of interesting people, who devote a lot time of their time-lifes just to create stuffs that other people will use. It is strange. Usually, this people actually have their own business, work, family, whatever, and they still find time to work for free. It sounds weird to me (even though I devote part of my time to open-source activities).&lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;p&gt;Footnote:&lt;/p&gt;
+&lt;p&gt;But, the point is: how active these communities are? And if you take into consideration only the Brazilian community, what is the general picture that we can drawn from they? Thinking about it, I collected a lot of data about Brazilian developers in the github social coding website. There is a lot of interesting findings.&lt;/p&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;1: Footnote number one yeah baby!&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;2: A footnote you can link to - &lt;a href=&quot;#&quot;&gt;click here!&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;h4&gt;1. Are the brazilian open-source community active&lt;/h4&gt;
+
+&lt;p&gt;Not as I expected. I gathered data for a total of 4.481 users, which 3.121 ones do not have any kind of contribution. That is, 30% of the users (the active group) are responsible for 100% of the contribution. The active group was sub-divided in more three groups: low active (up to 19 contribution per year),  fairly active (up to 49 contributions per year) and very active (more than 49 contributions per year). Furthermore, the percentage of the low actives, fairly actives and very actives are, respectively, 57.8%, 20.9%, 21.3%. The &lt;a href=&quot;http://en.wikipedia.org/wiki/Pareto_principle&quot;&gt;Pareto’s principle&lt;/a&gt; also works here: from 30% of the users come the 100% of the contributions. This results show us that the brazilian open-source community is not so active as we may guess.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post3/users-active-percentage.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h4&gt;2. From where they come?&lt;/h4&gt;
+
+&lt;p&gt;If we take into consideration the user locale, we observed that 46% of these users come from the Northeast region, which is very interesting, since, here in Brazil, the most economical region (or, in this case, from where have the most job offers) is the southeast region. If we take into consideration the specific State, the most active are Paraná (13.65%), followed by Ceará (12.37%) and followed by (11.25%). All theses states are not part of the southeast region. Nonetheless, this kind of analysis is very difficult to perform, since the user can omit the location field (which represents 8% of the total), provide unreliable information, or use acronym, nicknames, etc. But, if we can draw a chart of the Brazilian open-source contribution per state, it may look like this one.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post3/total_commits.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h4&gt;3. Which are the most popular programming languages?&lt;/h4&gt;
+
+&lt;p&gt;Github can infer the most used language on a given project. Then, analyzing the set of projects contributed, the list of the ten more used programming language are: JavaScript (22.77%), Ruby (18.78%), Java (14.19%), PHP (13.95%), Python (9.86%), C (3.36%), C++ (2.94%), Shell (2.55%), Objective-C (1.95%) e C# (1.88%). I have to tell that these results surprised me a bit. Since I’m a Java-guy, my heart used to fell that Java is the most popular language in Brazil. But, it seems that Brazilian hackers are more likely to use untyped languages, such as JS, Ruby, PHP, although the Java language remains in the top-3. It is cool.&lt;/p&gt;
+
+&lt;p&gt;Now I’m wondering if these data are only related to github, or if it could be possible to generalize. Someday I want to correlate this result with stackoverflow, or other similar forge.&lt;/p&gt;
+
+&lt;p&gt;If you want to read more about, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/oss2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/from-where-come-the-brazilian-open-source-contributions/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/from-where-come-the-brazilian-open-source-contributions/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
+    
+      <item>
+        <title>Improving our line plots with R</title>
+        <description>&lt;p&gt;Hi there.&lt;/p&gt;
+
+&lt;p&gt;As you may know, I’m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I’m a graduate student, I’m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post2/usage-per-thread.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is terrible.&lt;/p&gt;
+
+&lt;p&gt;So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as &lt;code class=&quot;highlighter-rouge&quot;&gt;summary&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sd&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cor&lt;/code&gt;, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like &lt;code class=&quot;highlighter-rouge&quot;&gt;plotanincrediblechart&lt;/code&gt;, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post2/usage-per-thread-r.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Much better, uh?&lt;/p&gt;
+
+&lt;p&gt;So, how can you do this?&lt;/p&gt;
+
+&lt;h1 id=&quot;first&quot;&gt;First&lt;/h1&gt;
+
+&lt;p&gt;Let’s start by initializing your data array. If you do not have basic knowledge in R, &lt;a href=&quot;http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf&quot;&gt;this article&lt;/a&gt; is a good start point.&lt;/p&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executors&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;56&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forkJoin&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;54&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actors&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;47&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;h1 id=&quot;second&quot;&gt;Second&lt;/h1&gt;
+
+&lt;p&gt;Create a simple line chart with one of your data set using the &lt;code class=&quot;highlighter-rouge&quot;&gt;plot&lt;/code&gt; function. In this case, I used the &lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt; var.&lt;/p&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;blue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this function, we passed the &lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt; var and more four arguments. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;: the plot type;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;col&lt;/code&gt;: the line color (see &lt;a href=&quot;http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf&quot;&gt;here&lt;/a&gt; to see all colors avaiable in R);&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pch&lt;/code&gt;: the vector of plotting characters or symbols;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ylim&lt;/code&gt;: the y limits of the plot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are several other parameters that you can use in your chart. If you have the time, take a lot at the &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html&quot;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, we have to add the remaining data. To do so, we will use another function called &lt;code class=&quot;highlighter-rouge&quot;&gt;lines&lt;/code&gt;. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the &lt;code class=&quot;highlighter-rouge&quot;&gt;plot&lt;/code&gt; function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;darkred&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;purple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forkJoin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;chocolate3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;orangered2 &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post2/middle-chart.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Great! Our chart is becoming professional. My mon will be proud of me.&lt;/p&gt;
+
+&lt;h1 id=&quot;third&quot;&gt;Third&lt;/h1&gt;
+
+&lt;p&gt;The third part is to add both vertical and horizontal lines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;abline(v=1,col=1,lty=3)
+abline(v=1.5,col=1,lty=3)
+abline(v=2,col=1,lty=3)
+abline(v=2.5,col=1,lty=3)
+abline(v=3,col=1,lty=3)
+abline(v=3.5,col=1,lty=3)
+abline(v=4,col=1,lty=3)
+
+abline(h=100,col=1,lty=3)
+abline(h=80,col=1,lty=3)
+abline(h=60,col=1,lty=3)
+abline(h=40,col=1,lty=3)
+abline(h=20,col=1,lty=3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt; for vertical lines and &lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt; for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, …) or as one of the character strings “blank”, “solid”, etc.&lt;/p&gt;
+
+&lt;h1 id=&quot;fourth&quot;&gt;Fourth&lt;/h1&gt;
+
+&lt;p&gt;The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: &lt;code class=&quot;highlighter-rouge&quot;&gt;box&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;legend&lt;/code&gt;. I think the name of these functions are meaningful. But, the &lt;code class=&quot;highlighter-rouge&quot;&gt;legend&lt;/code&gt; function receives several parameters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;box()
+labels &amp;lt;- c(&quot;Sequential&quot;,&quot;Thread&quot;, &quot;Executors&quot;, &quot;ForkJoin&quot;, &quot;Scala Actors&quot;)
+colors &amp;lt;- c(&quot;blue&quot;,&quot;darkred&quot;, &quot;purple&quot;, &quot;chocolate3&quot;, &quot;orangered2&quot;)
+pch &amp;lt;- c(18,23,24,25,8)
+
+legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And you’ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :-)&lt;/p&gt;
+
+&lt;p&gt;See you later alligator!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Dec 2015 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/2015/markdown-cheatsheet-demo/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/markdown-cheatsheet-demo/</guid>
+        <pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/improving-your-line-plots-with-r/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/improving-your-line-plots-with-r/</guid>
         
+        
+        <category>codefather</category>
         
       </item>
     
       <item>
-        <title>The quick, brown fox jumps over a lazy dog</title>
-        <description>&lt;p&gt;The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz.&lt;/p&gt;
+        <title>Hello World</title>
+        <description>&lt;p&gt;Hi all.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general.&lt;/p&gt;
 
-&lt;p&gt;Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! “Now fax quiz Jack! “ my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk.&lt;/p&gt;
+&lt;p&gt;Let’s get started!&lt;/p&gt;
 
-&lt;p&gt;A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump.&lt;/p&gt;
+&lt;h1 id=&quot;about-the-name&quot;&gt;About the name&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch “Jeopardy! “, Alex Trebek’s fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Yes, as you can imagine, the name is a joke with the Godfather movie.&lt;/p&gt;
 
-&lt;p&gt;Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz.&lt;/p&gt;
-
-&lt;p&gt;Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox.&lt;/p&gt;
-
-&lt;p&gt;Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs!&lt;/p&gt;
-
-&lt;p&gt;“Now fax quiz Jack! “ my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/codefather.jpg&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Oct 2015 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/2015/the-quick-brown-fox-jumps-over-a-lazy-dog/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/the-quick-brown-fox-jumps-over-a-lazy-dog/</guid>
+        <pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/2013/hello-world/</link>
+        <guid isPermaLink="true">http://localhost:4000/2013/hello-world/</guid>
         
         
-      </item>
-    
-      <item>
-        <title>What is Lorem Ipsum?</title>
-        <description>&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p&gt;
-
-&lt;h3 id=&quot;where-does-it-come-from&quot;&gt;Where does it come from?&lt;/h3&gt;
-
-&lt;p&gt;Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, “Lorem ipsum dolor sit amet..”, comes from a line in section 1.10.32.&lt;/p&gt;
-
-&lt;p&gt;The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.&lt;/p&gt;
-
-&lt;h3 id=&quot;why-do-we-use-it&quot;&gt;Why do we use it?&lt;/h3&gt;
-
-&lt;p&gt;It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).&lt;/p&gt;
-
-&lt;h3 id=&quot;where-can-i-get-some&quot;&gt;Where can I get some?&lt;/h3&gt;
-
-&lt;p&gt;There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This content was copied from http://www.lipsum.com/ as an example of post article.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Fri, 20 Mar 2015 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/2015/what-is-lorem-ipsum/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/what-is-lorem-ipsum/</guid>
-        
+        <category>codefather</category>
         
       </item>
     
