@@ -1,3 +1,13 @@
-This repository holds code for the [Jekyll](http://jekyllrb.com) backend to <http://seananderson.ca>.
+# Thinkspace v2.1
 
-See <http://seananderson.ca/colophon.html> for a description of how the site works.
+Thinkspace is just another minimalist Jekyll theme which is best suit for technical writing, but not limited to. Good for personal blog type too or project-based blog. Disqus comment is included.
+
+[**Live Demo**](http://heiswayi.github.io/thinkspace/)
+
+### Screenshot
+
+![Thinkspace Screenshot](http://i.imgur.com/IMQDB9e.png)
+
+### License
+
+[MIT](LICENSE.md)
