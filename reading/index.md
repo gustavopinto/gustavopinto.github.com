@@ -12,8 +12,19 @@ A few suggestions for (prospective) grad students, in no particular order:
 1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
 1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
 1. [12 resolutions for grad students](http://matt.might.net/articles/grad-student-resolutions/), by Matt Might
+
+### Paper reading
+
+1. [How to critically read papers](http://tomasp.net/blog/2017/papers-we-scrutinize)
+
+### Paper writing
+
 1. [Why I gave your paper a Strong Reject](http://matt-welsh.blogspot.com.br/2016/04/why-i-gave-your-paper-strong-reject.html), by Matt Welsh
 1. [Statistical Mistakes and How to Avoid Them](http://www.cs.cornell.edu/~asampson/blog/statsmistakes.html), by Adrian Sampson
+
+### Talks
+
+1. [Summarizing your presentation with miniature slides](http://andreas-zeller.blogspot.com.br/2013/10/summarizing-your-presentation-with.html), by Andreas Zeller
 
 
 ### Where to find money
