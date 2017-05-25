@@ -5,9 +5,56 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 May 2017 23:23:23 -0300</pubDate>
-    <lastBuildDate>Wed, 24 May 2017 23:23:23 -0300</lastBuildDate>
+    <pubDate>Thu, 25 May 2017 13:35:43 -0300</pubDate>
+    <lastBuildDate>Thu, 25 May 2017 13:35:43 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>msr17 in 5 tweets</title>
+        <description>&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The Mining Software Repositories (MSR) conference is the real place to go, if you want to learn the new advances regarding msr techniques, datasets, and tools. As data science is become increasingly important at a steady pace, the same is true for the msr conference.&lt;/p&gt;
+
+&lt;p&gt;This year, msr17 had a beautiful program. I had been tweeting a lot during the two conference days. This blog post represents my personal and biased tentative of summarizing the whole conference in only five tweets. (If you haven’t been that and want to know more about what happened, just search for the #msr17 hashtag on Twitter)&lt;/p&gt;
+
+&lt;p&gt;To get started, there was a plenary session about what are the MSR research pillars. Among the topics, some attendees suggested Open Access is something that the msr community must adopt. To decrease the adoption barrier, one attended mentioned that Docker should be much more used, in particular, for increasing the reproducibility of msr studies. However..&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;MSR encourages people for making their code available. But only few &lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; attendees use &lt;a href=&quot;https://twitter.com/Docker&quot;&gt;@docker&lt;/a&gt;.&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/865921799317585921&quot;&gt;May 20, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;
+
+&lt;p&gt;That said, maybe one of the first takeaway of #msr17 is that we need to encourage msr researchers to adopt docker to back up their research. Indeed, there was a #msr17 paper about docker. According to this study, docker takes only 2 minutes to build, docker size can be as small as 4mb, and docker files have on average 3 revisions per year. That is, docker images are small, fast, and do not require much maintenance effort. It might not be that hard to convince your peers and students to use docker, right?&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Most of the &lt;a href=&quot;https://twitter.com/Docker&quot;&gt;@docker&lt;/a&gt; image are Linux OSes. Size varies from 4MB to 200MB. &lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866301745496018945&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Another hot topic discussed at #msr17 was Continuous Integration (CI). Indeed, there was not only a research papers session about CI, but also the mining track was all about CI. Interestingly, in 2016, there was no papers about CI at msr. In 2017, #msr17 had 17 papers (14 at the mining track, and 3 at the research track). It might be the case that high-quality, open-source CI servers became popular roughly in the last years. Other than that, that most of the CI data was hidden in software companies databases – which is a challenge itself for a community that praises Open Access. Anyway, if you like CI, then I don’t need to say that #msr17 was a real fun. Are you a Ph.D. student looking for a research topic? Maybe CI can be a good start point. However, the best yet most unexpected thing is that my co-authors and I won the Best Mining Challenge Paper Award!&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Congratulations to &lt;a href=&quot;https://twitter.com/fernandocastor&quot;&gt;@fernandocastor&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/gustavopinto&quot;&gt;@gustavopinto&lt;/a&gt; for the Best Mining Challenge Paper &lt;a href=&quot;https://t.co/9I2gvHo48p&quot;&gt;pic.twitter.com/9I2gvHo48p&lt;/a&gt;&lt;/p&gt;&amp;mdash; MSR 2017 (@msrconf) &lt;a href=&quot;https://twitter.com/msrconf/status/866378622596247553&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;
+
+&lt;p&gt;The mining track was only possible due to the efforts from TU Delft folks, who created and maintained a high-quality CI dataset. Due to his seminal contributions to high-quality datasets, in particular to the Promisse repository, Tim Menzies won the Foundational Contribution Award. During his keynote talk, prof. Menzies mentioned that “There is not enough science in data science”, that is, there is too much knowledge waiting to be discovered in all this myriad of data. If that is the case, maybe the question is: where to start? prof. Menzies gave some insights on how to find important research problems:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;What is the strangest thing in software science? &lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; &lt;a href=&quot;https://t.co/gXegdPrVBe&quot;&gt;pic.twitter.com/gXegdPrVBe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866378094394867714&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;
+
+&lt;p&gt;My last tweet was actually a farewell one. While #msr17 was a pleasant experience, I’m already looking forward to #msr18. #msr18 will take place at Gothenburg, Sweden, and Yasutaka Kamei is the General chair. I briefly talked with him, and he is very excited about organizing #msr18. I believe we can expect another awesome msr! See you there?&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; is now over. See you in &lt;a href=&quot;https://twitter.com/hashtag/msr18?src=hash&quot;&gt;#msr18&lt;/a&gt; in Gothenburg &lt;a href=&quot;https://t.co/rBGwoNhaIv&quot;&gt;pic.twitter.com/rBGwoNhaIv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866390115182153729&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;
+</description>
+        <pubDate>Thu, 25 May 2017 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/codefather/msr17-in-5-tweets/</link>
+        <guid isPermaLink="true">http://localhost:4000/codefather/msr17-in-5-tweets/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
     
       <item>
         <title>Where did I submit papers during my phd</title>
@@ -626,29 +673,6 @@ legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quo
         <pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/improving-your-line-plots-with-r/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/improving-your-line-plots-with-r/</guid>
-        
-        
-        <category>codefather</category>
-        
-      </item>
-    
-      <item>
-        <title>Hello World</title>
-        <description>&lt;p&gt;Hi all.&lt;/p&gt;
-
-&lt;p&gt;This is my new Blog: The codefather. Here I plan to discuss mainly about programming languages and code design in general.&lt;/p&gt;
-
-&lt;p&gt;Let’s get started!&lt;/p&gt;
-
-&lt;h1 id=&quot;about-the-name&quot;&gt;About the name&lt;/h1&gt;
-
-&lt;p&gt;Yes, as you can imagine, the name is a joke with the Godfather movie.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/codefather.jpg&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 07 Apr 2013 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/codefather/hello-world/</link>
-        <guid isPermaLink="true">http://localhost:4000/codefather/hello-world/</guid>
         
         
         <category>codefather</category>
