@@ -16,7 +16,7 @@ permalink: /publications/
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2017b.pdf)
 
 
-* [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://twitter.com/brunocartaxo), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). [On the Benefits/Limitations of Agile So ware Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf). Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
+* [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://twitter.com/brunocartaxo), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). [On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf). Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
 [[Paper]](http://gustavopinto.org/lost+found/ease2017.pdf)
 
 * **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf). Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
