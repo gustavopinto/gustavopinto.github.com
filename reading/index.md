@@ -19,12 +19,15 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 ### Paper writing
 
+1. [How to write a great research paper](https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper), by Simon Peyton Jones
 1. [Why I gave your paper a Strong Reject](http://matt-welsh.blogspot.com.br/2016/04/why-i-gave-your-paper-strong-reject.html), by Matt Welsh
 1. [Statistical Mistakes and How to Avoid Them](http://www.cs.cornell.edu/~asampson/blog/statsmistakes.html), by Adrian Sampson
 
 ### Talks
 
+1. [How to give a great research talk](https://www.microsoft.com/en-us/research/academic-program/give-great-research-talk), by Simon Peyton Jones
 1. [Summarizing your presentation with miniature slides](http://andreas-zeller.blogspot.com.br/2013/10/summarizing-your-presentation-with.html), by Andreas Zeller
+
 
 
 ### Where to find money
