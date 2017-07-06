@@ -1,6 +1,6 @@
 ---
 layout: post
-title: POSSE 2017: An experience report
+title: POSSE 2017 An experience report
 subtitle: My thoughts about this workshop
 year: 2017
 month: 7
@@ -34,8 +34,10 @@ It is important to change the mindset of having everything done before publishin
 
 After passing the first contribution barrier, prepare students to become independent in the FOSS world. Most of it is done by teach students to ask good questions. Rule of thumb: if Google has the answer, it is not a good question. I heard that it is better to have students that ''know how to ask good questions, rather than students with good technical skills''. The rationale here is that when you get stuck (and you will), you should know where to find help. Finding help, however, is not only about asking for help, but also about asking politely and asking at the right place (or for the right person). That is, communication skills are highly demanded. If you have students such as this one:
 
+<center>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Just heard from a student: &quot;I joined CS because I don&#39;t need to talk to anybody&quot;. What we did wrong?</p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/881490978774945792">July 2, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
 
 Remember them: Communication is part of your job!
 

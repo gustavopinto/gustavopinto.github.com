@@ -5,9 +5,57 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Jun 2017 20:31:08 -0300</pubDate>
-    <lastBuildDate>Sat, 03 Jun 2017 20:31:08 -0300</lastBuildDate>
+    <pubDate>Wed, 05 Jul 2017 21:16:34 -0300</pubDate>
+    <lastBuildDate>Wed, 05 Jul 2017 21:16:34 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>POSSE 2017 An experience report</title>
+        <description>&lt;p&gt;POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.&lt;/p&gt;
+
+&lt;p&gt;This year the workshop took place at the beautiful Bologna, Italy. This blog post describes my personal yet biased view about the 2 intensive days of chatting with other professors about CS courses, open-source, pasta, and wine. The workshop was a mix of several lectures and group activities. Although I agree that both parts are equally important, this blog post is focused on the lecture part, which I took some notes  (I did not have time to write down notes during the group activities).&lt;/p&gt;
+
+&lt;p&gt;One of the first advice for professors that want to introduce FOSS in their courses is to inform students upfront that the course will not be a normal one. That is, the professor is not supposed to know everything about the FOSS under study (in fact, depending on the FOSS, no one knows), although, professors have to figure out with students what they do not know — which is perfectly fine. It is important to note that the learning curve is significant for both faculties and students. On the other hand, this approach provide excellent opportunities for technical/non-technical learning. We need to adapt the learning approach, though.&lt;/p&gt;
+
+&lt;p&gt;To minimize the learning curve, professors need materials. Good materials can be found at the &lt;a href=&quot;http://teachingopensource.org/&quot;&gt;teachingopensource.org&lt;/a&gt; and at the &lt;a href=&quot;http://foss2serve.org/&quot;&gt;foss2serve.org&lt;/a&gt; websites. Take the time to explore them – they have a rich database.&lt;/p&gt;
+
+&lt;p&gt;While you learn something new from these websites, think about how students can contribute to open-source. One point that was largely debated is that open-source contributions is not only about code. There are many many ways that one can contribute – code is only one of them. Indeed, in order to be a FOSSer, a student does not even need to commit changes to a repository. A FOSSer can (1) create a blog post, (2) test the software, or (3) answer questions in a malling list. There are, at least, 50 ways that one can contribute to FOSS. Find one that can fit your needs and tell students to do that.&lt;/p&gt;
+
+&lt;p&gt;However, we cannot throw a student that does not how to swim in the deep end of a pool and say: swim. We need a scaffold. Some questions you should ask yourself: What we need to do to contribute to FOSS? What are the steps? Forget students! What I have to do? After you figure out, think about how can you teach students to do that?&lt;/p&gt;
+
+&lt;p&gt;Since both professors and students are immersing into not well-known waters, it is important to have a contact within the FOSS community, who could provide help. How to find a contact? One way is to observe the community. Examples include: (1) Go to an IRC channel, (2) assign a malling list, or (3) participate in a slack group. After a while, you would be able to answer questions such as: Is this community active? Do they answer novice questions? Can you tell who are the core developers?&lt;/p&gt;
+
+&lt;p&gt;If this community seems to be a good one, then it is time to introduce yourself, explain that you have some students that might be able to contribute, describe your goal, etc. Is someone willing to help? Good! No? Do not give up. Repeat until you find a suitable community. If we have success finding good communities, the chances that students succeed should be higher.&lt;/p&gt;
+
+&lt;p&gt;Some students have a hard time trying to find meaningful things to contribute during the short term of a course. Some FOSS projects provide labels for “easy” tasks, while others provide Roadmaps (i.e., known features/bugs that the FOSS project want to have done/fixed for the next release). These are good ways to search for meaningful tasks. However, Roadmaps might contain critical bugs. Although the community do want to get them fixed (therefore they might provide good support for the student), such bugs might be non-trivial, requiring students to spend much time in learning (instead of coding) activities. It might be tempting to work on such fancy bugs. However, the suggestion is not to work on the critical path! This might delay the contribution process — and demotivate students.&lt;/p&gt;
+
+&lt;p&gt;Another thing to pay attention are the release dates. If there are releases scheduled during the course, contributions might be frozen for a while. Another challenge is related to architectural changes. If that is the case, some contributions might not be needed anymore (e.g., thanks for the fix, but this feature does not work like that anymore). The best way to prevent such problems is by understanding your community. Invest some time to figure out its needs and where it plans to go.&lt;/p&gt;
+
+&lt;p&gt;Remember that the goal is to engage students. Therefore, in some classes (e.g., high school, introductory classes), placing a source code contribution is not necessary. In some cases, understanding the steps for contributing might be ideal. In any case, some professors mentioned that the acceptance of a contribution should not be graded. This is out of the your (and students’) control. Instead, students can earn additional credits if the contribution is accepted.&lt;/p&gt;
+
+&lt;p&gt;It is important to change the mindset of having everything done before publishing. This not gonna work with FOSS. Teach students to release early and release often. This should be the norm. Also, tell students to avoid risks by working on small problems. One way to start is by working with documentation issues. Remember students that a lot of bugs are not code bugs. Typos are bugs! It is also important to engage students early – do not way for the last minute to provide a patch. How to do that? Create such assignment: get a patch by the end of this week.&lt;/p&gt;
+
+&lt;p&gt;After passing the first contribution barrier, prepare students to become independent in the FOSS world. Most of it is done by teach students to ask good questions. Rule of thumb: if Google has the answer, it is not a good question. I heard that it is better to have students that ‘‘know how to ask good questions, rather than students with good technical skills’’. The rationale here is that when you get stuck (and you will), you should know where to find help. Finding help, however, is not only about asking for help, but also about asking politely and asking at the right place (or for the right person). That is, communication skills are highly demanded. If you have students such as this one:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-partner=&quot;tweetdeck&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just heard from a student: &amp;quot;I joined CS because I don&amp;#39;t need to talk to anybody&amp;quot;. What we did wrong?&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/881490978774945792&quot;&gt;July 2, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Remember them: Communication is part of your job!&lt;/p&gt;
+
+&lt;p&gt;All in all, I think this approach can lead to significantly improvements, in terms of both technical and non-technical skills. I will give it a try soon (and report the result too, hopefully).&lt;/p&gt;
+
+&lt;p&gt;If you have experience teaching CS with FOSS, why not reporting them? I’d love to read.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Jul 2017 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/codefather/posse2017-experience-report/</link>
+        <guid isPermaLink="true">http://localhost:4000/codefather/posse2017-experience-report/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
     
       <item>
         <title>msr17 in 5 tweets</title>
@@ -83,8 +131,8 @@
 &lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Apr 2017 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/codefather/2017-where-did-i-submit-papers-during-my-phd/</link>
-        <guid isPermaLink="true">http://localhost:4000/codefather/2017-where-did-i-submit-papers-during-my-phd/</guid>
+        <link>http://localhost:4000/codefather/where-did-i-submit-papers-during-my-phd/</link>
+        <guid isPermaLink="true">http://localhost:4000/codefather/where-did-i-submit-papers-during-my-phd/</guid>
         
         
         <category>codefather</category>
@@ -565,116 +613,6 @@
         <pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/from-where-come-the-brazilian-open-source-contributions/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/from-where-come-the-brazilian-open-source-contributions/</guid>
-        
-        
-        <category>codefather</category>
-        
-      </item>
-    
-      <item>
-        <title>Improving our line plots with R</title>
-        <description>&lt;p&gt;Hi there.&lt;/p&gt;
-
-&lt;p&gt;As you may know, I’m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I’m a graduate student, I’m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post2/usage-per-thread.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It is terrible.&lt;/p&gt;
-
-&lt;p&gt;So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as &lt;code class=&quot;highlighter-rouge&quot;&gt;summary&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sd&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cor&lt;/code&gt;, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like &lt;code class=&quot;highlighter-rouge&quot;&gt;plotanincrediblechart&lt;/code&gt;, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post2/usage-per-thread-r.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Much better, uh?&lt;/p&gt;
-
-&lt;p&gt;So, how can you do this?&lt;/p&gt;
-
-&lt;h1 id=&quot;first&quot;&gt;First&lt;/h1&gt;
-
-&lt;p&gt;Let’s start by initializing your data array. If you do not have basic knowledge in R, &lt;a href=&quot;http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf&quot;&gt;this article&lt;/a&gt; is a good start point.&lt;/p&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executors&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;56&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forkJoin&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;54&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actors&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;47&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;second&quot;&gt;Second&lt;/h1&gt;
-
-&lt;p&gt;Create a simple line chart with one of your data set using the &lt;code class=&quot;highlighter-rouge&quot;&gt;plot&lt;/code&gt; function. In this case, I used the &lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt; var.&lt;/p&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;blue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;In this function, we passed the &lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt; var and more four arguments. They are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;: the plot type;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;col&lt;/code&gt;: the line color (see &lt;a href=&quot;http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf&quot;&gt;here&lt;/a&gt; to see all colors avaiable in R);&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pch&lt;/code&gt;: the vector of plotting characters or symbols;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ylim&lt;/code&gt;: the y limits of the plot;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There are several other parameters that you can use in your chart. If you have the time, take a lot at the &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html&quot;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, we have to add the remaining data. To do so, we will use another function called &lt;code class=&quot;highlighter-rouge&quot;&gt;lines&lt;/code&gt;. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the &lt;code class=&quot;highlighter-rouge&quot;&gt;plot&lt;/code&gt; function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:&lt;/p&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;darkred&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;purple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forkJoin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;chocolate3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;actors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;orangered2 &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;For the moment, your chart may looks like this one:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post2/middle-chart.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Great! Our chart is becoming professional. My mon will be proud of me.&lt;/p&gt;
-
-&lt;h1 id=&quot;third&quot;&gt;Third&lt;/h1&gt;
-
-&lt;p&gt;The third part is to add both vertical and horizontal lines.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;abline(v=1,col=1,lty=3)
-abline(v=1.5,col=1,lty=3)
-abline(v=2,col=1,lty=3)
-abline(v=2.5,col=1,lty=3)
-abline(v=3,col=1,lty=3)
-abline(v=3.5,col=1,lty=3)
-abline(v=4,col=1,lty=3)
-
-abline(h=100,col=1,lty=3)
-abline(h=80,col=1,lty=3)
-abline(h=60,col=1,lty=3)
-abline(h=40,col=1,lty=3)
-abline(h=20,col=1,lty=3)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt; for vertical lines and &lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt; for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, …) or as one of the character strings “blank”, “solid”, etc.&lt;/p&gt;
-
-&lt;h1 id=&quot;fourth&quot;&gt;Fourth&lt;/h1&gt;
-
-&lt;p&gt;The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: &lt;code class=&quot;highlighter-rouge&quot;&gt;box&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;legend&lt;/code&gt;. I think the name of these functions are meaningful. But, the &lt;code class=&quot;highlighter-rouge&quot;&gt;legend&lt;/code&gt; function receives several parameters.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;box()
-labels &amp;lt;- c(&quot;Sequential&quot;,&quot;Thread&quot;, &quot;Executors&quot;, &quot;ForkJoin&quot;, &quot;Scala Actors&quot;)
-colors &amp;lt;- c(&quot;blue&quot;,&quot;darkred&quot;, &quot;purple&quot;, &quot;chocolate3&quot;, &quot;orangered2&quot;)
-pch &amp;lt;- c(18,23,24,25,8)
-
-legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = &quot;white&quot;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And you’ll probably see a very similar chart like the second topmost in this post. All code is pasted &lt;a href=&quot;https://gist.github.com/gustavopinto/5570951&quot;&gt;here&lt;/a&gt;. And, that is it! :-)&lt;/p&gt;
-
-&lt;p&gt;See you later alligator!&lt;/p&gt;
-</description>
-        <pubDate>Wed, 08 May 2013 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/codefather/improving-your-line-plots-with-r/</link>
-        <guid isPermaLink="true">http://localhost:4000/codefather/improving-your-line-plots-with-r/</guid>
         
         
         <category>codefather</category>
