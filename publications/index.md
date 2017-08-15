@@ -29,6 +29,10 @@ permalink: /publications/
 [[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 
+* Luiz Felipe Dias, Jhoylan Santos, [Igor Steinmacher](http://igor.pro.br/),  **Gustavo Pinto**. "[Who Drive Company-Owned OSS Projects: Employees or Volunteers?](http://gustavopinto.github.io/lost+found/vem2017.pdf)". Accepted to the 5th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2017). Fortaleza, Brazil, 2017. <br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/vem2017.pdf)
+
+
 #### 2016 ####
 
 * Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
