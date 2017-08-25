@@ -24,7 +24,7 @@ permalink: /publications/
 
 
 * **Gustavo Pinto**, [Fernando Figueira Filho](https://www.dimap.ufrn.br/~fernando/), [Igor Steinmacher](http://igor.pro.br/). [Training the Next Generation of Software Engineers using Open-Source Software](http://gustavopinto.github.io/lost+found/cseet2017.pdf). Accepted to the 30th IEEE Conference on Software Engineering Education and Training (CSEE&T). Savannah, EUA, 2017.<br>
-[[Paper]](http://gustavopinto.org/lost+found/cseet2017.pdf)
+[[Paper]](#)
 
 * **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf). Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/chase2017.pdf)
