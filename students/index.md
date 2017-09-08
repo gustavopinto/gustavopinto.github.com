@@ -11,4 +11,6 @@ permalink: /students/
 1. Gilson Rocha (M.S., co-supervised with [Cleidson Souza](http://www.ufpa.br/cdesouza/), UFPA)
 1. You?
 
-Before getting in touch, read a [list of research topics](http://gustavopinto.github.io/research) that I am interested in. If you like one of them, this is great! However, this list is not exhaustive. Students are welcome to bring their own research topic.
+I am continuously looking for good people to join my research group, at all levels: undergraduate students, M.S students, Ph.D. students, Postdocs, or research programmers.
+
+Before getting in touch, read a [list of research topics](http://gustavopinto.github.io/research) that I am interested in. This list is not exhaustive, though. Students are welcome to bring their own research topic.
