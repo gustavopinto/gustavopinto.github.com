@@ -31,7 +31,7 @@ Skills: Java programming<br>
 Questions: What are the practitioners' perception about SE research?
 Skills: script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. What are company's motivations behind the transition from proprietary to open-source software<br>
+1. What are company's motivations behind the transition from proprietary to open-source software?<br>
 Skills: English communication<br>
 
 1. Automatic test generation for partial programs<br>
@@ -43,5 +43,9 @@ Question: Can online  environment improve concurrent programming learning?<br>
 Skill: JavaScript and Java programming
 
 1. Understanding DevOps culture<br>
-Questions: what are the DevOps' practices? what how these practices impact agile development?<br>
+Questions: what are the DevOps' practices? how these practices impact agile development?<br>
 Skills: English communication<br>
+
+1. A large scale study on data races<br>
+Question: investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
+Skills: system programming (e.g., Go, Java, C, etc)<br>
