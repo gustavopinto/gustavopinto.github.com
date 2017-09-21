@@ -49,3 +49,9 @@ Skills: English communication<br>
 1. A large scale study on data races<br>
 Question: investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
 Skills: system programming (e.g., Go, Java, C, etc)<br>
+
+1. An energy-aware adaptative system.<br>
+Skills: system programming (e.g., Java, Scala)<br>
+
+1. Issues Smells<br>
+Skills: script programming (e.g., Python, Lua, Ruby, etc)<br>
