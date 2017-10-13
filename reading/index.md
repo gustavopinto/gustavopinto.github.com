@@ -12,6 +12,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
 1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
 1. [12 resolutions for grad students](http://matt.might.net/articles/grad-student-resolutions/), by Matt Might
+1. [The Nine Circles of Scientific Hell](http://journals.sagepub.com/doi/pdf/10.1177/1745691612459519)
 
 ### Paper reading
 
