@@ -20,10 +20,12 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 ### Paper writing
 
+1. [Writing Academic Papers](http://sarahnadi.org/writing-papers/), by Sarah Nadi
 1. [How to write a great research paper](https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper), by Simon Peyton Jones
 1. [Why I gave your paper a Strong Reject](http://matt-welsh.blogspot.com.br/2016/04/why-i-gave-your-paper-strong-reject.html), by Matt Welsh
 1. [Statistical Mistakes and How to Avoid Them](http://www.cs.cornell.edu/~asampson/blog/statsmistakes.html), by Adrian Sampson
 1. [How to Extend a Conference Paper to a Journal Paper](http://cs.gmu.edu/~offutt/stvr/26-7-October2016.html), by Jeff Offutt
+1. [Advice for writing LaTeX documents](https://github.com/dspinellis/latex-advice)
 
 ### Talks
 
