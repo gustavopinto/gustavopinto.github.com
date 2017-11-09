@@ -14,4 +14,3 @@ permalink: /teaching/
 
 1. Advanced Data structures
 1. Advanced Databases
-1. Software project management (Lab)
