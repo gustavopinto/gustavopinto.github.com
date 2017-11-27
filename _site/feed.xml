@@ -5,8 +5,8 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Nov 2017 09:42:12 -0500</pubDate>
-    <lastBuildDate>Thu, 09 Nov 2017 09:42:12 -0500</lastBuildDate>
+    <pubDate>Sun, 26 Nov 2017 23:44:37 -0300</pubDate>
+    <lastBuildDate>Sun, 26 Nov 2017 23:44:37 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -38,7 +38,7 @@
 
 &lt;p&gt;PS: If you are a researcher and this topic interest you, I just published a &lt;a href=&quot;https://github.com/gustavopinto/gustavopinto.github.com/raw/e63b8eac596ff65030a6d82baf67bcbb0019b2dd/_site/lost%2Bfound/cseet2017.pdf&quot;&gt;paper on this topic&lt;/a&gt;. Happy reading.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Aug 2017 00:00:00 -0400</pubDate>
+        <pubDate>Wed, 30 Aug 2017 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/training-students-with-open-source-software/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/training-students-with-open-source-software/</guid>
         
@@ -86,7 +86,7 @@
 
 &lt;p&gt;If you have experience teaching CS with FOSS, why not reporting them? I’d love to read.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 03 Jul 2017 00:00:00 -0400</pubDate>
+        <pubDate>Mon, 03 Jul 2017 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/posse2017-experience-report/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/posse2017-experience-report/</guid>
         
@@ -135,7 +135,7 @@
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; is now over. See you in &lt;a href=&quot;https://twitter.com/hashtag/msr18?src=hash&quot;&gt;#msr18&lt;/a&gt; in Gothenburg &lt;a href=&quot;https://t.co/rBGwoNhaIv&quot;&gt;pic.twitter.com/rBGwoNhaIv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866390115182153729&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
 &lt;/center&gt;
 </description>
-        <pubDate>Thu, 25 May 2017 00:00:00 -0400</pubDate>
+        <pubDate>Thu, 25 May 2017 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/msr17-in-5-tweets/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/msr17-in-5-tweets/</guid>
         
@@ -168,7 +168,7 @@
 
 &lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;
 </description>
-        <pubDate>Sat, 08 Apr 2017 00:00:00 -0400</pubDate>
+        <pubDate>Sat, 08 Apr 2017 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/where-did-i-submit-papers-during-my-phd/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/where-did-i-submit-papers-during-my-phd/</guid>
         
@@ -215,7 +215,7 @@
 
 &lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 05 May 2016 00:00:00 -0400</pubDate>
+        <pubDate>Thu, 05 May 2016 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/evidence-briefings/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/evidence-briefings/</guid>
         
@@ -404,7 +404,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        <pubDate>Fri, 01 Jan 2016 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2016 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/the-story-behind-casual-contributors/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/the-story-behind-casual-contributors/</guid>
         
@@ -452,7 +452,7 @@
 
 &lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 25 Nov 2014 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/do-developers-care-about-software-energy-consumption/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/do-developers-care-about-software-energy-consumption/</guid>
         
@@ -500,7 +500,7 @@
 
 &lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 03 Dec 2013 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/Why-keep-doing-surveys/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/Why-keep-doing-surveys/</guid>
         
@@ -539,7 +539,7 @@
 
 &lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA’2014 in Portland :)&lt;/p&gt;
 </description>
-        <pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
+        <pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/tips-to-attend-oopsla-with-low-budget/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/tips-to-attend-oopsla-with-low-budget/</guid>
         
@@ -609,7 +609,7 @@
 
 &lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
 </description>
-        <pubDate>Fri, 19 Jul 2013 00:00:00 -0400</pubDate>
+        <pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/pycon-2014-call-for-poster/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/pycon-2014-call-for-poster/</guid>
         
