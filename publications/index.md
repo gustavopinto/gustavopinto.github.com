@@ -7,6 +7,7 @@ permalink: /publications/
 #### 2017 ####
 
 * **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf). Communications of the ACM 60(12), December 2017.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/cacm2017.pdf)
 
 * **Gustavo Pinto**, Anthony Canino, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Guoqing Harry Xu](http://www.ics.uci.edu/~guoqingx/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). [Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications](http://gustavopinto.github.io/lost+found/ase2017.pdf). Accepted to the 32nd International Conference on Automated Software Engineering (ASE'2017). Illinois, USA, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/ase2017.pdf)
