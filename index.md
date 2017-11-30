@@ -3,7 +3,9 @@ layout: page
 permalink: /
 ---
 
-I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) blog and do talks.
+Hi, I'm <strong class="author-name" itemprop="name">Gustavo Pinto</strong>.
+
+I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/codefather/) and do talks.
 
 I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During the academic year of 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl). My [Ph.D. thesis]((http://gustavopinto.github.io/lost+found/thesis.pdf)) is all about software energy consumption.
 
@@ -20,11 +22,12 @@ Are you a student looking for an advisor? Are you a researcher and think that ou
 
 #### Recent ####
 1. PC member, [VEM'17](http://vem2017.ufu.br/)
-1. PC member, [SBLP'17, '16](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/)
-1. PC member, [SBCARS'17, '16](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/)
+1. PC member, [SBLP'17](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/), ['16](http://cbsoft.org/cbsoft2016/sblp2016)
+1. PC member, [SBCARS'17](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/), ['16](http://cbsoft.org/cbsoft2016/sbcars2016)
 1. Co-Chair [PyCon Poster Session'17](https://us.pycon.org/2017/speaking/posters/)
 1. Co-Chair [WBMA'17](http://www.agilebrazil.com/2017/wbma/)
 1. Co-Chair [WTDSoft'17](www.lia.ufc.br/~cbsoft2017/cbsoft/wtdsoft/)
+1. PC member, [IWSR'16](http://www.softrefactoring.com/)
 
 
 <!--
