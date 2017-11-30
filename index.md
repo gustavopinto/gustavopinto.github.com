@@ -16,8 +16,8 @@ Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#
 Are you a student looking for an advisor? Are you a researcher and think that our interests overlap? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br
 
 #### Service for 2018 ####
-1. PC member, [EASE](http://ease2018.softwareinnovation.nz/) (short papers)
-1. PC member, [GREENS](http://greens.cs.vu.nl/)
+1. PC member, [EASE'18](http://ease2018.softwareinnovation.nz/) (short papers)
+1. PC member, [GREENS'18](http://greens.cs.vu.nl/)
 
 
 #### Recent ####
