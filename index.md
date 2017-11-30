@@ -13,13 +13,18 @@ Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#
 
 Are you a student looking for an advisor? Are you a researcher and think that our interests overlap? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br
 
-#### Service for 2017 ####
-1. PC member, [VEM](http://vem2017.ufu.br/)
-1. PC member, [SBLP](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/)
-1. PC member, [SBCARS](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/)
-1. Co-Chair [PyCon Poster Session](https://us.pycon.org/2017/speaking/posters/)
-1. Co-Chair [WBMA](http://www.agilebrazil.com/2017/wbma/)
-1. Co-Chair [WTDSoft](www.lia.ufc.br/~cbsoft2017/cbsoft/wtdsoft/)
+#### Service for 2018 ####
+1. PC member, [EASE](http://ease2018.softwareinnovation.nz/) (short papers)
+1. PC member, [GREENS](http://greens.cs.vu.nl/)
+
+
+#### Recent ####
+1. PC member, [VEM'17](http://vem2017.ufu.br/)
+1. PC member, [SBLP'17, '16](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/)
+1. PC member, [SBCARS'17, '16](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/)
+1. Co-Chair [PyCon Poster Session'17](https://us.pycon.org/2017/speaking/posters/)
+1. Co-Chair [WBMA'17](http://www.agilebrazil.com/2017/wbma/)
+1. Co-Chair [WTDSoft'17](www.lia.ufc.br/~cbsoft2017/cbsoft/wtdsoft/)
 
 
 <!--
