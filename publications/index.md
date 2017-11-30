@@ -109,9 +109,10 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 * **Gustavo Pinto**. "Do Language Constructs for Concurrent Execution Have Impact on Energy Efficiency?". Accepted to the ACM Student Research Competition at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013
 
 * **Gustavo Pinto**. "Refactoring Multicore Applications Towards Energy Efficiency". Accepted to the Doctoral Symposium at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
+[[Paper]](http://gustavopinto.github.io/lost+found/splash-doc-symp2013.pdf)
 
 * **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[What Programmers Say About Refactoring Tools? An Empirical Investigation of Stack Overflow](http://gustavopinto.github.io/lost+found/wrt2013.pdf)". Accepted to the 6th International Workshop on Refactoring Tools (WRT) at the 4th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/wrt2013.pdf)
+[[Paper]](http://gustavopinto.github.io/lost+found/wrt2013.pdf) [[Slides]](https://www.slideshare.net/gustavopinto/wrt-slides)
 
 * **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[Analisando as Contribui&ccedil;&otilde;es de Desenvolvedores Brasileiros em Projetos Distribu&iacute;dos de Software Open-Source: Um Estudo Inicial](http://gustavopinto.github.io/lost+found/wdds2013.pdf)". Accepted to the 7th Workshop on Distributed Software Development (WDDS), at the 3rd Brazilian Conference on Software: Theory and Practice (CBSoft), Brasilia, Brazil, 2013.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/wdds2013.pdf)

@@ -21,8 +21,8 @@ There are some basic skills and requirements you should carefully consider befor
 
 ### Current students ###
 
-- Bruno Cartaxo (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
-- Fernando Kamei (Ph.D., co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+- [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
+- [Fernando Kamei](Fernando Kamei) (Ph.D., co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Gilson Rocha (M.S., co-supervised with [Cleidson Souza](http://www.ufpa.br/cdesouza/), UFPA)
 - Welder Luz (M.S., co-supervised with [Rodrigo Bonifácio](http://rbonifacio.net/), UNB)
 - You?
