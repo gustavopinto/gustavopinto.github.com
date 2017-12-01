@@ -12,7 +12,7 @@ Before getting in touch, read a [list of research topics](http://gustavopinto.gi
 There are some basic skills and requirements you should carefully consider before applying for a master/PhD position under my supervision. Here is some advice (in no priority order):
 
 - learn how to use svn and git
-- learn how to write in Latex
+- learn how to write in LaTeX
 - learn how to use the command line
 - learn how to program, preferably in some scripting and low level languages.
 - read at least a couple of scientific papers in your fields of interest
@@ -21,7 +21,10 @@ There are some basic skills and requirements you should carefully consider befor
 
 ### Current students ###
 
+I am privileged to work with the following talented students:
+
 - [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
+  - PUBS: [ESEM'16](http://gustavopinto.github.io/lost+found/esem2016.pdf), [MSR'17](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 - [Fernando Kamei](Fernando Kamei) (Ph.D., co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Gilson Rocha (M.S., co-supervised with [Cleidson Souza](http://www.ufpa.br/cdesouza/), UFPA)
 - Welder Luz (M.S., co-supervised with [Rodrigo Bonifácio](http://rbonifacio.net/), UNB)
@@ -30,3 +33,4 @@ There are some basic skills and requirements you should carefully consider befor
 
 ### Alumni
 - Benito Fernandes (M.S., co-supervised with [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+  - PUBS: [ICSE Poster'16](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)

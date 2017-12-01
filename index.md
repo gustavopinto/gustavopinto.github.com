@@ -3,7 +3,7 @@ layout: page
 permalink: /
 ---
 
-Hi, I'm <strong class="author-name" itemprop="name">Gustavo Pinto</strong>.
+Hi, I'm **Gustavo Pinto**.
 
 I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/codefather/) and do talks.
 
@@ -13,7 +13,7 @@ From December 2015 to March 2017 I have been an Assistant Professor at the [Fede
 
 Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)).
 
-Are you a student looking for an advisor? Are you a researcher and think that our interests overlap? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br
+Are you a [student looking for an advisor](/students)? Are you a researcher and [think that our interests overlap](/collaborators)? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.
 
 #### Service for 2018 ####
 1. PC member, [EASE'18](http://ease2018.softwareinnovation.nz/) (short papers)

@@ -12,6 +12,7 @@ permalink: /publications/
 * **Gustavo Pinto**, Anthony Canino, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Guoqing Harry Xu](http://www.ics.uci.edu/~guoqingx/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). [Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications](http://gustavopinto.github.io/lost+found/ase2017.pdf). Accepted to the 32nd International Conference on Automated Software Engineering (ASE'2017). Illinois, USA, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/ase2017.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/ase2017-talk.pdf)
+ [[More]](/publications/ase2017)
 
 * [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Danilo Ribeiro, [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). [Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf). Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
