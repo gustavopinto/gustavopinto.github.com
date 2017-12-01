@@ -8,6 +8,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 ### Must read
 
+1. [Advice for researchers and students](https://homes.cs.washington.edu/~mernst/advice/), by Michael Ernst
 1. [The care and maintenance of your adviser](http://www.nature.com/naturejobs/2011/110127/pdf/nj7331-570a.pdf)
 1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
 1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
@@ -20,14 +21,19 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 ### Paper writing
 
+1. [How to Write an Abstract](https://users.ece.cmu.edu/~koopman/essays/abstract.html), by Philip Koopman
 1. [Writing Academic Papers](http://sarahnadi.org/writing-papers/), by Sarah Nadi
-1. [Writing Good Software Engineering Research Papers](http://www.cis.famu.edu/~cen5055joe/Administrative/HowToWrite_ResearchPaper.pdf), by Mary Shaw 
+1. [Writing Good Software Engineering Research Papers](http://www.cis.famu.edu/~cen5055joe/Administrative/HowToWrite_ResearchPaper.pdf), by Mary Shaw
 1. [How to write a great research paper](https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper), by Simon Peyton Jones
 1. [Why I gave your paper a Strong Reject](http://matt-welsh.blogspot.com.br/2016/04/why-i-gave-your-paper-strong-reject.html), by Matt Welsh
 1. [Statistical Mistakes and How to Avoid Them](http://www.cs.cornell.edu/~asampson/blog/statsmistakes.html), by Adrian Sampson
 1. [How to Extend a Conference Paper to a Journal Paper](http://cs.gmu.edu/~offutt/stvr/26-7-October2016.html), by Jeff Offutt
 1. [Advice for writing LaTeX documents](https://github.com/dspinellis/latex-advice), by Diomidis Spinellis
 1. [Things I Keep Repeating About Writing](https://clairelegoues.com/2016/08/23/things-i-keep-repeating-about-writing/), by Claire Le Goues
+
+### Reviewing papers
+
+1. [Reviewing a technical paper](https://homes.cs.washington.edu/~mernst/advice/review-technical-paper.html), by Michael Ernst
 
 ### Talks
 

@@ -23,8 +23,8 @@ There are some basic skills and requirements you should carefully consider befor
 
 I am privileged to work with the following talented students:
 
-- [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
-  - PUBS: [ESEM'16](http://gustavopinto.github.io/lost+found/esem2016.pdf), [MSR'17](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
+- [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)<br>
+  PUBS: [ESEM'16](http://gustavopinto.github.io/lost+found/esem2016.pdf), [MSR'17](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 - [Fernando Kamei](Fernando Kamei) (Ph.D., co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Gilson Rocha (M.S., co-supervised with [Cleidson Souza](http://www.ufpa.br/cdesouza/), UFPA)
 - Welder Luz (M.S., co-supervised with [Rodrigo Bonifácio](http://rbonifacio.net/), UNB)
