@@ -14,9 +14,10 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
-#### Conference papers that have been rejected (16)
+#### Conference papers that have been rejected (17)
 
 - ASE: 2014
+- ASPLOS: 2015
 - SBLP: 2013, 2015
 - CSMR: 2014
 - GPCE: 2015
@@ -32,7 +33,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 
 - Huawei Research Grant, 2017 (budget: U$ 68,750)
 - Google Research Grant, 2013 (budget: U$ 39,000)
-- Microsoft SEIF, 2013 (budget: U$ 109,800)
+- Microsoft SEIF, 2013 (budget: U$ 25,000)
 
 #### Jobs I did not get
 
