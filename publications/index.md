@@ -4,6 +4,12 @@ title: Publications
 permalink: /publications/
 ---
 
+#### 2018 ####
+
+* [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), Gustavo Pinto, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#). Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
+
+* [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](#). Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
+
 #### 2017 ####
 
 * **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf). Communications of the ACM 60(12), December 2017.<br/>
@@ -62,7 +68,7 @@ permalink: /publications/
 * [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/saner2016b.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/saner2016b-talk.pdf)
 
-* Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), Igor Wiese, **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
+* Luiz Felipe Dias, [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/vem2016.pdf)
 
 #### 2015 ####
