@@ -11,13 +11,14 @@ I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br),
 
 From December 2015 to March 2017 I have been an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://www.ifpa.edu.br/), Brazil. Before becoming a professor, I did a Post Doc also with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor).
 
-Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories (*e.g.*, [MSR'2015](http://gustavopinto.github.io/lost+found/msr2015.pdf)).
+Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories (*e.g.*, [ICSE'2018](#)).
 
 Are you a [student looking for an advisor](/students)? Are you a researcher and [think that our interests overlap](/collaborators)? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.
 
 #### Service for 2018 ####
 1. PC member, [EASE'18](http://ease2018.softwareinnovation.nz/) (short papers)
 1. PC member, [GREENS'18](http://greens.cs.vu.nl/)
+1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/)
 
 
 #### Recent ####
