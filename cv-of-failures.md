@@ -4,7 +4,7 @@ title: CV of Failures
 permalink: /cv-of-failures/
 ---
 
-This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2017/12/vitak-cv-of-failures-dec17.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. I think people should talk more about failure. We should not be ashamed of; this is part of the game. Although I just started my academic career, I have failed a lot. Some examples are in the following (this list is incomplete; some are just too old that I cannot recall).
+This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2017/12/vitak-cv-of-failures-dec17.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. I think people should talk more about failure. Although I just started my academic career, I have failed a lot. Some examples are in the following (this list is incomplete; some are just too old that I cannot recall).
 
 #### Journal papers that have been rejected (8)
 
@@ -26,7 +26,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - ESEM: 2016, 2017
 - ICSE: 2017 (2x)
 - ICSME: 2012, 2016 (2x), 2017
-- SANER: 2015
+- SANER: 2015, 2017
 - XP: 2017
 
 #### Grant proposals that were rejected

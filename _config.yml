@@ -1,7 +1,7 @@
 
 # SEO settings
 title: "Gustavo Pinto"
-title2: "Hello!" # default: ""
+title2: # default: ""
 description: "Professinal webpage for Gustavo Pitno."
 keywords: "Gustavo Pinto, Professor, software engineering, research"
 url: http://gustavopinto.org # site url

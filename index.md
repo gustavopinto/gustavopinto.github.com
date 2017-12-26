@@ -11,7 +11,7 @@ I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br),
 
 From December 2015 to March 2017 I have been an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://www.ifpa.edu.br/), Brazil. Before becoming a professor, I did a Post Doc also with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor).
 
-Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories (*e.g.*, [ICSE'2018](#)).
+Nowadays, my broader interests include energy consumption (*e.g.*, [CACM'2017](#)), concurrent programming (*e.g.*, [OOPSLA'2014](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)), human aspects of software development (*e.g.*, [SANER'2016](http://gustavopinto.github.io/lost+found/saner2016.pdf)), and mining software repositories (*e.g.*, [ICSE'2018](#)). You can see my list of [publications here](/publications). I also maintain my [cv of failure](/cv-of-failures).
 
 Are you a [student looking for an advisor](/students)? Are you a researcher and [think that our interests overlap](/collaborators)? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.
 
@@ -21,7 +21,7 @@ Are you a [student looking for an advisor](/students)? Are you a researcher and 
 1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/)
 
 
-#### Recent ####
+#### Older ####
 1. PC member, [VEM'17](http://vem2017.ufu.br/)
 1. PC member, [SBLP'17](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/), ['16](http://cbsoft.org/cbsoft2016/sblp2016)
 1. PC member, [SBCARS'17](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/), ['16](http://cbsoft.org/cbsoft2016/sbcars2016)
