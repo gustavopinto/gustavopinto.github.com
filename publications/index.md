@@ -6,44 +6,46 @@ permalink: /publications/
 
 #### 2018 ####
 
-* [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), Gustavo Pinto, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#). Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
+* [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), Gustavo Pinto, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
 
-* [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](#). Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
+* [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
 
-* [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). [Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf). Accepted for Information and Software Technology, 2017.<br/>
+* [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/ist2018.pdf)
 
 #### 2017 ####
 
-* **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf). Communications of the ACM 60(12), December 2017.<br/>
-[[Paper]](http://gustavopinto.github.io/lost+found/cacm2017.pdf) [[More]](/publications/cacm2017)
+* **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf)". Communications of the ACM 60(12), December 2017.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/cacm2017.pdf)
+[[HackerNews]](https://news.ycombinator.com/item?id=15993975)
+[[More]](/publications/cacm2017)
 
-* **Gustavo Pinto**, Anthony Canino, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Guoqing Harry Xu](http://www.ics.uci.edu/~guoqingx/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). [Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications](http://gustavopinto.github.io/lost+found/ase2017.pdf). Accepted to the 32nd International Conference on Automated Software Engineering (ASE'2017). Illinois, USA, 2017.<br>
+* **Gustavo Pinto**, Anthony Canino, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Guoqing Harry Xu](http://www.ics.uci.edu/~guoqingx/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications](http://gustavopinto.github.io/lost+found/ase2017.pdf)". Accepted to the 32nd International Conference on Automated Software Engineering (ASE'2017). Illinois, USA, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/ase2017.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/ase2017-talk.pdf)
 [[More]](/publications/ase2017)
 
-* [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Danilo Ribeiro, [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). [Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf). Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
+* [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Danilo Ribeiro, [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). "[Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf)". Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 
-* [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf) Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
+* [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2017b.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/msr2017b-talk.pdf)
 [[HackerNews]](https://news.ycombinator.com/item?id=14416927)
 
 
-* [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://twitter.com/brunocartaxo), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). [On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf). Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
+* [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://twitter.com/brunocartaxo), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). "[On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf)". Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
 [[Paper]](http://gustavopinto.org/lost+found/ease2017.pdf)
 
 
-* **Gustavo Pinto**, [Fernando Figueira Filho](https://www.dimap.ufrn.br/~fernando/), [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [Training Software Engineers using Open-Source Software: The Professors' Perspective](http://gustavopinto.github.io/lost+found/cseet2017.pdf). Accepted to the 30th IEEE Conference on Software Engineering Education and Training (CSEE&T). Savannah, EUA, 2017.<br>
+* **Gustavo Pinto**, [Fernando Figueira Filho](https://www.dimap.ufrn.br/~fernando/), [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Training Software Engineers using Open-Source Software: The Professors' Perspective](http://gustavopinto.github.io/lost+found/cseet2017.pdf)". Accepted to the 30th IEEE Conference on Software Engineering Education and Training (CSEE&T). Savannah, EUA, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/cseet2017.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/cseet2017-talk.pdf)
 
-* **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf). Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
+* **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf)". Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/chase2017.pdf)
 
-* [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf). Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
+* [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 
