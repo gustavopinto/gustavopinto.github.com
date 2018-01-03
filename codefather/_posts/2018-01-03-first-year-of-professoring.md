@@ -61,28 +61,27 @@ the course that will change her mind.
 
 Although I was very passionated about some of the topics, it was hard to
 transmit such passion to students. One initiative that I'm willing to give
-another shot is to bring open-source software projects inside the classroom. I
-wrote about it few months ago. Generally speaking, the students really learned
-new skills and enjoyed the work. There were also students that did not even try.
-Not sure what to do with those group of students. Still, students' motivation is
-still one thing that I should learn more.
+another shot is to [bring open-source software projects inside the classroom](http://gustavopinto.org/codefather/training-students-with-open-source-software/).
+Generally speaking, the students really learned new skills and enjoyed the work.
+There were also students that faced many barriers with Git and those that did not even try.
+Still, students' motivation is still one thing that I should learn more.
 
 ## Advising
 
 Advising students is one of the most fun and interesting thing in this academic
 career, I think. However, as I said, it was not straightforward to join in the
-grad school program. Since I just get into grad school, I cannot have many
-students. Any new professor can have only one master student per year. They say
-that because they do know how do you work (i.e., they cannot waste your time
-reading CV). Only after the first master student graduate is that you can have
+grad school program. Since I just get into grad school, I could have many
+students. Any new professor is limited to one master student per year. They say
+that because they do know how do the professor work. Only after the first
+master student graduate is when you can have
 as many as you want. Actually, up to three master students per year (department
-rules). The good thing about all of this restriction was that it forced me to
-look for collaborators. I co-supervised four students (3 masters and
+rules). The good thing about this restriction is that it forced me to
+look for collaborators. In 2017 I co-supervised four students (3 masters and
 1 phd). Only one of them is a student at my university. 3/4 of these students
-were fist authors in papers published last year. The one without paper have
+were fist authors in papers published last year. The one without paper has
 one paper under submission and is currently working in another one. I believe
 these are good results. I also advised three UROP students. This group of
-students was particularly interesting because I perceived that there are
+students was particularly interesting to me because I perceived that there are
 many undergrad students that are as skilled as or even more skilled than
 many master students. One particular UROP student really impressed me and we may
 submit her work to a good software engineering conference in 2018 (which
@@ -93,12 +92,12 @@ sometimes is hard to do with master students).
 In 2017 I published nine papers. However, six of them are short papers. I have
 to say that I was tempted to submitted that many short papers (some of them were
 very old stuff that I'd pay to not touch in the data anymore). Still, I am
-the first author of four papers (although two of them were the remaining
+the first author of four papers (although two of them are the remaining
 unpublished parts of my phd). The other two papers pretty much reflect my lack
-of students: short papers and little depth. Don't get me wrong. Short papers are
-good: the information is quickly and easily consumed. However, publishing a lot
-of short papers is not a synonym of high quality research. I plan to do less of
-it in 2018.
+of students: short papers with little depth. Don't get me wrong. Short papers are
+good: the information is quickly transmitted and easily consumed. However,
+publishing a lot of short papers is not a synonym of high quality research.
+I plan to do less of it in 2018.
 
 Finally, I reviewed 12 papers for four conferences. This is a low rate and I'd
 like to improve it. However, I'll only receive more invitations if I keep
