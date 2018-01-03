@@ -1,2 +1,2 @@
-all: 
-	jekyll server --watch
+all:
+	 bundle exec jekyll serve

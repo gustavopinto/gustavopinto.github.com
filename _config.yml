@@ -1,7 +1,7 @@
 
 # SEO settings
 title: "Gustavo Pinto"
-title2: "" # default: ""
+title2: # default: ""
 description: "Professinal webpage for Gustavo Pitno."
 keywords: "Gustavo Pinto, Professor, software engineering, research"
 url: http://gustavopinto.org # site url
@@ -33,7 +33,7 @@ author:
   job      : "Professor"
   bio      : "."
   thumb    : /lost+found/ghlp.jpg
-  email    : gpinto@ufpa.com
+  email    : gpinto@ufpa.br
   url      : http://gustavopinto.org
   github   : http://github.com/gustavopinto
   twitter  : http://twitter.com/gustavopinto
