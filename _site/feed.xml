@@ -5,9 +5,115 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Jan 2018 15:24:27 -0300</pubDate>
-    <lastBuildDate>Wed, 03 Jan 2018 15:24:27 -0300</lastBuildDate>
+    <pubDate>Wed, 03 Jan 2018 20:00:59 -0300</pubDate>
+    <lastBuildDate>Wed, 03 Jan 2018 20:00:59 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>First year of professoring</title>
+        <description>&lt;p&gt;While I’m starting my second year of Assistant professor, it is worth to look
+back and see how was my first year. It may help to improve my professoring
+skills or maybe help someone else who is just about to start his academic
+career. In numbers, last year I taught five courses (all of them new to me),
+supervised tree UROP students, and co-supervised tree masters student and one
+phd student. In terms of service, I reviewed 12 papers to four conferences and
+journals. I also published nine research papers and submitted two research grants.&lt;/p&gt;
+
+&lt;p&gt;Let me distill this.&lt;/p&gt;
+
+&lt;h2 id=&quot;teaching&quot;&gt;Teaching&lt;/h2&gt;
+
+&lt;p&gt;I taught five courses in 2017, all of them for undergrad. My peers in the US
+would consider this a very high workload, but I would say that this is the
+normal workload in Brazil. In my department, in particular, no professor
+teaches less than 4 courses per year. But a professor can teach as many as five
+in a single semester. The exact number depends on some variables such as
+the number of UROP students or if the professor teaches grad courses. If the
+value of the first variable is greater than 2 or if the second one is true, you
+can teach the minimum number of courses in that given term (which is two).
+One interesting thing in my university, which is quite common in other Brazilian
+universities, is the fact that when you join an university as a professor, you
+do not teach for grad school straight ahead. Instead, you should “apply” for
+teaching in grad school. They do that to make sure only professors interested in
+research are within the set of professors that teach grad courses. And your
+permanence in this set depends if you are doing good work. Otherwise you are
+out (of the grad school program) and should apply again. Important to say that you
+can only supervise master or phd students if you are in a grad program. Not sure
+if that makes much sense, but this is how things work over here. I applied in
+the second semester and I can have master students (phd students only after one
+master student graduate).&lt;/p&gt;
+
+&lt;p&gt;Getting back to the courses, I taught Algorithms,
+Databases 101, Operating Systems (Lab) Advanced Data structure, and Advanced
+Databases. All these courses were new to me. It took a lot of time to create
+the material for these courses, and I still have say they are not great. The
+problem was that I was not &lt;em&gt;that&lt;/em&gt; excited with teaching. I like teaching but
+my first semester workload was a kinda of disappointed to me (I want to do
+research and other things). I also have a hard time with one class of students
+that were not motivated at all. This issue was completely new to me and I had
+no idea on how to address it. I chatted with some colleagues and some of them
+also reported the same felling. Last year I went to two educational-focused
+software engineering conferences. I also discussed this matter over there, but
+this time I went back with some possible solutions, which can be summarized in
+PBL (Problem-based learning). The courses that I taught followed that traditional
+lecture format (e.g., the professor talks, the students listen). This is not to
+say that students did not have problems to work. They did. But they were at the
+mid to the end of the course. Only later I realized that if a student is not
+motivated from the beginning, it is not an interesting problem at the end of
+the course that will change her mind.&lt;/p&gt;
+
+&lt;p&gt;Although I was very passionated about some of the topics, it was hard to
+transmit such passion to students. One initiative that I’m willing to give
+another shot is to &lt;a href=&quot;http://gustavopinto.org/codefather/training-students-with-open-source-software/&quot;&gt;bring open-source software projects inside the classroom&lt;/a&gt;.
+Generally speaking, the students really learned new skills and enjoyed the work.
+There were also students that faced many barriers with Git and those that did not even try.
+Still, students’ motivation is still one thing that I should learn more.&lt;/p&gt;
+
+&lt;h2 id=&quot;advising&quot;&gt;Advising&lt;/h2&gt;
+
+&lt;p&gt;Advising students is one of the most fun and interesting thing in this academic
+career, I think. However, as I said, it was not straightforward to join in the
+grad school program. Since I just get into grad school, I could have many
+students. Any new professor is limited to one master student per year. They say
+that because they do know how do the professor work. Only after the first
+master student graduate is when you can have
+as many as you want. Actually, up to three master students per year (department
+rules). The good thing about this restriction is that it forced me to
+look for collaborators. In 2017 I co-supervised four students (3 masters and
+1 phd). Only one of them is a student at my university. 3/4 of these students
+were fist authors in papers published last year. The one without paper has
+one paper under submission and is currently working in another one. I believe
+these are good results. I also advised three UROP students. This group of
+students was particularly interesting to me because I perceived that there are
+many undergrad students that are as skilled as or even more skilled than
+many master students. One particular UROP student really impressed me and we may
+submit her work to a good software engineering conference in 2018 (which
+sometimes is hard to do with master students).&lt;/p&gt;
+
+&lt;h2 id=&quot;research-and-service&quot;&gt;Research and Service&lt;/h2&gt;
+
+&lt;p&gt;In 2017 I published nine papers. However, six of them are short papers. I have
+to say that I was tempted to submitted that many short papers (some of them were
+very old stuff that I’d pay to not touch in the data anymore). Still, I am
+the first author of four papers (although two of them are the remaining
+unpublished parts of my phd). The other two papers pretty much reflect my lack
+of students: short papers with little depth. Don’t get me wrong. Short papers are
+good: the information is quickly transmitted and easily consumed. However,
+publishing a lot of short papers is not a synonym of high quality research.
+I plan to do less of it in 2018.&lt;/p&gt;
+
+&lt;p&gt;Finally, I reviewed 12 papers for four conferences. This is a low rate and I’d
+like to improve it. However, I’ll only receive more invitations if I keep
+publishing good work.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Jan 2018 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/codefather/first-year-of-professoring/</link>
+        <guid isPermaLink="true">http://localhost:4000/codefather/first-year-of-professoring/</guid>
+        
+        
+        <category>codefather</category>
+        
+      </item>
     
       <item>
         <title>Training students with open-source software</title>
@@ -542,76 +648,6 @@
         <pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/codefather/tips-to-attend-oopsla-with-low-budget/</link>
         <guid isPermaLink="true">http://localhost:4000/codefather/tips-to-attend-oopsla-with-low-budget/</guid>
-        
-        
-        <category>codefather</category>
-        
-      </item>
-    
-      <item>
-        <title>Pycon 2014 - Call for posters</title>
-        <description>&lt;p&gt;PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.&lt;/p&gt;
-
-&lt;p&gt;How?&lt;/p&gt;
-
-&lt;p&gt;What about presenting a poster in the Python premier conference?&lt;/p&gt;
-
-&lt;h1 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h1&gt;
-
-&lt;p&gt;As a presenter, you get to interact directly with your audience, share your passion and your idea, and immediately address questions in a more conversational manner. Moreover, the environment is generally less stressful and more easygoing than giving a formal talk. On top of that, you met a lot of interesting people.&lt;/p&gt;
-
-&lt;p&gt;The idea is to present your topic on a 4’x4’ poster board and as attendees mingle through the rows, they find your topic, read through what you have written, the strike up a discussion on it.&lt;/p&gt;
-
-&lt;p&gt;Users of all levels go to the poster session, so your topic can focus on novice, intermediate or even expert programmers. Focus on what you think is interesting, rather than difficult/complex. This video will give you an idea of what poster sessions are.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-kind-of-proposal-can-i-submit&quot;&gt;What kind of proposal can I submit?&lt;/h1&gt;
-
-&lt;p&gt;You may be wondering about what kind of python stuff you will be able to talk. As an advice, we can told you that you can talk about anything you want to. Don’t be shy. We would love hear what make you exciting with Python. But, if the problem is missing ideas, why don’t take a look in the poster section of &lt;a href=&quot;https://us.pycon.org/2013/schedule/posters/list/&quot;&gt;PyCon’13&lt;/a&gt; or &lt;a href=&quot;https://us.pycon.org/2012/schedule/lists/posters/&quot;&gt;PyCon’12&lt;/a&gt;? People made an incredible work in there.&lt;/p&gt;
-
-&lt;h1 id=&quot;hmm-im-interested-how-to-submit-a-proposal&quot;&gt;Hmm.. I’m interested. How to submit a proposal?&lt;/h1&gt;
-
-&lt;p&gt;To submit a poster proposal, you should first create an account in the PyCon site. When you are logged in, you will need to include the following information.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The title of your post&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The category&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The intended audience (assumed level of knowledge)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A brief description - 300 chars max&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A detailed description&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Additional notes for the proposal reviewers. This can include additional background information such as links to other presentations you have done, or links to blog posts, articles or code related to your presentation.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Keep in mind that the posters should follow all of the usual &lt;a href=&quot;http://us.pycon.org/2014/speaking/proposal_advice/&quot;&gt;guidelines&lt;/a&gt; that we look for in talk and tutorial proposals.&lt;/p&gt;
-
-&lt;h1 id=&quot;important-dates&quot;&gt;Important Dates&lt;/h1&gt;
-
-&lt;p&gt;Do not miss the application deadline!&lt;/p&gt;
-
-&lt;p&gt;Poster submission deadline: November 1st, 2013.&lt;/p&gt;
-
-&lt;p&gt;Poster announced: December 15th, 2013.&lt;/p&gt;
-
-&lt;p&gt;Poster session at PyCon’14: April 13th, 2014.&lt;/p&gt;
-
-&lt;p&gt;If you need more information, you can see the &lt;a href=&quot;http://us.pycon.org/2014/posters/faq/&quot;&gt;Poster FAQ&lt;/a&gt; and the &lt;a href=&quot;https://us.pycon.org/2014/posters/&quot;&gt;Poster CFP&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We look forward to seeing you in Montreal in 2014!&lt;/p&gt;
-</description>
-        <pubDate>Fri, 19 Jul 2013 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/codefather/pycon-2014-call-for-poster/</link>
-        <guid isPermaLink="true">http://localhost:4000/codefather/pycon-2014-call-for-poster/</guid>
         
         
         <category>codefather</category>
