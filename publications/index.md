@@ -10,6 +10,9 @@ permalink: /publications/
 
 * [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). [Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](#). Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
 
+* [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). [Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf). Accepted for Information and Software Technology, 2017.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/ist2018.pdf)
+
 #### 2017 ####
 
 * **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf). Communications of the ACM 60(12), December 2017.<br/>
@@ -18,7 +21,7 @@ permalink: /publications/
 * **Gustavo Pinto**, Anthony Canino, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Guoqing Harry Xu](http://www.ics.uci.edu/~guoqingx/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). [Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications](http://gustavopinto.github.io/lost+found/ase2017.pdf). Accepted to the 32nd International Conference on Automated Software Engineering (ASE'2017). Illinois, USA, 2017.<br>
 [[Paper]](http://gustavopinto.github.io/lost+found/ase2017.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/ase2017-talk.pdf)
- [[More]](/publications/ase2017)
+[[More]](/publications/ase2017)
 
 * [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Danilo Ribeiro, [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). [Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf). Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
@@ -80,7 +83,7 @@ permalink: /publications/
 [[Paper]](http://gustavopinto.github.io/lost+found/thesis.pdf)
 [[Slides]](http://gustavopinto.github.io/lost+found/thesis-talk.pdf)
 
-* **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Accepted to the Journal of Systems and Software, 2015.<br/>
+* **Gustavo Pinto**, [Weslley Torres](https://twitter.com/weslleytorres), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Roberto S. M. Barros](http://www.cin.ufpe.br/~roberto/). "[A Large-Scale Study on the Usage of Java's Concurrent Programming Constructs](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software 106, 59-81, August 2015.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
 
 * Irineu Moura, **Gustavo Pinto**, Felipe Ebert and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Mining Energy-Aware Commits](http://gustavopinto.github.io/lost+found/msr2015.pdf)". Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015. **[[This paper was highlighted in the November/December 2015 issue of IEEE Software](http://www.computer.org/csdl/mags/so/2015/06/mso2015060098.pdf)]**<br/>
