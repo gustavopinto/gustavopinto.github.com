@@ -59,7 +59,7 @@ mid to the end of the course. Only later I realized that if a student is not
 motivated from the beginning, it is not an interesting problem at the end of
 the course that will change her mind.
 
-Although I was very passionated about some of the topics, it was hard to
+Although I was very passionate about some of the topics, it was hard to
 transmit such passion to students. One initiative that I'm willing to give
 another shot is to [bring open-source software projects inside the classroom](http://gustavopinto.org/codefather/training-students-with-open-source-software/).
 Generally speaking, the students really learned new skills and enjoyed the work.
