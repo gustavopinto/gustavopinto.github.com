@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: From where come the Brazilian open-source contributions?
 subtitle: A summary of a WDDS'13 paper
 year: 2013
@@ -8,9 +8,6 @@ day: 19
 published: true
 ---
 
-# From where come the Brazilian open-source contributions?
-
-Hi there.
 
 Some days ago I was wondering why open-source communities are so cool! You can meet a lot of interesting people, who devote a lot time of their time-lifes just to create stuffs that other people will use. It is strange. Usually, this people actually have their own business, work, family, whatever, and they still find time to work for free. It sounds weird to me (even though I devote part of my time to open-source activities).
 
