@@ -10,7 +10,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 
 - IEEE Software: 2015 (2x), 2017
 - Empirical Software Engineering Journal: 2017
-- Information and Software Technology: 2016
+- Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
@@ -26,7 +26,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - ESEM: 2016, 2017
 - ICSE: 2017 (2x)
 - ICSME: 2012, 2016 (2x), 2017
-- SANER: 2015, 2017
+- SANER: 2015, 2018
 - XP: 2017
 
 #### Grant proposals that were rejected
@@ -37,4 +37,4 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 
 #### Jobs I did not get
 
-- Assistant Professor position at UFMG
+- Assistant Professor at UFMG

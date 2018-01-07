@@ -31,7 +31,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Related work:** [ICSE'17](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 1. What practitioners say about software engineering research?<br>
-**Questions:** What are the practitioners' perception about SE research?
+**Questions:** What are the practitioners' perception about SE research?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [MSR'17](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 
@@ -43,10 +43,6 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question:** How can we test partial program?<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 
-1. An educational online environment to teach concurrent programing<br>
-**Question:** Can online  environment improve concurrent programming learning?<br>
-**Skill:** JavaScript and Java programming
-
 1. Understanding DevOps culture<br>
 **Questions:** what are the DevOps' practices? how these practices impact agile development?<br>
 **Skills:** English communication<br>
@@ -55,7 +51,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question:** investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 
-1. An energy-aware adaptative system.<br>
+1. An energy-aware adaptative software system.<br>
 **Skills:** system programming (e.g., Java, Scala)<br>
 
 1. Issues Smells<br>
