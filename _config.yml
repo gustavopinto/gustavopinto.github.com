@@ -15,7 +15,7 @@ twitter_username: "gustavopinto"
 comments: true
 
 # Build settings
-permalink   : /codefather/:title/
+permalink   : /blog/:title/
 markdown    : kramdown
 highlighter : rouge
 
