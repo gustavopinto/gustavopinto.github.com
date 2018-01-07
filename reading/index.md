@@ -34,6 +34,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 ### Reviewing papers
 
 1. [Reviewing a technical paper](https://homes.cs.washington.edu/~mernst/advice/review-technical-paper.html), by Michael Ernst
+1. [Hints for Reviewing Empirical Work in Software Engineering](https://cs.gmu.edu/~offutt/classes/see/papers/tichy-overview.pdf), by Walter F. Tichy
 
 ### Talks
 
