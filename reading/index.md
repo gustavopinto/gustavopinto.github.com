@@ -41,7 +41,9 @@ A few suggestions for (prospective) grad students, in no particular order:
 1. [How to give a great research talk](https://www.microsoft.com/en-us/research/academic-program/give-great-research-talk), by Simon Peyton Jones
 1. [Summarizing your presentation with miniature slides](http://andreas-zeller.blogspot.com.br/2013/10/summarizing-your-presentation-with.html), by Andreas Zeller
 
+### Rejections
 
+1. [Dealing with Rejection](https://sites.umiacs.umd.edu/elm/2016/10/25/dealing-with-rejection/), by Niklas Elmqvist
 
 ### Where to find money
 
