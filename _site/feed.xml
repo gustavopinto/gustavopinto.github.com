@@ -5,9 +5,55 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 Jan 2018 15:16:01 -0300</pubDate>
-    <lastBuildDate>Mon, 08 Jan 2018 15:16:01 -0300</lastBuildDate>
+    <pubDate>Wed, 10 Jan 2018 00:32:10 -0300</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 00:32:10 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>On the importance of good figures in research papers</title>
+        <description>&lt;p&gt;Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about &lt;a href=&quot;http://shop.oreilly.com/product/0636920034919.do&quot;&gt;data science&lt;/a&gt; in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a &lt;a href=&quot;http://gustavopinto.org/lost+found/jss_2015.pdf&quot;&gt;30+ pages paper&lt;/a&gt; that we have been working on for, at least, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;3 years&lt;/a&gt;. Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).&lt;/p&gt;
+
+&lt;p&gt;But it was not always like that. In the first paper published during my phd, I used OpenOffice to create the figures. By the time, the quality of the figure didn’t bother much me; In fact, I was still learning what is research and how to do it. The quality of the figures was not more important than trying to finish a 6-page paper and submit for that first edition workshop that we never heard of. As a result, this figure came along with our workshop paper.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/lost+found/figure+tmc.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(If you agree that the above figure is far from being good, keep reading.)&lt;/p&gt;
+
+&lt;p&gt;Figures should not only convey an information, but they should also do it easily and quickly (“a picture is worth a thousand words”, they said). However, it only works if you have good figures. For instance, would you be surprised if I tell you that the values of the red line of the third figure is greater than the red line in the first figure? Why would that be the case? This happens because these three figures are under different scales; this makes such a comparison misleading. Still, the x axis use different time windows for each figure, which is also misleading (I’m not sure if that was a typo or if the x axis indeed employs different time window). A simple fix (put the figures in the same scale and using the same time window) would make this figure much more comprehensible. This is why I wholeheartedly agree with Philip Guo when he says:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;paper-writing is like 95% making good figures, and then 5% describing those figures in a sensible way&lt;/p&gt;&amp;mdash; Philip Guo (@pgbovine) &lt;a href=&quot;https://twitter.com/pgbovine/status/765256392429047808?ref_src=twsrc%5Etfw&quot;&gt;August 15, 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Fast-forwarding to 2018, and after many other figures created throughout the course, I started to observe bad patterns that prevent researchers from plotting good figures (although I’m not assuming the figure I create are the best ones; but I’m always trying to improve this). Even though the presence of these bad patterns in a paper does not mean that one would argue for rejection, it will hardly convince anyone to accept it. Here we go:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Plot similar figures under different scale&lt;/strong&gt;: This is the problem address in the figure above. The solution is simple: employ the same y axis for all figures. (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/saner2016.pdf&quot;&gt;fig 1 of this paper&lt;/a&gt;).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Save figures as PNG or JPG&lt;/strong&gt;: Or any other compressed figure format. These formats degrade the image quality, which is particularly relevant when our peers still have the culture of printing papers in b&amp;amp;w for review. Moreover, when reading on screen, if one wants to zoom in an image for a better understanding, compressed figures degrade even more. The solution: save figures using a vectorial format (e.g., eps or pdf).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;50 shades of the same color&lt;/strong&gt;: This is also to ease the review for those used to print in b&amp;amp;w. This happens when one uses different shades of the same colors, a common practice in heat maps (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/fase2015.pdf&quot;&gt;fig 11 of this paper&lt;/a&gt;). As a fix, instead of having 50 shades of blue, many heat maps can be done with 3-5 shades.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Skewed by outliers&lt;/strong&gt;: This is a common pattern. The data has outliers and the figure is skewed when they are present. Sometimes we are forced to remove them, otherwise they could limit the understanding of the figure. However, removing outliers only because they do not appear handsome in the graph is not a strong argument (although I did that myself too). A better approach is to use the logarithmic scale.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Labels with small font&lt;/strong&gt;: This makes it harder to understand the meaning of the figure (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/ase2017.pdf&quot;&gt;fig 5 of this paper&lt;/a&gt;). Add to this a low quality JPG figure. No one would understand what the figure is supposed to say. The fix? Increase the font. If necessary, increase the figure size.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 09 Jan 2018 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/blog/on-the-importance-of-good-figures-in-research-papers/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/on-the-importance-of-good-figures-in-research-papers/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>First year of professoring</title>
@@ -609,45 +655,6 @@ publishing good work.&lt;/p&gt;
         <pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/blog/Why-keep-doing-surveys/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/Why-keep-doing-surveys/</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Tips to attend OOPSLA with low budget</title>
-        <description>&lt;p&gt;Are you a [under]grad student who is wondering how amazing it could be to attend a flagship conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.&lt;/p&gt;
-
-&lt;p&gt;In this year (2013) I attended my very first OOPSLA. It was awesome. &lt;a href=&quot;https://twitter.com/gustavopinto/status/394562681253810176&quot;&gt;I&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395050744291659776&quot;&gt;shared&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395210719022436352&quot;&gt;some&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/395683470971641856&quot;&gt;stories&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396020564361371648&quot;&gt;on&lt;/a&gt; &lt;a href=&quot;https://twitter.com/gustavopinto/status/396021132479827969&quot;&gt;twitter&lt;/a&gt;. However, one of the things that made it so great was because I didn’t needed to pay anything. Neither my advisor.&lt;/p&gt;
-
-&lt;p&gt;How it could be possible?&lt;/p&gt;
-
-&lt;p&gt;I basically follow three steps: (i) submit a paper to ACM SRC, (ii) apply to be a student volunteer, and (iii) request PAC funding.&lt;/p&gt;
-
-&lt;p&gt;I’ll briefly describe these steps here.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Consider submitting a paper to ACM SRC&lt;/strong&gt;: One good reason to go to a conference is to give a talk about your reasearch (hopefully, in the main track of the conference). In this case, you will probably get money from your advisor/department/university. But, if you are on the early stages of your research, or if you got rejected, you can also consider submitting to the ACM SRC track. The goal of the ACM SRC is to facilitate interaction between researchers and practitioners, providing both sides the opportunity to learn of ongoing research. Additionally, the ACM SRC gives students experience with both formal presentations and evaluations. Finally, you can receive up to $ 500 to spend on your trip. Not bad.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Apply to be a student volunteer&lt;/strong&gt;: When you are a student volunteer, you don’t need to pay for your registration. You could eventually receive other interesting things, such as a costumed t-shirt, or an invitation to a fancy dinner. &lt;strong&gt;Update: Student Volunteers for OOPSLA’2014 also received free hotel&lt;/strong&gt;. On the other hand, you have to work during the conference. Some duties include: help in the registration process, help inside the rooms, or help speakers/attends to find their rooms. But, don’t worry. You will find time to enjoy the conference.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Request PAC funding&lt;/strong&gt;: Finally, if you have a paper accepted in one conference sponsored by SGIPLAN, you can also request funding from PAC. Note that not all conferences are sponsored by SIGPLAN. The ACM SRC, for example, is not sponsored. However, the SPLASH/Poster sesssion is sponsored. These two tracks happens together at SPLASH. Also, if you don’t have any paper accepted, but was accepted to be a student volunteer, you can also request PAC funding. That is great, hun? And it is pretty easy to apply. You just have to fill up a form, explaing how do you plan to spend this money.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So, these were my tips.&lt;/p&gt;
-
-&lt;p&gt;Nevertheless, I’m not sure if you can follow these steps if you are planing to attend other top-tier conference. It works for OOPSLA.&lt;/p&gt;
-
-&lt;p&gt;That is all. I hope to see you at SPLASH/OOPSLA’2014 in Portland :)&lt;/p&gt;
-</description>
-        <pubDate>Fri, 01 Nov 2013 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/blog/tips-to-attend-oopsla-with-low-budget/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/tips-to-attend-oopsla-with-low-budget/</guid>
         
         
         <category>blog</category>
