@@ -5,12 +5,12 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Jan 2018 00:32:10 -0300</pubDate>
-    <lastBuildDate>Wed, 10 Jan 2018 00:32:10 -0300</lastBuildDate>
+    <pubDate>Wed, 10 Jan 2018 00:35:07 -0300</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 00:35:07 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
-        <title>On the importance of good figures in research papers</title>
+        <title>A call for good figures in research papers</title>
         <description>&lt;p&gt;Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about &lt;a href=&quot;http://shop.oreilly.com/product/0636920034919.do&quot;&gt;data science&lt;/a&gt; in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a &lt;a href=&quot;http://gustavopinto.org/lost+found/jss_2015.pdf&quot;&gt;30+ pages paper&lt;/a&gt; that we have been working on for, at least, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;3 years&lt;/a&gt;. Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).&lt;/p&gt;
 
 &lt;p&gt;But it was not always like that. In the first paper published during my phd, I used OpenOffice to create the figures. By the time, the quality of the figure didn’t bother much me; In fact, I was still learning what is research and how to do it. The quality of the figures was not more important than trying to finish a 6-page paper and submit for that first edition workshop that we never heard of. As a result, this figure came along with our workshop paper.&lt;/p&gt;
@@ -47,8 +47,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Tue, 09 Jan 2018 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/blog/on-the-importance-of-good-figures-in-research-papers/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/on-the-importance-of-good-figures-in-research-papers/</guid>
+        <link>http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/</guid>
         
         
         <category>blog</category>

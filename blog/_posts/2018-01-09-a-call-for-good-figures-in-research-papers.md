@@ -1,7 +1,7 @@
 ---
 layout: post
-title: On the importance of good figures in research papers
-subtitle: Move way from any office suite
+title: A call for good figures in research papers
+subtitle: Take care of your figures
 year: 2018
 month: 1
 day: 9
