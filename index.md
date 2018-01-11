@@ -18,7 +18,9 @@ Are you a [student looking for an advisor](/students)? Are you a researcher and 
 #### Service for 2018 ####
 1. PC member, [EASE'18](http://ease2018.softwareinnovation.nz/) (short papers)
 1. PC member, [GREENS'18](http://greens.cs.vu.nl/)
-1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/)
+1. PC member, [SBES'18](http://cbsoft2018.icmc.usp.br/sbes.html)
+1. PC member, [SBCARS'18](http://cbsoft2018.icmc.usp.br/sbcars.html)
+1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/sblp.html/)
 
 
 #### Older ####
