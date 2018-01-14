@@ -5,7 +5,7 @@ permalink: /
 
 Hi, I'm **Gustavo Pinto**.
 
-I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/codefather/) and do talks.
+I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/codefather/) and do [talks](https://speakerdeck.com/gustavopinto).
 
 I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During the academic year of 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl). My [Ph.D. thesis]((http://gustavopinto.github.io/lost+found/thesis.pdf)) is all about software energy consumption.
 
