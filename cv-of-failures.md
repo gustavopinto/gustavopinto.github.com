@@ -31,6 +31,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 
 #### Grant proposals that were rejected
 
+- CNPq Productivity Fellowship, 2017
 - Huawei Research Grant, 2017 (budget: U$ 68,750)
 - Google Research Grant, 2013 (budget: U$ 39,000)
 - Microsoft SEIF, 2013 (budget: U$ 25,000)
