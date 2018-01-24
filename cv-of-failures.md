@@ -29,7 +29,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - SANER: 2015, 2018
 - XP: 2017
 
-#### Grant proposals that were rejected
+#### Grant proposals that were rejected (4)
 
 - CNPq Productivity Fellowship, 2017
 - Huawei Research Grant, 2017 (budget: U$ 68,750)

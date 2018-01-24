@@ -8,7 +8,8 @@ permalink: /publications/
 
 * [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
 
-* [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.
+* [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](http://gustavopinto.github.io/lost+found/icse2018.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br>
+[[Paper]](http://gustavopinto.github.io/lost+found/icse2018.pdf)
 
 * [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/ist2018.pdf)
