@@ -117,11 +117,15 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 #### 2013 ####
 
-* **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "On The Implications of Language Constructs for Concurrent Execution for the Energy Efficiency of Multicore Applications". Accepted to the 4th ACM Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
+* **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[On The Implications of Language Constructs for Concurrent Execution for the Energy Efficiency of Multicore Applications]((http://gustavopinto.github.io/lost+found/splash-poster2013.pdf))". Accepted to the 4th ACM Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/splash-poster2013.pdf)
+[[Poster]](http://gustavopinto.github.io/lost+found/splash-poster2013-poster.pdf)
 
-* **Gustavo Pinto**. "Do Language Constructs for Concurrent Execution Have Impact on Energy Efficiency?". Accepted to the ACM Student Research Competition at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013
+* **Gustavo Pinto**. "[Do Language Constructs for Concurrent Execution Have Impact on Energy Efficiency?](http://gustavopinto.github.io/lost+found/splash-acm-src2013.pdf)". Accepted to the ACM Student Research Competition at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/splash-acm-src2013.pdf)
 
-* **Gustavo Pinto**. "Refactoring Multicore Applications Towards Energy Efficiency". Accepted to the Doctoral Symposium at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.
+
+* **Gustavo Pinto**. "[Refactoring Multicore Applications Towards Energy Efficiency](http://gustavopinto.github.io/lost+found/splash-doc-symp2013.pdf)". Accepted to the Doctoral Symposium at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
 [[Paper]](http://gustavopinto.github.io/lost+found/splash-doc-symp2013.pdf)
 
 * **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[What Programmers Say About Refactoring Tools? An Empirical Investigation of Stack Overflow](http://gustavopinto.github.io/lost+found/wrt2013.pdf)". Accepted to the 6th International Workshop on Refactoring Tools (WRT) at the 4th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
@@ -132,17 +136,22 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 #### 2012 ####
 
-* [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [Emanoel Barreiros](https://twitter.com/ebarreiros), Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.org/lost+found/ease2012.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.
+* [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [Emanoel Barreiros](https://twitter.com/ebarreiros), Adauto Almeida, Flavio Lima, Aline Alencar, **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Aspect-Oriented Software Maintenance Metrics: A Systematic Mapping Study](http://gustavopinto.org/lost+found/ease2012.pdf)". Accepted to the 16th International Conference on Evaluation and Assessment in Software Engineering (EASE), Ciudad Real, Spain, 2012.<br/>
+[[Paper]](http://gustavopinto.org/lost+found/ease2012.pdf)
 
-* Fl&aacute;vio Abreu, Adauto Almeida, [Emanoel Barreiros](https://twitter.com/ebarreiros), [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), Aline Ara&uacute;jo and **Gustavo Pinto**. "M&eacute;todos, T&eacute;cnicas e Ferramentas para o Desenvolvimento de Software Educacional: Um Mapeamento Sistem&aacute;tico". Accepted to the Brazilian Symposium of Informatics in the Education (SBIE), Rio de Janeiro, Brazil, 2012.
 
+* Fl&aacute;vio Abreu, Adauto Almeida, [Emanoel Barreiros](https://twitter.com/ebarreiros), [Juliana Saraiva](https://scholar.google.com/citations?user=6eUPBOkAAAAJ&hl=en), [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), Aline Ara&uacute;jo and **Gustavo Pinto**. "[M&eacute;todos, T&eacute;cnicas e Ferramentas para o Desenvolvimento de Software Educacional: Um Mapeamento Sistem&aacute;tico](http://gustavopinto.github.io/lost+found/sbie012.pdf)". Accepted to the Brazilian Symposium of Informatics in the Education (SBIE), Rio de Janeiro, Brazil, 2012.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/sbie012.pdf)
 
 #### 2011 ####
 
-* [Weslley Torres](https://twitter.com/weslleytorres), **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Jo&atilde;o Paulo Oliveira, [Filipe Ximenes](http://www.vinta.com.br/blog/author/filipe-ximenes.html), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.
+* [Weslley Torres](https://twitter.com/weslleytorres), **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), Jo&atilde;o Paulo Oliveira, [Filipe Ximenes](http://www.vinta.com.br/blog/author/filipe-ximenes.html), and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Are Java Programmers Transitioning to Multicore? A Large Scale Study of Java FLOSS](http://gustavopinto.github.io/lost+found/tmc2011.pdf)". Accepted to the of the 1st Workshop on Transitioning to Multicore (TMC), at the 2nd Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, October, 2011.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/tmc2011.pdf) [[Slides]](http://gustavopinto.github.io/lost+found/tmc2011-talk.pdf)
 
 #### 2010 ####
 
-* **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "Gerando Dados de Teste para Programas Orientados a Objeto com um Algoritmo Gen&eacute;tico Multiobjetivo". Accepted to the 1st Brazilian Workshop of Search-Based Software Engineering, at the 1st Brazilian Conference on Software: Theory and Practice (CBSoft), Salvador, Brazil, 2010.
+* **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "[Gerando Dados de Teste para Programas Orientados a Objeto com um Algoritmo Gen&eacute;tico Multiobjetivo](http://gustavopinto.github.io/lost+found/woes2013.pdf)". Accepted to the 1st Brazilian Workshop of Search-Based Software Engineering, at the 1st Brazilian Conference on Software: Theory and Practice (CBSoft), Salvador, Brazil, 2010.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/woes2010.pdf)
 
-* **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "A Multi-Objective Genetic Algorithm to Test Data Generation". Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.
+* **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "[A Multi-Objective Genetic Algorithm to Test Data Generation](http://gustavopinto.github.io/lost+found/ictai2010.pdf)". Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.<br/>
+[[Paper]](http://gustavopinto.github.io/lost+found/ictai2010.pdf)
