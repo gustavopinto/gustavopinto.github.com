@@ -8,7 +8,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 
 #### Journal papers that have been rejected (8)
 
-- IEEE Software: 2015 (2x), 2017
+- IEEE Software: 2015 (2x), 2017, 2018
 - Empirical Software Engineering Journal: 2017
 - Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
