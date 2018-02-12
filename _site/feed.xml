@@ -5,9 +5,44 @@
     <description>Professinal webpage for Gustavo Pitno.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Feb 2018 13:02:06 -0300</pubDate>
-    <lastBuildDate>Mon, 12 Feb 2018 13:02:06 -0300</lastBuildDate>
+    <pubDate>Mon, 12 Feb 2018 15:22:57 -0300</pubDate>
+    <lastBuildDate>Mon, 12 Feb 2018 15:22:57 -0300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>What are quasi-contributors and how common are them?</title>
+        <description>&lt;p&gt;TL;DR&lt;/p&gt;
+
+&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/icse2018.pdf&quot;&gt;Almost There: A Study on Quasi-Contributors in Open-Source Software Projects&lt;/a&gt;”. Quasi-contributors is a contributor that tried to contribute to open-source software but did not succeed to a given open source project (for any reason). For the impatient, there is a summary of the summary:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Quasi-contributors are rather common&lt;/strong&gt;. They are about 70% the number of actual-contributors. In some projects, there are more quasi-contributors than actual contributors.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;There are many reasons for non-acceptance&lt;/strong&gt;. There is also a lack of communication, commitment, and experience. Integrators agree with quasi-contributors that not needed pull-requests are among the most common cause for nonacceptance.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;1/3 of Quasi-contributors disagree with nonacceptance&lt;/strong&gt;. 32% of the quasi-contributors do not agree with the decision of not having their contribution accepted — for 19% of quasi-contributors that did not concur also felt demotivated or prevented to place additional contributions. 12% of the quasi-contributors reported that the feedback from the code review was not constructive.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;–&lt;/p&gt;
+
+&lt;p&gt;Although there is a need of workforce to drive open source projects, many developers, newcomers to a project, send contributions which are not incorporated into the source code and give up trying. We mined data and metadata of 21 well-known, nontrivial, and popular OSS projects. We observed that quasi-contributors are rater common. In three projects analyzed (angular.js, bootstrap, rails), there are more than 1,000 quasi-contributors in each one of them. In five out of the 21 projects, there are more quasi-contributors than actual ones. In some cases, the number of quasi-contributors is significantly higher: for instance, project bootstrap, has 2.3x more quasi-contributors than actual ones (it has 1,962 quasi-contributors and 844 contributors). On average, there are 480.9 quasi-contributors per project. Regarding the number of attempts, on average, a quasi-contributor tried  1.22 times (85% of the quasi-contributors tried only once). On the other side of the distribution, however, we found some quasi-contributors that tried really hard, but still did not succeed. In the bootstrap project, one quasi-contributor proposed 13 unaccepted pull-requests.&lt;/p&gt;
+
+&lt;p&gt;We conducted a survey with quasi-contributors, and they mentioned several reasons for why the pull-request proposed was not accepted. The most common reason is &lt;strong&gt;superseded/duplicated&lt;/strong&gt; pull-request (e.g., “Other pull-requests fixed the same issues as my pull-requests”). &lt;strong&gt;Mismatch between developer’s and team’s vision/opinion&lt;/strong&gt; is also common (e.g., “when you add a new feature to the project, your vision can be out of tune with the vision of the project’s team, and this is natural”). We also observed a &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; (e.g. “It was ignored maybe because it was a very minor fix”). We also asked integrators about the reasons for non-acceptance. According to them, the most common reason for nonacceptance is &lt;strong&gt;PR not needed/not relevant&lt;/strong&gt; (e.g., “[such contribution] solves the immediate/local problem but does not address the deeper systemic issue”). The second most common reason is &lt;strong&gt;Guidelines not followed&lt;/strong&gt;. According to one integrator, such guidelines can range from “coding style, lack of tests, or messy versioning history”. Interestingly, none of the integrators assumed the mea culpa, i.e., the &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; aforementioned.&lt;/p&gt;
+
+&lt;p&gt;Most of the quasi-contributors surveyed agreed with the decision of having the pull-request unmerged (67.4%) and that the comments were constructive (88.8%). However, the number of unmerged pull-requests, the 30.3% of the developers that reported demotivation, and the 32.6% that reported disagreement with the community decision are not negligible. Moreover, 99 quasi-contributors did not agree with the pull-request nonacceptance, and 62.6% of them (62) answered that this fact demotivated or prevented them from placing another pull-request.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 11 Feb 2018 00:00:00 -0300</pubDate>
+        <link>http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>A call for good figures in research papers</title>
@@ -607,54 +642,6 @@ publishing good work.&lt;/p&gt;
         <pubDate>Tue, 25 Nov 2014 00:00:00 -0300</pubDate>
         <link>http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Why do you keep doing surveys?</title>
-        <description>&lt;p&gt;When I say survey, I mean online questionnaires.&lt;/p&gt;
-
-&lt;p&gt;First of all, don’t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.&lt;/p&gt;
-
-&lt;p&gt;Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?&lt;/p&gt;
-
-&lt;p&gt;Yes, of course, you can do a survey.&lt;/p&gt;
-
-&lt;p&gt;But, there are some concerns that you have to keep in mind: First, survey has its own problems (the subject may lie in a difficult questions, or may remember incorrectly about a long time question, or may not fully understand a question and then give a faulty response). Second, the survey response rate is pretty low. If you are a luck guy, you can get 10% or 15% of response rate. So, if you are targeting the entire rails population, you may draw conclusions from a biased part of it. And finally, you may have to wait for several weeks (months?) until you have collected enough data.&lt;/p&gt;
-
-&lt;p&gt;Or you can simply change your data source.&lt;/p&gt;
-
-&lt;p&gt;If you are doing computer science research, you have on hand a number of great on line data sources. All you have to do is pick up the right one, use your programming skill to extract the data, and proceed to the analysis.&lt;/p&gt;
-
-&lt;p&gt;For example:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you want to know what rails core developers eat at lunch? Find them on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and mine their actives on there.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverfow&lt;/a&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on &lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt; and/or &lt;a href=&quot;http://www.sourceforge.com&quot;&gt;SourceForge&lt;/a&gt;, and parse their source code.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you want to know if final users are facing energy consumption problems in mobile applications? Mine &lt;a href=&quot;http://play.google.com&quot;&gt;Google Play&lt;/a&gt; comments.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;And the list goes on.&lt;/p&gt;
-
-&lt;p&gt;You see? Surveys are good. But, you can get a ton of data if you mine such websites.&lt;/p&gt;
-
-&lt;p&gt;Nowadays, mining software repositories is not only about software, but human behaviour as well.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 03 Dec 2013 00:00:00 -0300</pubDate>
-        <link>http://localhost:4000/blog/Why-keep-doing-surveys/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/Why-keep-doing-surveys/</guid>
         
         
         <category>blog</category>
