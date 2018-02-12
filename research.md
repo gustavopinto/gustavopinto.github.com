@@ -20,7 +20,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [SANER'16](http://gustavopinto.github.io/lost+found/saner2016.pdf)
 
-4. Energy consumption of data-oriented software<br>
+<!--4. Energy consumption of data-oriented software<br>
 **Questions:** How can we decrease energy consumption without hurting performance?<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 **Related work:** [FASE'15](http://gustavopinto.github.io/lost+found/fase2015.pdf), [ICSME'16](http://gustavopinto.github.io/lost+found/icsme2016.pdf)
@@ -28,7 +28,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. A virtual assistant to guide energy-aware programmers<br>
 **Questions:** How can a tool help programmers to create energy-aware software?
 **Skills:** Java programming<br>
-**Related work:** [ICSE'17](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
+**Related work:** [ICSE'17](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)-->
 
 1. What practitioners say about software engineering research?<br>
 **Questions:** What are the practitioners' perception about SE research?<br>
@@ -51,9 +51,13 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question:** investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 
-1. An energy-aware adaptative software system.<br>
-**Skills:** system programming (e.g., Java, Scala)<br>
+<!--1. An energy-aware adaptative software system.<br>
+**Skills:** system programming (e.g., Java, Scala)<br>-->
 
 1. Issues Smells<br>
-**Questions**: What are the most common problems related to reporting issues?
+**Questions**: What are the most common problems related to issue report?
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+
+1. Naming the pain on sci software development
+**Questions**: What are the key pain point that the sci software community has, when developing software?
+**Skills:** English communication<br>

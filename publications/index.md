@@ -16,6 +16,8 @@ permalink: /publications/
 
 * **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](#)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018). Campobasso, Italy, 2017. <br/>
 
+* **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](#)". Accepted to the Empirical Software Engineering journal, 2018.
+
 #### 2017 ####
 
 * **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf)". Communications of the ACM 60(12), December 2017.<br/>
