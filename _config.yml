@@ -2,7 +2,7 @@
 # SEO settings
 title: "Gustavo Pinto"
 title2: # default: ""
-description: "Professinal webpage for Gustavo Pitno."
+description: "Professional webpage for Gustavo Pinto."
 keywords: "Gustavo Pinto, Professor, software engineering, research"
 url: http://gustavopinto.org # site url
 baseurl: "" # apply repo name if use it under gh-pages branch
