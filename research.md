@@ -37,7 +37,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 
 1. What are company's motivations behind the transition from proprietary to open-source software?<br>
 **Skills:** English communication<br>
-**Related work:** [VEM'17](http://gustavopinto.github.io/lost+found/vem2017.pdf)
+**Related work:** [VEM'17](http://gustavopinto.github.io/lost+found/vem2017.pdf), [EMSE'18](http://gustavopinto.github.io/lost+found/ese2018.pdf)
 
 1. Automatic test generation for partial programs<br>
 **Question:** How can we test partial program?<br>
@@ -50,14 +50,17 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. A large scale study on data races<br>
 **Question:** investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
+**Related work:** [JSS'15](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
+
 
 <!--1. An energy-aware adaptative software system.<br>
 **Skills:** system programming (e.g., Java, Scala)<br>-->
 
 1. Issues Smells<br>
-**Questions**: What are the most common problems related to issue report?
+**Questions**: What are the most common problems related to issue report?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. Naming the pain on sci software development
-**Questions**: What are the key pain point that the sci software community has, when developing software?
+1. Naming the pain on sci software development<br>
+**Questions**: What are the key pain point that the sci software community has, when developing software?<br>
 **Skills:** English communication<br>
+**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)

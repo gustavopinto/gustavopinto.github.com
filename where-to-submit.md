@@ -12,7 +12,7 @@ Are you a student looking for a conference or journal to submit your earliest wo
 - IEEE Transactions on Software Engineering ([TSE](http://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32))
 - Journal of the Brazilian Computer Society ([JBCS](https://journal-bcs.springeropen.com/cbsoft2017))
 - Software: Practice and Experience ([SPE](http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1097-024X))
-- Journal of Software Maintenance and Evolution: Research and Practice [JSME](http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1532-0618/earlyview)
+- Journal of Software Maintenance and Evolution: Research and Practice ([JSME](http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1532-0618/earlyview))
 - Journal of Systems and Software ([JSS](https://www.journals.elsevier.com/journal-of-systems-and-software/))
 - Software & Systems Modeling ([SSM](https://link.springer.com/journal/10270))
 - Journal of Object Technology ([JOT](http://www.jot.fm/))
