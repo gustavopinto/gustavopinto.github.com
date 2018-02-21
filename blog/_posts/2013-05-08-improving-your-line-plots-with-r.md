@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Improving our line plots with R
-subtitle: Moving way from Excel
+excerpt: Moving way from Excel
 year: 2013
 month: 05
 day: 08

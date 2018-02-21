@@ -1,7 +1,7 @@
 ---
 layout: single
 title: A call for good figures in research papers
-subtitle: Take care of your figures
+excerpt: Take care of your figures
 year: 2018
 month: 1
 day: 9

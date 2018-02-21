@@ -1,7 +1,7 @@
 ---
 layout: single
 title: First year of professoring
-subtitle: A summary
+excerpt: A summary of new career
 year: 2018
 month: 1
 day: 3

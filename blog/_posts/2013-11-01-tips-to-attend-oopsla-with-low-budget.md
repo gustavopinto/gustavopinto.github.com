@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Tips to attend OOPSLA with low budget
-subtitle: Good for PL and SE students
+excerpt: Good for PL and SE students
 year: 2013
 month: 11
 day: 1

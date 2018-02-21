@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Training students with open-source software
-subtitle: My first experience in this direction
+excerpt: My first experience training students with OSS
 year: 2017
 month: 8
 day: 30

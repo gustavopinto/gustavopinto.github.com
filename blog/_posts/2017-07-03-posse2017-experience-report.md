@@ -1,7 +1,7 @@
 ---
 layout: single
 title: POSSE 2017 An experience report
-subtitle: My thoughts about this workshop
+excerpt: My thoughts about this workshop
 year: 2017
 month: 7
 day: 3

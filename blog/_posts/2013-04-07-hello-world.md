@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Hello World
-subtitle: First blog post
+excerpt: First blog post
 year: 2013
 month: 4
 day: 27

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Do developers care about software energy consumption?
-subtitle: A summary of a MSR'14 paper
+excerpt: A summary of a MSR'14 paper
 year: 2014
 month: 11
 day: 25

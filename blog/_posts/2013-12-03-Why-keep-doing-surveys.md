@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Why do you keep doing surveys?
-subtitle: Disclaimer - provocative blog post
+excerpt: Disclaimer - provocative blog post
 year: 2013
 month: 12
 day: 03
