@@ -1,0 +1,16 @@
+# main links
+main:
+  - title: "Publications"
+    url: /publications/
+  - title: "Students"
+    url: /students/
+  - title: "Blog"
+    url: /blog/
+  - title: "Teaching"
+    url: /teaching/
+  - title: "Reading"
+    url: /reading/
+  - title: "Service"
+    url: /service/
+  - title: "About"
+    url: /about/

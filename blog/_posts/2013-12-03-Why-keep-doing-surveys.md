@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Why do you keep doing surveys?
 subtitle: Disclaimer - provocative blog post
 year: 2013

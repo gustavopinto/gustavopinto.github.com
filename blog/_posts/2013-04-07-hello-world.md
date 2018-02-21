@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Hello World
 subtitle: First blog post
 year: 2013

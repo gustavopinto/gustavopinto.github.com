@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: First year of professoring
 subtitle: A summary
 year: 2018

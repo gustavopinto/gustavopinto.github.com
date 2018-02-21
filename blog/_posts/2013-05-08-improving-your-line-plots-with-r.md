@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Improving our line plots with R
 subtitle: Moving way from Excel
 year: 2013

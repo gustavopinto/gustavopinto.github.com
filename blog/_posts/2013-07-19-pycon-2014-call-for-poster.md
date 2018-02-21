@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: archive
 title: Pycon 2014 - Call for posters
 subtitle: Call for contributions
 year: 2013

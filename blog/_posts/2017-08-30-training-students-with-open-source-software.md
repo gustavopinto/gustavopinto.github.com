@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Training students with open-source software
 subtitle: My first experience in this direction
 year: 2017

@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Transfering Knowledge from Systematic Reviews to Practitioners
+layout: single
+title: Transferring Knowledge from Systematic Reviews to Practitioners
 subtitle: A summary of an ESEM'16 paper
 year: 2016
 month: 5

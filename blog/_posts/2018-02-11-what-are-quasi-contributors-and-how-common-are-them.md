@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: What are quasi-contributors and how common are them?
 subtitle: A summary of an ICSE'18 paper
 year: 2018

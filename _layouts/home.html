@@ -1,0 +1,16 @@
+---
+layout: archive
+---
+
+<p>I'm a <b>researcher</b>, <b>teaching assistant</b>, and <b>Ph.D. student</b> at the <a href="http://st.uni-trier.de" target="_blank">Software Engineering Group</a> of Trier University in Germany. In my research, I analyze <i>software developers' work habits</i> to identify requirements for new tools supporting developers; to build, evaluate, and compare new and existing tools; and to communicate developers' opinions, work habits, and needs to the software engineering research community.</p>
+
+<p>Most empirical studies I conduct follow a mixed-methods approach, combining qualitative and quantitative methods.
+I'm especially interested in interdisciplinary research, involving theories and methods from the <i>social sciences</i> (e.g., grounded theory, ethnography) and <i>psychology</i> (e.g., theories on expertise development and personality). To complement qualitative results derived from interviews, <a href="/publications#esem15-debugging" target="_blank">observational studies <i class="fa fa-fw fa-external-link" aria-hidden="true"></i></a>, and <a href="/publications#fse14-sketches" target="_blank">online surveys <i class="fa fa-fw fa-external-link" aria-hidden="true"></i></a>, I apply data-mining techniques on <a href="/projects/snippets/" target="_blank">open source software projects <i class="fa fa-fw fa-external-link" aria-hidden="true"></i></a>. Besides, I'm interested in information visualization and in particular in visual analytics, i.e. how interactive visualizations can <a href="/publications#vast16-codingtool" target="_blank">support humans in analyzing data <i class="fa fa-fw fa-external-link" aria-hidden="true"></i></a>. I support open science and open data: I try to publish data, software, analysis scripts, and paper preprints whenever possible. Further, I think that we need an active discussion about research methodology and <a href="/projects/sampling/" target="_blank">ethical issues <i class="fa fa-fw fa-external-link" aria-hidden="true"></i></a> in the software engineering research community.</p>
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}

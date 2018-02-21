@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Tips to attend OOPSLA with low budget
 subtitle: Good for PL and SE students
 year: 2013

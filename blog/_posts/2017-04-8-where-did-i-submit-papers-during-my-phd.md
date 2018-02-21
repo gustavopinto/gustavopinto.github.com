@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Where did I submit papers during my phd
 subtitle: A brief story about my short research career
 year: 2017

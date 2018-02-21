@@ -1,1 +1,488 @@
-<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <meta name="apple-mobile-web-app-capable" content="yes"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title> Do developers care about software energy consumption? | Gustavo Pinto </title> <meta name="description" content=" Professional webpage for Gustavo Pinto. "> <meta name="keywords" content="Gustavo Pinto, Professor, software engineering, research"> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <!-- Social: Facebook / Open Graph --> <meta property="og:type" content="article"> <meta property="article:author" content="Gustavo Pinto"> <meta property="article:section" content="blog"> <meta property="article:tag" content=""> <meta property="article:published_time" content="2014-11-25 00:00:00 -0300"> <meta property="og:url" content="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/"> <meta property="og:title" content=" Do developers care about software energy consumption? | Gustavo Pinto "> <meta property="og:image" content="http://localhost:4000"> <meta property="og:description" content=" Professional webpage for Gustavo Pinto. "> <meta property="og:site_name" content="Gustavo Pinto"> <meta property="og:locale" content="en_US"> <!-- Social: Twitter --> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@gustavopinto"> <meta name="twitter:title" content=" Do developers care about software energy consumption? | Gustavo Pinto "> <meta name="twitter:description" content=" Professional webpage for Gustavo Pinto. "> <meta name="twitter:image:src" content="http://localhost:4000"> <!-- Social: Google+ / Schema.org --> <meta itemprop="name" content=" Do developers care about software energy consumption? | Gustavo Pinto "> <meta itemprop="description" content=" Professional webpage for Gustavo Pinto. "> <meta itemprop="image" content="http://localhost:4000"> <!-- rel prev and next --> <link rel="stylesheet" href="/assets/css/main.css"> <link rel="stylesheet" href="/assets/css/font-awesome.min.css"> <!-- Canonical link tag --> <link rel="canonical" href="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/"> <link rel="alternate" type="application/rss+xml" title="Gustavo Pinto" href="http://localhost:4000/feed.xml"> <script type="text/javascript"> var disqus_shortname = 'gustavopinto'; var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-465334-5']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script> </head> <body> <main class="wrapper"> <header class="site-header"> <nav class="nav"> <div class="container"> <h1 class="logo"><a href="/">Gustavo Pinto<span></span></a></h1> <ul class="navbar"> <li><a href="/publications">Publications</a></li> <li><a href="/students">Students</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/reading">Reading</a></li> <li><a href="/about">About</a></li> </ul> </div> </nav> </header> <article class="post container" itemscope itemtype="http://schema.org/BlogPosting"> <header class="post-header"> <p class="post-meta"><time datetime="2014-11-25T00:00:00-03:00" itemprop="datePublished">Nov 25, 2014</time></p> <h1 class="post-title" itemprop="name headline">Do developers care about software energy consumption?</h1> </header> <div class="post-content" itemprop="articleBody"> <p>Is energy consumption a real issue in the software development process? Do developer really care about that?</p> <p>These questions were the start point of our paper, “<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>”. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p> <p>We filter out all questions that contain at least one energy consumption related word (<em>e.g.,</em> energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325 valid questions. We used a qualitative approach to analyze these questions, named <a href="http://en.wikipedia.org/wiki/Thematic_analysis">Thematic Analysis</a>.</p> <p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse – we found 5 main themes of questions – but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p> <p>We found five main themes regarding energy consumption questions. They are:</p> <ol> <li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li> <li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li> <li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li> <li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li> <li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li> </ol> <p>Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:</p> <ol> <li>Keep IO to a minimum.</li> <li>Bulk operations.</li> <li>Avoid Polling.</li> <li>Hardware Coordination.</li> <li>Concurrent programming.</li> <li>Lazy Initialization.</li> <li>Race to Idle.</li> <li>Efficient Data structure.</li> </ol> <p>We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.</p> <p>In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.</p> <p>For more details, please check out <a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">our paper</a>.</p> <aside class="share"> <p>If you liked this article and think others should read it, please <a href="http://twitter.com/share?text=Do developers care about software energy consumption?&amp;url=http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/&amp;via=gustavopinto" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">share it on Twitter <i class="fa fa-twitter" aria-hidden="true" style="color:#00aced"></i></a> or <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=235');return false;">Facebook <i class="fa fa-facebook-square" aria-hidden="true" style="color:#3b5998"></i></a>.</p> </aside> </div> </article> <aside id="comments" class="disqus"> <div class="container"> <h3><i class="icon icon-comments-o"></i> Comments</h3> <div id="disqus_thread"></div> <script type="text/javascript"> var disqus_shortname = 'gustavopinto'; var disqus_identifier = '/blog/do-developers-care-about-software-energy-consumption'; var disqus_title = 'Do developers care about software energy consumption?'; var disqus_url = 'http://localhost:4000'; /*var disqus_developer = 1;*/ (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); </script> <noscript> Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a> </noscript> </div> </aside> <footer class="site-footer"> <div class="container"> <small class="block">&lt;/&gt; <a href="http://github.com/heiswayi/thinkspace" title="a minimalist Jekyll theme for technical writing">Thinkspace theme</a> by <a href="http://heiswayi.github.io">Heiswayi Nrird</a>. | <i class="fa fa-copyright"></i> 2018 Gustavo Pinto</small> </div> </footer> </main> </body> </html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Do developers care about software energy consumption? - Gustavo Pinto</title>
+
+
+
+
+<meta name="description" content="Is energy consumption a real issue in the software development process? Do developer really care about that?">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Do developers care about software energy consumption?">
+
+
+  <link rel="canonical" href="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/">
+  <meta property="og:url" content="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/">
+
+
+
+  <meta property="og:description" content="Is energy consumption a real issue in the software development process? Do developer really care about that?">
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Do developers care about software energy consumption?">
+  <meta name="twitter:description" content="Is energy consumption a real issue in the software development process? Do developer really care about that?">
+  <meta name="twitter:url" content="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/bokeh_wide.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2014-11-25T00:00:00-03:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Gustavo Pinto",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<link rel="icon" type="image/png" href="/assets/images/bokeh_favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/assets/images/bokeh_favicon-32x32.png" sizes="32x32">
+
+<link rel="stylesheet" href="/assets/css/academicons.css">
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Gustavo Pinto</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/students/">Students</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/teaching/">Teaching</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/reading/">Reading</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/service/">Service</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: url('http://localhost:4000/assets/images/bokeh_wide.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Do developers care about software energy consumption?
+
+        
+      </h1>
+      
+        <p class="page__lead">Is energy consumption a real issue in the software development process? Do developer really care about that?
+
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://localhost:4000/assets/images/ghlp.jpg" class="author__avatar" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Software Engineering Research
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://www.gustavopinto.org" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/gustavopinto" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/gustavopinto" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+  <li>
+    <a href="https://scholar.google.de/citations?user=dOeggYMAAAAJ" itemprop="sameAs">
+      <i class="fa fa-fw fa-google" aria-hidden="true"></i> Scholar
+    </a>
+  </li>
+
+
+
+  <li>
+    <a href="http://dblp.uni-trier.de/pers/hd/b/Pinto_0001:Gustavo" itemprop="sameAs">
+      <i class="ai ai-fw ai-dblp" aria-hidden="true"></i> DBLP
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Do developers care about software energy consumption?">
+    <meta itemprop="description" content="Is energy consumption a real issue in the software development process? Do developer really care about that?">
+    <meta itemprop="datePublished" content="November 25, 2014">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Is energy consumption a real issue in the software development process? Do developer really care about that?</p>
+
+<p>These questions were the start point of our paper, “<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>”. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.</p>
+
+<p>We filter out all questions that contain at least one energy consumption related word (<em>e.g.,</em> energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named <a href="http://en.wikipedia.org/wiki/Thematic_analysis">Thematic Analysis</a>.</p>
+
+<p>Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse – we found 5 main themes of questions – but also often more <em>interesting</em> and <em>challenging</em> when compared to the remaining questions on StackOverflow.</p>
+
+<p>We found five main themes regarding energy consumption questions. They are:</p>
+
+<ol>
+  <li><strong>Measurements</strong>. Questions about measurement tools or techniques.</li>
+  <li><strong>General Knowledge</strong>. Questions that do not have a concrete use case.</li>
+  <li><strong>Code Design</strong>. Questions about programming techniques that can help in saving energy.</li>
+  <li><strong>Context-specific</strong>. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication</li>
+  <li><strong>Noise</strong>. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption</li>
+</ol>
+
+<p>Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:</p>
+
+<ol>
+  <li>Keep IO to a minimum.</li>
+  <li>Bulk operations.</li>
+  <li>Avoid Polling.</li>
+  <li>Hardware Coordination.</li>
+  <li>Concurrent programming.</li>
+  <li>Lazy Initialization.</li>
+  <li>Race to Idle.</li>
+  <li>Efficient Data structure.</li>
+</ol>
+
+<p>We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.</p>
+
+<p>In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.</p>
+
+<p>For more details, please check out <a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">our paper</a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2014-11-25T00:00:00-03:00">November 25, 2014</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gustavopinto&text=Do developers care about software energy consumption? http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <!--a href="https://plus.google.com/share?url=http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a-->
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/blog/Why-keep-doing-surveys/" class="pagination--pager" title="Why do you keep doing surveys?
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/blog/the-story-behind-casual-contributors/" class="pagination--pager" title="The story behind casual contributors
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/gustavopinto"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/gustavopinto"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Gustavo Pinto. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-465334-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+  </body>
+</html>

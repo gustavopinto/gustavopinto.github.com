@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: POSSE 2017 An experience report
 subtitle: My thoughts about this workshop
 year: 2017

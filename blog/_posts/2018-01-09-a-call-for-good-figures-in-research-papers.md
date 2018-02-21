@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: A call for good figures in research papers
 subtitle: Take care of your figures
 year: 2018
@@ -25,7 +25,7 @@ Figures should not only convey an information, but they should also do it easily
 
 Fast-forwarding to 2018, and after many other figures created throughout the course, I started to observe bad patterns that prevent researchers from plotting good figures (although I'm not assuming the figure I create are the best ones; but I'm always trying to improve this). Even though the presence of these bad patterns in a paper does not mean that one would argue for rejection, it will hardly convince anyone to accept it. Here we go:
 
-1. **Similar figures under different scale**: This is the problem address in the figure above. The solution is simple: employ the same y axis for all figures. (example: [fig 1 of this paper](http://gustavopinto.org/lost+found/saner2016.pdf)). 
+1. **Similar figures under different scale**: This is the problem address in the figure above. The solution is simple: employ the same y axis for all figures. (example: [fig 1 of this paper](http://gustavopinto.org/lost+found/saner2016.pdf)).
 
 2. **Save figures as PNG or JPG**: Or any other compressed figure format. These formats degrade the image quality, which is particularly relevant when our peers still have the culture of printing papers in b&w for review. Moreover, when reading on screen, if one wants to zoom in an image for a better understanding, compressed figures degrade even more. The solution: save figures using a vectorial format (e.g., eps or pdf).
 

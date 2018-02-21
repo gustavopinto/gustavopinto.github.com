@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Why you should care about open-access?
 subtitle: Take care of your figures
 year: 2018

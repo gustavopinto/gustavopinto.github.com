@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Do developers care about software energy consumption?
 subtitle: A summary of a MSR'14 paper
 year: 2014

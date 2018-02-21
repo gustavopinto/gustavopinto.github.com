@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: From where come the Brazilian open-source contributions?
 subtitle: A summary of a WDDS'13 paper
 year: 2013

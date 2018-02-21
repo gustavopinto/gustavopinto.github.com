@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: The story behind casual contributors
 subtitle: A summary of a SANER'16 paper
 year: 2016
