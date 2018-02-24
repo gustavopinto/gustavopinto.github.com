@@ -5,7 +5,7 @@ permalink: /cv-of-failures/
 
 This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2017/12/vitak-cv-of-failures-dec17.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. I think people should talk more about failure. Although I just started my academic career, I have failed a lot. Some examples are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers that have been rejected (8)
+## Journal papers that have been rejected (10)
 
 - IEEE Software: 2015 (2x), 2017, 2018
 - Empirical Software Engineering Journal: 2017
@@ -13,7 +13,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
-## Conference papers that have been rejected (17)
+## Conference papers that have been rejected (19)
 
 - ASE: 2014
 - ASPLOS: 2015

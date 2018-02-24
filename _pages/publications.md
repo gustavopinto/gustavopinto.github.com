@@ -167,19 +167,3 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 2. **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "[A Multi-Objective Genetic Algorithm to Test Data Generation](http://gustavopinto.github.io/lost+found/ictai2010.pdf)". Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ictai2010.pdf)
-
-## 2014
-
-<a name="fse14-sketches"></a>
-**Sketches and Diagrams in Practice.**<br/>
-<u>Sebastian Baltes</u> and Stephan Diehl.<br/>
-*Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2014).*<br/>
-Acceptance rate: 22% (61/273).<br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](/assets/pdf/fse14-sketches.pdf){:target="_blank"} &#8226; [<i class="ai ai-fw ai-arxiv" aria-hidden="true"></i>arXiv](https://arxiv.org/abs/1706.09172){:target="_blank"} &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](/assets/pdf/fse14-sketches-slides.pdf){:target="_blank"} &#8226; [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](/assets/pdf/sse14-sketches-poster.pdf){:target="_blank"}
-
-<a name="fse14-sketchlink"></a>
-**Linking Sketches and Diagrams to Source Code Artifacts.**<br/>
-<u>Sebastian Baltes</u>, Peter Schmitz, and Stephan Diehl.<br/>
-*Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering (FSE 2014 Research Demos).*<br/>
-Acceptance rate: 65% (15/23).<br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](/assets/pdf/fse14-sketchlink.pdf){:target="_blank"} &#8226; [<i class="ai ai-fw ai-arxiv" aria-hidden="true"></i>arXiv](https://arxiv.org/abs/1706.09700){:target="_blank"} &#8226; [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](/assets/pdf/fse14-sketchlink-poster.pdf){:target="_blank"} &#8226; [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://youtu.be/mG6xCiQpS80){:target="_blank"}
