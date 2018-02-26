@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-26T15:40:27-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">What are quasi-contributors and how common are them?</title><link href="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/" rel="alternate" type="text/html" title="What are quasi-contributors and how common are them?" /><published>2018-02-11T00:00:00-03:00</published><updated>2018-02-11T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them</id><content type="html" xml:base="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/">&lt;p&gt;TL;DR&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-26T20:31:05-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">How do Scientists Develop Software</title><link href="http://localhost:4000/blog/how-do-scientists-develop-software/" rel="alternate" type="text/html" title="How do Scientists Develop Software" /><published>2018-02-26T00:00:00-03:00</published><updated>2018-02-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-do-scientists-develop-software</id><content type="html" xml:base="http://localhost:4000/blog/how-do-scientists-develop-software/">&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.org/lost+found/saner-rene2018.pdf&quot;&gt;How Do Scientists Develop Scientific Software? An External Replication&lt;/a&gt;”. As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about &lt;a href=&quot;http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf&quot;&gt;how scientists develop and use software&lt;/a&gt;. The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.&lt;/p&gt;
+
+&lt;p&gt;In the original study, the authors conducted an on-line survey with 2,000 scientists. In our replication, we surveyed 1,574 R developers. One might argue that not all R developers are indeed scientists. We concur. To mitigate this threat, in our invitation email we kindly asked R developers that do not consider themselves as scientists not to answer the questionnaire. We also asked them not to share the questionnaire with their peers, since some of them might not be scientists as well. We also mined their R repositories to complement some of the findings. For instance, the following figure shows the number of projects with commits in the master branch over the last decade.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/R-projects.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following table compares the main findings of the two studies:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Original  Study&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Replication Study&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;96.9% of the respondents state that informal self study is important or very important for developing scientific software (60.1% state that informal learning from peers is important or very important). Only 34.4% state that formal education at an educational institution is important or very important.&lt;/td&gt;
+      &lt;td&gt;99% of the respondents agree that self-study was important or very important (60% suggested that learning from peers is important or very important). However, 35% of the respondents believe that formal education is important or very important.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The importance of graduate studies is clearly greater than undergraduate studies. This, in turn, is clearly greater than that of high school studies. Formal training at work was considered as important or very important for only 13.1%.&lt;/td&gt;
+      &lt;td&gt;Similarly, most of the respondents believe that graduate studies (72%) and their last five years at work (76%) were important or very important to learn what they know about software development. Our respondents also perceived High school (61%) and over the last 15 years at work (51%) as not important or not important at all.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;84.3% of the responses state that developing scientific software is important or very important for their own research. 46.4% state that developing scientific software is important or very important for the research of others&lt;/td&gt;
+      &lt;td&gt;86% of the respondents believe that scientific software is important or very important to their own research. However, 63% of our respondents stated that developing software for the research of others is important or very important.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;On average, scientist spend approximately 30% of their work time developing scientific software.&lt;/td&gt;
+      &lt;td&gt;On average, our respondents spent 30% of their working hours developing software per week (min: 0%, 1st quartile: 10%, median: 20%, max: 100%, std dev: 23.73%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;of the respondents state that they spend more or much more time developing scientific software than they did 10 years ago (44.7% spend more or much more time than they did 5 years ago and 14.5% spend more or much more time than they did 1 year ago.&lt;/td&gt;
+      &lt;td&gt;82% of the respondents believe that they spend ‘‘much more time’’ or ‘‘more time’’ developing software than 10 years ago; 72% when compared to the last five years. Over the last decade, there is also an increase in activity, in terms of commits, in the studied projects.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Scientific software is either used by a very large number of people (more than 5,000 users) or by a very small number of people (less than three).&lt;/td&gt;
+      &lt;td&gt;Our respondents work mostly alone (53% of the respondents develop software alone) or in small teams (another 42% develop software within a team of two to five). At maximum, we found 723 stars and 139 forks in the analyzed projects&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The level of importance that scientists assigned to a software engineering concepts is mostly consistent with their understanding of this concept. Except for ‘‘software testing’’ and ‘‘software verification’’ scientists assigned a higher level of importance to these concepts than they judged understand.&lt;/td&gt;
+      &lt;td&gt;Generally speaking, we observed that the respondents judged they knew less about the concepts of what they believe are important. A Chi-Square test confirmed that the scientist knowledge depends from what they judge important.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;There is no consistent trend of association that links an increase of project or team size to perceived importance of software engineering concepts.&lt;/td&gt;
+      &lt;td&gt;After performed the ANOVA test, we could not reject the null hypothesis that project and team size influences the respondent’s perceptions about the software engineering concepts, once all p-values were higher than 0.05.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'18 paper</summary></entry><entry><title type="html">What are quasi-contributors and how common are them?</title><link href="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/" rel="alternate" type="text/html" title="What are quasi-contributors and how common are them?" /><published>2018-02-11T00:00:00-03:00</published><updated>2018-02-11T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them</id><content type="html" xml:base="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/">&lt;p&gt;TL;DR&lt;/p&gt;
 
 &lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/icse2018.pdf&quot;&gt;Almost There: A Study on Quasi-Contributors in Open-Source Software Projects&lt;/a&gt;”. Quasi-contributor is a contributor that tried to contribute to open-source software but did not succeed, i.e., the pull-request was not accepted, for any reason. For the impatient, there is a summary of the summary:&lt;/p&gt;
 
@@ -474,39 +521,4 @@ publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><emai
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Project owners&lt;/strong&gt; can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce “contributions guidelines”, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'16 paper</summary></entry><entry><title type="html">Do developers care about software energy consumption?</title><link href="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/" rel="alternate" type="text/html" title="Do developers care about software energy consumption?" /><published>2014-11-25T00:00:00-03:00</published><updated>2014-11-25T00:00:00-03:00</updated><id>http://localhost:4000/blog/do-developers-care-about-software-energy-consumption</id><content type="html" xml:base="http://localhost:4000/blog/do-developers-care-about-software-energy-consumption/">&lt;p&gt;Is energy consumption a real issue in the software development process? Do developer really care about that?&lt;/p&gt;
-
-&lt;p&gt;These questions were the start point of our paper, “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;Mining Questions About Software Energy Consumption&lt;/a&gt;”. In this paper, we investigated several questions about software energy consumption. Since we believe that research needs to be grounded in practice, we analyzed StackOverflow, one of the most famus software development web site.&lt;/p&gt;
-
-&lt;p&gt;We filter out all questions that contain at least one energy consumption related word (&lt;em&gt;e.g.,&lt;/em&gt; energy efficiency). After this process, we found 615 question, but after removing false positives, we ended up with only 325  valid questions. We used a qualitative approach to analyze these questions, named &lt;a href=&quot;http://en.wikipedia.org/wiki/Thematic_analysis&quot;&gt;Thematic Analysis&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Analyzing such questions, we observed that practitioners are aware of the energy consumption problems: the questions they ask are not only diverse – we found 5 main themes of questions – but also often more &lt;em&gt;interesting&lt;/em&gt; and &lt;em&gt;challenging&lt;/em&gt; when compared to the remaining questions on StackOverflow.&lt;/p&gt;
-
-&lt;p&gt;We found five main themes regarding energy consumption questions. They are:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Measurements&lt;/strong&gt;. Questions about measurement tools or techniques.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;General Knowledge&lt;/strong&gt;. Questions that do not have a concrete use case.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Code Design&lt;/strong&gt;. Questions about programming techniques that can help in saving energy.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Context-specific&lt;/strong&gt;. The authors of such questions need to provide more details in order for other users to better understand the problem, and to facilitate replication&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Noise&lt;/strong&gt;. These questions are not directly associated with an energy consumption issue. Usually, the user first wants to improve one aspect of her application and, as a secondary goal, also improve energy consumption&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Since questions in the Code Design theme are usually focused on how programmer decisions may improve energy consumption, we believe that the Code Design category is the most important one for future energy-aware software development. This category is also the most popular among developers. In a in-depth analysis of this theme, we identified 8 solutions that developers use in order to save energy. They are:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Keep IO to a minimum.&lt;/li&gt;
-  &lt;li&gt;Bulk operations.&lt;/li&gt;
-  &lt;li&gt;Avoid Polling.&lt;/li&gt;
-  &lt;li&gt;Hardware Coordination.&lt;/li&gt;
-  &lt;li&gt;Concurrent programming.&lt;/li&gt;
-  &lt;li&gt;Lazy Initialization.&lt;/li&gt;
-  &lt;li&gt;Race to Idle.&lt;/li&gt;
-  &lt;li&gt;Efficient Data structure.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;We also observed that some reseachers support such solutions proposed by software developers. However, for some of them, like concurrent programming, solutions cannot be seen as one-size-fits-all, since no consensus has emerged from the relationship between concurrent programming, performance and energy consumption.&lt;/p&gt;
-
-&lt;p&gt;In conclusion, this study serves as a research agenda for future energy consumption research. The needs of developers and the challenges they face may help energy-efficiency researchers stay focused on the real-world problems. The collective wisdom shared by developers may serve as a practical guide for future energy- aware and energy-efficient software development. The conceptually incorrect views they hold may inspire educators to develop more state-of-the-art curricula.&lt;/p&gt;
-
-&lt;p&gt;For more details, please check out &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2014.pdf&quot;&gt;our paper&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a MSR'14 paper</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'16 paper</summary></entry></feed>

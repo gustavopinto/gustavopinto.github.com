@@ -30,6 +30,8 @@ Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de 
 - [How to get a data science position after academia with no previous industry experience](https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436)
 - [A growing collection of what I know about analyzing GitHub with BigQuery and other tools](https://github.com/fhoffa/analyzing_github)
 
+
+<!-- http://15445.courses.cs.cmu.edu/fall2017/schedule.html -->
 ## Avaliação
 
 1. Exercícios em sala: 3 pontos (1pt cada exercício)

@@ -393,20 +393,20 @@
 
 <p>The third part is to add both vertical and horizontal lines.</p>
 
-<pre><code>abline(v=1,col=1,lty=3)
-abline(v=1.5,col=1,lty=3)
-abline(v=2,col=1,lty=3)
-abline(v=2.5,col=1,lty=3)
-abline(v=3,col=1,lty=3)
-abline(v=3.5,col=1,lty=3)
-abline(v=4,col=1,lty=3)
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">2.5</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">3.5</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">4</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
 
-abline(h=100,col=1,lty=3)
-abline(h=80,col=1,lty=3)
-abline(h=60,col=1,lty=3)
-abline(h=40,col=1,lty=3)
-abline(h=20,col=1,lty=3)
-</code></pre>
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">80</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">60</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">40</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (<code class="highlighter-rouge">v</code> for vertical lines and <code class="highlighter-rouge">h</code> for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, …) or as one of the character strings “blank”, “solid”, etc.</p>
 
@@ -414,13 +414,13 @@ abline(h=20,col=1,lty=3)
 
 <p>The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: <code class="highlighter-rouge">box</code> and <code class="highlighter-rouge">legend</code>. I think the name of these functions are meaningful. But, the <code class="highlighter-rouge">legend</code> function receives several parameters.</p>
 
-<pre><code>box()
-labels &lt;- c("Sequential","Thread", "Executors", "ForkJoin", "Scala Actors")
-colors &lt;- c("blue","darkred", "purple", "chocolate3", "orangered2")
-pch &lt;- c(18,23,24,25,8)
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">box</span><span class="p">()</span><span class="w">
+</span><span class="n">labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Sequential"</span><span class="p">,</span><span class="s2">"Thread"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Executors"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ForkJoin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Scala Actors"</span><span class="p">)</span><span class="w">
+</span><span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span><span class="s2">"darkred"</span><span class="p">,</span><span class="w"> </span><span class="s2">"purple"</span><span class="p">,</span><span class="w"> </span><span class="s2">"chocolate3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"orangered2"</span><span class="p">)</span><span class="w">
+</span><span class="n">pch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">18</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">24</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">8</span><span class="p">)</span><span class="w">
 
-legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = "white");
-</code></pre>
+</span><span class="n">legend</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="n">phc</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"white"</span><span class="p">);</span><span class="w">
+</span></code></pre></div></div>
 
 <p>And you’ll probably see a very similar chart like the second topmost in this post. All code is pasted <a href="https://gist.github.com/gustavopinto/5570951">here</a>. And, that is it! :-)</p>
 

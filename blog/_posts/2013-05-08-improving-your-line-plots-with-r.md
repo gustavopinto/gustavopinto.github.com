@@ -73,7 +73,8 @@ Great! Our chart is becoming professional. My mon will be proud of me.
 
 The third part is to add both vertical and horizontal lines.
 
-<pre><code>abline(v=1,col=1,lty=3)
+```R
+abline(v=1,col=1,lty=3)
 abline(v=1.5,col=1,lty=3)
 abline(v=2,col=1,lty=3)
 abline(v=2.5,col=1,lty=3)
@@ -86,7 +87,7 @@ abline(h=80,col=1,lty=3)
 abline(h=60,col=1,lty=3)
 abline(h=40,col=1,lty=3)
 abline(h=20,col=1,lty=3)
-</code></pre>
+```
 
 Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (`v` for vertical lines and `h` for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, ...) or as one of the character strings "blank", "solid", etc.
 
@@ -94,13 +95,14 @@ Note that, we first add the vertical lines, and then, the horizontal lines. We d
 
 The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: `box` and `legend`. I think the name of these functions are meaningful. But, the `legend` function receives several parameters.
 
-<pre><code>box()
+```R
+box()
 labels <- c("Sequential","Thread", "Executors", "ForkJoin", "Scala Actors")
 colors <- c("blue","darkred", "purple", "chocolate3", "orangered2")
 pch <- c(18,23,24,25,8)
 
 legend(1.0, 50, labels, cex=0.8, col=colors, pch=phc, lty=1,bg = "white");
-</code></pre>
+```
 
 And you'll probably see a very similar chart like the second topmost in this post. All code is pasted <a href="https://gist.github.com/gustavopinto/5570951">here</a>. And, that is it! :-)
 
