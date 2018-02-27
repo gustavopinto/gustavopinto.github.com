@@ -5,7 +5,7 @@ permalink: /teaching/
 
 ## 2018.1
 
-1. Advanced Programming
+1. Object-Oriented Programming
 1. [Databases 101](/teaching/bd1)
 
 ## 2017.2
