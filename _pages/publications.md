@@ -18,9 +18,12 @@ permalink: /publications/
 4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018). Campobasso, Italy, 2017. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)
 
-
 5. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ese2018.pdf)<br/>
+
+6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "How Swift Developers Handle Errors". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+
+7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). A Study of Non-Approved Open-Source Licenses. Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 
 ## 2017
 
