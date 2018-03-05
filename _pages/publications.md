@@ -25,6 +25,8 @@ permalink: /publications/
 
 7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). A Study of Non-Approved Open-Source Licenses. Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 
+8. **Gustavo Pinto**, [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/). "Who Gets a Patch Accepted First? Comparing the Contributions of Employees and Volunteers". Accepted to the 11th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2018). Gothenburg, Sweden, 2018.<br>
+
 ## 2017
 
 1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf)". Communications of the ACM 60(12), December 2017.<br/>
