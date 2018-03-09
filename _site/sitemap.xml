@@ -146,8 +146,16 @@
 <lastmod>2017-06-23T23:13:41-03:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/lost+found/chase2017-poster.pdf</loc>
+<lastmod>2017-05-15T23:03:38-03:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/lost+found/chase2017.pdf</loc>
 <lastmod>2017-02-27T17:14:44-03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/lost+found/chase2018.pdf</loc>
+<lastmod>2018-03-09T16:15:00-03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/cseet2017-talk.pdf</loc>
@@ -259,7 +267,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/oopsla2014.pdf</loc>
-<lastmod>2016-10-05T15:48:44-03:00</lastmod>
+<lastmod>2016-03-03T09:33:30-03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/oss2014.pdf</loc>

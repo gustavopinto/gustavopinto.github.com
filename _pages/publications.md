@@ -26,6 +26,9 @@ permalink: /publications/
 7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). A Study of Non-Approved Open-Source Licenses. Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 
 8. **Gustavo Pinto**, [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/). "Who Gets a Patch Accepted First? Comparing the Contributions of Employees and Volunteers". Accepted to the 11th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2018). Gothenburg, Sweden, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2018.pdf)
+
+9. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "Leaving Behind the Software History When Transitioning to Open-Source: Reasons and Implications". Accepted to the 14th International Conference of Open-Source Systems (OSS), Athens, Greece, 2018.<br>
 
 ## 2017
 
@@ -58,6 +61,7 @@ permalink: /publications/
 
 7. **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf)". Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2017.pdf)
+[<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/chase2017-poster.pdf)
 
 8. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
