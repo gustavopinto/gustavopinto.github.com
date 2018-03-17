@@ -21,9 +21,11 @@ permalink: /publications/
 5. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ese2018.pdf)<br/>
 
-6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "How Swift Developers Handle Errors". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "[How Swift Developers Handle Errors](http://gustavopinto.github.io/lost+found/msr2018a.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2018a.pdf)<br/>
 
-7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). "A Study of Non-Approved Open-Source Licenses". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). "[Understanding the Usage, Impact, and Adoption of Non-OSI Approved Licenses](http://gustavopinto.github.io/lost+found/msr2018a.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2018b.pdf)<br/>
 
 8. **Gustavo Pinto**, [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/). "[Who Gets a Patch Accepted First? Comparing the Contributions of Employees and Volunteers](http://gustavopinto.github.io/lost+found/chase2018.pdf)". Accepted to the 11th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2018.pdf)
@@ -31,7 +33,7 @@ permalink: /publications/
 9. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Leaving Behind the Software History When Transitioning to Open-Source: Reasons and Implications](http://gustavopinto.github.io/lost+found/oss2018.pdf)". Accepted to the 14th International Conference of Open-Source Systems (OSS), Athens, Greece, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2018.pdf)
 
-10. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "The Role of Rapid Reviews on Supporting Decision-Making in Software Engineering Practice". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
+10. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 
 
 ## 2017
