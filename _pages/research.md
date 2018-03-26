@@ -55,6 +55,9 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Questions**: What are the hidden challenges on large scale software mining?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
+1. Does popularity mean correctness?<br>
+**Questions**: How can we evaluate if Stack Overflow answers are indeed correct?<br>
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 
 <!--4. Energy consumption of data-oriented software<br>
