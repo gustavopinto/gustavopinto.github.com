@@ -29,6 +29,7 @@ Conceitos básicos de orientação a objetos. Teste de software. UML. Conceitos 
 ### Material extra
 
 - [Curso de orientação a objetos com java (Coursera)](https://www.coursera.org/learn/orientacao-a-objetos-com-java)
+- [Orientação a objetos básica (Caelum)](https://www.caelum.com.br/apostila-java-orientacao-objetos/orientacao-a-objetos-basica/)
 
 ## Avaliação
 
