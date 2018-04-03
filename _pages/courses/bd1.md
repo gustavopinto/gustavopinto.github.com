@@ -33,6 +33,7 @@ Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de 
 - [Database smell detector](https://github.com/tushartushar/DbDeo)
 - [How to get a data science position after academia with no previous industry experience](https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436)
 - [A growing collection of what I know about analyzing GitHub with BigQuery and other tools](https://github.com/fhoffa/analyzing_github)
+- [How to Perform Set Operations on Terabyte Files](https://www.spinellis.gr/blog/20180403/)
 
 
 <!-- http://15445.courses.cs.cmu.edu/fall2017/schedule.html -->
@@ -44,11 +45,21 @@ Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de 
 4. Projeto de disciplina (PD): 10 pontos
 5. Atividade extra (AE): 2 pontos
 
-PD: No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Configure a ferramenta [DbDeo](https://github.com/tushartushar/DbDeo) e execute-a em vários bancos de dados existentes (no seu estágio, de software livre, etc). O professor é responsável por apresentar vários PDs, mas o aluno poderá sugerir um PD do seu interesse. No entanto, o PD deve ser uma atividade que justifique o tempo dedicado para sua execução (em torno de 3 semanas).  O projeto de disciplina deve ser feito em dupla.
+### Projeto sobre modelagem de Dados
 
-AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
+Os alunos devem criar o modelo entidade relacionamento de um sistema de software **não trivial**. Os alunos devem apontar o sistema escolhido no Slack. O critério de escolha é first come, first served. O trabalho é em dupla. Cada dupla deve descrever em profundidade o sistema escolhido. No entanto, entidades e relacionamentos que não são vitais para o domínio da aplicação não precisam ser descritos. A dupla deve saber justificar as escolhas e implementações feitas. A dupla deverá apresentar o trabalho na data marcada. Na apresentação, a dupla deve descrever o domínio do problema da aplicação escolhida (o que ela faz), as entidades e seus relacionamentos. A riqueza de detalhes (atributos e seus tipos, relacionamentos e seus tipos) é importante para as principais entidades do sistema. Os modelos devem conter, no mímimo, as seguintes características: (1) cardinalidade mínima e máxima, (2) atributo simples, identificador e multivalorado, (3) relacionamento com atributo, (4) relacionamento unário, (5) relacionamento ternário, (6) entidade fracas. Não é necessário descrever essas características para todas entidades e relacionamento; somente para aquelas que representam o core da aplicação. A não apresentação de uma das características acarretará na redução de 0.50 pontos da atividade (somado para cada característica pendente).  Se a dupla optar por usar um software de modelagem que não implemente as características mencionadas anteriormente, certifiquem-se de modificar os diagramas para que essas características sejam cobertas. No no mímimo de 3 horas antes da apresentação, a dupla deve enviar os slides bem como o diagrama para o slack (o não envio no prazo estipulado acarretará na redução de 2 pontos da atividade). As duplas que apresentarem no segundo dia serão mais cobradas. Apresentação de até 25 minutos por dupla.
 
-Nota final: Soma de todas as atividades dividido por dois.
+### Projeto de Disciplina (PD)
+
+No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Configure a ferramenta [DbDeo](https://github.com/tushartushar/DbDeo) e execute-a em vários bancos de dados existentes (no seu estágio, de software livre, etc). O professor é responsável por apresentar vários PDs, mas o aluno poderá sugerir um PD do seu interesse. No entanto, o PD deve ser uma atividade que justifique o tempo dedicado para sua execução (em torno de 3 semanas).  O projeto de disciplina deve ser feito em dupla.
+
+### Atividade Extra (AE)
+
+Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
+
+
+### Nota final
+Soma de todas as atividades dividido por dois.
 
 ## Cronograma
 

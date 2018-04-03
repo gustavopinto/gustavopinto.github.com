@@ -1,6 +1,6 @@
 ---
 title: Programação de Computadores II
-permalink: /teaching/oo2
+permalink: /teaching/oop
 ---
 
 ## Horário
@@ -38,11 +38,17 @@ Conceitos básicos de orientação a objetos. Teste de software. UML. Conceitos 
 3. Projeto de discipina (PD): 10 pontos
 4. Atividade extra (AE): 2 pontos
 
-PD: No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Desenvolver um aplicativo web que possa ser utilizado por um cliente real (por exemplo, uma academia).
+### Projeto de disciplina (PD)
+
+No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Desenvolver um aplicativo web que possa ser utilizado por um cliente real (por exemplo, uma academia).
+
+### Atividade Extra (AE)
 
 AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
 
-Nota final: Soma de todas as atividades dividido por dois.
+## Nota final
+
+Soma de todas as atividades dividido por dois.
 
 ## Cronograma
 
@@ -52,22 +58,22 @@ Passível de alterações.
 | 1 | 19/03 | Introdução a tecnologia Java            |
 | 2 | 21/03 | Entendendo Classes e Objetos            |
 | 3 | 26/03 | **Exercícios (em sala)**                |
-| 4 | 28/03 | Testes de Unidade com JUnit             |
-| 5 | 02/04 | **Exercícios (em sala)**                |
-| 6 | 04/04 | Utilizando Herança em Java              |
-| 7 | 09/04 | Encapsulamento e Polimorfismo           |
+| 3 | 28/03 | **Exercícios (em sala)**                |
+| 5 | 02/04 | Testes de Unidade com JUnit             |
+| 6 | 04/04 | **Exercícios (em sala)**                |
+| 7 | 09/04 | Utilizando Herança em Java              |
 | 8 | 11/04 | NAO TEREMOS AULA                        |
-| 8 | 16/04 | **Exercícios (em sala)**                |
-| 9 | 18/04 | Diagramas de Classe e de Sequencia      |
-| 10 | 23/04 | Prova 1                                |
-| 11 | 25/04 | Os 4 Elementos da Orientação a Objetos |
-| 12 | 30/04 | Tratamentos de erros em java           |
-| 12 | 02/05 | **Exercícios (em sala)**               |
-| 13 | 07/05 | Tipos Genéricos                        |
-| 14 | 09/05 | Introdução a Design Patterns           |
+| 8 | 16/04 | Encapsulamento e Polimorfismo           |
+| 9 | 18/04 | **Exercícios (em sala)**                |
+| 10 | 23/04 | Diagramas de Classe e de Sequencia     |
+| 11 | 25/04 | Prova 1                                |
+| 12 | 30/04 | Os 4 Elementos da Orientação a Objetos |
+| 12 | 02/05 | Tratamentos de erros em java           |
+| 13 | 07/05 | **Exercícios (em sala)**               |
+| 14 | 09/05 | Tipos Genéricos                        |
 | 15 | 14/05 | NÃO TEREMOS AULA                       |
-| 16 | 16/05 | Conceitos avançados de Java            |
-| 17 | 21/05 | Introdução a Aplicações Web em Java    |
+| 16 | 16/05 | Introdução a Design Patterns           |
+| 17 | 21/05 | Conceitos avançados de Java            |
 | 17 | 23/05 | **Exercícios (em sala)**               |
 | 18 | 28/05 | Entendendo Threads (Parte 1)           |
 | 19 | 30/05 | Entendendo Threads (Parte 2)           |
