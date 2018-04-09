@@ -4,9 +4,10 @@ permalink: /service/
 ---
 
 
-## Service for 2018 (9)
-1. PC member, [ICSME'18](http://icsme2018.github.io/) ([research track](https://icsme2018.github.io/cfp/ResearchTrackCFP.html), [tool demos track](https://icsme2018.github.io/cfp/ToolDemoTrackCFP.html))
+## Service for 2018 (11)
+1. PC member, [ICSME'18](http://icsme2018.github.io/) ([research track](https://icsme2018.github.io/cfp/ResearchTrackCFP.html), [tool demos track](https://icsme2018.github.io/cfp/ToolDemoTrackCFP.html), [nier](https://icsme2018.github.io/cfp/NIERTrackCFP.html))
 1. PC member, [EASE'18](http://ease2018.softwareinnovation.nz/) (short papers track)
+1. PC member, [CSEET'18](http://hicss.hawaii.edu/tracks-52/software-engineering-education/)
 1. PC member, [GREENS'18](http://greens.cs.vu.nl/)
 1. PC member, [SBES'18](http://cbsoft2018.icmc.usp.br/sbes.html) ([research track](http://cbsoft2018.icmc.usp.br/sbes.html#researchTrackSbes), [insightful ideas](http://cbsoft2018.icmc.usp.br/sbes.html#ideasTrackSbes))
 1. PC member, [SBCARS'18](http://cbsoft2018.icmc.usp.br/sbcars.html)
