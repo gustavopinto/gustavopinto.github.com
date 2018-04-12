@@ -72,25 +72,25 @@ Passível de alterações.
 | 4 | 28/03 | Modelo ER                       |
 | 5 | 02/04 | Modelo ER                       |
 | 6 | 04/04 | **Exercícios (em sala)**        |
-| 7 | 09/04 | Modelo Relacional               |
+| 7 | 09/04 | Revisão Entidades-Relacionamentos       |
 | 8 | 11/04 | NÃO TEREMOS AULA                |
-| 9 | 16/04 | Modelo Relacional               |
-| 9 | 18/04 | **Apresentação de trabalhos**   |
-| 10 | 23/04 | **Prova 1**                    |
-| 11 | 25/04 | SQL SELECT                     |
+| 9 | 16/04 | Modelo ER                       |
+| 9 | 18/04 | **Apresentação de trabalhos**  (Parte 1)  |
+| 9 | 23/04 | **Apresentação de trabalhos**  (Parte 2)  |
+| 10 | 25/04 | **Prova 1**                    |
 | 11 | 30/04 | SQL SELECT                     |
-| 12 | 18/04 | SQL COMPLEXO                   |
-| 13 | 23/04 | SQL CREATE, INSERT             |
-| 14 | 25/04 | SQL DELETE, UPDATE             |
-| 15 | 30/04 | **Exercícios (em sala)**       |
-| 16 | 02/05 | Mapeamento ER                  |
-| 17 | 07/05 | Mapeamento SQL                 |
-| 18 | 09/05 | Normalização                   |
-| 19 | 14/05 | **Exercícios (em sala)**       |
-| 20 | 16/05 | Definição de projetos (em sala)|
-| 21 | 04/06 | Apresentação de projetos (P1)  |
-| 22 | 06/06 | Apresentação de projetos (P2)  |
-| 23 | 11/06 | Atividade Extra                |
+| 13 | 02/05 | SQL CREATE, INSERT             |
+| 12 | 07/05 | SQL COMPLEXO                   |
+| 14 | 09/05 | SQL DELETE, UPDATE             |
+| 15 | 14/05 | **Exercícios (em sala)**       |
+| 16 | 16/05 | Mapeamento ER                  |
+| 17 | 21/05 | Mapeamento SQL                 |
+| 18 | 23/05 | Normalização                   |
+| 19 | 28/05 | **Exercícios (em sala)**       |
+| 20 | 28/05 | Definição de projetos (em sala)|
+| 21 | 25/06 | Apresentação de projetos de disciplina (Parte 1)  |
+| 22 | 27/06 | Apresentação de projetos de disciplina (Parte 2)  |
+| 23 | 02/07 | Atividade Extra                |
 
 
 ## Entrega atrasada
