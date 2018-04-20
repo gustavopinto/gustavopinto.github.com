@@ -46,10 +46,18 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Questions**: What are the most common problems related to issue report?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. Naming the pain on sci software development<br>
+<!-- 1. Naming the pain on sci software development<br>
 **Questions**: What are the key pain point that the sci software community has, when developing software?<br>
 **Skills:** English communication<br>
-**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)
+**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)-->
+
+1. Differentiating the contributions from volunteers and employees<br>
+**Questions**: What kind of code do volunteers touch? Who drives the project structure? Do company-owned OSS projects follow community best practices?
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+
+1. Study differences between commercial developers and volunteers
+**Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 1. Mining wrong data without doing anything obviously wrong<br>
 **Questions**: What are the hidden challenges on large scale software mining?<br>
@@ -58,17 +66,3 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Does popularity mean correctness?<br>
 **Questions**: How can we evaluate if Stack Overflow answers are indeed correct?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
-
-
-<!--4. Energy consumption of data-oriented software<br>
-**Questions:** How can we decrease energy consumption without hurting performance?<br>
-**Skills:** system programming (e.g., Go, Java, C, etc)<br>
-**Related work:** [FASE'15](http://gustavopinto.github.io/lost+found/fase2015.pdf), [ICSME'16](http://gustavopinto.github.io/lost+found/icsme2016.pdf)
-
-1. A virtual assistant to guide energy-aware programmers<br>
-**Questions:** How can a tool help programmers to create energy-aware software?
-**Skills:** Java programming<br>
-**Related work:** [ICSE'17](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)-->
-
-<!--1. An energy-aware adaptative software system.<br>
-**Skills:** system programming (e.g., Java, Scala)<br>-->

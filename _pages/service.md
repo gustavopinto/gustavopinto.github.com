@@ -13,6 +13,7 @@ permalink: /service/
 1. PC member, [SBCARS'18](http://cbsoft2018.icmc.usp.br/sbcars.html)
 1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/sblp.html/)
 1. PC member, [IWoR'18](https://iwor.github.io/iwor2018/)
+1. PC member, [WTDSoft'18](http://cbsoft2018.icmc.usp.br/#WTDSoft)
 
 
 ## Older (9)
