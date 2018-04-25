@@ -70,16 +70,16 @@ Passível de alterações.
 | 12 | 30/04 | Prova 1                                |
 | 12 | 02/05 | Diagramas de Classe e de Sequência (definição de trabalhos)     |
 | 13 | 07/05 | Os 4 Elementos da Orientação a Objetos |
-| 14 | 09/05 | Tratamentos de erros em java           |
-| 15 | 14/05 | **Exercícios (em sala)**               |
+| 14 | 09/05 | Tratamentos de erros em java (Gilson)  |
+| 15 | 14/05 | **Exercícios (em sala)** (Gilson)      |
 | 16 | 16/05 | Tipos Genéricos                        |
 | 17 | 21/05 | Conceitos avançados de Java            |
 | 17 | 23/05 | **Exercícios (em sala)**               |
 | 18 | 28/05 | Entendendo Threads (Parte 1)           |
 | 19 | 30/05 | Entendendo Threads (Parte 2)           |
-| 20 | 04/06 | **Exercícios (em sala)**               |
+| 20 | 04/06 | **Exercícios (em sala)**  (Gilson)     |
 | 20 | 06/06 | Apresentação de trabalhos              |
-| 28 | 11/06 | Atividade Extra (**ninguem pediu AE**)                        |
+| 28 | 11/06 | Atividade Extra (**ninguem pediu AE**) |
 
 
 ## Entrega atrasada
