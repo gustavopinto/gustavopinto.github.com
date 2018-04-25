@@ -65,21 +65,21 @@ Passível de alterações.
 | 8 | 11/04 | NAO TEREMOS AULA                        |
 | 8 | 16/04 | Encapsulamento e Polimorfismo           |
 | 9 | 18/04 | **Exercícios (em sala)**                |
-| 10 | 23/04 | Diagramas de Classe e de Sequencia     |
-| 11 | 25/04 | Prova 1                                |
-| 12 | 30/04 | Os 4 Elementos da Orientação a Objetos |
-| 12 | 02/05 | Tratamentos de erros em java           |
-| 13 | 07/05 | **Exercícios (em sala)**               |
-| 14 | 09/05 | Tipos Genéricos                        |
-| 15 | 14/05 | NÃO TEREMOS AULA                       |
-| 16 | 16/05 | Introdução a Design Patterns           |
+| 10 | 23/04 | GREVE DOS RODOVIARIOS                  |
+| 11 | 25/04 | Revisão para Prova                     |
+| 12 | 30/04 | Prova 1                                |
+| 12 | 02/05 | Diagramas de Classe e de Sequência (definição de trabalhos)     |
+| 13 | 07/05 | Os 4 Elementos da Orientação a Objetos |
+| 14 | 09/05 | Tratamentos de erros em java           |
+| 15 | 14/05 | **Exercícios (em sala)**               |
+| 16 | 16/05 | Tipos Genéricos                        |
 | 17 | 21/05 | Conceitos avançados de Java            |
 | 17 | 23/05 | **Exercícios (em sala)**               |
 | 18 | 28/05 | Entendendo Threads (Parte 1)           |
 | 19 | 30/05 | Entendendo Threads (Parte 2)           |
 | 20 | 04/06 | **Exercícios (em sala)**               |
 | 20 | 06/06 | Apresentação de trabalhos              |
-| 28 | 11/06 | Atividade Extra                        |
+| 28 | 11/06 | Atividade Extra (**ninguem pediu AE**)                        |
 
 
 ## Entrega atrasada

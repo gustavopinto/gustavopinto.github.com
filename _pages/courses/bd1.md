@@ -76,14 +76,14 @@ Passível de alterações.
 | 8 | 11/04 | NÃO TEREMOS AULA                |
 | 9 | 16/04 | Modelo ER                       |
 | 9 | 18/04 | **Apresentação de trabalhos**  (Parte 1)  |
-| 9 | 23/04 | **Apresentação de trabalhos**  (Parte 2)  |
-| 10 | 25/04 | **Prova 1**                    |
-| 11 | 30/04 | SQL SELECT                     |
-| 13 | 02/05 | SQL CREATE, INSERT             |
-| 12 | 07/05 | SQL COMPLEXO                   |
-| 14 | 09/05 | SQL DELETE, UPDATE             |
-| 15 | 14/05 | **Exercícios (em sala)**       |
-| 16 | 16/05 | Mapeamento ER                  |
+| 9 | 23/04 | GREVE DOS RODOVIARIOS  |
+| 10 | 25/04 | **Apresentação de trabalhos**  (Parte 2) |
+| 11 | 30/04 | **Prova 1**                    |
+| 13 | 02/05 | SQL SELECT                     |
+| 12 | 07/05 | SQL CREATE, INSERT             |
+| 14 | 09/05 | SQL COMPLEXO                   |
+| 15 | 14/05 | SQL DELETE, UPDATE             |
+| 16 | 16/05 | **Exercícios (em sala)**       |
 | 17 | 21/05 | Mapeamento SQL                 |
 | 18 | 23/05 | Normalização                   |
 | 19 | 28/05 | **Exercícios (em sala)**       |
