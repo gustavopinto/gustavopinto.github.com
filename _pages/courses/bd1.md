@@ -34,6 +34,7 @@ Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de 
 - [How to get a data science position after academia with no previous industry experience](https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436)
 - [A growing collection of what I know about analyzing GitHub with BigQuery and other tools](https://github.com/fhoffa/analyzing_github)
 - [How to Perform Set Operations on Terabyte Files](https://www.spinellis.gr/blog/20180403/)
+- [Data Science at the command line](http://www.gousios.gr/courses/bigdata/ds-cmd-line.html)
 
 
 <!-- http://15445.courses.cs.cmu.edu/fall2017/schedule.html -->
@@ -52,6 +53,24 @@ Os alunos devem criar o modelo entidade relacionamento de um sistema de software
 ### Projeto de Disciplina (PD)
 
 No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Configure a ferramenta [DbDeo](https://github.com/tushartushar/DbDeo) e execute-a em vários bancos de dados existentes (no seu estágio, de software livre, etc). O professor é responsável por apresentar vários PDs, mas o aluno poderá sugerir um PD do seu interesse. No entanto, o PD deve ser uma atividade que justifique o tempo dedicado para sua execução (em torno de 3 semanas).  O projeto de disciplina deve ser feito em dupla.
+
+Algumas outras possíveis atividades para o projeto de disciplina:
+
+- Rodar algum algoritmo de aprendizado de máquina em alguma base de dados (exemplo [aqui](https://github.com/jubins/MachineLearning-Detecting-Twitter-Bots))
+- Importar CSVs de algum projeto (como o o [dadosbr](http://dados.gov.br/)) para um banco de dados e extrair informações relevantes
+- Utilizar alguma biblioteca de visualização (exemplo [aqui](https://altair-viz.github.io/)) de dados em algum banco de dados
+- Aplicar alguma ferramenta de análise de performance em algum banco de dados já existente
+- Exportar dados de algum banco de dados relacional, e utilizar alguma biblioteca de análise de dados (por exemplo, [pandas](https://pandas.pydata.org/)) (exemplo [aqui](https://codeburst.io/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e))
+- Rodar alguma ferramenta de mapeamento objeto relacional em algum banco de dados já existente (exemplo [aqui](http://guides.rubyonrails.org/active_record_querying.html))
+- Realizar um processo de limpeza de dados em alguma base de dados já existente (por [exemplo](http://openrefine.org/))
+- Implementar o trabalho do seminário em algum bando de dados relacional
+
+#### Base de dados abertas
+
+- StackOverflow: http://data.stackexchange.com/stackoverflow/queries
+- Github: https://cloud.google.com/bigquery/public-data/github e http://ghtorrent.org/ (exemplos [aqui](https://github.com/fhoffa/analyzing_github))
+- Wikipedia: https://bigquery.cloud.google.com/dataset/fh-bigquery:wikipedia?pli=1 (exemplos [aqui](https://www.reddit.com/r/bigquery/comments/3dg9le/analyzing_50_billion_wikipedia_pageviews_in_5/?st=jgq90t8u&sh=3d541169))
+
 
 ### Atividade Extra (AE)
 

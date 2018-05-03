@@ -72,7 +72,7 @@ Passível de alterações.
 | 13 | 07/05 | Os 4 Elementos da Orientação a Objetos |
 | 14 | 09/05 | Tratamentos de erros em java (Gilson)  |
 | 15 | 14/05 | **Exercícios (em sala)** (Gilson)      |
-| 16 | 16/05 | Tipos Genéricos                        |
+| 16 | 16/05 | Tipos Genéricos (Gilson)               |
 | 17 | 21/05 | Conceitos avançados de Java            |
 | 17 | 23/05 | **Exercícios (em sala)**               |
 | 18 | 28/05 | Entendendo Threads (Parte 1)           |
