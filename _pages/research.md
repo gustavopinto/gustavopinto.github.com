@@ -66,3 +66,6 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Does popularity mean correctness?<br>
 **Questions**: How can we evaluate if Stack Overflow answers are indeed correct?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+
+1. Improving LOC calculation<br>
+**Question**: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS
