@@ -35,6 +35,7 @@ Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de 
 - [A growing collection of what I know about analyzing GitHub with BigQuery and other tools](https://github.com/fhoffa/analyzing_github)
 - [How to Perform Set Operations on Terabyte Files](https://www.spinellis.gr/blog/20180403/)
 - [Data Science at the command line](http://www.gousios.gr/courses/bigdata/ds-cmd-line.html)
+- [Apostila sobre SQL (Alura)](http://blog.alura.com.br/liberada-a-apostila-gratuita-de-sql-do-alura/)
 
 
 <!-- http://15445.courses.cs.cmu.edu/fall2017/schedule.html -->
