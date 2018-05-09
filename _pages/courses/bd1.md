@@ -99,12 +99,12 @@ Passível de alterações.
 | 9 | 23/04 | GREVE DOS RODOVIARIOS  |
 | 10 | 25/04 | **Apresentação de trabalhos**  (Parte 2) |
 | 11 | 30/04 | **Prova 1**                    |
-| 13 | 02/05 | SQL SELECT                     |
+| 13 | 02/05 | DDL E DML                      |
 | 12 | 07/05 | SQL CREATE, INSERT             |
-| 14 | 09/05 | SQL COMPLEXO                   |
-| 15 | 14/05 | SQL DELETE, UPDATE             |
-| 16 | 16/05 | **Exercícios (em sala)**       |
-| 17 | 21/05 | Mapeamento SQL                 |
+| 14 | 09/05 | NAO TEREMOS AULA               |
+| 15 | 14/05 | SQL SELECT                     |
+| 16 | 16/05 | SQL DELETE, UPDATE             |
+| 17 | 21/05 | **Exercícios (em sala)**       |
 | 18 | 23/05 | Normalização                   |
 | 19 | 28/05 | **Exercícios (em sala)**       |
 | 20 | 28/05 | Definição de projetos (em sala)|
