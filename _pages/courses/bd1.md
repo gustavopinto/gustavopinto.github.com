@@ -102,8 +102,8 @@ Passível de alterações.
 | 13 | 02/05 | DDL E DML                      |
 | 12 | 07/05 | SQL CREATE, INSERT             |
 | 14 | 09/05 | NAO TEREMOS AULA               |
-| 15 | 14/05 | SQL SELECT                     |
-| 16 | 16/05 | SQL DELETE, UPDATE             |
+| 15 | 14/05 | SQL SELECT, DELETE e UPDATE    |
+| 16 | 16/05 | SQL COMPLEXO                   |
 | 17 | 21/05 | **Exercícios (em sala)**       |
 | 18 | 23/05 | Normalização                   |
 | 19 | 28/05 | **Exercícios (em sala)**       |
