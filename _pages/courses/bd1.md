@@ -105,9 +105,9 @@ Passível de alterações.
 | 15 | 14/05 | SQL SELECT, DELETE e UPDATE    |
 | 16 | 16/05 | SQL COMPLEXO                   |
 | 17 | 21/05 | **Exercícios (em sala)**       |
-| 18 | 23/05 | Normalização                   |
-| 19 | 28/05 | **Exercícios (em sala)**       |
-| 20 | 28/05 | Definição de projetos (em sala)|
+| 18 | 23/05 | SQL Funções                    |
+| 19 | 28/05 | SQL Subqueries                 |
+| 20 | 28/05 | **Exercícios (em sala)** e definição de projetos (em sala)|
 | 21 | 25/06 | Apresentação de projetos de disciplina (Parte 1)  |
 | 22 | 27/06 | Apresentação de projetos de disciplina (Parte 2)  |
 | 23 | 02/07 | Atividade Extra                |
