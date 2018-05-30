@@ -72,6 +72,9 @@ Algumas outras possíveis atividades para o projeto de disciplina:
 - Github: https://cloud.google.com/bigquery/public-data/github e http://ghtorrent.org/ (exemplos [aqui](https://github.com/fhoffa/analyzing_github))
 - Wikipedia: https://bigquery.cloud.google.com/dataset/fh-bigquery:wikipedia?pli=1 (exemplos [aqui](https://www.reddit.com/r/bigquery/comments/3dg9le/analyzing_50_billion_wikipedia_pageviews_in_5/?st=jgq90t8u&sh=3d541169))
 
+#### Trabalhos escolhidos
+
+- Planilha com os trabalhos: https://docs.google.com/spreadsheets/d/10JXQf0ZQL2KcnwaRFkNWvoOLXFi2Lsgw_3D-en_4O_c/edit#gid=0
 
 ### Atividade Extra (AE)
 
@@ -106,8 +109,14 @@ Passível de alterações.
 | 16 | 16/05 | SQL COMPLEXO                   |
 | 17 | 21/05 | **Exercícios (em sala)**       |
 | 18 | 23/05 | SQL Funções                    |
-| 19 | 28/05 | SQL Subqueries                 |
-| 20 | 28/05 | **Exercícios (em sala)** e definição de projetos (em sala)|
+| 19 | 28/05 | AULA SUSPENSA: GREVE           |
+| 20 | 28/05 | SQL Subqueries                 |
+| 20 | 04/06 | Normalização                   |
+| 20 | 06/06 | **Exercícios (em sala)**       |
+| 20 | 11/06 | Acompanhamento de projetos     |
+| 20 | 13/06 | Acompanhamento de projetos     |
+| 20 | 18/06 | NAO TEREMOS AULA               |
+| 20 | 20/06 | NAO TEREMOS AULA               |
 | 21 | 25/06 | Apresentação de projetos de disciplina (Parte 1)  |
 | 22 | 27/06 | Apresentação de projetos de disciplina (Parte 2)  |
 | 23 | 02/07 | Atividade Extra                |

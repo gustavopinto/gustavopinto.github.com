@@ -5,8 +5,8 @@ permalink: /research/
 
 This page provides possible research topics (for BS, MS, or PhD level). Students interested in working with me might be able to think possible solutions to one of these problems. **English skills is required for any of them (reading at least).**
 
-1. Understanding software licenses usage in open-source software<br>
-**Questions:** How often open-source software do not declare a license? How common are dual-license software? Why developers use two+ licenses? <br>
+1. Understanding dual licenses in open-source software<br>
+**Questions:** How common are dual-license software? Why developers use two+ licenses? <br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 1. Understanding Students Behavior in Open-Source Communities<br>
@@ -32,15 +32,10 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question:** How can we test partial program?<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 
-1. Understanding DevOps culture<br>
-**Questions:** what are the DevOps' practices? how these practices impact agile development?<br>
-**Skills:** English communication<br>
-
 1. A large scale study on data races<br>
 **Question:** investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br>
 **Skills:** system programming (e.g., Go, Java, C, etc)<br>
 **Related work:** [JSS'15](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
-
 
 1. Issues Smells<br>
 **Questions**: What are the most common problems related to issue report?<br>
@@ -55,7 +50,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Questions**: What kind of code do volunteers touch? Who drives the project structure? Do company-owned OSS projects follow community best practices?
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. Study differences between commercial developers and volunteers
+1. Studying the differences between commercial developers and volunteers
 **Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
@@ -69,3 +64,6 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 
 1. Improving LOC calculation<br>
 **Question**: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS
+
+1. When testers stop to look for bugs?
+**Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)", so we do testers stop?
