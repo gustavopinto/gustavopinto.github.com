@@ -73,13 +73,19 @@ Passível de alterações.
 | 14 | 09/05 | Tratamentos de erros em java (Gilson)  |
 | 15 | 14/05 | **Exercícios (em sala)** (Gilson)      |
 | 16 | 16/05 | Diagrama de classe                     |
-| 17 | 21/05 | Conceitos avançados de Java            |
-| 17 | 23/05 | **Exercícios (em sala)**               |
-| 18 | 28/05 | Tipos Genéricos (Gilson)               |
-| 19 | 30/05 | Entendendo Threads                     |
-| 20 | 04/06 | **Exercícios (em sala)**  (Gilson)     |
-| 20 | 06/06 | Apresentação de trabalhos              |
-| 28 | 11/06 | Atividade Extra (**ninguem pediu AE**) |
+| 17 | 21/05 | **Exercícios (em sala)**               |
+| 17 | 23/05 | E1: Diagrama inicial do projeto        |
+| 18 | 28/05 | E2: Diagrama final do projeto          |
+| 19 | 30/05 | Tipos Genéricos (Gilson)               |
+| 20 | 04/06 | E3: Polimorfismo                       |
+| 20 | 06/06 | E4: Herança                            |
+| 20 | 11/06 | E5: Tratamento de erros                |
+| 20 | 13/06 | E6: Tipos Genéricos                    |
+| 20 | 18/06 | ***NAO TEREMOS AULA***                 |
+| 20 | 20/06 | ***NAO TEREMOS AULA***                 |
+| 20 | 25/06 | E7: Entrega final e apresentação       |
+| 20 | 27/06 | E7: Entrega final e apresentação       |
+| 28 | 02/07 | Atividade Extra                        |
 
 
 ## Entrega atrasada
