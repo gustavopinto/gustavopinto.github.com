@@ -64,6 +64,12 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 
 1. Improving LOC calculation<br>
 **Question**: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 1. When testers stop to look for bugs?
 **Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)", so we do testers stop?
+**Skills:** English communication<br>
+
+1. Fake failed builds
+**Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)", so we do testers stop?
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
