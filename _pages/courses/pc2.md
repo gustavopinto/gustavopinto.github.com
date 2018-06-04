@@ -42,6 +42,18 @@ Conceitos básicos de orientação a objetos. Teste de software. UML. Conceitos 
 
 No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Desenvolver um aplicativo web que possa ser utilizado por um cliente real (por exemplo, uma academia).
 
+O projeto deve ter no minimo 6 classes (uma delas deve ser abstrata) e, pelo menos, uma interface. Ao menos, 20 métodos de testes precisam ser escritos e devem estar passando.
+
+Além disso, é necessário empregar todos os conceitos vistos em sala (herança, polimorfismo, tratamento de exceção, tipos genéricos, etc). Cada entrega é avaliativa. Ao total, serão 7 entregas, cada uma valendo 1.5 (10.5 pontos no total). Entrega final: 25/06. ***Importante***: nos dias 18 e 20 de junho nós não teremos aula; Logo, não serão contabilizadas entregas.
+
+Exemplos de projetos:
+- Gerenciador de finanças (calcula o dinheiro que entra e sai, etc)
+- Cliente do twitter (dado um usuário, leia os tweets, escreva novos tweets, etc)
+- Jogo da forca
+- Agenda eletronica (cadastra pessoa, envia email, etc)
+
+Projetos: https://docs.google.com/spreadsheets/d/1fRga6R_skvfEaRTVVe55nY89Fz5HaGp_ro48QtHCayY/edit?usp=sharing
+
 ### Atividade Extra (AE)
 
 AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
