@@ -14,16 +14,17 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
-## Conference papers that have been rejected (20)
+## Conference papers that have been rejected (21)
 
 - ASE: 2014
 - ASPLOS: 2015
 - SBLP: 2013, 2015
 - CSMR: 2014
-- GPCE: 2015
 - EASE: 2016
 - ECOOP: 2014
 - ESEM: 2016, 2017
+- FSE: 2018
+- GPCE: 2015
 - ICSE: 2017 (2x)
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018

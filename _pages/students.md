@@ -22,13 +22,16 @@ There are some basic skills and requirements you should carefully consider befor
 
 I am privileged to work with the following talented students:
 
-- [Fernando Kamei](Fernando Kamei) (Ph.D., co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
-- Welder Luz (M.S., co-supervised with [Rodrigo Bonifácio](http://rbonifacio.net/), UNB)
-- Gilson Rocha (M.S.)
-- Marcos Nazario (M.S.)
+- [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+- Welder Luz (MS, co-supervised with [Rodrigo Bonifácio](http://rbonifacio.net/), UNB)
+- Gilson Rocha (MS)
+- Marcos Nazario (MS)
+- Clarice Ferreira (UROP)
+- Thiago Benício (UROP)
+- Marcos Costa (UROP)
 - You?
 
 
 ## Alumni
-- [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (Ph.D., co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
-- Benito Fernandes (M.S., co-supervised with [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+- [Bruno Cartaxo](https://sites.google.com/site/brunocartaxo/) (PhD, co-supervised with [Sergio Soares](http://www.cin.ufpe.br/~scbs/), UFPE)
+- Benito Fernandes (MS, co-supervised with [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)

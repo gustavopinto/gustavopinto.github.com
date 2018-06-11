@@ -8,6 +8,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Understanding dual licenses in open-source software<br>
 **Questions:** How common are dual-license software? Why developers use two+ licenses? <br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+**Related Work** "[MSR'18](http://gustavopinto.github.io/lost+found/msr2018b.pdf)
 
 1. Understanding Students Behavior in Open-Source Communities<br>
 **Questions:** What kind of contributors are made by students? Are they working for some classroom projects? summer job? hackathons?<br>
@@ -53,6 +54,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Studying the differences between commercial developers and volunteers
 **Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+**Related work:** [JSS'15](http://gustavopinto.github.io/lost+found/chase2018.pdf)
 
 1. Mining wrong data without doing anything obviously wrong<br>
 **Questions**: What are the hidden challenges on large scale software mining?<br>
@@ -71,5 +73,10 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Skills:** English communication<br>
 
 1. Fake failed builds
-**Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)", so we do testers stop?
+**Question**: How to automatically differentiate fake than non fake builds?
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
+**Related work:** [MSR'17](http://gustavopinto.github.io/lost+found/msr2017b.pdf)
+
+1. Improving developers participation in pull-requests research
+**Question**: How often are PRs send in SE studies rejected? How could we improve this?
+**Skills:** English communication<br>
