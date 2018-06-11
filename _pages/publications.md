@@ -8,12 +8,12 @@ permalink: /publications/
 1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018b.pdf)
 &#8226;
-[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
 2. [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](http://gustavopinto.github.io/lost+found/icse2018.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018.pdf)
 &#8226;
-[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018-talk.pdf)
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018-talk.pdf)
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/what-are-quasi-contributors-and-how-common-are-them/)
 
