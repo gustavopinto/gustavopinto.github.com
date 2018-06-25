@@ -36,6 +36,11 @@ permalink: /publications/
 
 8. **Gustavo Pinto**, [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/). "[Who Gets a Patch Accepted First? Comparing the Contributions of Employees and Volunteers](http://gustavopinto.github.io/lost+found/chase2018.pdf)". Accepted to the 11th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2018.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/chase2018-talk.pdf)
+&#8226;
+[<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/splash-poster2013-poster.pdf)
+
 
 9. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Leaving Behind the Software History When Transitioning to Open-Source: Reasons and Implications](http://gustavopinto.github.io/lost+found/oss2018.pdf)". Accepted to the 14th International Conference of Open-Source Systems (OSS), Athens, Greece, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2018.pdf)
@@ -76,7 +81,9 @@ permalink: /publications/
 
 7. **Gustavo Pinto**, [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Inadequate Testing, Time Pressure, and (Over) Confidence: A Tale of Continuous Integration Users](http://gustavopinto.github.io/lost+found/chase2017.pdf)". Accepted to the 10th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2017). Buenos Aires, Argentina, 2017.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2017.pdf)
+&#8226;
 [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/chase2017-poster.pdf)
+&#8226;
 
 8. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
@@ -157,6 +164,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 1. **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[On The Implications of Language Constructs for Concurrent Execution for the Energy Efficiency of Multicore Applications]((http://gustavopinto.github.io/lost+found/splash-poster2013.pdf))". Accepted to the 4th ACM Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/splash-poster2013.pdf)
+&#8226;
 [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/splash-poster2013-poster.pdf)
 
 2. **Gustavo Pinto**. "[Do Language Constructs for Concurrent Execution Have Impact on Energy Efficiency?](http://gustavopinto.github.io/lost+found/splash-acm-src2013.pdf)". Accepted to the ACM Student Research Competition at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.<br/>

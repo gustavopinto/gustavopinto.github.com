@@ -8,7 +8,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Understanding dual licenses in open-source software<br>
 **Questions:** How common are dual-license software? Why developers use two+ licenses? <br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
-**Related Work** "[MSR'18](http://gustavopinto.github.io/lost+found/msr2018b.pdf)
+**Related Work**: [MSR'18](http://gustavopinto.github.io/lost+found/msr2018b.pdf)
 
 1. Understanding Students Behavior in Open-Source Communities<br>
 **Questions:** What kind of contributors are made by students? Are they working for some classroom projects? summer job? hackathons?<br>
@@ -42,17 +42,12 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Questions**: What are the most common problems related to issue report?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-<!-- 1. Naming the pain on sci software development<br>
-**Questions**: What are the key pain point that the sci software community has, when developing software?<br>
-**Skills:** English communication<br>
-**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)-->
-
 1. Differentiating the contributions from volunteers and employees<br>
-**Questions**: What kind of code do volunteers touch? Who drives the project structure? Do company-owned OSS projects follow community best practices?
+**Questions**: What kind of code do volunteers touch? Who drives the project structure? Do company-owned OSS projects follow community best practices?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 1. Studying the differences between commercial developers and volunteers
-**Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).
+**Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [JSS'15](http://gustavopinto.github.io/lost+found/chase2018.pdf)
 
@@ -65,18 +60,24 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
 1. Improving LOC calculation<br>
-**Question**: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS
+**Question**: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. When testers stop to look for bugs?
-**Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)", so we do testers stop?
+1. When testers stop to look for bugs?<br>
+**Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)". When/How do testers stop?<br>
 **Skills:** English communication<br>
 
-1. Fake failed builds
-**Question**: How to automatically differentiate fake than non fake builds?
+1. Fake failed builds<br>
+**Question**: How to automatically differentiate fake than non fake builds?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [MSR'17](http://gustavopinto.github.io/lost+found/msr2017b.pdf)
 
-1. Improving developers participation in pull-requests research
-**Question**: How often are PRs send in SE studies rejected? How could we improve this?
+1. Improving developers participation in pull-requests research<br>
+**Question**: How often are PRs send in SE studies rejected? How could we improve this?<br>
 **Skills:** English communication<br>
+
+
+<!-- 1. Naming the pain on sci software development<br>
+**Questions**: What are the key pain point that the sci software community has, when developing software?<br>
+**Skills:** English communication<br>
+**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)-->
