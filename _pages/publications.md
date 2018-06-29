@@ -50,6 +50,11 @@ permalink: /publications/
 10. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
 
+11. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
+
+12. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions." Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
+
 ## 2017
 
 1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf)". Communications of the ACM 60(12), December 2017.<br/>
@@ -83,7 +88,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2017.pdf)
 &#8226;
 [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/chase2017-poster.pdf)
-&#8226;
+
 
 8. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
@@ -101,8 +106,10 @@ permalink: /publications/
 
 2. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/icsme2016.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
-[<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://youtu.be/sj0p2QIiBB4) &#8226;
-&#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=12256220) [[Artifacts Validated]](http://gustavopinto.github.io/)
+[<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://youtu.be/sj0p2QIiBB4)
+&#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=12256220)
+&#8226;
+[[Artifacts Validated]](http://gustavopinto.github.io/)
 
 3. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2016.pdf) &#8226;
@@ -140,21 +147,18 @@ permalink: /publications/
 A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/greens2015.pdf)". Accepted to the 4th Workshop on Green and Sustainable Software (GREENS), Florence, Italy, 2015.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/greens2015.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/greens2015-talk.pdf)
 
-6. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/fase2015.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/fase2015-talk.pdf)
-[[Website]](http://kliu20.github.io/jRAPL/)
+6. [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), **Gustavo Pinto** and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Data-Oriented Characterization of Application-Level Energy Optimization](http://gustavopinto.github.io/lost+found/fase2015.pdf)". Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.<br/>[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/fase2015.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/fase2015-talk.pdf) &#8226; [<i class="fa fa-fw fa-database" aria-hidden="true"></i>Data](http://kliu20.github.io/jRAPL/)
 
 ## 2014
 
 1. **Gustavo Pinto** and [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Characterizing the Energy Efficiency of Java's Thread-Safe Collections in a Multicore Environment](http://gustavopinto.github.io/lost+found/seps2014.pdf)". Accepted to the 1st Workshop on Software Engineering for Parallel Systems (SEPS) at the 5th Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH). Portland, USA, 2014. <br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/seps2014.pdf)  
-&#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/characterizing-the-energy-efficiency-of-javas-thread-safe-collections-in-a-multi-core-environment?slide=1)
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/seps2014.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/characterizing-the-energy-efficiency-of-javas-thread-safe-collections-in-a-multi-core-environment?slide=1)
 
 2. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Understanding Energy Behaviors of Thread Management Constructs](http://gustavopinto.github.io/lost+found/oopsla2014.pdf)". Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oopsla2014.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/understanding-energy-behaviors-of-thread-management-constructs?slide=1)
 
 3. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2014.pdf)  
-&#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/mining-questions-about-software-energy-consumption) &#8226;
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2014.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/mining-questions-about-software-energy-consumption) &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/2014/11/25/do-developers-care-about-software-energy-consumption.html)
 
 4. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
