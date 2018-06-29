@@ -17,7 +17,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/what-are-quasi-contributors-and-how-common-are-them/)
 
-3. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
+3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ist2018.pdf)
 
 4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering, RENE Track (SANER'2018). Campobasso, Italy, 2017. <br/>
@@ -47,13 +47,10 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/leaving-behind-the-software-history-when-transitioning-to-open-source-reasons-and-implications?slide=1)
 
-10. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
+10. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
 
-11. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
-
-12. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions." Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
+11. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions." Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
 
 ## 2017
 
@@ -67,7 +64,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
 &#8226; [<i class="fa fa-fw fa-plus" aria-hidden="true"></i>More](/publications/ase2017)
 
-3. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, [Danilo Ribeiro](https://sites.google.com/site/profdanilomonteiro/), [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). "[Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf)". Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
+3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Danilo Ribeiro](https://sites.google.com/site/profdanilomonteiro/), [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). "[Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf)". Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 
 4. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories, Challenge Track (MSR'2017). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
@@ -76,7 +73,7 @@ permalink: /publications/
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=14416927)
 
 
-5. [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://twitter.com/brunocartaxo), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). "[On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf)". Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
+5. [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://brunocartaxo.com/), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). "[On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf)". Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.org/lost+found/ease2017.pdf)
 
 
@@ -111,7 +108,7 @@ permalink: /publications/
 &#8226;
 [[Artifacts Validated]](http://gustavopinto.github.io/)
 
-3. [Bruno Cartaxo](http://twitter.com/brunocartaxo), **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
+3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, Elton Vieira, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners](http://gustavopinto.github.io/lost+found/esem2016.pdf)". Accepted to the 10th  International Symposium on Empirical Software Engineering and Measurement (ESEM'2016). Ciudad Real, Spain, 2016. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2016.pdf) &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://www.slideshare.net/gustavopinto/evidence-briefings-towards-a-medium-to-transfer-knowledge-from-systematic-reviews-to-practitioners) &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/evidence-briefings/)
