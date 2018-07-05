@@ -8,12 +8,12 @@ permalink: /publications/
 1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018b.pdf)
 &#8226;
-[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
 2. [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Almost There: A Study on Quasi-Contributors in Open-Source Software Projects](http://gustavopinto.github.io/lost+found/icse2018.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018.pdf)
 &#8226;
-[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Blog Post](http://gustavopinto.github.io/lost+found/icse2018-talk.pdf)
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018-talk.pdf)
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/what-are-quasi-contributors-and-how-common-are-them/)
 
@@ -49,6 +49,9 @@ permalink: /publications/
 
 10. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
+
+12. Welder Luz, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Adopting DevOps: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on 
+ Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.
 
 11. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions." Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
 
