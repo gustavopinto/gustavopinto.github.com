@@ -1,6 +1,6 @@
 ---
 title: Hoteis
-permalink: /cv-of-failures/
+permalink: /hotels/
 ---
 
 Some links of hotels I stayed. Just for bookmark.
