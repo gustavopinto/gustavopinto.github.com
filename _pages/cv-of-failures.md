@@ -12,7 +12,7 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers that have been rejected (12)
+## Journal papers rejected (12)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
@@ -21,7 +21,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
-## Conference papers that have been rejected (23)
+## Conference papers rejected (23)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -37,8 +37,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - SANER: 2015, 2018
 - XP: 2017
 
-## Grant proposals that were rejected (6)
+## Grant proposals rejected (6)
 
+- Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
 - SECTET Social Technology grant, 2018
 - CNPq Productivity Fellowship, 2017

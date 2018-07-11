@@ -8,6 +8,7 @@ Some links of hotels I stayed. Just for bookmark.
 ## Brasilia
 - The Sun Premium Resort
 - Hotel Nacional
+- Planalto Bittar Hotel
 
 ## Recife
 - Mercure Recife Navegantes
@@ -31,3 +32,7 @@ Some links of hotels I stayed. Just for bookmark.
 
 - Excelsior Hotel
 - Monreale Hotel Guarulhos
+
+## Curitiba
+
+- Ibis Curitiba Shopping
