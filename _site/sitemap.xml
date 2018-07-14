@@ -104,10 +104,13 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/teaching/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/news/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/</loc>
+<loc>http://localhost:4000/mestrado-ppgcc/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/teaching/oop</loc>

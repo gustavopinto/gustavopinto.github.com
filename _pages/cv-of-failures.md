@@ -21,7 +21,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Journal of Systems and Software: 2017 (2x)
 - Software: Practice and Experience: 2014
 
-## Conference papers rejected (23)
+## Conference papers rejected (24)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -36,6 +36,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018
 - XP: 2017
+- WTDSoft: 2018
 
 ## Grant proposals rejected (6)
 
