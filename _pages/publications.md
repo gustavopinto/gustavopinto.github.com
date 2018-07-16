@@ -53,7 +53,8 @@ permalink: /publications/
 12. Welder Luz, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Adopting DevOps: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on 
  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.
 
-11. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions." Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
+11. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
 
 ## 2017
 
