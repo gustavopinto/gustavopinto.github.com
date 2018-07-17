@@ -20,7 +20,7 @@ permalink: /publications/
 3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ist2018.pdf)
 
-4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering, RENE Track (SANER'2018). Campobasso, Italy, 2017. <br/>
+4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018 -- RENE Track). Campobasso, Italy, 2017. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/saner2018-talk.pdf)
@@ -31,7 +31,7 @@ permalink: /publications/
 6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "[How Swift Developers Handle Errors](http://gustavopinto.github.io/lost+found/msr2018a.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2018a.pdf)<br/>
 
-7. Rômulo Manciola Meloca, **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). "[Understanding the Usage, Impact, and Adoption of Non-OSI Approved Licenses](http://gustavopinto.github.io/lost+found/msr2018b.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
+7. [Rômulo Manciola Meloca](https://github.com/rmeloca), **Gustavo Pinto**, Leonardo Pontes Baiser, Marco Mattos, [Ivanilton Polato](https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en), [Igor Wiese](http://www.igorwiese.com/), [Daniel Germán](http://turingmachine.org/). "[Understanding the Usage, Impact, and Adoption of Non-OSI Approved Licenses](http://gustavopinto.github.io/lost+found/msr2018b.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2018b.pdf)<br/>
 
 8. **Gustavo Pinto**, [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/). "[Who Gets a Patch Accepted First? Comparing the Contributions of Employees and Volunteers](http://gustavopinto.github.io/lost+found/chase2018.pdf)". Accepted to the 11th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2018). Gothenburg, Sweden, 2018.<br>
@@ -41,7 +41,6 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/splash-poster2013-poster.pdf)
 
-
 9. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Leaving Behind the Software History When Transitioning to Open-Source: Reasons and Implications](http://gustavopinto.github.io/lost+found/oss2018.pdf)". Accepted to the 14th International Conference of Open-Source Systems (OSS), Athens, Greece, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2018.pdf)
 &#8226;
@@ -50,11 +49,13 @@ permalink: /publications/
 10. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
 
-12. Welder Luz, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Adopting DevOps: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on 
+11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on 
  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.
 
-11. Welder Luz, Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
+ 12. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
+ [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
+
+ 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). Entendendo a dinâmica para contribuir com projetos de Software Livre em disciplinas de Engenharia de Software. Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
 
 ## 2017
 
@@ -71,7 +72,7 @@ permalink: /publications/
 3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Danilo Ribeiro](https://sites.google.com/site/profdanilomonteiro/), [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). "[Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf)". Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 
-4. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories, Challenge Track (MSR'2017). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
+4. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017 -- Challenge Track). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2017b.pdf) &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=14416927)
@@ -90,8 +91,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/chase2017-poster.pdf)
 
-
-8. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of ICSE 2017 Companion. Buenos Aires, Argentina, 2017.<br/>
+8. [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Assisting Non-Specialist Developers to Build Energy-Efficient Software](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)". Accepted to the proceedings of 39th International Conference on Software Engineering (ICSE'2017 -- Poster track). Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 
@@ -101,7 +101,7 @@ permalink: /publications/
 
 ## 2016
 
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution,  Early Research Achievements track (ICSME'2016). Raleigh, USA. 2016. <br/>
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Does the Shift to GitHub Impact Project Collaboration?](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016 -- ERA Track). Raleigh, USA. 2016. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](https://www.dropbox.com/home/documents/ifpa/2016/writing_papers/ICSME-ERA?preview=icsme.pdf) &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-the-shift-to-github-impact-project-collaboration?slide=1)
 
@@ -121,7 +121,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2016.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/more-common-than-you-think-an-in-depth-study-of-casual-contributors?slide=1) &#8226; [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=11977747)
 
-5. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering Early Research Achievements track (SANER'2016). Osaka, Japan, 2016. <br/>
+5. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016 -- ERA Track). Osaka, Japan, 2016. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2016b.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/saner2016b-talk.pdf)
 
 6. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Daniel Alencar da Costa](https://danielcalencar.github.io/), and [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Migrar para o Ambientes de Codificação Social é Sinônimo de Mais Contribuições?](http://gustavopinto.github.io/lost+found/vem2016.pdf)". Accepted to the 4th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2016). Maringa, Brazil, 2016. <br/>
