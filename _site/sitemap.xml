@@ -83,7 +83,10 @@
 <loc>http://localhost:4000/publications/ase2017</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/bd1</loc>
+<loc>http://localhost:4000/teaching/bd1/2018</loc>
+</url>
+<url>
+<loc>http://localhost:4000/teaching/oop/2018</loc>
 </url>
 <url>
 <loc>http://localhost:4000/blog/</loc>
@@ -96,6 +99,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/cv-of-failures/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/teaching/ed2</loc>
 </url>
 <url>
 <loc>http://localhost:4000/hotels/</loc>
@@ -113,7 +119,7 @@
 <loc>http://localhost:4000/mestrado-ppgcc/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/oop</loc>
+<loc>http://localhost:4000/teaching/oop/2018</loc>
 </url>
 <url>
 <loc>http://localhost:4000/projects/</loc>
