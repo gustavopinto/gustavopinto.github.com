@@ -55,7 +55,8 @@ permalink: /publications/
  12. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
  [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
 
- 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). Entendendo a dinâmica para contribuir com projetos de Software Livre em disciplinas de Engenharia de Software. Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
+ 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando um Aluno se Torna Contribuidor: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
+ [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
 
 ## 2017
 
