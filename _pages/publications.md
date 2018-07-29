@@ -49,14 +49,17 @@ permalink: /publications/
 10. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
 
-11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on 
- Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.
+11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice." Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.<br/>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
 
  12. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
  [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
 
- 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando um Aluno se Torna Contribuidor: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
+ 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
  [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
+
+14. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java. Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
+
 
 ## 2017
 
@@ -78,10 +81,8 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=14416927)
 
-
 5. [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**, [Bruno Cartaxo](http://brunocartaxo.com/), [Alexandre Vasconcelos](http://cin.ufpe.br/~amlv/). "[On the Benefits/Limitations of Agile Software Development: An Interview Study with Brazilian Companies](http://gustavopinto.github.io/lost+found/ease2017.pdf)". Accepted to the 21st International Conference on Evaluation and Assessment in Software Engineering (EASE'2017). Karlskrona, Sweden, 2017.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.org/lost+found/ease2017.pdf)
-
 
 6. **Gustavo Pinto**, [Fernando Figueira Filho](https://www.dimap.ufrn.br/~fernando/), [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Training Software Engineers using Open-Source Software: The Professors' Perspective](http://gustavopinto.github.io/lost+found/cseet2017.pdf)". Accepted to the 30th IEEE Conference on Software Engineering Education and Training (CSEE&T). Savannah, EUA, 2017.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](https://speakerdeck.com/gustavopinto/training-software-engineers-using-open-source-software-the-professors-perspective?slide=1) &#8226;
