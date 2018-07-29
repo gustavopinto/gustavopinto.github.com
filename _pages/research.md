@@ -76,6 +76,10 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question**: How often are PRs send in SE studies rejected? How could we improve this?<br>
 **Skills:** English communication<br>
 
+1. Automation will not fix your broken culture<br>
+**Question**: A position paper that reports the importance of social aspects on software eng practice<br>
+**Skills:** English communication<br>
+
 
 <!-- 1. Naming the pain on sci software development<br>
 **Questions**: What are the key pain point that the sci software community has, when developing software?<br>

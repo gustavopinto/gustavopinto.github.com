@@ -38,8 +38,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (6)
+## Grant proposals rejected (7)
 
+- Ford Foundation Grant, 2018 (budget: U$ 50,000)
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
 - SECTET Social Technology grant, 2018
