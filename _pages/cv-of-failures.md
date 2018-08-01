@@ -19,6 +19,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Empirical Software Engineering Journal: 2017
 - Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
+- Journal of Internet Services and Applications: 2018
 - Software: Practice and Experience: 2014
 
 ## Conference papers rejected (24)
