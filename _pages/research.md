@@ -20,7 +20,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [SANER'16](http://gustavopinto.github.io/lost+found/saner2016.pdf)
 
-1. What practitioners say about software engineering research?<br>
+1. How do practitioners perceive software engineering research?<br>
 **Questions:** What are the practitioners' perception about SE research?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 **Related work:** [MSR'17](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
@@ -79,6 +79,14 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Automation will not fix your broken culture<br>
 **Question**: A position paper that reports the importance of social aspects on software eng practice<br>
 **Skills:** English communication<br>
+
+1. What makes a great open source maintainer?
+**Skills:** English communication<br>
+**Related Work:** https://dl.acm.org/citation.cfm?id=2818839
+
+1. GitHub stars as a proxy for popularity considered harmful
+**Skills:** English communication<br>
+**Related work:** https://blog.tidelift.com/dont-judge-a-project-by-its-github-stars-alone
 
 
 <!-- 1. Naming the pain on sci software development<br>

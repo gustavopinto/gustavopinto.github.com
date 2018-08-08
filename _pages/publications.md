@@ -1,5 +1,5 @@
 ---
-title: Publications
+title: Publications (50)
 permalink: /publications/
 ---
 
@@ -52,13 +52,18 @@ permalink: /publications/
 11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice](http://gustavopinto.github.io/lost+found/esem2018.pdf)". Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
 
- 12. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
- [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
+12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). [Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf). Accepted for Software: Practice & Experience, 2018. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
 
- 13. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
- [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
+13. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
 
-14. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
+14. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
+
+15. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2018.pdf)
 
 ## 2017
