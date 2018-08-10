@@ -43,6 +43,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 ## Rejections
 
 1. [Dealing with Rejection](https://sites.umiacs.umd.edu/elm/2016/10/25/dealing-with-rejection/), by Niklas Elmqvist
+1. [Tenured Professor Rogers Talks About: Imposter Syndrome](https://medium.com/@cfiesler/tenured-professor-rogers-talks-about-imposter-syndrome-229e0a546ac1), by Casey Fiesler
 
 ## Where to find money
 

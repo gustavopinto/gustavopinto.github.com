@@ -50,6 +50,6 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Google Research Grant, 2013 (budget: U$ 39,000)
 - Microsoft SEIF, 2013 (budget: U$ 25,000)
 
-## Jobs I did not get
+## Jobs I did not get (1)
 
 - Assistant Professor at UFMG
