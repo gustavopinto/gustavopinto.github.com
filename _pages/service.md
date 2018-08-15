@@ -21,7 +21,7 @@ permalink: /service/
 1. Publicity Co-chair, [IWESEP2018](https://iwesep2018.github.io/)
 1. PC member, [VEM'18](http://vem2018.github.io/), ['17](http://vem2017.ufu.br/)
 1. PC member, [SBLP'18](http://cbsoft2018.icmc.usp.br/sblp.html/), ['17](http://www.lia.ufc.br/~cbsoft2017/en/xxi-sblp/call-for-papers/), ['16](http://cbsoft.org/cbsoft2016/sblp2016)
-1. PC member, [SBCARS'18'](http://cbsoft2018.icmc.usp.br/sbcars.html),['17](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/), ['16](http://cbsoft.org/cbsoft2016/sbcars2016)
+1. PC member, [SBCARS'18'](http://cbsoft2018.icmc.usp.br/sbcars.html), ['17](http://www.lia.ufc.br/~cbsoft2017/en/xi-sbcars/chamada-de-trabalhos/), ['16](http://cbsoft.org/cbsoft2016/sbcars2016)
 1. Co-Chair, [PyCon Poster Session'17](https://us.pycon.org/2017/speaking/posters/)
 1. Co-Chair, [WBMA'17](http://www.agilebrazil.com/2017/wbma/)
 1. Co-Chair, [WTDSoft'17](www.lia.ufc.br/~cbsoft2017/cbsoft/wtdsoft/)

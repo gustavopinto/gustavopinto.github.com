@@ -49,7 +49,7 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 1. Studying the differences between commercial developers and volunteers
 **Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
-**Related work:** [JSS'15](http://gustavopinto.github.io/lost+found/chase2018.pdf)
+**Related work:** [CHASE'18](http://gustavopinto.github.io/lost+found/chase2018.pdf)
 
 1. Mining wrong data without doing anything obviously wrong<br>
 **Questions**: What are the hidden challenges on large scale software mining?<br>
@@ -80,11 +80,11 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question**: A position paper that reports the importance of social aspects on software eng practice<br>
 **Skills:** English communication<br>
 
-1. What makes a great open source maintainer?
+1. What makes a great open source maintainer?<br/>
 **Skills:** English communication<br>
-**Related Work:** https://dl.acm.org/citation.cfm?id=2818839
+**Related Work:** https://dl.acm.org/citation.cfm?id=2818839, https://github.com/nayafia/awesome-maintainers
 
-1. GitHub stars as a proxy for popularity considered harmful
+1. GitHub stars as a proxy for popularity considered harmful<br/>
 **Skills:** English communication<br>
 **Related work:** https://blog.tidelift.com/dont-judge-a-project-by-its-github-stars-alone
 
