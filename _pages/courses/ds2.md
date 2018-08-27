@@ -9,7 +9,7 @@ Terça e Quinta, às 18:30 @ LABCOMP-03
 
 ## Slack
 
-Todo material de aula será postado no Slack. Para acessar: http://bit.ly/2poykZh
+Todo material de aula será postado no Slack. Para ingressar, clique [aqui](https://join.slack.com/t/es2-bsi/shared_invite/enQtNDI0MDA0OTMxNzE2LWEwMjgwMzdjYzA5YzE3N2UzODZkN2UwOTkwMmE3Y2QzZmMxMDZlZDQzNTg5NGNlMmMzZWE0Yzk3MTBiMTllYzI).
 
 ## Objetivo
 
@@ -26,10 +26,6 @@ Ordenação de dados; Árvores; Tabelas;
 - WIRTH, N. Algoritmos e estruturas de dados. Rio de Janeiro: Prentice Hall do Brasil, 1989
 - VELOSO, P., SANTOS, C. S., AZEREDO, P. A., FURTADO, A. L. Estruturas de dados. 3.ed. Rio de Janeiro: Campus, 1985
 
-### Material extra
-
-- ??
-
 ## Avaliação
 
 1. Exercícios em sala: 3.5 pontos (0.5pt cada exercício)
@@ -40,7 +36,7 @@ Ordenação de dados; Árvores; Tabelas;
 
 ### Seminário
 
-O seminário é uma apresentação de tópicos não abordados na disciplina, como por exemplo:
+O seminário é uma apresentação de tópicos **não abordados** na disciplina, como por exemplo:
 
 - Arvore B (remoção)
 - Arvore B* (inserção e busca)
@@ -52,9 +48,9 @@ O seminário é em **dupla** e pode ser feito usando slides ou o quadro com pilo
 - Exemplo prático
 - Exercícios para serem resolvidos em sala
 
-Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar para o slack um artigo que aborda o tema que será apresentado. Todos os alunos que não apresentarem devem fazer o resumo do artigo enviado (em dupla). O resumo deve ter no mínimo uma folha, e deve ser entregue (impresso) ao fim do seminário correspondente para o professor. Não serão aceitos resumos entregues fora do prazo.
+Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar para o slack um artigo científico que aborde o tema que será apresentado. Todos os alunos que não apresentarem devem fazer o resumo do artigo enviado (em dupla). O resumo deve ter no mínimo uma folha, e deve ser entregue (impresso) ao fim do seminário correspondente para o professor. Não serão aceitos resumos entregues fora do prazo.
 
-Pontuação:
+**Pontuação do seminário:**
 
 - Apresentação do seminário: 2.50
 - Entrega dos resumos: 2.50 (ou .50 por resumo)
@@ -62,7 +58,7 @@ Pontuação:
 
 ### Projeto de disciplina (PD)
 
-???
+- A ser definido
 
 ### Atividade Extra (AE)
 
@@ -105,8 +101,8 @@ Passível de alterações.
 | 23 | 22/11 | Acompanhamento das atividades |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |
-| 26 | 04/12 | Acompanhamento das atividades |
-| 27 | 06/12 | Acompanhamento das atividades |
+| 26 | 04/12 | ***NAO TEREMOS AULA*** |
+| 27 | 06/12 | ***NAO TEREMOS AULA*** |
 | 28 | 11/12 | Acompanhamento das atividades |
 | 29 | 13/12 | Acompanhamento das atividades |
 | 30 | 18/12 | Acompanhamento das atividades |

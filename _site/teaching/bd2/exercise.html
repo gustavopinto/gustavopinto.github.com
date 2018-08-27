@@ -13,7 +13,7 @@
 
 
 
-<title>Estrutura de Dados II - Gustavo Pinto</title>
+<title>Banco de dados II – Exercício - Gustavo Pinto</title>
 
 
 
@@ -25,20 +25,20 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Gustavo Pinto">
-<meta property="og:title" content="Estrutura de Dados II">
+<meta property="og:title" content="Banco de dados II – Exercício">
 
 
-  <link rel="canonical" href="http://localhost:4000/teaching/ed2">
-  <meta property="og:url" content="http://localhost:4000/teaching/ed2">
+  <link rel="canonical" href="http://localhost:4000/teaching/bd2/exercise">
+  <meta property="og:url" content="http://localhost:4000/teaching/bd2/exercise">
 
 
 
 
 
   <meta name="twitter:site" content="@gustavopinto">
-  <meta name="twitter:title" content="Estrutura de Dados II">
+  <meta name="twitter:title" content="Banco de dados II – Exercício">
   <meta name="twitter:description" content="Professional webpage for Gustavo Pinto.">
-  <meta name="twitter:url" content="http://localhost:4000/teaching/ed2">
+  <meta name="twitter:url" content="http://localhost:4000/teaching/bd2/exercise">
 
   
     <meta name="twitter:card" content="summary">
@@ -168,7 +168,7 @@
     <div class="wrapper">
       <h1 class="page__title" itemprop="headline">
         
-          Estrutura de Dados II
+          Banco de dados II – Exercício
 
         
       </h1>
@@ -313,7 +313,7 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Estrutura de Dados II">
+    <meta itemprop="headline" content="Banco de dados II – Exercício">
     
     
     
@@ -322,276 +322,85 @@
       
 
       <section class="page__content" itemprop="text">
-        <h2 id="horário">Horário</h2>
+        <p>Deve ser realizado em dupla ou individualmente. Todo código gerado deve estar disponível no GitHub.</p>
 
-<p>Terça e Quinta, às 18:30 @ LABCOMP-03</p>
+<p>Entrega e apresentação do trabalho (texto/apresentação com: configuração da máquina na qual as avaliações foram realizadas, tabelas/gráficos dos resultados, descrição dos SGBDs considerados e dos algoritmos implementados - se for o caso, discussão sobre os resultados).</p>
 
-<h2 id="slack">Slack</h2>
+<p>Este trabalho visa medir o desempenho de um banco de dados relacional considerando o espaço necessário para armazenar os dados e o tempo para processar consultas. Especificamente, o trabalho requer a implementação de um banco de dados em dois formatos, a medição de espaço utilizado para armazenar os dados em cada formato e o tempo utilizados para responder às consultas, conforme a especificação a seguir.</p>
 
-<p>Todo material de aula será postado no Slack. Para ingressar, clique <a href="https://join.slack.com/t/es2-bsi/shared_invite/enQtNDI0MDA0OTMxNzE2LWEwMjgwMzdjYzA5YzE3N2UzODZkN2UwOTkwMmE3Y2QzZmMxMDZlZDQzNTg5NGNlMmMzZWE0Yzk3MTBiMTllYzI">aqui</a>.</p>
+<h2 id="aplicação">Aplicação</h2>
 
-<h2 id="objetivo">Objetivo</h2>
+<p>A aplicação considerada será um censo global fictício de seis (6) bilhões de pessoas. Os dados considerados são: sexo (F/M), idade (0-127), renda mensal (0- 1023) * US$1000/ano, escolaridade (0-3), idioma (0-4095), país (0-255), localizador (coordenadas geográficas da pessoa responsável pelo censo). Os dados serão gerados aleatoriamente respeitando os intervalos definidos.</p>
 
-<p>Introduzir os técnicas avançadas para armazenamento e manipulação de dados.</p>
+<h3 id="sistema-de-arquivos-binários">Sistema de arquivos binários</h3>
 
-<h2 id="ementa">Ementa</h2>
+<p>O sistema de arquivos binários é basicamente o que vocês tiveram de utilizar nas disciplinas
+de AEDS. É criado um programa em C /C++/Java/etc que define uma estrutura em registro
+utilizando de preferência campos binários e inteiros. Por exemplo, sexo não será um campo
+char que registra ‘F’ e ‘M’, mas sim um bit 0 ou 1 (o qual será interpretado pelo programa
+como feminino ou masculino). O banco de dados pode ser um arquivo binário com todos os registros armazenados da seguinte maneir a: 1 bit sexo, 7-bits idade, 10-bits renda, 2-bits escolaridade, 12
+-bits idioma, 8-bits país, 24-bits localizador. O processo de consulta será igualmente através do programa C/C++/Java, o qual pode apresentar um menu com as consultas fixas que podem ser realizadas.</p>
 
-<p>Ordenação de dados; Árvores; Tabelas;</p>
+<h3 id="banco-de-dados-relacional">Banco de dados relacional</h3>
 
-<h2 id="bibliografia">Bibliografia</h2>
+<p>O banco de dados relacional será definido utilizando uma modelagem simples com todos os
+dados em uma única tabela – seguindo o estilo do arquivo binário cuja interpretação dos
+dados é realizada pelo programa que o utiliza (até para permitir uma comparação mais justa).
+O processo de consulta será realizado via SQL através da interface do próprio SGBD. Sugere-se utilizar os SGBDs free MySQL ou PostgreSQL.</p>
 
-<ul>
-  <li>WIRTH, N. Algoritmos e estruturas de dados. Rio de Janeiro: Prentice Hall do Brasil, 1989</li>
-  <li>VELOSO, P., SANTOS, C. S., AZEREDO, P. A., FURTADO, A. L. Estruturas de dados. 3.ed. Rio de Janeiro: Campus, 1985</li>
-</ul>
+<h3 id="espaço">Espaço</h3>
 
-<h2 id="avaliação">Avaliação</h2>
+<p>Após c
+riar os dados aleatoriamente
+para todas as pessoas, o espaço utiliz
+ado pelo arquivo
+binário e pelo bancos de dados deve ser informada.</p>
 
-<ol>
-  <li>Exercícios em sala: 3.5 pontos (0.5pt cada exercício)</li>
-  <li>Prova do primeiro bimestre: 5.5 pontos</li>
-  <li>Seminário: 5 pontos</li>
-  <li>Projeto de disciplina (PD): 6 pontos</li>
-  <li>Atividade extra (AE): 1 ponto</li>
-</ol>
+<h3 id="tempo">Tempo</h3>
 
-<h3 id="seminário">Seminário</h3>
+<p>Para cada consulta, deverá ser medido o tempo para processar cada uma pela primeira vez, e o tempo médio para processar cada três (3) vezes seguidas. O tempo pode ser informado em <em>ms</em> ou <em>s</em>. Ao final, deve-se apresentar os resultados tabulados [#consulta, t_binario, t_sgbd] ou em gráficos.</p>
 
-<p>O seminário é uma apresentação de tópicos <strong>não abordados</strong> na disciplina, como por exemplo:</p>
+<h3 id="consultas">Consultas</h3>
 
-<ul>
-  <li>Arvore B (remoção)</li>
-  <li>Arvore B* (inserção e busca)</li>
-  <li>Acesso concorrente em Arvore B* (inserção e busca)</li>
-  <li>Hashing (funções de transformação, colisões &amp; listas encadeadas, endereçamento aberto)</li>
-</ul>
+<p>```SELECT país, sexo, count(*)
+FROM pessoas
+GROUP BY país, sexo;</p>
 
-<p>O seminário é em <strong>dupla</strong> e pode ser feito usando slides ou o quadro com piloto e apagador. Cada apresentação deve conter:</p>
-<ul>
-  <li>Introdução do tópico</li>
-  <li>Exemplo prático</li>
-  <li>Exercícios para serem resolvidos em sala</li>
-</ul>
+<p>SELECT país, sexo, idade, count(*)
+FROM pessoas
+GROUP BY país, sexo, idade;</p>
 
-<p>Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar para o slack um artigo científico que aborde o tema que será apresentado. Todos os alunos que não apresentarem devem fazer o resumo do artigo enviado (em dupla). O resumo deve ter no mínimo uma folha, e deve ser entregue (impresso) ao fim do seminário correspondente para o professor. Não serão aceitos resumos entregues fora do prazo.</p>
+<p>SELECT país, sexo, avg(salario)
+FROM pessoas
+GROUP BY país, sexo;</p>
 
-<p><strong>Pontuação do seminário:</strong></p>
+<p>SELECT país, sexo, avg(idade)
+FROM pessoas
+GROUP BY país, sexo;</p>
 
-<ul>
-  <li>Apresentação do seminário: 2.50</li>
-  <li>Entrega dos resumos: 2.50 (ou .50 por resumo)</li>
-  <li>A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, o professor enviará um novo artigo e os demais alunos terão um novo prazo para entregar o resumo.</li>
-</ul>
+<p>SELECT país, sexo, count(*)
+FROM pessoas
+WHERE país = 15
+GROUP BY país, sexo;</p>
 
-<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+<p>SELECT país, sexo, count(*)
+FROM pessoas
+WHERE país = 15 AND sexo = 1;</p>
 
-<ul>
-  <li>A ser definido</li>
-</ul>
+<p>SELECT país, sexo, count(*)
+FROM pessoas
+WHERE país &gt;=0 AND país &lt;=15
+GROUP BY país, sexo;
+```</p>
 
-<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+<h3 id="consulta-avançada">Consulta avançada</h3>
 
-<p>Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 02/10. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+<p>Crie três consultas quais quer utilizando os demais dados em conjunto com país.</p>
 
-<h2 id="nota-final">Nota final</h2>
+<h3 id="finalmente">Finalmente</h3>
 
-<p>Soma de todas as atividades dividido por dois.</p>
-
-<h2 id="cronograma">Cronograma</h2>
-
-<p>Passível de alterações.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>#</td>
-      <td>Data</td>
-      <td>Conteúdo de Aula</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>28/08</td>
-      <td>Apresentação da disciplina, Revisão de conceitos</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>30/08</td>
-      <td>Árvores e Árvores Binárias</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>04/09</td>
-      <td>Árvores Binárias (cont)</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>06/09</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>11/09</td>
-      <td>Árvores AVL</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>13/09</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>18/09</td>
-      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>20/09</td>
-      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>25/09</td>
-      <td>Árvores Rubro Negra</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>27/09</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>02/10</td>
-      <td>Árvore B; Definição das equipes do seminário</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>04/10</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>09/10</td>
-      <td>Árvore 2-3</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>11/10</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>16/10</td>
-      <td>Árvore Trie</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>18/10</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>23/10</td>
-      <td>Árvore Radix</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>25/10</td>
-      <td>Exercício em sala</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>30/10</td>
-      <td>Seminário 1</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>01/11</td>
-      <td>Seminário 2</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>06/11</td>
-      <td>Seminário 3</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>08/11</td>
-      <td>Seminário 4</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>13/11</td>
-      <td>Seminário 5</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>15/11</td>
-      <td><strong><em>FERIADO</em></strong></td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>20/11</td>
-      <td>Definição de atividades do projeto</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>22/11</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>27/11</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>29/11</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>04/12</td>
-      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>06/12</td>
-      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>11/12</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>13/12</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>30</td>
-      <td>18/12</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-    <tr>
-      <td>31</td>
-      <td>20/12</td>
-      <td>Acompanhamento das atividades</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="entrega-atrasada">Entrega atrasada</h2>
-
-<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
-
-<h2 id="política-de-plágio">Política de plágio</h2>
-
-<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
-
-<h2 id="pontuação-extra">Pontuação extra</h2>
-
-<p>Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.</p>
+<p>Analise seus resultados. Por consulta ou por grupos de consultas, por que uma
+implementação foi melhor/pior que as demais?</p>
 
         
       </section>
