@@ -36,7 +36,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 1. Exercícios em sala: 4 pontos (1pt cada exercício)
 2. Prova do primeiro bimestre: 4 pontos
 3. Seminário (PD): 5 pontos
-3. Projeto de discipina (PD): 10 pontos
+3. Projeto de discipina (PD): 7 pontos
 4. Atividade extra (AE): 1 ponto
 
 ### Seminário
@@ -59,7 +59,7 @@ Para garantir que todos apresentem no horário: É necessário enviar o PDF da a
 
 ### Atividade Extra (AE)
 
-AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 02/10. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
+Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.
 
 ## Nota final
 
@@ -73,13 +73,13 @@ Passível de alterações.
 | 1 | 28/08 | Introdução e Revisão SQL      |
 | 2 | 30/08 | Transação                     |
 | 3 | 04/09 | Transação                     |
-| 3 | 06/09 | Exercício em sala             |
-| 5 | 11/09 | Armazenamento                 |
-| 6 | 13/09 | Armazenamento                 |
+| 3 | 06/09 | Exercício em sala (talvez esteja ausente)            |
+| 5 | 11/09 | Concorrência                  |
+| 6 | 13/09 | Concorrência                  |
 | 7 | 18/09 | ***NAO TEREMOS AULA***        |
 | 8 | 20/09 | ***NAO TEREMOS AULA***        |
-| 8 | 25/09 | Concorrência                  |
-| 9 | 27/09 | Concorrência                  |
+| 8 | 25/09 | Armazenamento                 |
+| 9 | 27/09 | Armazenamento                 |
 | 10 | 02/10 | Exercício em sala            |
 | 11 | 04/10 | Recuperação                  |
 | 12 | 09/10 | Recuperação                  |
