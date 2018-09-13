@@ -5,7 +5,7 @@ permalink: /publications/
 
 ## 2018
 
-1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](#)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
+1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](http://gustavopinto.github.io/lost+found/icse2018b.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018b.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
@@ -52,7 +52,7 @@ permalink: /publications/
 11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice](http://gustavopinto.github.io/lost+found/esem2018.pdf)". Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
 
-12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). [Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf). Accepted for Software: Practice & Experience, 2018. <br>
+12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). [Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf). Accepted for Software: Practice & Experience, 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)

@@ -91,11 +91,11 @@ Passível de alterações.
 | 14 | 18/10 | Exercício em sala |
 | 15 | 23/10 | Árvore Radix |
 | 16 | 25/10 | Exercício em sala |
-| 17 | 30/10 | Seminário 1 |
-| 17 | 01/11 | Seminário 2 |
-| 18 | 06/11 | Seminário 3 |
-| 19 | 08/11 | Seminário 4 |
-| 20 | 13/11 | Seminário 5 |
+| 17 | 30/10 | ***Prova*** |
+| 17 | 01/11 | Seminário 1 |
+| 18 | 06/11 | Seminário 2 |
+| 19 | 08/11 | Seminário 3 |
+| 20 | 13/11 | Seminário 4 |
 | 21 | 15/11 | ***FERIADO*** |
 | 22 | 20/11 | Definição de atividades do projeto |
 | 23 | 22/11 | Acompanhamento das atividades |
