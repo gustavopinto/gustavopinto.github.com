@@ -64,6 +64,7 @@ permalink: /publications/
 
 14. Clarice Ferreira, Cleice Souza, **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
+&#8226; [<i class="fa fa-fw fa-plus" aria-hidden="true"></i>More](/publications/sbes2018)
 
 15. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2018.pdf)
