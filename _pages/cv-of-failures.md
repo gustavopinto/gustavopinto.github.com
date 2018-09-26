@@ -12,11 +12,11 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (12)
+## Journal papers rejected (13)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
-- Empirical Software Engineering Journal: 2017
+- Empirical Software Engineering Journal: 2017, 2018
 - Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
 - Journal of Internet Services and Applications: 2018
@@ -39,8 +39,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (8)
+## Grant proposals rejected (9)
 
+- BASA research grant, 2018 (budget: U$ 30,000)
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)

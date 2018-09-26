@@ -10,7 +10,13 @@ If you still want to apply, **I strongly recommend you** to talk with some of my
 
 ### Requirements
 
-There are some basic skills and requirements you should carefully consider before applying for a urop/master/PhD position under my supervision. Here is some advice (in no priority order):
+There are some basic skills and requirements you should carefully consider before applying for a urop/master/PhD position under my supervision.
+
+The most important skill is to ***answer email quickly***. From Monday to Friday, I'd expect that an email should be answered in at most 24 hours. If you do not use email frequently (e.g., once a day), please ***do not apply*** for any position with me.
+
+Work is not your life, so I expect students to pursue a personal life. I do not expect any email to be answered during the Weekends.
+
+There are some also additional important skills (in no priority order):
 
 - learn how to use svn and git
 - learn how to write in LaTeX
@@ -21,8 +27,6 @@ There are some basic skills and requirements you should carefully consider befor
 
 
 ## Current students
-
-I am privileged to work with the following talented students:
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Gilson Rocha (MS)
