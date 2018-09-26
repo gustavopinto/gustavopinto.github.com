@@ -51,7 +51,7 @@ A apresentação deve conter: configuração da máquina (HD, memória, cache, S
 
 A entrega do relatório e a apresentação do trabalho será no dia 23/10. Cada dupla (ou aluno, caso seja individual) terá 15 minutos de apresentação mais 3 minuto para questionamento. Terá penalidade de 1 ponto para quem estourar o tempo (**ENSAIEM!**)
 
-Para garantir que todos apresentem no horário: É necessário enviar o PDF da apresentação e do relatório para o grupo do Slack até às 23:00hs do dia 22/10. Os arquivos devem ser nomeados como "relatorio-nome.pdf" e "apresentacao-nome.pdf", onde "nome" é o nome de *UM* aluno (mesmo para grupos). O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
+Para garantir que todos apresentem no horário: É necessário enviar o PDF da apresentação e do relatório para o grupo do Slack até às 23:00hs do dia 22/10. Os arquivos devem ser nomeados como "relatorio-nome.pdf" e "apresentacao-nome.pdf", onde "nome" é o nome de *UM* aluno (mesmo para duplas). O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
 
 ### Projeto de disciplina (PD)
 
