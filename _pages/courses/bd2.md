@@ -30,7 +30,6 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 - [Deadlocks as Runtime Exceptions](https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf)
 
-
 ## Avaliação
 
 1. Exercícios em sala: 4 pontos (1pt cada exercício)
@@ -61,7 +60,9 @@ Exemplo de projeto de disciplina:
 
 ### Atividade Extra (AE)
 
-Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.
+- Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.
+- Ler o artigo [Deadlocks as Runtime Exceptions](https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf) e entregar um resumo de 2 folhas no dia 27/09. Vale 0.5 pontos.
+- Fazer uma contribuição a um projeto de software livre durante o mês de outubro (1 ponto). A contribuição precisa ser relacionada a código (documentação não conta) de um projeto (ou parte de um projeto) de banco de dados.
 
 ## Nota final
 
@@ -81,10 +82,10 @@ Passível de alterações.
 | 7 | 18/09 | ***NAO TEREMOS AULA***        |
 | 8 | 20/09 | ***NAO TEREMOS AULA***        |
 | 8 | 25/09 | Concorrência                  |
-| 9 | 27/09 | Armazenamento                 |
-| 10 | 02/10 | Armazenamento                |
+| 9 | 27/09 | ***NAO TIVEMOS AULA***        |
+| 10 | 02/10 | ***MIRANTE FECHADO***        |
 | 11 | 04/10 | Exercício em sala            |
-| 12 | 09/10 | Recuperação                  |
+| 12 | 09/10 | Armazenamento                |
 | 12 | 11/10 | Recuperação                  |
 | 13 | 16/10 | Segurança                    |
 | 14 | 18/10 | Exercício em sala            |
