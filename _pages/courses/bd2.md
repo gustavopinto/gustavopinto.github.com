@@ -28,15 +28,14 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 ### Material extra
 
-- A ser definido
-
+- [Deadlocks as Runtime Exceptions](https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf)
 
 ## Avaliação
 
 1. Exercícios em sala: 4 pontos (1pt cada exercício)
 2. Prova do primeiro bimestre: 4 pontos
 3. Seminário (PD): 5 pontos
-3. Projeto de discipina (PD): 7 pontos
+3. Projeto de discipina: 7 pontos
 4. Atividade extra (AE): 1 ponto
 
 ### Seminário
@@ -51,15 +50,19 @@ A apresentação deve conter: configuração da máquina (HD, memória, cache, S
 
 A entrega do relatório e a apresentação do trabalho será no dia 23/10. Cada dupla (ou aluno, caso seja individual) terá 15 minutos de apresentação mais 3 minuto para questionamento. Terá penalidade de 1 ponto para quem estourar o tempo (**ENSAIEM!**)
 
-Para garantir que todos apresentem no horário: É necessário enviar o PDF da apresentação e do relatório para o grupo do Slack até às 23:00hs do dia 22/10. Os arquivos devem ser nomeados como "relatorio-nome.pdf" e "apresentacao-nome.pdf", onde "nome" é o nome de *UM* aluno (mesmo para grupos). O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
+Para garantir que todos apresentem no horário: É necessário enviar o PDF da apresentação e do relatório para o grupo do Slack até às 23:00hs do dia 22/10. Os arquivos devem ser nomeados como "relatorio-nome.pdf" e "apresentacao-nome.pdf", onde "nome" é o nome de *UM* aluno (mesmo para duplas). O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
 
 ### Projeto de disciplina (PD)
 
-- A ser definido (possivelmente usando o ghtorrent)
+Exemplo de projeto de disciplina:
+
+- Se familiarize com o GHTrorrent (http://ghtorrent.org/). Baixe e instale três dumps disponíveis online (http://ghtorrent.org/downloads.html). Após configurar, faça uma análise com relação ao nível dos contribuintes: quantos são os mais ativos? quantos são os menos ativos? quantos são os que fizeram pull requests negados? de qual localidade eles são?
 
 ### Atividade Extra (AE)
 
-Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.
+- Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.
+- Ler o artigo [Deadlocks as Runtime Exceptions](https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf) e entregar um resumo de 2 folhas no dia 27/09. Vale 0.5 pontos.
+- Fazer uma contribuição a um projeto de software livre durante o mês de outubro (1 ponto). A contribuição precisa ser relacionada a código (documentação não conta) de um projeto (ou parte de um projeto) de banco de dados.
 
 ## Nota final
 
@@ -78,17 +81,17 @@ Passível de alterações.
 | 6 | 13/09 | Concorrência                  |
 | 7 | 18/09 | ***NAO TEREMOS AULA***        |
 | 8 | 20/09 | ***NAO TEREMOS AULA***        |
-| 8 | 25/09 | Armazenamento                 |
-| 9 | 27/09 | Armazenamento                 |
-| 10 | 02/10 | Exercício em sala            |
-| 11 | 04/10 | Recuperação                  |
-| 12 | 09/10 | Recuperação                  |
-| 12 | 11/10 | Segurança                    |
-| 13 | 16/10 | Exercício em sala            |
-| 14 | 18/10 | Seminário parte 1            |
-| 15 | 23/10 | Seminário parte 2            |
-| 16 | 25/10 | Prova                        |
-| 17 | 30/10 | ---                          |
+| 8 | 25/09 | Concorrência                  |
+| 9 | 27/09 | ***NAO TIVEMOS AULA***        |
+| 10 | 02/10 | ***MIRANTE FECHADO***        |
+| 11 | 04/10 | Exercício em sala            |
+| 12 | 09/10 | Armazenamento                |
+| 12 | 11/10 | Recuperação                  |
+| 13 | 16/10 | Segurança                    |
+| 14 | 18/10 | Exercício em sala            |
+| 15 | 23/10 | Seminário parte 1            |
+| 16 | 25/10 | Seminário parte 2            |
+| 17 | 30/10 | Prova                        |
 | 17 | 01/11 | Discussão do Trabalho Final  |
 | 18 | 06/11 | NoSQL parte 1 |
 | 19 | 08/11 | NoSQL parte 2 |
@@ -102,8 +105,8 @@ Passível de alterações.
 | 27 | 06/12 | ***NAO TEREMOS ACOMPANHAMENTO*** |
 | 28 | 11/12 | Acompanhamento das atividades |
 | 29 | 13/12 | Acompanhamento das atividades |
-| 30 | 18/12 | Acompanhamento das atividades |
-| 31 | 20/12 | Acompanhamento das atividades |
+| 30 | 18/12 | Apresentação PD |
+| 31 | 20/12 | Apresentação PD |
 
 
 ## Entrega atrasada

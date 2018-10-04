@@ -26,6 +26,9 @@ Ordenação de dados; Árvores; Tabelas;
 - WIRTH, N. Algoritmos e estruturas de dados. Rio de Janeiro: Prentice Hall do Brasil, 1989
 - VELOSO, P., SANTOS, C. S., AZEREDO, P. A., FURTADO, A. L. Estruturas de dados. 3.ed. Rio de Janeiro: Campus, 1985
 
+## Material extra
+- [Balanced binary search trees - AVL trees, 2-3 trees, B trees](http://courses.washington.edu/css502/zander/Notes/06AVL-Btree.pdf)
+
 ## Avaliação
 
 1. Exercícios em sala: 3.5 pontos (0.5pt cada exercício)
@@ -81,15 +84,15 @@ Passível de alterações.
 | 6 | 13/09 | Exercício em sala |
 | 7 | 18/09 | ***NAO TEREMOS AULA*** |
 | 8 | 20/09 | ***NAO TEREMOS AULA*** |
-| 8 | 25/09 | Árvores Rubro Negra |
+| 8 | 25/09 | Árvore B |
 | 9 | 27/09 | Exercício em sala |
-| 10 | 02/10 | Árvore B; Definição das equipes do seminário |
+| 10 | 02/10 | Árvore 2-3  & Árvore Trie (Definição das equipes do seminário) |
 | 11 | 04/10 | Exercício em sala |
-| 12 | 09/10 | Árvore 2-3 |
+| 12 | 09/10 | Árvore B+ |
 | 12 | 11/10 | Exercício em sala |
-| 13 | 16/10 | Árvore Trie |
+| 13 | 16/10 | Árvore Radix      |
 | 14 | 18/10 | Exercício em sala |
-| 15 | 23/10 | Árvore Radix |
+| 15 | 23/10 | Árvores Rubro Negra         |
 | 16 | 25/10 | Exercício em sala |
 | 17 | 30/10 | ***Prova*** |
 | 17 | 01/11 | Seminário 1 |
