@@ -8,7 +8,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 <center><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/IEEEICSME?ref_src=twsrc%5Etfw">@IEEEICSME</a> for reminding me that is time to update my CV of failure ~&gt; <a href="https://t.co/7CXV8WdxjQ">https://t.co/7CXV8WdxjQ</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1003685173924388864?ref_src=twsrc%5Etfw">June 4, 2018</a></blockquote></center>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I don't like rejections, but I try to see rejections as an opportunity to improve even further. Still, rejections might also indicate that you have been working hard. As so, by 2021, ***my goal is to have 100+ rejections.***
+I don't like rejections, but I try to see rejections as an opportunity to improve even further. Still, if you have many rejections, it might also indicate that you have been working hard. As so, by 2021, ***my goal is to have 100+ rejections.***
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
@@ -22,7 +22,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Journal of Internet Services and Applications: 2018
 - Software: Practice and Experience: 2014
 
-## Conference papers rejected (24)
+## Conference papers rejected (25)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -33,7 +33,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ESEM: 2016, 2017, 2018 (2x)
 - FSE: 2018
 - GPCE: 2015
-- ICSE: 2017 (2x)
+- ICSE: 2017 (2x), 2019
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018
 - XP: 2017
