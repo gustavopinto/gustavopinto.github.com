@@ -5,7 +5,7 @@ permalink: /publications/
 
 ## 2019
 
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019.<br/>
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), Gustavo Pinto. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
 
 
@@ -45,7 +45,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/chase2018-talk.pdf)
 &#8226;
-[<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/splash-poster2013-poster.pdf)
+[<i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>Poster](http://gustavopinto.github.io/lost+found/chase2018-poster.pdf)
 
 9. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[Leaving Behind the Software History When Transitioning to Open-Source: Reasons and Implications](http://gustavopinto.github.io/lost+found/oss2018.pdf)". Accepted to the 14th International Conference of Open-Source Systems (OSS), Athens, Greece, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2018.pdf)
