@@ -12,7 +12,7 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (13)
+## Journal papers rejected (14)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
@@ -20,6 +20,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
 - Journal of Internet Services and Applications: 2018
+- PeerJ Computer Science: 2018
 - Software: Practice and Experience: 2014
 
 ## Conference papers rejected (24)
