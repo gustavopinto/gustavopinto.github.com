@@ -32,6 +32,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 - [Algorithms Behind Modern Storage Systems](https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext)
 - [Seeking an efficient algorithm to group identical values](https://lemire.me/blog/2008/05/01/i-am-seeking-an-efficient-algorithm-to-group-identical-values-in-an-array/)
 - [The design and implementation of modern column-oriented database systems](https://blog.acolyer.org/2018/09/26/the-design-and-implementation-of-modern-column-oriented-database-systems/)
+- [Four security flaws illustrated, all on one conference registration site](http://andreas-zeller.blogspot.com/2016/04/how-i-twice-hacked-conference.html)
 
 ## Avaliação
 
