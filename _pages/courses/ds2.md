@@ -65,7 +65,7 @@ Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar par
 
 ### Atividade Extra (AE)
 
-Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 02/10. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
+Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 20/11. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.
 
 ## Nota final
 
@@ -90,17 +90,17 @@ Passível de alterações.
 | 11 | 04/10 | Exercício em sala |
 | 12 | 09/10 | Árvore B+ |
 | 12 | 11/10 | Exercício em sala |
-| 13 | 16/10 | Árvore Radix      |
-| 14 | 18/10 | Exercício em sala |
-| 15 | 23/10 | Árvores Rubro Negra         |
-| 16 | 25/10 | Exercício em sala |
-| 17 | 30/10 | ***Prova*** |
-| 17 | 01/11 | Seminário 1 |
-| 18 | 06/11 | Seminário 2 |
-| 19 | 08/11 | Seminário 3 |
-| 20 | 13/11 | Seminário 4 |
+| 13 | 16/10 | ***NAO TIVEMOS AULA***      |
+| 14 | 18/10 | Árvore Radix |
+| 15 | 23/10 | Exercício em sala      |
+| 16 | 25/10 | Árvore Rubro Negra |
+| 17 | 30/10 | Exercício em sala  |
+| 17 | 01/11 | ***Prova*** |
+| 18 | 06/11 | Seminário 1 |
+| 19 | 08/11 | Seminário 2 |
+| 20 | 13/11 | Seminário 3 |
 | 21 | 15/11 | ***FERIADO*** |
-| 22 | 20/11 | Definição de atividades do projeto |
+| 22 | 20/11 | Definição de atividades do projeto & entrega da AE |
 | 23 | 22/11 | Acompanhamento das atividades |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |
