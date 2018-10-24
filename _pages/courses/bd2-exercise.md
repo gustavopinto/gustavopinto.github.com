@@ -69,7 +69,8 @@ GROUP BY país, sexo;
 
 SELECT país, sexo, count(*)
 FROM pessoas
-WHERE país = 15 AND sexo = 1;
+WHERE país = 15 AND sexo = 1
+GROUP BY país, sexo;
 
 SELECT país, sexo, count(*)
 FROM pessoas

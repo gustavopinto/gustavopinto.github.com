@@ -28,6 +28,8 @@ Ordenação de dados; Árvores; Tabelas;
 
 ## Material extra
 - [Balanced binary search trees - AVL trees, 2-3 trees, B trees](http://courses.washington.edu/css502/zander/Notes/06AVL-Btree.pdf)
+- [Algorithms Behind Modern Storage Systems](https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext)
+- [Blist: uma implementação de B+ tree em Python](https://pypi.org/project/blist/)
 
 ## Avaliação
 
