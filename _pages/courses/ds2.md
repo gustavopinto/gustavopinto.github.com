@@ -30,6 +30,7 @@ Ordenação de dados; Árvores; Tabelas;
 - [Balanced binary search trees - AVL trees, 2-3 trees, B trees](http://courses.washington.edu/css502/zander/Notes/06AVL-Btree.pdf)
 - [Algorithms Behind Modern Storage Systems](https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext)
 - [Blist: uma implementação de B+ tree em Python](https://pypi.org/project/blist/)
+- [Fast Algorithms for Sorting and Searching Strings](http://akira.ruc.dk/~keld/teaching/algoritmedesign_f04/Artikler/04/Bentley99.pdf)
 
 ## Avaliação
 
@@ -95,14 +96,14 @@ Passível de alterações.
 | 13 | 16/10 | ***NAO TIVEMOS AULA***      |
 | 14 | 18/10 | Árvore Radix |
 | 15 | 23/10 | Exercício em sala      |
-| 16 | 25/10 | Árvore Rubro Negra |
+| 16 | 25/10 | Árvore Ternária de busca |
 | 17 | 30/10 | Exercício em sala  |
 | 17 | 01/11 | ***Prova*** |
 | 18 | 06/11 | Seminário 1 |
-| 19 | 08/11 | Seminário 2 |
-| 20 | 13/11 | Seminário 3 |
+| 19 | 08/11 | ***NAO TEREMOS AULA*** |
+| 20 | 13/11 | Seminário 2 |
 | 21 | 15/11 | ***FERIADO*** |
-| 22 | 20/11 | Definição de atividades do projeto & entrega da AE |
+| 22 | 20/11 | Seminario 3 & entrega da AE |
 | 23 | 22/11 | Acompanhamento das atividades |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |

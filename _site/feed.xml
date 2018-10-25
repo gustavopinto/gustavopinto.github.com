@@ -1,24 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-<generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator>
-<link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
-<link href="http://localhost:4000/" rel="alternate" type="text/html" />
-<updated>2018-10-23T21:11:13-03:00</updated>
-<id>http://localhost:4000/</id>
-<title>Gustavo Pinto</title>
-<subtitle>Professional webpage for Gustavo Pinto.</subtitle>
-<author>
-<name>Gustavo Pinto</name>
-<email>gpinto@ufpa.br</email>
-<uri>http://www.gustavopinto.org</uri>
-</author>
-<entry>
-<title>How do Scientists Develop Software</title>
-<link href="http://localhost:4000/blog/how-do-scientists-develop-software/" rel="alternate" type="text/html" title="How do Scientists Develop Software" />
-<published>2018-02-26T00:00:00-03:00</published>
-<updated>2018-02-26T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/how-do-scientists-develop-software</id>
-<content type="html" xml:base="http://localhost:4000/blog/how-do-scientists-develop-software/">&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.org/lost+found/saner-rene2018.pdf&quot;&gt;How Do Scientists Develop Scientific Software? An External Replication&lt;/a&gt;”. As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about &lt;a href=&quot;http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf&quot;&gt;how scientists develop and use software&lt;/a&gt;. The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-25T15:27:16-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">How do Scientists Develop Software</title><link href="http://localhost:4000/blog/how-do-scientists-develop-software/" rel="alternate" type="text/html" title="How do Scientists Develop Software" /><published>2018-02-26T00:00:00-03:00</published><updated>2018-02-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-do-scientists-develop-software</id><content type="html" xml:base="http://localhost:4000/blog/how-do-scientists-develop-software/">&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.org/lost+found/saner-rene2018.pdf&quot;&gt;How Do Scientists Develop Scientific Software? An External Replication&lt;/a&gt;”. As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about &lt;a href=&quot;http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf&quot;&gt;how scientists develop and use software&lt;/a&gt;. The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.&lt;/p&gt;
 
 &lt;p&gt;In the original study, the authors conducted an on-line survey with 2,000 scientists. In our replication, we surveyed 1,574 R developers. One might argue that not all R developers are indeed scientists. We concur. To mitigate this threat, in our invitation email we kindly asked R developers that do not consider themselves as scientists not to answer the questionnaire. We also asked them not to share the questionnaire with their peers, since some of them might not be scientists as well. We also mined their R repositories to complement some of the findings. For instance, the following figure shows the number of projects with commits in the master branch over the last decade.&lt;/p&gt;
 
@@ -67,17 +47,7 @@
       &lt;td&gt;After performed the ANOVA test, we could not reject the null hypothesis that project and team size influences the respondent’s perceptions about the software engineering concepts, once all p-values were higher than 0.05.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;
-</content>
-<summary>A summary of a SANER’18 paper</summary>
-</entry>
-<entry>
-<title>What are quasi-contributors and how common are them?</title>
-<link href="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/" rel="alternate" type="text/html" title="What are quasi-contributors and how common are them?" />
-<published>2018-02-11T00:00:00-03:00</published>
-<updated>2018-02-11T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them</id>
-<content type="html" xml:base="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/">&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;/table&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'18 paper</summary></entry><entry><title type="html">What are quasi-contributors and how common are them?</title><link href="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/" rel="alternate" type="text/html" title="What are quasi-contributors and how common are them?" /><published>2018-02-11T00:00:00-03:00</published><updated>2018-02-11T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them</id><content type="html" xml:base="http://localhost:4000/blog/what-are-quasi-contributors-and-how-common-are-them/">&lt;p&gt;TL;DR&lt;/p&gt;
 
 &lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/icse2018.pdf&quot;&gt;Almost There: A Study on Quasi-Contributors in Open-Source Software Projects&lt;/a&gt;”. Quasi-contributor is a contributor that tried to contribute to open-source software but did not succeed, i.e., the pull-request was not accepted, for any reason. For the impatient, there is a summary of the summary:&lt;/p&gt;
 
@@ -101,17 +71,7 @@
 
 &lt;p&gt;We conducted a survey with quasi-contributors, and they mentioned several reasons for why the pull-request proposed was not accepted. The most common reason is &lt;strong&gt;superseded/duplicated&lt;/strong&gt; pull-request (e.g., “Other pull-requests fixed the same issues as my pull-requests”). &lt;strong&gt;Mismatch between developer’s and team’s vision/opinion&lt;/strong&gt; is also common (e.g., “when you add a new feature to the project, your vision can be out of tune with the vision of the project’s team, and this is natural”). We also observed a &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; (e.g. “It was ignored maybe because it was a very minor fix”). We also asked integrators about the reasons for non-acceptance. According to them, the most common reason for nonacceptance is &lt;strong&gt;PR not needed/not relevant&lt;/strong&gt; (e.g., “[such contribution] solves the immediate/local problem but does not address the deeper systemic issue”). The second most common reason is &lt;strong&gt;Guidelines not followed&lt;/strong&gt;. According to one integrator, such guidelines can range from “coding style, lack of tests, or messy versioning history”. Interestingly, none of the integrators assumed the mea culpa, i.e., the &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; aforementioned.&lt;/p&gt;
 
-&lt;p&gt;Most of the quasi-contributors surveyed agreed with the decision of having the pull-request unmerged (67.4%) and that the comments were constructive (88.8%). However, the number of unmerged pull-requests, the 30.3% of the developers that reported demotivation, and the 32.6% that reported disagreement with the community decision are not negligible. Moreover, 99 quasi-contributors did not agree with the pull-request nonacceptance, and 62.6% of them (62) answered that this fact demotivated or prevented them from placing another pull-request.&lt;/p&gt;
-</content>
-<summary>A summary of an ICSE’18 paper</summary>
-</entry>
-<entry>
-<title>A call for good figures in research papers</title>
-<link href="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/" rel="alternate" type="text/html" title="A call for good figures in research papers" />
-<published>2018-01-09T00:00:00-03:00</published>
-<updated>2018-01-09T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/a-call-for-good-figures-in-research-papers</id>
-<content type="html" xml:base="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/">&lt;p&gt;Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about &lt;a href=&quot;http://shop.oreilly.com/product/0636920034919.do&quot;&gt;data science&lt;/a&gt; in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a &lt;a href=&quot;http://gustavopinto.org/lost+found/jss_2015.pdf&quot;&gt;30+ pages paper&lt;/a&gt; that we have been working on for, at least, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;3 years&lt;/a&gt;. Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).&lt;/p&gt;
+&lt;p&gt;Most of the quasi-contributors surveyed agreed with the decision of having the pull-request unmerged (67.4%) and that the comments were constructive (88.8%). However, the number of unmerged pull-requests, the 30.3% of the developers that reported demotivation, and the 32.6% that reported disagreement with the community decision are not negligible. Moreover, 99 quasi-contributors did not agree with the pull-request nonacceptance, and 62.6% of them (62) answered that this fact demotivated or prevented them from placing another pull-request.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ICSE'18 paper</summary></entry><entry><title type="html">A call for good figures in research papers</title><link href="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/" rel="alternate" type="text/html" title="A call for good figures in research papers" /><published>2018-01-09T00:00:00-03:00</published><updated>2018-01-09T00:00:00-03:00</updated><id>http://localhost:4000/blog/a-call-for-good-figures-in-research-papers</id><content type="html" xml:base="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/">&lt;p&gt;Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about &lt;a href=&quot;http://shop.oreilly.com/product/0636920034919.do&quot;&gt;data science&lt;/a&gt; in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a &lt;a href=&quot;http://gustavopinto.org/lost+found/jss_2015.pdf&quot;&gt;30+ pages paper&lt;/a&gt; that we have been working on for, at least, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;3 years&lt;/a&gt;. Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).&lt;/p&gt;
 
 &lt;p&gt;But it was not always like that. In the first paper published during my phd, I used OpenOffice to create the figures. By the time, the quality of the figure didn’t bother much me; In fact, I was still learning what is research and how to do it. The quality of the figures was not more important than trying to finish a 6-page paper and submit for that first edition workshop that we never heard of. As a result, this figure came along with our workshop paper.&lt;/p&gt;
 
@@ -144,17 +104,7 @@
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Labels with small font&lt;/strong&gt;: This makes it harder to understand the meaning of the figure (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/ase2017.pdf&quot;&gt;fig 5 of this paper&lt;/a&gt;). Add to this a low quality JPG figure. No one would understand what the figure is supposed to say. The fix? Increase the font. If necessary, increase the figure size.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-</content>
-<summary>Take care of your figures</summary>
-</entry>
-<entry>
-<title>First year of professoring</title>
-<link href="http://localhost:4000/blog/first-year-of-professoring/" rel="alternate" type="text/html" title="First year of professoring" />
-<published>2018-01-03T00:00:00-03:00</published>
-<updated>2018-01-03T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/first-year-of-professoring</id>
-<content type="html" xml:base="http://localhost:4000/blog/first-year-of-professoring/">&lt;p&gt;While I’m starting my second year of Assistant professor, it is worth to look
+&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Take care of your figures</summary></entry><entry><title type="html">First year of professoring</title><link href="http://localhost:4000/blog/first-year-of-professoring/" rel="alternate" type="text/html" title="First year of professoring" /><published>2018-01-03T00:00:00-03:00</published><updated>2018-01-03T00:00:00-03:00</updated><id>http://localhost:4000/blog/first-year-of-professoring</id><content type="html" xml:base="http://localhost:4000/blog/first-year-of-professoring/">&lt;p&gt;While I’m starting my second year of Assistant professor, it is worth to look
 back and see how was my first year. It may help to improve my professoring
 skills or maybe help someone else who is just about to start his academic
 career. In numbers, last year I taught five courses (all of them new to me),
@@ -247,17 +197,7 @@ I plan to do less of it in 2018.&lt;/p&gt;
 
 &lt;p&gt;Finally, I reviewed 12 papers for four conferences. This is a low rate and I’d
 like to improve it. However, I’ll only receive more invitations if I keep
-publishing good work.&lt;/p&gt;
-</content>
-<summary>A summary of new career</summary>
-</entry>
-<entry>
-<title>Training students with open-source software</title>
-<link href="http://localhost:4000/blog/training-students-with-open-source-software/" rel="alternate" type="text/html" title="Training students with open-source software" />
-<published>2017-08-30T00:00:00-03:00</published>
-<updated>2017-08-30T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/training-students-with-open-source-software</id>
-<content type="html" xml:base="http://localhost:4000/blog/training-students-with-open-source-software/">&lt;p&gt;Following my recent experience with &lt;a href=&quot;http://gustavopinto.org/codefather/posse2017-experience-report/&quot;&gt;POSSE workshop&lt;/a&gt;, I went back decided to put all of that in practice as soon as possible. My setting was an operating system lab, which consisted of 2 hours class per week. The course has two parts: first we cover basic Linux principles and commands, followed by some shell scripting. The second part was about concurrent programming. In such short course, students were introduced to basic threading and synchronization stuff. Although it touches basic concepts, I recognize that the second part is harder than the first one. Concurrent programming is hard itself. Exposing concurrent programming to second year students is even harder. Because of that, I decided to leverage open-source only in the first part of the course.&lt;/p&gt;
+publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of new career</summary></entry><entry><title type="html">Training students with open-source software</title><link href="http://localhost:4000/blog/training-students-with-open-source-software/" rel="alternate" type="text/html" title="Training students with open-source software" /><published>2017-08-30T00:00:00-03:00</published><updated>2017-08-30T00:00:00-03:00</updated><id>http://localhost:4000/blog/training-students-with-open-source-software</id><content type="html" xml:base="http://localhost:4000/blog/training-students-with-open-source-software/">&lt;p&gt;Following my recent experience with &lt;a href=&quot;http://gustavopinto.org/codefather/posse2017-experience-report/&quot;&gt;POSSE workshop&lt;/a&gt;, I went back decided to put all of that in practice as soon as possible. My setting was an operating system lab, which consisted of 2 hours class per week. The course has two parts: first we cover basic Linux principles and commands, followed by some shell scripting. The second part was about concurrent programming. In such short course, students were introduced to basic threading and synchronization stuff. Although it touches basic concepts, I recognize that the second part is harder than the first one. Concurrent programming is hard itself. Exposing concurrent programming to second year students is even harder. Because of that, I decided to leverage open-source only in the first part of the course.&lt;/p&gt;
 
 &lt;p&gt;Since the first part was about Linux and shell script, I motivated students to work with &lt;a href=&quot;https://github.com/funcoeszz/funcoeszz/&quot;&gt;funcoeszz&lt;/a&gt;, which is a long history, fairly active, Brazilian open-source software. More interesting to our subjects is that fact that this project is mostly written in shell script. Another important decision here was to focus on a Brazilian open-source software. Before students joined the project, I thought that students &lt;em&gt;may&lt;/em&gt; benefit from having a community of developers that speak the same language. Turns out that students benefited a lot from sharing the same language. Still regarding the section of the open-source project, I didn’t pay much attention whether funcoeszz had an active community of not. Again, turns out that one of the project maintainers (&lt;a href=&quot;https://github.com/itamarnet&quot;&gt;@itamarnet&lt;/a&gt;) is very active. He answered most (all?) questions that students raised in a timely manner (e.g., many questions were answered in the same day!). Low language barrier and an active community were key (unexpected) decisions.&lt;/p&gt;
 
@@ -282,17 +222,7 @@ publishing good work.&lt;/p&gt;
   &lt;li&gt;Have fun.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;PS: If you are a researcher and this topic interest you, I just published a &lt;a href=&quot;https://github.com/gustavopinto/gustavopinto.github.com/raw/e63b8eac596ff65030a6d82baf67bcbb0019b2dd/_site/lost%2Bfound/cseet2017.pdf&quot;&gt;paper on this topic&lt;/a&gt;. Happy reading.&lt;/p&gt;
-</content>
-<summary>My first experience training students with OSS</summary>
-</entry>
-<entry>
-<title>POSSE 2017 An experience report</title>
-<link href="http://localhost:4000/blog/posse2017-experience-report/" rel="alternate" type="text/html" title="POSSE 2017 An experience report" />
-<published>2017-07-03T00:00:00-03:00</published>
-<updated>2017-07-03T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/posse2017-experience-report</id>
-<content type="html" xml:base="http://localhost:4000/blog/posse2017-experience-report/">&lt;p&gt;POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.&lt;/p&gt;
+&lt;p&gt;PS: If you are a researcher and this topic interest you, I just published a &lt;a href=&quot;https://github.com/gustavopinto/gustavopinto.github.com/raw/e63b8eac596ff65030a6d82baf67bcbb0019b2dd/_site/lost%2Bfound/cseet2017.pdf&quot;&gt;paper on this topic&lt;/a&gt;. Happy reading.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">My first experience training students with OSS</summary></entry><entry><title type="html">POSSE 2017 An experience report</title><link href="http://localhost:4000/blog/posse2017-experience-report/" rel="alternate" type="text/html" title="POSSE 2017 An experience report" /><published>2017-07-03T00:00:00-03:00</published><updated>2017-07-03T00:00:00-03:00</updated><id>http://localhost:4000/blog/posse2017-experience-report</id><content type="html" xml:base="http://localhost:4000/blog/posse2017-experience-report/">&lt;p&gt;POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.&lt;/p&gt;
 
 &lt;p&gt;This year the workshop took place at the beautiful Bologna, Italy. This blog post describes my personal yet biased view about the 2 intensive days of chatting with other professors about CS courses, open-source, pasta, and wine. The workshop was a mix of several lectures and group activities. Although I agree that both parts are equally important, this blog post is focused on the lecture part, which I took some notes  (I did not have time to write down notes during the group activities).&lt;/p&gt;
 
@@ -327,17 +257,7 @@ publishing good work.&lt;/p&gt;
 
 &lt;p&gt;All in all, I think this approach can lead to significantly improvements, in terms of both technical and non-technical skills. I will give it a try soon (and report the result too, hopefully).&lt;/p&gt;
 
-&lt;p&gt;If you have experience teaching CS with FOSS, why not reporting them? I’d love to read.&lt;/p&gt;
-</content>
-<summary>My thoughts about this workshop</summary>
-</entry>
-<entry>
-<title>msr17 in 5 tweets</title>
-<link href="http://localhost:4000/blog/msr17-in-5-tweets/" rel="alternate" type="text/html" title="msr17 in 5 tweets" />
-<published>2017-05-25T00:00:00-03:00</published>
-<updated>2017-05-25T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/msr17-in-5-tweets</id>
-<content type="html" xml:base="http://localhost:4000/blog/msr17-in-5-tweets/">&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;p&gt;If you have experience teaching CS with FOSS, why not reporting them? I’d love to read.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">My thoughts about this workshop</summary></entry><entry><title type="html">msr17 in 5 tweets</title><link href="http://localhost:4000/blog/msr17-in-5-tweets/" rel="alternate" type="text/html" title="msr17 in 5 tweets" /><published>2017-05-25T00:00:00-03:00</published><updated>2017-05-25T00:00:00-03:00</updated><id>http://localhost:4000/blog/msr17-in-5-tweets</id><content type="html" xml:base="http://localhost:4000/blog/msr17-in-5-tweets/">&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;The Mining Software Repositories (MSR) conference is the real place to go, if you want to learn the new advances regarding msr techniques, datasets, and tools. As data science is becoming increasingly important at a steady pace, the same is true for the msr conference.&lt;/p&gt;
 
@@ -373,17 +293,7 @@ publishing good work.&lt;/p&gt;
 
 &lt;center&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; is now over. See you in &lt;a href=&quot;https://twitter.com/hashtag/msr18?src=hash&quot;&gt;#msr18&lt;/a&gt; in Gothenburg &lt;a href=&quot;https://t.co/rBGwoNhaIv&quot;&gt;pic.twitter.com/rBGwoNhaIv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866390115182153729&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;/center&gt;
-</content>
-<summary>My personal and biased view about MSR’17</summary>
-</entry>
-<entry>
-<title>Where did I submit papers during my phd</title>
-<link href="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/" rel="alternate" type="text/html" title="Where did I submit papers during my phd" />
-<published>2017-04-08T00:00:00-03:00</published>
-<updated>2017-04-08T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd</id>
-<content type="html" xml:base="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/">&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;/center&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">My personal and biased view about MSR'17</summary></entry><entry><title type="html">Where did I submit papers during my phd</title><link href="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/" rel="alternate" type="text/html" title="Where did I submit papers during my phd" /><published>2017-04-08T00:00:00-03:00</published><updated>2017-04-08T00:00:00-03:00</updated><id>http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd</id><content type="html" xml:base="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/">&lt;p&gt;TL;DR&lt;/p&gt;
 
 &lt;p&gt;Publishing papers take time. If you want to publish in a good venue, it takes even more time. Start as early as you can.&lt;/p&gt;
 
@@ -403,17 +313,7 @@ publishing good work.&lt;/p&gt;
 
 &lt;p&gt;It is April 2017, and I got another contribution of my Ph.D. accepted last month. We submitted it twice to IEEE SW (twice rejected), to IST (rejected), but it landed at CACM (YAY!). The first submission to CACM was more than one year after graduating. I still have one chapter of my Ph.D. thesis not published. We got rejections at ASPLOS and FSE. I think it is a strong paper, and it will eventually be accepted somewhere (maybe 3 years after my Ph.D.!).&lt;/p&gt;
 
-&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;
-</content>
-<summary>A brief story about my short research career</summary>
-</entry>
-<entry>
-<title>Transferring Knowledge from Systematic Reviews to Practitioners</title>
-<link href="http://localhost:4000/blog/evidence-briefings/" rel="alternate" type="text/html" title="Transferring Knowledge from Systematic Reviews to Practitioners" />
-<published>2016-05-05T00:00:00-03:00</published>
-<updated>2016-05-05T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/evidence-briefings</id>
-<content type="html" xml:base="http://localhost:4000/blog/evidence-briefings/">&lt;p&gt;Researchers have few incentives to write to the general public. On the other hand, practitioners are not used to consume software engineering research. This “Two Solitude” problem is well-known, and several attempts have been made in order to remedying it.&lt;/p&gt;
+&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A brief story about my short research career</summary></entry><entry><title type="html">Transferring Knowledge from Systematic Reviews to Practitioners</title><link href="http://localhost:4000/blog/evidence-briefings/" rel="alternate" type="text/html" title="Transferring Knowledge from Systematic Reviews to Practitioners" /><published>2016-05-05T00:00:00-03:00</published><updated>2016-05-05T00:00:00-03:00</updated><id>http://localhost:4000/blog/evidence-briefings</id><content type="html" xml:base="http://localhost:4000/blog/evidence-briefings/">&lt;p&gt;Researchers have few incentives to write to the general public. On the other hand, practitioners are not used to consume software engineering research. This “Two Solitude” problem is well-known, and several attempts have been made in order to remedying it.&lt;/p&gt;
 
 &lt;p&gt;In a study called &lt;a href=&quot;/lost+found/esem2016.pdf&quot;&gt;Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners&lt;/a&gt;, published at &lt;a href=&quot;http://alarcos.esi.uclm.es/eseiw2016/esem/&quot;&gt;ESEM’16&lt;/a&gt;, we propose and evaluate “Evidence Briefings”, a new method for dissaminating research results to practitioners. This model is inspired by the “Rapid Reviews”, a well-known method used in Evidence-Based Medicine (EBM). Rapid Reviews are aimed at reducing the effort of the traditional systematic reviews by provididing brief documents with few pages focusing only on the main findings that are useful to practice. More interestingly, however, is the fact that Rapid Reviews are gaining attention lately. Among 100 rapid reviews published between 1997 and 2013, 51% of them were published between 2009 and 2012.&lt;/p&gt;
 
@@ -447,17 +347,7 @@ publishing good work.&lt;/p&gt;
 
 &lt;h1 id=&quot;concluding&quot;&gt;Concluding&lt;/h1&gt;
 
-&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;
-</content>
-<summary>A summary of an ESEM’16 paper</summary>
-</entry>
-<entry>
-<title>The story behind casual contributors</title>
-<link href="http://localhost:4000/blog/the-story-behind-casual-contributors/" rel="alternate" type="text/html" title="The story behind casual contributors" />
-<published>2016-01-01T00:00:00-03:00</published>
-<updated>2016-01-01T00:00:00-03:00</updated>
-<id>http://localhost:4000/blog/the-story-behind-casual-contributors</id>
-<content type="html" xml:base="http://localhost:4000/blog/the-story-behind-casual-contributors/">&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'16 paper</summary></entry><entry><title type="html">The story behind casual contributors</title><link href="http://localhost:4000/blog/the-story-behind-casual-contributors/" rel="alternate" type="text/html" title="The story behind casual contributors" /><published>2016-01-01T00:00:00-03:00</published><updated>2016-01-01T00:00:00-03:00</updated><id>http://localhost:4000/blog/the-story-behind-casual-contributors</id><content type="html" xml:base="http://localhost:4000/blog/the-story-behind-casual-contributors/">&lt;p&gt;TL;DR&lt;/p&gt;
 
 &lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;More Common Than You Think: An In-Depth Study of Casual Contributors&lt;/a&gt;”. For the impatient, there is a summary of the summary:&lt;/p&gt;
 
@@ -633,8 +523,4 @@ publishing good work.&lt;/p&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Project owners&lt;/strong&gt; can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce “contributions guidelines”, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-</content>
-<summary>A summary of a SANER’16 paper</summary>
-</entry>
-</feed>
+&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'16 paper</summary></entry></feed>
