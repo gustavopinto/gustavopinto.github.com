@@ -39,7 +39,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 1. Exercícios em sala: 4 pontos (1pt cada exercício)
 2. Prova do primeiro bimestre: 4 pontos
 3. Seminário (PD): 5 pontos
-3. Projeto de discipina: 7 pontos
+3. Projeto de disciplina: 7 pontos
 4. Atividade extra (AE): 1 ponto
 
 ### Seminário
@@ -58,9 +58,17 @@ Para garantir que todos apresentem no horário: É necessário enviar o PDF da a
 
 ### Projeto de disciplina (PD)
 
-Exemplo de projeto de disciplina:
+- O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o [SOTorrent](http://sotorrent.org). Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível [aqui](https://zenodo.org/record/1434285#.W9pMsFLQ_MI)). ***IMPORTANTE:*** não é recomendado a utilização do SOTorrent via Google Big Query. Os alunos devem importar e manusear seu próprio banco de dados.
 
-- Se familiarize com o GHTrorrent (http://ghtorrent.org/). Baixe e instale três dumps disponíveis online (http://ghtorrent.org/downloads.html). Após configurar, faça uma análise com relação ao nível dos contribuintes: quantos são os mais ativos? quantos são os menos ativos? quantos são os que fizeram pull requests negados? de qual localidade eles são?
+O escopo do projeto será decidido ao longo da disciplina, no entanto, não após 22/11.
+
+Os alunos devem também se ambientar com o material adicional sobre o SOTOrrent:
+
+- [SOTorrent: Reconstructing and Analyzing the Evolution of Stack Overflow Posts](http://empirical-software.engineering/assets/pdf/msr18-sotorrent.pdf)
+- [SOTorrent: Studying the Origin, Evolution, and Usage of Stack Overflow Code Snippets](http://empirical-software.engineering/assets/pdf/msr19-sotorrent.pdf)
+- [Edit and Comment History of Stack Overflow Threads](http://empirical-software.engineering/blog/sotorrent-edithistory)
+
+O PD constará de: um relatório e uma apresentação. O **relatório** deve conter: introdução (o que foi feito?), metodologia (como foi feito?), resultados (o que foi encontrado?), discussão (o que foi aprendido com os resultados?), trabalhos relacionados (quais são os outros trabalhos?) e conclusão (fim!). O relatório deve estar [neste formato](https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc), e deve ter de 3 a 4 folhas. A **apresentação** deve ser enviada até o dia 17/12, às 23:00, e deve abordar os mesmos tópicos do relatório. No entanto, aperesentações podem acontecer antes, caso a dupla/trio tenha encerrado o trabalho mais cedo. A apresentação não deve demorar mais do que 15 minutos (***ENSAIEM***).
 
 ### Atividade Extra (AE)
 
@@ -93,13 +101,13 @@ Passível de alterações.
 | 12 | 11/10 | Recuperação                  |
 | 13 | 16/10 | Segurança                    |
 | 14 | 18/10 | Exercício em sala            |
-| 15 | 23/10 | Seminário parte 1            |
-| 16 | 25/10 | Seminário parte 2            |
-| 17 | 30/10 | Prova                        |
-| 17 | 01/11 | Discussão do Trabalho Final  |
-| 18 | 06/11 | NoSQL parte 1 |
-| 19 | 08/11 | NoSQL parte 2 |
-| 20 | 13/11 | Introdução a mineração de dados |
+| 15 | 23/10 | ***NAO TIVEMOS AULA (Jogos alunos)***       |
+| 16 | 25/10 | Seminário parte 1            |
+| 17 | 30/10 | Seminário parte 2            |
+| 17 | 01/11 | Prova                        |
+| 18 | 06/11 | Discussão sobre trabalho final |
+| 19 | 08/11 | ***NAO TEREMOS AULA*** |
+| 20 | 13/11 | Hands on trabalho final |
 | 21 | 15/11 | ***FERIADO*** |
 | 22 | 20/11 | Acompanhamento das atividades |
 | 23 | 22/11 | Acompanhamento das atividades |
