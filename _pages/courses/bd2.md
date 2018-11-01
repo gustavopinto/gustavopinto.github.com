@@ -58,7 +58,7 @@ Para garantir que todos apresentem no horário: É necessário enviar o PDF da a
 
 ### Projeto de disciplina (PD)
 
-- O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o [SOTorrent](http://sotorrent.org). Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível [aqui](https://zenodo.org/record/1434285#.W9pMsFLQ_MI)). ***IMPORTANTE:*** não é recomendado a utilização do SOTorrent via Google Big Query. Os alunos devem importar e manusear seu próprio banco de dados.
+O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o [SOTorrent](http://sotorrent.org). Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível [aqui](https://zenodo.org/record/1434285#.W9pMsFLQ_MI)). ***IMPORTANTE:*** não é recomendado a utilização do SOTorrent via Google Big Query. Os alunos devem importar e manusear seu próprio banco de dados.
 
 O escopo do projeto será decidido ao longo da disciplina, no entanto, não após 22/11.
 
