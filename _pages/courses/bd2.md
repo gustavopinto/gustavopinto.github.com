@@ -105,7 +105,7 @@ Passível de alterações.
 | 16 | 25/10 | Seminário parte 1            |
 | 17 | 30/10 | Seminário parte 2            |
 | 17 | 01/11 | Prova                        |
-| 18 | 06/11 | Discussão sobre trabalho final |
+| 18 | 06/11 | Correção de provas |
 | 19 | 08/11 | ***NAO TEREMOS AULA*** |
 | 20 | 13/11 | Hands on trabalho final |
 | 21 | 15/11 | ***FERIADO*** |

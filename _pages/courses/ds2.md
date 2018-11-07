@@ -58,9 +58,9 @@ Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar par
 
 **Pontuação do seminário:**
 
-- Apresentação do seminário: 2.50
-- Entrega dos resumos: 2.50 (ou .50 por resumo)
-- A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, o professor enviará um novo artigo e os demais alunos terão um novo prazo para entregar o resumo.
+- Apresentação do seminário: 3.00
+- Entrega dos resumos: 2.00 (ou .50 por resumo)
+- A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, Nesse caso, os alunos se beneficiam do 0.50 automaticamente.
 
 ### Projeto de disciplina (PD)
 
@@ -104,7 +104,7 @@ Passível de alterações.
 | 20 | 13/11 | Seminário 2 |
 | 21 | 15/11 | ***FERIADO*** |
 | 22 | 20/11 | Seminario 3 & entrega da AE |
-| 23 | 22/11 | Acompanhamento das atividades |
+| 23 | 22/11 | Seminário 4 |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |
 | 26 | 04/12 | ***NAO TEREMOS AULA*** |
