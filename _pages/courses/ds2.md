@@ -58,13 +58,17 @@ Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar par
 
 **Pontuação do seminário:**
 
-- Apresentação do seminário: 2.50
-- Entrega dos resumos: 2.50 (ou .50 por resumo)
-- A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, o professor enviará um novo artigo e os demais alunos terão um novo prazo para entregar o resumo.
+- Apresentação do seminário: 3.00
+- Entrega dos resumos: 2.00 (ou .50 por resumo)
+- A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, Nesse caso, os alunos se beneficiam do 0.50 automaticamente.
 
 ### Projeto de disciplina (PD)
 
-- A ser definido
+O projeto de disciplina consiste em identificar como as estruturas de dados estudadas em sala são utilizadas em implementações de projetos de software reais.
+
+Os alunos devem investigar que potenciais projetos de software fazem uso de alguma das estruturas de dados, identificar os trechos de código que fazem uso das estruturas, e entender as decisões que levaram ao uso dessa estrutura (pq foi usado x ao invés de y?). **Como atividade bonus**, os alunos que conseguirem modificar o código para utilização de outra estrutura de dados (ou para otimizar uma estrutura já existente), receberão 2 pontos extras.
+
+Depois de fazer a investigação, os alunos precisam preparar uma apresentação contendo: o nome do projeto, o local em que o projeto está disponível, os nomes das classes, métodos, trechos de código, etc, que fazem uso das estruturas, uma discussão sobre pq as estruturas estão sendo empregadas, e, caso tenha sido feito, quais foram as alterações realizadas no código. A apresentação deve durar no máximo 15 minutos. Terá penalidade de 1 ponto para quem estourar o tempo (**ENSAIEM!**).
 
 ### Atividade Extra (AE)
 
@@ -104,7 +108,7 @@ Passível de alterações.
 | 20 | 13/11 | Seminário 2 |
 | 21 | 15/11 | ***FERIADO*** |
 | 22 | 20/11 | Seminario 3 & entrega da AE |
-| 23 | 22/11 | Acompanhamento das atividades |
+| 23 | 22/11 | Seminário 4 |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |
 | 26 | 04/12 | ***NAO TEREMOS AULA*** |
@@ -112,7 +116,7 @@ Passível de alterações.
 | 28 | 11/12 | Acompanhamento das atividades |
 | 29 | 13/12 | Acompanhamento das atividades |
 | 30 | 18/12 | Acompanhamento das atividades |
-| 31 | 20/12 | Acompanhamento das atividades |
+| 31 | 20/12 | Apresentação do PD |
 
 
 ## Entrega atrasada
