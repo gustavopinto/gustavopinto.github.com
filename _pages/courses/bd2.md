@@ -33,6 +33,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 - [Seeking an efficient algorithm to group identical values](https://lemire.me/blog/2008/05/01/i-am-seeking-an-efficient-algorithm-to-group-identical-values-in-an-array/)
 - [The design and implementation of modern column-oriented database systems](https://blog.acolyer.org/2018/09/26/the-design-and-implementation-of-modern-column-oriented-database-systems/)
 - [Four security flaws illustrated, all on one conference registration site](http://andreas-zeller.blogspot.com/2016/04/how-i-twice-hacked-conference.html)
+- [A Classification of SQL Injection Attacks and Countermeasures](https://pdfs.semanticscholar.org/81a5/02b52485e52713ccab6d260f15871c2acdcb.pdf)
 
 ## Avaliação
 
@@ -58,7 +59,7 @@ Para garantir que todos apresentem no horário: É necessário enviar o PDF da a
 
 ### Projeto de disciplina (PD)
 
-- O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o [SOTorrent](http://sotorrent.org). Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível [aqui](https://zenodo.org/record/1434285#.W9pMsFLQ_MI)). ***IMPORTANTE:*** não é recomendado a utilização do SOTorrent via Google Big Query. Os alunos devem importar e manusear seu próprio banco de dados.
+O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o [SOTorrent](http://sotorrent.org). Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível [aqui](https://zenodo.org/record/1434285#.W9pMsFLQ_MI)). ***IMPORTANTE:*** não é recomendado a utilização do SOTorrent via Google Big Query para condução do trabalho (apenas para se familiarizar com a base). Os alunos devem importar e manusear seu próprio banco de dados.
 
 O escopo do projeto será decidido ao longo da disciplina, no entanto, não após 22/11.
 
@@ -68,7 +69,11 @@ Os alunos devem também se ambientar com o material adicional sobre o SOTOrrent:
 - [SOTorrent: Studying the Origin, Evolution, and Usage of Stack Overflow Code Snippets](http://empirical-software.engineering/assets/pdf/msr19-sotorrent.pdf)
 - [Edit and Comment History of Stack Overflow Threads](http://empirical-software.engineering/blog/sotorrent-edithistory)
 
-O PD constará de: um relatório e uma apresentação. O **relatório** deve conter: introdução (o que foi feito?), metodologia (como foi feito?), resultados (o que foi encontrado?), discussão (o que foi aprendido com os resultados?), trabalhos relacionados (quais são os outros trabalhos?) e conclusão (fim!). O relatório deve estar [neste formato](https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc), e deve ter de 3 a 4 folhas. A **apresentação** deve ser enviada até o dia 17/12, às 23:00, e deve abordar os mesmos tópicos do relatório. No entanto, aperesentações podem acontecer antes, caso a dupla/trio tenha encerrado o trabalho mais cedo. A apresentação não deve demorar mais do que 15 minutos (***ENSAIEM***).
+O PD constará de: um relatório, uma apresentação, e o código criado. O **relatório** deve conter: introdução (o que foi feito?), metodologia (como foi feito?), resultados (o que foi encontrado?), discussão (o que foi aprendido com os resultados?), trabalhos relacionados (quais são os outros trabalhos?) e conclusão (fim!). O **relatório** deve estar [neste formato](https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc), e deve ter de (no mínimo) 3 a (no máximo) 4 folhas.
+
+A **apresentação** deve ser enviada até o dia 17/12, às 23:00, e deve abordar os mesmos tópicos do relatório. No entanto, aperesentações podem acontecer antes, caso a dupla/trio tenha encerrado o trabalho mais cedo. A apresentação não deve demorar mais do que 15 minutos (***ENSAIEM***).
+
+O **código** criado deverá obrigatoriamente estar disponível no Github desde o começo do trabalho.
 
 ### Atividade Extra (AE)
 
@@ -110,7 +115,7 @@ Passível de alterações.
 | 20 | 13/11 | Hands on trabalho final |
 | 21 | 15/11 | ***FERIADO*** |
 | 22 | 20/11 | Acompanhamento das atividades |
-| 23 | 22/11 | Acompanhamento das atividades |
+| 23 | 22/11 | Acompanhamento das atividades & Definição de trabalhos |
 | 24 | 27/11 | Acompanhamento das atividades |
 | 25 | 29/11 | Acompanhamento das atividades |
 | 26 | 04/12 | ***NAO TEREMOS ACOMPANHAMENTO*** |
