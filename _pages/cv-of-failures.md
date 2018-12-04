@@ -12,11 +12,11 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (16)
+## Journal papers rejected (17)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
-- Empirical Software Engineering Journal: 2017, 2018
+- Empirical Software Engineering Journal: 2017, 2018 (2x)
 - Information and Software Technology: 2016 (2x)
 - Journal of Systems and Software: 2017 (2x)
 - Journal of Internet Services and Applications: 2018
@@ -24,7 +24,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (26)
+## Conference papers rejected (27)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -37,7 +37,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - GPCE: 2015
 - ICSE: 2017 (2x), 2019
 - ICSME: 2012, 2016 (2x), 2017, 2018
-- SANER: 2015, 2018
+- SANER: 2015, 2018, 2019
 - SIGCSE: 2019
 - XP: 2017
 - WTDSoft: 2018
