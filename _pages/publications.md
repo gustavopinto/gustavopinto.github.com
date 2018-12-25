@@ -5,9 +5,6 @@ permalink: /publications/
 
 ## 2019
 
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
-
 2. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)
 
@@ -66,6 +63,10 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](medium)
+
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
+
 
 13. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
