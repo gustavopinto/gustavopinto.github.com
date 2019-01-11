@@ -111,10 +111,10 @@ in 2019.
 
 Finally, in this work I reviewed a ton. I was invited to 24 PCs for 2018 conferences,
 and I already participated in four PCs for 2019 conferences. I also reviewed seven
-papers for journals [EMSE: 4, TSE: 1, SCP: 1, JBCS: 1]. I barely accepted any
+papers for journals [EMSE: 4, TSE: 1, SCP: 1, JBCS: 1]. I basically accepted any
 invitation I received. Overall, I reviewed 53 papers, and wrote 30K words in reviews.
 I am happy for all this work done, but ... it was a lot. Let's say I need 30 minutes
 to write 500 words plus one hour to read the paper (a very conservative measure).
-It would take me 68 hours (almost two full weeks) devoted only to review papers.
+It would take me 68 hours (more than one week and a half) devoted only to review papers.
 I cannot commit myself to all this work again in 2019. I hope you could understand
-this when I turn down the invitation.
+this when I turn down invitations.
