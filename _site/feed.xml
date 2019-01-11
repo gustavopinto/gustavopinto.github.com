@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-23T16:12:25-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">How do Scientists Develop Software</title><link href="http://localhost:4000/blog/how-do-scientists-develop-software/" rel="alternate" type="text/html" title="How do Scientists Develop Software" /><published>2018-02-26T00:00:00-03:00</published><updated>2018-02-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-do-scientists-develop-software</id><content type="html" xml:base="http://localhost:4000/blog/how-do-scientists-develop-software/">&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.org/lost+found/saner-rene2018.pdf&quot;&gt;How Do Scientists Develop Scientific Software? An External Replication&lt;/a&gt;”. As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about &lt;a href=&quot;http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf&quot;&gt;how scientists develop and use software&lt;/a&gt;. The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-11T00:34:00-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Second year of professoring</title><link href="http://localhost:4000/blog/second-year-of-professoring/" rel="alternate" type="text/html" title="Second year of professoring" /><published>2018-12-28T00:00:00-03:00</published><updated>2018-12-28T00:00:00-03:00</updated><id>http://localhost:4000/blog/second-year-of-professoring</id><content type="html" xml:base="http://localhost:4000/blog/second-year-of-professoring/">&lt;p&gt;Following my blog post about my &lt;a href=&quot;http://www.gustavopinto.org/blog/first-year-of-professoring/&quot;&gt;first year of professoring&lt;/a&gt;, in this blog we
+update the status for the current year. Let me revisit this wonderful year.&lt;/p&gt;
+
+&lt;h2 id=&quot;teaching&quot;&gt;Teaching&lt;/h2&gt;
+
+&lt;p&gt;I taught four courses this year, all of them to undergrad. This is the minimum
+number of courses one professor can teach in a year in my university (the only
+exception are professors that accumulate administrative roles, which is not
+my case). I taught Databases 101, Advanced databases, Advanced Data structure,
+and Object Oriented Programming.&lt;/p&gt;
+
+&lt;p&gt;The good thing about these courses is that the
+first three of them I have already taught last year, so I employed less time to
+create the course materials (I only had to update them). The exception was the
+Object Oriented Programming, which I have to start from scratch. I was heavily
+inspired by the methodology used in this on course, made by Eduardo Guerra, who
+teaches unit testing in the very second day, and use it throughout the corse.
+While I found it very interesting, looking back to the course, I believe students
+did not find it very pleasant, and very few of them really mastered unit testing.
+Part of it is, of course, my fault. I am still learning how to be a professor;
+this is the first time I taught this course; and unit testing is, I believe, not
+something very easy to teach. I noted that, in particular, during some of the
+class assignments, which I already provided the test cases, the interfaces, and
+asked students to create the concrete classes and fill up the method bodies.
+Later on I unfortunately perceived that very few students really made it. Some
+students were have basic issues with the Java programming language (even though
+they learnt C before Java), and the use of more advanced features of an IDE (such
+as debugging) did not help much them.&lt;/p&gt;
+
+&lt;p&gt;The other classes I think went more smoothly.
+However, the Advanced databases course is heavily based on database theories (e.g.,
+concurrency, atomicity, storage, etc), and students have a hard time trying to
+connect the dots between the theory and practice. In one particular assignment,
+I asked students to build a very large dataset using (1) a binary file and (2) a
+real database, and try to do some queries. The result of this assignment was
+quite interesting, since students perceived that a full-fledge database often
+perform worse than simple queries made over a binary file. During the Databases 101,
+I asked students to play with the MSR dataset. I was surprised by some of the works
+that students did; two of them in particular could be very competitive research papers,
+if polished and enhanced here and there. The lesson I learnt from this course is
+that I can take advantage undergrad students to do some good research work. However,
+it also requires much more time from you (e.g., Besides advising, I spent many
+hours dealing with the MSR dataset. I have to build the dataset twice, because
+the machine that I was using to build the dataset was not robust enough. I also
+have to add more physical memory to it).&lt;/p&gt;
+
+&lt;h2 id=&quot;advising&quot;&gt;Advising&lt;/h2&gt;
+
+&lt;p&gt;This year I started to advise one more master student (two in total), and I advised
+seven undergrad students over their capstone projects. Three of the undergrad
+graduated (two just graduated last week, and the other one graduated last semester).
+I am particularly proud of the work that one undergrad did. This particular undergrad
+was having a hard time to graduate (I think he was in school for 7–8 years, maybe more).
+With some help from my collaborators, we were able to send his work to ICSE SEET,
+which was gladly accepted. (In the last year blog post I mentioned that I was
+impressed by this student and we potentially would submit his work to a good software
+engineering conference.. things worked well) In this year, my first PhD (co-supervised) student
+graduated, and I also co-supervised a master student. Overall, I am really happy
+for the work that they did.&lt;/p&gt;
+
+&lt;p&gt;Now the bad thing about advising: somehow, I ended up with students working in
+many different research topics. Nearly, no research topic is close to the other,
+so students could hardly collaborate. Another issue is that this approach requires
+me much more cognitive effort. For instance, during a weekly meeting, I have to
+load from my deep thoughts were we in the last week, just to get back on track
+(it is not “plug-and-play”). Besides that, I feel I’m not very familiar with the
+related literature of all these kind of works, so then I cannot suggest good papers
+to students and, even worse, the students may be working on something that is not
+entirely novel. This is not to mention the need of 1–1 meeting (which could easily
+drain all my agenda). As I perceive now, students should collaborate with each
+other, and individual research topics should be parts of a more robust research
+problem. I may need some time to fix it.&lt;/p&gt;
+
+&lt;h2 id=&quot;research-and-service&quot;&gt;Research and Service&lt;/h2&gt;
+
+&lt;p&gt;In 2018 I published 16 research papers (4 journals [SPE, EMSE, IST, and
+JBCS], 10 conferences [ICSE: 2x, MSR: 2x, SBES: 2x, EASE, ESEM, OSS, SANER], 2
+workshops [CHASE, VEM]). This year was by far the most productive one (in terms of
+papers acceptance). Although I did not measure work hours, I suspect that this year
+I spent less time on research than any other year (I have classes to teach, meetings,
+a lot of service, other university commitments, etc). I also had my second kid,
+which does not permit me to work from home anymore. This number of paper is, actually,
+the collective effort of many collaborators. I myself was the first author of only
+five papers. One thing that I’m particularly happy about these papers, is that
+only two of them (the CHASE paper, and the IST paper) are short ones. Last year
+I complained that &lt;em&gt;most&lt;/em&gt; of my contributions were short papers, and that I planned
+to avoid short papers in 2018. It seemed to work well. This year I also started
+to curate my &lt;a href=&quot;http://gustavopinto.org/cv-of-failures/&quot;&gt;CV of failures&lt;/a&gt; (I have 19 submissions rejected in this year).&lt;/p&gt;
+
+&lt;p&gt;Another interesting thing is that this year I did not travel
+to any international conference. I have been traveling to conferences, meetings, whatever,
+for so many years (I had that most frequent flyer badge in two different air companies).
+It requires a lot from you. A lot of money (perhaps public money, but it is not always
+the case), but, more importantly, it requires a lot of time. Being away from home
+while traveling so much is not the best way to enjoy two kids. For 2019, I also
+plan to fly less and less. This in turn requires me not to submit to/attend conferences.
+One thing that I thought is that by not attending conferences, I may ended up with
+less collaborators. Fortunately, this did not happen to me (yet?). What I can
+anticipate is that you might see myself less and less in international conferences
+in 2019.&lt;/p&gt;
+
+&lt;p&gt;Finally, in this work I reviewed a ton. I was invited to 24 PCs for 2018 conferences,
+and I already participated in four PCs for 2019 conferences. I also reviewed seven
+papers for journals [EMSE: 4, TSE: 1, SCP: 1, JBCS: 1]. I barely accepted any
+invitation I received. Overall, I reviewed 53 papers, and wrote 30K words in reviews.
+I am happy for all this work done, but … it was a lot. Let’s say I need 30 minutes
+to write 500 words plus one hour to read the paper (a very conservative measure).
+It would take me 68 hours (almost two full weeks) devoted only to review papers.
+I cannot commit myself to all this work again in 2019. I hope you could understand
+this when I turn down the invitation.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Second year of professoring</summary></entry><entry><title type="html">How do Scientists Develop Software</title><link href="http://localhost:4000/blog/how-do-scientists-develop-software/" rel="alternate" type="text/html" title="How do Scientists Develop Software" /><published>2018-02-26T00:00:00-03:00</published><updated>2018-02-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-do-scientists-develop-software</id><content type="html" xml:base="http://localhost:4000/blog/how-do-scientists-develop-software/">&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.org/lost+found/saner-rene2018.pdf&quot;&gt;How Do Scientists Develop Scientific Software? An External Replication&lt;/a&gt;”. As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about &lt;a href=&quot;http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf&quot;&gt;how scientists develop and use software&lt;/a&gt;. The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.&lt;/p&gt;
 
 &lt;p&gt;In the original study, the authors conducted an on-line survey with 2,000 scientists. In our replication, we surveyed 1,574 R developers. One might argue that not all R developers are indeed scientists. We concur. To mitigate this threat, in our invitation email we kindly asked R developers that do not consider themselves as scientists not to answer the questionnaire. We also asked them not to share the questionnaire with their peers, since some of them might not be scientists as well. We also mined their R repositories to complement some of the findings. For instance, the following figure shows the number of projects with commits in the master branch over the last decade.&lt;/p&gt;
 
@@ -141,7 +250,7 @@ Databases 101, Operating Systems (Lab), Advanced Data structure, and Advanced
 Databases. All these courses were new to me. It took a lot of time to create
 the material for these courses, and I still have say they are not great. The
 problem was that I was not &lt;em&gt;that&lt;/em&gt; excited with teaching. I like teaching but
-my first semester workload was a kind of disappointed to me (I want to do
+my first semester workload was a kind of disappointing to me (I want to do
 research and other things). I also have a hard time with one class of students
 that were not motivated at all. This issue was completely new to me and I had
 no idea on how to address it. I chatted with some colleagues and some of them
@@ -347,180 +456,4 @@ publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><emai
 
 &lt;h1 id=&quot;concluding&quot;&gt;Concluding&lt;/h1&gt;
 
-&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'16 paper</summary></entry><entry><title type="html">The story behind casual contributors</title><link href="http://localhost:4000/blog/the-story-behind-casual-contributors/" rel="alternate" type="text/html" title="The story behind casual contributors" /><published>2016-01-01T00:00:00-03:00</published><updated>2016-01-01T00:00:00-03:00</updated><id>http://localhost:4000/blog/the-story-behind-casual-contributors</id><content type="html" xml:base="http://localhost:4000/blog/the-story-behind-casual-contributors/">&lt;p&gt;TL;DR&lt;/p&gt;
-
-&lt;p&gt;This is a summary of the paper “&lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;More Common Than You Think: An In-Depth Study of Casual Contributors&lt;/a&gt;”. For the impatient, there is a summary of the summary:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Casual contributors are rather common&lt;/strong&gt;. 48.98% of the overall contributors that we analyzed are actually casual contributors. However, these contributors are responsible for only 1.73% of the total contributions in our set of analyzed projects.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Casual contributions are far from being trivial&lt;/strong&gt;. After a manual inspection of a sample of casual contributions, we found that although 28.64% of them are related to grammar and typo fixes, 30.20% of them fix bugs, 18.75% propose new features, and 8.85% refactor code.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Casual contributions are well liked&lt;/strong&gt;. These contributions are perceived as a beneficial phenomenon from the perspective of project maintainters and casual contributors. Personal needs was the most reported motivation for the casual contributors. As a shortcoming, project maintainters reported an increasing number of reviews, which demands time from core developers.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;p&gt;Github changed the way developers contribute to OSS projects, in particular by providing a single process of contribution, which is called pull-based model. Using this model, developers do not need to have write access to the repository in order to provide changes to the software. This kind of environment, together with its contribution model, encourages newcomers to participate in the process.&lt;/p&gt;
-
-&lt;p&gt;However, while some contributors want to have a key role on the project, some others do not share the same desire, although they still want to contribute nevertheless. In fact, it is well-known that popular projects have a restricted set of core developers, who drive the project, but also a broad set of “not that involved” developers, which are responsible for a long tail of small contributions.&lt;/p&gt;
-
-&lt;p&gt;Despite the growing number of newcomers interested in contributing to OSS, little is known about this particular kind of contributor: the &lt;em&gt;casual contributor&lt;/em&gt;. In a study published on &lt;a href=&quot;http://saner.inf.usi.ch/&quot;&gt;SANER’16&lt;/a&gt;, we investigate (1) how common casual contribtuors are, (2) what are the characteristics of their contributions, and (3) how they are perceived.&lt;/p&gt;
-
-&lt;p&gt;Here in this blog post, we will describe the main findings of the paper. If you want to know more about this research, consider reading the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/saner2016.pdf&quot;&gt;pre-print&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;oss-selection&quot;&gt;OSS selection&lt;/h1&gt;
-
-&lt;p&gt;We selected the top 20 most popular open-source projects hosted on Github written in: C, C++, Clojure, CoffeeScript, Erlang, Go, Haskell, Java, JavaScript, Objective-C, Perl, PHP, Python, Ruby, Scala, and TypeScript. Our initial corpus comprises 320 mature, non-trivial, OSS projects. However, we removed 45 false-positive projects (&lt;em&gt;e.g.,&lt;/em&gt; projects that are not software projects). Our final list of projects included &lt;a href=&quot;https://github.com/rails/rails&quot;&gt;rails&lt;/a&gt;, &lt;a href=&quot;https://github.com/django/django&quot;&gt;django&lt;/a&gt;, and &lt;a href=&quot;https://github.com/torvalds/linux/&quot;&gt;linux&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;surveys-with-practitioners&quot;&gt;Surveys with practitioners&lt;/h1&gt;
-
-&lt;p&gt;We conducted two surveys with 197 the casual contributors and 64 project maintainers. These surveys were aimed at understanding the motivation, the benefits, and the drawbacks of this kind of contribution. Given the opportunity, I would like to thank the 261 developers that answered the survey. Assuming that it took about 10 minutes to answer the survey, the combined effort amounts to 2 full days. As one reviewer said, “The big deal is the story in the survey part”. &lt;strong&gt;Thank you&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;We observed that 65.8% of our respondents contribute to OSS at least once per month, and 75.2% of them are used to making casual contributions.&lt;/p&gt;
-
-&lt;h1 id=&quot;how-common-are-casual-contributors-in-oss-projects&quot;&gt;How common are casual contributors in OSS projects?&lt;/h1&gt;
-
-&lt;p&gt;Figure below presents an overall picture of some of the studied projects. Each histogram groups the projects analyzed of each programming language.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;img src=&quot;/images/post-casual/overall.png&quot; alt=&quot;Contributions per programming language&quot; height=&quot;330&quot; /&gt;
-&lt;/center&gt;
-
-&lt;p&gt;To some extent, the analyzed projects have a similar characteristic: most of the contributors perform very few contributions. A non-negligible number of contributors (48.98%) performed a single contribution, which varies from programming language to programming language (&lt;em&gt;e.g.,&lt;/em&gt; C projects have 39% of casual contributors, whereas JavaScript has 61%). Based on this finding, we decided that the casual contributor is a contributor that performed at most one commit to a software project.&lt;/p&gt;
-
-&lt;p&gt;This significant number of casual contributors might lead one to believe that an important proportion of the projects are intrinsically made by casual contributions. In reality, we found the opposite: these casual contributors are responsible for only 1.73% of the total number of contributions in our corpus of OSS projects (linux: 1.02%, rails: 3.46%, django: 3.19%). For a more detailed perspective, next figure shows the percentage of the casual contributors (top) and contributions (bottom) for each programming language analyzed.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;img src=&quot;/images/post-casual/percentage.png&quot; alt=&quot;Percentage of casual contributors&quot; width=&quot;400&quot; height=&quot;330&quot; /&gt;
-&lt;/center&gt;
-
-&lt;p&gt;We can see that the programming language used matters. With some exception, projects written in static typed programming languages (&lt;em&gt;e.g.&lt;/em&gt;, C, TypeScript and C++) seem to be less favorable to receive casual contributions than those using dynamic typed ones (&lt;em&gt;e.g.&lt;/em&gt;, Ruby, Python and JavaScript). We believe this is because scripting programming languages are more concise than procedural and object-oriented ones, and size really matters when it comes to casual contributors.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-are-the-characteristics-of-a-casual-contribution&quot;&gt;What are the characteristics of a casual contribution?&lt;/h1&gt;
-
-&lt;p&gt;We observed that the number of additions, deletions and files touched of contributions do not vary signifi- cantly among the analyzed projects. In particular, the project &lt;a href=&quot;https://github.com/thoughtbot/paperclip/&quot;&gt;paperclip&lt;/a&gt; is the one with the highest number of additions and deletions among the Ruby projects. See table below. With more than 8 years old, 63% of its contributors are casual ones, who contributed to 12.74% of the project.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Change&lt;/th&gt;
-      &lt;th&gt;Mean&lt;/th&gt;
-      &lt;th&gt;3rd Quartile&lt;/th&gt;
-      &lt;th&gt;Std. Dev&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Additions&lt;/td&gt;
-      &lt;td&gt;4.15&lt;/td&gt;
-      &lt;td&gt;5.75&lt;/td&gt;
-      &lt;td&gt;1.72&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Deletions&lt;/td&gt;
-      &lt;td&gt;1.02&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;0.26&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;We also analyzed the contributions with the lowest number of additions and deletions. In fact, 22.7% of the casual contributions performed on Ruby projects changed a single line of code. Some of them include, (1) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/6f2ca93&quot;&gt;preventing a type from being null&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/d49bca2&quot;&gt;updating documentation files&lt;/a&gt;, or (3) &lt;a href=&quot;https://github.com/thoughtbot/paperclip/commit/62a9f64&quot;&gt;setting an option to a default value&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We also analyzed a &lt;a href=&quot;https://en.wikipedia.org/wiki/Statistical_significance&quot;&gt;statistically significant&lt;/a&gt; sample of 384 casual contributions. We identified 8 categories of casual contributions, summarized next. Afterwards, we discuss the top 3 ones.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Category&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;#&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;%&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bug Fix&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;116&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;30.20%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Documentation&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;110&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;28.64%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Add new feature&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;72&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;18.75%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Refactoring&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;34&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;8.85%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Update dependencies&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;25&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;6.51%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Improve error message&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;3.64%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Improve resource usage&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2.08%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Add test cases&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1.30%&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Bug fix&lt;/strong&gt;. It is the most common kind of casual contribution found in our dataset. Some examples include: (1) &lt;a href=&quot;https://github.com/TransitApp/SVProgressHUD/commit/eebd6ec&quot;&gt;layout fix&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/koalaman/shellcheck/commit/f054e2e&quot;&gt;fixing compilation problems&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/lulzlabs/AirChat/commit/03cd91d&quot;&gt;fixing a broken URL&lt;/a&gt;. Still, some bug fixes are far from being trivial, as the one that &lt;a href=&quot;https://github.com/torvalds/linux/commit/ddca3b8&quot;&gt;fixed a race condition at the linux operating system&lt;/a&gt;. Not only difficult to identify (such bugs are non-deterministic), the solution employed was also scattered between C preprocessors, which difficulties the reasoning of the compiled program.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;. This category includes fix for typos, grammar, translation, formatting, and documentation issues. Although these contributions do not require significant programming effort, we found contributions that have &lt;a href=&quot;https://github.com/codecombat/codecombat/commit/237b97a&quot;&gt;thoroughly rewritten the original material&lt;/a&gt;. Also, we found that 27 out of these 110 contributions were fixing typos on code examples. This finding reinforces the importance of complete and verified working code examples.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Add New Feature&lt;/strong&gt;. Some of the examples include (1) &lt;a href=&quot;https://github.com/rg3/youtube-dl/commit/1a2adf3&quot;&gt;adding a new option for a command line tool&lt;/a&gt;, (2) &lt;a href=&quot;https://github.com/angular/angular.js/commit/da9eac8&quot;&gt;adding support for disabling an option&lt;/a&gt;, and (3) &lt;a href=&quot;https://github.com/apenwarr/sshuttle/commit/95c9b78&quot;&gt;adding support for IPv6 remote hosts&lt;/a&gt;. Interestingly, 24 out of the 72 contributions in this category were performed at the Linux operating system. Most of them were adding support for a new driver/device, which usually require few additions.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;how-do-casual-contributors-and-project-maintainers-perceive-casual-contributions&quot;&gt;How do casual contributors and project maintainers perceive casual contributions?&lt;/h1&gt;
-
-&lt;p&gt;We explicitly asked casual contributors and project maintainers “what motivates casual contributors’ behavior”, and the top cited perceived motivation was &lt;strong&gt;scratch their own itch&lt;/strong&gt;, highly mentioned by both casual contributors (90 out of 197) and project maintainers (23 out of 64). Part of this high number of casual contributions can be explained by the pull-request model, which provided a clear and easy contribution process. It was mentioned by 9 out of 64 project maintainters.&lt;/p&gt;
-
-&lt;p&gt;Aligned with some studies on the motivation behind OSS contributors, we found that &lt;strong&gt;give back to community&lt;/strong&gt; fosters casual contributions, as said by one casual contributor “As I use a lot of OSS projects, I like to give back to the community”. Another motivation that is inline with the literature is &lt;strong&gt;gaining reputation and prestige&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Not among the top cited motivations, we found that four casual contributors reported that their motivation was &lt;strong&gt;improving the project&lt;/strong&gt;. The following quotes clearly illustrate such motivation: “I want to improve the quality of the project”, “That the project is in better shape after my contribution”.&lt;/p&gt;
-
-&lt;p&gt;In addition to motivation, we investigated the reasons why casual contributors do not become full active contributors. &lt;strong&gt;Lack of time&lt;/strong&gt; was far the most cited reason by the casual contributors (96 out of 197), like one mentioned “I don’t have time to devote to a more active role”.  From the perspective of the project maintainters, &lt;strong&gt;Lack of time&lt;/strong&gt; was also the most mentioned reason why casual contributors do not become a long term contributor (17 out of 64 respondents). The following quote exemplify it: “People often don’t have the time or desire to be long term contributors”.&lt;/p&gt;
-
-&lt;p&gt;We also found people who reported that they do not contribute because of their &lt;strong&gt;limited skills or knowledge&lt;/strong&gt;. Some also mentioned that the effort and knowledge needed to become a full contributor was too high. In both cases, they prefer to work on small or peripheral issues, which do not need specific abilities and usually require low effort. Like one of them said: “lack of skills (most of the low hanging fruit is gone)”. Project maintainers noticed this, and eight participants mentioned that &lt;strong&gt;code/project is hard to learn&lt;/strong&gt; was a reason why casual contributors do not become more active.&lt;/p&gt;
-
-&lt;p&gt;We also asked the participants their opinion about the main benefits and problems brought by the casual contributors phenomenon. The overall impression is that the benefits overcome the drawbacks brought by this phenomenon. One quote from a project maintainter shows: “Every little piece helps everyone else. We stand on the shoulders of many small giants. Problems? None”.&lt;/p&gt;
-
-&lt;p&gt;On the other side, the most reported problems were &lt;strong&gt;Time spent by the core members to review newcomers’ code&lt;/strong&gt; (reported by 12 people) and &lt;strong&gt;contributions may go unmaintained&lt;/strong&gt; (reported by 5 people).&lt;/p&gt;
-
-&lt;h1 id=&quot;take-away-message&quot;&gt;Take away message&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Casual contributors&lt;/strong&gt; can see that they are not alone, and this behavior is, in fact, rather common in OSS communities. Also, we found that 22.93% of the casual contributions changed a single line of code. Thus, a developer does not need to be shy to contribute, even though her contribution is small. Yet,  this study revealed that project maintainers believe that casual contributions are a healthy way of contributing to OSS. Therefore, casual contributors can become even more motivated to do this kind of contribution.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Project owners&lt;/strong&gt; can label tasks specific for casual contributors. Similarly, some casual contributors are more comfortable on solving low effort tasks. Thus, project owners can create specific roles for casual contributors (&lt;strong&gt;e.g.&lt;/strong&gt;, casual translators), which could also foster more engagement. Finally, since several projects maintainers do not have enough time to review casual contributions, they can introduce “contributions guidelines”, so that newcomers can read and get acquainted with them, therefore reducing code review effort.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a SANER'16 paper</summary></entry></feed>
+&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'16 paper</summary></entry></feed>
