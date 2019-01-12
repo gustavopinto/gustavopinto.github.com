@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-11T00:38:04-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Second year of professoring</title><link href="http://localhost:4000/blog/second-year-of-professoring/" rel="alternate" type="text/html" title="Second year of professoring" /><published>2018-12-28T00:00:00-03:00</published><updated>2018-12-28T00:00:00-03:00</updated><id>http://localhost:4000/blog/second-year-of-professoring</id><content type="html" xml:base="http://localhost:4000/blog/second-year-of-professoring/">&lt;p&gt;Following my blog post about my &lt;a href=&quot;http://www.gustavopinto.org/blog/first-year-of-professoring/&quot;&gt;first year of professoring&lt;/a&gt;, in this blog we
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-12T11:09:37-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Parem com essa discussão sobre Qualis</title><link href="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/" rel="alternate" type="text/html" title="Parem com essa discussão sobre Qualis" /><published>2019-01-12T00:00:00-03:00</published><updated>2019-01-12T00:00:00-03:00</updated><id>http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis</id><content type="html" xml:base="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/">&lt;p&gt;This post was written in Portuguese because it was aimed to Brazilian scholars.&lt;/p&gt;
+
+&lt;p&gt;Como escrevi no último post, ainda estou começando minha carreira de pesquisador,
+mas se tem uma coisa que é, no mínimo, irritante é essa discussão sobre Qualis.&lt;/p&gt;
+
+&lt;p&gt;Nas reuniões que participo no programa de pós graduação da minha universidade,
+esse tema é recorrente. Como é o único programa que eu participo, e como é a primeira
+vez que participo, algumas coisas pra mim são novidades (não necessáriamente
+interessantes). Por exemplo, inscrições para doutorado são feitas em fluxo contínuo,
+e a avaliação dos candidatos é feita durante a reunião da pós, pelo colegiado.
+Ou seja, não tem um grupo de trabalho que avalia as propostas. Basicamente quem
+esteve presente na reunião tem direito de opinar no candidato. O edital é claro
+com relação aos requisitos mínimos que o candidato deve preencher para entrar no
+programa. No entanto, mesmo atendendo os requisitos, os documentos do candidato é
+discutido (?!). Um tópico recorrente na discussão é que o candidato tem &lt;em&gt;n&lt;/em&gt; artigos
+Qualis &lt;em&gt;X&lt;/em&gt;. Ou que tem em submissão um arquivo Qualis &lt;em&gt;X&lt;/em&gt;. Ou qualquer coisa
+Qualis &lt;em&gt;X&lt;/em&gt;. O interessante é que a discussão é feita por membros do colegiado que
+são de áreas diferentes, avaliando um pedido de inscrição de um candidato que pode
+nem ser da área dos membros presentes. O numero de Qualis &lt;em&gt;X&lt;/em&gt; dirige a discussão.&lt;/p&gt;
+
+&lt;p&gt;Nas reuniões do programa também se avalia pedidos de defesa (?!). Da mesma forma,
+se discute se o aluno tem &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;. Nas discussões de qualificação,
+trancamento, etc.. tamém se discute o Qualis &lt;em&gt;X&lt;/em&gt;. Eu inclusive (!) já presenciei
+discussões em bancas em que os membros discutem o famoso Qualis &lt;em&gt;X&lt;/em&gt;, não para fins
+de (talvez) avaliar o que foi feito, mas, pior, para dirigir o que ainda precisa
+ser feito (“para o aluno graduar, ainda é necessário &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;”).&lt;/p&gt;
+
+&lt;p&gt;Essa discussão é infinita. E não leva a lugar nenhum.&lt;/p&gt;
+
+&lt;p&gt;Primeiro, o que quero dizer com &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;? Que o aluno tem,
+supostamente, bom domínio do problema? Boa capacidade de pesquisa? Liderança?
+Inovação? Perseverança? Não. Nada disso. O &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; apenas diz que
+o aluno conseguiu publicar artigos que são mapeado pelo Qualis (basicamente qualquer um). Isso é bom? Não
+necessáriamente. Isso é ruim? Não necessáriamente. Há alguns conferências/revistas boas
+com má avaliação no Qualis, mas, pior ainda, há também várias conferências/revistas ruins bem
+avaliadas no Qualis. E se o aluno tem &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; em revistas predatórias?
+“Ah”, (alguém pode dizer) “mas basta algum membro do comitê perceber isso e comentar
+a respeito”. No entanto, como disse anteriormente, muitas das discussões sobre o
+Qualis &lt;em&gt;X&lt;/em&gt; que já participei são feitas por membros avaliando trabalhos de fora
+da sua área de atuação. Logo, uma possível resposta para a pergunta acima (o que
+se quer dizer com &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;?), é que o aluno sabe jogar com as regras
+do jogo. O triste é que as “regas do jogo” estão culturalmente enraizadas e
+espalhadas como um cancer (ou você nunca ouviu alguem falando do &lt;em&gt;n&lt;/em&gt; artigos
+Qualis &lt;em&gt;X&lt;/em&gt; do fulano?).&lt;/p&gt;
+
+&lt;p&gt;Por algum motivo, ao longo do meu doutorado, eu era um leitor avido do blog do
+professor &lt;a href=&quot;http://matt.might.net/&quot;&gt;Matt Might&lt;/a&gt; (se você não conhece, seja o blog
+ou a história do prof. Might, pare de ler agora, e vá conhecer). Um dos seus posts,
+inclusive, viralizou na internet, o &lt;a href=&quot;The illustrated guide to a Ph.D.&quot;&gt;The illustrated guide to a Ph.D.&lt;/a&gt;.
+Nesse post, o prof. Might conseguiu, de uma incrivelmente simples, ilustrar qual
+o propósito de realizar um doutorado (ou uma pesquisa, de maneira mais ampla).
+De acordo com ele, o motivo é &lt;strong&gt;&lt;em&gt;avançar as fronteiras do conhecimento&lt;/em&gt;&lt;/strong&gt;. Simples assim.
+Perceba que não há menção nenhuma a artigos, revistas, muito menos (bleh) Qualis.
+Avançar o conhecimento é o que deveria dirigir o interesse em possuir uma vida na
+academia. Trazer luz ao desconhecido.&lt;/p&gt;
+
+&lt;p&gt;Alguém pode perguntar: “mas um artigo Qualis &lt;em&gt;X&lt;/em&gt; não poderia também avançar o
+conhecimento?”. Sim, poderia (mas não necessáriamente). O problema não é ter artigos
+ter &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; publicados (o prof. Might mesmo tem vários; eu também
+tenho).&lt;/p&gt;
+
+&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é tomar decisão baseada no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é discutir trabalho alheiro baseado no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é delimitar uma tese de doutorado baseado no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Eu sei que é muito difícil desassociar o Qualis da vida acadêmica. O ponto não é
+esse. O ponto é discutir a produção dos pares por meio da contribuição científica,
+e não por mesquinharias como Qualis X. Como mesmo o prof. Might colocou em &lt;a href=&quot;http://matt.might.net/articles/tenure/&quot;&gt;outro
+post&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Life is too precious and too fleeting to waste my time on bullshit like tenure. I didn’t become a professor to get tenure. I became a professor to make the world better through science. From this day forward, I will spend my time on problems and solutions that will matter. I will make a difference.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Apenas pare com essa discussão sobre Qualis. Pare.&lt;/p&gt;
+
+&lt;p&gt;Por fim: se você é novo em uma área e quer saber quais são os locais mais interessantes
+para dedicar seu tempo e esforço, esqueça o Qualis. Olhe para plataformas como o
+&lt;a href=&quot;http://csindexbr.org/&quot;&gt;CSIndexBr&lt;/a&gt;, veja quais são as conferências/revistas indexadas,
+e gaste seu tempo somente nesses locais.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Isso é irritante</summary></entry><entry><title type="html">Second year of professoring</title><link href="http://localhost:4000/blog/second-year-of-professoring/" rel="alternate" type="text/html" title="Second year of professoring" /><published>2018-12-28T00:00:00-03:00</published><updated>2018-12-28T00:00:00-03:00</updated><id>http://localhost:4000/blog/second-year-of-professoring</id><content type="html" xml:base="http://localhost:4000/blog/second-year-of-professoring/">&lt;p&gt;Following my blog post about my &lt;a href=&quot;http://www.gustavopinto.org/blog/first-year-of-professoring/&quot;&gt;first year of professoring&lt;/a&gt;, in this blog we
 update the status for the current year. Let me revisit this wonderful year.&lt;/p&gt;
 
 &lt;h2 id=&quot;teaching&quot;&gt;Teaching&lt;/h2&gt;
@@ -13,8 +92,8 @@ and Object Oriented Programming.&lt;/p&gt;
 first three of them I have already taught last year, so I employed less time to
 create the course materials (I only had to update them). The exception was the
 Object Oriented Programming, which I have to start from scratch. I was heavily
-inspired by the methodology used in this on course, made by Eduardo Guerra, who
-teaches unit testing in the very second day, and use it throughout the corse.
+inspired by the methodology used in this &lt;a href=&quot;https://www.youtube.com/watch?v=BFfxcOHnowQ&quot;&gt;on line course&lt;/a&gt;, made by Eduardo Guerra, who
+teaches unit testing in the very second day, and use it throughout the course.
 While I found it very interesting, looking back to the course, I believe students
 did not find it very pleasant, and very few of them really mastered unit testing.
 Part of it is, of course, my fault. I am still learning how to be a professor;
@@ -33,7 +112,7 @@ concurrency, atomicity, storage, etc), and students have a hard time trying to
 connect the dots between the theory and practice. In one particular assignment,
 I asked students to build a very large dataset using (1) a binary file and (2) a
 real database, and try to do some queries. The result of this assignment was
-quite interesting, since students perceived that a full-fledge database often
+quite interesting, since students perceived that a full-fledged database often
 perform worse than simple queries made over a binary file. During the Databases 101,
 I asked students to play with the MSR dataset. I was surprised by some of the works
 that students did; two of them in particular could be very competitive research papers,
@@ -422,38 +501,4 @@ publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><emai
 
 &lt;p&gt;It is April 2017, and I got another contribution of my Ph.D. accepted last month. We submitted it twice to IEEE SW (twice rejected), to IST (rejected), but it landed at CACM (YAY!). The first submission to CACM was more than one year after graduating. I still have one chapter of my Ph.D. thesis not published. We got rejections at ASPLOS and FSE. I think it is a strong paper, and it will eventually be accepted somewhere (maybe 3 years after my Ph.D.!).&lt;/p&gt;
 
-&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A brief story about my short research career</summary></entry><entry><title type="html">Transferring Knowledge from Systematic Reviews to Practitioners</title><link href="http://localhost:4000/blog/evidence-briefings/" rel="alternate" type="text/html" title="Transferring Knowledge from Systematic Reviews to Practitioners" /><published>2016-05-05T00:00:00-03:00</published><updated>2016-05-05T00:00:00-03:00</updated><id>http://localhost:4000/blog/evidence-briefings</id><content type="html" xml:base="http://localhost:4000/blog/evidence-briefings/">&lt;p&gt;Researchers have few incentives to write to the general public. On the other hand, practitioners are not used to consume software engineering research. This “Two Solitude” problem is well-known, and several attempts have been made in order to remedying it.&lt;/p&gt;
-
-&lt;p&gt;In a study called &lt;a href=&quot;/lost+found/esem2016.pdf&quot;&gt;Evidence Briefings: Towards a Medium to Transfer Knowledge from Systematic Reviews to Practitioners&lt;/a&gt;, published at &lt;a href=&quot;http://alarcos.esi.uclm.es/eseiw2016/esem/&quot;&gt;ESEM’16&lt;/a&gt;, we propose and evaluate “Evidence Briefings”, a new method for dissaminating research results to practitioners. This model is inspired by the “Rapid Reviews”, a well-known method used in Evidence-Based Medicine (EBM). Rapid Reviews are aimed at reducing the effort of the traditional systematic reviews by provididing brief documents with few pages focusing only on the main findings that are useful to practice. More interestingly, however, is the fact that Rapid Reviews are gaining attention lately. Among 100 rapid reviews published between 1997 and 2013, 51% of them were published between 2009 and 2012.&lt;/p&gt;
-
-&lt;p&gt;Differently than Rapid Reviews, Evidence Briefings are an one-page document, extracted from a systematic review. It uses the principles of Information Design and Gestalt Theory. The primary objective is to develop documents that are comprehensible, accurately retrievable, natural, and as pleasant as possible.&lt;/p&gt;
-
-&lt;h1 id=&quot;method&quot;&gt;Method&lt;/h1&gt;
-
-&lt;p&gt;Figure below shows an example of an Evidence Briefing.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;img src=&quot;/images/briefing-structure.png&quot; alt=&quot;Gustavo Pinto&quot; width=&quot;320&quot; height=&quot;421&quot; /&gt;
-&lt;/center&gt;
-
-&lt;p&gt;There are several design techniques applied in this briefing. Here we discuss only ot ones about the structure of the briefing (represented by the numbers within squares). They are: (1) The title of the briefing. (2) A short paragraph to present the goal of the briefing. (3) The main section that present the findings extracted from the original systematic review. (4) Informative box that outlines the intended audience and explains the nature of the briefings’ content. (5) The reference to the original systematic review. (6) The logos of our research group and university. All concepts obtained in the previous steps were analyzed and applied in an evidence template, which is open-sourced under CC-BY license.&lt;/p&gt;
-
-&lt;p&gt;We create Evidence Briefings to 12 representative systematic reviews that were selected in a tertiary study. All the 12 evidence briefings as well as the briefing’s template can be found in &lt;a href=&quot;http://cin.ufpe.br/eseg/briefings&quot;&gt;http://cin.ufpe.br/eseg/briefings&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We evaluated the evidence briefings in terms of both content and format. We used personal opinion surveys to ask researchers and practitioners what they think about evidence briefings. Our group of practitioners is composed by the authors of the systematic reviews. Our group of practitioners is composed by StackExchange users that posted questions related to the systematic review in charge.&lt;/p&gt;
-
-&lt;p&gt;Our sample of reseachers is composed by 7 authors that answered the questionnaire, which corresponds to 31% of the 22 invitations. Our sample of practitioners is composed by 32 StackExchange users that responded the questionnaire. This corresponds to 21.9% of the 146 invitations.&lt;/p&gt;
-
-&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
-
-&lt;p&gt;In the practitioners survey, we asked six questions to evaluate the briefing’s content. Here we discuss only two of them. We start by asking “To what degree do you think the information available in the briefing we sent to you can answer your question on StackExchange?”. Among the answers, 10% said that the briefing has totally answered, and another 20% said that it has partially answered their StackExchange questions. Another 32% said that the briefing touches a related topic, but does not help to answer the question. The remaining 38% said that the briefing is not related to the question and, therefore, it does not help in answering it.&lt;/p&gt;
-
-&lt;p&gt;In the next question, we asked “Regardless the briefing answers or not your question, how important do you think is the research presented on the briefing?”. We found that 62% of the respondents said that the researches presented in the briefings are “Very important” or “Important”. Moreover, 25%, 6% believe they are “Moderately important” and “Slightly Important” respectively. The remaining 6% believe they are “Unwise”.&lt;/p&gt;
-
-&lt;p&gt;In the reseachers survey, we asked “How does the briefing cover the main find- ings of your paper?”. We found that 72% (5) of the respondents describe as “Very good” or “Good”. The remaining 28% (2) said that it is “Acceptable”. This suggests that even though we are not the authors of the research papers, we were capable of creating, at least, acceptable briefings.&lt;/p&gt;
-
-&lt;p&gt;In terms of format, we observed that 71% (5) of them “Strongly agree” or “Agree” that it is easy to find information in the briefings. Another 71% (5) “Strongly agree” or “Agree” that the briefing interface is clear and understandable. Finally, 56% (4) “Strongly agree” or “Agree” that the briefings look reliable.&lt;/p&gt;
-
-&lt;h1 id=&quot;concluding&quot;&gt;Concluding&lt;/h1&gt;
-
-&lt;p&gt;Our results suggest that Evidence Briefings was positively evaluated. For instance, most of the researchers and practitioners believe that it is easy to find information on Evidence Briefings. Also, most of them believe that it they clear, understandable, and reliable. We believe that Evidence Briefings can play a role on transferring knowledge from systematic reviews to practice.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'16 paper</summary></entry></feed>
+&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A brief story about my short research career</summary></entry></feed>

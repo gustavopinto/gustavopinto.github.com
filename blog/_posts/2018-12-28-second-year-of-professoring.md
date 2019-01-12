@@ -23,8 +23,8 @@ The good thing about these courses is that the
 first three of them I have already taught last year, so I employed less time to
 create the course materials (I only had to update them). The exception was the
 Object Oriented Programming, which I have to start from scratch. I was heavily
-inspired by the methodology used in this on course, made by Eduardo Guerra, who
-teaches unit testing in the very second day, and use it throughout the corse.
+inspired by the methodology used in this [on line course](https://www.youtube.com/watch?v=BFfxcOHnowQ), made by Eduardo Guerra, who
+teaches unit testing in the very second day, and use it throughout the course.
 While I found it very interesting, looking back to the course, I believe students
 did not find it very pleasant, and very few of them really mastered unit testing.
 Part of it is, of course, my fault. I am still learning how to be a professor;
@@ -43,7 +43,7 @@ concurrency, atomicity, storage, etc), and students have a hard time trying to
 connect the dots between the theory and practice. In one particular assignment,
 I asked students to build a very large dataset using (1) a binary file and (2) a
 real database, and try to do some queries. The result of this assignment was
-quite interesting, since students perceived that a full-fledge database often
+quite interesting, since students perceived that a full-fledged database often
 perform worse than simple queries made over a binary file. During the Databases 101,
 I asked students to play with the MSR dataset. I was surprised by some of the works
 that students did; two of them in particular could be very competitive research papers,
