@@ -72,7 +72,7 @@ Now the bad thing about advising: somehow, I ended up with students working in
 many different research topics. Nearly, no research topic is close to the other,
 so students could hardly collaborate. Another issue is that this approach requires
 me much more cognitive effort. For instance, during a weekly meeting, I have to
-load from my deep thoughts were we in the last week, just to get back on track
+load from my deep thoughts where we were in the last week, just to get back on track
 (it is not "plug-and-play"). Besides that, I feel I'm not very familiar with the
 related literature of all these kind of works, so then I cannot suggest good papers
 to students and, even worse, the students may be working on something that is not
