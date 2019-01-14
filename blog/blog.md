@@ -7,23 +7,11 @@ type: post_archive
 
 I write mostly about academic life. <br />
 
-Importante: these posts might have typos or weird wording. Although I might be aware of some of these issues, I do not plan to fix any of them. This is because writing takes time. If I want my blog posts to be free of typos, I might ended up not publishing anything, because I may need to polish them a lot (since I'm not a native English speaker, this takes even more time). So, I decided not to polish these blog posts in order to give them existence.<br />
+**Important note**: these posts might have typos or weird wording. Although I might be aware of some of these issues, I do not plan to fix any of them. This is because writing takes time. If I want my blog posts to be free of typos, I might ended up not publishing anything, because I may need to polish them a lot (since I'm not a native English speaker, this takes even more time). So, I decided not to polish these blog posts in order to give them existence.<br />
 
 These posts are also published on <a href=" https://medium.com/@gustavopinto">Medium</a>.
 
 
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% if year != written_year %}
-<h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-{% capture written_year %}{{ year }}{% endcapture %}
-{% endif %}
-{% include archive-single.html %}
-{% endfor %}
-
-<!--
-<section class="post-list">
   <div class="container">
     {% for post in site.posts %}
       {% unless post.next %}
@@ -42,4 +30,3 @@ These posts are also published on <a href=" https://medium.com/@gustavopinto">Me
       </article>
     {% endfor %}
   </div>
--->
