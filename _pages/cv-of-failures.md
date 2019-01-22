@@ -49,7 +49,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
 - SECTET Social Technology grant, 2018
-- CNPq Productivity Fellowship, 2017
+- CNPq Productivity Fellowship, 2017, 2018
 - CNPq Women in tech grant, 2018
 - Huawei Research Grant, 2017 (budget: U$ 68,750)
 - Google Research Grant, 2013 (budget: U$ 39,000)
