@@ -14,8 +14,10 @@ permalink: /service/
 1. PC member, [SANER'19](https://saner2019.github.io/) ([era](https://saner2019.github.io/cfp/ERATrackCFP.html), [tool demos](https://saner2019.github.io/cfp/ToolTrack.html), [rene](https://saner2019.github.io/cfp/RENETrack.html))
 1. PC member, [SIGCSE'19](https://sigcse2019.sigcse.org)
 1. PC member, [MSR'19](https://conf.researchr.org/home/msr-2019) ([data show case](https://2019.msrconf.org/track/msr-2019-Data-Showcase))
-1. PC member, [IWoR](https://iwor.github.io/iwor2019)
-1. PC member, [SESoS-WDES 2019](http://sesos-wdes-2019.icmc.usp.br/)
+1. PC member, [IWoR'19](https://iwor.github.io/iwor2019)
+1. PC member, [SESoS-WDES'19](http://sesos-wdes-2019.icmc.usp.br/)
+1. PC member, [CHASE'19](http://www.chaseresearch.org/workshops/chase2019)
+1. PC member, [ESEM'19](http://eseiw2019.com/esem/)
 
 
 ## Older (24)
