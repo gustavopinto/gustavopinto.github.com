@@ -9,7 +9,7 @@ If you want to work with me, take some time and read this page (and the links in
 
 Before getting in touch, however, read a [list of research topics](/research) that I am interested in. This list is not exhaustive, though. Students are welcome to bring their own research topic. However, please keep in mind that I will be more happy to work on stuff which happen to be on my [critical path](http://www.pgbovine.net/critical-path.htm). When getting in touch, please state which research topic are you interested in.
 
-**Important**: if you have little to no research experience, listen to [this podcast](https://hipsters.tech/pesquisa-em-engenharia-de-software-hipsters-84/). 
+**Important**: if you have little to no research experience, listen to [this podcast](https://hipsters.tech/pesquisa-em-engenharia-de-software-hipsters-84/).
 
 ## Requirements
 
@@ -28,4 +28,6 @@ There are some also additional important skills (in no priority order):
 - read at least a couple of scientific papers
 - be comfortable with reading and writing in English
 
-If you still want to apply, **I strongly recommend you** to talk with some of my previous students (a list of former and current students are available at the end of this webpage).
+If you still want to apply, **I strongly recommend you** to talk with some of my previous students (a list of former and current students is available [here](/students)).
+
+If you are already a master student, read [this](/instrucoes-alunos-msc) (pt-br).

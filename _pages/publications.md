@@ -5,11 +5,11 @@ permalink: /publications/
 
 ## 2019
 
-1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. [Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf). IEEE Software, 2019.<br>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
-
 1. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)
+
+1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. [Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf). IEEE Software, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
 ## 2018
 
