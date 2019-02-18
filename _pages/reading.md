@@ -7,13 +7,14 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 ## Must read
 
+1. [How to write a first-class paper](https://www.nature.com/articles/d41586-018-02404-4), by Virginia Gewin
 1. [Advice for researchers and students](https://homes.cs.washington.edu/~mernst/advice/), by Michael Ernst
 1. [The care and maintenance of your adviser](http://www.nature.com/naturejobs/2011/110127/pdf/nj7331-570a.pdf)
 1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
 1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
 1. [12 resolutions for grad students](http://matt.might.net/articles/grad-student-resolutions/), by Matt Might
 1. [The Nine Circles of Scientific Hell](http://journals.sagepub.com/doi/pdf/10.1177/1745691612459519)
-1. [hPublishing in peer-reviewed academic journals](ttps://lo.unisa.edu.au/mod/page/view.php?id=489385)
+1. [Publishing in peer-reviewed academic journals](ttps://lo.unisa.edu.au/mod/page/view.php?id=489385)
 
 ## Paper reading
 
@@ -35,6 +36,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 
 1. [Reviewing a technical paper](https://homes.cs.washington.edu/~mernst/advice/review-technical-paper.html), by Michael Ernst
 1. [Hints for Reviewing Empirical Work in Software Engineering](https://cs.gmu.edu/~offutt/classes/see/papers/tichy-overview.pdf), by Walter F. Tichy
+1. [How to Write Technical Paper Reviews](https://cs.brown.edu/~sk/Memos/Paper-Reviews/), by Shriram Krishnamurthi
 
 ## Talks
 
