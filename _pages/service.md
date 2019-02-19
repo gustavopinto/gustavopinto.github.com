@@ -7,11 +7,14 @@ permalink: /service/
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
 
+## Review Board (1)
+1. [EMSE Review Board](#) (2017/2018)
+
 ## Service for 2020 (1)
 1. PC chair, [SBCARS'20](#)
 
 ## Service for 2019 (9)
-1. PC Char, [CBSoft Tools Session'19](#)
+1. PC Co-Chair, [CBSoft Tools Session'19](#)
 1. PC member, [SANER'19](https://saner2019.github.io/) ([era](https://saner2019.github.io/cfp/ERATrackCFP.html), [tool demos](https://saner2019.github.io/cfp/ToolTrack.html), [rene](https://saner2019.github.io/cfp/RENETrack.html))
 1. PC member, [SIGCSE'19](https://sigcse2019.sigcse.org)
 1. PC member, [MSR'19](https://conf.researchr.org/home/msr-2019) ([data show case](https://2019.msrconf.org/track/msr-2019-Data-Showcase))
