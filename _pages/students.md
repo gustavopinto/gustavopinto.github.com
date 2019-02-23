@@ -9,6 +9,8 @@ I am continuously looking for good people to join my research group, at all leve
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Gilson Rocha (MS)
 - Marcos Nazario (MS)
+- Andre Cunha (MS)
+- Fabio Pacheco (MS)
 - Wagner Felidré (UROP)
 - Leonardo Furtado (UROP)
 - Matheus Seabra (UROP)
