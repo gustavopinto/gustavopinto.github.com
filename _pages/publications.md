@@ -11,8 +11,8 @@ permalink: /publications/
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. [Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf). IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR Popularity](#)". Accepted to the 15th International Conference of Open-Source Systems (OSS), Montreal, Canada, 2019.<br>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](#)
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS), Montreal, Canada, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
 
 ## 2018
 
