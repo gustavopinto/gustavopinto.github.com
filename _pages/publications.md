@@ -8,8 +8,14 @@ permalink: /publications/
 1. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)
 
-1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. [Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf). IEEE Software, 2019.<br>
+1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
+
+1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Recommending Energy-Efficient Java Collections". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+
+1. [Reed Milewicz](https://twitter.com/rmmilewi), **Gustavo Pinto**, [Paige Rodeghero](http://paigerodeghero.com/). "Characterizing the Roles of Contributors in Open-source Scientific Software Projects". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+
+1. Uriel Ferreira Campos, Guilherme Smethurst, João Pedro Moraes, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "Mining Rule Violations in JavaScript Code Snippets". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019 -- Challenge Track). Montreal, Canada. May 2019. <br>
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS), Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
@@ -67,8 +73,6 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
-&#8226;
-[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](medium)
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
@@ -135,7 +139,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-the-shift-to-github-impact-project-collaboration?slide=1)
 
 2. **Gustavo Pinto**, [Kenan Liu](https://www.linkedin.com/pub/kenan-liu/40/855/29), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections](http://gustavopinto.github.io/lost+found/icsme2016.pdf)". Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME'2016). Raleigh, USA. 2016. <br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/icsme2016.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/icsme2016.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/a-comprehensive-study-on-the-energy-efficiency-of-java-thread-save-collections)
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://youtu.be/sj0p2QIiBB4)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=12256220)
 &#8226;
