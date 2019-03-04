@@ -13,16 +13,17 @@ permalink: /service/
 ## Service for 2020 (1)
 1. PC chair, [SBCARS'20](#)
 
-## Service for 2019 (9)
-1. PC Co-Chair, [CBSoft Tools Session'19](#)
+## Service for 2019 (11)
+1. PC Co-Chair, [CBSoft Tools Session'19](http://cbsoft2019.ufba.br/#/toolssession)
 1. PC member, [SANER'19](https://saner2019.github.io/) ([era](https://saner2019.github.io/cfp/ERATrackCFP.html), [tool demos](https://saner2019.github.io/cfp/ToolTrack.html), [rene](https://saner2019.github.io/cfp/RENETrack.html))
-1. PC member, [SIGCSE'19](https://sigcse2019.sigcse.org)
 1. PC member, [MSR'19](https://conf.researchr.org/home/msr-2019) ([data show case](https://2019.msrconf.org/track/msr-2019-Data-Showcase))
+1. PC member, [ESEM'19](http://eseiw2019.com/esem/)
+1. PC member, [SCAM'19](http://www.ieee-scam.org/2019/)
+1. PC member, [EASE'19](https://ease2019.org/call-for-short-papers/) (short papers track)
+1. PC member, [SIGCSE'19](https://sigcse2019.sigcse.org)
 1. PC member, [IWoR'19](https://iwor.github.io/iwor2019)
 1. PC member, [SESoS-WDES'19](http://sesos-wdes-2019.icmc.usp.br/)
 1. PC member, [CHASE'19](http://www.chaseresearch.org/workshops/chase2019)
-1. PC member, [ESEM'19](http://eseiw2019.com/esem/)
-1. PC member, [EASE'19](https://ease2019.org/call-for-short-papers/) (short papers track)
 
 
 ## Older (24)
