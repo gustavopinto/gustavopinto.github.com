@@ -13,7 +13,7 @@ Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, 
 - His work on [energy-aware developers](http://gustavopinto.github.io/lost+found/msr2014.pdf) is the [most cited paper](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e) software engineering paper indexed by [CSIndexBR](http://csindexbr.org/).
 - He won two best papers awards ([MSR'17](http://gustavopinto.github.io/lost+found/msr2017b.pdf) and [VEM'16](http://gustavopinto.github.io/lost+found/vem2017.pdf)), and received one nomination to the best paper ([ESEM'18](http://gustavopinto.github.io/lost+found/esem2018.pdf)).
 - He has served as a member of [35+ program committees](/service) for several important [ACM](https://www.acm.org/)/[IEEE](https://www.ieee.org/)/[SBC](http://sbc.org.br/) venues.
-- He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, and meetups.
+- He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
 
 ## Get in touch
 

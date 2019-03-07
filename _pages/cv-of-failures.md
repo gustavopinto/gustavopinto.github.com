@@ -24,17 +24,19 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (28)
+## Conference papers rejected (30)
 
 - ASE: 2014
 - ASPLOS: 2015
 - SBLP: 2013, 2015
+- CHASE: 2019
 - CSMR: 2014
 - EASE: 2016
 - ECOOP: 2014
 - ESEM: 2016, 2017, 2018 (2x)
 - FSE: 2018
 - GPCE: 2015
+- ICPC: 2019
 - ICSE: 2017 (2x), 2019 (2x)
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018, 2019
