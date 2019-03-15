@@ -8,17 +8,17 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 <center><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/IEEEICSME?ref_src=twsrc%5Etfw">@IEEEICSME</a> for reminding me that is time to update my CV of failure ~&gt; <a href="https://t.co/7CXV8WdxjQ">https://t.co/7CXV8WdxjQ</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1003685173924388864?ref_src=twsrc%5Etfw">June 4, 2018</a></blockquote></center>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I don't like rejections, but I try to see rejections as an opportunity to improve even further. Still, if you have many rejections, it might also indicate that you have been working hard. As so, by 2021, ***my goal is to have 100+ rejections.***
+I don't like rejections, but I try to see rejections as an opportunity to improve even further. 
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (17)
+## Journal papers rejected (19)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
 - Empirical Software Engineering Journal: 2017, 2018 (2x)
 - Information and Software Technology: 2016 (2x)
-- Journal of Systems and Software: 2017 (2x)
+- Journal of Systems and Software: 2017 (2x), 2019
 - Journal of Internet Services and Applications: 2018
 - PeerJ Computer Science: 2018
 - PlosONE Computer Software: 2018
@@ -44,7 +44,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (10)
+## Grant proposals rejected (11)
 
 - BASA research grant, 2018 (budget: U$ 30,000)
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)
