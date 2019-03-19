@@ -11,16 +11,22 @@ permalink: /publications/
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
-1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "Recommending Energy-Efficient Java Collections". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Recommending Energy-Efficient Java Collections](http://gustavopinto.github.io/lost+found/msr2019a.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019a.pdf)
 
-1. [Reed Milewicz](https://twitter.com/rmmilewi), **Gustavo Pinto**, [Paige Rodeghero](http://paigerodeghero.com/). "Characterizing the Roles of Contributors in Open-source Scientific Software Projects". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+1. [Reed Milewicz](https://twitter.com/rmmilewi), **Gustavo Pinto**, [Paige Rodeghero](http://paigerodeghero.com/). "[Characterizing the Roles of Contributors in Open-source Scientific Software Projects](http://gustavopinto.github.io/lost+found/msr2019b.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019b.pdf)
 
-1. Uriel Ferreira Campos, Guilherme Smethurst, João Pedro Moraes, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "Mining Rule Violations in JavaScript Code Snippets". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019 -- Challenge Track). Montreal, Canada. May 2019. <br>
+1. Uriel Ferreira Campos, Guilherme Smethurst, João Pedro Moraes, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Mining Rule Violations in JavaScript Code Snippets](http://gustavopinto.github.io/lost+found/msr2019c.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019 -- Challenge Track). Montreal, Canada. May 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019c.pdf)
 
 1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), Eduardo Monteiro, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**. "Are Static Analysis Violations Really Fixed? A Closer Look at Realistic Usage of SonarQube". Accepted to the 27th IEEE/ACM International Conference on Program Comprehension (ICPC'2019). Montreal, Canada. May 2019. <br>
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
+
+1. André M. Pinheiro, Caio S. Rabello, Leonardo B. Furtado, **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2019.pdf)
 
 ## 2018
 

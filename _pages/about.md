@@ -5,7 +5,7 @@ permalink: /about/
 
 ## Bio
 
-Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, Brazil. He works in intersection between people and code. His research has been published in top venues (eg, ICSE, ASE, EMSE). Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco. He has been [serving on the program committee](/service) of several important conferences and journal.
+Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, Brazil. He works in intersection between people and code. His research has been published in top venues (eg, ICSE, ASE, EMSE). Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco. 
 
 ## Research highlight
 
