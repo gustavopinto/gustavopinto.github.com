@@ -6,7 +6,7 @@ permalink: /teaching/
 ## 2019.1
 
 1. [Object-Oriented Programming](/teaching/oop/2019)
-1. [Data Structures](#)
+1. [Data Structures 101](/teaching/pa/2019)
 1. [Open Source Development](http://github.com/gustavopinto/tosl)
 
 ## 2018.2
