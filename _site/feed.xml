@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-28T00:14:08-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Parem com essa discussão sobre Qualis</title><link href="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/" rel="alternate" type="text/html" title="Parem com essa discussão sobre Qualis" /><published>2019-01-12T00:00:00-03:00</published><updated>2019-01-12T00:00:00-03:00</updated><id>http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis</id><content type="html" xml:base="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/">&lt;p&gt;This post was written in Portuguese because it was aimed to Brazilian scholars.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-31T23:26:22-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">How to send a student to attend ICSE (with zero budget)</title><link href="http://localhost:4000/blog/how-to-sent-a-student-to-icse/" rel="alternate" type="text/html" title="How to send a student to attend ICSE (with zero budget)" /><published>2019-03-31T00:00:00-03:00</published><updated>2019-03-31T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-to-sent-a-student-to-icse</id><content type="html" xml:base="http://localhost:4000/blog/how-to-sent-a-student-to-icse/">&lt;p&gt;This year, an undergraduate student of mine first-authored a paper in the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2019c.pdf&quot;&gt;MSR
+challenge track&lt;/a&gt; on the
+presence of violations in JavaScript code snippets available on StackOverflow.
+This blog post is an attempt to summarize all the steps taken to find a way
+to send the student to attend the conference (and present his paper). Perhaps
+it could help some other students to make it to ICSE.&lt;/p&gt;
+
+&lt;p&gt;Overall, my student applied to four sources of funding: the &lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-Student-Volunteers&quot;&gt;student volunteers&lt;/a&gt;, the
+&lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-Software-Engineering-Mentoring-Workshop&quot;&gt;Software Engineering Mentoring Workshop (SMeW)&lt;/a&gt;, the &lt;a href=&quot;https://www.sigsoft.org/resources/caps.html&quot;&gt;CAPS SIGSOFT&lt;/a&gt; grant, and an internal grant in my
+university. I will detail each one of them next.&lt;/p&gt;
+
+&lt;p&gt;As far as I can tell, the student volunteer program happens every single year in
+ICSE (and also happens in several other software engineering conferences, such as
+ICSME and ASE). In ICSE, an accepted student volunteer receives a free registration
+for the main conference, but could also be scheduled to work in the co-located
+events (granting one-two more registration days). Therefore, applying for student
+volunteer greatly reduces one of the most costly part of attending a conference:
+the conference registration. Besides of it, students volunteers also have an unique
+opportunity to meet senior researchers that run the student volunteer program,
+and also other students (which could ended up in new research opportunities).
+I myself participated as a student volunteer in three conferences (2 OOPSLAs and
+one ICSE); I could not recommend more.&lt;/p&gt;
+
+&lt;p&gt;Moreover, this year there is the Software Engineering Mentoring Workshop. This
+workshop is intended to “attract students to research careers in software engineering”.
+I believe this was the first time that this workshop happened in ICSE, although
+similar workshops happen on regular basis on programming language conferences
+(e.g. &lt;a href=&quot;https://pldi19.sigplan.org/home/PLMW-PLDI-2019&quot;&gt;PLMW&lt;/a&gt;). My student applied
+for this grant and received CAD 500,00 plus one day ICSE registration. But since
+he received a free ICSE registration for his work as a student volunteer, this
+one day registration was not used. Now he had enough for registration and hotel.&lt;/p&gt;
+
+&lt;p&gt;Since he had a MSR paper, and was accepted for the mentoring workshop, he applied
+for the CAPS funding. CAPS offer support for students and professionals that need
+additional funding to attend SIGSOFT conferences. I have applied to this grant in
+the past, but since I had received no response for my application, I thought that
+this grant was not working. But I suggest my student to apply to it nevertheless.
+I also discussed this matter on twitter (read thread &lt;a href=&quot;https://twitter.com/gustavopinto/status/1104505538732351490&quot;&gt;here&lt;/a&gt;), and Thomas Zimmermann, SIGSOFT Chair, responded that he would take care of the
+CAPS program. Turns our that my student received USD 400,00 from CAPS (about 50%
+of what he asked for). Although this amount does not fully cover a round trip
+ticket from Belém to Montreal, it amortizes a good proportion of it.&lt;/p&gt;
+
+&lt;p&gt;Finally, I applied for him in an internal travel grant that my university runs
+for undergraduate students. The amount was fixed in around USD 330. Although
+this is a very particular grant from my university, I am aware that other
+Brazilian universities provide similar mechanism to help students. Now his trip
+is fully covered (including eventual meals, ground transportation, travel
+insurance, etc).&lt;/p&gt;
+
+&lt;p&gt;Wrapping up, I am glad that there are many international grants aimed to
+help students to attend software engineering conferences. But the trick thing is:
+if one of these grants does not have a positive outcome, I would have to complement
+his trip out of my own pocket (although I have a small grant running, I could not
+use this grant to support his trip; I will leave this explanation for another blog post).
+If his application was not accepted in two or more grants, his trip would become
+extremely prohibitive. Still, these grants have different application dates
+(and, consequently, notification dates). So eventually the student find himself in a
+position such as: (1) what if I accept this grant but did not receive the other one?
+(2) Could I say “yes” for a grant but eventually say “no” to it due to the lack of
+additional support? (3) should I start making reservations, or should I leave it
+to the last minute (when tickets often become more expensive)?
+These questions are all valid and tough.&lt;/p&gt;
+
+&lt;p&gt;Turn out that the stars in the sky were well aligned the applications were all
+positive. Reflection upon this endeavour, maybe it would be interesting if all
+these programs would have close notification dates to each other.&lt;/p&gt;
+
+&lt;p&gt;Final tip: the &lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-ACM-Student-Research#Call-for-Contributions&quot;&gt;ACM Student Research Competition&lt;/a&gt; also rewards the students with accepted papers
+with up to USD 500,00 to help them defray their travel costs. My student did not
+submit to ACM SRC (I may have forgotten; this blog post can help even myself in
+the future).&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Apply for every single opportunity (and cross your fingers)</summary></entry><entry><title type="html">Parem com essa discussão sobre Qualis</title><link href="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/" rel="alternate" type="text/html" title="Parem com essa discussão sobre Qualis" /><published>2019-01-12T00:00:00-03:00</published><updated>2019-01-12T00:00:00-03:00</updated><id>http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis</id><content type="html" xml:base="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/">&lt;p&gt;This post was written in Portuguese because it was aimed to Brazilian scholars.&lt;/p&gt;
 
 &lt;p&gt;Como escrevi no último post, ainda estou começando minha carreira de pesquisador,
 mas se tem uma coisa que é, no mínimo, irritante é essa discussão sobre Qualis.&lt;/p&gt;
@@ -481,24 +551,4 @@ publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><emai
 
 &lt;center&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/msr17?src=hash&quot;&gt;#msr17&lt;/a&gt; is now over. See you in &lt;a href=&quot;https://twitter.com/hashtag/msr18?src=hash&quot;&gt;#msr18&lt;/a&gt; in Gothenburg &lt;a href=&quot;https://t.co/rBGwoNhaIv&quot;&gt;pic.twitter.com/rBGwoNhaIv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/866390115182153729&quot;&gt;May 21, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;/center&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">My personal and biased view about MSR'17</summary></entry><entry><title type="html">Where did I submit papers during my phd</title><link href="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/" rel="alternate" type="text/html" title="Where did I submit papers during my phd" /><published>2017-04-08T00:00:00-03:00</published><updated>2017-04-08T00:00:00-03:00</updated><id>http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd</id><content type="html" xml:base="http://localhost:4000/blog/where-did-i-submit-papers-during-my-phd/">&lt;p&gt;TL;DR&lt;/p&gt;
-
-&lt;p&gt;Publishing papers take time. If you want to publish in a good venue, it takes even more time. Start as early as you can.&lt;/p&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;p&gt;I often tell students that they should submit papers to good conferences. During my Ph.D., I think I have submitted to &lt;em&gt;some&lt;/em&gt; good conferences. This is a rant about my submissions, while a Ph.D. student. I remember submitting a reasonable number of paper. Most of them were through easychair, which I can see 21 submissions during 2011-2015 (I graduated in Feb 2015). Among them, 11 papers were accepted. I learnt a lot while working on them, although I’m really proud of less than half of them. Let’s tell the story.&lt;/p&gt;
-
-&lt;p&gt;During my first year, I just made one submission. It was to &lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2095067&quot;&gt;Workshop on Transitioning to Multicore (TMC’2011)&lt;/a&gt;. It was co-located with SPLASH, a prestigious SE+PL conference. During that time, I was looking for a problem to work on, and my advisor was interested at better understanding the state of the use of Java’s concurrency constructs. The workshop was a perfect fit. I worked in this paper for months in a row, and I remember working intensively on it during the deadline week. It was the first time in my life that I didn’t sleep trying to finish a paper. My English was terrible at the time and somehow I was responsible for writing most of the stuff. The paper had only 6 pages, and we had a ton of data (needless to say that we didn’t understand some numbers). At the end, the paper was conditionally accepted – and I was super excited about it. As of 2017, it’s on the top-5 of my &lt;a href=&quot;https://scholar.google.com/citations?view_op=view_citation&amp;amp;hl=en&amp;amp;user=dOeggYMAAAAJ&amp;amp;citation_for_view=dOeggYMAAAAJ:u5HHmVD_uO8C&quot;&gt;most cited papers&lt;/a&gt;. I’m really proud of what I learnt during the process. That was it for 2011.&lt;/p&gt;
-
-&lt;p&gt;In 2012, I submitted four papers. One to FASE (rejected; and I don’t even recall), one to EASE (accepted), one to TISE (rejected, I don’t recall either), and another one to ICSM (rejected). I don’t have a major merit for the acceptance of the EASE paper, I just helped reviewing some papers (it is a systematic literature review). The ICSM is another story. It was an extended version of the TMC paper. 10 pages long, much more comprehensive and polished. Again, this submission made me go to bed after 7am. The paper was rejected, and I started to dislike this paper.&lt;/p&gt;
-
-&lt;p&gt;It was 2013 and I was scratching a problem for my Ph.D. I submitted an early version of it to SBLP (a Brazilian PL conference), and it was brutally rejected (scored 0, -2 and -3). That was shocking. I thought I had a competitive paper, but I was wrong. I kept working on it, aiming at PLATEU, another workshop co-located with SPLASH. At the day of the deadline, my advisor called me and said that we must withdraw our submission (we have submitted an abstract). He thought that the paper was so bad that does not even deserve be submitted to this workshop (I also have another last minute canceled paper. But this time I turned down the submission (we were aiming at GREENS, a workshop co-located with ICSE)). I kept working on this paper, and we submitted it to CSMR (reject) and afterwards to ECOOP (rejected). Four rejections in a row. I also submitted to the &lt;a href=&quot;http://refactoring.info/WRT13/&quot;&gt;Workshop on Refactoring Tools (WRT)&lt;/a&gt; – co-located with SPLASH. This was my first submission without my advisor. It was also my first study targeting StackOverflow. Reviewers seem to like it (scored 2, 3, and 3), and it got into. Although naive, I like this paper.&lt;/p&gt;
-
-&lt;p&gt;2014 was the beginning of the end. My advisor liked my WRT paper, and suggested to do the same, but now targeting my Ph.D. subject. We did and submitted to MSR (accepted). This was my first paper related to my Ph.D. – and it was accepted one year before graduating! In parallel, I kept working on the SBLP/PLATEU/CSMR/ECOOP paper. This time, we submitted to OOPSLA, and we made it (YAY!). The second paper related to my Ph.D. was accepted – and I’m very proud of it. I did another spin off, and submitted to OSS (accepted). This was my first paper targeting Github. Still, I submitted a paper to SEPS (another SPLASH co-located workshop, do you see the pattern?). It was accepted, related to my thesis, and invited to submit an extended version. We submitted it right afterwards – three main chapters done.&lt;/p&gt;
-
-&lt;p&gt;In 2015, in cooperation with another students, I submitted to MSR (accepted) and to FASE (accepted; this time I remember). Although I like both of these papers, the FASE paper is very dear to my heart. However, none of them helped me graduating. I also submitted to SANER (former CSMR), but it was rejected. Remember the TMC/ICSM paper? In 2015 we submitted it to JSS (accepted). The complete story of this paper can be found at my advisor &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;blog post&lt;/a&gt;. In 2015 I start submitting more regularly (the rejected SANER paper was also rejected at SBLP, but accepted at PLATEU), but it was after my Ph.D.&lt;/p&gt;
-
-&lt;p&gt;It is April 2017, and I got another contribution of my Ph.D. accepted last month. We submitted it twice to IEEE SW (twice rejected), to IST (rejected), but it landed at CACM (YAY!). The first submission to CACM was more than one year after graduating. I still have one chapter of my Ph.D. thesis not published. We got rejections at ASPLOS and FSE. I think it is a strong paper, and it will eventually be accepted somewhere (maybe 3 years after my Ph.D.!).&lt;/p&gt;
-
-&lt;p&gt;Although I missed some submitted papers (I remember submitting to GPCE and PLDI, but they are nowhere to be found), this list is pretty much comprehensive. Tell your story too :-)&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A brief story about my short research career</summary></entry></feed>
+&lt;/center&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">My personal and biased view about MSR'17</summary></entry></feed>
