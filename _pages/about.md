@@ -5,7 +5,7 @@ permalink: /about/
 
 ## Bio
 
-Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, Brazil. He works in intersection between people and code. His research has been published in top venues (eg, ICSE, ASE, EMSE). Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco. 
+Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, Brazil. He works in intersection between people and code. His research has been published in top venues (eg, ICSE, ASE, EMSE). Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco.
 
 ## Research highlight
 
@@ -14,7 +14,7 @@ Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, 
 - He won two best papers awards ([MSR'17](http://gustavopinto.github.io/lost+found/msr2017b.pdf) and [VEM'16](http://gustavopinto.github.io/lost+found/vem2017.pdf)), and received one nomination to the best paper ([ESEM'18](http://gustavopinto.github.io/lost+found/esem2018.pdf)).
 - He served as a member of [35+ program committees](/service) for several important [ACM](https://www.acm.org/)/[IEEE](https://www.ieee.org/)/[SBC](http://sbc.org.br/) venues.
 - He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
-- He failed [50+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
+- He failed [60+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
 
 ## Get in touch
 

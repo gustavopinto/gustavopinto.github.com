@@ -16,6 +16,8 @@ permalink: /publications/
 
 1. [Reed Milewicz](https://twitter.com/rmmilewi), **Gustavo Pinto**, [Paige Rodeghero](http://paigerodeghero.com/). "[Characterizing the Roles of Contributors in Open-source Scientific Software Projects](http://gustavopinto.github.io/lost+found/msr2019b.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019b.pdf)
+&#8226;
+[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](/blog/characterizing-the-roles-of-contributors-in-scientific-oss-projects/)
 
 1. Uriel Ferreira Campos, Guilherme Smethurst, João Pedro Moraes, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Mining Rule Violations in JavaScript Code Snippets](http://gustavopinto.github.io/lost+found/msr2019c.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019 -- Challenge Track). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019c.pdf)
