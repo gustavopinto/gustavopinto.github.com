@@ -8,16 +8,16 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 <center><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/IEEEICSME?ref_src=twsrc%5Etfw">@IEEEICSME</a> for reminding me that is time to update my CV of failure ~&gt; <a href="https://t.co/7CXV8WdxjQ">https://t.co/7CXV8WdxjQ</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1003685173924388864?ref_src=twsrc%5Etfw">June 4, 2018</a></blockquote></center>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I don't like rejections, but I try to see rejections as an opportunity to improve even further. 
+I don't like rejections, but I try to see rejections as an opportunity to improve even further.
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (19)
+## Journal papers rejected (20)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x)
 - Empirical Software Engineering Journal: 2017, 2018 (2x)
-- Information and Software Technology: 2016 (2x)
+- Information and Software Technology: 2016 (2x), 2019
 - Journal of Systems and Software: 2017 (2x), 2019
 - Journal of Internet Services and Applications: 2018
 - PeerJ Computer Science: 2018
