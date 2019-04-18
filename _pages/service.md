@@ -24,6 +24,11 @@ permalink: /service/
 1. PC member, [IWoR'19](https://iwor.github.io/iwor2019)
 1. PC member, [SESoS-WDES'19](http://sesos-wdes-2019.icmc.usp.br/)
 1. PC member, [CHASE'19](http://www.chaseresearch.org/workshops/chase2019)
+1. PC member, [PASS@ECOOP'19](https://2019.ecoop.org/home/PASS-ECOOP-2019)
+1. PC member, [ICSME'19](https://icsme2019.github.io/) ([artifact track](https://icsme2019.github.io/cfp_artifacts_track.html))
+1. PC member, [SBES'19](http://cbsoft2019.ufba.br/#/sbesresearchtrack)
+1. PC member, [SBCARS'19](http://cbsoft2019.ufba.br/#/sbcars)
+1. PC member, [SBLP'19](http://cbsoft2019.ufba.br/#/sblp)
 
 
 ## Older (24)
