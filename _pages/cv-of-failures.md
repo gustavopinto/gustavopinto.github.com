@@ -44,8 +44,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (11)
+## Grant proposals rejected (12)
 
+- Helium grant, 2019 (budget: U$ 1,000)
 - BASA research grant, 2018 (budget: U$ 30,000)
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
