@@ -42,10 +42,6 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Questions**: What are the most common problems related to issue report?<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
 
-1. Differentiating the contributions from volunteers and employees<br>
-**Questions**: What kind of code do volunteers touch? Who drives the project structure? Do company-owned OSS projects follow community best practices?<br>
-**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
-
 1. Studying the differences between commercial developers and volunteers
 **Questions**: With commercial developers *not* working directly on their company's projects (e.g., GitHub employees working on other, non-GitHub-owned projects).<br>
 **Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
@@ -67,11 +63,6 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Question**: "[we cannot achieve 100% confidence no matter how much time and energy we put into it](https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext)". When/How do testers stop?<br>
 **Skills:** English communication<br>
 
-1. Fake failed builds<br>
-**Question**: How to automatically differentiate fake than non fake builds?<br>
-**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
-**Related work:** [MSR'17](http://gustavopinto.github.io/lost+found/msr2017b.pdf)
-
 1. Improving developers participation in pull-requests research<br>
 **Question**: How often are PRs send in SE studies rejected? How could we improve this?<br>
 **Skills:** English communication<br>
@@ -88,8 +79,5 @@ This page provides possible research topics (for BS, MS, or PhD level). Students
 **Skills:** English communication<br>
 **Related work:** https://blog.tidelift.com/dont-judge-a-project-by-its-github-stars-alone
 
-
-<!-- 1. Naming the pain on sci software development<br>
-**Questions**: What are the key pain point that the sci software community has, when developing software?<br>
-**Skills:** English communication<br>
-**Related work:** [SANER'18](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)-->
+1. Understanding large files in OSS projects<br/>
+**Skills:** script programming (e.g., Python, Lua, Ruby, etc)<br>
