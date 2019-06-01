@@ -24,7 +24,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (30)
+## Conference papers rejected (31)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -33,7 +33,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - CSMR: 2014
 - EASE: 2016
 - ECOOP: 2014
-- ESEM: 2016, 2017, 2018 (2x)
+- ESEM: 2016, 2017, 2018 (2x), 2019
 - FSE: 2018
 - GPCE: 2015
 - ICPC: 2019
