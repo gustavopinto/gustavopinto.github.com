@@ -1,13 +1,14 @@
 ---
 layout: single
 title: Tips on how to find a phd advisor
+excerpt: Look for active internet users
 year: 2019
 month: 5
 day: 27
 published: true
 ---
 
-Here and there I have been asked whether or not one should apply to a PhD position. After thinking for awhile in these questions, I perceived that they can be translated to a single question: “should I apply for this position at University X”. This question is obviously important, because the decision to go to University X instead of University Y can pretty much drive your PhD. For instance, if University X does not provide basic funding to cover your expenses, it would be much more difficult to finish a PhD. However, if funding is guaranteed, the decision should not be taken in terms of the place you are going, but instead with who you will be working.
+Here and there I have been asked whether or not one should apply to a PhD position. After thinking for a while in these questions, I perceived that they can be translated to a single question: “should I apply for this position at University X”. This question is obviously important, because the decision to go to University X instead of University Y can pretty much drive your PhD. For instance, if University X does not provide basic funding to cover your expenses, it would be much more difficult to finish a PhD. However, if funding is guaranteed, the decision should not be taken in terms of the place you are going, but instead with who you will be working.
 
 For sure, it will be very impressive to state in your CV that you have a degree from that top notch university. These universities may also have beautiful labs, with a lot of funding for your research. You may also have family or close relatives that live in the city that you are planning to move, and this would greatly reduce the transaction cost. However, in my rather little experience, the most important factor is your advisor. What if your advisor is a very busy person, that needs to coordinate several projects, and several people? What if your advisor is not a very friendly person? What if your advisor is planning to do some startup and now does very little research?
 
