@@ -13,8 +13,7 @@ I am continuously looking for good people to join my research group, at all leve
 - Wagner Felidré (UROP)
 - Leonardo Furtado (UROP)
 - Enzo Gabriel (UROP)
-- Matheus Seabra (Capstone)
-- David Lopes (Capstone)
+- João Pedro Moraes (Capstone)
 - You?
 
 
@@ -27,3 +26,4 @@ I am continuously looking for good people to join my research group, at all leve
 - Thiago Benício (Capstone), December 2018
 - Marcos Costa (Capstone), December 2018
 - Gilson Rocha (MS), March 2019
+- Matheus Seabra (Capstone), July 2019
