@@ -5,15 +5,16 @@ permalink: /publications/
 
 ## 2019
 
-1. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](#)**<br/>
+1. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](https://twitter.com/rmmilewi/status/1134445184111058947)**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf) &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://youtu.be/s_FiDSfomdo)
-
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
-1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, **Gustavo Pinto**, [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Recommending Energy-Efficient Java Collections](http://gustavopinto.github.io/lost+found/msr2019a.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
+1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**,. "[Recommending Energy-Efficient Java Collections](http://gustavopinto.github.io/lost+found/msr2019a.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019a.pdf)
 
 1. [Reed Milewicz](https://twitter.com/rmmilewi), **Gustavo Pinto**, [Paige Rodeghero](http://paigerodeghero.com/). "[Characterizing the Roles of Contributors in Open-source Scientific Software Projects](http://gustavopinto.github.io/lost+found/msr2019b.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
@@ -29,10 +30,19 @@ permalink: /publications/
 1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), Eduardo Monteiro, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**. "[Are Static Analysis Violations Really Fixed? A Closer Look at Realistic Usage of SonarQube](http://gustavopinto.github.io/lost+found/icpc2019.pdf)". Accepted to the 27th IEEE/ACM International Conference on Program Comprehension (ICPC'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icpc2019.pdf)
 
+1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Pedro Pinheiro, [Sergio Soares](https://www.cin.ufpe.br/~scbs/), [Maria Teresa Baldassarre](https://www.uniba.it/docenti/baldassarre-maria-teresa). [Software Engineering Research Community Viewpoints on Rapid Reviews](http://gustavopinto.github.io/lost+found/esem2019a.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019a.pdf)
+
+1. [Wagner Felidré](https://github.com/wagnernegrao/), [Leonardo Furtado](http://leonardofurtado.me/), [Daniel Alencar Da Costa](http://danielcalencar.github.io/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. [Continuous Integration Theater](http://gustavopinto.github.io/lost+found/esem2019b.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019b.pdf)
+
+1. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019c.pdf)
+
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
 
-1. André M. Pinheiro, Caio S. Rabello, Leonardo B. Furtado, **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
+1. André M. Pinheiro, Caio S. Rabello, [Leonardo B. Furtado](http://leonardofurtado.me/), **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "[Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations](http://gustavopinto.github.io/lost+found/chase2019.pdf)". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2019.pdf)
 
 ## 2018
@@ -166,7 +176,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/evidence-briefings/)
 
 4. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[More Common Than You Think: An In-Depth Study of Casual Contributors](http://gustavopinto.github.io/lost+found/saner2016.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016). Osaka, Japan, 2016. **[[This paper was highlighted in the May/June 2017 issue of IEEE Software](https://www.computer.org/csdl/mags/so/2017/03/mso2017030114.html)]**<br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2016.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/more-common-than-you-think-an-in-depth-study-of-casual-contributors?slide=1) &#8226; [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/2016/01/01/the-story-behind-casual-contributors.html)
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2016.pdf)  &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/more-common-than-you-think-an-in-depth-study-of-casual-contributors?slide=1) &#8226; [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/the-story-behind-casual-contributors)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=11977747)
 
 5. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), **Gustavo Pinto**, Felipe Ebert, [Weslley Torres](https://twitter.com/weslleytorres), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[An Empirical Study on the Usage of the Swift Programming Language](http://gustavopinto.github.io/lost+found/saner2016b.pdf)". Accepted to the 23rd IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2016 -- ERA Track). Osaka, Japan, 2016. <br/>
@@ -208,7 +218,7 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 3. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/) and [Yu David Liu](http://www.cs.binghamton.edu/~davidl/). "[Mining Questions About Software Energy Consumption](http://gustavopinto.github.io/lost+found/msr2014.pdf)". Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014. **[[This paper was the most cited software engineering paper by Brazilian professors (2013--2018).](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e)]**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2014.pdf) &#8226; [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/mining-questions-about-software-energy-consumption) &#8226;
-[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/2014/11/25/do-developers-care-about-software-energy-consumption.html)
+[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/do-developers-care-about-software-energy-consumption/)
 
 4. **Gustavo Pinto** and [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei). "[The Census of the Brazilian Open-Source Community](http://gustavopinto.github.io/lost+found/oss2014.pdf)". Accepted to the 10th International Conference of Open-Source Systems (OSS), San Jose, Costa Rica, 2014.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2014.pdf)

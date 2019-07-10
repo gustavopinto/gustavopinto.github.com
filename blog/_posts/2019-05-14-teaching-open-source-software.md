@@ -1,7 +1,7 @@
 ---
 layout: single
 title: What I think about teaching
-excerpt: and how to enjoy it
+excerpt: and how to enjoy it more
 year: 2019
 month: 5
 day: 14
@@ -69,10 +69,12 @@ here and there), I enjoy that culture. I enjoy to participate in open source
 events, to discuss about open source, and to spend an afternoon trying to install
 one driver.
 
-After my PhD, I became even more involved with open source, but now on the
+During my PhD I moved focus a bit, and did not spent much time with open source.
+
+After my PhD, I became again involved with open source, but now on the
 research side. The research works that I did with open source projects and
 communities seemed to be more
-aligned with the industry practice, which was something that I was looking for.
+aligned with the industry practice, which was something that I was very concerned about.
 It suddently became my main research topic; the literature that I am more
 familiar with. For me, it is easy to talk about open source.
 
@@ -95,6 +97,6 @@ with them (other than using them to create ordinary software). I also do not do
 research on these topics. I am also not that familiar with the fundamental books
 nor the newest literature. I teach these courses because I have to teach.
 
-Note to my future self: try to teach the subject that you like the most. If
+Lesson learned? Try to teach the subject that you like the most. If
 that is not possible, try to expand your research interests to cover the
 disciplines that you are teaching.

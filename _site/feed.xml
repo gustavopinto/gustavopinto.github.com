@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-29T23:23:38-03:00</updated><id>http://localhost:4000/</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Why blogging in academia is important</title><link href="http://localhost:4000/blog/why-blogging-is-important/" rel="alternate" type="text/html" title="Why blogging in academia is important" /><published>2019-04-29T00:00:00-03:00</published><updated>2019-04-29T00:00:00-03:00</updated><id>http://localhost:4000/blog/why-blogging-is-important</id><content type="html" xml:base="http://localhost:4000/blog/why-blogging-is-important/">&lt;p&gt;Researchers are busy people. We always have many things to do, and we often
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-06-26T23:15:08-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Tips on how to find a phd advisor</title><link href="http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor/" rel="alternate" type="text/html" title="Tips on how to find a phd advisor" /><published>2019-05-27T00:00:00-03:00</published><updated>2019-05-27T00:00:00-03:00</updated><id>http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor</id><content type="html" xml:base="http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor/">&lt;p&gt;Here and there I have been asked whether or not one should apply to a PhD position. After thinking for a while in these questions, I perceived that they can be translated to a single question: “should I apply for this position at University X”. This question is obviously important, because the decision to go to University X instead of University Y can pretty much drive your PhD. For instance, if University X does not provide basic funding to cover your expenses, it would be much more difficult to finish a PhD. However, if funding is guaranteed, the decision should not be taken in terms of the place you are going, but instead with who you will be working.&lt;/p&gt;
+
+&lt;p&gt;For sure, it will be very impressive to state in your CV that you have a degree from that top notch university. These universities may also have beautiful labs, with a lot of funding for your research. You may also have family or close relatives that live in the city that you are planning to move, and this would greatly reduce the transaction cost. However, in my rather little experience, the most important factor is your advisor. What if your advisor is a very busy person, that needs to coordinate several projects, and several people? What if your advisor is not a very friendly person? What if your advisor is planning to do some startup and now does very little research?&lt;/p&gt;
+
+&lt;p&gt;In other words: Is it worth to work in the top CS school in the world if you advisor is not available to support you accordingly?&lt;/p&gt;
+
+&lt;p&gt;Moreover, for many kind of research works (at least in software engineering) you may not need a multi million dollar cluster neither thousands of dollars to travel for field study. That’s awesome if you have. But if you don’t, it is not the end of the work. You can also find some very interesting research topics that you can work on your 2013 notebook.&lt;/p&gt;
+
+&lt;p&gt;IMO, More important than this is actually an advisor that could properly guide your work. That can devote some week hours to talk to you. That trust on you. That help you.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, it may be very hard to note these qualities in a person that you may not even know in person. Next are some tips that may give a hint along these lines.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Find his/her personal webpage&lt;/strong&gt;: This is the very first rule of thumb. If your prospective advisor does not have a webpage, he may be very, very busy. Important: webpages such as Google Scholar or DBLP are not personal webpages. The bare minimum personal webpage should clearly make available his/her email address. If one does not provide a way to others contact him/her, s/he may not want to receive your contact.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Talk to his/her former students&lt;/strong&gt;: Former students are an excellent source of information. Perhaps no one knows better than them how their former advisor works and behaves. Important: many advisors made available a list of his/her former students. This list can be available on the advisor personal webpage, or on their CVs. Cold email a bunch of former students and ask their perceptions regarding work with your prospective advisor. Many former students will be glad to help (in particular if they enjoyed the time that they worked with your prospective advisor. Moreover, there is nothing wrong to ask for an insider opinion (your prospective advisor does the same when he asks for recommendation letters).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Follow him/her in a social network&lt;/strong&gt;: As of today, Twitter is probably the de facto on line way that researchers broadly communicate with their peers. Obviously email plays a role. However, email is private and you can hardly interact with someone else who is already having a discussion. But you can do this on Twitter. If your prospective advisor has a Twitter account, follow him/her to get a glimpse about what he thinks about many things. Whenever possible, interact with him/her.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ask for an Skype meeting&lt;/strong&gt;: A short online meeting can help a lot. If you have a negative answer, this may indicate a carelessness. Even very busy/famous professors can find the time for a quick online meeting. However, before the meeting, think about 3–5 question to ask the professor. Asking questions may indicate an interest on you side. If you have no interest, why should s/he have?&lt;/p&gt;
+
+&lt;p&gt;Good luck.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Look for active internet users</summary></entry><entry><title type="html">What I think about teaching</title><link href="http://localhost:4000/blog/teaching-open-source-software/" rel="alternate" type="text/html" title="What I think about teaching" /><published>2019-05-14T00:00:00-03:00</published><updated>2019-05-14T00:00:00-03:00</updated><id>http://localhost:4000/blog/teaching-open-source-software</id><content type="html" xml:base="http://localhost:4000/blog/teaching-open-source-software/">&lt;p&gt;Although I am a professor, teaching is not the part of my work that I love the
+most. I do like teaching, but I do not love teaching. And when I have a heavy
+teaching working, I tend to enjoy it even less. Some reasons because teaching is
+just OK to me: teaching (preparing material, teaching itself, grading, etc)
+takes a lot of time; we have little to no feedback (students rarely comment if
+the class was amazing or terrible); students are not always
+engaged with the class, etc.&lt;/p&gt;
+
+&lt;p&gt;I have tried some approaches to try to improve students’ engagement, but this
+blog post is not about this.&lt;/p&gt;
+
+&lt;p&gt;When I was a student, I liked to participate in meetups and local conferences to
+give talks. The act of be in the front of several people (probably more skilled
+and experienced than me), teaching than something new, was vibrant to me.
+I loved that feeling. As a consequence,
+I tried my best to give a good presentation. I read books about how to give a talk.
+I attend a course on how to speak in public. I practice the talk many, many times
+before delivering the talk.  I liked not only giving the talk itself,
+but the process to prepare the talk (working on the slides, thinking about the
+best words, looking for good figures, etc). I could easily spent many hours working
+on a single talk that I could deliver in 20 minutes or less. And this made completely
+sense to me.&lt;/p&gt;
+
+&lt;p&gt;However, when I am preparing the classes material, I tried my best to do that
+as fast as possible. Not fast to the point to have a crap material, but also far
+from having a perfect material. If I could grade my classes material, I may give
+six or even five in a scale from zero to ten. It is true that I do not have the
+same amount of free time available that I had when I as a student, so
+obviously, I could not employ many hours to create the materials for a single class.
+Then I could naively lie to myself thinking that my classes materials are not
+great because I do not have the time to curate the materials. However, even if I
+had the time, I believe I would not make much progress to improve its quality.&lt;/p&gt;
+
+&lt;p&gt;However, when it comes to delivering the lecture, there is a whole new figure.
+I still enjoy a lot being in the front of a room explaining things, over and over again.
+I try my best to give a good lecture. I try my best to show to student how
+beautiful and exciting is one given concept. But that is it. After the lecture,
+I still have to grade exams, create or improve the materials, prepare exercises,
+and so on. And all of this is just boring to me.&lt;/p&gt;
+
+&lt;p&gt;And that was true till this semester.&lt;/p&gt;
+
+&lt;p&gt;This semester I am teaching Open Source Software Development.&lt;/p&gt;
+
+&lt;p&gt;Open source software is something that interest me a lot. During my early days
+in my undergrad course, I was an intern in a local internet provider. This was
+a very interesting experience, mainly because it was my first contact with Linux.
+I learned a lot of bash programming using vi. I also learned to set up several
+network services, and I became very interested in computer network stuff. Several
+colleagues of mine went to grad school to study computer network, and I had no idea
+how I became a software engineering guy. I started to use Linux at home (a Brazilian
+distribution called &lt;a href=&quot;https://www.hardware.com.br/kurumin/&quot;&gt;Kurumin&lt;/a&gt;), and I also
+volunteered to install Linux in several places (something that today is called
+“Linux Install Fest”). I did my master in a school that was all about open source.
+I remember that they were very proud to state everywhere that they only had a single
+Windows machine because of a CAPES requirement. Other than that, it was all about
+Linux. Even thought I was never an active contributor (although I have contributed
+here and there), I enjoy that culture. I enjoy to participate in open source
+events, to discuss about open source, and to spend an afternoon trying to install
+one driver.&lt;/p&gt;
+
+&lt;p&gt;During my PhD I moved focus a bit, and did not spent much time with open source.&lt;/p&gt;
+
+&lt;p&gt;After my PhD, I became again involved with open source, but now on the
+research side. The research works that I did with open source projects and
+communities seemed to be more
+aligned with the industry practice, which was something that I was very concerned about.
+It suddently became my main research topic; the literature that I am more
+familiar with. For me, it is easy to talk about open source.&lt;/p&gt;
+
+&lt;p&gt;I was luck to have a colleague in my university that shares the same passion
+about open source that I had. This colleague is not an open source researcher;
+instead, he is an active open source hacker. He does the things that I study.
+He has the practice that I describe in my research papers. The next logical step
+was obviously to create this open source development course.&lt;/p&gt;
+
+&lt;p&gt;The experience I had building this course was completely different than any other course
+I created. First because I started to create the material many months before the
+course. Second because I reread many of the fundamental books in this discipline
+(e.g., the cathedral and the bazaar). Third because I look forward to the class.
+Needless to say that I enjoy very much give the lecture.&lt;/p&gt;
+
+&lt;p&gt;This might be obvious to the reader, but it only became clear to me lately:
+I like teaching this course because it is about something that I enjoy a lot.
+I do enjoy learning about data structures or databases, but I do not have very interesting experiences
+with them (other than using them to create ordinary software). I also do not do
+research on these topics. I am also not that familiar with the fundamental books
+nor the newest literature. I teach these courses because I have to teach.&lt;/p&gt;
+
+&lt;p&gt;Lesson learned? Try to teach the subject that you like the most. If
+that is not possible, try to expand your research interests to cover the
+disciplines that you are teaching.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">and how to enjoy it more</summary></entry><entry><title type="html">Why blogging in academia is important</title><link href="http://localhost:4000/blog/why-blogging-is-important/" rel="alternate" type="text/html" title="Why blogging in academia is important" /><published>2019-04-29T00:00:00-03:00</published><updated>2019-04-29T00:00:00-03:00</updated><id>http://localhost:4000/blog/why-blogging-is-important</id><content type="html" xml:base="http://localhost:4000/blog/why-blogging-is-important/">&lt;p&gt;Researchers are busy people. We always have many things to do, and we often
 delay in delivering our projects. How many times did you receive an email that
 started with “sorry for this late response”, or perhaps an email that was not
 even answered? This behavior is so normal in academia that we do not think this
@@ -491,130 +602,4 @@ this when I turn down invitations.&lt;/p&gt;</content><author><name>Gustavo Pint
 
 &lt;p&gt;We conducted a survey with quasi-contributors, and they mentioned several reasons for why the pull-request proposed was not accepted. The most common reason is &lt;strong&gt;superseded/duplicated&lt;/strong&gt; pull-request (e.g., “Other pull-requests fixed the same issues as my pull-requests”). &lt;strong&gt;Mismatch between developer’s and team’s vision/opinion&lt;/strong&gt; is also common (e.g., “when you add a new feature to the project, your vision can be out of tune with the vision of the project’s team, and this is natural”). We also observed a &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; (e.g. “It was ignored maybe because it was a very minor fix”). We also asked integrators about the reasons for non-acceptance. According to them, the most common reason for nonacceptance is &lt;strong&gt;PR not needed/not relevant&lt;/strong&gt; (e.g., “[such contribution] solves the immediate/local problem but does not address the deeper systemic issue”). The second most common reason is &lt;strong&gt;Guidelines not followed&lt;/strong&gt;. According to one integrator, such guidelines can range from “coding style, lack of tests, or messy versioning history”. Interestingly, none of the integrators assumed the mea culpa, i.e., the &lt;strong&gt;lack of interest from integrators&lt;/strong&gt; aforementioned.&lt;/p&gt;
 
-&lt;p&gt;Most of the quasi-contributors surveyed agreed with the decision of having the pull-request unmerged (67.4%) and that the comments were constructive (88.8%). However, the number of unmerged pull-requests, the 30.3% of the developers that reported demotivation, and the 32.6% that reported disagreement with the community decision are not negligible. Moreover, 99 quasi-contributors did not agree with the pull-request nonacceptance, and 62.6% of them (62) answered that this fact demotivated or prevented them from placing another pull-request.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ICSE'18 paper</summary></entry><entry><title type="html">A call for good figures in research papers</title><link href="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/" rel="alternate" type="text/html" title="A call for good figures in research papers" /><published>2018-01-09T00:00:00-03:00</published><updated>2018-01-09T00:00:00-03:00</updated><id>http://localhost:4000/blog/a-call-for-good-figures-in-research-papers</id><content type="html" xml:base="http://localhost:4000/blog/a-call-for-good-figures-in-research-papers/">&lt;p&gt;Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about &lt;a href=&quot;http://shop.oreilly.com/product/0636920034919.do&quot;&gt;data science&lt;/a&gt; in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a &lt;a href=&quot;http://gustavopinto.org/lost+found/jss_2015.pdf&quot;&gt;30+ pages paper&lt;/a&gt; that we have been working on for, at least, &lt;a href=&quot;http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html&quot;&gt;3 years&lt;/a&gt;. Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).&lt;/p&gt;
-
-&lt;p&gt;But it was not always like that. In the first paper published during my phd, I used OpenOffice to create the figures. By the time, the quality of the figure didn’t bother much me; In fact, I was still learning what is research and how to do it. The quality of the figures was not more important than trying to finish a 6-page paper and submit for that first edition workshop that we never heard of. As a result, this figure came along with our workshop paper.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/lost+found/figure+tmc.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;(If you agree that the above figure is far from being good, keep reading.)&lt;/p&gt;
-
-&lt;p&gt;Figures should not only convey an information, but they should also do it easily and quickly (“a picture is worth a thousand words”, they said). However, it only works if you have good figures. For instance, would you be surprised if I tell you that the values of the red line of the third figure is greater than the red line in the first figure? Why would that be the case? This happens because these three figures are under different scales; this makes such a comparison misleading. Still, the x axis use different time windows for each figure, which is also misleading (I’m not sure if that was a typo or if the x axis indeed employs different time window). A simple fix (put the figures in the same scale and using the same time window) would make this figure much more comprehensible. This is why I wholeheartedly agree with Philip Guo when he says:&lt;/p&gt;
-
-&lt;center&gt;
-&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;paper-writing is like 95% making good figures, and then 5% describing those figures in a sensible way&lt;/p&gt;&amp;mdash; Philip Guo (@pgbovine) &lt;a href=&quot;https://twitter.com/pgbovine/status/765256392429047808?ref_src=twsrc%5Etfw&quot;&gt;August 15, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/center&gt;
-
-&lt;p&gt;Fast-forwarding to 2018, and after many other figures created throughout the course, I started to observe bad patterns that prevent researchers from plotting good figures (although I’m not assuming the figure I create are the best ones; but I’m always trying to improve this). Even though the presence of these bad patterns in a paper does not mean that one would argue for rejection, it will hardly convince anyone to accept it. Here we go:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Similar figures under different scale&lt;/strong&gt;: This is the problem address in the figure above. The solution is simple: employ the same y axis for all figures. (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/saner2016.pdf&quot;&gt;fig 1 of this paper&lt;/a&gt;).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Save figures as PNG or JPG&lt;/strong&gt;: Or any other compressed figure format. These formats degrade the image quality, which is particularly relevant when our peers still have the culture of printing papers in b&amp;amp;w for review. Moreover, when reading on screen, if one wants to zoom in an image for a better understanding, compressed figures degrade even more. The solution: save figures using a vectorial format (e.g., eps or pdf).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;50 shades of the same color&lt;/strong&gt;: This is also to ease the review for those used to print in b&amp;amp;w. This happens when one uses different shades of the same colors, a common practice in heat maps (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/fase2015.pdf&quot;&gt;fig 11 of this paper&lt;/a&gt;). As a fix, instead of having 50 shades of blue, many heat maps can be done with 3-5 shades.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Skewed by outliers&lt;/strong&gt;: This is a common pattern. The data has outliers and the figure is skewed when they are present. Sometimes we are forced to remove them, otherwise they could limit the understanding of the figure. However, removing outliers only because they do not appear handsome in the graph is not a strong argument (although I did that myself too). A better approach is to use the logarithmic scale.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Labels with small font&lt;/strong&gt;: This makes it harder to understand the meaning of the figure (example: &lt;a href=&quot;http://gustavopinto.org/lost+found/ase2017.pdf&quot;&gt;fig 5 of this paper&lt;/a&gt;). Add to this a low quality JPG figure. No one would understand what the figure is supposed to say. The fix? Increase the font. If necessary, increase the figure size.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Take care of your figures</summary></entry><entry><title type="html">First year of professoring</title><link href="http://localhost:4000/blog/first-year-of-professoring/" rel="alternate" type="text/html" title="First year of professoring" /><published>2018-01-03T00:00:00-03:00</published><updated>2018-01-03T00:00:00-03:00</updated><id>http://localhost:4000/blog/first-year-of-professoring</id><content type="html" xml:base="http://localhost:4000/blog/first-year-of-professoring/">&lt;p&gt;While I’m starting my second year of Assistant professor, it is worth to look
-back and see how was my first year. It may help to improve my professoring
-skills or maybe help someone else who is just about to start his academic
-career. In numbers, last year I taught five courses (all of them new to me),
-supervised tree urop students, and co-supervised tree masters student and one
-phd student. In terms of service, I reviewed 12 papers to four conferences and
-journals. I also published nine research papers and submitted two research grants.&lt;/p&gt;
-
-&lt;p&gt;Let me distill this.&lt;/p&gt;
-
-&lt;h2 id=&quot;teaching&quot;&gt;Teaching&lt;/h2&gt;
-
-&lt;p&gt;I taught five courses in 2017, all of them for undergrad. My peers in the US
-would consider this a very high workload, but I would say that this is the
-normal workload in Brazil. In my department, in particular, no professor
-teaches less than 4 courses per year. But a professor can teach as many as five
-in a single semester. The exact number depends on some variables such as
-the number of urop students or if the professor teaches grad courses. If the
-value of the first variable is greater than 2 or if the second one is true, you
-can teach the minimum number of courses in that given term (which is two).
-One interesting thing in my university, which is quite common in other Brazilian
-universities, is the fact that when you join an university as a professor, you
-do not teach for grad school straight ahead. Instead, you should “apply” for
-teaching in grad school. They do that to make sure only professors interested in
-research are within the set of professors that teach grad courses. And your
-permanence in this set depends if you are doing good work. Otherwise you are
-out (of the grad school program) and should apply again. Important to say that you
-can only supervise master or phd students if you are in a grad program. Not sure
-if that makes much sense, but this is how things work over here. I applied in
-the second semester and I can have master students this year (phd students only
-after one master student graduate).&lt;/p&gt;
-
-&lt;p&gt;Getting back to the courses, I taught Algorithms,
-Databases 101, Operating Systems (Lab), Advanced Data structure, and Advanced
-Databases. All these courses were new to me. It took a lot of time to create
-the material for these courses, and I still have say they are not great. The
-problem was that I was not &lt;em&gt;that&lt;/em&gt; excited with teaching. I like teaching but
-my first semester workload was a kind of disappointing to me (I want to do
-research and other things). I also have a hard time with one class of students
-that were not motivated at all. This issue was completely new to me and I had
-no idea on how to address it. I chatted with some colleagues and some of them
-also reported the same felling. Last year I went to two educational-focused
-software engineering conferences. I also discussed this matter over there, but
-this time I went back with some possible solutions, which can be summarized in
-PBL (Problem-based learning). The courses that I taught followed that traditional
-lecture format (e.g., the professor talks, the students listen). Although
-students have problems to work on, the most interesting ones were in
-mid to the end of the course. Only later I realized that if a student is not
-motivated from the beginning, it is not an interesting problem at the end of
-the course that will change her mind.&lt;/p&gt;
-
-&lt;p&gt;Although I was very passionate about some of the topics, it was hard to
-transmit such passion to students. One initiative that I’m willing to give
-another shot is to &lt;a href=&quot;http://gustavopinto.org/codefather/training-students-with-open-source-software/&quot;&gt;bring open-source software projects inside the classroom&lt;/a&gt;.
-Generally speaking, the students really learned new skills and enjoyed the work.
-There were also students that faced many barriers with Git and those that did not even try.
-Students’ motivation is still one thing that I should learn more.&lt;/p&gt;
-
-&lt;h2 id=&quot;advising&quot;&gt;Advising&lt;/h2&gt;
-
-&lt;p&gt;Advising students is one of the most fun and interesting thing in this academic
-career, I think. However, as I said, it was not straightforward to join in the
-grad school program. Since I just get into it, one could think now I can have many
-students. However, new professors are limited to one master student per year. They say
-that because they do know how do the professor work. Only after the first
-master student graduate is when you can have
-as many as you want. Actually, up to three master students per year (department
-rules). The good thing about this restriction is that it forced me to
-look for collaborators. In 2017 I co-supervised four students (3 masters and
-1 phd). Only one of them is a student at my university. 3/4 of these students
-were fist authors in papers published last year. The one without paper has
-one paper under submission and is currently working in another one. I believe
-these are good results. I also advised three urop students. This group of
-students was particularly interesting to me because I perceived that there are
-many undergrad students that are as skilled as or even more skilled than
-many master students. One particular urop student really impressed me and we may
-submit her work to a good software engineering conference in 2018 (which
-sometimes is hard to do with master students).&lt;/p&gt;
-
-&lt;h2 id=&quot;research-and-service&quot;&gt;Research and Service&lt;/h2&gt;
-
-&lt;p&gt;In 2017 I published nine papers. However, six of them are short papers. I have
-to say that I was tempted to submitted that many short papers (some of them were
-very old stuff that I’d pay to not touch in the data anymore). Still, I am
-the first author of four papers (although two of them are remaining
-unpublished parts of my phd). The other two papers pretty much reflect my lack
-of students: short papers with little depth. Don’t get me wrong. Short papers are
-good: the information is quickly transmitted and easily consumed. However,
-publishing a lot of short papers is not a synonym of high quality research.
-I plan to do less of it in 2018.&lt;/p&gt;
-
-&lt;p&gt;Finally, I reviewed 12 papers for four conferences. This is a low rate and I’d
-like to improve it. However, I’ll only receive more invitations if I keep
-publishing good work.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of new career</summary></entry></feed>
+&lt;p&gt;Most of the quasi-contributors surveyed agreed with the decision of having the pull-request unmerged (67.4%) and that the comments were constructive (88.8%). However, the number of unmerged pull-requests, the 30.3% of the developers that reported demotivation, and the 32.6% that reported disagreement with the community decision are not negligible. Moreover, 99 quasi-contributors did not agree with the pull-request nonacceptance, and 62.6% of them (62) answered that this fact demotivated or prevented them from placing another pull-request.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ICSE'18 paper</summary></entry></feed>
