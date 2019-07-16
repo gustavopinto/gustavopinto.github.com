@@ -44,7 +44,7 @@ permalink: /publications/
 
 1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](#)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
 
-1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](#)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019). Salvador, Brazil, 2019.<br>
+1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](#)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019 -- Short paper). Salvador, Brazil, 2019.<br>
 
 1. André M. Pinheiro, Caio S. Rabello, [Leonardo B. Furtado](http://leonardofurtado.me/), **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "[Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations](http://gustavopinto.github.io/lost+found/chase2019.pdf)". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2019.pdf)
