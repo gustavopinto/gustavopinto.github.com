@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Continuous Integration Theater - Gustavo Pinto</title>
+
+
+
+
+<meta name="description" content="A summary of an ESEM’19 paper">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Continuous Integration Theater">
+
+
+  <link rel="canonical" href="http://localhost:4000/blog/continuous-integration-theater/">
+  <meta property="og:url" content="http://localhost:4000/blog/continuous-integration-theater/">
+
+
+
+  <meta property="og:description" content="A summary of an ESEM’19 paper">
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Continuous Integration Theater">
+  <meta name="twitter:description" content="A summary of an ESEM’19 paper">
+  <meta name="twitter:url" content="http://localhost:4000/blog/continuous-integration-theater/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/bokeh_wide.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-07-10T00:00:00-03:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Gustavo Pinto",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<link rel="icon" type="image/png" href="/assets/images/bokeh_favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/assets/images/bokeh_favicon-32x32.png" sizes="32x32">
+
+<link rel="stylesheet" href="/assets/css/academicons.css">
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Gustavo Pinto</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/students/">Students</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/teaching/">Teaching</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/reading/">Reading</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/service/">Service</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: url('http://localhost:4000/assets/images/bokeh_wide.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Continuous Integration Theater
+
+        
+      </h1>
+      
+        <p class="page__lead">A summary of an ESEM’19 paper
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://localhost:4000/assets/images/ghlp.jpg" class="author__avatar" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Software Engineering Research
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://www.gustavopinto.org" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/gustavopinto" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/gustavopinto" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+  <li>
+    <a href="https://scholar.google.de/citations?user=dOeggYMAAAAJ" itemprop="sameAs">
+      <i class="fa fa-fw fa-google" aria-hidden="true"></i> Scholar
+    </a>
+  </li>
+
+
+
+  <li>
+    <a href="http://dblp.uni-trier.de/pers/hd/b/Pinto_0001:Gustavo" itemprop="sameAs">
+      <i class="ai ai-fw ai-dblp" aria-hidden="true"></i> DBLP
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Continuous Integration Theater">
+    <meta itemprop="description" content="A summary of an ESEM’19 paper">
+    <meta itemprop="datePublished" content="July 10, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <p>According to <a href="https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html">this post</a>,
+“CI theatre describes the illusion of practising continuous integration (CI)
+while not really practising it.” Common failure modes include:</p>
+
+<ul>
+  <li>running CI against a shared mainline but with infrequent commits, so integration isn’t really continuous;</li>
+  <li>running a build with poor test coverage;</li>
+  <li>allowing the build to stay red for long periods;</li>
+  <li>running CI against feature branches which results in continuous isolation.</li>
+</ul>
+
+<p>Although practitioners have been discussing about this for a long time (for instance,
+the ThoughtWorks tech radar recently recommended putting this antipattern on
+“Hold” two years ago), little research has been devoted to understand how does this
+antipattern  happens in the real world. We dedicated an entire paper to study
+how common are open source projects that face CI theater. We explored four research questions:</p>
+
+<p><strong>RQ1. How common is running CI in the master branch but with infrequent commits?</strong> <br />
+<strong>Rationale.</strong> One of the main advantages of CI systems is that they decrease the pain of merging new changes. This relief comes from the practice of merging continuously. However, sometimes software engineers opt not to integrate continuously (e.g., they take too much time working on a separate branch and only after days of work they apply the changes in the master branch). Practitioners have baptized the bad practice of working in silos—either in their local branches or remote branches—as ‘‘Continuous Isolation’’.<br />
+<strong>Answer.</strong> We empirically defined the value of our metrics for infrequent commits as 2.36 commits per weekday. We then found that 60% of the studied projects have less than 2.36 commits, suffering from infrequent commits. The size of the project has no influence on the (in)frequency of commits. Large Ruby projects, however, are the most active ones and do not adhere to this rule.</p>
+
+<p><strong>RQ2: How common is running a build with poor test coverage?</strong><br />
+<strong>Rationale.</strong> Test coverage measures how much of a software project is exercised during testing. If a project has a fragile test suite (and consequently a low test coverage), new changes that clearly introduce bugs are potentially not caught during build time. Therefore, CI systems offer little help in software projects that do not carefully build their testing arsenal. Although many criteria were introduced to measure code coverage, roughly speaking, test coverage is measured by the number of lines of code exercised by test cases divided by the total number of lines of code.<br />
+<strong>Answer.</strong>  We found 51 projects in our dataset that have records on <a href="https://coveralls.io/">Coveralls</a>. Although the overall coverage was 78%, the coverage of Java and Ruby projects differs greatly. The average code coverage of Ruby projects was 86%, whilst for Java projects it was 63%. This suggests that although poor test coverage exist, a significant number of studied projects take care of their code coverage.</p>
+
+<p><strong>RQ3. How common is allowing the build to stay broken for long periods?</strong><br />
+<strong>Rationale.</strong> Here we sought to investigate how common and how long broken builds stay broken in our dataset. A broken master is particularly undesirable because it may block features from rolling out (i.e., a faulty commit needs to be detected and rolled backed). Notable practitioners, such as <a href="https://www.martinfowler.com/articles/continuousIntegration.html">Martin Fowler</a>, have suggested that ‘‘if the mainline build fails, it needs to be fixed right away’’, making a broken build an urgent, high priority task. However, if broken builds stay red longer than this, it may suggest that projects maintainers may not be taking into account the build status and, perhaps, releasing software with bugs. Still, if developers work on a faulty master, their productivity may get hampered substantially.<br />
+<strong>Answer.</strong> We observed that 85% of the analyzed projects have at least one build that took more than four days to be fixed. This finding is particularly unfortunate since broken builds that take several days to be fixed may introduce an additional burden (or distrust) on the development team. Interestingly, we observed that large projects (either Java or Ruby) have less instances of long to be fixed broken builds than smaller projects. These long to be fixed builds, on very small projects, are fixed, on average, in 40 days, which is strong smell of the CI theater.</p>
+
+<p><strong>RQ4. How common are long running builds?</strong><br />
+<strong>Rationale.</strong> In this final research question, our intention is to explore how long take the builds in our dataset to process. The whole point of Continuous Integration is to provide rapid feedback. Advocates from the XP practices provide a general rule of thumb suggesting that, for most projects, 10 minutes is an expected metric. According to <a href="https://www.martinfowler.com/articles/continuousIntegration.html">Fowler</a>, ‘‘it’s worth putting in concentrated effort to make [the ten minutes rule] happen, because every minute you reduce off the build time is a minute saved for each developer every time they commit.’‘<br />
+<strong>Answer.</strong> In order to provide quick feedback, builds should be executed under 10 minutes. We found only 43 projects that do not adhere to this general rule of thumb. As an exception to this rule, we found 43 very large and complex projects, such as  the JRuby (the Ruby implementation for the Java VM) or the Facebook Presto (a distributed SQL query engine for big data), that have builds which take longer than 30 minutes. In spite of these cases, this symptom of the CI theater was hardly observed.</p>
+
+<p>If you want to know more about this study, you can read the preprint available <a href="https://arxiv.org/abs/1907.01602">here</a>, and the data is also available as a Jupyter notebook <a href="https://github.com/wagnernegrao/ci-analysis/">here</a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-10T00:00:00-03:00">July 10, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gustavopinto&text=Continuous Integration Theater http://localhost:4000/blog/continuous-integration-theater/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/continuous-integration-theater/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <!--a href="https://plus.google.com/share?url=http://localhost:4000/blog/continuous-integration-theater/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a-->
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/continuous-integration-theater/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor/" class="pagination--pager" title="Tips on how to find a phd advisor
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/gustavopinto"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/gustavopinto"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Gustavo Pinto. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> & enhanced by <a href="empirical-software.engineering/">Sebastian Baltes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-465334-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+  </body>
+</html>

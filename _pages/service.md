@@ -10,8 +10,9 @@ permalink: /service/
 ## Review Board (1)
 1. [EMSE Review Board](#) (2017/2018)
 
-## Service for 2020 (2)
+## Service for 2020 (3)
 1. PC chair, [SBCARS'20](#)
+1. Social Media chair, [ICGSE'20](#)
 1. PC member, [CSEE&T'20](https://ase.in.tum.de/cseet2020/)
 
 ## Service for 2019 (21)
