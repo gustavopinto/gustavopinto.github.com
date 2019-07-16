@@ -8,8 +8,8 @@ day: 16
 published: true
 ---
 
-Nesse semestre, em conjunto com Filipe Saraiva, ministramos a disciplina de
-Tópicos Especiais em Software Livre para alunos da graduação epós-graduação
+No primeiro semestre de 2019, em conjunto com [Filipe Saraiva](filipesaraiva.info/), ministramos a disciplina de
+[Tópicos Especiais em Software Livre (TESL)](http://github.com/gustavopinto/tesl) para alunos da graduação e pós-graduação
 da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software
 livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já
 estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado
