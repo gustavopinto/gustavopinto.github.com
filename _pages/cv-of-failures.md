@@ -24,7 +24,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (31)
+## Conference papers rejected (32)
 
 - ASE: 2014
 - ASPLOS: 2015
@@ -40,6 +40,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ICSE: 2017 (2x), 2019 (2x)
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018, 2019
+- SCAM: 2019
 - SIGCSE: 2019
 - XP: 2017
 - WTDSoft: 2018

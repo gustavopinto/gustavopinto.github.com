@@ -11,6 +11,9 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
+1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
+
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
@@ -30,19 +33,23 @@ permalink: /publications/
 1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), Eduardo Monteiro, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**. "[Are Static Analysis Violations Really Fixed? A Closer Look at Realistic Usage of SonarQube](http://gustavopinto.github.io/lost+found/icpc2019.pdf)". Accepted to the 27th IEEE/ACM International Conference on Program Comprehension (ICPC'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icpc2019.pdf)
 
-1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Pedro Pinheiro, [Sergio Soares](https://www.cin.ufpe.br/~scbs/), [Maria Teresa Baldassarre](https://www.uniba.it/docenti/baldassarre-maria-teresa). [Software Engineering Research Community Viewpoints on Rapid Reviews](http://gustavopinto.github.io/lost+found/esem2019a.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Pedro Pinheiro, [Sergio Soares](https://www.cin.ufpe.br/~scbs/), [Maria Teresa Baldassarre](https://www.uniba.it/docenti/baldassarre-maria-teresa). "[Software Engineering Research Community Viewpoints on Rapid Reviews](http://gustavopinto.github.io/lost+found/esem2019a.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019a.pdf)
 
-1. [Wagner Felidré](https://github.com/wagnernegrao/), [Leonardo Furtado](http://leonardofurtado.me/), [Daniel Alencar Da Costa](http://danielcalencar.github.io/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. [Continuous Integration Theater](http://gustavopinto.github.io/lost+found/esem2019b.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+1. [Wagner Felidré](https://github.com/wagnernegrao/), [Leonardo Furtado](http://leonardofurtado.me/), [Daniel Alencar Da Costa](http://danielcalencar.github.io/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[Continuous Integration Theater](http://gustavopinto.github.io/lost+found/esem2019b.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019b.pdf)
+&#8226;
+[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/continuous-integration-theater/)
 
-1. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf). Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+1. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019c.pdf)
+
+1. Marcos Nazário, [Eduardo Guerra](https://scholar.google.com.br/citations?user=vpwOa7QAAAAJ&hl=en), [Rodrigo Bonifácio](http://rbonifacio.net), **Gustavo Pinto**. "Detecting and Reporting Object-Relational Mapping Problems: An Industrial Report". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019 -- Industry Track). Porto de Galinhas, Brazil. September 2019. <br>
+
+1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](#)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
-
-1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](#)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
 
 1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](#)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019 -- Short paper). Salvador, Brazil, 2019.<br>
 
@@ -63,15 +70,15 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/what-are-quasi-contributors-and-how-common-are-them/)
 
-3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 2017.<br/>
+3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 97, May 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ist2018.pdf)
 
-4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018 -- RENE Track). Campobasso, Italy, 2017. <br/>
+4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018 -- RENE Track). Campobasso, Italy, 2018. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/saner2018-talk.pdf)
 
-5. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 2018.<br/>
+5. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 23, 3221-3247, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ese2018.pdf)<br/>
 
 6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "[How Swift Developers Handle Errors](http://gustavopinto.github.io/lost+found/msr2018a.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
@@ -98,12 +105,12 @@ permalink: /publications/
 11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice](http://gustavopinto.github.io/lost+found/esem2018.pdf)". Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018. **[[This paper was nominated one of the best full papers!]](https://twitter.com/gustavopinto/status/1050511483304640512)**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
 
-12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). [Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf). Accepted for Software: Practice & Experience, 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
+12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). "[Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf)". Accepted for Software: Practice & Experience, 48, 2223-2236, December 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
 
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 2019. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 24, 1-17, 2018. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
 
 
