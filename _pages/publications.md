@@ -12,7 +12,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
 1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss_2015.pdf)
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
 
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
