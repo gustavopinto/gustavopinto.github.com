@@ -105,6 +105,10 @@
 <lastmod>2019-07-16T00:00:00-03:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/blog/detecting-and-reporting-orm-problems/</loc>
+<lastmod>2019-07-26T00:00:00-03:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/news/2013/</loc>
 </url>
 <url>
@@ -292,6 +296,10 @@
 <url>
 <loc>http://localhost:4000/lost+found/esem2018.pdf</loc>
 <lastmod>2019-05-27T09:40:48-03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/lost+found/esem2019-industry.pdf</loc>
+<lastmod>2019-07-26T23:18:34-03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/esem2019a.pdf</loc>
