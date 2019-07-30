@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-26T23:22:52-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">Detecting and Reporting Object-Relational Mapping Problems</title><link href="http://localhost:4000/blog/detecting-and-reporting-orm-problems/" rel="alternate" type="text/html" title="Detecting and Reporting Object-Relational Mapping Problems" /><published>2019-07-26T00:00:00-03:00</published><updated>2019-07-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/detecting-and-reporting-orm-problems</id><content type="html" xml:base="http://localhost:4000/blog/detecting-and-reporting-orm-problems/">&lt;p&gt;Developers often take advantage of Object-Relation Mapping (ORM) frameworks to
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-30T19:24:39-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">What researchers think about Rapid Reviews?</title><link href="http://localhost:4000/blog/what-researchers-think-about-rapid-reviews/" rel="alternate" type="text/html" title="What researchers think about Rapid Reviews?" /><published>2019-07-26T00:00:00-03:00</published><updated>2019-07-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-researchers-think-about-rapid-reviews</id><content type="html" xml:base="http://localhost:4000/blog/what-researchers-think-about-rapid-reviews/">&lt;p&gt;Rapid Reviews (RRs) are lightweight secondary studies intended to provide evidence to support informed decision making. Different than Systematic Literature Reviews (SLRs) that usually take several months (or even years) to be done, RRs are conducted in time frames more likely to meet practitioners’ demands (in weeks or in a month, instead of months or a year) and demand the involvement of few, sometimes only one researcher, reducing the costs to deliver evidence.&lt;/p&gt;
+
+&lt;p&gt;Although RRs are a rising research method in the medical domain, they are barely known by the software engineering community. In a &lt;a href=&quot;http://gustavopinto.org/lost+found/ease2018.pdf&quot;&gt;previous study&lt;/a&gt; we observed that practitioners were very supportive towards the use of RRs. Unfortunately, the perceptions of researchers, who usually are in charge of conducting the RRs, is still unknown. Considering the recent movements in software engineering to increase the quality of SLRs, we believe that the methodological concessions of the RRs could provoke some controversy in the software engineering research arena.&lt;/p&gt;
+
+&lt;p&gt;Therefore, it was not clear to us whether researchers would embrace RRs. On the one hand, although RRs can speed up the knowledge transfer process to practice (and initial results suggest that practitioners appreciate it), researchers may be skeptical to adopt RRs due to methodological concessions (or afraid to have their papers rejected when using a not that rigorous methodology) .&lt;/p&gt;
+
+&lt;p&gt;In order to investigate the software engineering researchers perception on the potential use of RRs, we invited a group of 37 SE researchers and asked them to analyze a predefined set of 50 statements regarding RRs, and rank them according to what extent they agree with each statement. To conduct this analysis, we relied on a &lt;a href=&quot;https://qmethod.org/&quot;&gt;Q-Methodology&lt;/a&gt;. This approach may sound like surveys, but it is intrinsically different. More concretely, using this method, the participants are required to prioritize their perceptions, avoiding bias in their responses (e.g., some participants might be more positive than others).&lt;/p&gt;
+
+&lt;p&gt;Using this methodology, we revealed four different perceptions about RRs. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The Picky:&lt;/strong&gt; The SE researcher does not believe that RRs can deliver high quality evidence;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Unconvinced&lt;/strong&gt;: The SE researcher needs more evidence about Rapid Reviews;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Pragmatic:&lt;/strong&gt; The SE researcher might conduct some RRs in specific scenarios where they are appropriate.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Enthusiastic:&lt;/strong&gt; The SE researcher is willing to conduct RRs, but only if minimum standards are meet;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With this paper, we understood that some researchers are willing to experiment with RRs, although some of them are still very conservative. However, with this study and our &lt;a href=&quot;http://gustavopinto.org/lost+found/ease2018.pdf&quot;&gt;initial results&lt;/a&gt; (and eventual other research works that may go along these lines), we believe other researchers may become motivated to embrace this methodology.&lt;/p&gt;
+
+&lt;p&gt;If you want to know more about this study, you can read the preprint available &lt;a href=&quot;https://arxiv.org/abs/1906.11351&quot;&gt;here&lt;/a&gt;. The tool the implements the Q-Methodology is also available &lt;a href=&quot;https://github.com/bfsc/qmethod&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'19 paper</summary></entry><entry><title type="html">Detecting and Reporting Object-Relational Mapping Problems</title><link href="http://localhost:4000/blog/detecting-and-reporting-orm-problems/" rel="alternate" type="text/html" title="Detecting and Reporting Object-Relational Mapping Problems" /><published>2019-07-26T00:00:00-03:00</published><updated>2019-07-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/detecting-and-reporting-orm-problems</id><content type="html" xml:base="http://localhost:4000/blog/detecting-and-reporting-orm-problems/">&lt;p&gt;Developers often take advantage of Object-Relation Mapping (ORM) frameworks to
 provide a conceptual abstraction between objects in object-oriented languages
 and data stored in the underlying database. These ORM frameworks operate between
 object-oriented architecture system and the relational environment, creating a
@@ -566,83 +585,4 @@ the future).&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If you want to know more about this study, you can read the preprint &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2019b.pdf&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a MSR'19 paper</summary></entry><entry><title type="html">Parem com essa discussão sobre Qualis</title><link href="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/" rel="alternate" type="text/html" title="Parem com essa discussão sobre Qualis" /><published>2019-01-12T00:00:00-03:00</published><updated>2019-01-12T00:00:00-03:00</updated><id>http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis</id><content type="html" xml:base="http://localhost:4000/blog/parem-com-essa-discussao-sobre-qualis/">&lt;p&gt;This post was written in Portuguese because it was aimed to Brazilian scholars.&lt;/p&gt;
-
-&lt;p&gt;Como escrevi no último post, ainda estou começando minha carreira de pesquisador,
-mas se tem uma coisa que é, no mínimo, irritante é essa discussão sobre Qualis.&lt;/p&gt;
-
-&lt;p&gt;Nas reuniões que participo no programa de pós graduação da minha universidade,
-esse tema é recorrente. Como é o único programa que eu participo, e como é a primeira
-vez que participo, algumas coisas pra mim são novidades (não necessáriamente
-interessantes). Por exemplo, inscrições para doutorado são feitas em fluxo contínuo,
-e a avaliação dos candidatos é feita durante a reunião da pós, pelo colegiado.
-Ou seja, não tem um grupo de trabalho que avalia as propostas. Basicamente quem
-esteve presente na reunião tem direito de opinar no candidato. O edital é claro
-com relação aos requisitos mínimos que o candidato deve preencher para entrar no
-programa. No entanto, mesmo atendendo os requisitos, os documentos do candidato é
-discutido (?!). Um tópico recorrente na discussão é que o candidato tem &lt;em&gt;n&lt;/em&gt; artigos
-Qualis &lt;em&gt;X&lt;/em&gt;. Ou que tem em submissão um arquivo Qualis &lt;em&gt;X&lt;/em&gt;. Ou qualquer coisa
-Qualis &lt;em&gt;X&lt;/em&gt;. O interessante é que a discussão é feita por membros do colegiado que
-são de áreas diferentes, avaliando um pedido de inscrição de um candidato que pode
-nem ser da área dos membros presentes. O numero de Qualis &lt;em&gt;X&lt;/em&gt; dirige a discussão.&lt;/p&gt;
-
-&lt;p&gt;Nas reuniões do programa também se avalia pedidos de defesa (?!). Da mesma forma,
-se discute se o aluno tem &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;. Nas discussões de qualificação,
-trancamento, etc.. tamém se discute o Qualis &lt;em&gt;X&lt;/em&gt;. Eu inclusive (!) já presenciei
-discussões em bancas em que os membros discutem o famoso Qualis &lt;em&gt;X&lt;/em&gt;, não para fins
-de (talvez) avaliar o que foi feito, mas, pior, para dirigir o que ainda precisa
-ser feito (“para o aluno graduar, ainda é necessário &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;”).&lt;/p&gt;
-
-&lt;p&gt;Essa discussão é infinita. E não leva a lugar nenhum.&lt;/p&gt;
-
-&lt;p&gt;Primeiro, o que quero dizer com &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;? Que o aluno tem,
-supostamente, bom domínio do problema? Boa capacidade de pesquisa? Liderança?
-Inovação? Perseverança? Não. Nada disso. O &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; apenas diz que
-o aluno conseguiu publicar artigos que são mapeado pelo Qualis (basicamente qualquer um). Isso é bom? Não
-necessáriamente. Isso é ruim? Não necessáriamente. Há alguns conferências/revistas boas
-com má avaliação no Qualis, mas, pior ainda, há também várias conferências/revistas ruins bem
-avaliadas no Qualis. E se o aluno tem &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; em revistas predatórias?
-“Ah”, (alguém pode dizer) “mas basta algum membro do comitê perceber isso e comentar
-a respeito”. No entanto, como disse anteriormente, muitas das discussões sobre o
-Qualis &lt;em&gt;X&lt;/em&gt; que já participei são feitas por membros avaliando trabalhos de fora
-da sua área de atuação. Logo, uma possível resposta para a pergunta acima (o que
-se quer dizer com &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt;?), é que o aluno sabe jogar com as regras
-do jogo. O triste é que as “regas do jogo” estão culturalmente enraizadas e
-espalhadas como um cancer (ou você nunca ouviu alguem falando do &lt;em&gt;n&lt;/em&gt; artigos
-Qualis &lt;em&gt;X&lt;/em&gt; do fulano?).&lt;/p&gt;
-
-&lt;p&gt;Por algum motivo, ao longo do meu doutorado, eu era um leitor avido do blog do
-professor &lt;a href=&quot;http://matt.might.net/&quot;&gt;Matt Might&lt;/a&gt; (se você não conhece, seja o blog
-ou a história do prof. Might, pare de ler agora, e vá conhecer). Um dos seus posts,
-inclusive, viralizou na internet, o &lt;a href=&quot;The illustrated guide to a Ph.D.&quot;&gt;The illustrated guide to a Ph.D.&lt;/a&gt;.
-Nesse post, o prof. Might conseguiu, de uma incrivelmente simples, ilustrar qual
-o propósito de realizar um doutorado (ou uma pesquisa, de maneira mais ampla).
-De acordo com ele, o motivo é &lt;strong&gt;&lt;em&gt;avançar as fronteiras do conhecimento&lt;/em&gt;&lt;/strong&gt;. Simples assim.
-Perceba que não há menção nenhuma a artigos, revistas, muito menos (bleh) Qualis.
-Avançar o conhecimento é o que deveria dirigir o interesse em possuir uma vida na
-academia. Trazer luz ao desconhecido.&lt;/p&gt;
-
-&lt;p&gt;Alguém pode perguntar: “mas um artigo Qualis &lt;em&gt;X&lt;/em&gt; não poderia também avançar o
-conhecimento?”. Sim, poderia (mas não necessáriamente). O problema não é ter artigos
-ter &lt;em&gt;n&lt;/em&gt; artigos Qualis &lt;em&gt;X&lt;/em&gt; publicados (o prof. Might mesmo tem vários; eu também
-tenho).&lt;/p&gt;
-
-&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é tomar decisão baseada no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é discutir trabalho alheiro baseado no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;O que &lt;em&gt;drive me nuts&lt;/em&gt; é delimitar uma tese de doutorado baseado no Qualis &lt;em&gt;X&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Eu sei que é muito difícil desassociar o Qualis da vida acadêmica. O ponto não é
-esse. O ponto é discutir a produção dos pares por meio da contribuição científica,
-e não por mesquinharias como Qualis X. Como mesmo o prof. Might colocou em &lt;a href=&quot;http://matt.might.net/articles/tenure/&quot;&gt;outro
-post&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Life is too precious and too fleeting to waste my time on bullshit like tenure. I didn’t become a professor to get tenure. I became a professor to make the world better through science. From this day forward, I will spend my time on problems and solutions that will matter. I will make a difference.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Apenas pare com essa discussão sobre Qualis. Pare.&lt;/p&gt;
-
-&lt;p&gt;Por fim: se você é novo em uma área e quer saber quais são os locais mais interessantes
-para dedicar seu tempo e esforço, esqueça o Qualis. Olhe para plataformas como o
-&lt;a href=&quot;http://csindexbr.org/&quot;&gt;CSIndexBr&lt;/a&gt;, veja quais são as conferências/revistas indexadas,
-e gaste seu tempo somente nesses locais.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Isso é irritante</summary></entry></feed>
+&lt;p&gt;If you want to know more about this study, you can read the preprint &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2019b.pdf&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a MSR'19 paper</summary></entry></feed>
