@@ -11,7 +11,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
-1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss_2015.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
+1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss2019.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
 
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
@@ -35,6 +35,8 @@ permalink: /publications/
 
 1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Pedro Pinheiro, [Sergio Soares](https://www.cin.ufpe.br/~scbs/), [Maria Teresa Baldassarre](https://www.uniba.it/docenti/baldassarre-maria-teresa). "[Software Engineering Research Community Viewpoints on Rapid Reviews](http://gustavopinto.github.io/lost+found/esem2019a.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019a.pdf)
+&#8226;
+[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](/blog/what-researchers-think-about-rapid-reviews/)
 
 1. [Wagner Felidré](https://github.com/wagnernegrao/), [Leonardo Furtado](http://leonardofurtado.me/), [Daniel Alencar Da Costa](http://danielcalencar.github.io/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[Continuous Integration Theater](http://gustavopinto.github.io/lost+found/esem2019b.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019b.pdf)
@@ -49,7 +51,8 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/detecting-and-reporting-orm-problems/)
 
-1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
+1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/scam2019.pdf)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/scam2019.pdf)
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
