@@ -62,6 +62,8 @@ permalink: /publications/
 1. André M. Pinheiro, Caio S. Rabello, [Leonardo B. Furtado](http://leonardofurtado.me/), **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "[Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations](http://gustavopinto.github.io/lost+found/chase2019.pdf)". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2019.pdf)
 
+1. Matheus Seabra, Marcos Felipe Carvalho Nazário, Gustavo Pinto. "REST or GraphQL? A Performance Comparative Study". Accepted to the 13th Brazilian Symposium on Software Components, Architectures, and Reuse (SBCARS'2019). Salvador, Brazil, 2019.<br>
+
 ## 2018
 
 1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](http://gustavopinto.github.io/lost+found/icse2018b.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
