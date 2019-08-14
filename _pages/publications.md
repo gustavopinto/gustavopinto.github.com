@@ -45,6 +45,8 @@ permalink: /publications/
 
 1. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019c.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/esemc-talk.pdf)
 
 1. Marcos Nazário, [Eduardo Guerra](https://scholar.google.com.br/citations?user=vpwOa7QAAAAJ&hl=en), [Rodrigo Bonifácio](http://rbonifacio.net), **Gustavo Pinto**. "[Detecting and Reporting Object-Relational Mapping Problems: An Industrial Report](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019 -- Industry Track). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)
