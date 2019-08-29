@@ -12,16 +12,17 @@ Some links of hotels I stayed. Just for bookmark.
 
 ## Recife
 - Mercure Recife Navegantes
+- Ibis Aeroporto
 
 ## Belo Horizonte
 - Pampulha Flat
 
 ## Fortaleza
-
+- Seara Praia Hotel
+- Holidays Inn
 - Hotel Brasil Tropical
 
 ## Rio de Janeiro
-
 - Linx Galeão
 - Hotel Atlântico Prime
 - Bristol Easy Plus Hotel
@@ -29,10 +30,8 @@ Some links of hotels I stayed. Just for bookmark.
 - Ibis Rio de Janeiro
 
 ## São Paulo
-
 - Excelsior Hotel
 - Monreale Hotel Guarulhos
 
 ## Curitiba
-
 - Ibis Curitiba Shopping

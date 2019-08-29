@@ -134,6 +134,9 @@
 <loc>http://localhost:4000/teaching/bd1/2018</loc>
 </url>
 <url>
+<loc>http://localhost:4000/teaching/bd2</loc>
+</url>
+<url>
 <loc>http://localhost:4000/teaching/bd2/exercise</loc>
 </url>
 <url>
@@ -176,6 +179,9 @@
 <loc>http://localhost:4000/teaching/pa/2019</loc>
 </url>
 <url>
+<loc>http://localhost:4000/teaching/PAS</loc>
+</url>
+<url>
 <loc>http://localhost:4000/teaching/oop/2018</loc>
 </url>
 <url>
@@ -209,7 +215,7 @@
 <loc>http://localhost:4000/students/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/</loc>
+<loc>http://localhost:4000/teaching/bd2/2018</loc>
 </url>
 <url>
 <loc>http://localhost:4000/where-to-submit/</loc>

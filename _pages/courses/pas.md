@@ -1,0 +1,114 @@
+---
+title: Projeto e Análise de Sistemas
+permalink: /teaching/PAS
+---
+
+## Horário
+
+Terça e Quinta, às 16:40 @ MIRANTE ???
+
+## Slack
+
+Todo material de aula será postado no Telegram. Para ingressar, clique [aqui](https://t.me/joinchat/GeSB2RTFln6cqTUj3ja54g).
+
+## Objetivo
+
+Apresentar os principais conceitos relacionados às etapas de análise e projeto de sistemas de informação. Procura-se abordar desde questões históricas sobre as metodologias de desenvolvimento, até abordagens práticas e atuais da construção de sistemas de informação.
+
+## Ementa
+
+Introdução à Análise e Projeto de Sistemas: Conceitos de Sistemas de Informação, Ciclo de Vida de Software, Metodologias de Análise e Projeto; UML; Descrição de Requisitos com Casos de Uso; Modelos Conceituais;
+Projeto de Arquitetura; Projeto de Persistência.
+
+
+## Bibliografia
+
+- SOMMERVILLE,  I. Engenharia  de  Software.  São  Paulo: Pearson  Education  do  Brasil, 2011.
+- PILONE, D.; PITMAN, N. UML 2: rápido e prático. São Paulo: Alta Books, 2006.
+
+### Material extra
+
+- [Design patterns](https://refactoring.guru/design-patterns)
+- [Refactoring](https://refactoring.com/)
+- [Rational Unified Process](https://en.wikipedia.org/wiki/Rational_Unified_Process)
+
+## Avaliação
+
+1. Exercícios em sala: 3 pontos (1pt cada exercício)
+2. Prova do primeiro bimestre: 5 pontos
+3. Seminário (PD): 5 pontos
+3. Projeto de disciplina: 6 pontos
+4. Atividade extra (AE): 1 ponto
+
+### Seminário
+
+- TBD
+
+Sobre a apresentação do seminário: alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
+
+### Projeto de disciplina (PD)
+
+- TBD
+
+Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
+
+### Atividade Extra (AE)
+
+- Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
+
+## Nota final
+
+Soma de todas as atividades dividido por dois.
+
+## Cronograma
+
+Passível de alterações.
+
+| # | Data  | Conteúdo de Aula                                 |
+| 1 | 27/08 | Introdução e objetivos de análise de projetos    |
+| 2 | 29/08 | Visão simplificada do processo unificado         |
+| 3 | 03/09 | Outros processos                                 |
+| 3 | 05/09 | Tratamento de complexidade via OO                |
+| 5 | 10/09 | UML e Diagrama de caso de uso                    |
+| 6 | 12/09 | Exercício em sala                                |
+| 7 | 17/09 | ***NAO TEREMOS AULA***                           |
+| 8 | 19/09 | ***NAO TEREMOS AULA***                           |
+| 8 | 24/09 | ***NAO TEREMOS AULA***                           |
+| 9 | 26/09 | ***NAO TEREMOS AULA***                           |
+| 10 | 01/10 | Diagrama de classe                              |
+| 11 | 03/10 | Diagrama de sequencia                           |
+| 12 | 08/10 | Diagrama de atividades                          |
+| 12 | 10/10 | Exercício em sala                               |
+| 13 | 15/10 | Padrões arquiteturais                           |
+| 14 | 17/10 | Padrões de projetos                             |
+| 15 | 22/10 | Padrões de projetos                             |
+| 16 | 24/10 | Exercício em sala                               |
+| 17 | 29/10 | ***Seminário (parte 1)***                       |
+| 17 | 31/10 | ***Seminário (parte 2)***                       |
+| 18 | 05/11 | Refatoração                                     |
+| 19 | 07/11 | Testes automatizados                            |
+| 20 | 12/11 | Qualidade de software                           |
+| 21 | 14/11 | ***PROVA***                                     |
+| 22 | 19/11 | Acompanhamento das atividades & Definição de trabalhos|
+| 23 | 21/11 | Acompanhamento das atividades                   |
+| 24 | 26/11 | Acompanhamento das atividades                   |
+| 25 | 28/11 | Acompanhamento das atividades                   |
+| 26 | 03/12 | Acompanhamento das atividades                   |
+| 27 | 05/12 | Acompanhamento das atividades                   |
+| 28 | 10/12 | ***Apresentação de PD***                        |
+| 29 | 12/12 | ***Apresentação de PD***                        |
+| 30 | 17/12 | Buffer                                          |
+| 31 | 19/12 | Buffer                                          |
+
+
+## Entrega atrasada
+
+Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.
+
+## Política de plágio
+
+Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.
+
+## Pontuação extra
+
+Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.

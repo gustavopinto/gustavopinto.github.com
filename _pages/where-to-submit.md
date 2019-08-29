@@ -5,7 +5,7 @@ permalink: /where-to-submit/
 
 Are you a student looking for a conference or journal to submit your earliest work? The following are some tips:
 
-#### Journals
+## Journals
 
 - ACM Transactions on Software Engineering and Methodology ([TOSEM](https://tosem.acm.org/))
 - IEEE Transactions on Software Engineering ([TSE](http://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32))
@@ -20,7 +20,7 @@ Are you a student looking for a conference or journal to submit your earliest wo
 - IEEE Computer ([IEEEC](http://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2))
 - Information and Software Technology ([IST](https://www.journals.elsevier.com/information-and-software-technology/))
 
-#### Conferences
+## Conferences
 
 - International Conference on Software Engineering (ICSE)
 - International Conference on Software Analysis, Evolution, and Reengineering (SANER)
