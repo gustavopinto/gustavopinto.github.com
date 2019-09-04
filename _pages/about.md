@@ -18,7 +18,7 @@ Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, 
 
 ## Get in touch
 
-E-mail: gpinto<span style="display:none">ignorethis</span>@ufpa.br or mail<span style="display:none">ignorethis</span>@gustavopinto.org
+E-mail: mail<span style="display:none">ignorethis</span>@gustavopinto.org
 
 ## Research Groups
 

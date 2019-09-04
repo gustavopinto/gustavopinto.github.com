@@ -1,6 +1,6 @@
 ---
 title: Teaching
-permalink: /teaching/bd2/2018
+permalink: /teaching/
 ---
 
 ## 2019.1

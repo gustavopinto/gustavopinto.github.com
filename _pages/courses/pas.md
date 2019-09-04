@@ -1,11 +1,11 @@
 ---
 title: Projeto e Análise de Sistemas
-permalink: /teaching/PAS
+permalink: /teaching/pad
 ---
 
 ## Horário
 
-Terça e Quinta, às 16:40 @ MIRANTE ???
+Terça e Quinta, às 16:40 @ MIRANTE 212
 
 ## Slack
 

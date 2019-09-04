@@ -179,7 +179,7 @@
 <loc>http://localhost:4000/teaching/pa/2019</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/PAS</loc>
+<loc>http://localhost:4000/teaching/pad</loc>
 </url>
 <url>
 <loc>http://localhost:4000/teaching/oop/2018</loc>
@@ -215,7 +215,7 @@
 <loc>http://localhost:4000/students/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/bd2/2018</loc>
+<loc>http://localhost:4000/teaching/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/where-to-submit/</loc>
