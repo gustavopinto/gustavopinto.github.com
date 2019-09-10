@@ -37,17 +37,10 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 ## Avaliação
 
-1. Exercícios em sala: 4 pontos (1pt cada exercício)
-2. Prova do primeiro bimestre: 4 pontos
-3. Seminário (PD): 5 pontos
+1. Exercícios em sala: 5 pontos (1pt cada exercício)
+2. Prova do primeiro bimestre: 7 pontos
 3. Projeto de disciplina: 7 pontos
-4. Atividade extra (AE): 1 ponto
-
-### Seminário
-
-- TBD (mas provavelmente abordando um tópico não explorado na disciplina)
-
-- Sobre a apresentação do seminário: alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
+4. Atividades extras (AEs): 3 ponto
 
 ### Projeto de disciplina (PD)
 
@@ -55,9 +48,11 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 - **Sobre a apresentação do projeto de disciplina:** alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação) terão nota da apresentação correspondente a zero.
 
-### Atividade Extra (AE)
+### Atividades Extras (AEs)
 
-- Ler um artigo completo do SBBD de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
+- AE1: Ler um artigo completo do SBBD de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram. 1 ponto
+
+- AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos
 
 ## Nota final
 
@@ -69,29 +64,29 @@ Passível de alterações.
 
 | # | Data  | Conteúdo de Aula              |
 | 1 | 27/08 | Introdução e Revisão SQL      |
-| 2 | 29/08 | Transação                     |
-| 3 | 03/09 | Transação                     |
-| 3 | 05/09 | Concorrência                  |
-| 5 | 10/09 | Concorrência                  |
+| 2 | 29/08 | SQL Insert                    |
+| 3 | 03/09 | SQL Select                    |
+| 3 | 05/09 | Exercício em sala             |
+| 5 | 10/09 | SQL Joins                     |
 | 6 | 12/09 | Exercício em sala             |
 | 7 | 17/09 | ***NAO TEREMOS AULA***        |
 | 8 | 19/09 | ***NAO TEREMOS AULA***        |
 | 8 | 24/09 | ***NAO TEREMOS AULA***        |
-| 9 | 26/09 | ***NAO TIVEMOS AULA***        |
-| 10 | 01/10 | Exercício em sala            |
-| 11 | 03/10 | Armazenamento                |
-| 12 | 08/10 | Recuperação                  |
-| 12 | 10/10 | Segurança                    |
-| 13 | 15/10 | Exercício em sala            |
-| 14 | 17/10 | Exercício em sala            |
-| 15 | 22/10 | Seminário parte 1            |
-| 16 | 24/10 | Seminário parte 2            |
-| 17 | 29/10 | Prova                        |
-| 17 | 31/10 | Prova                        |
-| 18 | 05/11 | Correção de provas           |
-| 19 | 07/11 | ***NAO TEREMOS AULA***       |
-| 20 | 12/11 | Hands on trabalho final      |
-| 21 | 14/11 | ***FERIADO***                |
+| 9 | 26/09 | ***NAO TEREMOS AULA***        |
+| 10 | 01/10 | Funções SQL                  |
+| 11 | 03/10 | Exercício em sala            |
+| 12 | 08/10 | Subquery SQL                 |
+| 12 | 10/10 | Exercício em Sala            |
+| 13 | 15/10 | Prova 1 bimestre             |
+| 14 | 17/10 | Transação & Definicão de PD  |
+| 15 | 22/10 | Transação                    |
+| 16 | 24/10 | Concorrência                 |
+| 17 | 29/10 | Concorrência                 |
+| 17 | 31/10 | Armazenamento                |
+| 18 | 05/11 | Segurança                    |
+| 19 | 07/11 | Exercício em sala            |
+| 20 | 12/11 | Palestra convidada           |
+| 21 | 14/11 | Hands on trabalho final      |
 | 22 | 19/11 | Acompanhamento das atividades & Definição de trabalhos|
 | 23 | 21/11 | Acompanhamento das atividades |
 | 24 | 26/11 | Acompanhamento das atividades |

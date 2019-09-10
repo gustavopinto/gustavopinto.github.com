@@ -25,20 +25,25 @@ Projeto de Arquitetura; Projeto de Persistência.
 
 - SOMMERVILLE,  I. Engenharia  de  Software.  São  Paulo: Pearson  Education  do  Brasil, 2011.
 - PILONE, D.; PITMAN, N. UML 2: rápido e prático. São Paulo: Alta Books, 2006.
+- Valente. M. Engenharia de software moderna. Online em https://engsoftmoderna.info/.
 
 ### Material extra
 
 - [Design patterns](https://refactoring.guru/design-patterns)
 - [Refactoring](https://refactoring.com/)
 - [Rational Unified Process](https://en.wikipedia.org/wiki/Rational_Unified_Process)
+- [Software design glossary](https://engineering.fb.com/uncategorized/software-design-glossary/)
+- [On the criteria to be used in decomposing systems into modules](https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/)
+- [A complexity measure (McCabe complexity)](http://www.literateprogramming.com/mccabe.pdf)
+- [Como medir a coesão do seu código? A métrica LCOM](https://blog.caelum.com.br/como-medir-a-coesao-lcom/)
 
 ## Avaliação
 
 1. Exercícios em sala: 3 pontos (1pt cada exercício)
 2. Prova do primeiro bimestre: 5 pontos
 3. Seminário (PD): 5 pontos
-3. Projeto de disciplina: 6 pontos
-4. Atividade extra (AE): 1 ponto
+3. Projeto de disciplina: 5 pontos
+4. Atividades extras (AEs): 3 ponto
 
 ### Seminário
 
@@ -54,7 +59,9 @@ Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do co
 
 ### Atividade Extra (AE)
 
-- Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
+- AE1: Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
+
+- AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos
 
 ## Nota final
 
@@ -69,7 +76,7 @@ Passível de alterações.
 | 2 | 29/08 | Visão simplificada do processo unificado         |
 | 3 | 03/09 | Outros processos                                 |
 | 3 | 05/09 | Tratamento de complexidade via OO                |
-| 5 | 10/09 | UML e Diagrama de caso de uso                    |
+| 5 | 10/09 | Métricas de Orientação a Objetos                 |
 | 6 | 12/09 | Exercício em sala                                |
 | 7 | 17/09 | ***NAO TEREMOS AULA***                           |
 | 8 | 19/09 | ***NAO TEREMOS AULA***                           |
