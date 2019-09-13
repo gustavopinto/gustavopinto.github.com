@@ -10,12 +10,12 @@ permalink: /service/
 ## Review Board (1)
 1. [EMSE Review Board](#) (2017/2018)
 
-## Service for 2020 (5)
+## Service for 2020 (6)
 1. PC chair, [SBCARS'20](#)
 1. Social Media chair, [ICGSE'20](#)
 1. PC member, [CSEE&T'20](https://ase.in.tum.de/cseet2020/)
-1. PC member, [SANER'20](https://saner2020.csd.uwo.ca/) ([era](https://saner2020.csd.uwo.ca/eratrack)
-1. PC member, [MSR'20](https://2020.msrconf.org/track/msr-2020-papers)
+1. PC member, [SANER'20](https://saner2020.csd.uwo.ca/) ([Late Breaking Ideas](https://saner2020.csd.uwo.ca/eratrack))
+1. PC member, [MSR'20](https://2020.msrconf.org/track/msr-2020-papers) ([research](https://2020.msrconf.org/track/msr-2020-papers), [challenge](https://2020.msrconf.org/track/msr-2020-mining-challenge))
 
 ## Service for 2019 (22)
 1. PC Co-Chair, [CBSoft Tools Session'19](http://cbsoft2019.ufba.br/#/toolssession)

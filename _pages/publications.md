@@ -14,6 +14,9 @@ permalink: /publications/
 1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss2019.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
 
+1. [Marcos César](https://mcesar.dev/), Davi Freitas, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[Finding Needles in a Haystack: Leveraging Co-change Dependencies to Recommend Refactorings](http://gustavopinto.github.io/lost+found/jss2019b.pdf)". Journal of Systems and Software, 2019.<br/>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019b.pdf)
+
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
@@ -48,7 +51,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/esem2019c-talk.pdf)
 
-1. Marcos Nazário, [Eduardo Guerra](https://scholar.google.com.br/citations?user=vpwOa7QAAAAJ&hl=en), [Rodrigo Bonifácio](http://rbonifacio.net), **Gustavo Pinto**. "[Detecting and Reporting Object-Relational Mapping Problems: An Industrial Report](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019 -- Industry Track). Porto de Galinhas, Brazil. September 2019. <br>
+1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Eduardo Guerra](https://scholar.google.com.br/citations?user=vpwOa7QAAAAJ&hl=en), [Rodrigo Bonifácio](http://rbonifacio.net), **Gustavo Pinto**. "[Detecting and Reporting Object-Relational Mapping Problems: An Industrial Report](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019 -- Industry Track). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/detecting-and-reporting-orm-problems/)
@@ -59,12 +62,14 @@ permalink: /publications/
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/oss2019.pdf)
 
-1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](#)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019 -- Short paper). Salvador, Brazil, 2019.<br>
+1. Matheus Seabra, [Marcos Felipe Carvalho Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), **Gustavo Pinto**. "[REST or GraphQL? A Performance Comparative Study](http://gustavopinto.github.io/lost+found/sbcars2019.pdf)". Accepted to the 13th Brazilian Symposium on Software Components, Architectures, and Reuse (SBCARS'2019). Salvador, Brazil, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbcars2019.pdf)
+
+1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](http://gustavopinto.github.io/lost+found/sbes2019.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019 -- Short paper). Salvador, Brazil, 2019.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2019.pdf)
 
 1. André M. Pinheiro, Caio S. Rabello, [Leonardo B. Furtado](http://leonardofurtado.me/), **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en). "[Expecting the Unexpected: Distilling Bot Development, Challenges, and Motivations](http://gustavopinto.github.io/lost+found/chase2019.pdf)". Accepted to the 12th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE'2019 -- Note paper). Montreal, Canada, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/chase2019.pdf)
-
-1. Matheus Seabra, Marcos Felipe Carvalho Nazário, Gustavo Pinto. "REST or GraphQL? A Performance Comparative Study". Accepted to the 13th Brazilian Symposium on Software Components, Architectures, and Reuse (SBCARS'2019). Salvador, Brazil, 2019.<br>
 
 ## 2018
 
