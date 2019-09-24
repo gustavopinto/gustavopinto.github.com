@@ -55,6 +55,11 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019-industry.pdf)
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/detecting-and-reporting-orm-problems/)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/detecting-and-reporting-object-relational-mappingproblems-an-industrial-report)
+&#8226;
+[<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://www.youtube.com/watch?v=NNiQ14Rb6QE)
+
 
 1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/scam2019.pdf)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/scam2019.pdf)
@@ -64,6 +69,8 @@ permalink: /publications/
 
 1. Matheus Seabra, [Marcos Felipe Carvalho Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), **Gustavo Pinto**. "[REST or GraphQL? A Performance Comparative Study](http://gustavopinto.github.io/lost+found/sbcars2019.pdf)". Accepted to the 13th Brazilian Symposium on Software Components, Architectures, and Reuse (SBCARS'2019). Salvador, Brazil, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbcars2019.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/rest-or-graphql-a-performance-comparative-study)
 
 1. Fabio Pacheco, [Igor Wiese](http://www.igorwiese.com/), [Igor Steinmacher](http://igor.pro.br/), [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**. "[How Open is the SBES PC Community?](http://gustavopinto.github.io/lost+found/sbes2019.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2019 -- Short paper). Salvador, Brazil, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2019.pdf)
@@ -138,7 +145,8 @@ permalink: /publications/
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/when-students-become-contributors-leveraging-oss-contributions-in-software-engineering-courses)
 &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://youtu.be/Ii-x5BawlSg)
-&#8226; [<i class="fa fa-fw fa-plus" aria-hidden="true"></i>More](/publications/sbes2018)
+&#8226;
+[<i class="fa fa-fw fa-plus" aria-hidden="true"></i>More](/publications/sbes2018)
 
 15. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2018.pdf)

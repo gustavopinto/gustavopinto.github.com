@@ -32,9 +32,10 @@ After years of working on the same subject, I acquired a reasonable good percept
 
 - **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Energy Efficiency: A New Concern for Application Software Developers](http://gustavopinto.github.io/lost+found/cacm2017.pdf)". Communications of the ACM 60(12), December 2017.<br/>
 
-Not quite last contribution. I recently had a master student who got interested in working with energy consumption, and we just had a paper accepted in a Brazilian workshop:
+Not quite last contribution. I recently had a master student who got interested in working with energy consumption, and we had a paper accepted in a Brazilian workshop (and a follow up version was also published on ESEM'2019):
 
 - Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.
+- Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. 
 
 However, I do plan to move ahead and work less and less with this energy consumption field. As [Andreas Zeller](http://andreas-zeller.blogspot.com.br/) often says: "get our of a field when too crowded".
 
