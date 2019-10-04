@@ -73,28 +73,28 @@ Passível de alterações.
 | 8 | 19/09 | ***NAO TEREMOS AULA***        |
 | 8 | 24/09 | ***NAO TEREMOS AULA***        |
 | 9 | 26/09 | ***NAO TEREMOS AULA***        |
-| 10 | 01/10 | Funções SQL                  |
-| 11 | 03/10 | Exercício em sala            |
-| 12 | 08/10 | Subquery SQL                 |
-| 12 | 10/10 | Exercício em Sala            |
-| 13 | 15/10 | Prova 1 bimestre             |
-| 14 | 17/10 | Transação & Definicão de PD  |
-| 15 | 22/10 | Transação                    |
-| 16 | 24/10 | Concorrência                 |
-| 17 | 29/10 | Concorrência                 |
-| 17 | 31/10 | Armazenamento                |
-| 18 | 05/11 | Segurança                    |
-| 19 | 07/11 | Exercício em sala            |
-| 20 | 12/11 | Palestra convidada           |
-| 21 | 14/11 | Hands on trabalho final      |
-| 22 | 19/11 | Acompanhamento das atividades & Definição de trabalhos|
-| 23 | 21/11 | Acompanhamento das atividades |
-| 24 | 26/11 | Acompanhamento das atividades |
-| 25 | 28/11 | Acompanhamento das atividades |
-| 26 | 03/12 | Acompanhamento das atividades |
-| 27 | 05/12 | Acompanhamento das atividades |
-| 28 | 10/12 | Apresentação de PD            |
-| 29 | 12/12 | Apresentação de PD            |
+| 10 | 01/10 | ***SEMINIC***                |
+| 11 | 03/10 | ***SEMINIC***                |
+| 10 | 08/10 | Funções SQL                  |
+| 11 | 10/10 | Exercício em sala            |
+| 12 | 15/10 | Subquery SQL                 |
+| 12 | 17/10 | Exercício em Sala            |
+| 13 | 22/10 | Prova 1 bimestre             |
+| 14 | 24/10 | Transação & Definicão de PD  |
+| 15 | 29/10 | Transação                    |
+| 16 | 31/10 | Concorrência                 |
+| 17 | 05/11 | Concorrência                 |
+| 17 | 07/11 | Armazenamento                |
+| 18 | 12/11 | Segurança                    |
+| 19 | 14/11 | Exercício em sala            |
+| 20 | 19/11 | Palestra convidada           |
+| 21 | 21/11 | Hands on trabalho final      |
+| 22 | 26/11 | Acompanhamento das atividades & Definição de trabalhos|
+| 23 | 28/11 | Acompanhamento das atividades |
+| 24 | 03/12 | Acompanhamento das atividades |
+| 25 | 05/12 | Acompanhamento das atividades |
+| 26 | 10/12 | Apresentação de PD |
+| 27 | 12/12 | Apresentação de PD |
 | 30 | 17/12 | Buffer |
 | 31 | 19/12 | Buffer |
 

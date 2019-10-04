@@ -6,16 +6,17 @@ permalink: /service/
 ## Steering committee (2)
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
+1. [SBCARS](http://www.agilebrazil.com/2018/en/wbma2018/) (2020 -- 2023)
 
 ## Review Board (1)
 1. [EMSE Review Board](#) (2017/2018)
 
-## Service for 2020 (7)
+## Service for 2020 (8)
 1. PC chair, [SBCARS'20](#)
 1. Social Media chair, [ICGSE'20](#)
 1. PC member, [CSEE&T'20](https://ase.in.tum.de/cseet2020/)
 1. PC member, [EASE'20](https://www.ntnu.edu/web/ease2020/home) ([short papers](https://www.ntnu.edu/web/ease2020/short-papers-and-artefacts-track))
-1. PC member, [SANER'20](https://saner2020.csd.uwo.ca/) ([Late Breaking Ideas](https://saner2020.csd.uwo.ca/lbitrack))
+1. PC member, [SANER'20](https://saner2020.csd.uwo.ca/) ([Late Breaking Ideas](https://saner2020.csd.uwo.ca/lbitrack), [tools](https://saner2020.csd.uwo.ca/tooltrack))
 1. PC member, [MSR'20](https://2020.msrconf.org/track/msr-2020-papers) ([research](https://2020.msrconf.org/track/msr-2020-papers), [challenge](https://2020.msrconf.org/track/msr-2020-mining-challenge))
 
 ## Service for 2019 (22)
