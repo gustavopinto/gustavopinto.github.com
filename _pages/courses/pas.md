@@ -82,28 +82,28 @@ Passível de alterações.
 | 8 | 19/09 | ***NAO TEREMOS AULA***                           |
 | 8 | 24/09 | ***NAO TEREMOS AULA***                           |
 | 9 | 26/09 | ***NAO TEREMOS AULA***                           |
-| 10 | 01/10 | Diagrama de classe                              |
-| 11 | 03/10 | Diagrama de sequencia                           |
-| 12 | 08/10 | Diagrama de atividades                          |
-| 12 | 10/10 | Exercício em sala                               |
-| 13 | 15/10 | Padrões arquiteturais                           |
-| 14 | 17/10 | Padrões de projetos                             |
-| 15 | 22/10 | Padrões de projetos                             |
-| 16 | 24/10 | Exercício em sala                               |
-| 17 | 29/10 | ***Seminário (parte 1)***                       |
-| 17 | 31/10 | ***Seminário (parte 2)***                       |
-| 18 | 05/11 | Refatoração                                     |
-| 19 | 07/11 | Testes automatizados                            |
-| 20 | 12/11 | Qualidade de software                           |
-| 21 | 14/11 | ***PROVA***                                     |
-| 22 | 19/11 | Acompanhamento das atividades & Definição de trabalhos|
-| 23 | 21/11 | Acompanhamento das atividades                   |
-| 24 | 26/11 | Acompanhamento das atividades                   |
-| 25 | 28/11 | Acompanhamento das atividades                   |
-| 26 | 03/12 | Acompanhamento das atividades                   |
-| 27 | 05/12 | Acompanhamento das atividades                   |
-| 28 | 10/12 | ***Apresentação de PD***                        |
-| 29 | 12/12 | ***Apresentação de PD***                        |
+| 10 | 01/10 | ***SEMINIC***                |
+| 11 | 03/10 | ***SEMINIC***                |
+| 10 | 08/10 | Diagrama de classe                              |
+| 11 | 10/10 | Diagrama de sequencia                           |
+| 12 | 15/10 | Diagrama de atividades                          |
+| 12 | 17/10 | Exercício em sala                               |
+| 13 | 22/10 | Padrões arquiteturais                           |
+| 14 | 24/10 | Padrões de projetos                             |
+| 15 | 29/10 | Padrões de projetos                             |
+| 16 | 31/10 | Exercício em sala                               |
+| 17 | 05/11 | ***Seminário (parte 1)***                       |
+| 17 | 07/11 | ***Seminário (parte 2)***                       |
+| 18 | 12/11 | Refatoração                                     |
+| 19 | 14/11 | Testes automatizados                            |
+| 20 | 19/11 | Qualidade de software                           |
+| 21 | 21/11 | ***PROVA***                                     |
+| 22 | 26/11 | Acompanhamento das atividades & Definição de trabalhos|
+| 23 | 28/11 | Acompanhamento das atividades                   |
+| 24 | 03/11 | Acompanhamento das atividades                   |
+| 25 | 05/11 | Acompanhamento das atividades                   |
+| 26 | 10/12 | ***Apresentação de PD***                   |
+| 27 | 12/12 | ***Apresentação de PD***                   |
 | 30 | 17/12 | Buffer                                          |
 | 31 | 19/12 | Buffer                                          |
 
