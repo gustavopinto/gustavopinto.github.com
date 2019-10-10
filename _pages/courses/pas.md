@@ -61,7 +61,7 @@ Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do co
 
 - AE1: Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
 
-- AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos
+- AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.
 
 ## Nota final
 
@@ -85,8 +85,8 @@ Passível de alterações.
 | 10 | 01/10 | ***SEMINIC***                |
 | 11 | 03/10 | ***SEMINIC***                |
 | 10 | 08/10 | Diagrama de classe                              |
-| 11 | 10/10 | Diagrama de sequencia                           |
-| 12 | 15/10 | Diagrama de atividades                          |
+| 11 | 10/10 | Diagrama de pacote, sequencia e atividades      |
+| 12 | 15/10 | ***Feriado Círio 2019 ***                       |
 | 12 | 17/10 | Exercício em sala                               |
 | 13 | 22/10 | Padrões arquiteturais                           |
 | 14 | 24/10 | Padrões de projetos                             |

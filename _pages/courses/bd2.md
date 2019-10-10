@@ -52,7 +52,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 - AE1: Ler um artigo completo do SBBD de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram. 1 ponto
 
-- AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos
+- AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.
 
 ## Nota final
 
@@ -77,8 +77,8 @@ Passível de alterações.
 | 11 | 03/10 | ***SEMINIC***                |
 | 10 | 08/10 | Funções SQL                  |
 | 11 | 10/10 | Exercício em sala            |
-| 12 | 15/10 | Subquery SQL                 |
-| 12 | 17/10 | Exercício em Sala            |
+| 12 | 15/10 | ***Feriado Círio 2019 ***    |
+| 12 | 17/10 | Subquery SQL                 |
 | 13 | 22/10 | Prova 1 bimestre             |
 | 14 | 24/10 | Transação & Definicão de PD  |
 | 15 | 29/10 | Transação                    |
