@@ -82,11 +82,11 @@ Passível de alterações.
 | 8 | 19/09 | ***NAO TEREMOS AULA***                           |
 | 8 | 24/09 | ***NAO TEREMOS AULA***                           |
 | 9 | 26/09 | ***NAO TEREMOS AULA***                           |
-| 10 | 01/10 | ***SEMINIC***                |
-| 11 | 03/10 | ***SEMINIC***                |
+| 10 | 01/10 | ***SEMINIC***                                   |
+| 11 | 03/10 | ***SEMINIC***                                   |
 | 10 | 08/10 | Diagrama de classe                              |
 | 11 | 10/10 | Diagrama de pacote, sequencia e atividades      |
-| 12 | 15/10 | ***Feriado Círio 2019 ***                       |
+| 12 | 15/10 | ***Feriado Círio 2019***                        |
 | 12 | 17/10 | Exercício em sala                               |
 | 13 | 22/10 | Padrões arquiteturais                           |
 | 14 | 24/10 | Padrões de projetos                             |
@@ -102,8 +102,8 @@ Passível de alterações.
 | 23 | 28/11 | Acompanhamento das atividades                   |
 | 24 | 03/11 | Acompanhamento das atividades                   |
 | 25 | 05/11 | Acompanhamento das atividades                   |
-| 26 | 10/12 | ***Apresentação de PD***                   |
-| 27 | 12/12 | ***Apresentação de PD***                   |
+| 26 | 10/12 | ***Apresentação de PD***                        |
+| 27 | 12/12 | ***Apresentação de PD***                        |
 | 30 | 17/12 | Buffer                                          |
 | 31 | 19/12 | Buffer                                          |
 

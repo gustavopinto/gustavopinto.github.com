@@ -24,7 +24,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (33)
+## Conference papers rejected (34)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
@@ -41,17 +41,18 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - SANER: 2015, 2018, 2019
 - SCAM: 2019
-- SIGCSE: 2019
+- SIGCSE: 2019, 2020
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (12)
+## Grant proposals rejected (13)
 
 - Helium grant, 2019 (budget: U$ 1,000)
 - BASA research grant, 2018 (budget: U$ 30,000)
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
+- FAPESP/CGI grant, 2019 (budget: U$ 50,000)
 - SECTET Social Technology grant, 2018
 - CNPq Productivity Fellowship, 2017, 2018
 - CNPq Women in tech grant, 2018

@@ -7,8 +7,6 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
-- Marcos Nazario (MS)
-- Andre Cunha (MS)
 - Fabio Pacheco (MS)
 - Wagner Felidré (UROP)
 - Leonardo Furtado (UROP)
@@ -27,3 +25,4 @@ I am continuously looking for good people to join my research group, at all leve
 - Marcos Costa (Capstone), December 2018
 - Gilson Rocha (MS), March 2019
 - Matheus Seabra (Capstone), July 2019
+- Marcos Nazario (MS), September 2019

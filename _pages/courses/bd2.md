@@ -77,7 +77,7 @@ Passível de alterações.
 | 11 | 03/10 | ***SEMINIC***                |
 | 10 | 08/10 | Funções SQL                  |
 | 11 | 10/10 | Exercício em sala            |
-| 12 | 15/10 | ***Feriado Círio 2019 ***    |
+| 12 | 15/10 | ***Feriado Círio 2019***     |
 | 12 | 17/10 | Subquery SQL                 |
 | 13 | 22/10 | Prova 1 bimestre             |
 | 14 | 24/10 | Transação & Definicão de PD  |
