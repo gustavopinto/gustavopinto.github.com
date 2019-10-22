@@ -37,9 +37,9 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 ## Avaliação
 
-1. Exercícios em sala: 5 pontos (1pt cada exercício)
-2. Prova do primeiro bimestre: 7 pontos
-3. Projeto de disciplina: 7 pontos
+1. Exercícios em sala: 4 pontos (1pt cada exercício)
+2. Prova do primeiro bimestre: 8 pontos
+3. Projeto de disciplina: 8 pontos
 4. Atividades extras (AEs): 3 ponto
 
 ### Projeto de disciplina (PD)

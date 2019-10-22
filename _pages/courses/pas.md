@@ -40,16 +40,36 @@ Projeto de Arquitetura; Projeto de Persistência.
 ## Avaliação
 
 1. Exercícios em sala: 3 pontos (1pt cada exercício)
-2. Prova do primeiro bimestre: 5 pontos
+2. Prova do primeiro bimestre: 7 pontos
 3. Seminário (PD): 5 pontos
 3. Projeto de disciplina: 5 pontos
 4. Atividades extras (AEs): 3 ponto
 
 ### Seminário
 
-- TBD
+O Seminário deve abordar tópicos que não foram mencionados em sala de aula. O Seminário deve ter duração mínima de 20 e no máxima de 25 minutos. Há uma penalidade de 1 ponto para quem usar menos ou mais tempo (**ENSAIEM!**).
 
-Sobre a apresentação do seminário: alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
+O seminário deve ser composto pelo menos grupo do projeto de disciplina.
+
+Algumas sugestões de tópicos (alunos também podem trazer suas próprias sugestões):
+
+- Crystal Methods
+- SCRUM
+- Spotify Squad framework
+- Design Science
+- Object-relational impedance mismatch
+- Test driven development
+- Model driven development
+- Behavior-driven development
+- Bad smells
+- Continuous Integration
+- Continuous Delivery
+- Docker e containers
+- Outro?
+
+**Para garantir que todos apresentem no horário:** É necessário enviar o PDF da apresentação para o grupo do Telegram até às 23:00hs do dia 04/11. O arquivo deve ser nomeado como "aluno1-aluno2-alunoN.pdf", onde "nome" é o nome e sobrenome de um aluno. O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
+
+**Sobre a apresentação do seminário:** alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
 
 ### Projeto de disciplina (PD)
 
@@ -61,7 +81,7 @@ Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do co
 
 - AE1: Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
 
-- AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.
+- AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10. **Encerrado**
 
 ## Nota final
 
