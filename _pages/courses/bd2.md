@@ -34,6 +34,8 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 - [The design and implementation of modern column-oriented database systems](https://blog.acolyer.org/2018/09/26/the-design-and-implementation-of-modern-column-oriented-database-systems/)
 - [Four security flaws illustrated, all on one conference registration site](http://andreas-zeller.blogspot.com/2016/04/how-i-twice-hacked-conference.html)
 - [A Classification of SQL Injection Attacks and Countermeasures](https://pdfs.semanticscholar.org/81a5/02b52485e52713ccab6d260f15871c2acdcb.pdf)
+- [An Empirical Study of Local Database Usage inAndroid Applications](http://www-scf.usc.edu/~jgui/papers/icsme2017.pdf)
+- [SQL Code Smells](https://www.red-gate.com/simple-talk/sql/t-sql-programming/sql-code-smells/)
 
 ## Avaliação
 
@@ -80,7 +82,7 @@ Passível de alterações.
 | 12 | 15/10 | ***Feriado Círio 2019***     |
 | 12 | 17/10 | Subquery SQL                 |
 | 13 | 22/10 | Prova 1 bimestre             |
-| 14 | 24/10 | Transação & Definicão de PD  |
+| 14 | 24/10 | Correcão provas & Anti padrões em SQL & Definicão de PD  |
 | 15 | 29/10 | Transação                    |
 | 16 | 31/10 | Concorrência                 |
 | 17 | 05/11 | Concorrência                 |
