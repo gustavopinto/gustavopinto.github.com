@@ -83,8 +83,8 @@ Passível de alterações.
 | 12 | 17/10 | Subquery SQL                 |
 | 13 | 22/10 | Prova 1 bimestre             |
 | 14 | 24/10 | Correcão provas & Anti padrões em SQL & Definicão de PD  |
-| 15 | 29/10 | Transação                    |
-| 16 | 31/10 | Concorrência                 |
+| 15 | 29/10 | Normalização                 |
+| 16 | 31/10 | Transação                    |
 | 17 | 05/11 | Concorrência                 |
 | 17 | 07/11 | Armazenamento                |
 | 18 | 12/11 | Segurança                    |

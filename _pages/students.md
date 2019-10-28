@@ -7,10 +7,10 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
-- Fabio Pacheco (MS)
-- Wagner Felidré (UROP)
-- Leonardo Furtado (UROP)
-- Enzo Gabriel (UROP)
+- Fabio Pacheco de Souza (MS)
+- Wagner Felidré Negrão da Silva (UROP)
+- Leonardo Barbosa Furtado (UROP)
+- Enzo Gabriel Da Rocha Santos (UROP)
 - João Pedro Moraes (Capstone)
 - You?
 
