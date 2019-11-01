@@ -74,11 +74,11 @@ Algumas sugestões de tópicos (alunos também podem trazer suas próprias suges
 | 05/11/2019 | 3o     | Fabio, Fabricio e Yan                | Crystal Methods |               
 | 05/11/2019 | 4o     | Arthur, Isabela e João Victor        | TDD             |
 | 05/11/2019 | 5o     | Victor Daniel e Necy Trindade        | CD              |
-| 05/11/2019 | 6o     | Marcelo e ?                          | Microserviços   |             
-| 05/11/2019 | 7o     | Acza, Ana Vitoria e Tuby             | Squads          |      
-| 05/11/2019 | 8o     | Pedro Victor, Aian, Renan Cunha e Vitor Cantão    | Docker e containers |
-| 05/11/2019 | 9o     | Alberto, Renato, Ronaldd e Wagner    | Bad smells      |
-| 05/11/2019 | 10o    | Edson, Mauricio, Paulo Durval e Egry | Scrum           |
+| 07/11/2019 | 6o     | Marcelo e ?                          | Microserviços   |             
+| 07/11/2019 | 7o     | Acza, Ana Vitoria e Tuby             | Squads          |      
+| 07/11/2019 | 8o     | Pedro Victor, Aian, Renan Cunha e Vitor Cantão    | Docker e containers |
+| 07/11/2019 | 9o     | Alberto, Renato, Ronaldd e Wagner    | Bad smells      |
+| 07/11/2019 | 10o    | Edson, Mauricio, Paulo Durval e Egry | Scrum           |
 
 
 **Para garantir que todos apresentem no horário:** É necessário enviar o PDF da apresentação para o grupo do Telegram até às 23:00hs do dia 04/11. O arquivo deve ser nomeado como "aluno1-aluno2-alunoN.pdf", onde "nome" é o nome e sobrenome de um aluno. O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto. Não é necessário levar computador para apresentação do seminário.
