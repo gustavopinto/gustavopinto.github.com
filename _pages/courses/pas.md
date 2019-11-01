@@ -7,7 +7,7 @@ permalink: /teaching/pad
 
 Terça e Quinta, às 16:40 @ MIRANTE 212
 
-## Slack
+## Telegram
 
 Todo material de aula será postado no Telegram. Para ingressar, clique [aqui](https://t.me/joinchat/GeSB2RTFln6cqTUj3ja54g).
 
@@ -17,8 +17,7 @@ Apresentar os principais conceitos relacionados às etapas de análise e projeto
 
 ## Ementa
 
-Introdução à Análise e Projeto de Sistemas: Conceitos de Sistemas de Informação, Ciclo de Vida de Software, Metodologias de Análise e Projeto; UML; Descrição de Requisitos com Casos de Uso; Modelos Conceituais;
-Projeto de Arquitetura; Projeto de Persistência.
+Introdução à Análise e Projeto de Sistemas: Conceitos de Sistemas de Informação, Ciclo de Vida de Software, Metodologias de Análise e Projeto; UML; Descrição de Requisitos com Casos de Uso; Modelos Conceituais; Projeto de Arquitetura; Projeto de Persistência.
 
 
 ## Bibliografia
@@ -41,15 +40,15 @@ Projeto de Arquitetura; Projeto de Persistência.
 
 1. Exercícios em sala: 3 pontos (1pt cada exercício)
 2. Prova do primeiro bimestre: 7 pontos
-3. Seminário (PD): 5 pontos
+3. Seminário (PD): 5 pontos (2 pontos da apresentação, e 3 pontos do relatório)
 3. Projeto de disciplina: 5 pontos
-4. Atividades extras (AEs): 3 ponto
+4. Atividades extras (AEs): 3 pontos
 
 ### Seminário
 
 O Seminário deve abordar tópicos que não foram mencionados em sala de aula. O Seminário deve ter duração mínima de 20 e no máxima de 25 minutos. Há uma penalidade de 1 ponto para quem usar menos ou mais tempo (**ENSAIEM!**).
 
-O seminário deve ser composto pelo menos grupo do projeto de disciplina.
+O seminário deve ser composto pelo mesmo grupo do projeto de disciplina.
 
 Algumas sugestões de tópicos (alunos também podem trazer suas próprias sugestões):
 
@@ -67,7 +66,24 @@ Algumas sugestões de tópicos (alunos também podem trazer suas próprias suges
 - Docker e containers
 - Outro?
 
-**Para garantir que todos apresentem no horário:** É necessário enviar o PDF da apresentação para o grupo do Telegram até às 23:00hs do dia 04/11. O arquivo deve ser nomeado como "aluno1-aluno2-alunoN.pdf", onde "nome" é o nome e sobrenome de um aluno. O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.
+**Lista de apresentações:**
+
+| Data       | Ordem  | Alunos                               | Tema            |
+| 05/11/2019 | 1o     | Renan Ramos e Kaled Maciel           | BDD             |              
+| 05/11/2019 | 2o     | Teo e Taina                          | ORM             |   
+| 05/11/2019 | 3o     | Fabio, Fabricio e Yan                | Crystal Methods |               
+| 05/11/2019 | 4o     | Arthur, Isabela e João Victor        | TDD             |
+| 05/11/2019 | 5o     | Victor Daniel e Necy Trindade        | CD              |
+| 05/11/2019 | 6o     | Marcelo e ?                          | Microserviços   |             
+| 05/11/2019 | 7o     | Acza, Ana Vitoria e Tuby             | Squads          |      
+| 05/11/2019 | 8o     | Pedro Victor, Aian, Renan Cunha e Vitor Cantão    | Docker e containers |
+| 05/11/2019 | 9o     | Alberto, Renato, Ronaldd e Wagner    | Bad smells      |
+| 05/11/2019 | 10o    | Edson, Mauricio, Paulo Durval e Egry | Scrum           |
+
+
+**Para garantir que todos apresentem no horário:** É necessário enviar o PDF da apresentação para o grupo do Telegram até às 23:00hs do dia 04/11. O arquivo deve ser nomeado como "aluno1-aluno2-alunoN.pdf", onde "nome" é o nome e sobrenome de um aluno. O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto. Não é necessário levar computador para apresentação do seminário.
+
+**Sobre os grupos dos seminários:** Como não chegamos num consenso com relação ao número de alunos no seminário (alguns grupos tem 4 alunos enquanto outros alunos irão fazer individualmente), também se faz necessário a entrega de um relatório. O relatório deve estar no formato da SBC (link [aqui](https://www.sbc.org.br/documentos-da-sbc/summary/169-templates-para-artigos-e-capitulos-de-livros/878-modelosparapublicaodeartigos)). O template não deve ser alterado. A quantidade de folhas varia de acordo com o número de alunos. Por exemplo, trabalhos individuais devem ter, no mínimo, 5 folhas. 10 folhas para duplas, 15 folhas para trios, e 20 folhas para grupos de quatro alunos. É permitido somente uma figura ou tabela por aluno (por ex, grupo de três pode ter no máximo três figuras ou tabelas). O relatório deve ser entregue em formato impresso antes da apresentação.
 
 **Sobre a apresentação do seminário:** alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
 
@@ -79,7 +95,7 @@ Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do co
 
 ### Atividade Extra (AE)
 
-- AE1: Ler um artigo completo (10 folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
+- AE1: Ler um artigo completo (10+ folhas) do SBES de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram.
 
 - AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10. **Encerrado**
 
@@ -106,7 +122,7 @@ Passível de alterações.
 | 11 | 03/10 | ***SEMINIC***                                   |
 | 10 | 08/10 | Diagrama de classe                              |
 | 11 | 10/10 | Diagrama de pacote, sequencia e atividades      |
-| 12 | 15/10 | ***Feriado Círio 2019***                        |
+| 12 | 15/10 | ***Dia do professor***                          |
 | 12 | 17/10 | Exercício em sala                               |
 | 13 | 22/10 | Padrões arquiteturais                           |
 | 14 | 24/10 | Padrões de projetos                             |

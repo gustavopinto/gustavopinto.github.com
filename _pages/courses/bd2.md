@@ -7,7 +7,7 @@ permalink: /teaching/bd2
 
 Terça e Quinta, às 18:20 @ LABCOMP-02
 
-## Slack
+## Telegram
 
 Todo material de aula será postado no Telegram. Para ingressar, clique [aqui](https://t.me/joinchat/GeSB2Q1EkH1cl53aZqJVSw).
 
@@ -44,9 +44,15 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 3. Projeto de disciplina: 8 pontos
 4. Atividades extras (AEs): 3 ponto
 
+## Nota final
+
+Soma de todas as atividades dividido por dois.
+
 ### Projeto de disciplina (PD)
 
-- TBD (mas provávelmente usando o https://www.softwareheritage.org/)
+- **O que deve ser feito:** Os alunos devem buscar um problema do seu dia a dia e implementar uma solução para esse problema. Exemplo de problema: a FACOMP está em busca de um sistema de estágio, em que as informações dos alunos que estão estagiando possam ser armazenadas. Além disso, espera-se saber quais são as empresas que esses alunos estagiam, o tempo que eles passam nas empresas, o valor da bolsa, etc.
+
+Essa solução deve conter tanto o design e uso de um banco de dados, bem como uma interface gráfica implementada em alguma linguagem de programação que faça manipulação desse banco de dados. Não há restrição de banco de dados ou de linguagem de programação; alunos podem usar os quais forem mais convenientes. Também não há requisitos para a interface gráfica: qualquer coisa que o professor possa entender (de linha de comando até app Android)
 
 - **Sobre a apresentação do projeto de disciplina:** alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação) terão nota da apresentação correspondente a zero.
 
@@ -54,11 +60,7 @@ Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sis
 
 - AE1: Ler um artigo completo do SBBD de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram. 1 ponto
 
-- AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.
-
-## Nota final
-
-Soma de todas as atividades dividido por dois.
+- AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.**Encerrado**
 
 ## Cronograma
 
@@ -79,7 +81,7 @@ Passível de alterações.
 | 11 | 03/10 | ***SEMINIC***                |
 | 10 | 08/10 | Funções SQL                  |
 | 11 | 10/10 | Exercício em sala            |
-| 12 | 15/10 | ***Feriado Círio 2019***     |
+| 12 | 15/10 | ***Dia do professor***       |
 | 12 | 17/10 | Subquery SQL                 |
 | 13 | 22/10 | Prova 1 bimestre             |
 | 14 | 24/10 | Correcão provas & Anti padrões em SQL & Definicão de PD  |
