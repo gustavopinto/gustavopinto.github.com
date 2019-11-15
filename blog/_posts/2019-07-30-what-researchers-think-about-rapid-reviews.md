@@ -1,28 +1,91 @@
 ---
 layout: single
-title: What researchers think about Rapid Reviews?
-excerpt: A summary of an ESEM'19 paper
+title: On the registration costs of software engineering conferences
+excerpt: How much does it cost to attend a conference?
 year: 2019
-month: 7
-day: 30
+month: 11
+day: 09
 published: true
 ---
 
-Rapid Reviews (RRs) are lightweight secondary studies intended to provide evidence to support informed decision making. Different than Systematic Literature Reviews (SLRs) that usually take several months (or even years) to be done, RRs are conducted in time frames more likely to meet practitioners' demands (in weeks or in a month, instead of months or a year) and demand the involvement of few, sometimes only one researcher, reducing the costs to deliver evidence.
+During this 2019 year I have been collecting the registration fee of academic
+software engineering conferences. I did not cover all software engineering
+conferences that exist out there, but I believe I the 22 ones presented below are
+fairly known ones. The registration costs can be seen in the following table (ordered by
+the cost of non member registrations).
 
-Although RRs are a rising research method in the medical domain, they are barely known by the software engineering community. In a [previous study](http://gustavopinto.org/lost+found/ease2018.pdf) we observed that practitioners were very supportive towards the use of RRs. Unfortunately, the perceptions of researchers, who usually are in charge of conducting the RRs, is still unknown. Considering the recent movements in software engineering to increase the quality of SLRs, we believe that the methodological concessions of the RRs could provoke some controversy in the software engineering research arena.
+| 2019                 | Early                        | Late                         |
+|                      | ACM/IEEE Member | Non Member | ACM/IEEE Member | Non Member |
+|----------------------|-----------------|------------|-----------------|------------|
+| ICSA                 | 1050 USD        | 1200 USD   | 1290 USD        | 1460 USD   |
+| RE                   | 850 USD         | 1100 USD   | 1000 USD        | 1200 USD   |
+| ASE                  | 800 USD         | 1000 USD   | 950 USD         | 1150 USD   |
+| ICST                 | 830 USD         | 996 USD    | 996 USD         | 1195 USD   |
+| ICSME                | 750 USD         | 980 USD    | 1100 USD        | 1445 USD   |
+| FSE                  | 815 USD         | 960 USD    | 960 USD         | 1100 USD   |
+| ISSTA                | 850 USD         | 950 USD    | 1050 USD        | 1500 USD   |
+| ICSE                 | 725 USD         | 870 USD    | 905 USD         | 1085 USD   |
+| ESEM                 | 605 USD         | 820 USD    | 760 USD         | 1060 USD   |
+| XP                   | 640 USD         | 800 USD    | ---             | 960 USD    |
+| SANER                | 600 USD         | 720 USD    | 750 USD         | 900 USD    |
+| EASE                 | ---             | 678 USD    | ---             | 791 USD    |
+| SPLC                 | ---             | 617 USD    | ---             | 786 USD    |
+| ECSA                 | ---             | 617 USD    | ---             | 786 USD    |
+| ICGSE                | 485 USD         | 580 USD    | 605 USD         | 725 USD    |
+| ICPC                 | 485 USD         | 580 USD    | 605 USD         | 725 USD    |
+| MSR                  | 485 USD         | 580 USD    | 605 USD         | 725 USD    |
+| OSS                  | 485 USD         | 580 USD    | 605 USD         | 725 USD    |
+| Programming          | 510 USD         | 570 USD    | 630 USD         | 680 USD    |
+| VISSOFT              | 390 USD         | 510 USD    | 505 USD         | 660 USD    |
+| SCAM                 | 390 USD         | 510 USD    | 505 USD         | 660 USD    |
+| ICPE                 | 115 USD         | 135 USD    | 135 USD         | 160 USD    |
 
-Therefore, it was not clear to us whether researchers would embrace RRs. On the one hand, although RRs can speed up the knowledge transfer process to practice (and initial results suggest that practitioners appreciate it), researchers may be skeptical to adopt RRs due to methodological concessions (or afraid to have their papers rejected when using a not that rigorous methodology) .
+The first thing about this table is that all registration costs were normalized to
+USD (e.g., ICPE took place in Mumbai, India, so its registration cost was on Indian Rupees).
+To convert currency, I used Google currency converter. This may bring some noise to the
+data since I converted the costs on different dates. I opted not to convert it all at
+once; I converted as soon as I see that the registration was available. I also
+manually rounded some values. Since I know some fluctuation exists, I believe it
+makes little sense to put in a table a registration like 487.72.
 
-In order to investigate the software engineering researchers perception on the potential use of RRs, we invited a group of 37 SE researchers and asked them to analyze a predefined set of 50 statements regarding RRs, and rank them according to what extent they agree with each statement. To conduct this analysis, we relied on a [Q-Methodology](https://qmethod.org/). This approach may sound like surveys, but it is intrinsically different. More concretely, using this method, the participants are required to prioritize their perceptions, avoiding bias in their responses (e.g., some participants might be more positive than others).
+Some other observations next.
 
-Using this methodology, we revealed four different perceptions about RRs. They are:
+**Registration cost varies a LOT**: Considering members and non members, ICSA
+had the most expensive registration cost (1050 USD and 1200 USD, respectively),
+when compared all other software engineering conferences. On the other hand, ICPE
+had the most cheap one (115 USD and 135 USD, respectively). The average registration
+cost was: 748.65 USD (242.86 USD, standard deviation). Since I've never ran a
+conference before, I have no idea how could one do everything needed with such
+small registration cost. Kudos to ICPE folks!
 
-- **The Picky:** The SE researcher does not believe that RRs can deliver high quality evidence;
-- **The Unconvinced**: The SE researcher needs more evidence about Rapid Reviews;
-- **The Pragmatic:** The SE researcher might conduct some RRs in specific scenarios where they are appropriate.
-- **The Enthusiastic:** The SE researcher is willing to conduct RRs, but only if minimum standards are meet;
+**Some conferences happen in just two days:** Not sure why, but I was expecting to
+see conferences that happen in two days only be a bit cheaper than conferences
+that happen in three days. For instance, ESEM that happens in just two days cost
+about the same as ICSE, which happen in three days (ESEM: 820, ICSE: 870).
 
-With this paper, we understood that some researchers are willing to experiment with RRs, although some of them are still very conservative. However, with this study and our [initial results](http://gustavopinto.org/lost+found/ease2018.pdf) (and eventual other research works that may go along these lines), we believe other researchers may become motivated to embrace this methodology.
+**Some conferences do not provide member registrations**: which is the case of
+EASE, ECSA, and SPLC. These conferences do not have the support of international
+computer societies, and organizers may have to run the conference by themselves.
+On the one hand, this may ended up making the registration a bit cheaper (around
+600 USD), but on the other hand, authors may not enjoy an even cheaper early registration.
 
-If you want to know more about this study, you can read the preprint available [here](https://arxiv.org/abs/1906.11351). The tool the implements the Q-Methodology is also available [here](https://github.com/bfsc/qmethod).
+**Colocated conferences share the same registration cost:** For instance, MSR and
+ICPC are co-located with ICSE, and both share the same registration cost: 485 USD.
+Although this may be expected, it is interesting to observe that this happens even
+if one conference is better ranked than others (which could ended up attracting
+  more attendees).
+
+**The registration cost has little to do with the location**: I know that
+some places are a lot more expensive than others, but the top-five conferences
+with the most expensive registration fee were (almost) on very different locations:
+ICSA was in Germany, RE in South Korea, ASE in the US, ICST in China,
+and ICSME in the US.
+
+This analysis is far from complete. There are many details that an outsider like
+me has little information about. For instance,
+some conferences has lunch included in the registration fee (some others provide
+breakfast and/or dinner). Besides the traditional coffee break, bag, t-shirt, etc,
+some social events are sometimes part of the registration fee.
+
+As I aforementioned, I never organized a conference, so my thought here may be completely
+biased and overly simplistic. Let me know if I understood something wrong!

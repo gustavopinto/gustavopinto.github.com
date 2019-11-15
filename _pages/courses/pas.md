@@ -70,11 +70,11 @@ Algumas sugestões de tópicos (alunos também podem trazer suas próprias suges
 
 | Data       | Ordem  | Alunos                               | Tema            |
 | 05/11/2019 | 1o     | Renan Ramos e Kaled Maciel           | BDD             |              
-| 05/11/2019 | 2o     | Teo e Taina                          | ORM             |   
+| 05/11/2019 | 2o     | Teoian, Tainá, Jamilly, Felipe, Pedro| ORM             |   
 | 05/11/2019 | 3o     | Fabio, Fabricio e Yan                | Crystal Methods |               
 | 05/11/2019 | 4o     | Arthur, Isabela e João Victor        | TDD             |
-| 05/11/2019 | 5o     | Victor Daniel e Necy Trindade        | CD              |
-| 07/11/2019 | 6o     | Marcelo e ?                          | Microserviços   |             
+| 05/11/2019 | 5o     | Victor Daniel, Necy Trindade, Sandy, José de Senna     | CD              |
+| 07/11/2019 | 6o     | João Marcelo, Leonardo, Yury         | Microserviços   |             
 | 07/11/2019 | 7o     | Acza, Ana Vitoria e Tuby             | Squads          |      
 | 07/11/2019 | 8o     | Pedro Victor, Aian, Renan Cunha e Vitor Cantão    | Docker e containers |
 | 07/11/2019 | 9o     | Alberto, Renato, Ronaldd e Wagner    | Bad smells      |
