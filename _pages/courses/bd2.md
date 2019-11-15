@@ -88,12 +88,12 @@ Passível de alterações.
 | 15 | 29/10 | Normalização                 |
 | 16 | 31/10 | Transação                    |
 | 17 | 05/11 | Concorrência                 |
-| 17 | 07/11 | Armazenamento                |
-| 18 | 12/11 | Segurança                    |
+| 17 | 07/11 | Concorrência                 |
+| 18 | 12/11 | Recuperação de Falhas        |
 | 19 | 14/11 | Exercício em sala            |
-| 20 | 19/11 | Palestra convidada           |
-| 21 | 21/11 | Hands on trabalho final      |
-| 22 | 26/11 | Acompanhamento das atividades & Definição de trabalhos|
+| 20 | 19/11 | Segurança                    |
+| 21 | 21/11 | Acompanhamento das atividades & Definição de trabalhos|
+| 22 | 26/11 | Acompanhamento das atividades |
 | 23 | 28/11 | Acompanhamento das atividades |
 | 24 | 03/12 | Acompanhamento das atividades |
 | 25 | 05/12 | Acompanhamento das atividades |

@@ -133,9 +133,9 @@ Passível de alterações.
 | 18 | 12/11 | Refatoração                                     |
 | 19 | 14/11 | Testes automatizados                            |
 | 20 | 19/11 | Qualidade de software                           |
-| 21 | 21/11 | ***PROVA***                                     |
-| 22 | 26/11 | Acompanhamento das atividades & Definição de trabalhos|
-| 23 | 28/11 | Acompanhamento das atividades                   |
+| 21 | 21/11 | ***NAO TEREMOS AULA***                          |
+| 22 | 26/11 | PROVA                                           |
+| 23 | 28/11 | Definição de trabalho & Acompanhamento das atividades  |
 | 24 | 03/11 | Acompanhamento das atividades                   |
 | 25 | 05/11 | Acompanhamento das atividades                   |
 | 26 | 10/12 | ***Apresentação de PD***                        |
