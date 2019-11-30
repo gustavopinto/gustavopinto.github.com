@@ -5,7 +5,7 @@ permalink: /publications/
 
 ## 2020
 
-Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.
+1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.
 
 ## 2019
 
