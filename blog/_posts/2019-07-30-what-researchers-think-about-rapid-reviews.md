@@ -14,7 +14,7 @@ conferences that exist out there, but I believe I the 22 ones presented below ar
 fairly known ones. The registration costs can be seen in the following table (ordered by
 the cost of non member registrations).
 
-| 2019                 | Early                        | Late                         |
+| 2019                 | Early           |            | Late                         |
 |                      | ACM/IEEE Member | Non Member | ACM/IEEE Member | Non Member |
 |----------------------|-----------------|------------|-----------------|------------|
 | ICSA                 | 1050 USD        | 1200 USD   | 1290 USD        | 1460 USD   |
