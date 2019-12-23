@@ -5,7 +5,8 @@ permalink: /publications/
 
 ## 2020
 
-1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
+1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). [C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model](http://gustavopinto.github.io/lost+found/saner2020.pdf). Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020.pdf)
 
 1. [Marcus Bertoncello](https://www.linkedin.com/in/marcus-vin%C3%ADcius-bertoncello-ba011a66/), **Gustavo Pinto**, [Igor Wiese](http://igorwiese.com/), [Igor Steinmacher](http://www.igor.pro.br/). [Pull Requests or Commits? Which Method Should We Use to Study Contributors’ Behavior?](#) Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER -- RENE Track), Ontario, Canada, 2020.<br>
 
