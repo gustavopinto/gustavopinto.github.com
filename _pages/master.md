@@ -15,9 +15,9 @@ O aluno é obrigado a publicar um artigo, mas não em convertê-lo em crédito.
 
 **Matérias**: 10 créditos de matérias obrigatórias e 8 de opcionais. (18 CR)
 
-**Projeto de Dissertação**: Referente ao texto da qualificação. O orientador dá a nota e credita após a qualificação. (2 CR)
+**Projeto de Dissertação**: Referente ao texto da qualificação (2 CR). O orientador dá a nota e credita após a qualificação. 
 
-**Artigo**: artigo publicado. (2 CR ou 4 CR). Dois créditos para conferência e quatro para periódicos.
+**Artigo**: artigo publicado (2 CR ou 4 CR). Dois créditos para conferência e quatro para periódicos.
 
 **Estágio de Docência**: estágio de docência (obrigatório apenas para bolsistas). (2 CR)
 

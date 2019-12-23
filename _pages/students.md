@@ -8,6 +8,9 @@ I am continuously looking for good people to join my research group, at all leve
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Fabio Pacheco de Souza (MS)
+- Wendy Mendes Galeno (MS)
+- Edson Cruz dos Santos (MS)
+- Jefferson Junior Alves da Silva (MS)
 - Wagner Felidré Negrão da Silva (UROP)
 - Leonardo Barbosa Furtado (UROP)
 - Enzo Gabriel Da Rocha Santos (UROP)

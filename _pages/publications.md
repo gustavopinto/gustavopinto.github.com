@@ -5,11 +5,13 @@ permalink: /publications/
 
 ## 2020
 
-1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.
+1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
+
+1. [Marcus Bertoncello](https://www.linkedin.com/in/marcus-vin%C3%ADcius-bertoncello-ba011a66/), **Gustavo Pinto**, [Igor Wiese](http://igorwiese.com/), [Igor Steinmacher](http://www.igor.pro.br/). [Pull Requests or Commits? Which Method Should We Use to Study Contributors’ Behavior?](#) Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER -- RENE Track), Ontario, Canada, 2020.<br>
 
 ## 2019
 
-1. **Gustavo Pinto**, Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](https://twitter.com/rmmilewi/status/1134445184111058947)**<br/>
+1. **Gustavo Pinto**, [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](https://twitter.com/rmmilewi/status/1134445184111058947)**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf) &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://youtu.be/s_FiDSfomdo)
 &#8226;
@@ -50,7 +52,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/continuous-integration-theater/)
 
-1. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
+1. [Gilson Rocha](https://www.linkedin.com/in/gilsonrochasilva/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[Comprehending Energy Behaviors of Java I/O APIs](http://gustavopinto.github.io/lost+found/esem2019c.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2019c.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/esem2019c-talk.pdf)
@@ -143,7 +145,7 @@ permalink: /publications/
 13. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
 
-14. Clarice Ferreira, [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
+14. [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). [Quando Alunos se Tornam Contribuidores: Alavancando Contribuições em Projetos de Código Aberto em Disciplinas de Engenharia de Software](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf). Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018 -- Education Track). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/when-students-become-contributors-leveraging-oss-contributions-in-software-engineering-courses)
@@ -152,7 +154,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-plus" aria-hidden="true"></i>More](/publications/sbes2018)
 
-15. Gilson Rocha, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
+15. [Gilson Rocha](https://www.linkedin.com/in/gilsonrochasilva/), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). [Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java](http://gustavopinto.github.io/lost+found/vem2018.pdf). Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2018.pdf)
 
 ## 2017
