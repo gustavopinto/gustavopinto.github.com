@@ -5,11 +5,13 @@ permalink: /publications/
 
 ## 2020
 
-1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). [C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model](http://gustavopinto.github.io/lost+found/saner2020.pdf). Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
+1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://dvmarcilio.github.io/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). [C-3PR: Static Analysis and Bot-generated Code Transformations for the Pull-based Development Model](http://gustavopinto.github.io/lost+found/saner2020.pdf). Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020.pdf)
 
 1. [Marcus Bertoncello](https://www.linkedin.com/in/marcus-vin%C3%ADcius-bertoncello-ba011a66/), **Gustavo Pinto**, [Igor Wiese](http://igorwiese.com/), [Igor Steinmacher](http://www.igor.pro.br/). [Pull Requests or Commits? Which Method Should We Use to Study Contributors’ Behavior?](http://gustavopinto.github.io/lost+found/saner2020-rene.pdf) Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER -- RENE Track), Ontario, Canada, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020-rene.pdf)
+
+1. Francisco Dalton, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), **Gustavo Pinto**, [Leo Fernandes](https://twitter.com/leofernandesmo), [Rohit Gheyi](http://www.dsc.ufcg.edu.br/~rohit/), [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/). Is Exceptional Behavior Testing an Exception? An Empirical Assessment Using Java Automated Tests. Accepted to the 24th International Conference on Evaluation and Assessment in Software Engineering (EASE), Trondheim, Norway, 2020.
 
 ## 2019
 
@@ -41,7 +43,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://youtu.be/mUxyWTiHmmE)
 
-1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), Eduardo Monteiro, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**. "[Are Static Analysis Violations Really Fixed? A Closer Look at Realistic Usage of SonarQube](http://gustavopinto.github.io/lost+found/icpc2019.pdf)". Accepted to the 27th IEEE/ACM International Conference on Program Comprehension (ICPC'2019). Montreal, Canada. May 2019. <br>
+1. [Diego Marcilio](https://dvmarcilio.github.io/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), Eduardo Monteiro, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**. "[Are Static Analysis Violations Really Fixed? A Closer Look at Realistic Usage of SonarQube](http://gustavopinto.github.io/lost+found/icpc2019.pdf)". Accepted to the 27th IEEE/ACM International Conference on Program Comprehension (ICPC'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icpc2019.pdf)
 
 1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Pedro Pinheiro, [Sergio Soares](https://www.cin.ufpe.br/~scbs/), [Maria Teresa Baldassarre](https://www.uniba.it/docenti/baldassarre-maria-teresa). "[Software Engineering Research Community Viewpoints on Rapid Reviews](http://gustavopinto.github.io/lost+found/esem2019a.pdf)". Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2019). Porto de Galinhas, Brazil. September 2019. <br>
@@ -69,7 +71,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Video](https://www.youtube.com/watch?v=NNiQ14Rb6QE)
 
 
-1. [Diego Marcilio](https://twitter.com/dvmarcilio), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/scam2019.pdf)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
+1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/scam2019.pdf)". Accepted to the 19th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM'2019). Cleveland, OH, 2019.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/scam2019.pdf)
 
 1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/). "[What Attract Newcomers to Onboard on OSS Projects? TL;DR: Popularity](http://gustavopinto.github.io/lost+found/oss2019.pdf)". Accepted to the 15th International Conference of Open-Source Systems (OSS'2019), Montreal, Canada, May 2019.<br>

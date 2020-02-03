@@ -16,10 +16,14 @@ Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará, 
 - He served as a member of [40+ program committees](/service) for international and national conferences/journals.
 - He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
 - He failed [60+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
+- He received the CNPq researcher productivity grant.
 
 ## Get in touch
 
-E-mail: mail<span style="display:none">ignorethis</span>@gustavopinto.org
+mail<span style="display:none">ignorethis</span>@gustavopinto.org
+gpinto<span style="display:none">ignorethis</span>@ufpa.br
+
+For urgent matters, send to both emails.
 
 ## Research Groups
 
