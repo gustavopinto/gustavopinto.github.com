@@ -14,7 +14,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Wagner Felidré Negrão da Silva (UROP)
 - Leonardo Barbosa Furtado (UROP)
 - Enzo Gabriel Da Rocha Santos (UROP)
-- João Pedro Moraes (Capstone)
 - You?
 
 
@@ -29,3 +28,4 @@ I am continuously looking for good people to join my research group, at all leve
 - Gilson Rocha (MS), March 2019
 - Matheus Seabra (Capstone), July 2019
 - Marcos Nazario (MS), September 2019
+- João Pedro Moraes (Capstone), December 2019
