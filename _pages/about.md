@@ -10,7 +10,8 @@ Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the
 He works in intersection between people and code.
 He authored 50+ research papers; many of them in top venues (e.g., ICSE, ASE, EMSE).
 He served as a member for 50+ program committees.
-Since 2020, he is the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development (JSERD).
+He is a CNPq researcher (level 2).
+Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development (JSERD).
 
 ## Research highlight
 
@@ -36,12 +37,9 @@ CCSL @ UFPA: [ccsl.ufpa.br](http://ccsl.ufpa.br)
 
 ## Social networks
 
-Twitter: [gustavopinto](https://twitter.com/gustavopinto)
-
-Github: [gustavopinto](https://github.com/gustavopinto)
-
-Scholar: [gustavopinto](https://scholar.google.com/citations?user=dOeggYMAAAAJ&hl=en)
-
-CSIndexBR: [gustavopinto](http://csindexbr.org/authors.html?p=Gustavo-Pinto)
+- Twitter: [gustavopinto](https://twitter.com/gustavopinto)
+- Github: [gustavopinto](https://github.com/gustavopinto)
+- Scholar: [gustavopinto](https://scholar.google.com/citations?user=dOeggYMAAAAJ&hl=en)
+- CSIndexBR: [gustavopinto](http://csindexbr.org/authors.html?p=Gustavo-Pinto)
 
 <a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">RSS</a>
