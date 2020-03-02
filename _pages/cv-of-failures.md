@@ -39,6 +39,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ICPC: 2019
 - ICSE: 2017 (2x), 2019 (2x), 2020 (2x)
 - ICSME: 2012, 2016 (2x), 2017, 2018
+- MSR: 2020 (2x)
 - SANER: 2015, 2018, 2019, 2020 (2x)
 - SCAM: 2019
 - SIGCSE: 2019, 2020
