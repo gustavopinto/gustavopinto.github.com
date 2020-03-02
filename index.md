@@ -5,7 +5,7 @@ permalink: /
 
 Hi, I'm **Gustavo Pinto**.
 
-I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/blog/) and do [talks](https://speakerdeck.com/gustavopinto). I am also very active on [twitter](twitter.com/gustavopinto/).
+I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/blog/) and do [talks](https://speakerdeck.com/gustavopinto). I am also active on [twitter](twitter.com/gustavopinto/).
 
 I am currently the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development ([JSERD](https://sol.sbc.org.br/journals/index.php/jserd/)).
 

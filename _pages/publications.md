@@ -14,6 +14,9 @@ permalink: /publications/
 1. Francisco Dalton, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), **Gustavo Pinto**, [Leo Fernandes](https://twitter.com/leofernandesmo), [Rohit Gheyi](http://www.dsc.ufcg.edu.br/~rohit/), [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/). [Is Exceptional Behavior Testing an Exception? An Empirical Assessment Using Java Automated Tests](http://gustavopinto.github.io/lost+found/saner2020-rene.pdf). Accepted to the 24th International Conference on Evaluation and Assessment in Software Engineering (EASE), Trondheim, Norway, 2020.
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020-rene.pdf)
 
+1. [Leonardo Leite](https://www.ime.usp.br/~leofl/), **Gustavo Pinto**, [Fabio Kon](https://www.ime.usp.br/~kon/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "Platform Teams: The Leading Edge Organizational Structure for Continuous Delivery". Accepted to the 6th International Workshop on Rapid Continuous Software Engineering, Seoul, South Korea, 2020. 
+
+
 ## 2019
 
 1. **Gustavo Pinto**, [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](https://twitter.com/rmmilewi/status/1134445184111058947)**<br/>
