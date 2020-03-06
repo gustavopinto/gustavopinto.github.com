@@ -12,7 +12,7 @@ He is a CNPq researcher (level 2) and, since 2020, he is serving as a (co-)Edito
 
 ## Research highlight
 
-- He (co-)authored [50+ research papers](/publications) in international venues.
+- He (co-)authored [60+ research papers](/publications) in peer reviewed conferences and journals.
 - His work on [energy-aware developers](http://gustavopinto.github.io/lost+found/msr2014.pdf) is the [most cited](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e) Brazilian software engineering paper indexed by [CSIndexBR](http://csindexbr.org/).
 - He won three best papers awards ([ICSE-SEET'19](https://twitter.com/rmmilewi/status/1134445184111058947), [MSR-Challenge'17](https://twitter.com/msrconf/status/866378622596247553), and [VEM'17](http://gustavopinto.github.io/lost+found/vem2017.pdf)), and received one nomination to the best paper ([ESEM'18](https://twitter.com/gustavopinto/status/1050511483304640512)).
 - He received one distinguished reviewer award for [SCAM'19](https://twitter.com/gustavopinto/status/1178806201078943746).
