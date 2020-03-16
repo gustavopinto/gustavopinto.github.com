@@ -24,7 +24,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (38)
+## Conference papers rejected (40)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015

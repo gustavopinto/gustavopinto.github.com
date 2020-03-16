@@ -7,13 +7,14 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+- Albert Richard Moraes Lopes (PhD)
+- Marcos Felipe Carvalho Nazário (PhD)
 - Fabio Pacheco de Souza (MS)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
 - Wagner Felidré Negrão da Silva (UROP)
 - Leonardo Barbosa Furtado (UROP)
-- Enzo Gabriel Da Rocha Santos (UROP)
 - You?
 
 
@@ -27,5 +28,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Marcos Costa (Capstone), December 2018
 - Gilson Rocha (MS), March 2019
 - Matheus Seabra (Capstone), July 2019
-- Marcos Nazario (MS), September 2019
+- Marcos Felipe Carvalho Nazário (MS), September 2019
 - João Pedro Moraes (Capstone), December 2019
+- Enzo Gabriel Da Rocha Santos (UROP), February 2020
