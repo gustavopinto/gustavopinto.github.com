@@ -9,6 +9,7 @@ I am continuously looking for good people to join my research group, at all leve
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Albert Richard Moraes Lopes (PhD)
 - Marcos Felipe Carvalho Nazário (PhD)
+- Edson Costa Dias (PhD)
 - Fabio Pacheco de Souza (MS)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
