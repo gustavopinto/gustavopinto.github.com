@@ -3,7 +3,11 @@ title: Teaching
 permalink: /teaching/
 ---
 
-## 2019.1
+## 2020.1
+1. [Data Bases 101](/teaching/bd1/2020)
+1. [Software Engineering Lab](/teaching/labes/2020)
+
+## 2019.2
 1. [Project Analysis and Design](/teaching/pad)
 1. [Advanced Databases](/teaching/bd2)
 
