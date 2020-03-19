@@ -9,7 +9,7 @@ Devido as suspensão das atividades presenciais na UFPA, a disciplina irá rodar
 
 ## Horário
 
-Segunda e Quarta, às 14:50.
+Segunda e Quarta, às 18:30.
 
 ## Telegram
 
