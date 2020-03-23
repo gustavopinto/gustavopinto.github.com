@@ -1,6 +1,6 @@
 ---
 layout: single
-title: It's OK to be unproductive during COVID-19
+title: p
 excerpt: Many other things matter
 year: 2020
 month: 03
