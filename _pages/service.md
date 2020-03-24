@@ -11,9 +11,6 @@ permalink: /service/
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 
-## Review Board (1)
-1. [EMSE Review Board](#) (2017/2018)
-
 ## Service for 2021 (1)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)
 
