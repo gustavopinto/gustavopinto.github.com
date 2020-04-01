@@ -217,7 +217,7 @@ permalink: /publications/
 
 
 9. [Luiz Felipe Dias](http://fronchetti.com.br/), Jhoylan Santos, [Igor Steinmacher](http://igor.pro.br/),  **Gustavo Pinto**. "[Who Drive Company-Owned OSS Projects: Employees or Volunteers?](http://gustavopinto.github.io/lost+found/vem2017.pdf)". Accepted to the 5th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2017). Fortaleza, Brazil, 2017.<br/>
-[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best paper Award](https://twitter.com/gustavopinto/status/910609691918643201)
+[<i class="fas fa-fw fa-star-o" aria-hidden="true"></i> Best paper Award](https://twitter.com/gustavopinto/status/910609691918643201)
 &#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2017.pdf)
 
