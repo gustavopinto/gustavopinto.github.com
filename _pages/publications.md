@@ -25,14 +25,19 @@ permalink: /publications/
 
 ## 2019
 
-1. **Gustavo Pinto**, [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019. **[[This paper won the Best Paper Award!]](https://twitter.com/rmmilewi/status/1134445184111058947)**<br/>
+1. **Gustavo Pinto**, [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019.<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best paper Award](https://twitter.com/rmmilewi/status/1134445184111058947)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf) &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://youtu.be/s_FiDSfomdo)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
 
 1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss2019.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> JSS Paper of the Year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
+
 
 1. [Marcos César](https://mcesar.dev/), Davi Freitas, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[Finding Needles in a Haystack: Leveraging Co-change Dependencies to Recommend Refactorings](http://gustavopinto.github.io/lost+found/jss2019b.pdf)". Journal of Systems and Software, 2019. **[This paper was presented as J1C2 at SANER'2020]**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019b.pdf)
@@ -144,7 +149,9 @@ permalink: /publications/
 10. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[The Role of Rapid Reviews in Supporting Decision-Making in Software Engineering Practice](http://gustavopinto.github.io/lost+found/ease2018.pdf)". Accepted to the 22nd International Conference on Evaluation and Assessment in Software Engineering (EASE), Christchurch, New Zealand, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2018.pdf)
 
-11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice](http://gustavopinto.github.io/lost+found/esem2018.pdf)". Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018. **[[This paper was nominated one of the best full papers!]](https://twitter.com/gustavopinto/status/1050511483304640512)**<br/>
+11. [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Building a Collaborative Culture: A Grounded Theory of Well Succeeded DevOps Adoption in Practice](http://gustavopinto.github.io/lost+found/esem2018.pdf)". Accepted to the 12th International Symposium on  Empirical Software Engineering and Measurement (ESEM'2018). Oulu, Finland, 2018.<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Nominated one of the best papers](https://twitter.com/gustavopinto/status/1050511483304640512)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
 
 12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). "[Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf)". Accepted for Software: Practice & Experience, 48, 2223-2236, December 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
@@ -186,7 +193,9 @@ permalink: /publications/
 3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [Danilo Ribeiro](https://sites.google.com/site/profdanilomonteiro/), [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), Ronnie E. S. Santos, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/), [Fabio Q. B. Da Silva](https://www.researchgate.net/profile/Fabio_Silva19). "[Using Q&A Websites as a Method for Assessing Systematic Reviews](http://gustavopinto.github.io/lost+found/msr2017a.pdf)". Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017). Buenos Aires, Argentina, 2017.<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2017a.pdf)
 
-4. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017 -- Challenge Track). Buenos Aires, Argentina, 2017. **[[This paper won the Best Mining Challenge Paper Award!]](http://2017.msrconf.org/#/hall-of-fame)**<br/>
+4. [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas), Renato Oliveira, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/). "[How Does Contributors' Involvement Influence the Build Status of an Open-Source Software Project?](http://gustavopinto.github.io/lost+found/msr2017b.pdf)" Accepted to the 14th International Conference on Mining Software Repositories (MSR'2017 -- Challenge Track). Buenos Aires, Argentina, 2017.<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best Mining Challenge Paper](http://2017.msrconf.org/#/hall-of-fame)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2017b.pdf) &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/how-does-contributors-involvement-influence-the-build-status-of-an-open-source-software-project)
 &#8226; [<i class="fa fa-fw fa-hacker-news" aria-hidden="true"></i>Hacker News](https://news.ycombinator.com/item?id=14416927)
@@ -207,9 +216,10 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse_poster2017.pdf)
 
 
-9. [Luiz Felipe Dias](http://fronchetti.com.br/), Jhoylan Santos, [Igor Steinmacher](http://igor.pro.br/),  **Gustavo Pinto**. "[Who Drive Company-Owned OSS Projects: Employees or Volunteers?](http://gustavopinto.github.io/lost+found/vem2017.pdf)". Accepted to the 5th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2017). Fortaleza, Brazil, 2017. **[[This paper won the Best Paper Award!]](https://twitter.com/gustavopinto/status/910609691918643201)**<br/>
+9. [Luiz Felipe Dias](http://fronchetti.com.br/), Jhoylan Santos, [Igor Steinmacher](http://igor.pro.br/),  **Gustavo Pinto**. "[Who Drive Company-Owned OSS Projects: Employees or Volunteers?](http://gustavopinto.github.io/lost+found/vem2017.pdf)". Accepted to the 5th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM'2017). Fortaleza, Brazil, 2017.<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best paper Award](https://twitter.com/gustavopinto/status/910609691918643201)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vem2017.pdf)
-
 
 ## 2016
 
