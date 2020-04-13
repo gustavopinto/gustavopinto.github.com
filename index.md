@@ -7,7 +7,9 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil. I do research in the broad area of software engineering. I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/blog/) and do [talks](https://speakerdeck.com/gustavopinto). I am also active on [twitter](http://twitter.com/gustavopinto/).
 
-I am writing a book on open source licensing. [Consider supporting this project!](http://gum.co/oss-licensing-in-a-nutshell)
+[I am writing a book to make open source licensing easier to understand!](http://gum.co/demystifying-oss-licensing)
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<a class="gumroad-button" href="https://gum.co/demystifying-oss-licensing" target="_blank">I want this!</a>
 
 I am currently the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development ([JSERD](https://sol.sbc.org.br/journals/index.php/jserd/)).
 

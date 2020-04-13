@@ -20,7 +20,9 @@ I think going in-depth is harder, but also more valuable. Going in-depth require
 
 Thinking a bit about my recent career as a research, I definitively went in-breadth instead of in-depth. This became even clearer after I recorded this 50s video about my research and shared on Twitter.
 
-
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I’m not part of <a href="https://twitter.com/hashtag/icse21?src=hash&amp;ref_src=twsrc%5Etfw">#icse21</a> OC but I liked this idea, and I’m sharing my research in 30s (or a bit more). <a href="https://t.co/o34qKy5iQn">https://t.co/o34qKy5iQn</a> <a href="https://t.co/UxzG2pcr9T">pic.twitter.com/UxzG2pcr9T</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1249010040314507264?ref_src=twsrc%5Etfw">April 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
 
 In the video I mentioned that I work on some technical aspects of software, but I also have some interests on social aspects of software. Nice, but… isn’t it what software engineering is all about? Instead of talking about my very narrowed research field, I talked about software engineering in general. Not sure what Twitter folks got from this video, but definitely it was not a concrete research agenda. I have a really serious lack of focus.
 

@@ -13,6 +13,7 @@ Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software E
 
 ## Research highlight
 
+- [I am writing a book to make open source licensing easier to understand!](http://gum.co/demystifying-oss-licensing)
 - He (co-)authored [60+ research papers](/publications) in peer reviewed conferences and journals.
 - His work o [DevOps adoption](http://gustavopinto.github.io/lost+found/jss2019.pdf) was named the [paper of the year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year) (over 1,200 submissions) by the staff of the Journal of Systems and Software.
 - His work on [energy-aware developers](http://gustavopinto.github.io/lost+found/msr2014.pdf) is the [most cited](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e) Brazilian software engineering paper indexed by [CSIndexBR](http://csindexbr.org/).
