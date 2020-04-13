@@ -7,7 +7,7 @@ month: 04
 day: 13
 published: true
 ---
-[I am writing a book to make open source licensing easier to understand.](https://gum.co/demystifying-oss-licensing) 
+[I am writing a book to make open source licensing easier to understand!](https://gum.co/demystifying-oss-licensing) 
 
 As an open source user and software engineering researcher, I have been amazed about how tricky this topic is and how easy things can go wrong.
 If you are a developer, you should definitively understand a bit more about open source licenses. Why is it important to study open source licenses in 2020? Some questions to think:
