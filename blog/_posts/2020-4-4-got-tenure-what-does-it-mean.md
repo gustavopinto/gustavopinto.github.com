@@ -3,8 +3,8 @@ layout: single
 title: Got tenure! What does it mean?
 excerpt: TL;DR: Privilege
 year: 2020
-month: 04
-day: 04
+month: 4
+day: 4
 published: true
 ---
 
