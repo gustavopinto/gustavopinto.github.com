@@ -40,7 +40,7 @@ Eric Raymond, the author of the famous "The Cathedral and the Bazaar" and one of
 
 Long story short: the pull-request was reverted, the maintainer was banned from the project, and the open source community around Lerna was hurted. All of this due to 22 lines added in the license file.
 
-1st Lessons learned: It's possible to change a license, but these changes should not discriminate any person or group or field of endeavor. Moreover, it is not possible to change a license retroactively. 
+1st Lessons learned: It's possible to change a license, but these changes should not discriminate any person or group or field of endeavor. Moreover, it is not possible to change a license retroactively.
 
 <center>
 ***
