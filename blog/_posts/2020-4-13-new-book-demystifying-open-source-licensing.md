@@ -25,7 +25,7 @@ The goal of this book is two-fold: First, we intend to make this complex license
 
 By doing this, we expect that developers could better understand the importance of open source licenses and the context in which they could use or not one given software library (because of license concerns). 
 
-The book is intended to be short (~100 pages) and will be ready around June, but it is open for pre-orders, for only $ 10. After the book is ready, the final price will be likely $ 25.
+The book is intended to be short (~100 pages) and will be ready around June, but it is open for pre-orders, for only $ 10. 
 
 ##For whom this book is for:
 
