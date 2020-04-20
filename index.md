@@ -17,7 +17,7 @@ I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br),
 
 <!-- From December 2015 to March 2017 I have been an Assistant Professor at the [Federal Institute of Education, Science, and Technology of Pará](http://www.ifpa.edu.br/), Brazil. Before becoming a professor, I did a Post Doc also with [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor).-->
 
-I have very broad interests in Software Engineering, including refactoring (*e.g.*, [JSS'2019](http://gustavopinto.org/lost+found/jss2019b.pdf)), human aspects of software development (*e.g.*, [ICSE'2018](http://gustavopinto.github.io/lost+found/icse2018.pdf)), and open source software (*e.g.*, [ICSE-SEET'2019](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)) and open source licensing (*e.g.*, [MSR'2018](http://gustavopinto.org/lost+found/msr2018b.pdf)).
+I have very broad interests in Software Engineering, including refactoring (*e.g.*, [JSS'2019](http://gustavopinto.org/lost+found/jss2019b.pdf)), human aspects of software development (*e.g.*, [ICSE'2018](http://gustavopinto.github.io/lost+found/icse2018.pdf)), and open source software (*e.g.*, [ICSE-SEET'2019](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)).
 
 You can see my list of [publications here](/publications), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures).
 
