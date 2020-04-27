@@ -1,7 +1,9 @@
 ---
-title: Good Habits for Young Scholars
+title: Good Habits
 permalink: /books/good-rearch-habits/
 ---
+
+## 1+5 Good Habits for Young Scholars
 
 [I'm selling about good habits that young scholars could foster while finding their path in academia, for only $ 5](http://gum.co/good-research-habits).
 
