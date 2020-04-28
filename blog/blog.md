@@ -12,17 +12,26 @@ I write mostly about academic life. <br />
 These posts are also published on <a href=" https://medium.com/@gustavopinto">Medium</a>.
 
 
-
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% if year != written_year %}
-<h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-{% capture written_year %}{{ year }}{% endcapture %}
-{% endif %}
-{% include archive-single.html %}
-{% endfor %}
-
+<section class="post-list">
+  <div class="container">
+    {% for post in site.posts %}
+      {% unless post.next %}
+        <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
+      {% else %}
+        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+        {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+        {% if year != nyear %}
+          <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
+        {% endif %}
+      {% endunless %}
+      <article class="post-item">
+        <span class="post-meta date-label">{{ post.date | date: "%b %d" }}</span>
+        <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+        <p class="archive-subtitle">{{ post.subtitle }}</p>
+      </article>
+    {% endfor %}
+  </div>
+  
 <!--
   <div class="container">
     {% for post in site.posts %}
