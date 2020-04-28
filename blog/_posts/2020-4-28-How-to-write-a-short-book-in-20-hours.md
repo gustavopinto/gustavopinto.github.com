@@ -8,7 +8,7 @@ day: 28
 published: true
 ---
 
-[I wrote a short book in 20 hours. Actually, a bit less than this.](https://medium.com/@gustavopinto/1-5-good-habits-for-young-scholars-9d11c8ca2410)
+[I wrote a short book in 20 hours.](https://medium.com/@gustavopinto/1-5-good-habits-for-young-scholars-9d11c8ca2410)
 
 Is this the best book I could write? No.
 
@@ -47,3 +47,5 @@ First, because I probably spent 20 hours or so designing and creating the talk. 
 Second, because I also took for granted what I learned in the past. For instance, I did not have to do much research on the topic (it was fresh on my mind), and I did not need to master the tools used (it took 10 minutes to have a book template and about 30 minutes to have a cover).
 
 It would be a different story I had to write about a subject that I am not super comfortable with.
+
+Finally, it's also important to notice that, as a researcher, a good proportion of my job is devoted to writing. I have been writing a lot over the last 10 years lot, so I'm used to technical writing. I'm not a fluent writer (I am not fluent in English either), but writing is not a big issue to me. 
