@@ -20,6 +20,9 @@ permalink: /publications/
 1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Rapid Reviews in Software Engineering](https://arxiv.org/abs/2003.10006)". Springer Book Series on Empirical Methods in Software Engineering (Michael Felderer, Guilherme Horta Travassos Eds.), 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2003.10006)
 
+1. [Luiz Felipe Dias](https://fronchetti.org/), [Caio Barbosa](https://scholar.google.com/citations?user=0QJTk3oAAAAJ&hl=id), **Gustavo Pinto**, [Igor Steinmacher](http://www.igor.pro.br/), [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Christoph Treude](http://ctreude.ca/), and [Daniel Alencar Da Costa](http://danielcalencar.github.io/). "[Refactoring from 9 to 5? What and When Employees and Volunteers Contribute to OSS](http://gustavopinto.github.io/lost+found/vlhcc2020.pdf)". Accepted to the 33rd Symposium on Visual Languages and Human-Centric Computing (VL/HCC), Dunedin, New Zealand, 2020.<br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/vlhcc2020.pdf)
+
 1. [Leonardo Leite](https://www.ime.usp.br/~leofl/), **Gustavo Pinto**, [Fabio Kon](https://www.ime.usp.br/~kon/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Platform Teams: The Leading Edge Organizational Structure for Continuous Delivery](http://gustavopinto.github.io/lost+found/rcose2020.pdf)". Accepted to the 6th International Workshop on Rapid Continuous Software Engineering, Seoul, South Korea, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/rcose2020.pdf)
 

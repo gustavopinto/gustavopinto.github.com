@@ -48,4 +48,4 @@ Second, because I also took for granted what I learned in the past. For instance
 
 It would be a different story I had to write about a subject that I am not super comfortable with.
 
-Finally, it's also important to notice that, as a researcher, a good proportion of my job is devoted to writing. I have been writing a lot over the last 10 years lot, so I'm used to technical writing. I'm not a fluent writer (I am not fluent in English either), but writing is not a big issue to me. 
+Finally, it's also important to notice that, as a researcher, a good proportion of my job is devoted to writing. I have been writing a lot over the last 10 years lot, so I'm used to technical writing. I'm not a fluent writer (I am not fluent in English either), but writing is not a big issue to me.
