@@ -14,8 +14,9 @@ I am continuously looking for good people to join my research group, at all leve
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
-- Wagner Felidré Negrão da Silva (UROP)
-- Leonardo Barbosa Furtado (UROP)
+- Aian Shay Bentes Damasceno Cardoso (UROP)
+- Wagner Felidré Negrão da Silva (Capstone)
+- Leonardo Barbosa Furtado (Capstone)
 - You?
 
 
