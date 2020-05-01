@@ -11,4 +11,8 @@ During the first 90 days, 100% of the sales will go to [UFPA hospitals fighting 
 
 To make things transparent, in this webpage I will make available the summary of the sales and the donations made.
 
-I will update this website every 30 days. I start selling the book on April, 26th.
+I will update this website every week. I start selling the book on April, 26th.
+
+
+| # | # of Sales  | Amount (USD) | Fees (USD) | Converted (BRL) | Donation |
+| 1 |         [20](gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |         [100](gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |      9.40  |         pending | pending  |
