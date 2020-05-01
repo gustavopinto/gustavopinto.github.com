@@ -15,4 +15,4 @@ I will update this website every week. I start selling the book on April, 26th.
 
 
 | # | # of Sales  | Amount (USD) | Fees (USD) | Converted (BRL) | Donation |
-| 1 |         [20](gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |         [100](gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |      9.40  |         pending | pending  |
+| 1 |         [20](http://gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |         [100](http://gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |      9.40  |         pending | pending  |
