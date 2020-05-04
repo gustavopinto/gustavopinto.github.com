@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Characterizing the Roles of Contributors in Scientific OSS Projects
-excerpt: A summary of a MSR'19 paper
 year: 2019
 month: 3
 day: 05
 published: true
+permalink: /blog/characterizing-the-roles-of-contributors-in-scientific-oss-projects/
 ---
 
 Recently some colleagues and I have been trying to understand the roles of contributors in open source scientific software projects. We studied 7 well-known scientific software projects that were hosted on GitHub (including [Chaste](https://github.com/Chaste/Chaste), [Khmer](https://github.com/dib-lab/khmer/), and [Genn](https://github.com/genn-team/genn)). For each selected project, we identified the roles played by different contributors by analyzing each projects’ documentation, websites, and other readily available sources. Using a mix of quantitative and qualitative data, we curate some findings that we believe are interesting for the broad Medium population. Here they are.

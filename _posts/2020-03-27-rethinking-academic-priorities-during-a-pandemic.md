@@ -6,6 +6,7 @@ year: 2020
 month: 03
 day: 27
 published: true
+permalink: /blog/rethinking-academic-priorities-during-a-pandemic/
 ---
 
 The COVID-19 outbreak is changing people work. Overnight, a good proportion of the global workforce had to go home and work remotely. Due to this not planned shift, I already perceived that it's very hard to sustain to work at the usual pace during this pandemic, since, for instance, kids are at home, you may have many concerns about the future, etc. Actually, [it's OK to be unproductive during this period](http://gustavopinto.org/blog/Its-OK-to-be-unproductive-during-COVID-19/).

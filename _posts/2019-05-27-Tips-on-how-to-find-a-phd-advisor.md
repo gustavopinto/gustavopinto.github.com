@@ -6,6 +6,7 @@ year: 2019
 month: 5
 day: 27
 published: true
+permalink: /blog/tips-on-how-to-find-a-phd-advisor/
 ---
 
 Here and there I have been asked whether or not one should apply to a PhD position. After thinking for a while in these questions, I perceived that they can be translated to a single question: “should I apply for this position at University X”. This question is obviously important, because the decision to go to University X instead of University Y can pretty much drive your PhD. For instance, if University X does not provide basic funding to cover your expenses, it would be much more difficult to finish a PhD. However, if funding is guaranteed, the decision should not be taken in terms of the place you are going, but instead with who you will be working.

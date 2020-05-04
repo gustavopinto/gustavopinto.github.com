@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Second year of professoring
-excerpt: Second year of professoring
 year: 2018
 month: 12
 day: 28
 published: true
+permalink: /blog/second-year-of-professoring/
 ---
 
 Following my blog post about my [first year of professoring](http://www.gustavopinto.org/blog/first-year-of-professoring/), in this blog we

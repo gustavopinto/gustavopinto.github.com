@@ -1,11 +1,11 @@
 ---
 layout: single
 title: On the registration costs of software engineering conferences
-excerpt: How much does it cost to attend a conference?
 year: 2019
 month: 11
 day: 09
 published: true
+permalink: /blog/how-much-does-it-cost-to-attend-a-conference/
 ---
 
 During this 2019 year I have been collecting the registration fee of academic

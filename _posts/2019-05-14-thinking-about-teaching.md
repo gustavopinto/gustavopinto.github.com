@@ -1,11 +1,11 @@
 ---
 layout: single
-title: What I think about teaching
-excerpt: and how to enjoy it more
+title: Thinking about teaching
 year: 2019
 month: 5
 day: 14
 published: true
+permalink: /blog/thinking about teaching
 ---
 
 Although I am a professor, teaching is not the part of my work that I love the

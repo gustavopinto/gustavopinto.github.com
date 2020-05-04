@@ -1,11 +1,11 @@
 ---
 layout: single
 title: First year of professoring
-excerpt: A summary of new career
 year: 2018
 month: 1
 day: 3
 published: true
+permalink: /blog/first-year-of-professoring/
 ---
 
 While I'm starting my second year of Assistant professor, it is worth to look

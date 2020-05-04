@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Detecting and Reporting Object-Relational Mapping Problems
-excerpt: A summary of an ESEM'19 paper (industry track)
 year: 2019
 month: 7
 day: 26
 published: true
+permalink: /blog/detecting-and-reporting-orm-problems/
 ---
 
 Developers often take advantage of Object-Relation Mapping (ORM) frameworks to

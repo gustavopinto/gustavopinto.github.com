@@ -1,14 +1,14 @@
 ---
 layout: single
 title: Parem com essa discussão sobre Qualis
-excerpt: Isso é irritante
 year: 2019
 month: 1
 day: 12
 published: true
+permalink: /blog/parem-com-essa-discussao-sobre-qualis/
 ---
 
-This post was written in Portuguese because it was aimed to Brazilian scholars.
+*This post was written in Portuguese because it was aimed to Brazilian scholars.*
 
 Como escrevi no último post, ainda estou começando minha carreira de pesquisador,
 mas se tem uma coisa que é, no mínimo, irritante é essa discussão sobre Qualis.

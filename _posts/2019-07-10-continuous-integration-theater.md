@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Continuous Integration Theater
-excerpt: A summary of an ESEM'19 paper
 year: 2019
 month: 7
 day: 10
 published: true
+permalink: /blog/continuous-integration-theater/
 ---
 
 According to [this post](https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html),

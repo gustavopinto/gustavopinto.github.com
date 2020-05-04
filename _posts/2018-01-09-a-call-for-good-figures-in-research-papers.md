@@ -1,11 +1,11 @@
 ---
 layout: single
 title: A call for good figures in research papers
-excerpt: Take care of your figures
 year: 2018
 month: 1
 day: 9
 published: true
+permalink: /blog//a-call-for-good-figures-in-research-papers/
 ---
 
 Over the last few years, I became more and more into creating good figures to use in research papers. It probably started when I was reading a book about [data science](http://shop.oreilly.com/product/0636920034919.do) in the mid of my phd. Back then I start to learn about matplotlib for Python and ggplot for R. I was somehow impressed by the quality of these figures and the reasonably low effort required to create them. I also remember that I convinced myself to update all figures of a [30+ pages paper](http://gustavopinto.org/lost+found/jss_2015.pdf) that we have been working on for, at least, [3 years](http://fernandocastor.github.io/general/2016/10/11/long-hard-road.html). Needless to say that I was very proud about the new figures on the paper (and its eventual acceptance).

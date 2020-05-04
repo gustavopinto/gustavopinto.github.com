@@ -6,6 +6,7 @@ year: 2019
 month: 11
 day: 09
 published: true
+permalink: /blog/how-it-is-like-to-do-research-in-brazil/
 ---
 
 The Brazilian software engineering community is fairly active when it comes to

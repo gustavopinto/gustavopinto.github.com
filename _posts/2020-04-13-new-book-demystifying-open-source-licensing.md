@@ -5,6 +5,7 @@ year: 2020
 month: 04
 day: 13
 published: true
+permalink: /blog/new-book-demystifying-open-source-licensing/
 ---
 
 [I am writing a book to make open source licensing easier to understand!](https://gum.co/demystifying-oss-licensing) 

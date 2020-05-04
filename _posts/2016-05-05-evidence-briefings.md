@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Transferring Knowledge from Systematic Reviews to Practitioners
-excerpt: A summary of an ESEM'16 paper
 year: 2016
 month: 5
 day: 5
 published: true
+permalink: /blog/evidence-briefings/
 ---
 
 Researchers have few incentives to write to the general public. On the other hand, practitioners are not used to consume software engineering research. This "Two Solitude" problem is well-known, and several attempts have been made in order to remedying it.

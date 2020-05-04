@@ -1,11 +1,11 @@
 ---
 layout: single
 title: How to send a student to attend ICSE (with zero budget)
-excerpt: Apply for every single opportunity (and cross your fingers)
 year: 2019
 month: 3
 day: 31
 published: true
+permalink: /blog/how-to-sent-a-student-to-icse/
 ---
 
 This year, an undergraduate student of mine first-authored a paper in the [MSR

@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Resumo da disciplina de Tópicos Especiais em Software Livre
-excerpt: Desafios e lições aprendidas
 year: 2019
 month: 7
 day: 16
 published: true
+permalink: /blog/resumo-da-disciplina-topicos-especiais-em-software-livre/
 ---
 
 No primeiro semestre de 2019, em conjunto com [Filipe Saraiva](filipesaraiva.info/), ministramos a disciplina de

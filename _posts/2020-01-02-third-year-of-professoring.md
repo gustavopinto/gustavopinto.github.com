@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Third year of professoring
-excerpt: About to finish my tenure track
 year: 2020
 month: 01
 day: 02
 published: true
+permalink: /blog/third-year-of-professoring/
 ---
 
 This is the third blog post of this topic. Go read the summary of the [first

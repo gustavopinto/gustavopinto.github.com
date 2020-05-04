@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Why the MIT licensed is 18x more used then GPL-3?
-excerpt: GPL restricts the terms of distribution of derived works’
 year: 2020
 month: 4
 day: 20
 published: true
+permalink: /blog/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3/
 ---
 
 [I am writing a book to make open source licensing easier to understand!](http://gum.co/demystifying-oss-licensing)

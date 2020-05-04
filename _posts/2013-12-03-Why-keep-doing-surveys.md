@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Why do you keep doing surveys?
-excerpt: Disclaimer - provocative blog post
 year: 2013
 month: 12
 day: 03
 published: true
+permalink: /blog/yhy-keep-doing-surveys/
 ---
 
 When I say survey, I mean online questionnaires.

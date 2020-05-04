@@ -5,6 +5,7 @@ year: 2020
 month: 4
 day: 4
 published: true
+permalink: /blog/got-tenure-what-does-it-mean/
 ---
 
 As of April the 4th, 2020, I am a tenured professor at UFPA, Brazil.

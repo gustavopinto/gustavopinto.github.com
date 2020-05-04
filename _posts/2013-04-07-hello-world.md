@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Hello World
-excerpt: First blog post
 year: 2013
 month: 4
 day: 27
 published: false
+permalink: /blog/
 ---
 
 Hi all.

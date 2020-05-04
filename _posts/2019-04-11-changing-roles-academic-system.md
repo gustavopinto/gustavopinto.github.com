@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Changing roles in the academic system
-excerpt: from student to scholar and more
 year: 2019
 month: 4
 day: 11
 published: true
+permalink: /blog/changing-roles-academic-system/
 ---
 
 I have been reflecting on the roles that I took in academia over these last 10+

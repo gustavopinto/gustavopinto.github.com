@@ -1,13 +1,12 @@
 ---
 layout: single
 title: What are quasi-contributors and how common are them?
-excerpt: A summary of an ICSE'18 paper
 year: 2018
 month: 2
 day: 12
 published: true
+permalink: /blog/what-are-quasi-contributors/
 ---
-
 
 TL;DR
 

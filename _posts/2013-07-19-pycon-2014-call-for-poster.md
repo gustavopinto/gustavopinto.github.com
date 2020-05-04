@@ -1,11 +1,11 @@
 ---
 layout: archive
 title: Pycon 2014 - Call for posters
-excerpt: PyCon Call for contributions
 year: 2013
 month: 8
 day: 7
 published: true
+permalink: /blog/pycon-2014-call-for-poster/
 ---
 
 PyCon is the premier Python Conference, and in 2014 it is being held for the first very time outside US - in the beautify Montéal/CA. It is not only a great opportunity to met the best python programmers across the world, but also to make the PyCon even better.

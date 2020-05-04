@@ -1,11 +1,11 @@
 ---
 layout: single
 title: From where come the Brazilian open-source contributions?
-excerpt: A summary of a WDDS'13 paper
 year: 2013
 month: 07
 day: 19
 published: true
+permalink: /blog/from-where-come-the-brazilian-open-source-contributions/
 ---
 
 

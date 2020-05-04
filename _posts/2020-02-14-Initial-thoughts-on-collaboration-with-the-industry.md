@@ -6,6 +6,7 @@ year: 2020
 month: 02
 day: 15
 published: true
+permalink: /blog/initial-thoughts-on-collaboration-with-the-industry/
 ---
 
 I another [blog post](http://gustavopinto.org/blog/third-year-of-professoring/), I wrote how hard 2019 was to me, in terms of my role as an academic in a place that does not seem to value much the work that I do. In this current scenario, it is becoming increasingly hard to keep working on our traditional research agenda, due to many reasons, including: lack of funding, lack of students interested in joining grad school, lack of recognition, etc.

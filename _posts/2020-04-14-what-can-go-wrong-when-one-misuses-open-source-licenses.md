@@ -1,11 +1,11 @@
 ---
 layout: single
 title: What can go wrong when one misuses open source licenses?
-excerpt: It can be bad
 year: 2020
 month: 4
 day: 14
 published: true
+permalink: /blog/what-can-go-wrong-when-one-misuses-open-source-licenses/
 ---
 
 [I am writing a book to make open source licensing easier to understand!](http://gum.co/demystifying-oss-licensing)

@@ -6,6 +6,7 @@ year: 2020
 month: 03
 day: 21
 published: true
+permalink: /blog/Its-OK-to-be-unproductive-during-COVID-19/
 ---
 
 At the time of this writing, the COVID-19 outbreak is starting to show its face in Brazil. However, due to the unpreparedness and the unprofessionalism of our president,

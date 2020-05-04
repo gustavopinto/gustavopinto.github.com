@@ -1,11 +1,11 @@
 ---
 layout: single
 title: How do Scientists Develop Software
-excerpt: A summary of a SANER'18 paper
 year: 2018
 month: 2
 day: 26
 published: true
+permalink: /blog/how-do-scientists-develop-software/
 ---
 
 This is a summary of the paper "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.org/lost+found/saner-rene2018.pdf)". As the name suggests, we conducted an external replication (different authors in a different context) of a well-known paper about [how scientists develop and use software](http://files.software-carpentry.org/training-course/2012/08/hannay-survey-2009.pdf). The original paper was published in 2009, and given the recent changes in the software development practices in the last few years (e.g., the introduction of social coding websites and the prevalence of on-line learning platforms) and unique challenges of scientific research (e.g., the frequent and unforeseen changes in requirements and the need for both highly specialized domain knowledge and programming expertise), we believe that we should update our understanding about this topic.

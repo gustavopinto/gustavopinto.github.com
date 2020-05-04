@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Why blogging in academia is important
-excerpt: or why these posts have typos?
 year: 2019
 month: 4
 day: 29
 published: true
+permalink: /blog//why-blogging-is-important/
 ---
 
 Researchers are busy people. We always have many things to do, and we often

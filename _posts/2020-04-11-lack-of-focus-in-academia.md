@@ -6,6 +6,7 @@ year: 2020
 month: 4
 day: 11
 published: true
+permalink: /blog/lack-of-focus-in-academia/
 ---
 
 Academia is an interesting place. After a lot of training during your undergrad and grad studies, you are thrown in a pool and are asked to swim to find your own research agenda. Find unique and relevant questions that no one else has contribute before. Work tirelessly to answer them. Become an expert on a this very narrow field.

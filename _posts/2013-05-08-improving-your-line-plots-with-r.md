@@ -1,12 +1,11 @@
 ---
 layout: single
 title: Improving our line plots with R
-excerpt: Moving way from Excel
 year: 2013
 month: 05
 day: 08
 published: true
-
+permalink: /blog/from-where-come-the-brazilian-open-source-contributions/
 ---
 
 Hi there.

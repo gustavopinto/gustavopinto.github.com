@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Where did I submit papers during my phd
-excerpt: A brief story about my short research career
 year: 2017
 month: 4
 day: 8
 published: true
+permalink: /blog/where-did-i-submit-papers-during-my-phd/
 ---
 
 TL;DR

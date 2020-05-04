@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Do developers care about software energy consumption?
-excerpt: A summary of a MSR'14 paper
 year: 2014
 month: 11
 day: 25
 published: true
+permalink: /blog/do-developers-care-about-software-energy-consumption/
 ---
 
 Is energy consumption a real issue in the software development process? Do developer really care about that?

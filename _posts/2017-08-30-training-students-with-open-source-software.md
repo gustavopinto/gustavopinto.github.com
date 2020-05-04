@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Training students with open-source software
-excerpt: My first experience training students with OSS
 year: 2017
 month: 8
 day: 30
 published: true
+permalink: /blog/training-students-with-open-source-software/
 ---
 
 Following my recent experience with [POSSE workshop](http://gustavopinto.org/codefather/posse2017-experience-report/), I went back decided to put all of that in practice as soon as possible. My setting was an operating system lab, which consisted of 2 hours class per week. The course has two parts: first we cover basic Linux principles and commands, followed by some shell scripting. The second part was about concurrent programming. In such short course, students were introduced to basic threading and synchronization stuff. Although it touches basic concepts, I recognize that the second part is harder than the first one. Concurrent programming is hard itself. Exposing concurrent programming to second year students is even harder. Because of that, I decided to leverage open-source only in the first part of the course.

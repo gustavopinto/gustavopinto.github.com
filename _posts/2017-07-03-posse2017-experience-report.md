@@ -1,11 +1,11 @@
 ---
 layout: single
 title: POSSE 2017 An experience report
-excerpt: My thoughts about this workshop
 year: 2017
 month: 7
 day: 3
 published: true
+permalink: /blog/posse2017-experience-report/
 ---
 
 POSSE (Professors' Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I'm not coding as much as I would like to, I'm still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I'm a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.

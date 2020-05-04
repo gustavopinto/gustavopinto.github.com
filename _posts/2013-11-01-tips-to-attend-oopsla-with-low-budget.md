@@ -1,11 +1,11 @@
 ---
 layout: single
 title: Tips to attend OOPSLA with low budget
-excerpt: Good for PL and SE students
 year: 2013
 month: 11
 day: 1
 published: true
+permalink: /blog/tips-to-attend-oopsla-with-low-budget/
 ---
 
 Are you a [under]grad student who is wondering how amazing it could be to attend a flagship conference such as OOPSLA? But, as a student, you might have a low budget, right? If so, I may have some tips to share with you.
