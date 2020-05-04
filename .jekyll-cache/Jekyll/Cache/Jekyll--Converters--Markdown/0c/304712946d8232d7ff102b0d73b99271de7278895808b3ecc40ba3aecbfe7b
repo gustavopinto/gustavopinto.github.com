@@ -1,0 +1,123 @@
+I"b$<h1 id="importante">IMPORTANTE</h1>
+
+<p>Devido as suspensão das atividades presenciais na UFPA, a disciplina irá rodar de forma REMOTA. O horário de aula será respeitado, e os encontros irão acontecer online. Como isso está sendo feito de forma EXPERIMENTAL, é provável que várias mudanças aconteçam ao longo da disciplina. Por favor, <strong><em>semprem olhem o Telegram, que é o canal oficial de comunicação da turma</em></strong>. Reforço que as atividades remotas serão reavaliadas a cada semana. Se não houver progresso/participação por parte dos alunos, a disciplina será SUSPENSA, e só retornará quando a UFPA retormar as atividades.</p>
+
+<h2 id="horário">Horário</h2>
+
+<p>Segunda e Quarta, às 14:50.</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram. Para acessar: https://t.me/joinchat/GeSB2RYJ9Q6jaggiiyPppg</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os fundamentos que permitam ao aluno adquirir o domínio básico da tecnologia de banco de dados.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de bancos de dados. Novas tecnologias e aplicações de banco de dados.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>HEUSER, Carlos Alberto. Projeto de Banco de Dados. 2a edição. Porto Alegre: Sagra - Luzzato, 1999.</li>
+  <li>SILBERSCHATZ, A.; KORTH, H.; SUDARSHAN, S. Sistema de Banco de Dados. 3a edição. São Paulo: Markon Books, 1999.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="http://www.tusharma.in/preprints/dbSchemaQuality_Preprint_ICSE2018.pdf">Smelly Relations: Measuring and Understanding Database Schema Quality</a></li>
+  <li><a href="https://pure.tudelft.nl/portal/en/publications/searchbased-test-data-generation-for-sql-queries(90a6431f-f78f-4ac3-bf87-c052cd9cd5d4).html">Search-Based Test Data Generation for SQL Queries</a></li>
+  <li><a href="https://github.com/tushartushar/DbDeo">Database smell detector</a></li>
+  <li><a href="https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436">How to get a data science position after academia with no previous industry experience</a></li>
+  <li><a href="https://github.com/fhoffa/analyzing_github">A growing collection of what I know about analyzing GitHub with BigQuery and other tools</a></li>
+  <li><a href="https://www.spinellis.gr/blog/20180403/">How to Perform Set Operations on Terabyte Files</a></li>
+  <li><a href="http://www.gousios.gr/courses/bigdata/ds-cmd-line.html">Data Science at the command line</a></li>
+  <li><a href="http://blog.alura.com.br/liberada-a-apostila-gratuita-de-sql-do-alura/">Apostila sobre SQL (Alura)</a></li>
+  <li><a href="https://blog.acolyer.org/2020/03/04/millions-of-tiny-databases/">Millions of tiny databases</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Projeto sobre modelagem de dados: 5 pontos</li>
+  <li>Prova sobre modelagem de dados: 5 pontos</li>
+  <li>Projeto de disciplina (PD): 10 pontos</li>
+  <li>Atividade extra (AE): 2 pontos</li>
+</ol>
+
+<h2 id="projeto-sobre-modelagem-de-dados">Projeto sobre modelagem de Dados</h2>
+
+<p>Os alunos devem criar o modelo entidade relacionamento de um sistema de software <strong>não trivial</strong>. Os alunos devem apontar o sistema escolhido no Telegram. O critério de escolha é <em>first come, first served</em>. O trabalho é em dupla. Cada dupla deve descrever em profundidade o sistema escolhido. No entanto, entidades e relacionamentos que não são vitais para o domínio da aplicação não precisam ser descritos. A dupla deve saber justificar as escolhas e implementações feitas. A dupla deverá apresentar o trabalho na data marcada. Na apresentação, a dupla deve descrever o domínio do problema da aplicação escolhida (o que ela faz), as entidades e seus relacionamentos. A riqueza de detalhes (atributos e seus tipos, relacionamentos e seus tipos) é importante para as principais entidades do sistema. Os modelos devem conter, no mímimo, as seguintes características: (1) cardinalidade mínima e máxima, (2) atributo simples, identificador e multivalorado, (3) relacionamento com atributo, (4) relacionamento unário, (5) relacionamento ternário, (6) entidade fracas. Não é necessário descrever essas características para todas entidades e relacionamento; somente para aquelas que representam o core da aplicação. A não apresentação de uma das características acarretará na redução de 0.50 pontos da atividade (somado para cada característica pendente).  Se a dupla optar por usar um software de modelagem que não implemente as características mencionadas anteriormente, certifiquem-se de modificar os diagramas para que essas características sejam cobertas. No mímimo de 3 horas antes da apresentação, a dupla deve enviar os slides bem como o diagrama para o slack (o não envio no prazo estipulado acarretará na redução de 2 pontos da atividade). As duplas que apresentarem no segundo dia serão mais cobradas. Apresentação de até 25 minutos por dupla.</p>
+
+<h2 id="projeto-de-disciplina-pd">Projeto de Disciplina (PD)</h2>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<h2 id="base-de-dados-abertas">Base de dados abertas</h2>
+
+<ul>
+  <li>StackOverflow: http://data.stackexchange.com/stackoverflow/queries</li>
+  <li>Github: https://cloud.google.com/bigquery/public-data/github e http://ghtorrent.org/ (exemplos <a href="https://github.com/fhoffa/analyzing_github">aqui</a>)</li>
+  <li>Wikipedia: https://bigquery.cloud.google.com/dataset/fh-bigquery:wikipedia?pli=1 (exemplos <a href="https://www.reddit.com/r/bigquery/comments/3dg9le/analyzing_50_billion_wikipedia_pageviews_in_5/?st=jgq90t8u&amp;sh=3d541169">aqui</a>)</li>
+</ul>
+
+<h2 id="atividade-extra-ae">Atividade Extra (AE)</h2>
+
+<p>Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<!-- https://sites.google.com/site/ufcregis/home/2015-2/fundamentos-de-banco-de-dados-cc-->
+
+<p>| # | Data  | Conteúdo de Aula                        | Link? |
+| 1 | 09/03 | <strong>AULA CANCELADA</strong>                      |       |
+| 2 | 11/03 | <strong>AULA CANCELADA</strong>                      |       |
+| 3 | 16/03 | Apresentação da disciplina              |       |
+| 4 | 18/03 | DDL, DML, SQL CREATE, INSERT            |       |
+| 5 | 23/03 | SQL SELECT, DELETE e UPDATE             |       |
+| 6 | 25/03 | SQL Complexo                            |       |
+| 7 | 30/03 | <strong>Exercício</strong>                           |       |
+| 8 | 01/04 | SQL Funções                             |       |
+| 9 | 06/04 | SQL Subqueries                          |       |
+| 9 | 08/04 | SQL Autorização                         |       |
+<!-- https://www.dropbox.com/s/2ddjfjxhiusl76o/fbd-Autorizacao.pdf?dl=0 -->
+| 9 | 13/04 | Normalização (definição de projetos)    |       |
+| 10 | 15/04 | <strong>Exercício</strong>                          |       |
+| 11 | 20/04 | <strong>Prova</strong>                              |       |
+| 13 | 22/04 | Acompanhamento de projetos             |       |
+| 12 | 27/04 | Acompanhamento de projetos             |       |
+| 14 | 29/04 | Acompanhamento de projetos             |       |
+| 15 | 04/05 | Acompanhamento de projetos             |       |
+| 16 | 06/05 | Acompanhamento de projetos             |       |
+| 17 | 11/05 | Acompanhamento de projetos             |       |
+| 18 | 13/05 | Apresentação de projetos (Parte 1)     |       |
+| 19 | 18/05 | Apresentação de projetos (Parte 2)     |       |
+| 21 | 20/05 | Modelagem ER                           |       |
+| 22 | 25/05 | Modelagem ER                           |       |
+| 23 | 27/05 | Modelagem ER (definição de projetos)   |       |
+| 24 | 01/06 | <strong>Exercício</strong>                          |       |
+| 25 | 03/06 | <strong>Prova</strong>                              |       |
+| 26 | 08/06 | Acompanhamento de projetos             |       |
+| 27 | 10/06 | Acompanhamento de projetos             |       |
+| 28 | 15/06 | Acompanhamento de projetos             |       |
+| 29 | 17/06 | Acompanhamento de projetos             |       |
+| 28 | 22/06 | Apresentação de projetos (Parte 1)     |       |
+| 29 | 24/06 | Apresentação de projetos (Parte 2)     |       |
+| 28 | 29/06 | Buffer                                 |       |
+| 29 | 01/07 | Buffer                                 |       |</p>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+:ET

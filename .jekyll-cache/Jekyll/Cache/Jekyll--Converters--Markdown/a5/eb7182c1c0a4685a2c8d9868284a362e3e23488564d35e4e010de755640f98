@@ -1,0 +1,259 @@
+I"�<h1 id="importante">IMPORTANTE</h1>
+
+<p>Devido as suspensão das atividades presenciais na UFPA, a disciplina irá rodar de forma REMOTA. O horário de aula será respeitado, e os encontros irão acontecer online. Como isso está sendo feito de forma EXPERIMENTAL, é provável que várias mudanças aconteçam ao longo da disciplina. Por favor, <strong><em>semprem olhem o Telegram, que é o canal oficial de comunicação da turma</em></strong>. Reforço que as atividades remotas serão reavaliadas a cada semana. Se não houver progresso/participação por parte dos alunos, a disciplina será suspensa, e só retornará quando a UFPA retormar as atividades.</p>
+
+<h2 id="horário">Horário</h2>
+
+<p>Segunda e Quarta, às 18:30.</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram. Para acessar: https://t.me/joinchat/GeSB2RfUVFvkfzuoM8H8fg</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Aplicação dos conceitos de engenharia de software e de banco de dados, através do desenvolvimento controlado de um sistema de software, desde a análise de requisitos até a aceitação do software, projeto do banco dados, aplicação de técnicas de verificação e validação e geração dos documentos relevantes.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<ul>
+  <li>Engenharia de software: UML (Casos de uso, diagramas de classe, estado, etc), Método ágeis, Testes de software</li>
+  <li>Banco de dados: Criação e manipulação de banco de dados</li>
+  <li>Programação orientada a Objetos</li>
+</ul>
+
+<p><strong>Importante</strong>: Por ser uma disciplina de laboratório, não iremos introduzir novos conceitos. Ao contrário, iremos praticar os conceitos já estudados.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>Engenharia de Software Moderna - Marco Tulio Valente</li>
+  <li>Refactoring: Improving the Design of Existing Code - Martin Fowler</li>
+  <li>Test Driven Development: By Example - Kent Beck</li>
+  <li>Clean Code: A Handbook of Agile Software Craftsmanship - Robert Martin</li>
+  <li>Clean Architecture: A Craftsman’s Guide to Software Structure and Design</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li>Beck, K. (1999). Embracing change with extreme programming. IEEE Computer, (10), 70-77.</li>
+  <li><a href="https://www.scrum.org/resources/scrum-guide">The Scrum guide</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<p>A avaliação será contínua (não haverá provas nem outros trabalho).</p>
+
+<h2 id="dinâmica-do-curso">Dinâmica do curso</h2>
+
+<p>O foco da disciplina está na criação de um protótipo funcional para um problema real.</p>
+
+<p>Para isso, o professor da disciplina irá chamar alguns clientes interessados em uma solução de tecnologia. Os clientes irão solicitar suas demandas. As demandas dos clientes irão para um backlog de demandas. A disciplina também contará com um gerente de projetos, que tem a função de auxiliar os alunos para gerenciar as expectativas com o cliente.</p>
+
+<p>Para conduzir os projetos, iremos usar o método ágil <em>Scrum</em>. No Scrum, cada equipe precisa de um líder. As equipes terão até quatro alunos (um deles será o líder). A nossa sprint do Scrum será de uma semana. Ou seja, a cada semana, a equipe deve entregar um protótipo funcional.</p>
+
+<p>Como essa é uma disciplina iterativa e dinâmica, não deixem para trabalhar no projeto no último minuto, pois <strong>não irá adiantar</strong>.</p>
+
+<h3 id="equipes">Equipes</h3>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<h3 id="clientes">Clientes</h3>
+
+<ul>
+  <li>Givago Souza</li>
+</ul>
+
+<h3 id="gerente-de-projetos">Gerente de projetos</h3>
+
+<ul>
+  <li>Edson Costa</li>
+</ul>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>09/03</td>
+      <td><strong>AULA CANCELADA</strong></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>11/03</td>
+      <td><strong>AULA CANCELADA</strong></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>16/03</td>
+      <td>Apresentação da disciplina</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>18/03</td>
+      <td>Apresentação do primeiro cliente</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>23/03</td>
+      <td>Apresentação do segundo cliente</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>25/03</td>
+      <td>Definição de grupos e projetos</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>30/03</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>01/04</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>06/04</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>08/04</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>13/04</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>15/04</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>20/04</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>22/04</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>27/04</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>29/04</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>04/05</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>06/05</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>11/05</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>13/05</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>18/05</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>20/05</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>25/05</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>27/05</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>01/06</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>03/06</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>08/06</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>10/06</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>15/06</td>
+      <td>Sprint Equipes 1 e 2</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>17/06</td>
+      <td>Sprint Equipes 3 e 4</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>22/06</td>
+      <td>Apresentação de projetos (Equipes 1 e 2)</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>24/06</td>
+      <td>Apresentação de projetos (Equipes 3 e 4)</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>29/06</td>
+      <td>Buffer</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>01/07</td>
+      <td>Buffer</td>
+    </tr>
+  </tbody>
+</table>
+:ET

@@ -1,0 +1,31 @@
+I"^<h2 id="energy-efficiency-a-new-concern-for-application-software-developers">Energy Efficiency: A New Concern for Application Software Developers</h2>
+
+<p>by Gustavo Pinto and <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a></p>
+
+<p>You can get a pre-print version from <a href="http://gustavopinto.github.io/lost+found/cacm2017.pdf">here</a>.</p>
+
+<p>You can view the publisher’s page <a href="https://cacm.acm.org/magazines/2017/12/223044-energy-efficiency/fulltext">here</a>.</p>
+
+<p>A shorter version of this paper was also invited to appear in the Brazilian Computing magazine (in Portuguese). Paper <a href="http://gustavopinto.github.io/lost+found/compbrasil2018.pdf">here</a>, full edition <a href="http://www.sbc.org.br/images/flippingbook/computacaobrasil/computa_37/pdf/CompBrasil_37_180.pdf">here</a>.</p>
+
+<p>Bibtex record</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{Pinto:2017:CACM,
+ author = {Pinto, Gustavo and Castor, Fernando},
+ title = {Energy Efficiency: A New Concern for Application Software Developers},
+ journal = {Commun. ACM},
+ issue_date = {December 2017},
+ volume = {60},
+ number = {12},
+ month = nov,
+ year = {2017},
+ issn = {0001-0782},
+ pages = {68--75},
+ numpages = {8},
+ doi = {10.1145/3154384},
+}
+</code></pre></div></div>
+
+<p><strong>Number of rejections before acceptance:</strong> 3</p>
+
+<p><strong>Brief history</strong>: I started this paper when I was writing the future work section of my PhD thesis. While doing so, I realized that there were many other ways one can save energy through software transformations. I wrote a bit about that. Some months later on, appeared an IEEE Software special issue on “The Future of Software Engineering”, or something like that. My former advisor and I turned that future work section into a paper, and submitted to this SI. We received a major review for R1. We worked hard, we covered all points that the reviewers raised. In addition, we conducted a survey (which we were not asked for), and resubmitted. Guess what? Our paper was rejected. I was very upset, and I made my feelings transparent to the Editor in Chief. He suggested us to resubmit to a regular edition. We did so. Guess what? The paper was rejected in the first round. Then we submitted to a similar journal (in terms of scope and length of the paper). Again, rejected in the first round. Then, we submitted to CACM. In the first revision, they seem to like the paper, but we received an “Reject and Resubmit” (which is better than just reject). Again, we worked hard and covered all comments raised and resubmitted. This time, we received a major review (one interesting thing is that a fourth different reviewer appeared). Another round of hard work and, then, we resubmitted. The paper was accepted on March 2017 (and only made publicly available on December 2017).</p>
+:ET

@@ -1,6 +1,8 @@
 ---
+layout: single
 title: Service
 permalink: /service/
+author_profile: true
 ---
 
 ## Editor in Chief (1)

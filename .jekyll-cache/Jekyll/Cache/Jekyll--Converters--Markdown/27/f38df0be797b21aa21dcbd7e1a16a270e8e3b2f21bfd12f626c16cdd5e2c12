@@ -1,0 +1,231 @@
+I"t<p>During this 2019 year I have been collecting the registration fee of academic
+software engineering conferences. I did not cover all software engineering
+conferences that exist out there, but I believe I the 22 ones presented below are
+fairly known ones. The registration costs can be seen in the following table (ordered by
+the cost of non member registrations).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>2019</th>
+      <th>Early</th>
+      <th> </th>
+      <th>Late</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th> </th>
+      <th>ACM/IEEE Member</th>
+      <th>Non Member</th>
+      <th>ACM/IEEE Member</th>
+      <th>Non Member</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ICSA</td>
+      <td>1050 USD</td>
+      <td>1200 USD</td>
+      <td>1290 USD</td>
+      <td>1460 USD</td>
+    </tr>
+    <tr>
+      <td>RE</td>
+      <td>850 USD</td>
+      <td>1100 USD</td>
+      <td>1000 USD</td>
+      <td>1200 USD</td>
+    </tr>
+    <tr>
+      <td>ASE</td>
+      <td>800 USD</td>
+      <td>1000 USD</td>
+      <td>950 USD</td>
+      <td>1150 USD</td>
+    </tr>
+    <tr>
+      <td>ICST</td>
+      <td>830 USD</td>
+      <td>996 USD</td>
+      <td>996 USD</td>
+      <td>1195 USD</td>
+    </tr>
+    <tr>
+      <td>ICSME</td>
+      <td>750 USD</td>
+      <td>980 USD</td>
+      <td>1100 USD</td>
+      <td>1445 USD</td>
+    </tr>
+    <tr>
+      <td>FSE</td>
+      <td>815 USD</td>
+      <td>960 USD</td>
+      <td>960 USD</td>
+      <td>1100 USD</td>
+    </tr>
+    <tr>
+      <td>ISSTA</td>
+      <td>850 USD</td>
+      <td>950 USD</td>
+      <td>1050 USD</td>
+      <td>1500 USD</td>
+    </tr>
+    <tr>
+      <td>ICSE</td>
+      <td>725 USD</td>
+      <td>870 USD</td>
+      <td>905 USD</td>
+      <td>1085 USD</td>
+    </tr>
+    <tr>
+      <td>ESEM</td>
+      <td>605 USD</td>
+      <td>820 USD</td>
+      <td>760 USD</td>
+      <td>1060 USD</td>
+    </tr>
+    <tr>
+      <td>XP</td>
+      <td>640 USD</td>
+      <td>800 USD</td>
+      <td>—</td>
+      <td>960 USD</td>
+    </tr>
+    <tr>
+      <td>SANER</td>
+      <td>600 USD</td>
+      <td>720 USD</td>
+      <td>750 USD</td>
+      <td>900 USD</td>
+    </tr>
+    <tr>
+      <td>EASE</td>
+      <td>—</td>
+      <td>678 USD</td>
+      <td>—</td>
+      <td>791 USD</td>
+    </tr>
+    <tr>
+      <td>SPLC</td>
+      <td>—</td>
+      <td>617 USD</td>
+      <td>—</td>
+      <td>786 USD</td>
+    </tr>
+    <tr>
+      <td>ECSA</td>
+      <td>—</td>
+      <td>617 USD</td>
+      <td>—</td>
+      <td>786 USD</td>
+    </tr>
+    <tr>
+      <td>ICGSE</td>
+      <td>485 USD</td>
+      <td>580 USD</td>
+      <td>605 USD</td>
+      <td>725 USD</td>
+    </tr>
+    <tr>
+      <td>ICPC</td>
+      <td>485 USD</td>
+      <td>580 USD</td>
+      <td>605 USD</td>
+      <td>725 USD</td>
+    </tr>
+    <tr>
+      <td>MSR</td>
+      <td>485 USD</td>
+      <td>580 USD</td>
+      <td>605 USD</td>
+      <td>725 USD</td>
+    </tr>
+    <tr>
+      <td>OSS</td>
+      <td>485 USD</td>
+      <td>580 USD</td>
+      <td>605 USD</td>
+      <td>725 USD</td>
+    </tr>
+    <tr>
+      <td>Programming</td>
+      <td>510 USD</td>
+      <td>570 USD</td>
+      <td>630 USD</td>
+      <td>680 USD</td>
+    </tr>
+    <tr>
+      <td>VISSOFT</td>
+      <td>390 USD</td>
+      <td>510 USD</td>
+      <td>505 USD</td>
+      <td>660 USD</td>
+    </tr>
+    <tr>
+      <td>SCAM</td>
+      <td>390 USD</td>
+      <td>510 USD</td>
+      <td>505 USD</td>
+      <td>660 USD</td>
+    </tr>
+    <tr>
+      <td>ICPE</td>
+      <td>115 USD</td>
+      <td>135 USD</td>
+      <td>135 USD</td>
+      <td>160 USD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The first thing about this table is that all registration costs were normalized to
+USD (e.g., ICPE took place in Mumbai, India, so its registration cost was on Indian Rupees).
+To convert currency, I used Google currency converter. This may bring some noise to the
+data since I converted the costs on different dates. I opted not to convert it all at
+once; I converted as soon as I see that the registration was available. I also
+manually rounded some values. Since I know some fluctuation exists, I believe it
+makes little sense to put in a table a registration like 487.72.</p>
+
+<p>Some other observations next.</p>
+
+<p><strong>Registration cost varies a LOT</strong>: Considering members and non members, ICSA
+had the most expensive registration cost (1050 USD and 1200 USD, respectively),
+when compared all other software engineering conferences. On the other hand, ICPE
+had the most cheap one (115 USD and 135 USD, respectively). The average registration
+cost was: 748.65 USD (242.86 USD, standard deviation). Since I’ve never ran a
+conference before, I have no idea how could one do everything needed with such
+small registration cost. Kudos to ICPE folks!</p>
+
+<p><strong>Some conferences happen in just two days:</strong> Not sure why, but I was expecting to
+see conferences that happen in two days only be a bit cheaper than conferences
+that happen in three days. For instance, ESEM that happens in just two days cost
+about the same as ICSE, which happen in three days (ESEM: 820, ICSE: 870).</p>
+
+<p><strong>Some conferences do not provide member registrations</strong>: which is the case of
+EASE, ECSA, and SPLC. These conferences do not have the support of international
+computer societies, and organizers may have to run the conference by themselves.
+On the one hand, this may ended up making the registration a bit cheaper (around
+600 USD), but on the other hand, authors may not enjoy an even cheaper early registration.</p>
+
+<p><strong>Colocated conferences share the same registration cost:</strong> For instance, MSR and
+ICPC are co-located with ICSE, and both share the same registration cost: 485 USD.
+Although this may be expected, it is interesting to observe that this happens even
+if one conference is better ranked than others (which could ended up attracting
+  more attendees).</p>
+
+<p><strong>The registration cost has little to do with the location</strong>: I know that
+some places are a lot more expensive than others, but the top-five conferences
+with the most expensive registration fee were (almost) on very different locations:
+ICSA was in Germany, RE in South Korea, ASE in the US, ICST in China,
+and ICSME in the US.</p>
+
+<p>This analysis is far from complete. There are many details that an outsider like
+me has little information about. For instance,
+some conferences has lunch included in the registration fee (some others provide
+breakfast and/or dinner). Besides the traditional coffee break, bag, t-shirt, etc,
+some social events are sometimes part of the registration fee.</p>
+
+<p>As I aforementioned, I never organized a conference, so my thought here may be completely
+biased and overly simplistic. Let me know if I understood something wrong!</p>
+:ET

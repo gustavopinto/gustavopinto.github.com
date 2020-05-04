@@ -1,9 +1,9 @@
 ---
-title: Good Habits
+title: "1+5 Good Habits for Young Scholars"
 permalink: /books/good-rearch-habits/
+layout: single
+author_profile: true
 ---
-
-## 1+5 Good Habits for Young Scholars
 
 [I'm selling about good habits that young scholars could foster while finding their path in academia, for only $ 5](http://gum.co/good-research-habits).
 
@@ -15,4 +15,5 @@ I will update this website every week. I start selling the book on April, 26th.
 
 
 | # | # of Sales  | Amount (USD) | Fees (USD) | Converted (BRL) | Donation |
+|---|-------------|--------------|------------|-----------------|----------|
 | 1 |         [20](http://gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |         [100](http://gustavopinto.org/lost+found/book-sales/book-payout-w1.png)  |      9.40  |         pending | pending  |

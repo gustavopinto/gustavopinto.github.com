@@ -1,0 +1,38 @@
+I"
+<p>When I say survey, I mean online questionnaires.</p>
+
+<p>First of all, don’t get me wrong. I do like surveys. Actually, I have done few of them in my premature researcher career. And I think that we can keep conducting surveys; but I believe that we now have other good options.</p>
+
+<p>Surveys are good when you have a specific, and small, target population. For example, if you want to know what the rails core developers eat on lunch, survey is definitely the way to go. But, what do you do if you want know what the rails community eat on lunch?</p>
+
+<p>Yes, of course, you can do a survey.</p>
+
+<p>But, there are some concerns that you have to keep in mind: First, survey has its own problems (the subject may lie in a difficult questions, or may remember incorrectly about a long time question, or may not fully understand a question and then give a faulty response). Second, the survey response rate is pretty low. If you are a luck guy, you can get 10% or 15% of response rate. So, if you are targeting the entire rails population, you may draw conclusions from a biased part of it. And finally, you may have to wait for several weeks (months?) until you have collected enough data.</p>
+
+<p>Or you can simply change your data source.</p>
+
+<p>If you are doing computer science research, you have on hand a number of great on line data sources. All you have to do is pick up the right one, use your programming skill to extract the data, and proceed to the analysis.</p>
+
+<p>For example:</p>
+
+<ol>
+  <li>
+    <p>Do you want to know what rails core developers eat at lunch? Find them on <a href="http://www.github.com">Github</a> and mine their actives on there.</p>
+  </li>
+  <li>
+    <p>Do you want to know if developers are facing problems with the newest rails feature? Mine questions and answers about this topic on <a href="http://www.stackoverflow.com">StackOverfow</a>.</p>
+  </li>
+  <li>
+    <p>Do you want to know if projects are moving to the newest rails version? Mine ruby/rails projects on <a href="http://www.github.com">Github</a> and/or <a href="http://www.sourceforge.com">SourceForge</a>, and parse their source code.</p>
+  </li>
+  <li>
+    <p>Do you want to know if final users are facing energy consumption problems in mobile applications? Mine <a href="http://play.google.com">Google Play</a> comments.</p>
+  </li>
+</ol>
+
+<p>And the list goes on.</p>
+
+<p>You see? Surveys are good. But, you can get a ton of data if you mine such websites.</p>
+
+<p>Nowadays, mining software repositories is not only about software, but human behaviour as well.</p>
+:ET

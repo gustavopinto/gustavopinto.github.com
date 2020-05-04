@@ -1,0 +1,100 @@
+I"�<p>This page provides possible research topics (for BS, MS, or PhD level). Students interested in working with me might be able to think possible solutions to one of these problems. <strong>English skills is required for any of them (reading at least).</strong></p>
+
+<ol>
+  <li>
+    <p>Understanding dual licenses in open-source software<br />
+<strong>Questions:</strong> How common are dual-license software? Why developers use two+ licenses? <br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br />
+<strong>Related Work</strong>: <a href="http://gustavopinto.github.io/lost+found/msr2018b.pdf">MSR’18</a></p>
+  </li>
+  <li>
+    <p>Understanding Students Behavior in Open-Source Communities<br />
+<strong>Questions:</strong> What kind of contributors are made by students? Are they working for some classroom projects? summer job? hackathons?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br />
+<strong>Related work</strong>: <a href="http://gustavopinto.github.io/lost+found/cseet2017.pdf">CSEET’17</a></p>
+  </li>
+  <li>
+    <p>Personality traits of casual contributors<br />
+<strong>Questions:</strong> Are casual contributors casual in many/few/other projects? Where are they based/from?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br />
+<strong>Related work:</strong> <a href="http://gustavopinto.github.io/lost+found/saner2016.pdf">SANER’16</a></p>
+  </li>
+  <li>
+    <p>How do practitioners perceive software engineering research?<br />
+<strong>Questions:</strong> What are the practitioners’ perception about SE research?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br />
+<strong>Related work:</strong> <a href="http://gustavopinto.github.io/lost+found/msr2017a.pdf">MSR’17</a></p>
+  </li>
+  <li>
+    <p>What are company’s motivations behind the transition from proprietary to open-source software?<br />
+<strong>Skills:</strong> English communication<br />
+<strong>Related work:</strong> <a href="http://gustavopinto.github.io/lost+found/vem2017.pdf">VEM’17</a>, <a href="http://gustavopinto.github.io/lost+found/ese2018.pdf">EMSE’18</a></p>
+  </li>
+  <li>
+    <p>Automatic test generation for partial programs<br />
+<strong>Question:</strong> How can we test partial program?<br />
+<strong>Skills:</strong> system programming (e.g., Go, Java, C, etc)<br /></p>
+  </li>
+  <li>
+    <p>A large scale study on data races<br />
+<strong>Question:</strong> investigating the evolution of data races on complicated benchmarks over a larger variety of programs.<br />
+<strong>Skills:</strong> system programming (e.g., Go, Java, C, etc)<br />
+<strong>Related work:</strong> <a href="http://gustavopinto.github.io/lost+found/jss_2015.pdf">JSS’15</a></p>
+  </li>
+  <li>
+    <p>Issues Smells<br />
+<strong>Questions</strong>: What are the most common problems related to issue report?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br /></p>
+  </li>
+  <li>
+    <p>Studying the differences between commercial developers and volunteers
+<strong>Questions</strong>: With commercial developers <em>not</em> working directly on their company’s projects (e.g., GitHub employees working on other, non-GitHub-owned projects).<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br />
+<strong>Related work:</strong> <a href="http://gustavopinto.github.io/lost+found/chase2018.pdf">CHASE’18</a></p>
+  </li>
+  <li>
+    <p>Mining wrong data without doing anything obviously wrong<br />
+<strong>Questions</strong>: What are the hidden challenges on large scale software mining?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br /></p>
+  </li>
+  <li>
+    <p>Does popularity mean correctness?<br />
+<strong>Questions</strong>: How can we evaluate if Stack Overflow answers are indeed correct?<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br /></p>
+  </li>
+  <li>
+    <p>Improving LOC calculation<br />
+<strong>Question</strong>: Loc might consider JS libraries users used within the app, which could inflate LOC towards JS<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br /></p>
+  </li>
+  <li>
+    <p>When testers stop to look for bugs?<br />
+<strong>Question</strong>: “<a href="https://cacm.acm.org/blogs/blog-cacm/228226-the-goal-of-software-testing/fulltext">we cannot achieve 100% confidence no matter how much time and energy we put into it</a>”. When/How do testers stop?<br />
+<strong>Skills:</strong> English communication<br /></p>
+  </li>
+  <li>
+    <p>Improving developers participation in pull-requests research<br />
+<strong>Question</strong>: How often are PRs send in SE studies rejected? How could we improve this?<br />
+<strong>Skills:</strong> English communication<br /></p>
+  </li>
+  <li>
+    <p>Automation will not fix your broken culture<br />
+<strong>Question</strong>: A position paper that reports the importance of social aspects on software eng practice<br />
+<strong>Skills:</strong> English communication<br /></p>
+  </li>
+  <li>
+    <p>What makes a great open source maintainer?<br />
+<strong>Skills:</strong> English communication<br />
+<strong>Related Work:</strong> https://dl.acm.org/citation.cfm?id=2818839, https://github.com/nayafia/awesome-maintainers</p>
+  </li>
+  <li>
+    <p>GitHub stars as a proxy for popularity considered harmful<br />
+<strong>Skills:</strong> English communication<br />
+<strong>Related work:</strong> https://blog.tidelift.com/dont-judge-a-project-by-its-github-stars-alone</p>
+  </li>
+  <li>
+    <p>Understanding large files in OSS projects<br />
+<strong>Skills:</strong> script programming (e.g., Python, Lua, Ruby, etc)<br /></p>
+  </li>
+</ol>
+:ET

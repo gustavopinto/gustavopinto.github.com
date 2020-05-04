@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Instruções para alunos de mestrado
 permalink: /mestrado-ppgcc/
 ---
@@ -15,7 +17,7 @@ O aluno é obrigado a publicar um artigo, mas não em convertê-lo em crédito.
 
 **Matérias**: 10 créditos de matérias obrigatórias e 8 de opcionais. (18 CR)
 
-**Projeto de Dissertação**: Referente ao texto da qualificação (2 CR). O orientador dá a nota e credita após a qualificação. 
+**Projeto de Dissertação**: Referente ao texto da qualificação (2 CR). O orientador dá a nota e credita após a qualificação.
 
 **Artigo**: artigo publicado (2 CR ou 4 CR). Dois créditos para conferência e quatro para periódicos.
 

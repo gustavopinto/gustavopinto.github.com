@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Where to submit?
 permalink: /where-to-submit/
 ---

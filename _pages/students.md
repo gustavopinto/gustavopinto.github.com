@@ -1,6 +1,8 @@
 ---
+layout: single
 title: Students
 permalink: /students/
+author_profile: true
 ---
 I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/prospective-students) if interested.
 

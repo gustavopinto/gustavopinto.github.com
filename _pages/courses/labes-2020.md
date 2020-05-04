@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Laboratório de Engenharia de Software
 permalink: /teaching/labes/2020
 ---

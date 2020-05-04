@@ -1,11 +1,13 @@
 # main links
 main:
+  - title: "Books"
+    url: /books/
   - title: "Publications"
     url: /publications/
   - title: "Students"
     url: /students/
   - title: "Blog"
-    url: /blog/
+    url: /year-archive/
   - title: "Teaching"
     url: /teaching/
   - title: "Reading"

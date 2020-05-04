@@ -1,588 +1,355 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-28T15:16:46-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Professional webpage for Gustavo Pinto.</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><entry><title type="html">What researchers think about Rapid Reviews?</title><link href="http://localhost:4000/blog/what-researchers-think-about-rapid-reviews/" rel="alternate" type="text/html" title="What researchers think about Rapid Reviews?" /><published>2019-07-30T00:00:00-03:00</published><updated>2019-07-30T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-researchers-think-about-rapid-reviews</id><content type="html" xml:base="http://localhost:4000/blog/what-researchers-think-about-rapid-reviews/">&lt;p&gt;Rapid Reviews (RRs) are lightweight secondary studies intended to provide evidence to support informed decision making. Different than Systematic Literature Reviews (SLRs) that usually take several months (or even years) to be done, RRs are conducted in time frames more likely to meet practitioners’ demands (in weeks or in a month, instead of months or a year) and demand the involvement of few, sometimes only one researcher, reducing the costs to deliver evidence.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-04T00:21:48-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Soft Eng Professor and Researcher</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><entry><title type="html">How to write a short book in 20 hours</title><link href="http://localhost:4000/How-to-write-a-short-book-in-20-hours/" rel="alternate" type="text/html" title="How to write a short book in 20 hours" /><published>2020-04-28T00:00:00-03:00</published><updated>2020-04-28T00:00:00-03:00</updated><id>http://localhost:4000/How-to-write-a-short-book-in-20-hours</id><content type="html" xml:base="http://localhost:4000/How-to-write-a-short-book-in-20-hours/">&lt;p&gt;&lt;a href=&quot;https://medium.com/@gustavopinto/1-5-good-habits-for-young-scholars-9d11c8ca2410&quot;&gt;I wrote a short book in 20 hours.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Although RRs are a rising research method in the medical domain, they are barely known by the software engineering community. In a &lt;a href=&quot;http://gustavopinto.org/lost+found/ease2018.pdf&quot;&gt;previous study&lt;/a&gt; we observed that practitioners were very supportive towards the use of RRs. Unfortunately, the perceptions of researchers, who usually are in charge of conducting the RRs, is still unknown. Considering the recent movements in software engineering to increase the quality of SLRs, we believe that the methodological concessions of the RRs could provoke some controversy in the software engineering research arena.&lt;/p&gt;
+&lt;p&gt;Is this the best book I could write? No.&lt;/p&gt;
 
-&lt;p&gt;Therefore, it was not clear to us whether researchers would embrace RRs. On the one hand, although RRs can speed up the knowledge transfer process to practice (and initial results suggest that practitioners appreciate it), researchers may be skeptical to adopt RRs due to methodological concessions (or afraid to have their papers rejected when using a not that rigorous methodology) .&lt;/p&gt;
+&lt;p&gt;It this book really well-written? No.&lt;/p&gt;
 
-&lt;p&gt;In order to investigate the software engineering researchers perception on the potential use of RRs, we invited a group of 37 SE researchers and asked them to analyze a predefined set of 50 statements regarding RRs, and rank them according to what extent they agree with each statement. To conduct this analysis, we relied on a &lt;a href=&quot;https://qmethod.org/&quot;&gt;Q-Methodology&lt;/a&gt;. This approach may sound like surveys, but it is intrinsically different. More concretely, using this method, the participants are required to prioritize their perceptions, avoiding bias in their responses (e.g., some participants might be more positive than others).&lt;/p&gt;
+&lt;p&gt;Are you proud of this book? Definitely yes.&lt;/p&gt;
 
-&lt;p&gt;Using this methodology, we revealed four different perceptions about RRs. They are:&lt;/p&gt;
+&lt;h2 id=&quot;some-background&quot;&gt;Some background&lt;/h2&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;The Picky:&lt;/strong&gt; The SE researcher does not believe that RRs can deliver high quality evidence;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The Unconvinced&lt;/strong&gt;: The SE researcher needs more evidence about Rapid Reviews;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The Pragmatic:&lt;/strong&gt; The SE researcher might conduct some RRs in specific scenarios where they are appropriate.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;The Enthusiastic:&lt;/strong&gt; The SE researcher is willing to conduct RRs, but only if minimum standards are meet;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;I am in the middle of a pandemic that is only getting worse. I have two small kids at home that require a lot of me. I only have the evenings free when they are already sleeping. I wrote for four evenings, about 2–4 hours every evening. I started writing on Thursday and finished on Sunday. Also, on Sunday I made the cover. On Monday morning, I started selling. I sell eight copies in the first day ($ 5 each).&lt;/p&gt;
 
-&lt;p&gt;With this paper, we understood that some researchers are willing to experiment with RRs, although some of them are still very conservative. However, with this study and our &lt;a href=&quot;http://gustavopinto.org/lost+found/ease2018.pdf&quot;&gt;initial results&lt;/a&gt; (and eventual other research works that may go along these lines), we believe other researchers may become motivated to embrace this methodology.&lt;/p&gt;
+&lt;h2 id=&quot;why-i-wrote-this-book&quot;&gt;Why I wrote this book?&lt;/h2&gt;
 
-&lt;p&gt;If you want to know more about this study, you can read the preprint available &lt;a href=&quot;https://arxiv.org/abs/1906.11351&quot;&gt;here&lt;/a&gt;. The tool the implements the Q-Methodology is also available &lt;a href=&quot;https://github.com/bfsc/qmethod&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'19 paper</summary></entry><entry><title type="html">Detecting and Reporting Object-Relational Mapping Problems</title><link href="http://localhost:4000/blog/detecting-and-reporting-orm-problems/" rel="alternate" type="text/html" title="Detecting and Reporting Object-Relational Mapping Problems" /><published>2019-07-26T00:00:00-03:00</published><updated>2019-07-26T00:00:00-03:00</updated><id>http://localhost:4000/blog/detecting-and-reporting-orm-problems</id><content type="html" xml:base="http://localhost:4000/blog/detecting-and-reporting-orm-problems/">&lt;p&gt;Developers often take advantage of Object-Relation Mapping (ORM) frameworks to
-provide a conceptual abstraction between objects in object-oriented languages
-and data stored in the underlying database. These ORM frameworks operate between
-object-oriented architecture system and the relational environment, creating a
-“virtual object database” that can be handled from within the programming language.&lt;/p&gt;
+&lt;p&gt;Many reasons motivated me to write this book.&lt;/p&gt;
 
-&lt;p&gt;The good thing about these frameworks is that they greatly reduces the effort of
-not only communicating with a database but also dealing with basic database
-operations (e.g., insert, update, read, and delete), since changes to objects
-are automatically propagated to the corresponding database records. As a
-consequence, developers do not need to spend time and effort creating operations
-to communicate with the database, over and over again.&lt;/p&gt;
+&lt;p&gt;First of all, I have been thinking about writing a book for many years. I actually already started to write one book in the past, but I gave up not much later. &lt;a href=&quot;https://medium.com/@gustavopinto/new-book-demystifying-open-source-licensing-52b977091718&quot;&gt;For those that follow me on twitter, they may know that I am writing another book on open source licensing.&lt;/a&gt; But I thought I need another book to be ready sooner.&lt;/p&gt;
 
-&lt;p&gt;The bad thing, however, is the fact that developers may underused or overused
-these frameworks. For instance, a &lt;a href=&quot;https://petertsehsun.github.io/papers/peter_tse2016.pdf&quot;&gt;study has found&lt;/a&gt; that when these frameworks are misused, they can deteriorate a performance of a software application.&lt;/p&gt;
+&lt;p&gt;Second, because I am in the middle of a pandemic, and I am feeling incapable of doing anything useful. I have already canceled some research works because neither my students nor I can commit to them anymore (&lt;a href=&quot;https://medium.com/@gustavopinto/got-tenure-what-does-it-mean-e0afa94e1bc6&quot;&gt;yes, I know I’m privileged&lt;/a&gt;). Many relatives, friends, and colleagues are suffering from this pandemic, and I can barely do anything to help them. I like my work, but I don’t see my work being anyhow useful to help them overcome this immediate situation. Nevertheless, I’m seeing many colleagues who are finding a way to help others, for instance, &lt;a href=&quot;http://ccsl.ufpa.br/covid-19/&quot;&gt;by creating tools that could increase the pandemic awareness&lt;/a&gt;. I eventually made some donations here and there, but, unfortunately, I cannot commit to these regular donations next month without compromising my family budget. Then I had the idea of writing a book and donating 100% of the sales to help COVID-19. My little experience &lt;a href=&quot;https://medium.com/@gustavopinto/new-book-demystifying-open-source-licensing-52b977091718&quot;&gt;pre-selling the other book&lt;/a&gt; opened my eyes that it’s possible to sell books on Twitter.&lt;/p&gt;
 
-&lt;p&gt;Although ORM frameworks are widespread in the software development industry, it
-may come as a no surprise that developers are facing many problems with them.
-A student of mine, who also works in a R&amp;amp;D institute, mentioned to me that they
-are dealing with the same ORM problems for many years in a row. After getting
-tired of having to fix them manually, my student created a tool that finds an
-eventual ORM problem, and highlights it to the developer. The tool searches for 12
-kinds of ORM problems, such as:&lt;/p&gt;
+&lt;p&gt;Third, having this plan in mind, the last point was to decide what I could write about (and very quickly). It did not take much to realize that I could write about &lt;a href=&quot;https://speakerdeck.com/gustavopinto/caminhos-e-desafios-para-a-pesquisa-em-computacao-ou-como-se-manter-produtivo-na-regiao-norte&quot;&gt;one of the talks that I gave in the past&lt;/a&gt;. First because I believe the talk was well-received (both in-person and &lt;a href=&quot;https://twitter.com/gustavopinto/status/1202323018762117120?s=20&quot;&gt;on-line&lt;/a&gt;). Second, because I was already thinking about putting the ideas of that talk in a blog post. However, I knew it would require me many hours to do it, so I was keeping postponing. By converting this blog post in a book motivated me to make it happen. And really fast.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Misspelling the names of schemas, tables, or columns (e.g., names with accents);&lt;/li&gt;
-  &lt;li&gt;Forgetting to create constraints (e.g., did not create a foreign key constraint);&lt;/li&gt;
-  &lt;li&gt;Mismatching JPA annotations (e.g., using @Column when a @JoinColumn was needed);&lt;/li&gt;
-  &lt;li&gt;Forgetting to use an important annotation (e.g., a @Temporal annotation in a date
-datatype, a @Enumared in an Enum datatype, or a @Table in a class).&lt;/li&gt;
-  &lt;li&gt;Forgetting to implement the Serializable interface&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;how-did-i-write-it&quot;&gt;How did I write it?&lt;/h2&gt;
 
-&lt;p&gt;The tool consists of static analyzing ORM code looking for the ORM problems.
-We use bytecode instrumentation to (1) obtain the ORM code and to (2) create
-several assertions that check whether the ORM code contains one (or more) of the
-curated ORM problems. We also provide enhanced error messages that aid developers
-to fix the ORM problem found. After cataloging 12 mapping problems, and providing a
-tool to automatically identify and report them, we conduct a developer experience
-(DX) study with 13 participants to better understand the framework’s
-limitations and eventual points for improvements.&lt;/p&gt;
+&lt;p&gt;As I mentioned, I did not have much time to write this book. I decided to write the book on Thursday, April 23rd, and I was willing to compromise to make it available on Monday, 27th.&lt;/p&gt;
 
-&lt;p&gt;We observed several &lt;em&gt;benefits&lt;/em&gt; with the usage of our tool. All the participants
-agreed that the enhanced error messages helped them to conclude the experiments.
-One particularly interesting finding is that two participants finished the tasks
-without any ORM experience. When we interviewed them, we perceived that they were
-able to accomplish the task by following the suggestions of the enhanced error
-messages. There were also some &lt;em&gt;challenges&lt;/em&gt;. We perceived that the tools’
-documentation was not appropriated, since some participants had a hard time to
-use some custom annotations. However, although the documentation was not
-sufficient in some points, all participants were able to complete all the tasks.
-Interestingly, my student did not experience these two problems in the company. This
-may be  explained due to the fact that the architect of the tool as always
-available to answer eventual questions.&lt;/p&gt;
+&lt;p&gt;My first step was to find a book template. In my &lt;a href=&quot;https://medium.com/@gustavopinto/new-book-demystifying-open-source-licensing-52b977091718&quot;&gt;other book&lt;/a&gt;, I have already spent some good hours fighting with a template (and I still don’t like my current template). To write the other book, I’m using asciidoctor, a framework that exports documents to many writing formats. To save some hours, for this book, I decided to use LaTeX instead. I’m reasonably familiar with LaTeX, so I would not wast any time configuring it, running it, etc. I also knew there are some excellent LaTeX templates out there, so it was not hard to find a one I liked.&lt;/p&gt;
 
-&lt;p&gt;Finally, one experienced developer may argue that this tool might not be relevant
-today. However, when browsing Q&amp;amp;A websites, we still see these problems occurring.
-For instance, &lt;a href=&quot;stackoverflow.com/q/55466284&quot;&gt;this question&lt;/a&gt;, asked in April 2019,
-could be fixed by our tool.&lt;/p&gt;
+&lt;p&gt;Since this book was about a talk I gave in the past, I have the structure already designed in my mind. I used the same structure of the talk to structure the book. On the first evening, I wrote the preface, and the first two chapters (around 2.5k words). The preface I rewrote in the end, but I did not make substantial changes in the first two chapters after my first pass. I kept the same progress over Friday and Saturday (about 2k words per day). The book was 90% on Saturday. On Sunday, I made an overall pass, trying to fixing some typos and strange wordings. Also, on Sunday, I made the cover (using canva.com), and I wrote &lt;a href=&quot;https://medium.com/@gustavopinto/1-5-good-habits-for-young-scholars-9d11c8ca2410&quot;&gt;a blog post to share the book on social networks&lt;/a&gt;. I already shared this blog post on hackernews and reddit on Sunday evening. On Monday morning, I wrote some tweets to release the book to the public. I made eight sales on the first day on Twitter and no sales through the other mediums.&lt;/p&gt;
 
-&lt;p&gt;The tool is not yet available, since my student is still dealing with copyright
-issues in this company (he wrote the tool while working there). I will update
-this blog post when he gets over it. If you want to read the complete report,
-click &lt;a href=&quot;http://gustavopinto.github.io/lost+found/esem2019-industry.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;more-than-20-hours&quot;&gt;More than 20 hours&lt;/h2&gt;
 
-&lt;p&gt;BTW: This paper was my very first submission to an industry track and my very fist
-academia-industry collaboration. Lesson learned: if you happen to have students
-that work in the industry, instead of suggesting your problems to them, ask them
-what are their problems.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'19 paper (industry track)</summary></entry><entry><title type="html">Resumo da disciplina de Tópicos Especiais em Software Livre</title><link href="http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre/" rel="alternate" type="text/html" title="Resumo da disciplina de Tópicos Especiais em Software Livre" /><published>2019-07-16T00:00:00-03:00</published><updated>2019-07-16T00:00:00-03:00</updated><id>http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre</id><content type="html" xml:base="http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre/">&lt;p&gt;No primeiro semestre de 2019, em conjunto com &lt;a href=&quot;filipesaraiva.info/&quot;&gt;Filipe Saraiva&lt;/a&gt;, ministramos a disciplina de
-&lt;a href=&quot;http://github.com/gustavopinto/tesl&quot;&gt;Tópicos Especiais em Software Livre (TESL)&lt;/a&gt; para alunos da graduação e pós-graduação
-da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software
-livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já
-estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado
-uma necessidade interna da nossa faculdade (alguns professores afastados, outros
-recém aposentados, resultando em um défict de professores), decidimos meio que de
-último minuto ofertar a disciplina.&lt;/p&gt;
+&lt;p&gt;Although the title of this blog post is correct, upon reflection, I spent many more hours working on this book.&lt;/p&gt;
 
-&lt;p&gt;Como fizemos isso sem muito planejamento, a disciplina nasceu e cresceu de forma
-meio orgânica. Decidimos sobre uma agenda, e fomos produzindo o material sob
-demanda. Dentre os tópicos abordados estão: documentação, licenças, gerenciamento
-de código e requisitos, boas práticas de codificação, e métricas de código fonte.&lt;/p&gt;
+&lt;p&gt;First, because I probably spent 20 hours or so designing and creating the talk. When thinking about the talk, I took several notes, made some sketches, and also did some research. After that, I spent some good hours creating the talk on Keynote. Till minutes before the talk, I was making changes in the slides. I also spent 2–3 hours rehearsing the talk, which gave me additional ideas. When writing this book, I took for granted the time I spent thinking about and creating the talk.&lt;/p&gt;
 
-&lt;p&gt;Como foi a primeira vez que a disciplina foi ofertada na UFPA, houve um interesse
-muito grande por parte dos alunos, tanto que rapidamente as vagas se esgotaram
-(tanto para a graduação quanto para a pós-graduação). Tivemos também que abrir vagas
-excedentes para alunos especiais (aqueles que não estão regularmente matriculados
-em no programa de pós-graduação). Somando graduação e pós, acredito que cerca
-de 60 alunos se matricularam para essa disciplina. Para alguns esse número pode
-parecer pequeno, mas, para nós, é um número muito grande de alunos (tanto que
-tivemos que procurar um espaço externo a nossa faculdade para as aulas). Na nossa
-faculdade, turmas grandes tem cerca de 35–40 alunos (e não é incomum turmas de
-~15 alunos). Mas isso é história para outo post de blog.&lt;/p&gt;
+&lt;p&gt;Second, because I also took for granted what I learned in the past. For instance, I did not have to do much research on the topic (it was fresh on my mind), and I did not need to master the tools used (it took 10 minutes to have a book template and about 30 minutes to have a cover).&lt;/p&gt;
 
-&lt;p&gt;Fiquei bastante feliz pelo interesse dos alunos em se matricular na disciplina
-(revelando uma eventual carência na área). Ao longo da disciplina, no entanto,
-o número de alunos foi diminuindo rapidamente. A sala, que ficava apertada nas
-primeiras aulas, começou a ficar folgada ao longo do semestre. Há vários fatores
-que podem explicar a desistência dos alunos, dos quais dois deles valem a pena
-pensar um pouco mais. O primeiro é que se trata de uma disciplina optativa, logo
-os alunos tem menos resposabilidade em concluir, uma vez que eles poderiam cursar
-outra(s) optativa(s) em um outro semestre, e creditar a necessidade dessa matéria.
-Outro ponto é dado o material completo da disciplina não estar disponível durante
-o período de matrícula (os alunos tinham acesso somente a ementa). Logo, é possível
-que alguns alunos estivessem esperando um outro tipo de disciplina. Enfim.&lt;/p&gt;
+&lt;p&gt;It would be a different story I had to write about a subject that I am not super comfortable with.&lt;/p&gt;
 
-&lt;p&gt;Ao meu ver, o cerne dessa disciplina é que o aluno deveria sair dela com algumas
-contribuições feitas em alguns projetos de software livre. Não é necessário somente
-usar um software livre, é também necessário entender, usar e modificar. Ao longo
-das aulas, os alunos tiveram várias pequenas atividades para entender como funciona
-um projeto de software livre, como por exemplo entender a importância das
-comunidades, pra que serve uma licença, onde pedir ajuda, etc. Tivemos também
-algumas palestras convidadas de membros ativos de projetos de software livre,
-como o &lt;a href=&quot;http://softwarelivre.org/terceiro&quot;&gt;Antônio Terceiro&lt;/a&gt;, contribuidor do Debian, e o &lt;a href=&quot;https://feaneron.com&quot;&gt;George Stavracas&lt;/a&gt;, contribuidor
-do GNOME. Como no início também pensávamos que os alunos poderiam produzir artigos
-científicos ao fim da disciplian (e a vários alunos da pós-graduação estavam
-matriculanos), também convidamos o &lt;a href=&quot;www.igor.pro.br&quot;&gt;Igor Steinmacher&lt;/a&gt;, que conduz pesquisa
-nesse tópico. Nesse primeiro momento, foi
-colocado pouca enfâse na contribuição em sí, e mais no processo de criação e
-evolução de um projeto de software livre. Por um lado isso nos pareceu adequado,
-já que é muito importante entender o contexto antes de se envolver, de fato. Por
-outro lado, isso tardiou a contribuição dos alunos nos projetos.&lt;/p&gt;
+&lt;p&gt;Finally, it’s also important to notice that, as a researcher, a good proportion of my job is devoted to writing. I have been writing a lot over the last 10 years lot, so I’m used to technical writing. I’m not a fluent writer (I am not fluent in English either), but writing is not a big issue to me.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">A short book</summary></entry><entry><title type="html">1+5 Good Habits for Young Scholars</title><link href="http://localhost:4000/Good-Habits-for-Young-Scholars/" rel="alternate" type="text/html" title="1+5 Good Habits for Young Scholars" /><published>2020-04-26T00:00:00-03:00</published><updated>2020-04-26T00:00:00-03:00</updated><id>http://localhost:4000/Good-Habits-for-Young-Scholars</id><content type="html" xml:base="http://localhost:4000/Good-Habits-for-Young-Scholars/">&lt;p&gt;&lt;a href=&quot;http://gum.co/good-research-habits&quot;&gt;I’m selling about good habits that young scholars could foster while finding their path in academia, for only $ 5&lt;/a&gt;. 100% of the sales will go to a hospital fighting COVID-19. Read on to know more.&lt;/p&gt;
 
-&lt;p&gt;Na segunda parte da disciplina, os alunos deveriam usar os conhecimentos adquiridos
-para procurar um projeto de software livre e fazer uma contribuição. Algumas
-contribuições na verdade. Embora não mandatório, era esperado que todos os alunos
-fizessem pelo menos uma contribuição de código de código pequena (por exemplo,
-uma refatoração), embora outras  atividades estivessem disponíveis para os alunos
-(ver lista completa e pontuação sugerarida &lt;a href=&quot;https://github.com/gustavopinto/tesl/blob/master/trabalho-final.md&quot;&gt;aqui&lt;/a&gt;).
-Como tivemos 11 aulas expositivias (somado com duas paralizações e um feriado)
-os alunos tiveram em torno de três a quatro semanas para fazer as contribuições
-nos projetos. Refletindo agora, é notório que a disciplina ficou bem desbalanceada.
-No entanto, embora eu concorde que alguns tópicos poderiam ser removidos da ementa
-da disciplina, eu acho que seria muito difícil equalizar o tempo dedicado nas aulas
-e nos projetos. Ponto para debate.&lt;/p&gt;
+&lt;center&gt;
+***
+&lt;/center&gt;
 
-&lt;p&gt;De toda forma, mesmo que o tempo para realizar os projetos tenha sido relativamente
-curto, acredito que todos os alunos conseguiram realizar alguma contribuição.
-Algumas contribuições, inclusive, foram bem significativas, como por exemplo, um
-novo algoritmo para o &lt;a href=&quot;https://github.com/scikit-learn/scikit-learn/pull/14239&quot;&gt;scikit-learn&lt;/a&gt;,
-criação de nova regra no &lt;a href=&quot;https://github.com/sindresorhus/eslint-plugin-unicorn/pull/302&quot;&gt;ESLint&lt;/a&gt;,
-ou um novo layout para o &lt;a href=&quot;https://github.com/halogenica/beautifulhugo/pull/287&quot;&gt;beautifulhugo&lt;/a&gt;.
-Vários outros alunos fizeram contribuições menores, mas também bastante interessantes
-como &lt;a href=&quot;https://github.com/GoogleCloudPlatform/oozie-to-airflow/pull/272&quot;&gt;refatorações&lt;/a&gt;, parsing de &lt;a href=&quot;https://github.com/edsu/pymarc/pull/137&quot;&gt;arquivo JSON&lt;/a&gt;, além de &lt;a href=&quot;https://github.com/python-gsoc/python-blogs/pull/240&quot;&gt;traduções&lt;/a&gt;, e &lt;a href=&quot;https://github.com/CiviWiki/OpenCiviWiki/pull/537&quot;&gt;bug reports&lt;/a&gt;. No total, os alunos
-fizeram mais de 60 contribuições em projetos de software livre. Durante as
-apresentações dos projetos, vários alunos mencionaram que a disciplina ajudou
-a fazer a primeira contribuição em um projeto de software livre (alguns alunos
-estavam inclusive bem felizes por causa disso).&lt;/p&gt;
+&lt;p&gt;Academia could be a wonderful place. By seeking the truth, researchers are exposed to several research challenges, and their discoveries could shape the way we think, work, and live. However, academia can also be a tough place to work. Graduate students are six times more likely to be depressed than the general population. The academic job market is extremely competitive. 
+If you happen to think that academia is for you, it is better to foster some good habits. &lt;/p&gt;
 
-&lt;p&gt;Ao fim da disciplina, lancei um questionário pra avaliar a percepção dos alunos
-com relação a disciplina. 17 alunos responderam. Dentre os quais, 65% nunca haviam
-contribuido com projetos de software livre antes (apenas um era contribuidor ativo).
-88% dos alunos mostraram interesse em continuar contribuindo com software livre
-após a disciplina. Quando perguntados quais as chances de realizar as contribuições
-feitas se não tivessem cursado a disciplina 71% disseram que era “improvável” ou
-“muito improvável”. 88% dos alunos recomendariam a disciplina para algum colega.&lt;/p&gt;
-
-&lt;p&gt;Ainda sobre o questionário, alguns alunos acharam particularmente interessante
-assuntos sobre licenças, sobre o funcionamento das comundiades, ou sobre
-engajamento nos projetos. Um aluno mencionou que achou interessante saber&lt;br /&gt;
-“Que é possível ganhar dinheiro com software livre”. Não sei se foi o mesmo aluno,
-mas um aluno da disciplina procurou projetos e issues que eram financiadas. Esse
-mesmo aluno comentou comigo que recebeu mais dinheiro contribuindo com os projetos
-do que em 2 ou 3 meses de estágio. MASSA!
-Sobre os tópicos que deveriam ser abordados (mas que não foram), alguns alunos
-mencionaram que é importante falar mais sobre o git e o github durante a disciplina.
-Nós simplesmente assumimos que esses assuntos seriam rapidamente absorvidos pelos
-alunos, mas não parece ser o caso. Inclusive, logo no começo das aulas, foi
-perceptível que vários alunos tiveram problemas em como usar o sistema de
-pull-requests nos exercícios.&lt;/p&gt;
-
-&lt;p&gt;Com relação as dificuldades para contribuir, alguns alunos
-reportaram que tiveram dificuldades para enteder as guideslines do projeto, para
-seguir os padrões de código adoados, ou até mesmo no processo de revisão. Vários
-alunos reportaram que tiveram dificudlades para encontrar projetos para fazer
-contribuições. Isso é particularmente interessante, visto que muito se tem feito
-nos últimos anos para fazer com novatos embarquem em projetos de software livre,
-mas a barreira de entrada ainda parece ser muito grande. Recentemente, inclusive,
-Karl Fogel &lt;a href=&quot;https://twitter.com/kfogel/status/1144648353873051649&quot;&gt;questionou no Twitter&lt;/a&gt;
-quais as ações que as pessoas fazem para se envolver com software liver. Meu, se
-até o Karl Fogel tem essa dúvida, o que dirá os meus alunos… Para exemplificar,
-usando as palavras de um aluno, coloco aqui as dificuldades por ele encontradas:&lt;/p&gt;
-
-&lt;p&gt;“Contribuições de documentações são relativamente simples de encontrar e realizar, reportar bugs também não é uma tarefa tão difícil, visto que no decorrer do dia nos deparamos com pequenos bugs em nossas ferramentas. O grande problema é contribuir com código: Não estar familiarizado com a estrutura de um projeto é uma grande barreira, ao vasculhar o código fonte serão encontradas diversas ferramentas e bibliotecas sendo utilizadas em conjunto com as técnicas de programação (OOP, Data Structures), e para alunos que nunca desenvolveram nenhum projeto fora da universidade pode ser frustrante entender essa junção de utilização de ferramentas + conceitos. Acredito que a melhor forma de contornar essa barreira seria influenciando os alunos a procurarem contribuições a serem feitas desde o inicio da disciplina, isso faz com que eles possam amadurecer ao longo da disciplina.”&lt;/p&gt;
-
-&lt;p&gt;Para finalizar, gostaria de agradecer o Filipe Saraiva, que foi quem lançou a
-proposta e abraçou a causa junto comigo. Agradecer também aos convidados,
-Antônio Terceiro, George Stavracas e Igor Steinmacher, que acharam tempo em suas
-agendas apertadas para dar uma palestra para os alunos, e também ao &lt;a href=&quot;https://www.mauricioaniche.com/&quot;&gt;Mauricio Aniche&lt;/a&gt;
-que gentilmente disponibilizou algumas cópias de alguns de seus livros que foram
-enviadas para os alunos que tiveram excelente desempenho na disciplina. Agradeço
-também ao nosso monitor, &lt;a href=&quot;https://github.com/felipenazario&quot;&gt;Marcos Nazário&lt;/a&gt;, que assumiu três aulas (uma delas nem
-era de sua responsabilidade). Por fim, agradecer também aos alunos que participaram
-da disciplina! Sem dúvida, nada disso teria acontecido se não fosse vocês. Valeu!&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Desafios e lições aprendidas</summary></entry><entry><title type="html">Continuous Integration Theater</title><link href="http://localhost:4000/blog/continuous-integration-theater/" rel="alternate" type="text/html" title="Continuous Integration Theater" /><published>2019-07-10T00:00:00-03:00</published><updated>2019-07-10T00:00:00-03:00</updated><id>http://localhost:4000/blog/continuous-integration-theater</id><content type="html" xml:base="http://localhost:4000/blog/continuous-integration-theater/">&lt;p&gt;According to &lt;a href=&quot;https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html&quot;&gt;this post&lt;/a&gt;,
-“CI theatre describes the illusion of practising continuous integration (CI)
-while not really practising it.” Common failure modes include:&lt;/p&gt;
+&lt;p&gt;In this book that &lt;a href=&quot;http://gum.co/good-research-habits&quot;&gt;I’m selling for only $ 5&lt;/a&gt;, I describe 1+5 habits that I cultivate and follow over the last few years. By sharing this habits, I believe I could help other young scholars to find their path in academia, as I found mine. The 1+5 habits are the following:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;running CI against a shared mainline but with infrequent commits, so integration isn’t really continuous;&lt;/li&gt;
-  &lt;li&gt;running a build with poor test coverage;&lt;/li&gt;
-  &lt;li&gt;allowing the build to stay red for long periods;&lt;/li&gt;
-  &lt;li&gt;running CI against feature branches which results in continuous isolation.&lt;/li&gt;
+  &lt;li&gt;Do your homework;&lt;/li&gt;
+  &lt;li&gt;Know your institution;&lt;/li&gt;
+  &lt;li&gt;Collaborate;&lt;/li&gt;
+  &lt;li&gt;Procrastinate on Twitter;&lt;/li&gt;
+  &lt;li&gt;Stay health;&lt;/li&gt;
+  &lt;li&gt;Have fun.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Although practitioners have been discussing about this for a long time (for instance,
-the ThoughtWorks tech radar recently recommended putting this antipattern on
-“Hold” two years ago), little research has been devoted to understand how does this
-antipattern  happens in the real world. We dedicated an entire paper to study
-how common are open source projects that face CI theater. We explored four research questions:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/qoy0t21l4kxazo2/sample.pdf?dl=0&quot;&gt;There is a sample of the book, including the chapter that describes the first habit.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;RQ1. How common is running CI in the master branch but with infrequent commits?&lt;/strong&gt; &lt;br /&gt;
-&lt;strong&gt;Rationale.&lt;/strong&gt; One of the main advantages of CI systems is that they decrease the pain of merging new changes. This relief comes from the practice of merging continuously. However, sometimes software engineers opt not to integrate continuously (e.g., they take too much time working on a separate branch and only after days of work they apply the changes in the master branch). Practitioners have baptized the bad practice of working in silos—either in their local branches or remote branches—as ‘‘Continuous Isolation’’.&lt;br /&gt;
-&lt;strong&gt;Answer.&lt;/strong&gt; We empirically defined the value of our metrics for infrequent commits as 2.36 commits per weekday. We then found that 60% of the studied projects have less than 2.36 commits, suffering from infrequent commits. The size of the project has no influence on the (in)frequency of commits. Large Ruby projects, however, are the most active ones and do not adhere to this rule.&lt;/p&gt;
+&lt;p&gt;A natural question that the reader would ask is: why you mention 1+5 habits instead of just six habits? Well, because I believe the first one is not a habit, but an obligation. If you don’t do your homework, you can hardly move forward. Therefore, the other habits do not make much sense. Simple like this.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;RQ2: How common is running a build with poor test coverage?&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;Rationale.&lt;/strong&gt; Test coverage measures how much of a software project is exercised during testing. If a project has a fragile test suite (and consequently a low test coverage), new changes that clearly introduce bugs are potentially not caught during build time. Therefore, CI systems offer little help in software projects that do not carefully build their testing arsenal. Although many criteria were introduced to measure code coverage, roughly speaking, test coverage is measured by the number of lines of code exercised by test cases divided by the total number of lines of code.&lt;br /&gt;
-&lt;strong&gt;Answer.&lt;/strong&gt;  We found 51 projects in our dataset that have records on &lt;a href=&quot;https://coveralls.io/&quot;&gt;Coveralls&lt;/a&gt;. Although the overall coverage was 78%, the coverage of Java and Ruby projects differs greatly. The average code coverage of Ruby projects was 86%, whilst for Java projects it was 63%. This suggests that although poor test coverage exist, a significant number of studied projects take care of their code coverage.&lt;/p&gt;
+&lt;h2 id=&quot;100-of-the-sales-to-combatcovid-19&quot;&gt;100% of the sales to combat COVID-19&lt;/h2&gt;
+&lt;p&gt;For the first 90 days, I will donate 100% of the sales to UFPA hospitals that are in the front line fighting COVID-19 (excluding taxes and fees). I will make everything transparent in &lt;a href=&quot;http://www.gustavopinto.org/books/good-rearch-habits/&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;RQ3. How common is allowing the build to stay broken for long periods?&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;Rationale.&lt;/strong&gt; Here we sought to investigate how common and how long broken builds stay broken in our dataset. A broken master is particularly undesirable because it may block features from rolling out (i.e., a faulty commit needs to be detected and rolled backed). Notable practitioners, such as &lt;a href=&quot;https://www.martinfowler.com/articles/continuousIntegration.html&quot;&gt;Martin Fowler&lt;/a&gt;, have suggested that ‘‘if the mainline build fails, it needs to be fixed right away’’, making a broken build an urgent, high priority task. However, if broken builds stay red longer than this, it may suggest that projects maintainers may not be taking into account the build status and, perhaps, releasing software with bugs. Still, if developers work on a faulty master, their productivity may get hampered substantially.&lt;br /&gt;
-&lt;strong&gt;Answer.&lt;/strong&gt; We observed that 85% of the analyzed projects have at least one build that took more than four days to be fixed. This finding is particularly unfortunate since broken builds that take several days to be fixed may introduce an additional burden (or distrust) on the development team. Interestingly, we observed that large projects (either Java or Ruby) have less instances of long to be fixed broken builds than smaller projects. These long to be fixed builds, on very small projects, are fixed, on average, in 40 days, which is strong smell of the CI theater.&lt;/p&gt;
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+&lt;p&gt;In research works, we always have many limitations. This book is no different.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;RQ4. How common are long running builds?&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;Rationale.&lt;/strong&gt; In this final research question, our intention is to explore how long take the builds in our dataset to process. The whole point of Continuous Integration is to provide rapid feedback. Advocates from the XP practices provide a general rule of thumb suggesting that, for most projects, 10 minutes is an expected metric. According to &lt;a href=&quot;https://www.martinfowler.com/articles/continuousIntegration.html&quot;&gt;Fowler&lt;/a&gt;, ‘‘it’s worth putting in concentrated effort to make [the ten minutes rule] happen, because every minute you reduce off the build time is a minute saved for each developer every time they commit.’‘&lt;br /&gt;
-&lt;strong&gt;Answer.&lt;/strong&gt; In order to provide quick feedback, builds should be executed under 10 minutes. We found only 43 projects that do not adhere to this general rule of thumb. As an exception to this rule, we found 43 very large and complex projects, such as  the JRuby (the Ruby implementation for the Java VM) or the Facebook Presto (a distributed SQL query engine for big data), that have builds which take longer than 30 minutes. In spite of these cases, this symptom of the CI theater was hardly observed.&lt;/p&gt;
+&lt;p&gt;First, one avid reader would quickly realize that the writer of this book is a young researcher himself, so his habits might be limited due to his little experience in conducting research projects. I wholeheartedly concur. Therefore, this book may be more attractive to really young scholars, such as undergraduate and graduate students.&lt;/p&gt;
 
-&lt;p&gt;If you want to know more about this study, you can read the preprint available &lt;a href=&quot;https://arxiv.org/abs/1907.01602&quot;&gt;here&lt;/a&gt;, and the data is also available as a Jupyter notebook &lt;a href=&quot;https://github.com/wagnernegrao/ci-analysis/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of an ESEM'19 paper</summary></entry><entry><title type="html">Tips on how to find a phd advisor</title><link href="http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor/" rel="alternate" type="text/html" title="Tips on how to find a phd advisor" /><published>2019-05-27T00:00:00-03:00</published><updated>2019-05-27T00:00:00-03:00</updated><id>http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor</id><content type="html" xml:base="http://localhost:4000/blog/Tips-on-how-to-find-a-phd-advisor/">&lt;p&gt;Here and there I have been asked whether or not one should apply to a PhD position. After thinking for a while in these questions, I perceived that they can be translated to a single question: “should I apply for this position at University X”. This question is obviously important, because the decision to go to University X instead of University Y can pretty much drive your PhD. For instance, if University X does not provide basic funding to cover your expenses, it would be much more difficult to finish a PhD. However, if funding is guaranteed, the decision should not be taken in terms of the place you are going, but instead with who you will be working.&lt;/p&gt;
+&lt;p&gt;Second, I cannot claim that the ideas that I discuss in this document are anything new. On the contrary, many have been discussed since the early days of research and documented in many books by many authors in many research fields. Perhaps, the main benefit of this book is to have these ideas summarized in a single place.&lt;/p&gt;
 
-&lt;p&gt;For sure, it will be very impressive to state in your CV that you have a degree from that top notch university. These universities may also have beautiful labs, with a lot of funding for your research. You may also have family or close relatives that live in the city that you are planning to move, and this would greatly reduce the transaction cost. However, in my rather little experience, the most important factor is your advisor. What if your advisor is a very busy person, that needs to coordinate several projects, and several people? What if your advisor is not a very friendly person? What if your advisor is planning to do some startup and now does very little research?&lt;/p&gt;
+&lt;p&gt;Third, as a software engineering professor and researcher, my views are shaped based on my interactions with this community. Although I believe that some researchers in other areas could see some value here and there, it is not clear to me how my “1+5 habits” would generalize to other research fields.&lt;/p&gt;
 
-&lt;p&gt;In other words: Is it worth to work in the top CS school in the world if you advisor is not available to support you accordingly?&lt;/p&gt;
+&lt;p&gt;Finally, this book is based on my own experience and views. It does not reflect the opinions of my employer, etc.&lt;/p&gt;
 
-&lt;p&gt;Moreover, for many kind of research works (at least in software engineering) you may not need a multi million dollar cluster neither thousands of dollars to travel for field study. That’s awesome if you have. But if you don’t, it is not the end of the work. You can also find some very interesting research topics that you can work on your 2013 notebook.&lt;/p&gt;
+&lt;h2 id=&quot;about-theauthor&quot;&gt;About the author&lt;/h2&gt;
+&lt;p&gt;Gustavo Pinto is a software engineering researcher and professor at the Federal University of Pará, Brazil. Gustavo Pinto is a young scholar himself. He got his Ph.D. from the Federal University of Pernambuco, Brazil, in 2015. Since them, he became a fairly active researcher in his research community, which could be noticed by his 60+ papers published, 1,000+ citations, and five awards. Know more online at &lt;a href=&quot;http://www.gustavopinto.org&quot;&gt;www.gustavopinto.org&lt;/a&gt; or follow him on Twitter (&lt;a href=&quot;http://www.twitter.com/gustavopinto&quot;&gt;@gustavopinto&lt;/a&gt;).&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">Promoting a book</summary></entry><entry><title type="html">Why the MIT licensed is 18x more used then GPL-3?</title><link href="http://localhost:4000/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3/" rel="alternate" type="text/html" title="Why the MIT licensed is 18x more used then GPL-3?" /><published>2020-04-20T00:00:00-03:00</published><updated>2020-04-20T00:00:00-03:00</updated><id>http://localhost:4000/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3</id><content type="html" xml:base="http://localhost:4000/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3/">&lt;p&gt;&lt;a href=&quot;http://gum.co/demystifying-oss-licensing&quot;&gt;I am writing a book to make open source licensing easier to understand!&lt;/a&gt;
+&lt;script src=&quot;https://gumroad.com/js/gumroad.js&quot;&gt;&lt;/script&gt;
+&lt;a class=&quot;gumroad-button&quot; href=&quot;https://gum.co/demystifying-oss-licensing&quot; target=&quot;_blank&quot;&gt;I want this!&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;IMO, More important than this is actually an advisor that could properly guide your work. That can devote some week hours to talk to you. That trust on you. That help you.&lt;/p&gt;
+&lt;center&gt;
+***
+&lt;/center&gt;
 
-&lt;p&gt;Unfortunately, it may be very hard to note these qualities in a person that you may not even know in person. Next are some tips that may give a hint along these lines.&lt;/p&gt;
+&lt;p&gt;There are dozens or even hundreds of open source licenses available out there. More generally speaking, these licenses can be grouped in two groups: permissive licenses and restrictive licenses. On the permissive group, perhaps the MIT license is one of the most common one. On the other group, GPL is one of the most important restrictive licenses.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Find his/her personal webpage&lt;/strong&gt;: This is the very first rule of thumb. If your prospective advisor does not have a webpage, he may be very, very busy. Important: webpages such as Google Scholar or DBLP are not personal webpages. The bare minimum personal webpage should clearly make available his/her email address. If one does not provide a way to others contact him/her, s/he may not want to receive your contact.&lt;/p&gt;
+&lt;p&gt;Which one is the most common used in open source projects?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Talk to his/her former students&lt;/strong&gt;: Former students are an excellent source of information. Perhaps no one knows better than them how their former advisor works and behaves. Important: many advisors made available a list of his/her former students. This list can be available on the advisor personal webpage, or on their CVs. Cold email a bunch of former students and ask their perceptions regarding work with your prospective advisor. Many former students will be glad to help (in particular if they enjoyed the time that they worked with your prospective advisor. Moreover, there is nothing wrong to ask for an insider opinion (your prospective advisor does the same when he asks for recommendation letters).&lt;/p&gt;
+&lt;p&gt;Although the question is easy to pose, it is not necessarily easy to answer, mainly because the multiple threats hidden when analyzing license usage in open source projects.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Follow him/her in a social network&lt;/strong&gt;: As of today, Twitter is probably the de facto on line way that researchers broadly communicate with their peers. Obviously email plays a role. However, email is private and you can hardly interact with someone else who is already having a discussion. But you can do this on Twitter. If your prospective advisor has a Twitter account, follow him/her to get a glimpse about what he thinks about many things. Whenever possible, interact with him/her.&lt;/p&gt;
+&lt;p&gt;First because there is not a single coding hosting website that hosts all open source projects. Although GitHub is one of the most common alternatives, many open source projects are hosted in the community git repository, in other repositories such as the Debian package archive, and GNU Project FTP archive, etc.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Ask for an Skype meeting&lt;/strong&gt;: A short online meeting can help a lot. If you have a negative answer, this may indicate a carelessness. Even very busy/famous professors can find the time for a quick online meeting. However, before the meeting, think about 3–5 question to ask the professor. Asking questions may indicate an interest on you side. If you have no interest, why should s/he have?&lt;/p&gt;
+&lt;p&gt;Second, because in order to understand open source license usage in scale, we should rely on tools that infer the license used. This process is not always precise because developers often state open source licenses in different ways. For example, while some developers declare their licenses as a comment in the header of every source code file, other developers just cite the license used for the whole project within the README file. Moreover, some developers copy and paste the full text of the license, whereas other developers might only mention the name of the license.&lt;/p&gt;
 
-&lt;p&gt;Good luck.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Look for active internet users</summary></entry><entry><title type="html">What I think about teaching</title><link href="http://localhost:4000/blog/teaching-open-source-software/" rel="alternate" type="text/html" title="What I think about teaching" /><published>2019-05-14T00:00:00-03:00</published><updated>2019-05-14T00:00:00-03:00</updated><id>http://localhost:4000/blog/teaching-open-source-software</id><content type="html" xml:base="http://localhost:4000/blog/teaching-open-source-software/">&lt;p&gt;Although I am a professor, teaching is not the part of my work that I love the
-most. I do like teaching, but I do not love teaching. And when I have a heavy
-teaching working, I tend to enjoy it even less. Some reasons because teaching is
-just OK to me: teaching (preparing material, teaching itself, grading, etc)
-takes a lot of time; we have little to no feedback (students rarely comment if
-the class was amazing or terrible); students are not always
-engaged with the class, etc.&lt;/p&gt;
+&lt;p&gt;Given these limitation, we could still try to infer the open source license usage in practice by, for instance, using GitHub data stored on Libraries.io (an service that curates metadata from open source projects hosted in several package managers). Libraries.io provides data  available on Zenodo. Using this data, we inferred license usage as one could be see next.&lt;/p&gt;
 
-&lt;p&gt;I have tried some approaches to try to improve students’ engagement, but this
-blog post is not about this.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Using &lt;a href=&quot;https://twitter.com/librariesio?ref_src=twsrc%5Etfw&quot;&gt;@librariesio&lt;/a&gt; data to investigate the most common open source licenses used in practice.&lt;br /&gt;&lt;br /&gt;Permissive licenses (MIT, Apache, BSD) are by far the most used ones. &lt;br /&gt;&lt;br /&gt;Want to know why and the implications behind this? Consider supporting this book ~&amp;gt; &lt;a href=&quot;https://t.co/WBQzzxP1oK&quot;&gt;https://t.co/WBQzzxP1oK&lt;/a&gt; &lt;a href=&quot;https://t.co/nkozzNw643&quot;&gt;pic.twitter.com/nkozzNw643&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/1251939815488135173?ref_src=twsrc%5Etfw&quot;&gt;April 19, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;When I was a student, I liked to participate in meetups and local conferences to
-give talks. The act of be in the front of several people (probably more skilled
-and experienced than me), teaching than something new, was vibrant to me.
-I loved that feeling. As a consequence,
-I tried my best to give a good presentation. I read books about how to give a talk.
-I attend a course on how to speak in public. I practice the talk many, many times
-before delivering the talk.  I liked not only giving the talk itself,
-but the process to prepare the talk (working on the slides, thinking about the
-best words, looking for good figures, etc). I could easily spent many hours working
-on a single talk that I could deliver in 20 minutes or less. And this made completely
-sense to me.&lt;/p&gt;
+&lt;p&gt;As one could see, permissive licenses are by far the most used one. Indeed, MIT is the most used license, appearing in more than 812k open source projects. Apache 2.0 comes next, appearing in 465k projects. BSD-3, also a permissive license, appears next, licensing 71k projects. These three licenses (MIT, Apache 2.0, and BSD-3) are used in about 70% of the overall open source license usage. On the other spectrum of this figure, one could see that the GPL family of licenses (GPL-2, GPL-3, AGPL-3, LGPL-3) comprehends around only 5% of the overall license usage.&lt;/p&gt;
 
-&lt;p&gt;However, when I am preparing the classes material, I tried my best to do that
-as fast as possible. Not fast to the point to have a crap material, but also far
-from having a perfect material. If I could grade my classes material, I may give
-six or even five in a scale from zero to ten. It is true that I do not have the
-same amount of free time available that I had when I as a student, so
-obviously, I could not employ many hours to create the materials for a single class.
-Then I could naively lie to myself thinking that my classes materials are not
-great because I do not have the time to curate the materials. However, even if I
-had the time, I believe I would not make much progress to improve its quality.&lt;/p&gt;
+&lt;h2 id=&quot;why-is-this-happening&quot;&gt;Why is this happening?&lt;/h2&gt;
 
-&lt;p&gt;However, when it comes to delivering the lecture, there is a whole new figure.
-I still enjoy a lot being in the front of a room explaining things, over and over again.
-I try my best to give a good lecture. I try my best to show to student how
-beautiful and exciting is one given concept. But that is it. After the lecture,
-I still have to grade exams, create or improve the materials, prepare exercises,
-and so on. And all of this is just boring to me.&lt;/p&gt;
+&lt;p&gt;According to a 2016 survey with about 3,400 participants, it is estimated that 67% of the surveyed companies actively encourage developers to engage in and contribute to open source software. This shows a clear commercial interest in open source projects. However, some researchers also believe that GPL is not the most appropriated choice for a business that relies on open source.&lt;/p&gt;
 
-&lt;p&gt;And that was true till this semester.&lt;/p&gt;
+&lt;p&gt;Even though software licensed under GPL can be used (and even modified) in corporate environments, software companies should be aware of the characteristics of GPL. In particular, the key feature of GPL is that it restricts the terms of distribution of derived works. If any software company incorporates any source code licensed under GPL, the company must license the software products it sells that use GPL code under GPL as well.&lt;/p&gt;
 
-&lt;p&gt;This semester I am teaching Open Source Software Development.&lt;/p&gt;
+&lt;p&gt;GPL, created by the Free Software Foundation (FSF), is the principal copyleft license. The GPL license has the ultimate goal of making software 100% free for everyone. This decision of going 100% free is actually a challenge for business that may not always could support providing 100% of their code to the public (for instance, have you ever seen the actual Google implementation of its search engine?). As a consequence, some business might be not comfortable in using a license that is very aligned with such goals.&lt;/p&gt;
 
-&lt;p&gt;Open source software is something that interest me a lot. During my early days
-in my undergrad course, I was an intern in a local internet provider. This was
-a very interesting experience, mainly because it was my first contact with Linux.
-I learned a lot of bash programming using vi. I also learned to set up several
-network services, and I became very interested in computer network stuff. Several
-colleagues of mine went to grad school to study computer network, and I had no idea
-how I became a software engineering guy. I started to use Linux at home (a Brazilian
-distribution called &lt;a href=&quot;https://www.hardware.com.br/kurumin/&quot;&gt;Kurumin&lt;/a&gt;), and I also
-volunteered to install Linux in several places (something that today is called
-“Linux Install Fest”). I did my master in a school that was all about open source.
-I remember that they were very proud to state everywhere that they only had a single
-Windows machine because of a CAPES requirement. Other than that, it was all about
-Linux. Even thought I was never an active contributor (although I have contributed
-here and there), I enjoy that culture. I enjoy to participate in open source
-events, to discuss about open source, and to spend an afternoon trying to install
-one driver.&lt;/p&gt;
+&lt;center&gt;
+***
+&lt;/center&gt;
 
-&lt;p&gt;During my PhD I moved focus a bit, and did not spent much time with open source.&lt;/p&gt;
+&lt;p&gt;Do you want to know more about open source licensing and some hidden problems behind it? Please consider supporting my book on &lt;a href=&quot;https://gumroad.com/l/demystifying-oss-licensing&quot;&gt;Demystifying Open Source Licensing&lt;/a&gt;, to be self-published in late July 2020.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">GPL restricts the terms of distribution of derived works’</summary></entry><entry><title type="html">What can go wrong when one misuses open source licenses?</title><link href="http://localhost:4000/what-can-go-wrong-when-one-misuses-open-source-licenses/" rel="alternate" type="text/html" title="What can go wrong when one misuses open source licenses?" /><published>2020-04-14T00:00:00-03:00</published><updated>2020-04-14T00:00:00-03:00</updated><id>http://localhost:4000/what-can-go-wrong-when-one-misuses-open-source-licenses</id><content type="html" xml:base="http://localhost:4000/what-can-go-wrong-when-one-misuses-open-source-licenses/">&lt;p&gt;&lt;a href=&quot;http://gum.co/demystifying-oss-licensing&quot;&gt;I am writing a book to make open source licensing easier to understand!&lt;/a&gt;
+&lt;script src=&quot;https://gumroad.com/js/gumroad.js&quot;&gt;&lt;/script&gt;
+&lt;a class=&quot;gumroad-button&quot; href=&quot;https://gum.co/demystifying-oss-licensing&quot; target=&quot;_blank&quot;&gt;I want this!&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;After my PhD, I became again involved with open source, but now on the
-research side. The research works that I did with open source projects and
-communities seemed to be more
-aligned with the industry practice, which was something that I was very concerned about.
-It suddently became my main research topic; the literature that I am more
-familiar with. For me, it is easy to talk about open source.&lt;/p&gt;
+&lt;p&gt;Open source licenses create a legal framework that play key role on the widespread adoption of open source projects. Any open source project must be released under one (or more) open source license. Without a license, any source code available on the internet could not be openly (re)distributed.&lt;/p&gt;
 
-&lt;p&gt;I was luck to have a colleague in my university that shares the same passion
-about open source that I had. This colleague is not an open source researcher;
-instead, he is an active open source hacker. He does the things that I study.
-He has the practice that I describe in my research papers. The next logical step
-was obviously to create this open source development course.&lt;/p&gt;
+&lt;p&gt;As a natural consequence, open source licenses is one of the most important non-executable piece of any open source software project. Open source licenses not only drive how one can use an OSS but also ensure to what extent others can reuse it.&lt;/p&gt;
 
-&lt;p&gt;The experience I had building this course was completely different than any other course
-I created. First because I started to create the material many months before the
-course. Second because I reread many of the fundamental books in this discipline
-(e.g., the cathedral and the bazaar). Third because I look forward to the class.
-Needless to say that I enjoy very much give the lecture.&lt;/p&gt;
+&lt;p&gt;However, due to its non-technical nature, developers often misuse or misunderstand open source licenses. I believe there are at least &lt;em&gt;three&lt;/em&gt; reasons that may justify this fact.&lt;/p&gt;
 
-&lt;p&gt;This might be obvious to the reader, but it only became clear to me lately:
-I like teaching this course because it is about something that I enjoy a lot.
-I do enjoy learning about data structures or databases, but I do not have very interesting experiences
-with them (other than using them to create ordinary software). I also do not do
-research on these topics. I am also not that familiar with the fundamental books
-nor the newest literature. I teach these courses because I have to teach.&lt;/p&gt;
+&lt;p&gt;First, the vocabulary used in open source licenses are not part of the developers daily vocabulary, so it may require developers to gain additional knowledge to understand software licensing.&lt;/p&gt;
 
-&lt;p&gt;Lesson learned? Try to teach the subject that you like the most. If
-that is not possible, try to expand your research interests to cover the
-disciplines that you are teaching.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">and how to enjoy it more</summary></entry><entry><title type="html">Why blogging in academia is important</title><link href="http://localhost:4000/blog/why-blogging-is-important/" rel="alternate" type="text/html" title="Why blogging in academia is important" /><published>2019-04-29T00:00:00-03:00</published><updated>2019-04-29T00:00:00-03:00</updated><id>http://localhost:4000/blog/why-blogging-is-important</id><content type="html" xml:base="http://localhost:4000/blog/why-blogging-is-important/">&lt;p&gt;Researchers are busy people. We always have many things to do, and we often
-delay in delivering our projects. How many times did you receive an email that
-started with “sorry for this late response”, or perhaps an email that was not
-even answered? This behavior is so normal in academia that we do not think this
-is strange anymore.&lt;/p&gt;
+&lt;p&gt;Second, there are hundreds of open source licenses readily available for developers use. Indeed, many of these licenses are quite similar, differing by just one or two minor changes in the license text. Since developers are always busy, they might have very limited time to catch and understand these corner cases.&lt;/p&gt;
 
-&lt;p&gt;Since we are so deeply involved in our projects, we have little to no time to
-take care of side projects that may not lead you to that tenure that you often
-dream about. More concretely, if the project does not help a researcher to improve her metrics,
-such as number of citations or number of publications, chances are that this
-project may be delayed, or even abandoned. This is why blogging in academia is
-so hard. Because blogging will not help you to get tenure, to get that paper
-accepted, or to help your research be funded. On the contrary, blog will take
-away that precious time that you could invest in things that will, indeed, improve
-your performance counters.&lt;/p&gt;
+&lt;p&gt;Third, many of the text books about open source licensing devote a good proportion of the document to explain the concepts, ideas, and differences between the existing open source licenses. However, developers might also have a hard time relating how these abstractions could make any sense in their daily activities.&lt;/p&gt;
 
-&lt;p&gt;However, blogging in academia is extremely important. Think about that researcher
-that you admire the work she does. How cool would be if she would write blog
-posts describing the process that she use to find new ideas, or how she hire students,&lt;br /&gt;
-or how to deal with their problems, what she does to recover from paper deadlines,
-what she thinks about conferences, journals, etc. When you blog, you let people
-know more about not only your work, but also you. These conversations are, however,
-natural in conferences. But if you blog, you help someone that does not have
-funding to attend a conference. When you blog, you also spread your voice to
-many more people than you could reach in a conference. Think you as a young
-student. How amazing it would be to see yourself facing the same problems
-(or perhaps conceiving the same ideas) that a well known researcher,
-with many more years of experience, in that top university, also face. We are
-all human, we all face problems. But blogging makes it transparent.&lt;/p&gt;
+&lt;p&gt;In this book I argue that the lack of a clear understanding of software licensing could challenge the existence of any open source software project.&lt;/p&gt;
 
-&lt;p&gt;Blogging is also a tech transfer channel. Since blog posts are shorter than most
-academic research papers, readers can read all your blog posts in a small amount
-of time, and then could get a much better perception about the kind of work you
-like to do. None of this could be accomplished  with research papers solely (OK, you
-can learn about ones work while reading his papers, but it would take much,
-much  more time). Blogging can also spread your findings faster. Say, instead
-of sharing your beautiful research paper with practitioners, why don’t you write
-a blog post summarizing the key findings, and share these findings (in a much
-better format) with them? Blogging can also help you to improve your writing
-skills, which is particularly valuable for those (like me) who are not from
-English speaking countries.&lt;/p&gt;
+&lt;p&gt;Let me give the reader one example.&lt;/p&gt;
 
-&lt;p&gt;The paradox: I know that blogging is important and I do really want to blog more.
-However, blogging tasks a good amount of time that I could use to work or to stay
-with my family. &lt;strong&gt;To keep blogging, however,, I made a deal with myself: I will not revise any of
-my blog posts&lt;/strong&gt;. That is, after I am done with what I consider the first draft,
-I will post it immediately. I took
-this decision because revising and editing could take as much as or even more time
-than the first draft itself. For instance, if I need one hour to write one blog post, it would actually
-mean two hours, at least: one for writing, one for revising.&lt;/p&gt;
-
-&lt;p&gt;I am aware that many
-posts here have typos and strange wording. But I believe it is better to have
-blog posts with writing issues rather than no blog post. Although not polished,
-I think these blog posts serve their proposes: which is to communicate.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">or why these posts have typos?</summary></entry><entry><title type="html">Changing roles in the academic system</title><link href="http://localhost:4000/blog/changing-roles-academic-system/" rel="alternate" type="text/html" title="Changing roles in the academic system" /><published>2019-04-11T00:00:00-03:00</published><updated>2019-04-11T00:00:00-03:00</updated><id>http://localhost:4000/blog/changing-roles-academic-system</id><content type="html" xml:base="http://localhost:4000/blog/changing-roles-academic-system/">&lt;p&gt;I have been reflecting on the roles that I took in academia over these last 10+
-years and I finally decided to write them down. I believe I have passed through at
-least four different roles in the academic system. These roles are informal and
-they only exist in my mind. I may have spent 3–4 years in
-each role. The roles follow a very sequential process: you only pass to the
-next one when you pretty much understand the current one. Interestingly, there
-is no one that says that you should pass thought all these roles, in this order.
-They just happen to happen to be like this. At least it happened to me.&lt;/p&gt;
-
-&lt;p&gt;The roles are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Understanding what is research&lt;/li&gt;
-  &lt;li&gt;Learning how to do research&lt;/li&gt;
-  &lt;li&gt;Conceiving research questions&lt;/li&gt;
-  &lt;li&gt;Helping other to do research&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Although I worked in several tech companies during my undergraduate studies,
-I did not have an opportunity to experience research.
-Therefore, I only started to scratch the research world in my masters. I started
-my masters in 2008 and finished in 2010, so I that I played my first academic
-role (&lt;strong&gt;understanding what is research&lt;/strong&gt;) during this time window. In this particular
-role, my main obligation was to understand what research is all about. Since I had zero
-research experience, but reasonable industry experience, I had that feeling that
-research as about creating software (eg, if I create a software that does X, I
-would be able to graduate). I remember my former advisor telling me that I should
-work on something that the industry is not yet doing (and not doing the same thing
-that industry was doing). I also remember that it was quite difficult to understand
-what she meant by this (doing a thing that this great company is not doing? what?
-how could this be even possible?). By that time, my comprehension about research
-improved, but was still opaque. The problem that I worked during my masters was
-also a kind of challenge-free, so I knew that if I could implement the stuff that
-I was supposed to implement, I was good to go. For me, research was a lot of work
-and little to no reward. In this sense, research was pretty much what I  experienced
-in industry, not to mention the hassle of being a student with little income.&lt;/p&gt;
-
-&lt;p&gt;I finished my masters in 2010 with this rough notion of research, and still in
-2010 I get back to the industry. I nevertheless started my phd one year later,
-in 2011. I have to say that I started my phd still trying to understand what is
-research. I eventually figured out that research is about understanding the unknown.
-It is not about creating software solely, but to create software to test hypothesis.
-I do not remember how I sorted this out, but I believe it was due to the fact
-that my phd advisor often asked me to do more than one research work. These works
-were done in collaboration with other students and professors, and were targeting
-different research topics. All of this contribute to build my research understanding.
-The next logical step was to &lt;strong&gt;learn how to do research&lt;/strong&gt;. This is not to say that
-I did not do research in my master. I did. However, I did not have the conscious
-understanding that what I did was research. For me, it was all about engineering.
-Moreover, I have to say that it was a lot of effort to understand how to do research.
-Although I have published some papers here and there in the first two years of my
-phd (most of them in collaboration with other students, as aforementioned), my
-phd thesis was pretty much empty. My first paper related to my thesis was accepted
-only in my third year. Why was that? Because it took me a really while to find a
-problem. My advisor was really open about anything, but I was in charge of looking
-for interesting problems to find answers to. This process of conceiving problems
-turned out to be incredibly difficult. During the first 1–2 months, you dedicate
-yourself to read the literature, and you figure out that you do not know anything.
-After many other months of intense reading, you start to comprehend the landscape
-of one very particular part of the literature. At this moment, it seems that every
-interesting question already had an answer. It seems that every interesting piece
-of work that worth doing is already done. This lack of comprehension of “what to
-do next” is a symptom of this second role: I understood what research was about, but
-I did not know how to do it. The solution now is clear: I have to ask new questions.
-Ask a new question is easy. Ask a good new question is hard. Ask an unique question
-is harder. Ask an unique question that could give you a phd title is even harder.&lt;/p&gt;
-
-&lt;p&gt;I eventually I ended up with some research questions during my phd (some of them
-borrowed from the literature, some other stated my by former advisor, etc), but
-I believe I only started to understand how to &lt;strong&gt;conceive research questions&lt;/strong&gt;
-after my phd. We can go to a bar and some hours after come back with a list of
-research questions. But how do you know which one will not lead you to a dead end?
-Or how do you know that this research question was not already asked in that bedrock
-paper from the 80s? How do you know reviewers will care about this research question?
-Will readers care about this research question 10 years from now? Will you care
-to finish a research paper that has this particular research question? There are
-many other questions related to the importance of the research question. And to
-conceive good research questions, you should care about these other questions.
-Every single time. One may say: “yo, I can write a paper without thinking too
-much about research questions”. Yes, of course you can do. In particular if you
-are working on a subject that you know a lot (you know the open questions). You
-can also read the “future work” section of the most important papers in your area
-to easily grasp other research questions. However, one key aspect of conceiving
-research questions is to find something that &lt;strong&gt;&lt;em&gt;you&lt;/em&gt;&lt;/strong&gt; would love to do. More
-importantly, regardless if the question is unique, unanswered, timely, beautiful,
-etc., would you trade your precious time to find an answer to it? It is not about
-finishing a masters or a phd. It is about doing work that matter (at least to you).
-Ultimately: look for question that keep your eyes open, day and night.&lt;/p&gt;
-
-&lt;p&gt;Finally, the last role, which is the one that I am pursuing now, I believe, is
-about &lt;strong&gt;teaching other to do research&lt;/strong&gt;. The goal now is not to have your paper
-accepted at that top conference, but, instead, helping others to have their papers
-accepted as well. Since I am just starting this role, I have little to share. But
-one thing that I am thinking is that: since these roles last for about 3–4 years
-each, which role comes next?&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">from student to scholar and more</summary></entry><entry><title type="html">How to send a student to attend ICSE (with zero budget)</title><link href="http://localhost:4000/blog/how-to-sent-a-student-to-icse/" rel="alternate" type="text/html" title="How to send a student to attend ICSE (with zero budget)" /><published>2019-03-31T00:00:00-03:00</published><updated>2019-03-31T00:00:00-03:00</updated><id>http://localhost:4000/blog/how-to-sent-a-student-to-icse</id><content type="html" xml:base="http://localhost:4000/blog/how-to-sent-a-student-to-icse/">&lt;p&gt;This year, an undergraduate student of mine first-authored a paper in the &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2019c.pdf&quot;&gt;MSR
-challenge track&lt;/a&gt; on the
-presence of violations in JavaScript code snippets available on StackOverflow.
-This blog post is an attempt to summarize all the steps taken to find a way
-to send the student to attend the conference (and present his paper). Perhaps
-it could help some other students to make it to ICSE.&lt;/p&gt;
-
-&lt;p&gt;Overall, my student applied to four sources of funding: the &lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-Student-Volunteers&quot;&gt;student volunteers&lt;/a&gt;, the
-&lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-Software-Engineering-Mentoring-Workshop&quot;&gt;Software Engineering Mentoring Workshop (SMeW)&lt;/a&gt;, the &lt;a href=&quot;https://www.sigsoft.org/resources/caps.html&quot;&gt;CAPS SIGSOFT&lt;/a&gt; grant, and an internal grant in my
-university. I will detail each one of them next.&lt;/p&gt;
-
-&lt;p&gt;As far as I can tell, the student volunteer program happens every single year in
-ICSE (and also happens in several other software engineering conferences, such as
-ICSME and ASE). In ICSE, an accepted student volunteer receives a free registration
-for the main conference, but could also be scheduled to work in the co-located
-events (granting one-two more registration days). Therefore, applying for student
-volunteer greatly reduces one of the most costly part of attending a conference:
-the conference registration. Besides of it, students volunteers also have an unique
-opportunity to meet senior researchers that run the student volunteer program,
-and also other students (which could ended up in new research opportunities).
-I myself participated as a student volunteer in three conferences (2 OOPSLAs and
-one ICSE); I could not recommend more.&lt;/p&gt;
-
-&lt;p&gt;Moreover, this year there is the Software Engineering Mentoring Workshop. This
-workshop is intended to “attract students to research careers in software engineering”.
-I believe this was the first time that this workshop happened in ICSE, although
-similar workshops happen on regular basis on programming language conferences
-(e.g. &lt;a href=&quot;https://pldi19.sigplan.org/home/PLMW-PLDI-2019&quot;&gt;PLMW&lt;/a&gt;). My student applied
-for this grant and received CAD 500,00 plus one day ICSE registration. But since
-he received a free ICSE registration for his work as a student volunteer, this
-one day registration was not used. Now he had enough for registration and hotel.&lt;/p&gt;
-
-&lt;p&gt;Since he had a MSR paper, and was accepted for the mentoring workshop, he applied
-for the CAPS funding. CAPS offer support for students and professionals that need
-additional funding to attend SIGSOFT conferences. I have applied to this grant in
-the past, but since I had received no response for my application, I thought that
-this grant was not working. But I suggest my student to apply to it nevertheless.
-I also discussed this matter on twitter (read thread &lt;a href=&quot;https://twitter.com/gustavopinto/status/1104505538732351490&quot;&gt;here&lt;/a&gt;), and Thomas Zimmermann, SIGSOFT Chair, responded that he would take care of the
-CAPS program. Turns our that my student received USD 400,00 from CAPS (about 50%
-of what he asked for). Although this amount does not fully cover a round trip
-ticket from Belém to Montreal, it amortizes a good proportion of it.&lt;/p&gt;
-
-&lt;p&gt;Finally, I applied for him in an internal travel grant that my university runs
-for undergraduate students. The amount was fixed in around USD 330. Although
-this is a very particular grant from my university, I am aware that other
-Brazilian universities provide similar mechanism to help students. Now his trip
-is fully covered (including eventual meals, ground transportation, travel
-insurance, etc).&lt;/p&gt;
-
-&lt;p&gt;Wrapping up, I am glad that there are many international grants aimed to
-help students to attend software engineering conferences. But the trick thing is:
-if one of these grants does not have a positive outcome, I would have to complement
-his trip out of my own pocket (although I have a small grant running, I could not
-use this grant to support his trip; I will leave this explanation for another blog post).
-If his application was not accepted in two or more grants, his trip would become
-extremely prohibitive. Still, these grants have different application dates
-(and, consequently, notification dates). So eventually the student find himself in a
-position such as: (1) what if I accept this grant but did not receive the other one?
-(2) Could I say “yes” for a grant but eventually say “no” to it due to the lack of
-additional support? (3) should I start making reservations, or should I leave it
-to the last minute (when tickets often become more expensive)?
-These questions are all valid and tough.&lt;/p&gt;
-
-&lt;p&gt;Turn out that the stars in the sky were well aligned the applications were all
-positive. Reflection upon this endeavour, maybe it would be interesting if all
-these programs would have close notification dates to each other.&lt;/p&gt;
-
-&lt;p&gt;Final tip: the &lt;a href=&quot;https://2019.icse-conferences.org/track/icse-2019-ACM-Student-Research#Call-for-Contributions&quot;&gt;ACM Student Research Competition&lt;/a&gt; also rewards the students with accepted papers
-with up to USD 500,00 to help them defray their travel costs. My student did not
-submit to ACM SRC (I may have forgotten; this blog post can help even myself in
-the future).&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">Apply for every single opportunity (and cross your fingers)</summary></entry><entry><title type="html">Characterizing the Roles of Contributors in Scientific OSS Projects</title><link href="http://localhost:4000/blog/characterizing-the-roles-of-contributors-in-scientific-oss-projects/" rel="alternate" type="text/html" title="Characterizing the Roles of Contributors in Scientific OSS Projects" /><published>2019-03-05T00:00:00-03:00</published><updated>2019-03-05T00:00:00-03:00</updated><id>http://localhost:4000/blog/characterizing-the-roles-of-contributors-in-scientific-oss-projects</id><content type="html" xml:base="http://localhost:4000/blog/characterizing-the-roles-of-contributors-in-scientific-oss-projects/">&lt;p&gt;Recently some colleagues and I have been trying to understand the roles of contributors in open source scientific software projects. We studied 7 well-known scientific software projects that were hosted on GitHub (including &lt;a href=&quot;https://github.com/Chaste/Chaste&quot;&gt;Chaste&lt;/a&gt;, &lt;a href=&quot;https://github.com/dib-lab/khmer/&quot;&gt;Khmer&lt;/a&gt;, and &lt;a href=&quot;https://github.com/genn-team/genn&quot;&gt;Genn&lt;/a&gt;). For each selected project, we identified the roles played by different contributors by analyzing each projects’ documentation, websites, and other readily available sources. Using a mix of quantitative and qualitative data, we curate some findings that we believe are interesting for the broad Medium population. Here they are.&lt;/p&gt;
+&lt;p&gt;In 2018, one of the core maintainers of the &lt;a href=&quot;https://github.com/lerna/lerna/&quot;&gt;Lerna&lt;/a&gt; project decided to change a bit the license. The maintainer made a &lt;a href=&quot;https://github.com/lerna/lerna/pull/1616&quot;&gt;pull request&lt;/a&gt; that changed the used MIT license to include &lt;em&gt;restrictive&lt;/em&gt; and &lt;em&gt;retroactive&lt;/em&gt; clauses to users of the Lerna project. With this pull-request, tech companies such as Microsoft, Amazon, Dell, Xerox, Canon, LinkedIn, and few other were not allowed to use Lerna to support their software development activities anymore. The maintainer went further and described that the motivation to perform this change was because these tech companies were collaborating with the US Immigration and Customs Enforcement (“ICE”). On his views, “these companies care only about the millions of dollars that ICE is paying them and are willing to ignore all the horrible things that ICE does.” Although one might think that there are good intentions behind these changes, there are also two problems hidden on it.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Senior researchers tend to be the most active and prolific contributors in terms of commits and file creation.&lt;/strong&gt; In four of the seven projects we studied, faculty and staff contributors were responsible for half or more of commits made to the project (with an average commit share of 72%). In five projects, senior members were also responsible for the majority of files created and, by that measure, the resulting project structure. This influence over the overall direction of the software project was also evident in the fact that senior researchers were the most likely to have interacted with files related to the build system, project metadata, and developer documentation.&lt;/p&gt;
+    &lt;p&gt;First, by restricting the use of the software to certain groups of users, the Lerna would actually be discriminating them. However, non-discrimination is a core value of open source. According to the fifth clause of the &lt;a href=&quot;https://opensource.org/osd-annotated&quot;&gt;Open Source Definition&lt;/a&gt;, the “license must not discriminate against any person or group of persons”.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Junior contributors, especially graduate students, are critical drivers of new features as well as supporting activities like test creation.&lt;/strong&gt; On average, junior contributors were responsible for 42% of commits across all projects we studied; in one case, juniors were responsible for nearly 100% of all commit activity. The majority of these commits came from graduate students, who had the longest contribution periods among juniors (with 1.72 years of commit activity compared to 0.98 years for postdocs and 4 months for undergraduates). Similar to senior contributors, junior contributors are significantly involved in creating new features, improving existing capabilities, and fixing bugs.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;An open-source model facilitates external contributions, but the results are mixed.&lt;/strong&gt; On one hand, an open- source model makes it easier to attract third parties to help grow and maintain the software. However, the software is also made for and by members of a relatively niche and intensely preoccupied community. In the majority of projects we studied, third party contributors tended to be domain expert users who were only active for one day. We also note, however, that these same contributors are more likely to offer defect-correcting commits, which is highly valuable.&lt;/p&gt;
+    &lt;p&gt;Second, there is no such thing such as a retroactive license change. Yes, you can change the license, but it would only work for new users, using the new release of your open source software. You cannot change a license expecting the existing users would be affected. These existing users could keep using the old version of your software (with the previous license), and this is just fine.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If you want to know more about this study, you can read the preprint &lt;a href=&quot;http://gustavopinto.github.io/lost+found/msr2019b.pdf&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email><uri>http://www.gustavopinto.org</uri></author><summary type="html">A summary of a MSR'19 paper</summary></entry></feed>
+&lt;p&gt;This single pull-request had several repercussions.&lt;/p&gt;
+
+&lt;p&gt;Eric Raymond, the author of the famous “The Cathedral and the Bazaar” and one of the creators of the Open Source Initiative, also shared &lt;a href=&quot;http://esr.ibiblio.org/?p=8106&quot;&gt;his views&lt;/a&gt; about this problem. He said that “The Lerna project’s choice is, moreover, destructive of one of the deep norms that keeps the open-source community functional – keeping politics separated from our work”. Open source developers, when not coding, are free do to whatever they want. It does not matter for the code if the developer supports ICE or a far right wing party. By mixing politics with open source, through the (mis)use of its license, the whole chain of users of the Lerna project was impacted.&lt;/p&gt;
+
+&lt;p&gt;Long story short: the pull-request was reverted, the maintainer was banned from the project, and the open source community around Lerna was hurted. All of this due to 22 lines added in the license file.&lt;/p&gt;
+
+&lt;p&gt;1st Lessons learned: It’s possible to change a license, but these changes should not discriminate any person or group or field of endeavor. Moreover, it is not possible to change a license retroactively.&lt;/p&gt;
+
+&lt;center&gt;
+***
+&lt;/center&gt;
+
+&lt;p&gt;Do you want to know more about open source licensing and some hidden problems behind it? Please consider supporting my book on &lt;a href=&quot;https://gumroad.com/l/demystifying-oss-licensing&quot;&gt;Demystifying Open Source Licensing&lt;/a&gt;, to be self-published in late July 2020.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">It can be bad</summary></entry><entry><title type="html">New Book: Demystifying Open Source Licensing</title><link href="http://localhost:4000/new-book-demystifying-open-source-licensing/" rel="alternate" type="text/html" title="New Book: Demystifying Open Source Licensing" /><published>2020-04-13T00:00:00-03:00</published><updated>2020-04-13T00:00:00-03:00</updated><id>http://localhost:4000/new-book-demystifying-open-source-licensing</id><content type="html" xml:base="http://localhost:4000/new-book-demystifying-open-source-licensing/">&lt;p&gt;&lt;a href=&quot;https://gum.co/demystifying-oss-licensing&quot;&gt;I am writing a book to make open source licensing easier to understand!&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;As an open source user and software engineering researcher, I have been amazed about how tricky this topic is and how easy things can go wrong.
+If you are a developer, you should definitively understand a bit more about open source licenses. Why is it important to study open source licenses in 2020? Some questions to think:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do you know why Google banned the use of the AGPL license  on any of  its open source projects?&lt;/li&gt;
+  &lt;li&gt;Do you know why GPL 2.0 license, one of the purest copyleft licenses around, has more than halved in usage in the last 10 years?&lt;/li&gt;
+  &lt;li&gt;Do you know why it took about one year to change a license in the Eclipse project?&lt;/li&gt;
+  &lt;li&gt;Do you know that one of the core maintainers of Lerna project was removed from the core team due to license misuses?&lt;/li&gt;
+  &lt;li&gt;Do you know that you should run away from open source projects that don’t have any license?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Software licensing is a complex subject, which often requires expertise from other other areas far away from the software development arena. Indeed, most books regarding software licensing are also written by lawyers, which is not a problem itself, but the terms employed may hinder the understand of the software development community (I had a hard time understanding these books). Another problem is that developers may not always see any concrete implication of an eventual license misuse. &lt;/p&gt;
+
+&lt;p&gt;The goal of this book is two-fold: First, we intend to make this complex license stuff simpler. Second, the book should highlight concrete examples of license problems (so developers could easily relate to their activities). &lt;/p&gt;
+
+&lt;p&gt;By doing this, we expect that developers could better understand the importance of open source licenses and the context in which they could use or not one given software library (because of license concerns). &lt;/p&gt;
+
+&lt;p&gt;The book is intended to be short (~100 pages) and will be ready around June, but it is open for pre-orders, for only $ 10.&lt;/p&gt;
+
+&lt;p&gt;##For whom this book is for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you are are developer and have to use open source software on daily basis, &lt;strong&gt;this book is for you!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;If you are project maintainer and still struggle to understand what license you should use, &lt;strong&gt;this book is for you!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;If you are a researcher interested in studying open source licensing issues, &lt;strong&gt;this book is for you!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;If you care about open source, but don’t really understand open source licensing, &lt;strong&gt;this book is for you!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;got-interested&quot;&gt;Got interested?&lt;/h2&gt;
+
+&lt;p&gt;If this interests you, it would mean a lot if you pre-order your copy, online at https://gum.co/demystifying-oss-licensing You will receive the final book in your inbox as soon as it’s ready. If open source is not your thing, you could also help by sharing this blog post with your friends 🙏🏻&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important note:&lt;/strong&gt; If you happen to not like the book, just reply to the download email within 30 days, and you’ll get a full refund. No question asked.&lt;/p&gt;
+
+&lt;p&gt;Finally, I will keep sharing my progress in writing this book on &lt;a href=&quot;http://twitter.com/gustavopinto&quot;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Follow on if you want to be updated! &lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">I am writing a book to make open source licensing easier to understand! </summary></entry><entry><title type="html">Lack of focus in Academia</title><link href="http://localhost:4000/lack-of-focus-in-academia/" rel="alternate" type="text/html" title="Lack of focus in Academia" /><published>2020-04-11T00:00:00-03:00</published><updated>2020-04-11T00:00:00-03:00</updated><id>http://localhost:4000/lack-of-focus-in-academia</id><content type="html" xml:base="http://localhost:4000/lack-of-focus-in-academia/">&lt;p&gt;Academia is an interesting place. After a lot of training during your undergrad and grad studies, you are thrown in a pool and are asked to swim to find your own research agenda. Find unique and relevant questions that no one else has contribute before. Work tirelessly to answer them. Become an expert on a this very narrow field.&lt;/p&gt;
+
+&lt;p&gt;This picture is often times reinforced by the tenure track process of many research intensive institutions. That is, to get your tenure, you are expected to become a world-wide leader on your research area. As a consequence, researchers working towards their tenure should have at least two things in mind: first, they should choose wisely the research area in which they intend to do a contribution (something fun and interesting that could make their eyes open for some years) and, second, they should have the discipline to commit their work to this subject, while not placing too much effort on stuff that (although interesting) may not concretely contribute to their tenure assessment.&lt;/p&gt;
+
+&lt;p&gt;That is: although you have the freedom to explore uncharted research territories, you should not explore several different research topics. In other words, you should not go in-breadth; you should go in-depth.&lt;/p&gt;
+
+&lt;p&gt;Later on I will describe my experience going in-breadth, but for now let’s consider going in-depth.&lt;/p&gt;
+
+&lt;p&gt;I think going in-depth is harder, but also more valuable. Going in-depth requires vision and discipline. Vision is important to understand what are the unique and relevant problems that worth to be addressed. Vision also requires experience. Without experience, many low dead ends might be seen as promising research opportunities. However, discipline might be as important as, or even more important than, vision because, without discipline, one could easily change focus to contribute to something else. Discipline to commit to a far-reaching goal is perhaps one of the greatest skills a researcher might have. Notwithstanding, we all praise the efforts of those that have substantially contributed to a field over many years (or even many decades). It is hard to compromise and keep putting effort on a long term goal. On the other hand, it is easy to lose focus.&lt;/p&gt;
+
+&lt;p&gt;Thinking a bit about my recent career as a research, I definitively went in-breadth instead of in-depth. This became even clearer after I recorded this 50s video about my research and shared on Twitter.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I’m not part of &lt;a href=&quot;https://twitter.com/hashtag/icse21?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#icse21&lt;/a&gt; OC but I liked this idea, and I’m sharing my research in 30s (or a bit more). &lt;a href=&quot;https://t.co/o34qKy5iQn&quot;&gt;https://t.co/o34qKy5iQn&lt;/a&gt; &lt;a href=&quot;https://t.co/UxzG2pcr9T&quot;&gt;pic.twitter.com/UxzG2pcr9T&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gustavo Pinto (@gustavopinto) &lt;a href=&quot;https://twitter.com/gustavopinto/status/1249010040314507264?ref_src=twsrc%5Etfw&quot;&gt;April 11, 2020&lt;/a&gt;&lt;/blockquote&gt; &lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/center&gt;
+
+&lt;p&gt;In the video I mentioned that I work on some technical aspects of software, but I also have some interests on social aspects of software. Nice, but… isn’t it what software engineering is all about? Instead of talking about my very narrowed research field, I talked about software engineering in general. Not sure what Twitter folks got from this video, but definitely it was not a concrete research agenda. I have a really serious lack of focus.&lt;/p&gt;
+
+&lt;p&gt;Obviously, this lack of focus is not something new to me. When meeting new colleagues at conferences, I often have a hard time trying to explain what I do. My views about what constitutes an important research problem is also very limited, because I concentrate a lot of effort on the surface of several different problems, instead of digging deeper and deeper.&lt;/p&gt;
+
+&lt;p&gt;Import to mention that this lack of focus, however, did not impact on my tenure evaluation. As I mentioned in another blog post, the tenure track process in Brazil is much lighter than the tenure track process in other countries. Although this did not place a tool on my permanence in academia, this is perhaps a good time to revisit this choice.&lt;/p&gt;
+
+&lt;p&gt;In this blog post, however, I want to reflect why I chose to have this in-breadth research agenda. First of all, I did not choose going in-breadth. It was the condition that I found for keeping doing research. Let me explain.&lt;/p&gt;
+
+&lt;p&gt;After I graduated, I spent a year working at IFPA. Afterwards I moved to UFPA, which I’m now on my third year of professoring. However, my first master student arrived only on my second year at UFPA. Moreover, only in 2020 that I started to supervise my first doctoral student. As a consequence, during these years, most of the work I did was on collaboration with other professors and (eventually) their students.&lt;/p&gt;
+
+&lt;p&gt;Although I didn’t have students, I wanted to keep publishing. If someone invited me to participate in a research project, I pretty much accepted even before knowing what the research project was about. Following this strategy for 3 — 5 years, and then my research portfolio becomes a scattered picture of several different research agendas. Obviously, I also did many research works that were driven by my own interests, but in these cases I had to embrace all steps of the research process (which is hard to keep making process in the long term, when you have many other obligations fighting for your attention).&lt;/p&gt;
+
+&lt;p&gt;The point is: after going in-breadth for some years, I am now struggling to have an unique research topic. This is now becoming an important thing because I’m finally starting to foster my own research group (yes, it took some time…), and it makes sense to me to focus on fewer things.&lt;/p&gt;
+
+&lt;p&gt;However, due to my lack of clear research agenda, my students are working on several different topics. This brings many challenges, for instance: 1) I am not aware of the related work of many of these different research topics, then I often don’t know if what the student is doing is indeed novel, 2) I have a hard time trying to help students that are not making progress, because I’m not familiar with the low level implementation details, 3) students can hardly help each other, because their subjects are very different, 4) it is harder to contribute towards a bigger goal.&lt;/p&gt;
+
+&lt;p&gt;Since it took 3–5 years to build this scattered research agenda, it would be naive to expect any drastic change in the next few months. Instead, my plan is to gradually focus on this unique research agenda (which so far is not clear to me). Needless to say, it would require a lot of discipline to make this happen.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">Too many things to do</summary></entry><entry><title type="html">Got tenure; What does it mean?</title><link href="http://localhost:4000/got-tenure-what-does-it-mean/" rel="alternate" type="text/html" title="Got tenure; What does it mean?" /><published>2020-04-04T00:00:00-03:00</published><updated>2020-04-04T00:00:00-03:00</updated><id>http://localhost:4000/got-tenure-what-does-it-mean</id><content type="html" xml:base="http://localhost:4000/got-tenure-what-does-it-mean/">&lt;p&gt;As of April the 4th, 2020, I am a tenured professor at UFPA, Brazil.&lt;/p&gt;
+
+&lt;center&gt;
+***
+&lt;/center&gt;
+
+&lt;p&gt;Brief disclaimer: the tenure track process in Brazil is very lightweight when compared to the tenure track in US or in Europe. Although we are evaluated in terms of teaching, research, and service, I think teaching is what really counts for tenure here. I think I would still be granted tenure even if I haven’t published any paper or haven’t made any service to the university or to the research community. If this is good or bad I’ll leave for another blog post. What really matters now is what changes it would bring to the table.&lt;/p&gt;
+
+&lt;center&gt;
+***
+&lt;/center&gt;
+
+&lt;p&gt;I knew about my promotion since the end of 2019, and since then I have been thinking what does this tenured position &lt;em&gt;really&lt;/em&gt; mean. Am I supposed to change anything on my work?  If so, what do I need to change? What does it mean to have a tenure?&lt;/p&gt;
+
+&lt;p&gt;First I thought that tenure has to do with &lt;em&gt;freedom&lt;/em&gt;. Freedom to explore any research area that I may find interesting, without worrying too much about whether it would lead to a paper published in a top notch journal. I also though about that tenure has to do with &lt;em&gt;responsibility&lt;/em&gt; to focus on hard problems (instead of problems that could lead to immediate publications). I also thought about &lt;em&gt;commitment&lt;/em&gt; to do the best work that I could do.&lt;/p&gt;
+
+&lt;p&gt;The interesting point here is that all these thoughts are related to work (and the kind of work that I do).&lt;/p&gt;
+
+&lt;p&gt;However, I happen to receive my tenure letter during the perhaps worst health and financial crisis since World War II. I happen to receive my tenure when billions of people are staying in home fighting for their lives. While staying at home, many of them were unable to make any money; while many of them are being fired from their jobs; while many of them are struggling to stay rational and healthy without income; while many of them are having a hard time to find a way to pay their thousands-of-dollars health insurance bills. I happen to receive my letter of permanent appointment when some long term industries worldwide are collapsing overnight.&lt;/p&gt;
+
+&lt;p&gt;At this moment, for me, receiving tenure means just one thing: &lt;em&gt;privilege&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Yes, I do have the privilege of staying in home knowing that my pay check will arrive next month. I have the privilege of knowing that &lt;a href=&quot;https://medium.com/@gustavopinto/its-ok-to-be-unproductive-during-covid-19-7a64406328db&quot;&gt;it’s OK to be unproductive during the crisis&lt;/a&gt;. Despite of that, I also have the privilege of knowing that it’s very unlikely that I’ll be fired.&lt;/p&gt;
+
+&lt;p&gt;Knowing that I am privileged, I should also acknowledge that whatever success I am achieve is not solely due to my own efforts, but also due to a system that supports me. For instance, I don’t need to worry about pay checks. I don’t need to worry about moving to another place in the middle of a pandemic because my contract is about to finish. Any other researcher under time-bound contracts may have much more worries than I do; then, they may struggle to perform at their best because of it.&lt;/p&gt;
+
+&lt;p&gt;The point is: what do I do with this privilege I have been given?&lt;/p&gt;
+
+&lt;p&gt;I have been thinking about this tenure privilege for a while. It makes little sense to me to keep working as usual, as if nothing had happened. I already wrote in the past about the &lt;a href=&quot;https://medium.com/@gustavopinto/changing-roles-in-the-academic-system-6c1470672054&quot;&gt;roles in the academic system&lt;/a&gt;, and that my current role is to &lt;em&gt;teach others to do research&lt;/em&gt;. I still agree. However, by broadening this a bit, I could see that my role as a tenured professor is to use this position not only to teach other, but to &lt;strong&gt;empower others&lt;/strong&gt;. Important to mention that this can only be done by the discipline of &lt;strong&gt;focusing on harder problems&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are many ways in which we could &lt;strong&gt;empower others&lt;/strong&gt;. Students are our seeds, and they will grow longer and faster if we understand how to help them.
+How about becoming closer to them? For instance, during teaching activities, how about running a retrospective (similar to those used in agile methods) once or twice? By providing a space for students to reflect on and discuss what worked well (and what did not), we all can improve. We would also be seen as someone available (professors are always busy).
+When advising, we could think about spending more time with students. How about having lunch together? Or how about start bringing food to the weekly seminar? By making yourself available to discuss random thoughts with students, we could also understand what are their real needs and challenges. And it will be even more fun.&lt;/p&gt;
+
+&lt;p&gt;Outreach activities are also very important to empower others. For instance, consider giving a talk to high school students once in a while. At their ages, many of them may be already thinking what career to follow. Moreover, it would be a terrific exercise for you to understand how to convince novice students that your research agenda is important. Similarly, consider also giving a talk to practitioners, and explain to them how your research could improve their work. If your work is not yet applied, consider extending your research agenda so that you could give a talk to practitioners by next year. There are many other outreach activities, such as teaching teenagers how to code or XXX. However, given the current lockdown situation, it may not be safe to run them now. Instead, how about doing a live about your work on youtube?&lt;/p&gt;
+
+&lt;p&gt;These activities may not help you in your next research paper. In fact, they would take a lot of time that you could devote to papers and grants. But this way you could potentially inspire someone (e.g., to pursue a career in research or to encourage other to use your research). Inspiring &amp;gt; publishing.&lt;/p&gt;
+
+&lt;p&gt;Needless to say that by doing so, we may not have the same time or energy to pursue our research agenda on its fullest sense. My personal take here is: instead of trying to do any research work that I find interesting, I should try to understand what is the &lt;strong&gt;harder problem&lt;/strong&gt; I have at my table, and try my best to focus only on research works that could contribute to this big problem. As a consequence, by working more and more on one hard problem, it would become easier to talk about it, even for non-technical communities. It’s fair to mention that I still don’t know what is this big problem.&lt;/p&gt;
+
+&lt;center&gt;
+***
+&lt;/center&gt;
+
+&lt;p&gt;All of this is easier said than done. In fact, it requires a lot of discipline to move from the writing-intense mode to the thinking-intense mode (e.g., thinking on how to distill this problem so that students could easily understand, thinking on how my work could improve practice, thinking on the hard and relevant research problems, etc). Moreover, this shift also has a shortcoming: since most of the work that I do is in collaboration with other researchers (then on several different subjects), by concentrating on one (or few) big problems, I also will have to say &lt;em&gt;no&lt;/em&gt; frequently.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">As of April the 4th, 2020, I am a tenured professor at UFPA, Brazil.</summary></entry><entry><title type="html">Rethinking academic priorities during a pandemic</title><link href="http://localhost:4000/rethinking-academic-priorities-during-a-pandemic/" rel="alternate" type="text/html" title="Rethinking academic priorities during a pandemic" /><published>2020-03-27T00:00:00-03:00</published><updated>2020-03-27T00:00:00-03:00</updated><id>http://localhost:4000/rethinking-academic-priorities-during-a-pandemic</id><content type="html" xml:base="http://localhost:4000/rethinking-academic-priorities-during-a-pandemic/">&lt;p&gt;The COVID-19 outbreak is changing people work. Overnight, a good proportion of the global workforce had to go home and work remotely. Due to this not planned shift, I already perceived that it’s very hard to sustain to work at the usual pace during this pandemic, since, for instance, kids are at home, you may have many concerns about the future, etc. Actually, &lt;a href=&quot;http://gustavopinto.org/blog/Its-OK-to-be-unproductive-during-COVID-19/&quot;&gt;it’s OK to be unproductive during this period&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Take my personal case as an example. These days, I would say that I am working around 1/3 of what I am used to work. With two small kids (2yo and 4yo) at home, with the neverending house duties, and with a close relative with serious illness, I can hardly find some good quite hours to seat and work. As a consequence, the pile of work is nowhere near to be empty. It is really consuming to see this huge pile of work and not being able to get things done (even though I know that this is not particularly because of my laziness).&lt;/p&gt;
+
+&lt;p&gt;After thinking for a while, I come up with the obvious conclusion that I will not be able to finish this pile of work. Simple like that. Instead, I have to better prioritize what really needs to be done. The work that is not a priority right now will be on hold until I get to my normal schedule (if, by that time, that work is still any relevant).&lt;/p&gt;
+
+&lt;p&gt;The point is, what is a priority in our pile of academic work?&lt;/p&gt;
+
+&lt;p&gt;My first thought was that &lt;em&gt;everything is a priority&lt;/em&gt;. Well, if everything is a priority, and knowing that I’m not able to do everything that I want to do, then nothing is a priority.&lt;/p&gt;
+
+&lt;p&gt;I term of research, I then realized that &lt;em&gt;only the work that would help students to graduate is a priority&lt;/em&gt;. Then, any work that does not have students is consequently not a priority at this moment. But still, I also interact with many students, from undergrads to PhDs, and they do differ a lot in terms of their needs. For instance, if I am involved in a work that is lead by a PhD student that wants to apply for academic jobs very soon, this would definitely be on my top priority. However, if a student wants to graduate soon, but does not intend to go for academic jobs, or perhaps the student already has a job (many PhD students in Brazil work part time during their PhDs), then this kind of work is also on my priority, but not as high as the student that wants to go for academic jobs. This is because one more publication could play a key role on the student assessment.&lt;/p&gt;
+
+&lt;p&gt;Also, I am rethinking my students’ the research agenda. During this time, I already mentioned to them that they are not require to work on full speed. On the contrary; they have to focus on their health, and on the health of their loved ones. If everything is fine, they could get back to work. But if they think they could provide some value on any work COVID-19-related (e.g., improving the visualization of COVID-19 cases in Brazil), they are also free to put their current research “on hold” and focus on any COVID-19-related work. Students looking for academic jobs very soon were not encouraged to do so.&lt;/p&gt;
+
+&lt;p&gt;For teaching, my university suspended in person and online teaching activities, and we will get back only after this pandemic is done. So teaching is not a concern for me right now.&lt;/p&gt;
+
+&lt;p&gt;This year I am also chairing &lt;a href=&quot;http://cbsoft2020.imd.ufrn.br/sbcars.php&quot;&gt;a conference&lt;/a&gt;, and editing a &lt;a href=&quot;https://sol.sbc.org.br/journals/index.php/jserd/&quot;&gt;journal&lt;/a&gt;. I see this kind of work as a priority. The reason is simple (and similar to the one I gave previously): some students finishing their degree need their papers published in order to increase their odds when applying for other positions. By doing these works, I would, indirectly, help others to improve their odds. The same is true for reviewing a paper. If I compromised to review, the review will be there by the time that we agreed. I can’t just say that I am not review the manuscript anymore. The negative impact on the reputation of the missing reviewer is not comparable to negative impact on the CV of the first author of the paper (often someone under time-bound contracts that needs that paper to be published more than anyone else). So reviews are also on priority. Any other kind of service and meetings are on hold.&lt;/p&gt;
+
+&lt;p&gt;Part of my job as a professor is also to raise funding. Although funding is extremely important to help us pursue our research agenda, &lt;em&gt;I don’t see fundraising activities as a priority right now&lt;/em&gt;. Yes, I know. Funding is always important. But any grant that I may happen to apply these days, I would only receive the notification (luckily) by the end of the year, and, if accepted, I would only see any penny somewhere in 2021. By that time, this funding might not help any current student who is on the academic job market right now. Obviously, this eventual funding could help other students, but other students are not a priority at this moment. I recently also started &lt;a href=&quot;http://gustavopinto.org/blog/Initial-thoughts-on-collaboration-with-the-industry/&quot;&gt;to collaborate with the industry&lt;/a&gt;. However, trying to establish an industry collaboration requires a ridiculous amount of time (in meetings, dealing with bureaucracies, etc). So, no. New industry collaborations are not a priority at this moment. However, it is obviously a priority to keep working on the already established collaborations (but the pace of work should also be discussed).&lt;/p&gt;
+
+&lt;p&gt;Yet, although it takes me about 1–2 hours to write down this blog post, I still see this as a priority. First, things became clear to me when I write here. Second, I may also help someone else who is struggling to balance work life academia, in particular during COVID-19.&lt;/p&gt;
+
+&lt;p&gt;Needless to say that new commitments are very likely to be declined (regardless of the subject, unfortunately). Apologies in advance.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">How to cope with work during COVID-19</summary></entry><entry><title type="html">It’s OK to be unproductive during COVID-19 outbreak</title><link href="http://localhost:4000/Its-OK-to-be-unproductive-during-COVID-19/" rel="alternate" type="text/html" title="It's OK to be unproductive during COVID-19 outbreak" /><published>2020-03-21T00:00:00-03:00</published><updated>2020-03-21T00:00:00-03:00</updated><id>http://localhost:4000/Its-OK-to-be-unproductive-during-COVID-19</id><content type="html" xml:base="http://localhost:4000/Its-OK-to-be-unproductive-during-COVID-19/">&lt;p&gt;At the time of this writing, the COVID-19 outbreak is starting to show its face in Brazil. However, due to the unpreparedness and the unprofessionalism of our president,
+we may face one of the strongest impacts of COVID-19; perhaps even stronger than Italy or China. Our country is taking too much time to take real action.&lt;/p&gt;
+
+&lt;p&gt;Two weeks ago, when many Europe countries were already practicing social distancing, in Brazil, things were operating pretty much normal. Only this Thursday (March, 19th 2020) my university decided to suspend in person activities. It took a lot of time to make this decision. Many of us might be already infected, even if the public numbers are not yet popping up. Unfortunately, “&lt;a href=&quot;https://en.wikipedia.org/wiki/Albert_Allen_Bartlett&quot;&gt;the greatest shortcoming of the human race is our inability to understand the exponential function&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;p&gt;Overnight, many of us have to shift to online jobs. For those that a good part of the job is already done online, this shift may not have introduced a great burden. However, for a significant proportion of the workforce, although privileged to have the opportunity to keep working during this crisis, going full time online may introduce many challenges. Take my case as an example. As a professor, I have to teach, supervise, grade, fundraise, hire, give talks, write, review, etc. Obviously, many of these activities can be done (to a great extend) online. However, when going full time online I miss one key thing that perpetuates in most of these activities: &lt;em&gt;interaction&lt;/em&gt;. Yes, I can supervise online, but I have no idea if students are getting what I am saying. Yes, I can teach online, but I will never know if students are paying any attention to my recorded lecture. Yes, I can fundraise online, but I will not know if decision-makers are anyhow interested in my proposals.&lt;/p&gt;
+
+&lt;p&gt;One could say: “but you cannot be sure if a student is paying any attention even when interacting in person”. Yes, I cannot be sure, but I can have a gut feeling.&lt;/p&gt;
+
+&lt;p&gt;Yes, I understand that going online introduces many limitations. I also understand that the point is not to replace the in person interaction to an online alternative. The goal is to alleviate the problem. We are going online only due to COVID-19. We (professors) may return to our traditional job schedule when it’s done.&lt;/p&gt;
+
+&lt;p&gt;The point is: you may not be able to do your job in its fullest sense.&lt;/p&gt;
+
+&lt;p&gt;On top of this, you may have some loved ones that you should place additional care. You may have young kids struggling for your attention, now in full time mode, while you are juggling to keep your work done, now full time online. You may have aged relatives that may also be demanding your attention, even if, due to social distancing practices, you cannot visit them anymore; and you worry about them. You may have friends and colleagues around the world, facing unknown circumstances; and you worry about them. You may have students under difficult financial conditions; and you worry about them. Or you may be in a country lead by a sociopath; and you worry about everyone. Even if you don’t have any close relative in worrying conditions, you may still worry about everyone else.&lt;/p&gt;
+
+&lt;p&gt;These are all valid concerns, and I am sure there are many additional ones. Despite all of these, you still have to get things done at your now online job.&lt;/p&gt;
+
+&lt;p&gt;The point is: you may not be able to do your job in its fullest sense.&lt;/p&gt;
+
+&lt;p&gt;In the middle of this crisis, you may see yourself cultivating an internal crisis: you are grateful for being able to work from home, but you are having a hard time to perform similarly as you performed when you worked from office. As a consequence, the COVID-19 outbreak could also place a toll on your research agenda. Perhaps you have to go to the lab to run experiments; Perhaps you have to submit an IRB to allow you to do your research; Perhaps you don’t have a quite place at home; Or perhaps you don’t have a chair at home. For those that are under time-bound contracts (like on a postdoc or on a tenure track), COVID-19 could also impact the likelihood to get a stable position.&lt;/p&gt;
+
+&lt;p&gt;My personal take about this situation is: &lt;strong&gt;It’s OK to be unproductive during COVID-19&lt;/strong&gt;. It’s OK to feel a bit lost. It’s OK to do not have much energy to work. Take your time, take care of those that need you the most, and (more importantly) take care of you. When you recover from all of this, you will get back on track.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Finally, if you are in position of power, don’t be a jerk. You don’t need to be your students’ best friend to be supportive. Tell them that they don’t need to do their best work during the crisis. And keep your door (or Skype chat) always open.&lt;/p&gt;
+
+&lt;p&gt;Ultimately, if you are participating/will participate in a hiring committee, it is part of your job to pay attention to any potential candidate that had a decrease in their research outcomes during 2020/2021. Ask them why does this happen. Make sure you ask this in an welcoming manner to encourage the candidate to share her thoughts.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">Many other things matter</summary></entry><entry><title type="html">Initial thoughts on collaboration with the industry</title><link href="http://localhost:4000/Initial-thoughts-on-collaboration-with-the-industry/" rel="alternate" type="text/html" title="Initial thoughts on collaboration with the industry" /><published>2020-02-14T00:00:00-03:00</published><updated>2020-02-14T00:00:00-03:00</updated><id>http://localhost:4000/Initial-thoughts-on-collaboration-with-the-industry</id><content type="html" xml:base="http://localhost:4000/Initial-thoughts-on-collaboration-with-the-industry/">&lt;p&gt;I another &lt;a href=&quot;http://gustavopinto.org/blog/third-year-of-professoring/&quot;&gt;blog post&lt;/a&gt;, I wrote how hard 2019 was to me, in terms of my role as an academic in a place that does not seem to value much the work that I do. In this current scenario, it is becoming increasingly hard to keep working on our traditional research agenda, due to many reasons, including: lack of funding, lack of students interested in joining grad school, lack of recognition, etc.&lt;/p&gt;
+
+&lt;p&gt;In this context, it is clear to me that, if I intend to keep working on my research agenda (to some extend at least), I have to find other ways to fund my work (and, consequently, my students). “Why not collaborating with the industry?”, they say.&lt;/p&gt;
+
+&lt;p&gt;I have seem many papers about academic-industrial collaborations, and I have also seen some colleagues in other universities doing very well because of these collaborations. Most intriguing, I have graduated in a university that is really known for collaborating a lot with big industry players. Sadly, I had no clue on how to start on this.&lt;/p&gt;
+
+&lt;p&gt;During the last few months, some colleagues and I have started to look for collaborations with industry patterns. I have been visiting many local companies, and talked with some decision-making people. Coming from an academic background, with very little industry-related research, it has been a challenge to me to understand their real needs and trying to find a way to get involved with them. In this blog post I try to summarize some of the lessons I learned thought out these months.&lt;/p&gt;
+
+&lt;p&gt;From the very beginning: how could I find decision-making people, who are always super busy, willing to talk about an eventual collaboration with this unknown professor? Here I had some luck because I happen to work in the same city that I grew up. So eventually, many old colleagues of mine are now playing decision-making roles. I updated my LinkedIn and started to look what my old peers were doing. For some of them, I sent a “hello, long time no see” message through the LinkedIn chat. I also sent some random messages (through LinkedIn and email) to other decision-making people (unknown to me), introducing me and asking for a meeting. I had some responses for the people that are already in my contact (not all of them), but I think I did not receive any response from those that are not on my contact list. This is clearly a problem for those that do not have any close contact with decision-making people.&lt;/p&gt;
+
+&lt;p&gt;For those that answered my message, I did not have much problem scheduling a meeting. But in this point, I started to wonder what I would propose to them? Just asking for money to do research does not sound a good strategy. I knew I had to propose something concrete to them. I then started to search for what kind of work do their companies do, what are their clients, etc. Since software engineering is my research area, and knowing that the company does a lot of, say, mobile development, I could perhaps argue that we could improve productivity or time to market by using strategies x, y, or z. However, although I still think that it is a good approach to look for their clients to see what do they do, it is a kind of unconvincing for me, as an academic, to suggest to technical people that they should do/use other technical stuff. I perhaps could indeed help them, but suggesting this in the very first meeting, when none of them knows me, sounds a bit arrogant at best.&lt;/p&gt;
+
+&lt;p&gt;Some years ago, we proposed something called &lt;a href=&quot;http://gustavopinto.org/lost+found/ease2018.pdf&quot;&gt;Rapid Reviews&lt;/a&gt;, in which a researcher goes to a company, talks to representative people, and tries to grasp what are the problems they are facing (and eventually come up with an evidence-based solution to them). I thought a lot about doing a rapid review within these companies. But I also found a bit awkward to go to a meeting without any clear problem to discuss, and, in the meeting, propose to a research-like work, to only after that have something concrete to say. Decision-making people may be just too busy to hear about rapid reviews, I thought.&lt;/p&gt;
+
+&lt;p&gt;In Brazil we also have this “Informatic Law” in which companies could destinate part of their taxes to invest in R&amp;amp;D. Unfortunately, this law is not yet crystal clear to me, and I found strange to propose something that I do not fully understand.&lt;/p&gt;
+
+&lt;p&gt;So my decision was to go to the meetings pretty much to introduce myself, meet representative people, try to grasp their problems, and go home to think about how I could help them.&lt;/p&gt;
+
+&lt;p&gt;I found two interesting things in this process: first, when someone invite you for a meeting, they do want you there. These are very busy people, and they would not waste their time with you if you could not provide any valuable asset for them. Second, and perhaps most surprisingly, some decision-making people are eager to collaborate with academics. I heard from two business patterns that they already searched for collaborations within the university by themselves, but did not have any response. One of them also told me that he wants to do a donation to the university because he did not find a way to collaborate with them.&lt;/p&gt;
+
+&lt;p&gt;But sometimes the meetings were not that easy. Once a representative member receive me, asked me to take a seat, and then asked: &lt;strong&gt;how could I help you?&lt;/strong&gt;. I was not expecting that question right upfront, and it really intimidated me. I did not have any straightforward answer to this question, so I may have said a lot of nonsense. In the end I said that I was looking for a way to fund students. He then said that his company is having a hard time trying to hire good people.&lt;/p&gt;
+
+&lt;p&gt;That was a good sign for me.&lt;/p&gt;
+
+&lt;p&gt;If this guy is having a hard time trying to hire people, other companies are also having the same problem. The problem is not only salary. This is cultural. I live in a city in the heart of Amazon, the rain forest, very far from the big cities (São Paulo or Rio de Janeiro). Many employees leave because they look for other challenges in other places/countries. These people are having a hard time to find new skilled employees. Where are these people?  ….. Obviously, in the university! I am a professor. I have many, many students every year. These students want to work for companies. Bingo.&lt;/p&gt;
+
+&lt;p&gt;After I have this realization, I finally have a way to approach decision-making people in our local software companies. &lt;strong&gt;I know that you are having a hard time to hire good developers. You know what, if you could offload one small, non-risky project to the university, I could supervise some students that would work with the same methods and technology that you use in your company. After 1–2 years, these students would be ready to join your company.&lt;/strong&gt; I remember one business man saying that this “sounds like music to me”.&lt;/p&gt;
+
+&lt;p&gt;This understanding was good to keep the door open for collaborations, but I soon realized that this was not enough to “sign a paper”. Another common problem that I realized is that many of these companies are having problems to use/integrate different software systems. So then “integrating systems/databases” also became a recurring topic in the meetings. This integration process naturally evolved to data mining and analytics. And here we finally arrived in the research arena. Although python+pandas are readily available and pretty easy to use, somehow decision-making people believes that academics are best ones to do this job.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;After many months trying to establish collaborations with industry patterns, perhaps the most important lesson learned to me is that, before finding the problem to work together, you should find a reason to “keep the door open”.&lt;/p&gt;</content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html">How to start?</summary></entry></feed>

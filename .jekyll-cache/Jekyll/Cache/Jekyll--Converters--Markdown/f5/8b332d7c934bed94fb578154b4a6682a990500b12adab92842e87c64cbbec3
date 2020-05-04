@@ -1,0 +1,268 @@
+I"("<h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 18:20 @ LABCOMP-02</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram. Para ingressar, clique <a href="https://t.me/joinchat/GeSB2Q1EkH1cl53aZqJVSw">aqui</a>.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>A disciplina de Bancos de Dados Avançados cobre vários temas práticos dos sistemas como processamento de consulta, controle de transações, concorrência e segurança.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sistemas de banco de dados: processamento de consultas, recuperação de falhas, segurança e integridade, controle de concorrência.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>Elmasri, R.; Navathe, S. B. Sistemas de Banco de Dados, 6ª Ed, 2010.</li>
+  <li>Redmond, E.; Wilson, J.R. Seven Databases in Seven Weeks: A Guide to Modern Databases and the NoSQL Movement, 2012.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf">Deadlocks as Runtime Exceptions</a></li>
+  <li><a href="https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext">Algorithms Behind Modern Storage Systems</a></li>
+  <li><a href="https://lemire.me/blog/2008/05/01/i-am-seeking-an-efficient-algorithm-to-group-identical-values-in-an-array/">Seeking an efficient algorithm to group identical values</a></li>
+  <li><a href="https://blog.acolyer.org/2018/09/26/the-design-and-implementation-of-modern-column-oriented-database-systems/">The design and implementation of modern column-oriented database systems</a></li>
+  <li><a href="http://andreas-zeller.blogspot.com/2016/04/how-i-twice-hacked-conference.html">Four security flaws illustrated, all on one conference registration site</a></li>
+  <li><a href="https://pdfs.semanticscholar.org/81a5/02b52485e52713ccab6d260f15871c2acdcb.pdf">A Classification of SQL Injection Attacks and Countermeasures</a></li>
+  <li><a href="http://www-scf.usc.edu/~jgui/papers/icsme2017.pdf">An Empirical Study of Local Database Usage inAndroid Applications</a></li>
+  <li><a href="https://www.red-gate.com/simple-talk/sql/t-sql-programming/sql-code-smells/">SQL Code Smells</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 4 pontos (1pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 10 pontos</li>
+  <li>Projeto de disciplina: 6 pontos</li>
+  <li>Atividades extras (AEs): 3 ponto</li>
+</ol>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<ul>
+  <li><strong>O que deve ser feito:</strong> Os alunos devem buscar um problema do seu dia a dia e implementar uma solução para esse problema. Exemplo de problema: a FACOMP está em busca de um sistema de estágio, em que as informações dos alunos que estão estagiando possam ser armazenadas. Além disso, espera-se saber quais são as empresas que esses alunos estagiam, o tempo que eles passam nas empresas, o valor da bolsa, etc.</li>
+</ul>
+
+<p>Essa solução deve conter tanto o design e uso de um banco de dados, bem como uma interface gráfica implementada em alguma linguagem de programação que faça manipulação desse banco de dados. Não há restrição de banco de dados ou de linguagem de programação; alunos podem usar os quais forem mais convenientes. Também não há requisitos para a interface gráfica: qualquer coisa que o professor possa entender (de linha de comando até app Android)</p>
+
+<ul>
+  <li><strong>Sobre a apresentação do projeto de disciplina:</strong> alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação) terão nota da apresentação correspondente a zero.</li>
+</ul>
+
+<h3 id="atividades-extras-aes">Atividades Extras (AEs)</h3>
+
+<ul>
+  <li>
+    <p>AE1: Ler um artigo completo do SBBD de 2018. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2019, até às 18:30, via mensagem privada no Telegram. 1 ponto</p>
+  </li>
+  <li>
+    <p>AE2: Participar e fazer um resumo (1 folha) da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10.<strong>Encerrado</strong></p>
+  </li>
+</ul>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>27/08</td>
+      <td>Introdução e Revisão SQL</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>29/08</td>
+      <td>SQL Insert</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>03/09</td>
+      <td>SQL Select</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>05/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>10/09</td>
+      <td>SQL Joins</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>12/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>17/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>19/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>24/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>26/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>01/10</td>
+      <td><strong><em>SEMINIC</em></strong></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>03/10</td>
+      <td><strong><em>SEMINIC</em></strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>08/10</td>
+      <td>Funções SQL</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>10/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>15/10</td>
+      <td><strong><em>Dia do professor</em></strong></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>17/10</td>
+      <td>Subquery SQL</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>22/10</td>
+      <td>Prova 1 bimestre</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>24/10</td>
+      <td>Correcão provas &amp; Anti padrões em SQL &amp; Definicão de PD</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>29/10</td>
+      <td>Normalização</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>31/10</td>
+      <td>Transação</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>05/11</td>
+      <td>Concorrência</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>07/11</td>
+      <td>Concorrência</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>12/11</td>
+      <td>Recuperação de Falhas</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>14/11</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>19/11</td>
+      <td>Segurança</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>21/11</td>
+      <td>Acompanhamento das atividades &amp; Definição de trabalhos</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>26/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>28/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>03/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>05/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>10/12</td>
+      <td>Apresentação de PD</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>12/12</td>
+      <td>Apresentação de PD</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>17/12</td>
+      <td>Buffer</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>19/12</td>
+      <td>Buffer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+
+<h2 id="pontuação-extra">Pontuação extra</h2>
+
+<p>Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.</p>
+:ET

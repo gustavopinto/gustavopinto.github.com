@@ -1,0 +1,242 @@
+I"a<h2 id="horário">Horário</h2>
+
+<p>Segunda e Quarta, às 20:10</p>
+
+<h2 id="slack">Slack</h2>
+
+<p>Todo material de aula será postado no Slack. Para acessar: http://bit.ly/2poykZh</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os fundamentos de orientação a objetos utilizando como base a plataforma Java.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Conceitos básicos de orientação a objetos. Teste de software. UML. Conceitos avançados de Java.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>CARVALHO, Thiago leite. Orientação a Objetos. Orientação a Objetos edição. Casa do código, 2017.</li>
+  <li>Silveira, Paulo; TURINI, Rodrigo. Java 8 Prático. Casa do código, 2015.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/learn/orientacao-a-objetos-com-java">Curso de orientação a objetos com java (Coursera)</a></li>
+  <li><a href="https://www.caelum.com.br/apostila-java-orientacao-objetos/orientacao-a-objetos-basica/">Orientação a objetos básica (Caelum)</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 6 pontos (1pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 4 pontos</li>
+  <li>Projeto de discipina (PD): 10 pontos</li>
+  <li>Atividade extra (AE): 2 pontos</li>
+</ol>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<p>No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Desenvolver um aplicativo web que possa ser utilizado por um cliente real (por exemplo, uma academia).</p>
+
+<p>O projeto deve ter no minimo 6 classes (uma delas deve ser abstrata) e, pelo menos, uma interface. Ao menos, 20 métodos de testes precisam ser escritos e devem estar passando.</p>
+
+<p>Além disso, é necessário empregar todos os conceitos vistos em sala (herança, polimorfismo, tratamento de exceção, tipos genéricos, etc). Cada entrega é avaliativa. Ao total, serão 7 entregas, cada uma valendo 1.5 (10.5 pontos no total). Entrega final: 25/06. <strong><em>Importante</em></strong>: nos dias 18 e 20 de junho nós não teremos aula; Logo, não serão contabilizadas entregas.</p>
+
+<p>Exemplos de projetos:</p>
+<ul>
+  <li>Gerenciador de finanças (calcula o dinheiro que entra e sai, etc)</li>
+  <li>Cliente do twitter (dado um usuário, leia os tweets, escreva novos tweets, etc)</li>
+  <li>Jogo da forca</li>
+  <li>Agenda eletronica (cadastra pessoa, envia email, etc)</li>
+</ul>
+
+<p>Projetos: https://docs.google.com/spreadsheets/d/1fRga6R_skvfEaRTVVe55nY89Fz5HaGp_ro48QtHCayY/edit?usp=sharing</p>
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<p>AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>19/03</td>
+      <td>Introdução a tecnologia Java</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>21/03</td>
+      <td>Entendendo Classes e Objetos</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>26/03</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>28/03</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>02/04</td>
+      <td>Testes de Unidade com JUnit</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>04/04</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>09/04</td>
+      <td>Utilizando Herança em Java</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>11/04</td>
+      <td>NAO TEREMOS AULA</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>16/04</td>
+      <td>Encapsulamento e Polimorfismo</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>18/04</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>23/04</td>
+      <td>GREVE DOS RODOVIARIOS</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>25/04</td>
+      <td>Revisão para Prova</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>30/04</td>
+      <td>Prova 1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>02/05</td>
+      <td>REVISAO DE PROVA</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>07/05</td>
+      <td>NAO TIVEMOS AULA (CHUVA)</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>09/05</td>
+      <td>Tratamentos de erros em java (Gilson)</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>14/05</td>
+      <td><strong>Exercícios (em sala)</strong> (Gilson)</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>16/05</td>
+      <td>Diagrama de classe</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>21/05</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>23/05</td>
+      <td>E1: Diagrama inicial do projeto</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>28/05</td>
+      <td>E2: Diagrama final do projeto</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>30/05</td>
+      <td>Tipos Genéricos (Gilson)</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>04/06</td>
+      <td>E3: Polimorfismo</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>06/06</td>
+      <td>E4: Herança</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>11/06</td>
+      <td>E5: Tratamento de erros</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>13/06</td>
+      <td>E6: Tipos Genéricos</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>18/06</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>20/06</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>25/06</td>
+      <td>E7: Entrega final e apresentação</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>27/06</td>
+      <td>E7: Entrega final e apresentação</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>02/07</td>
+      <td>Atividade Extra</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+:ET

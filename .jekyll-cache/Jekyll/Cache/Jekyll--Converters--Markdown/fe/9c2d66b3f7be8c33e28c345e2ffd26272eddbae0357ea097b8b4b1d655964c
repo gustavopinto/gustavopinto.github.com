@@ -1,0 +1,70 @@
+I"3<p>Developers often take advantage of Object-Relation Mapping (ORM) frameworks to
+provide a conceptual abstraction between objects in object-oriented languages
+and data stored in the underlying database. These ORM frameworks operate between
+object-oriented architecture system and the relational environment, creating a
+“virtual object database” that can be handled from within the programming language.</p>
+
+<p>The good thing about these frameworks is that they greatly reduces the effort of
+not only communicating with a database but also dealing with basic database
+operations (e.g., insert, update, read, and delete), since changes to objects
+are automatically propagated to the corresponding database records. As a
+consequence, developers do not need to spend time and effort creating operations
+to communicate with the database, over and over again.</p>
+
+<p>The bad thing, however, is the fact that developers may underused or overused
+these frameworks. For instance, a <a href="https://petertsehsun.github.io/papers/peter_tse2016.pdf">study has found</a> that when these frameworks are misused, they can deteriorate a performance of a software application.</p>
+
+<p>Although ORM frameworks are widespread in the software development industry, it
+may come as a no surprise that developers are facing many problems with them.
+A student of mine, who also works in a R&amp;D institute, mentioned to me that they
+are dealing with the same ORM problems for many years in a row. After getting
+tired of having to fix them manually, my student created a tool that finds an
+eventual ORM problem, and highlights it to the developer. The tool searches for 12
+kinds of ORM problems, such as:</p>
+
+<ul>
+  <li>Misspelling the names of schemas, tables, or columns (e.g., names with accents);</li>
+  <li>Forgetting to create constraints (e.g., did not create a foreign key constraint);</li>
+  <li>Mismatching JPA annotations (e.g., using @Column when a @JoinColumn was needed);</li>
+  <li>Forgetting to use an important annotation (e.g., a @Temporal annotation in a date
+datatype, a @Enumared in an Enum datatype, or a @Table in a class).</li>
+  <li>Forgetting to implement the Serializable interface</li>
+</ul>
+
+<p>The tool consists of static analyzing ORM code looking for the ORM problems.
+We use bytecode instrumentation to (1) obtain the ORM code and to (2) create
+several assertions that check whether the ORM code contains one (or more) of the
+curated ORM problems. We also provide enhanced error messages that aid developers
+to fix the ORM problem found. After cataloging 12 mapping problems, and providing a
+tool to automatically identify and report them, we conduct a developer experience
+(DX) study with 13 participants to better understand the framework’s
+limitations and eventual points for improvements.</p>
+
+<p>We observed several <em>benefits</em> with the usage of our tool. All the participants
+agreed that the enhanced error messages helped them to conclude the experiments.
+One particularly interesting finding is that two participants finished the tasks
+without any ORM experience. When we interviewed them, we perceived that they were
+able to accomplish the task by following the suggestions of the enhanced error
+messages. There were also some <em>challenges</em>. We perceived that the tools’
+documentation was not appropriated, since some participants had a hard time to
+use some custom annotations. However, although the documentation was not
+sufficient in some points, all participants were able to complete all the tasks.
+Interestingly, my student did not experience these two problems in the company. This
+may be  explained due to the fact that the architect of the tool as always
+available to answer eventual questions.</p>
+
+<p>Finally, one experienced developer may argue that this tool might not be relevant
+today. However, when browsing Q&amp;A websites, we still see these problems occurring.
+For instance, <a href="stackoverflow.com/q/55466284">this question</a>, asked in April 2019,
+could be fixed by our tool.</p>
+
+<p>The tool is not yet available, since my student is still dealing with copyright
+issues in this company (he wrote the tool while working there). I will update
+this blog post when he gets over it. If you want to read the complete report,
+click <a href="http://gustavopinto.github.io/lost+found/esem2019-industry.pdf">here</a>.</p>
+
+<p>BTW: This paper was my very first submission to an industry track and my very fist
+academia-industry collaboration. Lesson learned: if you happen to have students
+that work in the industry, instead of suggesting your problems to them, ask them
+what are their problems.</p>
+:ET

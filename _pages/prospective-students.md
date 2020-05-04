@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Prospective Students
 permalink: /prospective-students/
 ---

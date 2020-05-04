@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Banco de dados II -- Exercício
 permalink: /teaching/bd2/exercise
 ---

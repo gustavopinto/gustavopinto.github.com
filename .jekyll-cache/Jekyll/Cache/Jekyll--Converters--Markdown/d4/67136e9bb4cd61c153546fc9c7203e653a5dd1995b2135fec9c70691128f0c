@@ -1,0 +1,26 @@
+I"+<h2 id="when-students-become-contributors-leveraging-oss-contributions-in-software-engineering-courses">When Students Become Contributors: Leveraging OSS Contributions in Software Engineering Courses</h2>
+
+<p>by Clarice Ferreira, Cleice Souza, <strong>Gustavo Pinto</strong>, <a href="http://igor.pro.br/">Igor Steinmacher</a>, <a href="https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&amp;hl=en">Paulo Meirelles</a></p>
+
+<p>You can get a pre-print version from <a href="http://gustavopinto.github.io/lost+found/sbes2018-edu.pdf">here</a>.</p>
+
+<p>You can view the publisher’s page <a href="https://dl.acm.org/citation.cfm?id=3266250">here</a>.</p>
+
+<p>The slides are available here <a href="https://speakerdeck.com/gustavopinto/when-students-become-contributors-leveraging-oss-contributions-in-software-engineering-courses">here</a>.</p>
+
+<p>The video from the talk can be seen <a href="https://youtu.be/Ii-x5BawlSg">here</a> (in Portuguese)</p>
+
+<p>Bibtex record</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{Ferreira:2018:SBES,
+  author = {Ferreira, Clarice and Souza, Cleice and Pinto, Gustavo and Steinmacher, Igor and Meirelles, Paulo},
+  title = {When Students Become Contributors: Leveraging OSS Contributions in Software Engineering Courses},
+  booktitle = {Proceedings of the XXXII Brazilian Symposium on Software Engineering},
+  series = {SBES '18},
+  year = {2018},
+  isbn = {978-1-4503-6503-1},
+  location = {Sao Carlos, Brazil},
+  pages = {260--269},
+  numpages = {10},
+}
+</code></pre></div></div>
+:ET

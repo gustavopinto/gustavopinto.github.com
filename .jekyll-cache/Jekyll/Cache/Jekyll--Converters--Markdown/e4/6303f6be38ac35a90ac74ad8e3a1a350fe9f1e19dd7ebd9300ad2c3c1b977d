@@ -1,0 +1,73 @@
+I"
+<p>This year, an undergraduate student of mine first-authored a paper in the <a href="http://gustavopinto.github.io/lost+found/msr2019c.pdf">MSR
+challenge track</a> on the
+presence of violations in JavaScript code snippets available on StackOverflow.
+This blog post is an attempt to summarize all the steps taken to find a way
+to send the student to attend the conference (and present his paper). Perhaps
+it could help some other students to make it to ICSE.</p>
+
+<p>Overall, my student applied to four sources of funding: the <a href="https://2019.icse-conferences.org/track/icse-2019-Student-Volunteers">student volunteers</a>, the
+<a href="https://2019.icse-conferences.org/track/icse-2019-Software-Engineering-Mentoring-Workshop">Software Engineering Mentoring Workshop (SMeW)</a>, the <a href="https://www.sigsoft.org/resources/caps.html">CAPS SIGSOFT</a> grant, and an internal grant in my
+university. I will detail each one of them next.</p>
+
+<p>As far as I can tell, the student volunteer program happens every single year in
+ICSE (and also happens in several other software engineering conferences, such as
+ICSME and ASE). In ICSE, an accepted student volunteer receives a free registration
+for the main conference, but could also be scheduled to work in the co-located
+events (granting one-two more registration days). Therefore, applying for student
+volunteer greatly reduces one of the most costly part of attending a conference:
+the conference registration. Besides of it, students volunteers also have an unique
+opportunity to meet senior researchers that run the student volunteer program,
+and also other students (which could ended up in new research opportunities).
+I myself participated as a student volunteer in three conferences (2 OOPSLAs and
+one ICSE); I could not recommend more.</p>
+
+<p>Moreover, this year there is the Software Engineering Mentoring Workshop. This
+workshop is intended to “attract students to research careers in software engineering”.
+I believe this was the first time that this workshop happened in ICSE, although
+similar workshops happen on regular basis on programming language conferences
+(e.g. <a href="https://pldi19.sigplan.org/home/PLMW-PLDI-2019">PLMW</a>). My student applied
+for this grant and received CAD 500,00 plus one day ICSE registration. But since
+he received a free ICSE registration for his work as a student volunteer, this
+one day registration was not used. Now he had enough for registration and hotel.</p>
+
+<p>Since he had a MSR paper, and was accepted for the mentoring workshop, he applied
+for the CAPS funding. CAPS offer support for students and professionals that need
+additional funding to attend SIGSOFT conferences. I have applied to this grant in
+the past, but since I had received no response for my application, I thought that
+this grant was not working. But I suggest my student to apply to it nevertheless.
+I also discussed this matter on twitter (read thread <a href="https://twitter.com/gustavopinto/status/1104505538732351490">here</a>), and Thomas Zimmermann, SIGSOFT Chair, responded that he would take care of the
+CAPS program. Turns our that my student received USD 400,00 from CAPS (about 50%
+of what he asked for). Although this amount does not fully cover a round trip
+ticket from Belém to Montreal, it amortizes a good proportion of it.</p>
+
+<p>Finally, I applied for him in an internal travel grant that my university runs
+for undergraduate students. The amount was fixed in around USD 330. Although
+this is a very particular grant from my university, I am aware that other
+Brazilian universities provide similar mechanism to help students. Now his trip
+is fully covered (including eventual meals, ground transportation, travel
+insurance, etc).</p>
+
+<p>Wrapping up, I am glad that there are many international grants aimed to
+help students to attend software engineering conferences. But the trick thing is:
+if one of these grants does not have a positive outcome, I would have to complement
+his trip out of my own pocket (although I have a small grant running, I could not
+use this grant to support his trip; I will leave this explanation for another blog post).
+If his application was not accepted in two or more grants, his trip would become
+extremely prohibitive. Still, these grants have different application dates
+(and, consequently, notification dates). So eventually the student find himself in a
+position such as: (1) what if I accept this grant but did not receive the other one?
+(2) Could I say “yes” for a grant but eventually say “no” to it due to the lack of
+additional support? (3) should I start making reservations, or should I leave it
+to the last minute (when tickets often become more expensive)?
+These questions are all valid and tough.</p>
+
+<p>Turn out that the stars in the sky were well aligned the applications were all
+positive. Reflection upon this endeavour, maybe it would be interesting if all
+these programs would have close notification dates to each other.</p>
+
+<p>Final tip: the <a href="https://2019.icse-conferences.org/track/icse-2019-ACM-Student-Research#Call-for-Contributions">ACM Student Research Competition</a> also rewards the students with accepted papers
+with up to USD 500,00 to help them defray their travel costs. My student did not
+submit to ACM SRC (I may have forgotten; this blog post can help even myself in
+the future).</p>
+:ET

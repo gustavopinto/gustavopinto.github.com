@@ -1,0 +1,281 @@
+I"Q$<h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 18:30 @ LABCOMP-03</p>
+
+<h2 id="slack">Slack</h2>
+
+<p>Todo material de aula será postado no Slack. Para ingressar, clique <a href="https://join.slack.com/t/es2-bsi/shared_invite/enQtNDI0MDA0OTMxNzE2LWEwMjgwMzdjYzA5YzE3N2UzODZkN2UwOTkwMmE3Y2QzZmMxMDZlZDQzNTg5NGNlMmMzZWE0Yzk3MTBiMTllYzI">aqui</a>.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os técnicas avançadas para armazenamento e manipulação de dados.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Ordenação de dados; Árvores; Tabelas;</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>WIRTH, N. Algoritmos e estruturas de dados. Rio de Janeiro: Prentice Hall do Brasil, 1989</li>
+  <li>VELOSO, P., SANTOS, C. S., AZEREDO, P. A., FURTADO, A. L. Estruturas de dados. 3.ed. Rio de Janeiro: Campus, 1985</li>
+</ul>
+
+<h2 id="material-extra">Material extra</h2>
+<ul>
+  <li><a href="http://courses.washington.edu/css502/zander/Notes/06AVL-Btree.pdf">Balanced binary search trees - AVL trees, 2-3 trees, B trees</a></li>
+  <li><a href="https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext">Algorithms Behind Modern Storage Systems</a></li>
+  <li><a href="https://pypi.org/project/blist/">Blist: uma implementação de B+ tree em Python</a></li>
+  <li><a href="http://akira.ruc.dk/~keld/teaching/algoritmedesign_f04/Artikler/04/Bentley99.pdf">Fast Algorithms for Sorting and Searching Strings</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 3.5 pontos (0.5pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 5.5 pontos</li>
+  <li>Seminário: 5 pontos</li>
+  <li>Projeto de disciplina (PD): 6 pontos</li>
+  <li>Atividade extra (AE): 1 ponto</li>
+</ol>
+
+<h3 id="seminário">Seminário</h3>
+
+<p>O seminário é uma apresentação de tópicos <strong>não abordados</strong> na disciplina, como por exemplo:</p>
+
+<ul>
+  <li>Arvore B (remoção)</li>
+  <li>Arvore B* (inserção e busca)</li>
+  <li>Acesso concorrente em Arvore B* (inserção e busca)</li>
+  <li>Hashing (funções de transformação, colisões &amp; listas encadeadas, endereçamento aberto)</li>
+</ul>
+
+<p>O seminário é em <strong>dupla</strong> e pode ser feito usando slides ou o quadro com piloto e apagador. Cada apresentação deve conter:</p>
+<ul>
+  <li>Introdução do tópico</li>
+  <li>Exemplo prático</li>
+  <li>Exercícios para serem resolvidos em sala</li>
+</ul>
+
+<p>Até no máximo 3 dias corridos antes da apresentação, a dupla deve enviar para o slack um artigo científico que aborde o tema que será apresentado. Todos os alunos que não apresentarem devem fazer o resumo do artigo enviado (em dupla). O resumo deve ter no mínimo uma folha, e deve ser entregue (impresso) ao fim do seminário correspondente para o professor. Não serão aceitos resumos entregues fora do prazo.</p>
+
+<p><strong>Pontuação do seminário:</strong></p>
+
+<ul>
+  <li>Apresentação do seminário: 3.00</li>
+  <li>Entrega dos resumos: 2.00 (ou .50 por resumo)</li>
+  <li>A dupla que não enviar o artigo para o slack até o prazo estipulado, será penalizada com 1 ponto do seminário. Nesse caso, Nesse caso, os alunos se beneficiam do 0.50 automaticamente.</li>
+</ul>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<p>O projeto de disciplina consiste em identificar como as estruturas de dados estudadas em sala são utilizadas em implementações de projetos de software reais.</p>
+
+<p>Os alunos devem investigar que potenciais projetos de software fazem uso de alguma das estruturas de dados, identificar os trechos de código que fazem uso das estruturas, e entender as decisões que levaram ao uso dessa estrutura (pq foi usado x ao invés de y?). <strong>Como atividade bonus</strong>, os alunos que conseguirem modificar o código para utilização de outra estrutura de dados (ou para otimizar uma estrutura já existente), receberão 2 pontos extras.</p>
+
+<p>Depois de fazer a investigação, os alunos precisam preparar uma apresentação contendo: o nome do projeto, o local em que o projeto está disponível, os nomes das classes, métodos, trechos de código, etc, que fazem uso das estruturas, uma discussão sobre pq as estruturas estão sendo empregadas, e, caso tenha sido feito, quais foram as alterações realizadas no código. A apresentação deve durar no máximo 15 minutos. Terá penalidade de 1 ponto para quem estourar o tempo (<strong>ENSAIEM!</strong>).</p>
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<p>Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 20/11. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>28/08</td>
+      <td>Apresentação da disciplina, Revisão de conceitos</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>30/08</td>
+      <td>Árvores e Árvores Binárias</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>04/09</td>
+      <td>Árvores Binárias (cont)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>06/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>11/09</td>
+      <td>Árvores AVL</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>13/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>18/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>20/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>25/09</td>
+      <td>Árvore B</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>27/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>02/10</td>
+      <td>Árvore 2-3  &amp; Árvore Trie (Definição das equipes do seminário)</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>04/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>09/10</td>
+      <td>Árvore B+</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>11/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>16/10</td>
+      <td><strong><em>NAO TIVEMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>18/10</td>
+      <td>Árvore Radix</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>23/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>25/10</td>
+      <td>Árvore Ternária de busca</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>30/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>01/11</td>
+      <td><strong><em>Prova</em></strong></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>06/11</td>
+      <td>Seminário 1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>08/11</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>13/11</td>
+      <td>Seminário 2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>15/11</td>
+      <td><strong><em>FERIADO</em></strong></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>20/11</td>
+      <td>Seminario 3 &amp; entrega da AE</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>22/11</td>
+      <td>Seminário 4</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>27/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>29/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>04/12</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>06/12</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>11/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>13/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>18/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>20/12</td>
+      <td>Apresentação do PD</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+
+<h2 id="pontuação-extra">Pontuação extra</h2>
+
+<p>Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.</p>
+:ET

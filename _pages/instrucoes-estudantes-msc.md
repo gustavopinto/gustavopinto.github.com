@@ -1,4 +1,6 @@
 ---
+layout: single
+author_profile: true
 title: Instrução gerais para alunos de mestrado
 permalink: /instrucoes-alunos-msc/
 ---

@@ -1,0 +1,266 @@
+I"�,<h2 id="horário">Horário</h2>
+
+<p>Segunda e Quarta, às 16:40</p>
+
+<h2 id="slack">Slack</h2>
+
+<p>Todo material de aula será postado no Slack. Para acessar: http://bit.ly/2G5OIqX</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os fundamentos que permitam ao aluno adquirir o domínio básico da tecnologia de banco de dados.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de bancos de dados. Novas tecnologias e aplicações de banco de dados.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>HEUSER, Carlos Alberto. Projeto de Banco de Dados. 2a edição. Porto Alegre: Sagra - Luzzato, 1999.</li>
+  <li>SILBERSCHATZ, A.; KORTH, H.; SUDARSHAN, S. Sistema de Banco de Dados. 3a edição. São Paulo: Markon Books, 1999.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="http://www.tusharma.in/preprints/dbSchemaQuality_Preprint_ICSE2018.pdf">Smelly Relations: Measuring and Understanding Database Schema Quality</a></li>
+  <li><a href="https://pure.tudelft.nl/portal/en/publications/searchbased-test-data-generation-for-sql-queries(90a6431f-f78f-4ac3-bf87-c052cd9cd5d4).html">Search-Based Test Data Generation for SQL Queries</a></li>
+  <li><a href="https://github.com/tushartushar/DbDeo">Database smell detector</a></li>
+  <li><a href="https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436">How to get a data science position after academia with no previous industry experience</a></li>
+  <li><a href="https://github.com/fhoffa/analyzing_github">A growing collection of what I know about analyzing GitHub with BigQuery and other tools</a></li>
+  <li><a href="https://www.spinellis.gr/blog/20180403/">How to Perform Set Operations on Terabyte Files</a></li>
+  <li><a href="http://www.gousios.gr/courses/bigdata/ds-cmd-line.html">Data Science at the command line</a></li>
+  <li><a href="http://blog.alura.com.br/liberada-a-apostila-gratuita-de-sql-do-alura/">Apostila sobre SQL (Alura)</a></li>
+</ul>
+
+<!-- http://15445.courses.cs.cmu.edu/fall2017/schedule.html -->
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 3 pontos (1pt cada exercício)</li>
+  <li>Projeto sobre modelagem de dados: 4 pontos</li>
+  <li>Prova sobre modelagem de dados: 4 pontos</li>
+  <li>Projeto de disciplina (PD): 10 pontos</li>
+  <li>Atividade extra (AE): 2 pontos</li>
+</ol>
+
+<h3 id="projeto-sobre-modelagem-de-dados">Projeto sobre modelagem de Dados</h3>
+
+<p>Os alunos devem criar o modelo entidade relacionamento de um sistema de software <strong>não trivial</strong>. Os alunos devem apontar o sistema escolhido no Slack. O critério de escolha é first come, first served. O trabalho é em dupla. Cada dupla deve descrever em profundidade o sistema escolhido. No entanto, entidades e relacionamentos que não são vitais para o domínio da aplicação não precisam ser descritos. A dupla deve saber justificar as escolhas e implementações feitas. A dupla deverá apresentar o trabalho na data marcada. Na apresentação, a dupla deve descrever o domínio do problema da aplicação escolhida (o que ela faz), as entidades e seus relacionamentos. A riqueza de detalhes (atributos e seus tipos, relacionamentos e seus tipos) é importante para as principais entidades do sistema. Os modelos devem conter, no mímimo, as seguintes características: (1) cardinalidade mínima e máxima, (2) atributo simples, identificador e multivalorado, (3) relacionamento com atributo, (4) relacionamento unário, (5) relacionamento ternário, (6) entidade fracas. Não é necessário descrever essas características para todas entidades e relacionamento; somente para aquelas que representam o core da aplicação. A não apresentação de uma das características acarretará na redução de 0.50 pontos da atividade (somado para cada característica pendente).  Se a dupla optar por usar um software de modelagem que não implemente as características mencionadas anteriormente, certifiquem-se de modificar os diagramas para que essas características sejam cobertas. No mímimo de 3 horas antes da apresentação, a dupla deve enviar os slides bem como o diagrama para o slack (o não envio no prazo estipulado acarretará na redução de 2 pontos da atividade). As duplas que apresentarem no segundo dia serão mais cobradas. Apresentação de até 25 minutos por dupla.</p>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de Disciplina (PD)</h3>
+
+<p>No projeto de disciplina, o aluno deverá abordar na prática alguns dos conceitos vistos em sala de aula. Um exemplo de PD: Configure a ferramenta <a href="https://github.com/tushartushar/DbDeo">DbDeo</a> e execute-a em vários bancos de dados existentes (no seu estágio, de software livre, etc). O professor é responsável por apresentar vários PDs, mas o aluno poderá sugerir um PD do seu interesse. No entanto, o PD deve ser uma atividade que justifique o tempo dedicado para sua execução (em torno de 3 semanas).  O projeto de disciplina deve ser feito em dupla.</p>
+
+<p>Algumas outras possíveis atividades para o projeto de disciplina:</p>
+
+<ul>
+  <li>Rodar algum algoritmo de aprendizado de máquina em alguma base de dados (exemplo <a href="https://github.com/jubins/MachineLearning-Detecting-Twitter-Bots">aqui</a>)</li>
+  <li>Importar CSVs de algum projeto (como o o <a href="http://dados.gov.br/">dadosbr</a>) para um banco de dados e extrair informações relevantes</li>
+  <li>Utilizar alguma biblioteca de visualização (exemplo <a href="https://altair-viz.github.io/">aqui</a>) de dados em algum banco de dados</li>
+  <li>Aplicar alguma ferramenta de análise de performance em algum banco de dados já existente</li>
+  <li>Exportar dados de algum banco de dados relacional, e utilizar alguma biblioteca de análise de dados (por exemplo, <a href="https://pandas.pydata.org/">pandas</a>) (exemplo <a href="https://codeburst.io/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e">aqui</a>)</li>
+  <li>Rodar alguma ferramenta de mapeamento objeto relacional em algum banco de dados já existente (exemplo <a href="http://guides.rubyonrails.org/active_record_querying.html">aqui</a>)</li>
+  <li>Realizar um processo de limpeza de dados em alguma base de dados já existente (por <a href="http://openrefine.org/">exemplo</a>)</li>
+  <li>Implementar o trabalho do seminário em algum bando de dados relacional</li>
+</ul>
+
+<h4 id="base-de-dados-abertas">Base de dados abertas</h4>
+
+<ul>
+  <li>StackOverflow: http://data.stackexchange.com/stackoverflow/queries</li>
+  <li>Github: https://cloud.google.com/bigquery/public-data/github e http://ghtorrent.org/ (exemplos <a href="https://github.com/fhoffa/analyzing_github">aqui</a>)</li>
+  <li>Wikipedia: https://bigquery.cloud.google.com/dataset/fh-bigquery:wikipedia?pli=1 (exemplos <a href="https://www.reddit.com/r/bigquery/comments/3dg9le/analyzing_50_billion_wikipedia_pageviews_in_5/?st=jgq90t8u&amp;sh=3d541169">aqui</a>)</li>
+</ul>
+
+<h4 id="trabalhos-escolhidos">Trabalhos escolhidos</h4>
+
+<ul>
+  <li>Planilha com os trabalhos: https://docs.google.com/spreadsheets/d/10JXQf0ZQL2KcnwaRFkNWvoOLXFi2Lsgw_3D-en_4O_c/edit#gid=0</li>
+</ul>
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<p>Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h3 id="nota-final">Nota final</h3>
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>19/03</td>
+      <td>Apresentação</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>21/03</td>
+      <td>Conceitos e Arquitetura de SGBD</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>26/03</td>
+      <td>Modelo ER  (Definir trabalhos)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>28/03</td>
+      <td>Modelo ER</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>02/04</td>
+      <td>Modelo ER</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>04/04</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>09/04</td>
+      <td>Revisão Entidades-Relacionamentos</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>11/04</td>
+      <td>NÃO TEREMOS AULA</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>16/04</td>
+      <td>Modelo ER</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>18/04</td>
+      <td><strong>Apresentação de trabalhos</strong>  (Parte 1)</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>23/04</td>
+      <td>GREVE DOS RODOVIARIOS</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>25/04</td>
+      <td><strong>Apresentação de trabalhos</strong>  (Parte 2)</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>30/04</td>
+      <td><strong>Prova 1</strong></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>02/05</td>
+      <td>DDL E DML</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>07/05</td>
+      <td>SQL CREATE, INSERT</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>09/05</td>
+      <td>NAO TEREMOS AULA</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>14/05</td>
+      <td>SQL SELECT, DELETE e UPDATE</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>16/05</td>
+      <td>SQL COMPLEXO</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>21/05</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>23/05</td>
+      <td>SQL Funções</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>28/05</td>
+      <td>AULA SUSPENSA: GREVE</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>28/05</td>
+      <td>SQL Subqueries</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>04/06</td>
+      <td>Normalização</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>06/06</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>11/06</td>
+      <td>Acompanhamento de projetos</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>13/06</td>
+      <td>Acompanhamento de projetos</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>18/06</td>
+      <td>NAO TEREMOS AULA</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>20/06</td>
+      <td>NAO TEREMOS AULA</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>25/06</td>
+      <td>Apresentação de projetos de disciplina (Parte 1)</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>27/06</td>
+      <td>Apresentação de projetos de disciplina (Parte 2)</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>02/07</td>
+      <td>Atividade Extra</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+:ET

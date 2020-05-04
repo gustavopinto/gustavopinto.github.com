@@ -1,6 +1,8 @@
 ---
+layout: single
 title: Reading
 permalink: /reading/
+author_profile: true
 ---
 
 A few suggestions for (prospective) grad students, in no particular order:

@@ -1,0 +1,286 @@
+I"�-<h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 16:40 @ MIRANTE-410</p>
+
+<h2 id="slack">Slack</h2>
+
+<p>Todo material de aula será postado no Slack. Para ingressar, clique <a href="https://join.slack.com/t/bd2-bcc/shared_invite/enQtNDI0MTA5NTI1MTA3LTVmMTRiZTRlMzM1YWNmYjdjZWYxYTliNjQ3ZGQ3ZDdhM2UwY2FiNTU5NzNjYzk3OTIwMDY1ODlhZjk0OTA2NDM">aqui</a>.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>A disciplina de Bancos de Dados Avançados cobre vários temas práticos dos sistemas como processamento de consulta, controle de transações, concorrência e segurança.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sistemas de banco de dados: processamento de consultas, recuperação de falhas, segurança e integridade, controle de concorrência.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>Elmasri, R.; Navathe, S. B. Sistemas de Banco de Dados, 6ª Ed, 2010.</li>
+  <li>Redmond, E.; Wilson, J.R. Seven Databases in Seven Weeks: A Guide to Modern Databases and the NoSQL Movement, 2012.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf">Deadlocks as Runtime Exceptions</a></li>
+  <li><a href="https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext">Algorithms Behind Modern Storage Systems</a></li>
+  <li><a href="https://lemire.me/blog/2008/05/01/i-am-seeking-an-efficient-algorithm-to-group-identical-values-in-an-array/">Seeking an efficient algorithm to group identical values</a></li>
+  <li><a href="https://blog.acolyer.org/2018/09/26/the-design-and-implementation-of-modern-column-oriented-database-systems/">The design and implementation of modern column-oriented database systems</a></li>
+  <li><a href="http://andreas-zeller.blogspot.com/2016/04/how-i-twice-hacked-conference.html">Four security flaws illustrated, all on one conference registration site</a></li>
+  <li><a href="https://pdfs.semanticscholar.org/81a5/02b52485e52713ccab6d260f15871c2acdcb.pdf">A Classification of SQL Injection Attacks and Countermeasures</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 4 pontos (1pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 4 pontos</li>
+  <li>Seminário (PD): 5 pontos</li>
+  <li>Projeto de disciplina: 7 pontos</li>
+  <li>Atividade extra (AE): 1 ponto</li>
+</ol>
+
+<h3 id="seminário">Seminário</h3>
+
+<p>O seminário é composto de uma atividade, um relatório, e uma apresentação.</p>
+
+<p>O seminário pode ser feito em dupla ou individualmente. Cada dupla deve implementar <a href="/teaching/bd2/exercise">esta atividade</a> um banco de dados.</p>
+
+<p>O relatório deve conter: configuração da máquina na qual as avaliações foram realizadas, tabelas/gráficos dos resultados, descrição dos SGBDs considerados e dos algoritmos implementados - se for o caso, e discussão sobre os resultados.</p>
+
+<p>A apresentação deve conter: configuração da máquina (HD, memória, cache, SO, etc) e SGBD/s considerado/s, tabelas/gráficos dos resultados, onde cada consulta deve ser explicitada através do comando SQL executado.</p>
+
+<p>A entrega do relatório e a apresentação do trabalho será no dia 23/10. Cada dupla (ou aluno, caso seja individual) terá 15 minutos de apresentação mais 3 minuto para questionamento. Terá penalidade de 1 ponto para quem estourar o tempo (<strong>ENSAIEM!</strong>)</p>
+
+<p>Para garantir que todos apresentem no horário: É necessário enviar o PDF da apresentação e do relatório para o grupo do Slack até às 23:00hs do dia 22/10. Os arquivos devem ser nomeados como “relatorio-nome.pdf” e “apresentacao-nome.pdf”, onde “nome” é o nome de <em>UM</em> aluno (mesmo para duplas). O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto.</p>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<p>O PD deverá ser feito em duplas ou trios. O projeto de disciplina utilizará o <a href="http://sotorrent.org">SOTorrent</a>. Teremos uma aula expositiva para apresentação do dataset, e uma aula com hands on no dataset. Durante a aula expositiva, algumas sugestões de trabalhos serão feitas, mas os alunos estão livres para explorar outros trabalhos.  Antes das aulas os alunos já podem ir explorando o dataset (disponível <a href="https://zenodo.org/record/1434285#.W9pMsFLQ_MI">aqui</a>). <strong><em>IMPORTANTE:</em></strong> não é recomendado a utilização do SOTorrent via Google Big Query para condução do trabalho (apenas para se familiarizar com a base). Os alunos devem importar e manusear seu próprio banco de dados.</p>
+
+<p>O escopo do projeto será decidido ao longo da disciplina, no entanto, não após 22/11.</p>
+
+<p>Os alunos devem também se ambientar com o material adicional sobre o SOTOrrent:</p>
+
+<ul>
+  <li><a href="http://empirical-software.engineering/assets/pdf/msr18-sotorrent.pdf">SOTorrent: Reconstructing and Analyzing the Evolution of Stack Overflow Posts</a></li>
+  <li><a href="http://empirical-software.engineering/assets/pdf/msr19-sotorrent.pdf">SOTorrent: Studying the Origin, Evolution, and Usage of Stack Overflow Code Snippets</a></li>
+  <li><a href="http://empirical-software.engineering/blog/sotorrent-edithistory">Edit and Comment History of Stack Overflow Threads</a></li>
+</ul>
+
+<p>O PD constará de: um relatório, uma apresentação, e o código criado. O <strong>relatório</strong> deve conter: introdução (o que foi feito?), metodologia (como foi feito?), resultados (o que foi encontrado?), discussão (o que foi aprendido com os resultados?), trabalhos relacionados (quais são os outros trabalhos?) e conclusão (fim!). O <strong>relatório</strong> deve estar <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/Conference-template-A4.doc">neste formato</a>, e deve ter de (no mínimo) 3 a (no máximo) 4 folhas.</p>
+
+<p>A <strong>apresentação</strong> deve ser enviada até o dia 17/12, às 23:00, e deve abordar os mesmos tópicos do relatório. No entanto, aperesentações podem acontecer antes, caso a dupla/trio tenha encerrado o trabalho mais cedo. A apresentação não deve demorar mais do que 15 minutos (<strong><em>ENSAIEM</em></strong>).</p>
+
+<p>O <strong>código</strong> criado deverá obrigatoriamente estar disponível no Github desde o começo do trabalho.</p>
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<ul>
+  <li>Ler um artigo completo do SBBD de 2018. O resumo deve ter 2 folhas. Entrega no 15/11/2018, até às 18:30, via mensagem privada no Slack.</li>
+  <li>Ler o artigo <a href="https://sites.google.com/a/cin.ufpe.br/castor/sblp_2015_submitted.pdf">Deadlocks as Runtime Exceptions</a> e entregar um resumo de 2 folhas no dia 27/09. Vale 0.5 pontos.</li>
+  <li>Fazer uma contribuição a um projeto de software livre durante o mês de outubro (1 ponto). A contribuição precisa ser relacionada a código (documentação não conta) de um projeto (ou parte de um projeto) de banco de dados.</li>
+</ul>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>28/08</td>
+      <td>Introdução, Objetivos e Revisão</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>30/08</td>
+      <td>Anti padrões em SQL</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>04/09</td>
+      <td>Transação</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>06/09</td>
+      <td>Transação</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>11/09</td>
+      <td>Concorrência</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>13/09</td>
+      <td>Concorrência</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>18/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>20/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>25/09</td>
+      <td>Concorrência</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>27/09</td>
+      <td><strong><em>NAO TIVEMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>02/10</td>
+      <td><strong><em>MIRANTE FECHADO</em></strong></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>04/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>09/10</td>
+      <td>Armazenamento</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>11/10</td>
+      <td>Recuperação</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>16/10</td>
+      <td>Segurança</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>18/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>23/10</td>
+      <td><strong><em>NAO TIVEMOS AULA (Jogos alunos)</em></strong></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>25/10</td>
+      <td>Seminário parte 1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>30/10</td>
+      <td>Seminário parte 2</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>01/11</td>
+      <td>Prova</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>06/11</td>
+      <td>Correção de provas</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>08/11</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>13/11</td>
+      <td>Hands on trabalho final</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>15/11</td>
+      <td><strong><em>FERIADO</em></strong></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>20/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>22/11</td>
+      <td>Acompanhamento das atividades &amp; Definição de trabalhos</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>27/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>29/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>04/12</td>
+      <td><strong><em>NAO TEREMOS ACOMPANHAMENTO</em></strong></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>06/12</td>
+      <td><strong><em>NAO TEREMOS ACOMPANHAMENTO</em></strong></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>11/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>13/12</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>18/12</td>
+      <td>Apresentação PD</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>20/12</td>
+      <td>Apresentação PD</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+
+<h2 id="pontuação-extra">Pontuação extra</h2>
+
+<p>Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.</p>
+:ET
