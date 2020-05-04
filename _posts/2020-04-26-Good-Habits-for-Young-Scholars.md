@@ -6,6 +6,7 @@ year: 2020
 month: 4
 day: 26
 published: true
+permalink: /blog/1-5-Good-Habits-for-Young-Scholars
 ---
 
 [I'm selling about good habits that young scholars could foster while finding their path in academia, for only $ 5](http://gum.co/good-research-habits). 100% of the sales will go to a hospital fighting COVID-19. Read on to know more.

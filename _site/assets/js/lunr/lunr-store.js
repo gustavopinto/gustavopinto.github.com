@@ -230,7 +230,7 @@ var store = [{
         "title": "1+5 Good Habits for Young Scholars",
         "excerpt":"I’m selling about good habits that young scholars could foster while finding their path in academia, for only $ 5. 100% of the sales will go to a hospital fighting COVID-19. Read on to know more. *** Academia could be a wonderful place. By seeking the truth, researchers are exposed...","categories": [],
         "tags": [],
-        "url": "http://localhost:4000/Good-Habits-for-Young-Scholars/",
+        "url": "http://localhost:4000/blog/1-5-Good-Habits-for-Young-Scholars",
         "teaser": null
       },{
         "title": "How to write a short book in 20 hours",
