@@ -1,0 +1,6 @@
+I"�<p>Developers often take advantage of Object-Relation Mapping (ORM) frameworks to
+provide a conceptual abstraction between objects in object-oriented languages
+and data stored in the underlying database. These ORM frameworks operate between
+object-oriented architecture system and the relational environment, creating a
+“virtual object database” that can be handled from within the programming language.</p>
+:ET

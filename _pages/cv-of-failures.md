@@ -1,6 +1,8 @@
 ---
 title: CV of Failures
 permalink: /cv-of-failures/
+layout: single
+author_profile: true
 ---
 
 This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2017/12/vitak-cv-of-failures-dec17.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. Since rejections is part of the process (e.g., acceptance rate in software engineering venues are often around 20%--30%), I think people should talk more about failure.

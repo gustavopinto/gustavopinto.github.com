@@ -1,0 +1,713 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Resumo da disciplina de Tópicos Especiais em Software Livre - Gustavo Pinto</title>
+<meta name="description" content="No primeiro semestre de 2019, em conjunto com Filipe Saraiva, ministramos a disciplina de Tópicos Especiais em Software Livre (TESL) para alunos da graduação e pós-graduação da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado uma necessidade interna da nossa faculdade (alguns professores afastados, outros recém aposentados, resultando em um défict de professores), decidimos meio que de último minuto ofertar a disciplina. ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Resumo da disciplina de Tópicos Especiais em Software Livre">
+<meta property="og:url" content="http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre/">
+
+
+  <meta property="og:description" content="No primeiro semestre de 2019, em conjunto com Filipe Saraiva, ministramos a disciplina de Tópicos Especiais em Software Livre (TESL) para alunos da graduação e pós-graduação da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado uma necessidade interna da nossa faculdade (alguns professores afastados, outros recém aposentados, resultando em um défict de professores), decidimos meio que de último minuto ofertar a disciplina. ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Resumo da disciplina de Tópicos Especiais em Software Livre">
+  <meta name="twitter:description" content="No primeiro semestre de 2019, em conjunto com Filipe Saraiva, ministramos a disciplina de Tópicos Especiais em Software Livre (TESL) para alunos da graduação e pós-graduação da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado uma necessidade interna da nossa faculdade (alguns professores afastados, outros recém aposentados, resultando em um défict de professores), decidimos meio que de último minuto ofertar a disciplina. ">
+  <meta name="twitter:url" content="http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2019-07-16T00:00:00-03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/blog/resumo-da-disciplina-topicos-especiais-em-software-livre/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/books/">Books</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/service/">Service</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Software Engingeering Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Resumo da disciplina de Tópicos Especiais em Software Livre">
+    <meta itemprop="description" content="No primeiro semestre de 2019, em conjunto com Filipe Saraiva, ministramos a disciplina deTópicos Especiais em Software Livre (TESL) para alunos da graduação e pós-graduaçãoda UFPA. Como tanto o Filipe quanto eu temos bastante interesse em softwarelivre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, jáestavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dadouma necessidade interna da nossa faculdade (alguns professores afastados, outrosrecém aposentados, resultando em um défict de professores), decidimos meio que deúltimo minuto ofertar a disciplina.">
+    <meta itemprop="datePublished" content="2019-07-16T00:00:00-03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Resumo da disciplina de Tópicos Especiais em Software Livre
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>No primeiro semestre de 2019, em conjunto com <a href="filipesaraiva.info/">Filipe Saraiva</a>, ministramos a disciplina de
+<a href="http://github.com/gustavopinto/tesl">Tópicos Especiais em Software Livre (TESL)</a> para alunos da graduação e pós-graduação
+da UFPA. Como tanto o Filipe quanto eu temos bastante interesse em software
+livre, o Filipe com um viés mais prático, e eu no sentido de pesquisa, já
+estavamos pensando em ofertar essa disciplina há algum tempo. No entanto, dado
+uma necessidade interna da nossa faculdade (alguns professores afastados, outros
+recém aposentados, resultando em um défict de professores), decidimos meio que de
+último minuto ofertar a disciplina.</p>
+
+<p>Como fizemos isso sem muito planejamento, a disciplina nasceu e cresceu de forma
+meio orgânica. Decidimos sobre uma agenda, e fomos produzindo o material sob
+demanda. Dentre os tópicos abordados estão: documentação, licenças, gerenciamento
+de código e requisitos, boas práticas de codificação, e métricas de código fonte.</p>
+
+<p>Como foi a primeira vez que a disciplina foi ofertada na UFPA, houve um interesse
+muito grande por parte dos alunos, tanto que rapidamente as vagas se esgotaram
+(tanto para a graduação quanto para a pós-graduação). Tivemos também que abrir vagas
+excedentes para alunos especiais (aqueles que não estão regularmente matriculados
+em no programa de pós-graduação). Somando graduação e pós, acredito que cerca
+de 60 alunos se matricularam para essa disciplina. Para alguns esse número pode
+parecer pequeno, mas, para nós, é um número muito grande de alunos (tanto que
+tivemos que procurar um espaço externo a nossa faculdade para as aulas). Na nossa
+faculdade, turmas grandes tem cerca de 35–40 alunos (e não é incomum turmas de
+~15 alunos). Mas isso é história para outo post de blog.</p>
+
+<p>Fiquei bastante feliz pelo interesse dos alunos em se matricular na disciplina
+(revelando uma eventual carência na área). Ao longo da disciplina, no entanto,
+o número de alunos foi diminuindo rapidamente. A sala, que ficava apertada nas
+primeiras aulas, começou a ficar folgada ao longo do semestre. Há vários fatores
+que podem explicar a desistência dos alunos, dos quais dois deles valem a pena
+pensar um pouco mais. O primeiro é que se trata de uma disciplina optativa, logo
+os alunos tem menos resposabilidade em concluir, uma vez que eles poderiam cursar
+outra(s) optativa(s) em um outro semestre, e creditar a necessidade dessa matéria.
+Outro ponto é dado o material completo da disciplina não estar disponível durante
+o período de matrícula (os alunos tinham acesso somente a ementa). Logo, é possível
+que alguns alunos estivessem esperando um outro tipo de disciplina. Enfim.</p>
+
+<p>Ao meu ver, o cerne dessa disciplina é que o aluno deveria sair dela com algumas
+contribuições feitas em alguns projetos de software livre. Não é necessário somente
+usar um software livre, é também necessário entender, usar e modificar. Ao longo
+das aulas, os alunos tiveram várias pequenas atividades para entender como funciona
+um projeto de software livre, como por exemplo entender a importância das
+comunidades, pra que serve uma licença, onde pedir ajuda, etc. Tivemos também
+algumas palestras convidadas de membros ativos de projetos de software livre,
+como o <a href="http://softwarelivre.org/terceiro">Antônio Terceiro</a>, contribuidor do Debian, e o <a href="https://feaneron.com">George Stavracas</a>, contribuidor
+do GNOME. Como no início também pensávamos que os alunos poderiam produzir artigos
+científicos ao fim da disciplian (e a vários alunos da pós-graduação estavam
+matriculanos), também convidamos o <a href="www.igor.pro.br">Igor Steinmacher</a>, que conduz pesquisa
+nesse tópico. Nesse primeiro momento, foi
+colocado pouca enfâse na contribuição em sí, e mais no processo de criação e
+evolução de um projeto de software livre. Por um lado isso nos pareceu adequado,
+já que é muito importante entender o contexto antes de se envolver, de fato. Por
+outro lado, isso tardiou a contribuição dos alunos nos projetos.</p>
+
+<p>Na segunda parte da disciplina, os alunos deveriam usar os conhecimentos adquiridos
+para procurar um projeto de software livre e fazer uma contribuição. Algumas
+contribuições na verdade. Embora não mandatório, era esperado que todos os alunos
+fizessem pelo menos uma contribuição de código de código pequena (por exemplo,
+uma refatoração), embora outras  atividades estivessem disponíveis para os alunos
+(ver lista completa e pontuação sugerarida <a href="https://github.com/gustavopinto/tesl/blob/master/trabalho-final.md">aqui</a>).
+Como tivemos 11 aulas expositivias (somado com duas paralizações e um feriado)
+os alunos tiveram em torno de três a quatro semanas para fazer as contribuições
+nos projetos. Refletindo agora, é notório que a disciplina ficou bem desbalanceada.
+No entanto, embora eu concorde que alguns tópicos poderiam ser removidos da ementa
+da disciplina, eu acho que seria muito difícil equalizar o tempo dedicado nas aulas
+e nos projetos. Ponto para debate.</p>
+
+<p>De toda forma, mesmo que o tempo para realizar os projetos tenha sido relativamente
+curto, acredito que todos os alunos conseguiram realizar alguma contribuição.
+Algumas contribuições, inclusive, foram bem significativas, como por exemplo, um
+novo algoritmo para o <a href="https://github.com/scikit-learn/scikit-learn/pull/14239">scikit-learn</a>,
+criação de nova regra no <a href="https://github.com/sindresorhus/eslint-plugin-unicorn/pull/302">ESLint</a>,
+ou um novo layout para o <a href="https://github.com/halogenica/beautifulhugo/pull/287">beautifulhugo</a>.
+Vários outros alunos fizeram contribuições menores, mas também bastante interessantes
+como <a href="https://github.com/GoogleCloudPlatform/oozie-to-airflow/pull/272">refatorações</a>, parsing de <a href="https://github.com/edsu/pymarc/pull/137">arquivo JSON</a>, além de <a href="https://github.com/python-gsoc/python-blogs/pull/240">traduções</a>, e <a href="https://github.com/CiviWiki/OpenCiviWiki/pull/537">bug reports</a>. No total, os alunos
+fizeram mais de 60 contribuições em projetos de software livre. Durante as
+apresentações dos projetos, vários alunos mencionaram que a disciplina ajudou
+a fazer a primeira contribuição em um projeto de software livre (alguns alunos
+estavam inclusive bem felizes por causa disso).</p>
+
+<p>Ao fim da disciplina, lancei um questionário pra avaliar a percepção dos alunos
+com relação a disciplina. 17 alunos responderam. Dentre os quais, 65% nunca haviam
+contribuido com projetos de software livre antes (apenas um era contribuidor ativo).
+88% dos alunos mostraram interesse em continuar contribuindo com software livre
+após a disciplina. Quando perguntados quais as chances de realizar as contribuições
+feitas se não tivessem cursado a disciplina 71% disseram que era “improvável” ou
+“muito improvável”. 88% dos alunos recomendariam a disciplina para algum colega.</p>
+
+<p>Ainda sobre o questionário, alguns alunos acharam particularmente interessante
+assuntos sobre licenças, sobre o funcionamento das comundiades, ou sobre
+engajamento nos projetos. Um aluno mencionou que achou interessante saber<br />
+“Que é possível ganhar dinheiro com software livre”. Não sei se foi o mesmo aluno,
+mas um aluno da disciplina procurou projetos e issues que eram financiadas. Esse
+mesmo aluno comentou comigo que recebeu mais dinheiro contribuindo com os projetos
+do que em 2 ou 3 meses de estágio. MASSA!
+Sobre os tópicos que deveriam ser abordados (mas que não foram), alguns alunos
+mencionaram que é importante falar mais sobre o git e o github durante a disciplina.
+Nós simplesmente assumimos que esses assuntos seriam rapidamente absorvidos pelos
+alunos, mas não parece ser o caso. Inclusive, logo no começo das aulas, foi
+perceptível que vários alunos tiveram problemas em como usar o sistema de
+pull-requests nos exercícios.</p>
+
+<p>Com relação as dificuldades para contribuir, alguns alunos
+reportaram que tiveram dificuldades para enteder as guideslines do projeto, para
+seguir os padrões de código adoados, ou até mesmo no processo de revisão. Vários
+alunos reportaram que tiveram dificudlades para encontrar projetos para fazer
+contribuições. Isso é particularmente interessante, visto que muito se tem feito
+nos últimos anos para fazer com novatos embarquem em projetos de software livre,
+mas a barreira de entrada ainda parece ser muito grande. Recentemente, inclusive,
+Karl Fogel <a href="https://twitter.com/kfogel/status/1144648353873051649">questionou no Twitter</a>
+quais as ações que as pessoas fazem para se envolver com software liver. Meu, se
+até o Karl Fogel tem essa dúvida, o que dirá os meus alunos… Para exemplificar,
+usando as palavras de um aluno, coloco aqui as dificuldades por ele encontradas:</p>
+
+<p>“Contribuições de documentações são relativamente simples de encontrar e realizar, reportar bugs também não é uma tarefa tão difícil, visto que no decorrer do dia nos deparamos com pequenos bugs em nossas ferramentas. O grande problema é contribuir com código: Não estar familiarizado com a estrutura de um projeto é uma grande barreira, ao vasculhar o código fonte serão encontradas diversas ferramentas e bibliotecas sendo utilizadas em conjunto com as técnicas de programação (OOP, Data Structures), e para alunos que nunca desenvolveram nenhum projeto fora da universidade pode ser frustrante entender essa junção de utilização de ferramentas + conceitos. Acredito que a melhor forma de contornar essa barreira seria influenciando os alunos a procurarem contribuições a serem feitas desde o inicio da disciplina, isso faz com que eles possam amadurecer ao longo da disciplina.”</p>
+
+<p>Para finalizar, gostaria de agradecer o Filipe Saraiva, que foi quem lançou a
+proposta e abraçou a causa junto comigo. Agradecer também aos convidados,
+Antônio Terceiro, George Stavracas e Igor Steinmacher, que acharam tempo em suas
+agendas apertadas para dar uma palestra para os alunos, e também ao <a href="https://www.mauricioaniche.com/">Mauricio Aniche</a>
+que gentilmente disponibilizou algumas cópias de alguns de seus livros que foram
+enviadas para os alunos que tiveram excelente desempenho na disciplina. Agradeço
+também ao nosso monitor, <a href="https://github.com/felipenazario">Marcos Nazário</a>, que assumiu três aulas (uma delas nem
+era de sua responsabilidade). Por fim, agradecer também aos alunos que participaram
+da disciplina! Sem dúvida, nada disso teria acontecido se não fosse vocês. Valeu!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-16T00:00:00-03:00">July 16, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gustavopinto&text=Resumo+da+disciplina+de+T%C3%B3picos+Especiais+em+Software+Livre%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fresumo-da-disciplina-topicos-especiais-em-software-livre%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fresumo-da-disciplina-topicos-especiais-em-software-livre%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fresumo-da-disciplina-topicos-especiais-em-software-livre%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/continuous-integration-theater/" class="pagination--pager" title="Continuous Integration Theater
+">Previous</a>
+    
+    
+      <a href="/blog/detecting-and-reporting-orm-problems/" class="pagination--pager" title="Detecting and Reporting Object-Relational Mapping Problems
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/How-to-write-a-short-book-in-20-hours/" rel="permalink">How to write a short book in 20 hours
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">A short book
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/1-5-Good-Habits-for-Young-Scholars" rel="permalink">1+5 Good Habits for Young Scholars
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Promoting a book
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3/" rel="permalink">Why the MIT licensed is 18x more used then GPL-3?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I am writing a book to make open source licensing easier to understand!
+
+I want this!
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/what-can-go-wrong-when-one-misuses-open-source-licenses/" rel="permalink">What can go wrong when one misuses open source licenses?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I am writing a book to make open source licensing easier to understand!
+
+I want this!
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

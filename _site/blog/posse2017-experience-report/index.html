@@ -1,0 +1,624 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>POSSE 2017 An experience report - Gustavo Pinto</title>
+<meta name="description" content="POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop. ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="POSSE 2017 An experience report">
+<meta property="og:url" content="http://localhost:4000/blog/posse2017-experience-report/">
+
+
+  <meta property="og:description" content="POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop. ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="POSSE 2017 An experience report">
+  <meta name="twitter:description" content="POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop. ">
+  <meta name="twitter:url" content="http://localhost:4000/blog/posse2017-experience-report/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2017-07-03T00:00:00-03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/blog/posse2017-experience-report/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/books/">Books</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/service/">Service</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Software Engingeering Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="POSSE 2017 An experience report">
+    <meta itemprop="description" content="POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.">
+    <meta itemprop="datePublished" content="2017-07-03T00:00:00-03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">POSSE 2017 An experience report
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>POSSE (Professors’ Open Source Software Experience) is a workshop aimed at bringing world-wide professors to discuss how they can improve their CS courses in order to take advantage of free/open-source software (FOSS for short). FOSS is a topic very dear to my heart. When I was a student, I participated in several FOSS conferences and I also used to contribute to some FOSS projects. As a researcher (and, eventually, as a professor) I shifted my interest a bit. Although I’m not coding as much as I would like to, I’m still interested in FOSS. Indeed, some of my research research is about FOSS (e.g., communities, engagement, perceptions, etc). In addition, as of today, I’m a faculty running for tenure, with nearly no previous teaching experience. Needless to say that I was with high expectations for the workshop.</p>
+
+<p>This year the workshop took place at the beautiful Bologna, Italy. This blog post describes my personal yet biased view about the 2 intensive days of chatting with other professors about CS courses, open-source, pasta, and wine. The workshop was a mix of several lectures and group activities. Although I agree that both parts are equally important, this blog post is focused on the lecture part, which I took some notes  (I did not have time to write down notes during the group activities).</p>
+
+<p>One of the first advice for professors that want to introduce FOSS in their courses is to inform students upfront that the course will not be a normal one. That is, the professor is not supposed to know everything about the FOSS under study (in fact, depending on the FOSS, no one knows), although, professors have to figure out with students what they do not know — which is perfectly fine. It is important to note that the learning curve is significant for both faculties and students. On the other hand, this approach provide excellent opportunities for technical/non-technical learning. We need to adapt the learning approach, though.</p>
+
+<p>To minimize the learning curve, professors need materials. Good materials can be found at the <a href="http://teachingopensource.org/">teachingopensource.org</a> and at the <a href="http://foss2serve.org/">foss2serve.org</a> websites. Take the time to explore them – they have a rich database.</p>
+
+<p>While you learn something new from these websites, think about how students can contribute to open-source. One point that was largely debated is that open-source contributions is not only about code. There are many many ways that one can contribute – code is only one of them. Indeed, in order to be a FOSSer, a student does not even need to commit changes to a repository. A FOSSer can (1) create a blog post, (2) test the software, or (3) answer questions in a malling list. There are, at least, <a href="http://foss2serve.org/index.php/50_Ways_to_be_a_FOSSer">50 ways that one can contribute to FOSS</a>. Find one that can fit your needs and tell students to do that.</p>
+
+<p>However, we cannot throw a student that does not how to swim in the deep end of a pool and say: swim. We need a scaffold. Some questions you should ask yourself: What we need to do to contribute to FOSS? What are the steps? Forget students! What I have to do? After you figure out, think about how can you teach students to do that?</p>
+
+<p>Since both professors and students are immersing into not well-known waters, it is important to have a contact within the FOSS community, who could provide help. How to find a contact? One way is to observe the community. Examples include: (1) Go to an IRC channel, (2) assign a malling list, or (3) participate in a slack group. After a while, you would be able to answer questions such as: Is this community active? Do they answer novice questions? Can you tell who are the core developers?</p>
+
+<p>If this community seems to be a good one, then it is time to introduce yourself, explain that you have some students that might be able to contribute, describe your goal, etc. Is someone willing to help? Good! No? Do not give up. Repeat until you find a suitable community. If we have success finding good communities, the chances that students succeed should be higher.</p>
+
+<p>Some students have a hard time trying to find meaningful things to contribute during the short term of a course. Some FOSS projects provide labels for “easy” tasks, while others provide Roadmaps (i.e., known features/bugs that the FOSS project want to have done/fixed for the next release). These are good ways to search for meaningful tasks. However, Roadmaps might contain critical bugs. Although the community do want to get them fixed (therefore they might provide good support for the student), such bugs might be non-trivial, requiring students to spend much time in learning (instead of coding) activities. It might be tempting to work on such fancy bugs. However, the suggestion is not to work on the critical path! This might delay the contribution process — and demotivate students.</p>
+
+<p>Another thing to pay attention are the release dates. If there are releases scheduled during the course, contributions might be frozen for a while. Another challenge is related to architectural changes. If that is the case, some contributions might not be needed anymore (e.g., thanks for the fix, but this feature does not work like that anymore). The best way to prevent such problems is by understanding your community. Invest some time to figure out its needs and where it plans to go.</p>
+
+<p>Remember that the goal is to engage students. Therefore, in some classes (e.g., high school, introductory classes), placing a source code contribution is not necessary. In some cases, understanding the steps for contributing might be ideal. In any case, some professors mentioned that the acceptance of a contribution should not be graded. This is out of the your (and students’) control. Instead, students can earn additional credits if the contribution is accepted.</p>
+
+<p>It is important to change the mindset of having everything done before publishing. This not gonna work with FOSS. Teach students to release early and release often. This should be the norm. Also, tell students to avoid risks by working on small problems. One way to start is by working with documentation issues. Remember students that a lot of bugs are not code bugs. Typos are bugs! It is also important to engage students early – do not way for the last minute to provide a patch. How to do that? Create such assignment: get a patch by the end of this week.</p>
+
+<p>After passing the first contribution barrier, prepare students to become independent in the FOSS world. Most of it is done by teaching students how to ask good questions. Rule of thumb: if Google has the answer, it is not a good question. I heard that it is better to have students that ‘‘know how to ask good questions, rather than students with great technical skills’’. The rationale here is that when you get stuck (and you will), you should know where to find help. Finding help, however, is not only about asking for help, but also about asking politely and asking at the right place (or for the right person). That is, communication skills are highly demanded. If you have students such as this one:</p>
+
+<center>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Just heard from a student: &quot;I joined CS because I don&#39;t need to talk to anybody&quot;. What we did wrong?</p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/881490978774945792">July 2, 2017</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+<p>Remember them: Communication is part of your job!</p>
+
+<p>All in all, I think this approach can lead to significantly improvements, in terms of both technical and non-technical skills. I will give it a try soon (and report the result too, hopefully).</p>
+
+<p>If you have experience teaching CS with FOSS, why not reporting them? I’d love to read.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-07-03T00:00:00-03:00">July 3, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gustavopinto&text=POSSE+2017+An+experience+report%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fposse2017-experience-report%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fposse2017-experience-report%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fposse2017-experience-report%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/msr17-in-5-tweets/" class="pagination--pager" title="msr17 in 5 tweets
+">Previous</a>
+    
+    
+      <a href="/blog/training-students-with-open-source-software/" class="pagination--pager" title="Training students with open-source software
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/How-to-write-a-short-book-in-20-hours/" rel="permalink">How to write a short book in 20 hours
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">A short book
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/1-5-Good-Habits-for-Young-Scholars" rel="permalink">1+5 Good Habits for Young Scholars
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Promoting a book
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/Why-the-MIT-licensed-is-18x-more-used-then-GPL-3/" rel="permalink">Why the MIT licensed is 18x more used then GPL-3?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I am writing a book to make open source licensing easier to understand!
+
+I want this!
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/what-can-go-wrong-when-one-misuses-open-source-licenses/" rel="permalink">What can go wrong when one misuses open source licenses?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I am writing a book to make open source licensing easier to understand!
+
+I want this!
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
