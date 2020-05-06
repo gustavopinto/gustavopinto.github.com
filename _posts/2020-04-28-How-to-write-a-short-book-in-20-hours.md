@@ -6,8 +6,19 @@ year: 2020
 month: 4
 day: 28
 published: true
-permalink: /blog/How-to-write-a-short-book-in-20-hours/
+permalink: /blog/how-to-write-a-short-book-in-20-hours/
 ---
+
+[I'm selling a book about good habits that young scholars could foster while finding their path in academia, for only $ 5.](https://gumroad.com/l/good-research-habits)
+
+[100% of the sales will go to a hospital fighting COVID-19.](http://gustavopinto.org/books/good-rearch-habits/)
+
+[There is a sample of the book, including the chapter that describes the first habit.](https://bit.ly/3bJM0UD)
+
+<center>
+***
+</center>
+
 
 [I wrote a short book in 20 hours.](https://medium.com/@gustavopinto/1-5-good-habits-for-young-scholars-9d11c8ca2410)
 

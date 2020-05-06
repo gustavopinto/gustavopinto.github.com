@@ -1,4 +1,4 @@
-I"ڤ<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"M�<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -113,6 +113,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/teaching/bd2/exercise" rel="permalink">Banco de dados II -- Exercício</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/" rel="permalink">Blog</a>
       
     </h2>
     
@@ -282,7 +295,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/" rel="permalink">Home</a>
+        <a href="/teaching/" rel="permalink">Teaching</a>
       
     </h2>
     
@@ -295,7 +308,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/teaching/" rel="permalink">Teaching</a>
+        <a href="/" rel="permalink">Home</a>
       
     </h2>
     
@@ -648,19 +661,6 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/blog/" rel="permalink">Posts by Year</a>
-      
-    </h2>
-    
-    
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
         <a href="/sitemap.xml" rel="permalink"></a>
       
     </h2>
@@ -715,7 +715,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/blog/How-to-write-a-short-book-in-20-hours/" rel="permalink">How to write a short book in 20 hours
+        <a href="/blog/how-to-start-doing-research/" rel="permalink">How to start doing research
 </a>
       
     </h2>
@@ -726,6 +726,30 @@
 
 
   5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I’m selling a book about good habits that young scholars could foster while finding their path in academia, for only $ 5.
+</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/How-to-write-a-short-book-in-20-hours/" rel="permalink">How to write a short book in 20 hours
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
 
 </p>
     

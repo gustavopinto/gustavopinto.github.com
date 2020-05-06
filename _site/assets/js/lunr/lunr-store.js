@@ -234,8 +234,14 @@ var store = [{
         "teaser": null
       },{
         "title": "How to write a short book in 20 hours",
-        "excerpt":"I wrote a short book in 20 hours. Is this the best book I could write? No. It this book really well-written? No. Are you proud of this book? Definitely yes. Some background I am in the middle of a pandemic that is only getting worse. I have two small...","categories": [],
+        "excerpt":"I’m selling a book about good habits that young scholars could foster while finding their path in academia, for only $ 5. 100% of the sales will go to a hospital fighting COVID-19. There is a sample of the book, including the chapter that describes the first habit. *** I...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/blog/How-to-write-a-short-book-in-20-hours/",
+        "teaser": null
+      },{
+        "title": "How to start doing research",
+        "excerpt":"I’m selling a book about good habits that young scholars could foster while finding their path in academia, for only $ 5. 100% of the sales will go to a hospital fighting COVID-19. There is a sample of the book, including the chapter that describes the first habit. *** Let’s...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/how-to-start-doing-research/",
         "teaser": null
       }]
