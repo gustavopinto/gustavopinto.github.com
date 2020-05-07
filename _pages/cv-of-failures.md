@@ -14,11 +14,11 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (22)
+## Journal papers rejected (23)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019
-- Empirical Software Engineering Journal: 2017, 2018 (2x)
+- Empirical Software Engineering Journal: 2017, 2018 (2x), 2020
 - Information and Software Technology: 2016 (2x), 2019
 - Journal of Systems and Software: 2017 (2x), 2019
 - Journal of Internet Services and Applications: 2018
