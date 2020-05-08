@@ -14,6 +14,6 @@ To make things transparent, in this webpage I will make available the summary of
 I will update this website every week. I start selling the book on April, 26th.
 
 
-| # | # of Sales  | Amount (USD) | Fees (USD) | Converted (BRL) | Donation |
-|---|-------------|--------------|------------|-----------------|----------|
-| 1 |         [20](http://gustavopinto.org/lost+found/book-sales/book-sales-w1.png)  |         [100](http://gustavopinto.org/lost+found/book-sales/book-payout-w1.png)  |      9.40  |         pending | pending  |
+| # week | Sales (USD)  | Fees (USD) | Paypal (BRL) | Donation |
+|--------|--------------|--------------|------------|----------|
+| 1      | [105 USD](/lost+found/book-sales/books-gumroad-w1.png)        |         [9.87 USD](/lost+found/book-sales/books-gumroad-w1.png)  |      [524.90 BRL](/lost+found/book-sales/books-paypal-w1.png)  | [done](/lost+found/book-sales/book-transfer-w1.jpg)  |

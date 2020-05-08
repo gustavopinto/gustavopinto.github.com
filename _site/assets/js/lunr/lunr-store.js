@@ -236,7 +236,7 @@ var store = [{
         "title": "How to write a short book in 20 hours",
         "excerpt":"I’m selling a book about good habits that young scholars could foster while finding their path in academia, for only $ 5. 100% of the sales will go to a hospital fighting COVID-19. There is a sample of the book, including the chapter that describes the first habit. *** I...","categories": [],
         "tags": [],
-        "url": "http://localhost:4000/blog/How-to-write-a-short-book-in-20-hours/",
+        "url": "http://localhost:4000/blog/how-to-write-a-short-book-in-20-hours/",
         "teaser": null
       },{
         "title": "How to start doing research",
