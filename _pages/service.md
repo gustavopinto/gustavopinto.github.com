@@ -16,9 +16,11 @@ author_profile: true
 ## Service for 2021 (1)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)
 
-## Service for 2020 (11)
+## Service for 2020 (12)
 1. PC chair, [SBCARS'20](http://cbsoft2020.imd.ufrn.br/sbcars.php)
 1. Social Media chair, [ICGSE'20](https://conf.researchr.org/home/icgse-2020)
+1. PC member, [SBES'20](http://cbsoft2020.imd.ufrn.br/sbes.php)
+1. PC member, [ICSME'20](https://icsme2020.github.io/)
 1. PC member, [CSEE&T'20](https://ase.in.tum.de/cseet2020/)
 1. PC member, [EASE'20](https://www.ntnu.edu/web/ease2020/home) ([short papers](https://www.ntnu.edu/web/ease2020/short-papers-and-artefacts-track))
 1. PC member, [SANER'20](https://saner2020.csd.uwo.ca/) ([Late Breaking Ideas](https://saner2020.csd.uwo.ca/lbitrack), [tools](https://saner2020.csd.uwo.ca/tooltrack))

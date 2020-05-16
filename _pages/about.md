@@ -15,7 +15,7 @@ Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software E
 
 ## Research highlight
 
-- [I am writing a book to make open source licensing easier to understand!](http://gum.co/demystifying-oss-licensing)
+- He has 1,000+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 17).
 - He (co-)authored [60+ research papers](/publications) in peer reviewed conferences and journals.
 - His work o [DevOps adoption](http://gustavopinto.github.io/lost+found/jss2019.pdf) was named the [paper of the year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year) (over 1,200 submissions) by the staff of the Journal of Systems and Software.
 - His work on [energy-aware developers](http://gustavopinto.github.io/lost+found/msr2014.pdf) is the [most cited](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e) Brazilian software engineering paper indexed by [CSIndexBR](http://csindexbr.org/).
@@ -24,8 +24,9 @@ Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software E
 - He served as a member of [50+ program committees](/service) for international and national conferences/journals.
 - He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
 - He failed [60+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
-- He has 900+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en).
-- He is supported by the CNPq research productivity grant since 2020.
+- He wrote [40+ blog posts](http://gustavopinto.org/books/) about the academic environment.
+- He wrote a short ebook about [good habits to foster in academia](http://gustavopinto.org/books/good-rearch-habits/).
+- He is supported by the [CNPq research productivity](http://plsql1.cnpq.br/divulg/RESULTADO_PQ_102003.buscapelonome2000?f_nome=gustavo+henrique+lima+pinto&v_sele_modal=BOL_CURSO) grant since 2020.
 
 ## Get in touch
 
