@@ -244,4 +244,16 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/blog/how-to-start-doing-research/",
         "teaser": null
+      },{
+        "title": "How to deal with rejections",
+        "excerpt":"Some days ago I made an YouTube live about how to deal with rejections (in PT-BR, sorry). This blog post is a text version of that video. *** A critical thing about rejections is that they are part of the academic process. The chances are that every researcher you may...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/how-to-deal-with-rejections/",
+        "teaser": null
+      },{
+        "title": "How to find a good venue to submit your research paper",
+        "excerpt":"Some days ago I made an YouTube live about how to deal with rejections (in PT-BR, sorry). This blog post is a text version of that video. *** Perhaps one of the most important parts of the scientific endeavour is to communicate what you found in your research study to...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/how-to-find-a-good-venue-to-submit-your-research-paper",
+        "teaser": null
       }]

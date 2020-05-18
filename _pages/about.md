@@ -9,7 +9,7 @@ author_profile: true
 
 Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará (UFPA), Brazil.
 Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco (UFPE).
-He works in intersection between people and code, and has published over 60 research papers.
+He works in intersection between people and code, and has published over 60 research papers, which were cited 1,000+ times.
 He is a CNPq researcher (level 2).
 Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development (JSERD).
 
