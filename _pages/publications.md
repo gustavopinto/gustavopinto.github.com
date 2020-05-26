@@ -7,6 +7,9 @@ permalink: /publications/
 
 ## 2020
 
+1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/jss2020.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [SCAM'2019](http://gustavopinto.github.io/lost+found/scam2019.pdf) paper]**<br/>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2020.pdf)
+
 1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://dvmarcilio.github.io/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). [A Bot for Fixing Static Analysis Violations via Pull Requests](http://gustavopinto.github.io/lost+found/saner2020.pdf). Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020.pdf)
 

@@ -1,6 +1,10 @@
-I"ÚÍ<h2 id="2020">2020</h2>
+I"ƒÌ<h2 id="2020">2020</h2>
 
 <ol>
+  <li>
+    <p><a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="https://bugcounting.net/">Carlo A. Furia</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonif√°cio</a>, <strong>Gustavo Pinto</strong>. ‚Äú<a href="http://gustavopinto.github.io/lost+found/jss2020.pdf">SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings</a>‚Äù. Journal of Systems and Software, 2019. <strong>[This paper is an extension of the <a href="http://gustavopinto.github.io/lost+found/scam2019.pdf">SCAM‚Äô2019</a> paper]</strong><br />
+<a href="http://gustavopinto.github.io/lost+found/jss2020.pdf"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint</a></p>
+  </li>
   <li>
     <p>Ant√¥nio Carvalho, <a href="https://github.com/wweellddeerr">Welder Luz</a>, <a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonif√°cio</a>, <strong>Gustavo Pinto</strong>, <a href="https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias">Edna Canedo</a>. <a href="http://gustavopinto.github.io/lost+found/saner2020.pdf">A Bot for Fixing Static Analysis Violations via Pull Requests</a>. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br />
 <a href="http://gustavopinto.github.io/lost+found/saner2020.pdf"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint</a></p>
