@@ -14,11 +14,22 @@ To make things transparent, in this webpage I will make available the summary of
 I will update this website every week. I start selling the book on April, 26th.
 
 
-| # week | Sales (USD)  | Fees (USD) | Paypal (BRL) | Donation |
-|--------|--------------|------------|--------------|----------|
-| 1      | [105 USD](/lost+found/book-sales/books-gumroad-w1.png)        |         [9.87 USD](/lost+found/book-sales/books-gumroad-w1.png)  |      [524.90 BRL](/lost+found/book-sales/books-paypal-w1.png)  | [524.90 BRL](/lost+found/book-sales/book-transfer-w1.jpg)  |
-| 2<sup>1</sup> | --         | --         | [30 BRL + 60 BRL](/lost+found/book-sales/books-gumroad-w2.jpeg)   | [90 BRL](/lost+found/book-sales/book-transfer-w2.jpeg)   |
-| 3      | [40 USD](/lost+found/book-sales/books-gumroad-w3.png)       | [3.76 USD](/lost+found/book-sales/books-gumroad-w3.png)  | [194.12 BRL](/lost+found/book-sales/books-paypal-w3.png)      | [194.12 BRL](/lost+found/book-sales/book-transfer-w3.jpeg)  |
-|        |             |            |               | **809.02 BRL**   |
+| # week | # Sales  |   Sales (USD)  | Fees (USD) | Paypal (BRL) | Donation |
+|--------|----------|----------------|------------|--------------|----------|
+| 1      |  21        | [105 USD](/lost+found/book-sales/books-gumroad-w1.png)        |         [9.87 USD](/lost+found/book-sales/books-gumroad-w1.png)  |      [524.90 BRL](/lost+found/book-sales/books-paypal-w1.png)  | [524.90 BRL](/lost+found/book-sales/book-transfer-w1.jpg)  |
+| 2<sup>1</sup> | --    | --         | --         | [30 BRL + 60 BRL](/lost+found/book-sales/books-gumroad-w2.jpeg)   | [90 BRL](/lost+found/book-sales/book-transfer-w2.jpeg)   |
+| 3      |  8       | [40 USD](/lost+found/book-sales/books-gumroad-w3.png)       | [3.76 USD](/lost+found/book-sales/books-gumroad-w3.png)  | [194.12 BRL](/lost+found/book-sales/books-paypal-w3.png)      | [194.12 BRL](/lost+found/book-sales/book-transfer-w3.jpeg)  |
+| 4<sup>2</sup>       | --          | --         | --             | --   | --
+| 5<sup>3</sup>       | 2           | 10 USD     | 0.93 USD       | --   | --
+|                     |  31         | 155 USD    | 14.55 USD      | --   | **809.02 BRL** |    
+
+### Total
+<img src="/lost+found/book-sales/books-total.png">
+
 
 <sup>1</sup> Gumroad only transfers to Paypal [if you have at least 10 USD in your account (after fees)](https://help.gumroad.com/article/13-getting-paid). This week I had two sales so, after fees, I hadn't enough to be transferred. The amount of sales received in the second week will be payed in the third week. However, I received three payments from someone who wasn't able to buy through gumroad (I received two transfers in my personal account in this case).
+
+
+<sup>2</sup> No sales this week.
+
+<sup>3</sup> Gumroad only transfers to Paypal [if you have at least 10 USD in your account (after fees)](https://help.gumroad.com/article/13-getting-paid).
