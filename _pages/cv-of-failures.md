@@ -20,7 +20,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019
 - Empirical Software Engineering Journal: 2017, 2018 (2x), 2020
 - Information and Software Technology: 2016 (2x), 2019
-- Journal of Systems and Software: 2017 (2x), 2019
+- Journal of Systems and Software: 2017 (2x), 2019, 2020
 - Journal of Internet Services and Applications: 2018
 - PeerJ Computer Science: 2018, 2019
 - PlosONE Computer Software: 2018

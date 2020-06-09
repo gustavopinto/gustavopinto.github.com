@@ -19,8 +19,9 @@ I will update this website every week. I start selling the book on April, 26th.
 | 1      |  21        | [105 USD](/lost+found/book-sales/books-gumroad-w1.png)        |         [9.87 USD](/lost+found/book-sales/books-gumroad-w1.png)  |      [524.90 BRL](/lost+found/book-sales/books-paypal-w1.png)  | [524.90 BRL](/lost+found/book-sales/book-transfer-w1.jpg)  |
 | 2<sup>1</sup> | --    | --         | --         | [30 BRL + 60 BRL](/lost+found/book-sales/books-gumroad-w2.jpeg)   | [90 BRL](/lost+found/book-sales/book-transfer-w2.jpeg)   |
 | 3      |  8       | [40 USD](/lost+found/book-sales/books-gumroad-w3.png)       | [3.76 USD](/lost+found/book-sales/books-gumroad-w3.png)  | [194.12 BRL](/lost+found/book-sales/books-paypal-w3.png)      | [194.12 BRL](/lost+found/book-sales/book-transfer-w3.jpeg)  |
-| 4<sup>2</sup>       | --          | --         | --             | --   | --
-| 5<sup>3</sup>       | 2           | 10 USD     | 0.93 USD       | --   | --
+| 4<sup>2</sup>       | --          | --         | --             | --   | -- |
+| 5<sup>3</sup>       | 2           | 10 USD     | 0.93 USD       | --   | -- |
+| 6<sup>2</sup>       | --          | --         | --             | --   | -- |
 |                     |  31         | 155 USD    | 14.55 USD      | --   | **809.02 BRL** |    
 
 ### Total
