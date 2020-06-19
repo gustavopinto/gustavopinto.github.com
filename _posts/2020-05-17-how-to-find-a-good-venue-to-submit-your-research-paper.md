@@ -8,7 +8,7 @@ published: true
 permalink: /blog/how-to-find-a-good-venue-to-submit-your-research-paper
 ---
 
-Some days ago I made an [YouTube live](https://www.youtube.com/watch?v=WtGbp2HwmKA&t=3s) about how to deal with rejections (in PT-BR, sorry). This blog post is a text version of that video.
+Some days ago I made an [YouTube live](https://www.youtube.com/watch?v=WtGbp2HwmKA&t=3s) about this topic (in PT-BR, sorry). This blog post is a text version of that video.
 
 <center>
 ***

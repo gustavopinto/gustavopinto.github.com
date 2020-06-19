@@ -8,12 +8,13 @@ author_profile: true
 ## Editor in Chief (1)
 1. [Journal of Software Engineering Research and Development (JSERD)](https://sol.sbc.org.br/journals/index.php/jserd/) (2020 -- )
 
-## Steering committee (2)
+## Steering committee (3)
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 
-## Service for 2021 (1)
+## Service for 2021 (2)
+1. PC member, [ESEC/FSE'21](https://2021.esec-fse.org/)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)
 
 ## Service for 2020 (12)

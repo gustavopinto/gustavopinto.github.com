@@ -23,4 +23,4 @@ I have very broad interests in Software Engineering, including refactoring (*e.g
 
 You can see my list of [publications here](/publications), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures).
 
-Are you a [student looking for an advisor](/students)? Are you a researcher and think that our interests overlap? I'm always looking for collaboration; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.
+Are you a [student looking for an advisor](/students)? Are you a researcher and think that our interests overlap? I'm always looking for collaborations; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.

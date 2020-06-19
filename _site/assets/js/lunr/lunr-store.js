@@ -252,7 +252,7 @@ var store = [{
         "teaser": null
       },{
         "title": "How to find a good venue to submit your research paper",
-        "excerpt":"Some days ago I made an YouTube live about how to deal with rejections (in PT-BR, sorry). This blog post is a text version of that video. *** Perhaps one essential part of the scientific endeavor is to communicate what you found in your research study to your academic peers....","categories": [],
+        "excerpt":"Some days ago I made an YouTube live about this topic (in PT-BR, sorry). This blog post is a text version of that video. *** Perhaps one essential part of the scientific endeavor is to communicate what you found in your research study to your academic peers. This communication starts...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/blog/how-to-find-a-good-venue-to-submit-your-research-paper",
         "teaser": null

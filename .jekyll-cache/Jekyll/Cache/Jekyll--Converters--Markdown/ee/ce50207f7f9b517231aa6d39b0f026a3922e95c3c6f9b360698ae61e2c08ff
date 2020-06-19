@@ -1,9 +1,13 @@
-I"��<h2 id="2020">2020</h2>
+I"F�<h2 id="2020">2020</h2>
 
 <ol>
   <li>
-    <p><a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="https://bugcounting.net/">Carlo A. Furia</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonifácio</a>, <strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/jss2020.pdf">SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings</a>”. Journal of Systems and Software, 2019. <strong>[This paper is an extension of the <a href="http://gustavopinto.github.io/lost+found/scam2019.pdf">SCAM’2019</a> paper]</strong><br />
+    <p><a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="https://bugcounting.net/">Carlo A. Furia</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonifácio</a>, <strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/jss2020.pdf">SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings</a>”. Accepted to the Journal of Systems and Software, 2020. <strong>[This paper is an extension of the <a href="http://gustavopinto.github.io/lost+found/scam2019.pdf">SCAM’2019</a> paper]</strong><br />
 <a href="http://gustavopinto.github.io/lost+found/jss2020.pdf"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint</a></p>
+  </li>
+  <li>
+    <p>Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, Gustavo Henrique L. Pinto, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza: <a href="#">Hand Resting Tremor Assessment of Healthy and Patients with Parkinson’s Disease: An Exploratory Machine Learning Study</a>. Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br />
+<a href="#"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint</a></p>
   </li>
   <li>
     <p>Antônio Carvalho, <a href="https://github.com/wweellddeerr">Welder Luz</a>, <a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonifácio</a>, <strong>Gustavo Pinto</strong>, <a href="https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias">Edna Canedo</a>. <a href="http://gustavopinto.github.io/lost+found/saner2020.pdf">A Bot for Fixing Static Analysis Violations via Pull Requests</a>. Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br />
