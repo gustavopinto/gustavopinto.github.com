@@ -10,7 +10,7 @@ permalink: /publications/
 1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/jss2020.pdf)". Accepted to the Journal of Systems and Software, 2020. **[This paper is an extension of a [SCAM'2019](http://gustavopinto.github.io/lost+found/scam2019.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2020.pdf)
 
-1. Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, **Gustavo Henrique L. Pinto**, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza: [Hand Resting Tremor Assessment of Healthy and Patients with Parkinson's Disease: An Exploratory Machine Learning Study](#). Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br>
+1. Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, **Gustavo Henrique L. Pinto**, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza. ["Hand Resting Tremor Assessment of Healthy and Patients with Parkinson's Disease: An Exploratory Machine Learning Study"](#). Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](#)
 
 
