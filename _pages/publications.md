@@ -22,6 +22,8 @@ permalink: /publications/
 
 1. **Gustavo Pinto**, [Breno Miranda](https://cin.ufpe.br/~bafm/), [Supun Dissanayake](https://scholar.google.ae/citations?user=8iUb0BQAAAAJ&hl=en), [Marcelo d'Amorim](https://www.cin.ufpe.br/~damorim/), [Christoph Treude](http://ctreude.ca/), [Antonia Bertolino](http://bertolino.isti.cnr.it/). "[What is the Vocabulary of Flaky Tests?](http://gustavopinto.github.io/lost+found/msr2020.pdf)". Accepted for the 17th International Conference on Mining Software Repositories (MSR), Seoul, South Korea, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2020.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/msr2020-talk.pdf)
 
 1. Francisco Dalton, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), **Gustavo Pinto**, [Leo Fernandes](https://twitter.com/leofernandesmo), [Rohit Gheyi](http://www.dsc.ufcg.edu.br/~rohit/), [Baldoino Fonseca](https://sites.google.com/a/ic.ufal.br/baldoino/). "[Is Exceptional Behavior Testing an Exception? An Empirical Assessment Using Java Automated Tests](http://gustavopinto.github.io/lost+found/ease2020.pdf)". Accepted to the 24th International Conference on Evaluation and Assessment in Software Engineering (EASE), Trondheim, Norway, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ease2020.pdf)
