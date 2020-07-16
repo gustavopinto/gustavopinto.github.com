@@ -17,6 +17,10 @@ A few suggestions for (prospective) grad students, in no particular order:
 1. [12 resolutions for grad students](http://matt.might.net/articles/grad-student-resolutions/), by Matt Might
 1. [The Nine Circles of Scientific Hell](http://journals.sagepub.com/doi/pdf/10.1177/1745691612459519)
 1. [Publishing in peer-reviewed academic journals](ttps://lo.unisa.edu.au/mod/page/view.php?id=489385)
+1. [Writing scientific articles like a native English
+speaker: top ten tips for Portuguese speakers](https://www.scielo.br/pdf/clin/v69n3/1807-5932-clin-69-03-153.pdf)
+1. [Qualitative methods in empirical studies of software engineering](https://ieeexplore.ieee.org/document/799955)
+1. [Is verbatim transcription of interview data always necessary?](https://www.sciencedirect.com/science/article/pii/S0897189705000893)
 
 ## Paper reading
 

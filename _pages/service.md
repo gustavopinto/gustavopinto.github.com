@@ -8,6 +8,10 @@ author_profile: true
 ## Editor in Chief (1)
 1. [Journal of Software Engineering Research and Development (JSERD)](https://sol.sbc.org.br/journals/index.php/jserd/) (2020 -- )
 
+## Associate Editor
+
+1. [Journal of the Brazilian Computer Society (JSERD)](https://journal-bcs.springeropen.com/) (2020 -- )
+
 ## Steering committee (3)
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )

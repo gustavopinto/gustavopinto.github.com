@@ -24,6 +24,7 @@ I will update this website every week. I start selling the book on April, 26th.
 | 6<sup>2</sup>       | --          | --         | --             | --   | -- |
 | 7<sup>2</sup>       | --          | --         | --             | --   | -- |
 | 8<sup>2</sup>       | --          | --         | --             | --   | -- |
+| 9<sup>2</sup>       | --          | --         | --             | --   | -- |
 |                     |  31         | 155 USD    | 14.55 USD      | --   | **809.02 BRL** |    
 
 ### Total

@@ -374,6 +374,10 @@
 <lastmod>2020-02-25T09:41:58-03:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/lost+found/embraer2020-talk.pdf</loc>
+<lastmod>2020-07-03T11:46:47-03:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/lost+found/ese2018.pdf</loc>
 <lastmod>2019-05-27T09:40:48-03:00</lastmod>
 </url>
@@ -530,12 +534,12 @@
 <lastmod>2019-05-27T09:40:48-03:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/lost+found/msr2020-draft.pdf</loc>
-<lastmod>2020-06-19T13:43:14-03:00</lastmod>
+<loc>http://localhost:4000/lost+found/msr2020-talk.pdf</loc>
+<lastmod>2020-06-30T10:13:38-03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/msr2020.pdf</loc>
-<lastmod>2020-03-23T18:09:05-03:00</lastmod>
+<lastmod>2020-06-29T11:20:26-03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/lost+found/oopsla2014-tecreport.pdf</loc>
