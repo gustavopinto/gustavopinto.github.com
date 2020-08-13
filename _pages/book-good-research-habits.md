@@ -13,6 +13,10 @@ To make things transparent, in this webpage I will make available the summary of
 
 I will update this website every week. I start selling the book on April, 26th.
 
+**UPDATE**: on July 31st, I changed the price of the book to 0+ (it means one can take it for free, but could also leave any dollar). During this three months period, we were able to donate **946.06 BRL!**
+
+Thank you!
+
 
 | # week | # Sales  |   Sales (USD)  | Fees (USD) | Paypal (BRL) | Donation |
 |--------|----------|----------------|------------|--------------|----------|
@@ -27,7 +31,8 @@ I will update this website every week. I start selling the book on April, 26th.
 | 9<sup>2</sup>       | --          | --         | --             | --   | -- |
 | 10<sup>2</sup>      | --          | --         | --             | --   | -- |
 | 11                  | 3           | [15 USD](/lost+found/book-sales/books-gumroad-w4.png)     | [1.41 USD](/lost+found/book-sales/books-gumroad-w4.png)       | [69.59 BRL](/lost+found/book-sales/books-paypal-w4.png)   | [69.59 BRL](/lost+found/book-sales/book-transfer-w4.jpeg) |
-|                     | 32          | 160 USD    | 15.04 USD      | --   | **878.61 BRL** |    
+| 12                  | 3           | [15 USD](/lost+found/book-sales/books-gumroad-w4.png)     | [1.41 USD](/lost+found/book-sales/books-gumroad-w4.png)       | [67.45 BRL](/lost+found/book-sales/books-paypal-w5.png)   | [67.45 BRL](#) |
+|                     | 35          | 175 USD    | 16.45 USD      | --   | **946.06 BRL** |    
 
 ### Total
 <img src="/lost+found/book-sales/books-total.png">
