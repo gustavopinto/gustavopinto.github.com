@@ -24,8 +24,8 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/msr2020-talk.pdf)
 
-1. [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Márcio Vinicius Okimoto](https://www.linkedin.com/in/marcio-vinicius-okimoto-bb777114/?originalSubdomain=br), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), **Gustavo Pinto**, Eduardo Monteiro. "[Work Practices and Perceptions from Women Core Developers in OSS Communities](#)". Accepted to the 14th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2020). Bari, Italy. September 2020. <br>
-[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](#)
+1. [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Márcio Vinicius Okimoto](https://www.linkedin.com/in/marcio-vinicius-okimoto-bb777114/?originalSubdomain=br), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), **Gustavo Pinto**, Eduardo Monteiro. "[Work Practices and Perceptions from Women Core Developers in OSS Communities](https://arxiv.org/abs/2007.13891)". Accepted to the 14th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2020). Bari, Italy. September 2020. <br>
+[<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2007.13891)
 
 1. Luís Amaral, [Marcos César de Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), [Welder Luz](https://github.com/wweellddeerr), José Fortes Neto, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Daniel Alencar da Costa](http://danielcalencar.github.io/), Eduardo Monteiro, **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[How (Not) to Find Bugs: The Interplay Between Merge Conflicts, Co-Changes, and Bugs](#)". Accepted to the 36th IEEE International Conference on Software Maintenance and Evolution (ICSME'2020). Adelaide, Australia. 2020. <br/>
 [<i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i>Preprint](#)
