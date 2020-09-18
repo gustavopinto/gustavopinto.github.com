@@ -26,7 +26,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (40)
+## Conference papers rejected (41)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
@@ -43,13 +43,15 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - MSR: 2020 (2x)
 - SANER: 2015, 2018, 2019, 2020 (2x)
-- SCAM: 2019
+- SCAM: 2019, 2020
+- SBES: 2020
 - SIGCSE: 2019, 2020
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (13)
+## Grant proposals rejected (14)
 
+- CNPq MAI/DAI, 2020
 - Google Faculty Award, 2020 (budget: U$ 16,000)
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
 - Helium grant, 2019 (budget: U$ 1,000)
