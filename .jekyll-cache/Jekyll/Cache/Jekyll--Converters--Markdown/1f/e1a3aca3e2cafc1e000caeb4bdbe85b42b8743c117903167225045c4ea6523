@@ -1,4 +1,4 @@
-I"u<h2 id="horário">Horário</h2>
+I"�<h2 id="horário">Horário</h2>
 
 <p>Terça e Quinta, às 13h:00m @ ONLINE</p>
 
@@ -47,9 +47,9 @@
 <h2 id="avaliação">Avaliação</h2>
 
 <ol>
-  <li>Exercícios em sala: 6 pontos (1pt cada exercício)</li>
+  <li>Exercícios em sala: 2 pontos (2pt cada exercício)</li>
   <li>Prova do primeiro bimestre: 4 pontos</li>
-  <li>Projeto de discipina (PD): 10 pontos</li>
+  <li>Projeto de discipina (PD): 12 pontos</li>
   <li>Atividade extra (AE): 1 ponto</li>
 </ol>
 
@@ -83,7 +83,7 @@
       <td>1</td>
       <td>13/10</td>
       <td>Introdução a tecnologia Java</td>
-      <td><a href="https://drive.google.com/file/d/1TyxBuugO0hSxfmAg67tVzEpKvD0Z2K4y/view?usp=sharing">Aula01</a> <a href="">Slides</a></td>
+      <td><a href="https://drive.google.com/file/d/1TyxBuugO0hSxfmAg67tVzEpKvD0Z2K4y/view?usp=sharing">Video</a> <a href="">Slides</a></td>
     </tr>
     <tr>
       <td>2</td>
@@ -95,84 +95,84 @@
       <td>3</td>
       <td>20/10</td>
       <td>Entendendo Classes e Objetos</td>
-      <td><a href="https://drive.google.com/file/d/1nW57I_YAj3qcg7EUUyLOuOFHNV1HimBF/view?usp=sharing">Aula01</a> <a href="https://docs.google.com/presentation/d/1Ilh7RkwvQRQY_ijSNyeu7ou0sX8hk8Yu-9ykOMg1TvU/edit?usp=sharing">Slides</a></td>
+      <td><a href="https://drive.google.com/file/d/1nW57I_YAj3qcg7EUUyLOuOFHNV1HimBF/view?usp=sharing">Video</a> <a href="https://docs.google.com/presentation/d/1Ilh7RkwvQRQY_ijSNyeu7ou0sX8hk8Yu-9ykOMg1TvU/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>4</td>
       <td>22/10</td>
-      <td>Resolução de exercício</td>
-      <td> </td>
+      <td>Painel sobre Carreiras de Software no BR</td>
+      <td><a href="https://www.youtube.com/watch?v=0vlj3E3Bt1U&amp;feature=youtu.be">Video</a></td>
     </tr>
     <tr>
       <td>5</td>
       <td>27/10</td>
-      <td>Modificadores de acesso e atributos</td>
+      <td>Resolução de exercício</td>
       <td> </td>
     </tr>
     <tr>
       <td>6</td>
       <td>29/10</td>
-      <td>Resolução de exercício</td>
+      <td>Modificadores de acesso e atributos</td>
       <td> </td>
     </tr>
     <tr>
       <td>7</td>
       <td>03/11</td>
-      <td>Testes de Unidade com JUnit</td>
+      <td>Resolução de exercício</td>
       <td> </td>
     </tr>
     <tr>
       <td>8</td>
       <td>05/11</td>
-      <td>Resolução de exercício</td>
+      <td>Testes de Unidade com JUnit</td>
       <td> </td>
     </tr>
     <tr>
       <td>9</td>
       <td>10/11</td>
-      <td>Herança</td>
+      <td>Resolução de exercício</td>
       <td> </td>
     </tr>
     <tr>
       <td>10</td>
       <td>12/11</td>
-      <td>Resolução de exercício</td>
+      <td>Herança</td>
       <td> </td>
     </tr>
     <tr>
       <td>11</td>
       <td>17/11</td>
-      <td>Encapsulamento e Polimorfismo</td>
+      <td>Resolução de exercício</td>
       <td> </td>
     </tr>
     <tr>
       <td>12</td>
       <td>19/11</td>
-      <td>Resolução de exercício</td>
+      <td>Encapsulamento e Polimorfismo</td>
       <td> </td>
     </tr>
     <tr>
       <td>13</td>
       <td>24/11</td>
-      <td>Interfaces</td>
+      <td>Resolução de exercício</td>
       <td> </td>
     </tr>
     <tr>
       <td>14</td>
       <td>26/11</td>
-      <td><strong>Exercícios (em sala)</strong></td>
+      <td>Interfaces</td>
       <td> </td>
     </tr>
     <tr>
       <td>15</td>
       <td>01/12</td>
-      <td>Prova 1</td>
+      <td><strong>Exercícios (em sala)</strong></td>
       <td> </td>
     </tr>
     <tr>
       <td>16</td>
       <td>03/12</td>
-      <td>Resolução de prova</td>
+      <td>Prova 1</td>
       <td> </td>
     </tr>
     <tr>
