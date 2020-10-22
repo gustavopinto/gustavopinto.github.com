@@ -1,0 +1,272 @@
+I"u<h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 13h:00m @ ONLINE</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram. Clique <a href="https://join.slack.com/t/ufpaworkspace/shared_invite/enQtNTc5MTQ0MDA1NzQ3LWI2YzE1MTliYjQwNWZlMzkwYjhmMzdmNTI5NDVkOWM4Zjk2ZjJkMGI1YzBmMTE3OWJhMjE5YjAxYmVlYzBkNTk">aqui para</a> acessar.</p>
+
+<h2 id="formato">Formato</h2>
+
+<p>Essa disciplina terá um formato síncrono e assíncrono: as aulas de terça-feira serão síncronas, enquanto que as de quinta serão assíncronas.</p>
+
+<p>Nas aulas de terça, nós teremos conteúdo teórico. Nas aulas de quinta, nós teremos exercícios.</p>
+
+<p>As aulas serão gravadas, e serão disponibilizadas em seguida, para quem não pode assistir no horário da aula.</p>
+
+<p>As aulas vão acontecer pelo Google Meet. O Link para a sala está no cronograma abaixo.</p>
+
+<p>Para as aulas: sugiro que todos vocês tentem arrumar um fone de ouvido com microfone (desses que vem junto com celular), pois assim podemos interagir por áudio, o que facilita nossa interação. Se vocês tiverem webcam, melhor ainda. Nada disso é obrigatório, embora seja altamente recomendado.</p>
+
+<p>Antes de começar a aulas, teste sempre seu microfone pra ver se você consegue falar e escutar sem problemas. Você pode criar uma sala no meet e fazer um teste sozinho ou com algum colega.</p>
+
+<p>Sei que o momento é extremamente complicado, mas vamos tentar fazer o nosso melhor pra termos um bom curso e aprender o máximo possível.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os fundamentos de orientação a objetos utilizando como base a plataforma Java.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Conceitos básicos de orientação a objetos. Teste de software. UML. Conceitos avançados de Java.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>CARVALHO, Thiago leite. Orientação a Objetos. Orientação a Objetos edição. Casa do código, 2017.</li>
+  <li>Silveira, Paulo; TURINI, Rodrigo. Java 8 Prático. Casa do código, 2015.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/learn/orientacao-a-objetos-com-java">Curso de orientação a objetos com java (Coursera)</a></li>
+  <li><a href="https://www.caelum.com.br/apostila-java-orientacao-objetos/orientacao-a-objetos-basica/">Orientação a objetos básica (Caelum)</a></li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Exercícios em sala: 6 pontos (1pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 4 pontos</li>
+  <li>Projeto de discipina (PD): 10 pontos</li>
+  <li>Atividade extra (AE): 1 ponto</li>
+</ol>
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<p>AE: Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 12/11. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+      <td>Links</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>13/10</td>
+      <td>Introdução a tecnologia Java</td>
+      <td><a href="https://drive.google.com/file/d/1TyxBuugO0hSxfmAg67tVzEpKvD0Z2K4y/view?usp=sharing">Aula01</a> <a href="">Slides</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>15/10</td>
+      <td>Resolução de exercício</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>20/10</td>
+      <td>Entendendo Classes e Objetos</td>
+      <td><a href="https://drive.google.com/file/d/1nW57I_YAj3qcg7EUUyLOuOFHNV1HimBF/view?usp=sharing">Aula01</a> <a href="https://docs.google.com/presentation/d/1Ilh7RkwvQRQY_ijSNyeu7ou0sX8hk8Yu-9ykOMg1TvU/edit?usp=sharing">Slides</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>22/10</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>27/10</td>
+      <td>Modificadores de acesso e atributos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>29/10</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>03/11</td>
+      <td>Testes de Unidade com JUnit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>05/11</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>10/11</td>
+      <td>Herança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>12/11</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>17/11</td>
+      <td>Encapsulamento e Polimorfismo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>19/11</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>24/11</td>
+      <td>Interfaces</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>26/11</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>01/12</td>
+      <td>Prova 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>03/12</td>
+      <td>Resolução de prova</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>08/12</td>
+      <td>Coleções</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>10/12</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>15/12</td>
+      <td>Tratamento de exceção</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>22/12</td>
+      <td>Resolução de exercício</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>24/12</td>
+      <td>Diagrama de classe</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>29/12</td>
+      <td><strong>Exercícios (em sala)</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>31/12</td>
+      <td>Definição de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>05/01</td>
+      <td>Condução de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>07/01</td>
+      <td>Condução de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>12/01</td>
+      <td>Condução de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>14/01</td>
+      <td>Apresentação de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>19/01</td>
+      <td>Apresentação de trabalhos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>26/01</td>
+      <td>Buffer</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>28/01</td>
+      <td>Buffer</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+:ET

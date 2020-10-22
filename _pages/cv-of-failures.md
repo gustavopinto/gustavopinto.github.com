@@ -14,10 +14,10 @@ I don't like rejections, but I try to see rejections as an opportunity to improv
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (23)
+## Journal papers rejected (24)
 
 - IEEE Computer: 2018
-- IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019
+- IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019, 2020
 - Empirical Software Engineering Journal: 2017, 2018 (2x), 2020
 - Information and Software Technology: 2016 (2x), 2019
 - Journal of Systems and Software: 2017 (2x), 2019, 2020
@@ -49,8 +49,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (14)
+## Grant proposals rejected (16)
 
+- Serrapilheira, 2020
 - CNPq MAI/DAI, 2020
 - Google Faculty Award, 2020 (budget: U$ 16,000)
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
@@ -60,6 +61,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
 - FAPESP/CGI grant, 2019 (budget: U$ 50,000)
+- FAPESP/CGI grant, 2020 (budget: U$ 40,000)
 - SECTET Social Technology grant, 2018
 - CNPq Productivity Fellowship, 2017, 2018
 - CNPq Women in tech grant, 2018
