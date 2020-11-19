@@ -5,6 +5,10 @@ title: Publications
 permalink: /publications/
 ---
 
+## 2021
+
+[Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency. Software Sustainability, 2020. Springer-Verlag. Accepted for publication.
+
 ## 2020
 
 1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/jss2020.pdf)". Accepted to the Journal of Systems and Software, 2020. **[This paper is an extension of a [SCAM'2019](http://gustavopinto.github.io/lost+found/scam2019.pdf) paper]**<br/>

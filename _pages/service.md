@@ -17,9 +17,11 @@ author_profile: true
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 
-## Service for 2021 (2)
+## Service for 2021 (6)
 1. PC member, [ESEC/FSE'21](https://2021.esec-fse.org/)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)
+1. PC member, [SANER'21](https://saner2021.shidler.hawaii.edu/) ([Research](https://saner2021.shidler.hawaii.edu/restrack), [RENE](https://saner2021.shidler.hawaii.edu/negativerestrack))
+1. PC member, [MSR'21](https://2021.msrconf.org/) ([Research](https://2021.msrconf.org/track/msr-2021-technical-papers), [Diversity and Inclusion Organizing Committee](#))
 
 ## Service for 2020 (12)
 1. PC chair, [SBCARS'20](http://cbsoft2020.imd.ufrn.br/sbcars.php)
