@@ -7,7 +7,10 @@ permalink: /publications/
 
 ## 2021
 
-[Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency. Software Sustainability, 2020. Springer-Verlag. Accepted for publication.
+1. [Igor Lima](https://www.cin.ufpe.br/~isol2/), Jefferson Silva, [Breno Miranda](https://cin.ufpe.br/~bafm/), **Gustavo Pinto**, and [Marcelo d'Amorim](https://www.cin.ufpe.br/~damorim/). Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing. Software Quality Journal (SQJ). Accepted for publication.
+
+
+1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency. Software Sustainability, 2020. Springer-Verlag. Accepted for publication.
 
 ## 2020
 

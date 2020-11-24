@@ -14,9 +14,9 @@ layouts_gallery:
 
 I'm working on two books.
 
-The [first one](/books/good-rearch-habits/) is a short book describing some good habits that I think are valuable for young researchers trying to find their way in academia. [For the first 90 days, I'm donating 100% of the sales to a hospital.](/books/good-rearch-habits/)
+The [first one](/books/good-rearch-habits/) is a short book describing some good habits that I think are valuable for young researchers trying to find their way in academia. [For the first 90 days, I donated 100% of the sales to a hospital.](/books/good-rearch-habits/)
 
-The [second book](http://gum.co/demystifying-oss-licensing) (still a working in progress) aims to ease the understanding of open source software licenses.
+The [second book](https://gum.co/oss-licensing-101) aims to ease the understanding of open source software licenses.
 
 Both of them are self-published on gumroad.
 

@@ -12,7 +12,7 @@ A few suggestions for (prospective) grad students, in no particular order:
 1. [How to write a first-class paper](https://www.nature.com/articles/d41586-018-02404-4), by Virginia Gewin
 1. [Advice for researchers and students](https://homes.cs.washington.edu/~mernst/advice/), by Michael Ernst
 1. [The care and maintenance of your adviser](http://www.nature.com/naturejobs/2011/110127/pdf/nj7331-570a.pdf)
-1. [The Ph.D. Grind](http://pgbovine.net/PhD-memoir/pguo-PhD-grind.pdf), by Philip Guo
+1. [The Ph.D. Grind](https://drive.google.com/file/d/1GGvub2Lxx7g45WDJBrUZAtj_lvgix4rl/view), by Philip Guo
 1. [What My PhD Was Like](http://jxyzabc.blogspot.com.br/2016/02/my-phd-abridged.html), by Jean Yang
 1. [12 resolutions for grad students](http://matt.might.net/articles/grad-student-resolutions/), by Matt Might
 1. [The Nine Circles of Scientific Hell](http://journals.sagepub.com/doi/pdf/10.1177/1745691612459519)
