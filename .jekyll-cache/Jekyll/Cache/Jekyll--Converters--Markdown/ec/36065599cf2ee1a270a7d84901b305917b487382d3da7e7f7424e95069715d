@@ -1,4 +1,4 @@
-I"Z&<h2 id="horário">Horário</h2>
+I"�'<h2 id="horário">Horário</h2>
 
 <p>Terça e Quinta, às 13h:00m @ ONLINE</p>
 
@@ -44,6 +44,8 @@
   <li><a href="https://www.caelum.com.br/apostila-java-orientacao-objetos/orientacao-a-objetos-basica/">Orientação a objetos básica (Caelum)</a></li>
   <li><a href="https://figshare.com/articles/What_Do_the_Asserts_in_a_Unit_Test_Tell_Us_about_Code_Quality_A_Study_on_Open_Source_and_Industrial_Projects/9638942">What Do The Asserts in a Unit Test Tell Us About Code Quality? A Study on Open Source and Industrial Projects</a></li>
   <li><a href="https://engsoftmoderna.info/cap8.html">Capítulo sobre Teste de Software do Livro Engenharia de Software Moderna</a></li>
+  <li><a href="https://engsoftmoderna.info/capAp.html">Capítulo sobre Git do Livro de Engenharia de Software Moderna</a></li>
+  <li><a href="https://learngitbranching.js.org/?locale=pt_BR">Jogo que ajuda no aprendizado de Git</a></li>
 </ul>
 
 <h2 id="avaliação">Avaliação</h2>
@@ -157,7 +159,7 @@
       <td>13</td>
       <td>24/11</td>
       <td>Resolução de exercício</td>
-      <td> </td>
+      <td><a href="https://drive.google.com/file/d/1weuaL-VGykgtMJ2f7R_z8qINVlWastmG/view?usp=sharing">Video</a> <a href="https://github.com/gustavopinto/ifood">Código</a></td>
     </tr>
     <tr>
       <td>14</td>
