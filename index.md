@@ -17,6 +17,6 @@ I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br),
 
 I have very broad interests in Software Engineering, including refactoring (*e.g.*, [JSS'2019](http://gustavopinto.org/lost+found/jss2019b.pdf)), human aspects of software development (*e.g.*, [ICSE'2018](http://gustavopinto.github.io/lost+found/icse2018.pdf)), and open source software (*e.g.*, [ICSE-SEET'2019](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)).
 
-You can see my list of [publications here](/publications), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures).
+You can see my list of [publications here](/publications), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures). I've published two short [e-books](/books).
 
 Are you a [student looking for an advisor](/students)? Are you a researcher and think that our interests overlap? I'm always looking for collaborations; you can reach me at gpinto<span style="display:none">ignorethis</span>@ufpa.br.

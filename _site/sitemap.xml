@@ -203,6 +203,9 @@
 <loc>http://localhost:4000/books/good-rearch-habits/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/books/open-source-licensing-101/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/books/</loc>
 </url>
 <url>
@@ -239,10 +242,10 @@
 <loc>http://localhost:4000/how-to-do-research</loc>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+<loc>http://localhost:4000/teaching/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/instrucoes-alunos-msc/</loc>

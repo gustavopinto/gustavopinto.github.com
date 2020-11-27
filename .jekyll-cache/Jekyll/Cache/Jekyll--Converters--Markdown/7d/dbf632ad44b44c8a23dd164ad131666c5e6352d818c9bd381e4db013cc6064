@@ -1,0 +1,38 @@
+I"B	<p>As an open source user and software engineering researcher, I always have been amazed by open source licenses, in particular, because quickly things can go wrong.</p>
+
+<p>Why is it important to study open source licenses in 2020? Some questions to think:</p>
+
+<ul>
+  <li>Do you know why Google banned the use of the AGPL license on any of its open source projects?</li>
+  <li>Do you know why GPL 2.0 license, one of the purest copyleft licenses, has more than halved in usage in the last 10 years?</li>
+  <li>Do you know why it took about a year to change a license in the Eclipse project?</li>
+  <li>Do you know that the core team of the Lerna project removed of its maintainers due to license misuses?</li>
+  <li>Do you know why you should run away from open source projects that don’t have any license?</li>
+</ul>
+
+<p>Software licensing is a complex subject, which often requires expertise from other areas far away from the software development arena. Indeed, most books regarding software licensing are also written by lawyers, which is not a problem itself, but the terms employed may hinder the understanding of the software development community (I had a hard time understanding some concepts on these books). Another problem is that developers may not always see any concrete implication of an eventual license misuse.</p>
+
+<h1 id="the-goal-of-this-book">The goal of this book</h1>
+<p>The goal of this book is two-fold:</p>
+
+<ul>
+  <li>First, we intend to make this complex license stuff simpler.</li>
+  <li>Second, the book should highlight concrete examples of license problems (so developers could easily relate to their activities).</li>
+</ul>
+
+<p>By doing this, we expect that developers could better understand the importance of open source licenses and the context in which they could use (or not) one given software library (because of license concerns).</p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+  <li>Chapter 1: legal protections for software</li>
+  <li>Chapter 2: what is open source?</li>
+  <li>Chapter 3: open source licenses</li>
+  <li>Chapter 4: other licenses</li>
+  <li>Chapter 5: licenses bugs</li>
+  <li>Chapter 6: license usage in practice</li>
+  <li>Chapter 7: choosing a license</li>
+</ul>
+
+<h1 id="buying-a-copy">Buying a copy</h1>
+<p>Buy a copy online at <a href="https://gum.co/oss-licensing-101">gumroad</a></p>
+:ET
