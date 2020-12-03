@@ -21,6 +21,8 @@ A few suggestions for (prospective) grad students, in no particular order:
 speaker: top ten tips for Portuguese speakers](https://www.scielo.br/pdf/clin/v69n3/1807-5932-clin-69-03-153.pdf)
 1. [Qualitative methods in empirical studies of software engineering](https://ieeexplore.ieee.org/document/799955)
 1. [Is verbatim transcription of interview data always necessary?](https://www.sciencedirect.com/science/article/pii/S0897189705000893)
+1. [How Objective is Peer Review?](https://cacm.acm.org/blogs/blog-cacm/248824-how-objective-is-peer-review/fulltext)
+1. [Edsger Dijkstra: The Man Who Carried Computer Science on His Shoulders](https://inference-review.com/article/the-man-who-carried-computer-science-on-his-shoulders)
 
 ## Paper reading
 
