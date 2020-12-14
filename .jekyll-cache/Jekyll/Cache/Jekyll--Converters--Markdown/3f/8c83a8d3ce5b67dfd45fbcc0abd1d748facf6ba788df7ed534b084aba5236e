@@ -1,11 +1,21 @@
-I";<h2 id="2021">2021</h2>
+I"�<h2 id="2021">2021</h2>
 
 <ol>
   <li>
-    <p><a href="https://www.cin.ufpe.br/~isol2/">Igor Lima</a>, Jefferson Silva, <a href="https://cin.ufpe.br/~bafm/">Breno Miranda</a>, <strong>Gustavo Pinto</strong>, and <a href="https://www.cin.ufpe.br/~damorim/">Marcelo d’Amorim</a>. Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing. Software Quality Journal (SQJ). Accepted for publication.</p>
+    <p><a href="https://www.linkedin.com/in/rafa-prado-santos/">Rafa Prado</a>, <a href="https://www.linkedin.com/in/wendy-mendes-b396b0144/">Wendy Galeno</a>, <a href="https://www.cin.ufpe.br/~kiev/">Kiev Gama</a>, <strong>Gustavo Pinto</strong>. “<a href="#">How Trans-Inclusive are Hackathons?</a>”. IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br />
+<a href="#"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
   </li>
   <li>
-    <p><a href="https://dblp.org/pers/hd/o/Oliveira:Wellington">Wellington Oliveira</a>, <a href="https://scholar.google.com/citations?user=fceXVy4AAAAJ&amp;hl=en">Hugo Matalonga</a>, <strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>, <a href="https://eden.dei.uc.pt/~jpf/Site/Home.html">João Paulo Fernandes</a>. Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency. Software Sustainability, 2020. Springer-Verlag. Accepted for publication.</p>
+    <p><a href="http://leonardofurtado.me/">Leonardo Furtado</a>, <a href="http://brunocartaxo.com/">Bruno Cartaxo</a>, <a href="http://ctreude.ca/">Christoph Treude</a>, **Gustavo Pinto **. “<a href="http://arxiv.org/abs/2012.03716">How Successful Are Open Source Contributions From Countries with Different Levels of Human Development?</a>”. IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br />
+<a href="http://arxiv.org/abs/2012.03716"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.cin.ufpe.br/~isol2/">Igor Lima</a>, Jefferson Silva, <a href="https://cin.ufpe.br/~bafm/">Breno Miranda</a>, <strong>Gustavo Pinto</strong>, and <a href="https://www.cin.ufpe.br/~damorim/">Marcelo d’Amorim</a>. “<a href="http://arxiv.org/abs/2012.03759">Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing</a>”. Software Quality Journal (SQJ). Accepted for publication.<br />
+<a href="http://arxiv.org/abs/2012.03759"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
+  </li>
+  <li>
+    <p><a href="https://dblp.org/pers/hd/o/Oliveira:Wellington">Wellington Oliveira</a>, <a href="https://scholar.google.com/citations?user=fceXVy4AAAAJ&amp;hl=en">Hugo Matalonga</a>, <strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>, <a href="https://eden.dei.uc.pt/~jpf/Site/Home.html">João Paulo Fernandes</a>. “<a href="http://arxiv.org/abs/2012.03738">Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency</a>”. Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br />
+<a href="http://arxiv.org/abs/2012.03738"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
   </li>
 </ol>
 
@@ -15,6 +25,10 @@
   <li>
     <p><a href="https://dvmarcilio.github.io/">Diego Marcilio</a>, <a href="https://bugcounting.net/">Carlo A. Furia</a>, <a href="http://wp.rbonifacio.net/">Rodrigo Bonifácio</a>, <strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/jss2020.pdf">SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings</a>”. Accepted to the Journal of Systems and Software, 2020. <strong>[This paper is an extension of a <a href="http://gustavopinto.github.io/lost+found/scam2019.pdf">SCAM’2019</a> paper]</strong><br />
 <a href="http://gustavopinto.github.io/lost+found/jss2020.pdf"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
+  </li>
+  <li>
+    <p><a href="http://igorwiese.com/">Igor Wiese</a>, <a href="(https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&amp;hl=en)">Ivanilton Polato</a>, <strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/ieeesw2019.pdf">Naming the Pain in Developing Scientific Software</a>”. IEEE Software, 2020.<br />
+<a href="http://gustavopinto.github.io/lost+found/ieeesw2019.pdf"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
   </li>
   <li>
     <p>Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, <strong>Gustavo Henrique L. Pinto</strong>, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza. <a href="http://gustavopinto.github.io/lost+found/frontiers2020.PDF">“Hand Resting Tremor Assessment of Healthy and Patients with Parkinson’s Disease: An Exploratory Machine Learning Study”</a>. Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br />
@@ -95,10 +109,6 @@
   <li>
     <p><a href="https://mcesar.dev/">Marcos César</a>, Davi Freitas, <a href="http://wp.rbonifacio.net/">Rodrigo Bonifácio</a>, <strong>Gustavo Pinto</strong>, <a href="http://www.mysmu.edu/faculty/davidlo/">David Lo</a>. “<a href="http://gustavopinto.github.io/lost+found/jss2019b.pdf">Finding Needles in a Haystack: Leveraging Co-change Dependencies to Recommend Refactorings</a>”. Journal of Systems and Software, 2019. <strong>[This paper was presented as J1C2 at SANER’2020]</strong><br />
 <a href="http://gustavopinto.github.io/lost+found/jss2019b.pdf"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
-  </li>
-  <li>
-    <p><a href="http://igorwiese.com/">Igor Wiese</a>, <a href="(https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&amp;hl=en)">Ivanilton Polato</a>, <strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/ieeesw2019.pdf">Naming the Pain in Developing Scientific Software</a>”. IEEE Software, 2019.<br />
-<a href="http://gustavopinto.github.io/lost+found/ieeesw2019.pdf"><i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint</a></p>
   </li>
   <li>
     <p><a href="https://dblp.org/pers/hd/o/Oliveira:Wellington">Wellington Oliveira Jr</a>, Renato Oliveira, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>, <a href="https://www.linkedin.com/in/benito-fernandes-85736a6/">Benito Fernandes</a>, <strong>Gustavo Pinto</strong>,. “<a href="http://gustavopinto.github.io/lost+found/msr2019a.pdf">Recommending Energy-Efficient Java Collections</a>”. Accepted to the 16th International Conference on Mining Software Repositories (MSR’2019). Montreal, Canada. May 2019. <br />

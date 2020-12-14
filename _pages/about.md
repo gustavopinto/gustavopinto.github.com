@@ -9,7 +9,7 @@ author_profile: true
 
 Dr. Gustavo Pinto is an assistant professor at the Federal University of Pará (UFPA), Brazil.
 Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the Federal University of Pernambuco (UFPE).
-He works in intersection between people and code, and has published over 70 research papers, which were cited over 1,200 times.
+He works in intersection between people and code, and has published over 80 research papers, which were cited over 1,200 times.
 He is a CNPq researcher (level 2).
 Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development (JSERD).
 
@@ -23,7 +23,7 @@ Since 2020, he is serving as a (co-)Editor-in-Chief of the Journal of Software E
 - He received one distinguished reviewer award for [SCAM'19](https://twitter.com/gustavopinto/status/1178806201078943746).
 - He served as a member of [60+ program committees](/service) for international and national conferences/journals.
 - He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
-- He failed [60+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
+- He failed [70+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
 - He wrote [40+ blog posts](http://gustavopinto.org/books/) about the academic environment.
 - He self-published two short ebooks: one about [open source licensing](https://gum.co/oss-licensing-101) and another one about [good habits to foster in academia](http://gustavopinto.org/books/good-rearch-habits/).
 - He is supported by the [CNPq research productivity](http://plsql1.cnpq.br/divulg/RESULTADO_PQ_102003.buscapelonome2000?f_nome=gustavo+henrique+lima+pinto&v_sele_modal=BOL_CURSO) grant since 2020.
