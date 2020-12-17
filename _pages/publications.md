@@ -7,14 +7,18 @@ permalink: /publications/
 
 ## 2021
 
-1. [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Kiev Gama](https://www.cin.ufpe.br/~kiev/), **Gustavo Pinto**. "[How Trans-Inclusive are Hackathons?](#)". IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+1. [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Kiev Gama](https://www.cin.ufpe.br/~kiev/), **Gustavo Pinto**. "[How Trans-Inclusive are Hackathons?](http://arxiv.org/abs/2012.07140)". Accepted to the IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.07140)
 
-1. [Leonardo Furtado](http://leonardofurtado.me/), [Bruno Cartaxo](http://brunocartaxo.com/), [Christoph Treude](http://ctreude.ca/), **Gustavo Pinto **. "[How Successful Are Open Source Contributions From Countries with Different Levels of Human Development?](http://arxiv.org/abs/2012.03716)". IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br/>
+1. [Leonardo Furtado](http://leonardofurtado.me/), [Bruno Cartaxo](http://brunocartaxo.com/), [Christoph Treude](http://ctreude.ca/), **Gustavo Pinto**. "[How Successful Are Open Source Contributions From Countries with Different Levels of Human Development?](http://arxiv.org/abs/2012.03716)". Accepted to the IEEE Software (Special Issue on the Diversity Crisis in Software Development), 2021. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03716)
 
-1. [Igor Lima](https://www.cin.ufpe.br/~isol2/), Jefferson Silva, [Breno Miranda](https://cin.ufpe.br/~bafm/), **Gustavo Pinto**, and [Marcelo d'Amorim](https://www.cin.ufpe.br/~damorim/). "[Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing](http://arxiv.org/abs/2012.03759)". Software Quality Journal (SQJ). Accepted for publication.<br/>
+1. [Igor Lima](https://www.cin.ufpe.br/~isol2/), Jefferson Silva, [Breno Miranda](https://cin.ufpe.br/~bafm/), **Gustavo Pinto**, and [Marcelo d'Amorim](https://www.cin.ufpe.br/~damorim/). "[Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing](http://arxiv.org/abs/2012.03759)". Accepted to the Software Quality Journal (SQJ). Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03759)
+
+1. Edson Dias, [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Igor Steinmacher](http://www.igor.pro.br/), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**. [What Makes a Great Maintainer of Open Source Projects?](#). Accepted to the 43rd ACM/IEEE International Conference on Software Engineering. Madrid, Spain. June 2021. Accepted for publication.
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
 1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). "[Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency](http://arxiv.org/abs/2012.03738)". Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03738)
@@ -24,7 +28,7 @@ permalink: /publications/
 1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/jss2020.pdf)". Accepted to the Journal of Systems and Software, 2020. **[This paper is an extension of a [SCAM'2019](http://gustavopinto.github.io/lost+found/scam2019.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2020.pdf)
 
-1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". IEEE Software, 2020.<br>
+1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". Accepted to the IEEE Software, 2020.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
 1. Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, **Gustavo Henrique L. Pinto**, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza. ["Hand Resting Tremor Assessment of Healthy and Patients with Parkinson's Disease: An Exploratory Machine Learning Study"](http://gustavopinto.github.io/lost+found/frontiers2020.PDF). Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br>
@@ -73,6 +77,14 @@ permalink: /publications/
 
 ## 2019
 
+1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss2019.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> JSS Paper of the Year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year)
+&#8226;
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
+
+1. [Marcos César](https://mcesar.dev/), Davi Freitas, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[Finding Needles in a Haystack: Leveraging Co-change Dependencies to Recommend Refactorings](http://gustavopinto.github.io/lost+found/jss2019b.pdf)". Journal of Systems and Software, 2019. **[This paper was presented as J1C2 at SANER'2020]**<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019b.pdf)
+
 1. **Gustavo Pinto**, [Clarice Ferreira](https://www.linkedin.com/in/claricemoraesf/), [Cleice Souza](https://dblp.uni-trier.de/pers/hd/s/Souza:Cleice_Talitha_Nascimento), [Igor Steinmacher](http://www.igor.pro.br/), [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en). "[Training Software Engineers using Open-Source Software: The Students' Perspective](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)". Accepted to the 41st ACM/IEEE International Conference on Software Engineering (ICSE -- SEET Track). Montreal, Canada, May 2019.<br/>
 [<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best paper Award](https://twitter.com/rmmilewi/status/1134445184111058947)
 &#8226;
@@ -80,15 +92,6 @@ permalink: /publications/
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://youtu.be/s_FiDSfomdo)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/icse2018b-talk.pdf)
-
-1.  [Welder Luz](https://github.com/wweellddeerr), **Gustavo Pinto**, [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[Adopting DevOps in the Real World: A Theory, a Model, and a Case Study](http://gustavopinto.github.io/lost+found/jss2019.pdf)". Journal of Systems and Software, 2019. **[This paper is an extension of the [ESEM'2018](http://gustavopinto.github.io/lost+found/esem2018.pdf) paper]**<br/>
-[<i class="fas fa-fw fa-star" aria-hidden="true"></i> JSS Paper of the Year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year)
-&#8226;
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019.pdf)
-
-
-1. [Marcos César](https://mcesar.dev/), Davi Freitas, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[Finding Needles in a Haystack: Leveraging Co-change Dependencies to Recommend Refactorings](http://gustavopinto.github.io/lost+found/jss2019b.pdf)". Journal of Systems and Software, 2019. **[This paper was presented as J1C2 at SANER'2020]**<br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jss2019b.pdf)
 
 1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Benito Fernandes](https://www.linkedin.com/in/benito-fernandes-85736a6/), **Gustavo Pinto**,. "[Recommending Energy-Efficient Java Collections](http://gustavopinto.github.io/lost+found/msr2019a.pdf)". Accepted to the 16th International Conference on Mining Software Repositories (MSR'2019). Montreal, Canada. May 2019. <br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2019a.pdf)
@@ -150,6 +153,20 @@ permalink: /publications/
 
 ## 2018
 
+1. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 97, May 2018.<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ist2018.pdf)
+
+1. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 23, 3221-3247, 2018.<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ese2018.pdf)<br/>
+
+1. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). "[Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf)". Accepted for Software: Practice & Experience, 48, 2223-2236, December 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
+
+1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 24, 1-17, 2018. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
+
 1. [Maurício Aniche](http://www.mauricioaniche.com/), [Christoph Treude](http://ctreude.ca/), [Igor Steinmacher](http://igor.pro.br/), [Igor Wiese](http://www.igorwiese.com/), **Gustavo Pinto**, [Margaret-Anne Storey](http://margaretstorey.com/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[How Modern News Aggregators Help Development Communities Shape and Share Knowledge](http://gustavopinto.github.io/lost+found/icse2018b.pdf)". Accepted to the 40th International Conference on Software Engineering (ICSE'2018). Gothenburg, Sweden, 2018.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2018b.pdf)
 &#8226;
@@ -162,16 +179,10 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](http://gustavopinto.org/blog/what-are-quasi-contributors-and-how-common-are-them/)
 
-3. [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto**, [S&eacute;rgio Soares](http://www.cin.ufpe.br/~scbs/). "[Towards a Model to Transfer Knowledge from Software Engineering Research to Practice](http://gustavopinto.github.io/lost+found/ist2018.pdf)". Accepted for Information and Software Technology, 97, May 2018.<br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ist2018.pdf)
-
 4. **Gustavo Pinto**, [Igor Wiese](http://www.igorwiese.com/), [Luiz Felipe Dias](http://fronchetti.com.br/). "[How Do Scientists Develop Scientific Software? An External Replication](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)". Accepted to the 25th IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER'2018 -- RENE Track). Campobasso, Italy, 2018. <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner-rene2018.pdf)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/saner2018-talk.pdf)
-
-5. **Gustavo Pinto**, [Igor Steinmacher](http://igor.pro.br/), [Luiz Felipe Dias](http://fronchetti.com.br/), [Marco Gerosa](http://www.ime.usp.br/~gerosa/). "[On the Challenges of Open-Sourcing Proprietary Software Projects](http://gustavopinto.github.io/lost+found/ese2018.pdf)". Accepted to the Empirical Software Engineering journal, 23, 3221-3247, 2018.<br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ese2018.pdf)<br/>
 
 6. Nathan Cassee, **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/). "[How Swift Developers Handle Errors](http://gustavopinto.github.io/lost+found/msr2018a.pdf)". Accepted to the 15th International Conference on Mining Software Repositories (MSR'2018). Gothenburg, Sweden, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/msr2018a.pdf)<br/>
@@ -198,15 +209,6 @@ permalink: /publications/
 [<i class="fas fa-fw fa-star" aria-hidden="true"></i> Nominated one of the best papers](https://twitter.com/gustavopinto/status/1050511483304640512)
 &#8226;
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/esem2018.pdf)
-
-12. **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Marcel Rebou&ccedil;as](https://github.com/marcel-reboucas). "[Work Practices and Challenges in Continuous Integration: A Survey with Travis CI Users](http://gustavopinto.github.io/lost+found/spe2018.pdf)". Accepted for Software: Practice & Experience, 48, 2223-2236, December 2018. **[This paper is an extension of the [ICSE@CHASE'2017](http://gustavopinto.github.io/lost+found/chase2017.pdf) paper]**<br>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/spe2018.pdf)
-&#8226;
-[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](https://speakerdeck.com/gustavopinto/work-practices-challenges-research-opportunities-in-continuous-integration)
-
-1. [Luiz Felipe Dias](http://fronchetti.com.br/), [Igor Steinmacher](http://igor.pro.br/), **Gustavo Pinto**. [Who Drives Company-Owned OSS Projects: Internals or Externals Members?](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)  Accepted for Journal of Brazilian Computer Society, 24, 1-17, 2018. **[This paper is an extension of the [VEM'2017](http://gustavopinto.github.io/lost+found/vem2017.pdf) paper]**<br>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jbcs2019.pdf)
-
 
 13. [Welder Luz](https://github.com/wweellddeerr), Everton Agilar, [Marcos Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), Carlos E. R. de Melo, **Gustavo Pinto**, and [Rodrigo Bonifácio](http://wp.rbonifacio.net/). "[An Experience Report on the Adoption of Microservices in Three Brazilian Government Institutions](http://gustavopinto.github.io/lost+found/sbes2018.pdf)". Accepted to the 32nd Brazilian Symposium on Software Engineering (SBES'2018). São Carlos, Brazil, 2018.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2018.pdf)
