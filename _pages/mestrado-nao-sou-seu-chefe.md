@@ -1,0 +1,22 @@
+---
+layout: single
+author_profile: true
+title: Sou seu orientador, não sou seu chefe
+permalink: /nao-sou-seu-chefe
+---
+
+Um ponto que eu acredito ser crucial em um curso de pós-graduação é preparar os alunos para que se tornem pesquisadores independentes, ou seja, que sejam capazes de buscar seus próprios problemas (no caso, problemas de pesquisa). Embora muito se fale sobre os *problem solvers*, eu acredito que é importante mesmo são os *problem creators*. Pesquisadores independentes são intrinsecamente criadores de problemas (preciso escrever mais sobre isso no futuro).
+
+Dessa forma, eu acredito que a minha função como orientador de alunos de pós-graduação é ajuda-los a se tornarem pesquisadores independentes. Infelizmente eu ainda não conheço uma formula mágica que ajuda nessa mudança de paradigma. No entanto, ao menos eu sei uma abordagem que não definitivamente não ajuda. Essa abordagem é: dizer exatamente o que o aluno precisa fazer.
+
+Muitos alunos chegam na pós-graduação com uma experiência pregressa em estágios e empregos em que o dia a dia de atividades estava sempre bem definido e organizado, muito possivelmente por uma terceira pessoa. Embora essa experiencia seja definitivamente valorosa para sua carreira, eu acredito que ela é muito adequada para um ambiente de pesquisa. Digo isso por dois motivos:
+
+- Primeiro, fazer pesquisa é basicamente lidar com o desconhecido. Muito dificilmente você (ou qualquer outra pessoa) vai conseguir fazer um planejamento muito específico e detalhado para, digamos, as suas próximas duas semanas de trabalho. Isso acontece pelo fato de você não conhecer exatamente as variáveis que você está trabalhando. E mesmo quando se conhece essa variáveis, é muito difícil estimar quanto tempo você levaria pra, por exemplo, fazer uma certa simulação ou para coletar alguns dados.
+
+- Segundo, mesmo que fosse possível que eu soubesse exatamente o que faz sentido fazer amanhã, se eu simplesmente dissesse para o aluno fazer *x*, eu estaria limitando as habilidades criativas e reflexivas do aluno. E isso é justamente o que preciso fomentar.
+
+Ao invés de delimitar exatamente o que o aluno precisa fazer, eu acredito que seja mais adequado auxiliar o aluno para que ele encontre o que precisa ser feito. Acredito que a função do orientador é instigar, questionar, provocar. Da mesma forma que não é minha função descrever suas atividades, também não é minha função dizer como essas atividades são feitas. Você tem total liberdade de trabalhar da onde você quiser, nos horários que você quiser. No entanto, eu me esforço para que os alunos tenham um bom ambiente de trabalho, com computadores novos em um ambiente agradável para que possam desempenhar suas atividades na universidade. Como já deve ter ficado claro, eu, porém, não forço que ninguém trabalhe exclusivamente do laboratório. Eu mesmo, enquanto aluno, alternava frequentemente entre trabalhar de casa e trabalhar do laboratório.
+
+Note, todavia, que a pós-graduação fornece uma certa liberdade para os alunos, por exemplo, de pesquisar os problemas que lhe agradam, nas horas e locais que são mais produtivos. Isso pode ser desafiador para aqueles que tem dificuldades em lidar com tanta liberdade. Tenha isso em mente.
+
+Para finalizar e generalizando um pouco mais: a função do orientador não é tomar decisões por você; você deve tomar as decisões (e as rédeas) do seu trabalho.

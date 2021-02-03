@@ -4,7 +4,8 @@ title: Students
 permalink: /students/
 author_profile: true
 ---
-I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/prospective-students) if interested.
+
+I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/pos-graduacao) if interested.
 
 ## Current students
 
@@ -12,15 +13,14 @@ I am continuously looking for good people to join my research group, at all leve
 - Albert Richard Moraes Lopes (PhD)
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
-- Fabio Pacheco de Souza (MS)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
 - Aian Shay Bentes Damasceno Cardoso (UROP)
+- Ronivaldo Ferreira Silva Junior (UROP)
 - Wagner Felidré Negrão da Silva (Capstone)
 - Leonardo Barbosa Furtado (Capstone)
 - You?
-
 
 ## Alumni (sorted by graduation year)
 

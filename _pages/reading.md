@@ -23,6 +23,7 @@ speaker: top ten tips for Portuguese speakers](https://www.scielo.br/pdf/clin/v6
 1. [Is verbatim transcription of interview data always necessary?](https://www.sciencedirect.com/science/article/pii/S0897189705000893)
 1. [How Objective is Peer Review?](https://cacm.acm.org/blogs/blog-cacm/248824-how-objective-is-peer-review/fulltext)
 1. [Edsger Dijkstra: The Man Who Carried Computer Science on His Shoulders](https://inference-review.com/article/the-man-who-carried-computer-science-on-his-shoulders)
+1. [Ten simple rules towards healthier research labs](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006914)
 
 ## Paper reading
 
