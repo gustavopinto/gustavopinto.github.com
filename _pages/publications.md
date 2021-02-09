@@ -22,9 +22,9 @@ permalink: /publications/
 1. [Igor Lima](https://www.cin.ufpe.br/~isol2/), Jefferson Silva, [Breno Miranda](https://cin.ufpe.br/~bafm/), **Gustavo Pinto**, and [Marcelo d'Amorim](https://www.cin.ufpe.br/~damorim/). "[Exposing Bugs in JavaScript Engines through Differential Test Transplantation and Testing](http://arxiv.org/abs/2012.03759)". Accepted to the Software Quality Journal (SQJ). Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03759)
 
-1. Edson Dias, [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Igor Steinmacher](http://www.igor.pro.br/), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**. [What Makes a Great Maintainer of Open Source Projects?](#). Accepted to the 43rd ACM/IEEE International Conference on Software Engineering. Madrid, Spain. June 2021. Accepted for publication.
+1. Edson Dias, [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Igor Steinmacher](http://www.igor.pro.br/), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**. [What Makes a Great Maintainer of Open Source Projects?](http://gustavopinto.github.io/lost+found/icse2021.pdf). Accepted to the 43rd ACM/IEEE International Conference on Software Engineering. Madrid, Spain. June 2021. Accepted for publication.
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2021.pdf)
 
 1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). "[Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency](http://arxiv.org/abs/2012.03738)". Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03738)
