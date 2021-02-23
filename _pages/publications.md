@@ -26,6 +26,9 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2021.pdf)
 
+1. [Michel Albonico](https://michelalbonico.github.io/), [Ivano Malavolta](http://www.ivanomalavolta.com/), **Gustavo Pinto**, [Emitza Guzman](https://research.vu.nl/en/persons/emitza-guzman-ortega), [Katerina Chinnappan](http://katerinachinnppan.com/), [Patricia Lago](http://patricialago.nl/). "[Mining Energy-Related Practices in Robotics Software](#)". Accepted for the 18th International Conference on Mining Software Repositories (MSR), Madrid, Spain, 2021.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
 1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). "[Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency](http://arxiv.org/abs/2012.03738)". Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03738)
 
@@ -51,7 +54,7 @@ permalink: /publications/
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](http://gustavopinto.github.io/lost+found/msr2020-talk.pdf)
 
-1. [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Márcio Vinicius Okimoto](https://www.linkedin.com/in/marcio-vinicius-okimoto-bb777114/?originalSubdomain=br), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), **Gustavo Pinto**, Eduardo Monteiro. "[Work Practices and Perceptions from Women Core Developers in OSS Communities](https://arxiv.org/abs/2007.13891)". Accepted to the 14th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2020). Bari, Italy. September 2020. <br>
+1. [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Márcio Vinicius Okimoto](https://www.linkedin.com/in/marcio-vinicius-okimoto-bb777114/?originalSubdomain=br), [Alexander Serebrenik](http://www.win.tue.nl/~aserebre/), **Gustavo Pinto**, Eduardo Monteiro. "[Work Practices and Perceptions from Women Core Developers in OSS Communities](https://arxiv.org/abs/2007.13891)". Accepted to the 14th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'2020). Bari, Italy. September 2020. **[[This paper was highlighted in the March/April 2021 issue of IEEE Software](https://www.computer.org/csdl/magazine/so/2021/02/09354400/1reXnlkPdXW)]**<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2007.13891)
 
 1. Luís Amaral, [Marcos César de Oliveira](http://dblp2.uni-trier.de/pers/hd/o/Oliveira_0001:Marcos_C=eacute=sar_de), [Welder Luz](https://github.com/wweellddeerr), José Fortes Neto, [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Daniel Alencar da Costa](http://danielcalencar.github.io/), Eduardo Monteiro, **Gustavo Pinto**, [David Lo](http://www.mysmu.edu/faculty/davidlo/). "[How (Not) to Find Bugs: The Interplay Between Merge Conflicts, Co-Changes, and Bugs](http://gustavopinto.github.io/lost+found/icsme2020.pdf)". Accepted to the 36th IEEE International Conference on Software Maintenance and Evolution (ICSME'2020). Adelaide, Australia. 2020. <br/>
