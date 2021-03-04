@@ -1,4 +1,4 @@
-I"úo<p>A variety of common markup showing how the theme styles them.</p>
+I"›p<p>A variety of common markup showing how the theme styles them.</p>
 
 <h1 id="header-one">Header one</h1>
 
@@ -594,7 +594,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/teaching/" rel="permalink">Teaching</a>
+        <a href="/" rel="permalink">Home</a>
       
     </h2>
     
@@ -607,7 +607,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/" rel="permalink">Home</a>
+        <a href="/teaching/" rel="permalink">Teaching</a>
       
     </h2>
     
@@ -777,6 +777,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/teaching/pad" rel="permalink">Projeto e An√°lise de Sistemas</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/teaching/pc1/2020" rel="permalink">Programa√ß√£o de Computadores I</a>
       
     </h2>
     

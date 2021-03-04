@@ -1,4 +1,4 @@
-I"Í¥<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"+∂<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -321,7 +321,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/teaching/" rel="permalink">Teaching</a>
+        <a href="/" rel="permalink">Home</a>
       
     </h2>
     
@@ -334,7 +334,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/" rel="permalink">Home</a>
+        <a href="/teaching/" rel="permalink">Teaching</a>
       
     </h2>
     
@@ -504,6 +504,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/teaching/pad" rel="permalink">Projeto e An√°lise de Sistemas</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/teaching/pc1/2020" rel="permalink">Programa√ß√£o de Computadores I</a>
       
     </h2>
     

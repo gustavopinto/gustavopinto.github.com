@@ -6,6 +6,9 @@ permalink: /teaching/
 ---
 
 ## 2020.1 (ERE)
+1. [Programming Languages 101](/teaching/pc1/2020)
+
+## 2020.1 (ERE)
 1. [Object-Oriented Programming](/teaching/oop/2020)
 
 ## 2020.1
