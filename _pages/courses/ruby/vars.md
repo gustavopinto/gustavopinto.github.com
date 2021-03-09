@@ -37,7 +37,7 @@ ipi = 0.07
 
 As duas instruções acima apresentam duas declarações de variáveis. De agora em diante, toda vez que mencionarmos ```icms``` ou ```ipi``` o Ruby entenderá que estamos querendo usar os *valores* que estão armazenados nessas variáveis. Outros comentários sobre essas duas linhas de código:
 
-- Diferente de outras linguagens de programação, em Ruby não se faz necessário explicitamente definir qual o tipo da variável (por exemplo, se é inteiro ou string). Isso acontece pois a linguagem consegue inferir o tipo da variável dinamicamente, durante a execução do programa.
+- Diferente de outras linguagens de programação, em Ruby não se faz necessário explicitamente definir qual o tipo da variável (por exemplo, se é inteiro ou string). Isso acontece pois a linguagem consegue inferir o tipo da variável dinamicamente, durante a execução do programa. É o que chamamos de *dynamic type checking*.
 - Também diferente de outras linguagens de programação, não foi necessário encerrar cada linha com um ponto e vírgula (```;```). O ponto e vírgula, comumente utilizado para indicar o fim de uma operação, tem seu uso facultado em Ruby. Poderíamos coloca-lo ao fim de cada uma das declarações de variáveis acima, mas optamos por não fazê-lo. Como vamos ver ao longo desse livro, em Ruby há sempre mais de uma forma de se obter o mesmo resultado.
 
 > **DICA:** Bons nome de variáveis estão relacionados ao contexto do problema, como ```IPI``` e ```ICMS```. Evite nomes genéricos, como ```var1```, ```var2``` e ```var3```. Usar bons nomes de variável também ajuda na manutenção do programa. É muito mais fácil entender o que uma variável ```ICMS``` deve armazenar do que uma variável ```var3```.
@@ -50,7 +50,7 @@ puts icms # => 0.18
 
 Perfeito, era isso mesmo que estávamos aguardando! Mas, uma dúvida, onde será que o valor ```0.18``` está sendo de fato armazenado. Se você parar pra pensar, uma variável é apenas uma abstração lógica. O valor deveria ser guardado na memória do computador, certo?
 
-Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso. (Se você ainda não sabe o que é um método, não se preocupe! Vamos falar sobre métodos mais pra frente. Por hora assuma que é uma funcionalidade especial que nos apoia no desenvolvimento de software.)
+Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso.[^1]
 
 Para saber qual é o endereço de memória em que a variável está armazenada, usaremos o método ```.object_id```.
 
@@ -72,7 +72,7 @@ tv = tv + (tv * icms) + (tv * ipi)
 
 Perceba agora que além de declararmos variáveis (nas 3 primeiras linhas do nosso programa), nós estamos também usando essas variáveis (na última linha do programa). Definição e uso são as duas principais operações que podem ser realizadas com variáveis. Enquanto que na *definição* nós armazenamos o valor da variável em algum local da memória, no *uso* nós fazemos uma leitura desse valor para uso posterior. Acertou quem disse que usa-se o ```object_id``` para saber onde a variável foi armazenada.
 
-Nesse nosso pequeno programa há também outro trecho interessante de ser discutido. A variável ```tv``` foi definida na terceira linha e foi re-definida (ou sobrescrita) na última linha. Isso quer dizer que seu valor foi alterado. Mas onde será que o novo valor foi armazenado? Vamos checar. Pra isto, basta colocar algumas instruções de ```puts``` ao longo do programa.[^1]
+Nesse nosso pequeno programa há também outro trecho interessante de ser discutido. A variável ```tv``` foi definida na terceira linha e foi re-definida (ou sobrescrita) na última linha. Isso quer dizer que seu valor foi alterado. Mas onde será que o novo valor foi armazenado? Vamos checar. Pra isto, basta colocar algumas instruções de ```puts``` ao longo do programa.[^2]
 
 ```ruby
 icms = 0.18
@@ -131,13 +131,60 @@ puts icms_pe.object_id # => 128262517387511726
 
 Como podemos perceber, o endereço de memória foi alterado para a variável ```icms``` (o que era esperado), mas se manteve para a variável ```icms_pe``` (o que parece ser surpreendente). Por que isso aconteceu? Quando você re-atribui uma variável para um novo slot de memória, o *valor* original da variável não é afetado, somente o *object_id* é alterado.
 
-
 <!-- https://blog.emitte.com.br/tipos-de-contribuintes-icms/ -->
+
+## Recebendo dados do usuário
+
+Hoje o nosso programa que calcula imposto sobre o produto está limitado a um único produto. E se nós quiséssemos calcular o imposto de outro produto? Uma vez que sabemos como funciona o cálculo, fica fácil fazer a operação: basta mudar o valor do produto que queremos calcular.
+
+```ruby
+icms = 0.18
+icms_pa = 0.17
+icms_pe = icms
+ipi = 0.07
+celular = 2000
+
+celular = celular + (celular * icms) + (celular * ipi)
+```
+
+Mas esse nosso programa tem um problema. Ele assume que nós sabemos qual é o produto que devemos calcular antecipadamente. E se nós não soubéssemos qual o produto que precisamos calcular o imposto antecipadamente? Se somente o usuário do nosso programa soubesse? Teríamos que, de alguma forma, não deixar fixo o produto que vamos usar; precisamos dinamizar a escolha do produto. Como fazemos isso?
+
+No primeiro capítulo do guia, nós aprendemos como podemos fazer para mostrar os dados para um usuário (através do comando ```puts```). Mas ainda não sabemos como podemos receber dados do usuário.
+
+Uma forma simples de receber dados do usuário é através do comando ```gets``` (que significa "get string"). O uso do comando ```gets``` é simples como:
+
+```ruby
+produto = gets
+puts produto
+```
+
+Excelente! Agora vamos alterar o código do nosso programa para que possamos calcular o imposto de qualquer produto.
+
+```ruby
+icms = 0.18
+icms_pa = 0.17
+icms_pe = icms
+ipi = 0.07
+produto = gets # recebo o valor do produto pelo usuário
+
+produto = produto + (produto * icms) + (produto * ipi)
+
+puts "O valor do produto com imposto é"
+puts produto
+```
+
+Mas, calma. Parece que aconteceu algum problema aqui. Se eu passar 1000 para o comando ```gets```, o mesmo 1000 é impresso ao fim do programa. Por algum motivo o calculo do imposto não está mais sendo executado. Por que isso está acontecendo?
+
+Esse capítulo se encerra com esse bug no código. No próximo capítulo nós vamos revisitar esse programa e resolver esse bug.
 
 ## Exercícios de fixação
 
-- O uso de ponto e vírgula no final de uma declaração de variável é opcional em Ruby. Qual sua opinião a respeito?
+- Por que o tivemos o bug no último trecho de código? Tente resolver esse bug sem passar para o próximo capítulo.
+- O uso de ponto e vírgula (```;```) no final de uma declaração de variável é opcional em Ruby. Qual sua opinião a respeito?
 - Descreva pelo menos um cenário em que o uso de um ponto e vírgula é obrigatório, mesmo em Ruby.
 - Estude sobre passagem por valor e passagem por referência. Qual dessas estratégias é implementada em Ruby?
+- Há algumas restrições para nomenclatura de variáveis em Ruby. Quais são elas?
 
-[^1]: O nome desta técnica é debugging.
+
+[^1]: Se você ainda não sabe o que é um método, não se preocupe! Vamos falar sobre métodos mais pra frente. Por hora, assuma que é uma funcionalidade especial que nos apoia no desenvolvimento de software.
+[^2]: O nome desta técnica é debugging.

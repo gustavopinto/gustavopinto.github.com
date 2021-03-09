@@ -9,12 +9,30 @@ permalink: /guide/ruby/data-types
 
 Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:
 
+- Literals
 - Booleans
 - Numbers
 - Strings
 - Symbols
 
 Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados em Ruby.
+
+## Literals
+
+Um literal é *qualquer* notação que lhe permite expressar um determinado valor no código. O exemplo a seguir apresenta todos os tipos de literais em Ruby.
+
+```ruby
+true              # boolean literal
+123               # integer literal
+1.23              # float literal
+"UFPA"            # string literal
+:ufpa             # symbol literal
+[1, 2, 3]         # array literal
+{ 'a' => 1}       # hash literal
+nil               # nil literal
+```
+
+Falaremos mais sobre alguns deles nesse capítulo.
 
 ## Booleans
 
@@ -186,18 +204,24 @@ O operador ```[]``` pode também receber dois parâmetros. Nesse acaso, em vez d
 ```ruby
 "UFPA"[0, 2] # => "UF"
 "UFPA"[2, 3] # => "PA"
+
+"UFPA".[](0, 2) # => "UF"
+"UFPA".[](2, 3) # => "PA"
 ```
 
-Em Ruby há sempre mais de uma forma de se fazer a mesma coisa. No caso, poderíamos usar o método ```slice``` (que é quem implementa o comportamento acima).
+Em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Alternativamente, poderíamos usar o método ```slice```.
 
 ```ruby
 "UFPA".slice(0,2) # => "UF"
 "UFPA".slice(2,3) # => "PA"
 ```
 
-Por fim, poderíamos usar ``..`` (dois pontos consecutivos) no lugar da virgula.
+Por fim, poderíamos também usar ``..`` (dois pontos consecutivos) no lugar da virgula.
 
 ```ruby
+"UFPA".[](0..2) # => "UFP"
+"UFPA".[](2..3) # => "PA"
+
 "UFPA"[0..2] # => "UFP"
 "UFPA"[2..3] # => "PA"
 
@@ -318,9 +342,9 @@ Lembrando que o uso de parênteses é opcional na chamada de métodos.
 
 Um outro tipo de dados que é extremamente importante em Ruby (e não tão frequente encontrado em outras linguagens) é o ```:symbol```, isto é, um identificador que é precedido por um dois pontos (```:```). Símbolos são usados para identificar um recurso específico, seja um método, uma variável, uma chave de um hash, etc.
 
-Símbolos são de certa forma comparáveis a string, o que faz com que programadores novatos em Ruby se confundam sobre o que são symbols e como usa-los. Símbolos tem duas importantes características:
+Símbolos são de certa forma comparáveis a string, o que faz com que programadores novatos em Ruby se confundam em como usa-los. Símbolos tem duas importantes características:
 
-- Símbolos tem sempre o mesmo valor
+- Símbolos tem sempre o mesmo valor, e
 - Símbolos tem sempre o mesmo ```object_id```
 
 ```ruby
@@ -328,16 +352,19 @@ puts :a
 
 puts "a".object_id  
 puts "a".object_id  
+
 puts :a.object_id  
 puts :a.object_id  
 ```
 
-Como símbolos são únicos e não podem ser alterados durante a execução do programa, para efeitos de aprendizado, você pode associar um símbolo a uma constante. Diferente de uma constante, que é uma variável, símbolos não guardam valores. Seu maior benefício é deixar o código com uma nomenclatura consistente.
+Como símbolos são únicos e não podem ser alterados durante a execução do programa. Seu maior benefício é deixar o código com uma nomenclatura consistente.
 
 Há uma regra simples para saber quando usar uma string ou um símbolo:
 
-- Se o conteúdo (a sequência de caracteres) for mais importante, use uma string
-- Se a identidade do objeto for mais importante, use um símbolo
+- Se o conteúdo (a sequência de caracteres) for mais importante, use uma string.
+- Se a identidade do objeto for mais importante, use um símbolo.
+
+Basicamente, um símbolo é utilizado quando você quer referenciar alguma coisa como uma string, mas não tem a intenção de altera-lo ou imprimi-lo.
 
 É possível, no entanto, transformar uma string em um símbolo (e vice-versa).
 
@@ -359,3 +386,5 @@ Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concret
 - Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?
 
 - Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado ```nil```. Usamos ```nil``` quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos ```nil``` nesse caso. No entanto, o uso do ```nil``` é percebidamente uma má prática de programação. Você saberia explicar o por quê?
+
+- Talvez não seja novidade pra você que a expressão ```0.2 + 0.1 == 0.3``` é avaliado para ```false```. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?
