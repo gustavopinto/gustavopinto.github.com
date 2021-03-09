@@ -236,6 +236,9 @@
 <loc>http://localhost:4000/categories/edge-case/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/guide/ruby/vars</loc>
+</url>
+<url>
 <loc>http://localhost:4000/guide/ruby</loc>
 </url>
 <url>

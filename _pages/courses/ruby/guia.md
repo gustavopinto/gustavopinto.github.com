@@ -47,7 +47,7 @@ Embora hoje em dia existam dezenas de outras alternativas para o ensino e práti
 
 Para instalações de versões mais recentes (durante a escrita deste guia, recomendo a instalação da versão 3.0+), sugiro o download direto do site oficial da linguagem: [https://www.ruby-lang.org/en/documentation/installation/](https://www.ruby-lang.org/en/documentation/installation/).
 
-Após a instalação, abra o terminal e rode os commandos ```ruby -v``` (que mostrará a versão instalada) e ```irb``` (que abrirá o interpretador interativo da linguagem).
+Após a instalação, abra o terminal e rode os commandos ```ruby -v``` (que mostrará a versão instalada) e ```irb``` (que abrirá o interpretador interativo da linguagem; Interactive Ruby).
 
 Não se surpreenda caso você já tenha o Ruby instalado no seu computador por padrão. Isso pode acontecer caso você use alguma distribuição Linux ou MacOS.
 
@@ -66,6 +66,8 @@ Primeiro, a instrução ```puts``` é um comando de Ruby que realiza uma impress
 Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com ```puts ("Olá mundo!")```) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.
 
 Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto ```"Olá mundo!"```, enquanto que a segunda saída foi o estranho ```=> nil```. A seta ```=>``` apenas indica o leitor que houve alguma saída. Já o ```nil``` é o resultado da expressão. O comando ```puts``` sempre avalia para ```nil``` (que é um outro nome para um item nulo).
+
+Para fechar o ```irb```, digite ```exit``` no terminal  ou pressione ```CTRL+D```. 
 
 ### Mas o que é exatamente avaliar uma expressão?
 
