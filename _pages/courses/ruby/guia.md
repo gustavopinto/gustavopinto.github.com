@@ -2,15 +2,15 @@
 layout: single
 author_profile: true
 title: Ruby Guide
-permalink: /guide/ruby
+permalink: /ruby-guide
 ---
 
 Esse é um guia para o ensino de Ruby em uma turma de programação de computadores.
 
 Esse guia cobre os seguintes pontos:
 
-1. [Atribuição de variáveis](/guide/ruby/vars)
-2. [Tipos de dados básicos](/guide/ruby/data-types)
+1. [Atribuição de variáveis](/ruby-guide/vars)
+2. [Tipos de dados básicos](/ruby-guide/data-types)
 3. Expressões e operadores
 4. Controle de fluxo
 5. Funções
@@ -67,9 +67,9 @@ Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, 
 
 Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto ```"Olá mundo!"```, enquanto que a segunda saída foi o estranho ```=> nil```. A seta ```=>``` apenas indica o leitor que houve alguma saída. Já o ```nil``` é o resultado da expressão. O comando ```puts``` sempre avalia para ```nil``` (que é um outro nome para um item nulo).
 
-Para fechar o ```irb```, digite ```exit``` no terminal  ou pressione ```CTRL+D```. 
+Para fechar o ```irb```, digite ```exit``` no terminal  ou pressione ```CTRL+D```.
 
-### Mas o que é exatamente avaliar uma expressão?
+### Mas o que significa exatamente 'avaliar uma expressão'?
 
 Uma expressão é uma entidade que combina constantes, variáveis, funções e operadores. Uma entidade é interpretada e, após computada, retorna o valor avaliado.
 
