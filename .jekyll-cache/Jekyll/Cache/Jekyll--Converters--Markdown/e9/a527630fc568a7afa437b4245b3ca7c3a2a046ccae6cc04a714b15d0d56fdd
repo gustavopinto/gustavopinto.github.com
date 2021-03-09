@@ -1,0 +1,96 @@
+I"�'<p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+
+<p>O conceito de uma variável é um dos mais importantes em programação.</p>
+
+<p>Variáveis são responsáveis por armazenar dados que serão utilizados ao longo da execução do programa.</p>
+
+<p>Digamos que você queira criar um programa que calcule o valor de um produto após a incidência do ICMS. Sabendo que o ICMS é de 18% e produto (a ser incidido o imposto) custou R$ 1,000, poderíamos fazer o cálculo do valor final do produto da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>O valor final do nosso produto é: R$ 1.180. Tudo certo!</p>
+
+<p>No entanto, e se mais pra frente poderíamos querer adicionar um novo imposto, digamos, o IPI? O percentual do IPI é diferente do ICMS, logo não podemos reaproveita-lo. Sabendo que o IPI é de 7% em cima do valor do produto (sem a incidência dos demais impostos), o nosso produto poderia ser calculado da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.07</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Funcionou de novo! Legal!</p>
+
+<p>Mas, preciso dizer que embora pequeno, esse programa parece estar um pouco confuso. Veja, eu acabei de escrever essa linha, fui beber uma água e já não lembro exatamente o que são esses números. O 0.18 é do IPI ou do ICMS? O 1000 é do que mesmo? Imagina quando eu tiver que calcular o preço de outros produtos juntos com outros impostos. Isso tudo vai virar uma bagunça na minha cabeça.</p>
+
+<p>Variáveis são uma excelente forma para guardar um determinado item de dado. Uma variável consiste basicamente de uma sacola que pode guardar apenas um item. Para que a gente saiba onde vamos guardar nosso item de dado, precisamos colocar um identificador na nossa sacola. O identificador é o nome da variável. No exemplo acima, poderíamos usar <code class="highlighter-rouge">IPI</code> e  <code class="highlighter-rouge">ICMS</code> como identificador. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+</code></pre></div></div>
+
+<p>As duas instruções acima apresentam duas declarações de variáveis. De agora em diante, toda vez que mencionarmos <code class="highlighter-rouge">icms</code> ou <code class="highlighter-rouge">ipi</code> o Ruby entenderá que estamos querendo usar os <em>valores</em> que estão armazenados nessas variáveis. Outros comentários sobre essas duas linhas de código:</p>
+
+<ul>
+  <li>Diferente de outras linguagens de programação, em Ruby não se faz necessário explicitamente definir qual o tipo da variável (por exemplo, se é inteiro ou string). Isso acontece pois a linguagem consegue inferir o tipo da variável dinamicamente, durante a execução do programa.</li>
+  <li>Também diferente de outras linguagens de programação, não foi necessário encerrar cada linha com um ponto e vírgula (<code class="highlighter-rouge">;</code>). O ponto e vírgula, comumente utilizado para indicar o fim de uma operação, tem seu uso facultado em Ruby. Poderíamos coloca-lo ao fim de cada uma das declarações de variáveis acima, mas optamos por não fazê-lo. Como vamos ver ao longo desse livro, em Ruby há sempre mais de uma forma de se obter o mesmo resultado.</li>
+</ul>
+
+<blockquote>
+  <p><strong>DICA:</strong> Bons nome de variáveis estão relacionados ao contexto do problema, como <code class="highlighter-rouge">IPI</code> e <code class="highlighter-rouge">ICMS</code>. Evite nomes genéricos, como <code class="highlighter-rouge">var1</code>, <code class="highlighter-rouge">var2</code> e <code class="highlighter-rouge">var3</code>. Usar bons nomes de variável também ajuda na manutenção do programa. É muito mais fácil entender o que uma variável <code class="highlighter-rouge">ICMS</code> deve armazenar do que uma variável <code class="highlighter-rouge">var3</code>.</p>
+</blockquote>
+
+<p>Para confirmar que o valor foi armazenado com sucesso na variável, podemos tentar imprimir o que a variável <code class="highlighter-rouge">icms</code> armazena:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">icms</span> <span class="c1"># =&gt; 0.18</span>
+</code></pre></div></div>
+
+<p>Perfeito, era isso mesmo que estávamos aguardando! Mas, uma dúvida, onde será que o valor <code class="highlighter-rouge">0.18</code> está sendo de fato armazenado. Se você parar pra pensar, uma variável é apenas uma abstração lógica. O valor deveria ser guardado na memória do computador, certo?</p>
+
+<p>Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso. (Se você ainda não sabe o que é um método, não se preocupe! Vamos falar sobre métodos mais pra frente. Por hora assuma que é uma funcionalidade especial que nos apoia no desenvolvimento de software.)</p>
+
+<p>Para saber qual é o endereço de memória em que a variável está armazenada, usaremos o método <code class="highlighter-rouge">.object_id</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">icms</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; -128262517387511726</span>
+</code></pre></div></div>
+
+<p>Na execução do seu programa, você deve ter recebido um número igualmente longo, porem diferente. Não tem problema, na verdade isso era esperado. Dificilmente conseguiríamos ter o mesmo endereço de memória :-)</p>
+
+<p>Agora vamos completar o nosso programa, realizando o resto do cálculo do imposto no produto.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">tv</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Perceba agora que além de declararmos variáveis (nas 3 primeiras linhas do nosso programa), nós estamos também usando essas variáveis (na última linha do programa). Definição e uso são as duas principais operações que podem ser realizadas com variáveis. Enquanto que na <em>definição</em> nós armazenamos o valor da variável em algum local da memória, no <em>uso</em> nós fazemos uma leitura desse valor para uso posterior. Acertou quem disse que usa-se o <code class="highlighter-rouge">object_id</code> para saber onde a variável foi armazenada.</p>
+
+<p>Nesse nosso pequeno programa há também outro trecho interessante de ser discutido. A variável <code class="highlighter-rouge">tv</code> foi definida na terceira linha e foi re-definida (ou sobrescrita) na última linha. Isso quer dizer que seu valor foi alterado. Mas onde será que o novo valor foi armazenado? Vamos checar. Pra isto, basta colocar algumas instruções de <code class="highlighter-rouge">puts</code> ao longo do programa.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="nb">puts</span> <span class="n">tv</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 2001</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">tv</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">tv</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 332210841262751746</span>
+</code></pre></div></div>
+
+<p>Como podemos perceber, o endereço de memória foi alterado. I, mesmo com a alteração do valor da variável.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>O uso de ponto e vírgula no final de uma declaração de variável é opcional em Ruby. Qual sua opinião a respeito?</li>
+  <li>Descreva pelo menos um cenário em que o uso de um ponto e vírgula é obrigatório, mesmo em Ruby.</li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>O nome desta técnica é debugging. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

@@ -1,0 +1,9 @@
+I"P<p>O conceito de uma variável é um dos mais importantes em programação.</p>
+
+<p>Variáveis são responsáveis por armazenar dados que serão utilizados ao longo da execução do programa.</p>
+
+<p>Digamos que você queira criar um programa que calcule o valor de um produto após a incidência do ICMS. Sabendo que o ICSM é de 18% e produto (a ser incidido o imposto) custou R$ 1,000, poderíamos fazer o cálculo do valor final do protudo da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+:ET

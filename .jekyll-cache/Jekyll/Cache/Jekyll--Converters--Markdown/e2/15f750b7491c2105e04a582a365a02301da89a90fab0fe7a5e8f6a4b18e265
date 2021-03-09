@@ -1,0 +1,30 @@
+I"<p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+
+<p>O conceito de uma variável é um dos mais importantes em programação.</p>
+
+<p>Variáveis são responsáveis por armazenar dados que serão utilizados ao longo da execução do programa.</p>
+
+<p>Digamos que você queira criar um programa que calcule o valor de um produto após a incidência do ICMS. Sabendo que o ICSM é de 18% e produto (a ser incidido o imposto) custou R$ 1,000, poderíamos fazer o cálculo do valor final do produto da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>O valor final do nosso produto é: R$ 1.180. Tudo certo!</p>
+
+<p>No entanto, e se mais pra frente poderíamos querer adicionar um novo imposto, digamos, o IPI? O percentual do IPI é diferente do ICSM, logo não podemos reaproveita-lo. Sabendo que o IPI é de 7% em cima do valor do produto (sem a incidência dos demais impostos), o nosso produto poderia ser calculado da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.07</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Funcionou de novo! Legal!</p>
+
+<p>Mas, preciso dizer que embora pequeno, esse programa parece estar um pouco confuso. Veja, eu acabei de escrever essa linha, fui beber uma água e já não lembro exatamente o que são esses números. O 0.18 é do IPI ou do ICSM? O 1000 é do que mesmo? Imagina quando eu tiver que calcular o preço de outros produtos juntos com outros impostos. Isso tudo vai virar uma bagunça na minha cabeça.</p>
+
+<p>Variáveis são uma excelente forma para guardar um determinado item de dado. Uma variável consiste basicamente de uma sacola que pode guardar apenas um item. Para que a gente saiba onde vamos guardar nosso item de dado, precisamos colocar um identificador na nossa sacola. O identificador é o nome da variável. No exemplo acima, poderíamos usar <code class="highlighter-rouge">IPI</code> e  <code class="highlighter-rouge">ICMS</code> como identificador.</p>
+
+<blockquote>
+  <p><strong>DICA:</strong> Bons nome de variáveis estão relacionados ao contexto do problema, como <code class="highlighter-rouge">IPI</code> e <code class="highlighter-rouge">ICSM</code>. Evite nomes genéricos, como <code class="highlighter-rouge">var1</code>, <code class="highlighter-rouge">var2</code> e <code class="highlighter-rouge">var3</code>. Usar bons nomes de variável também ajuda na manutenção do programa. É muito mais fácil entender o que uma variável <code class="highlighter-rouge">ICMS</code> deve armazenar do que uma variável <code class="highlighter-rouge">var3</code>.</p>
+</blockquote>
+
+<p>Agora vamos alterar o nosso programa que calcula o preço da nossa mercadoria para usarmos variáveis.</p>
+:ET

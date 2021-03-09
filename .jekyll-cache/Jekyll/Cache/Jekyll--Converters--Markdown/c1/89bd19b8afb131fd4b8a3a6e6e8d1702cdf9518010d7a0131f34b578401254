@@ -1,0 +1,67 @@
+I"\<p>Esse é um guia para o ensino de Ruby em uma turma de programação de computadores.</p>
+
+<p>Esse guia cobre os seguintes pontos:</p>
+
+<ol>
+  <li><a href="/guide/ruby/vars">Atribuição de variáveis</a></li>
+  <li><a href="/guide/ruby/data-types">Tipos de dados básicos</a></li>
+  <li>Expressões e operadores</li>
+  <li>Controle de fluxo</li>
+  <li>Funções</li>
+  <li>Arrays</li>
+  <li>Matrizes</li>
+  <li>Hashes</li>
+  <li>Classes e Objetos</li>
+  <li>Tratamento de excessão</li>
+  <li>Teste de unidade</li>
+  <li>Meta-programação</li>
+</ol>
+
+<h2 id="porque-ruby">Porque Ruby?</h2>
+
+<h2 id="instalação">Instalação</h2>
+
+<p>Para instalações de versões mais recentes (durante a escrita deste guia, recomendo a instalação da versão 3.0+), sugiro o download direto do site oficial da linguagem: <a href="https://www.ruby-lang.org/en/documentation/installation/">https://www.ruby-lang.org/en/documentation/installation/</a>.</p>
+
+<p>Após a instalação, abra o terminal e rode os commandos <code class="highlighter-rouge">ruby -v</code> (que mostrará a versão instalada) e <code class="highlighter-rouge">irb</code> (que abrirá o interpretador interativo da linguagem).</p>
+
+<p>Não se surpreenda caso você já tenha o Ruby instalado no seu computador por padrão. Isso pode acontecer caso você use alguma distribuição Linux ou MacOS.</p>
+
+<h2 id="hello-world">Hello world</h2>
+
+<p>Após terminar a instalação do Ruby, para fazer seu primeiro programa em Ruby, abra o interpretador (<code class="highlighter-rouge">irb</code>) e digite:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"Olá mundo!"</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>Embora esse programa seja incrivelmente pequeno, é possível ainda assim fazer alguns comentários.</p>
+
+<p>Primeiro, a instrução <code class="highlighter-rouge">puts</code> é um comando de Ruby que realiza uma impressão no terminal (similar ao <code class="highlighter-rouge">printf</code> ou <code class="highlighter-rouge">print</code> de outras linguagens de programação).</p>
+
+<p>Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com <code class="highlighter-rouge">puts ("Olá mundo!")</code>) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.</p>
+
+<p>Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto <code class="highlighter-rouge">"Olá mundo!"</code>, enquanto que a segunda saída foi o estranho <code class="highlighter-rouge">=&gt; nil</code>. A seta <code class="highlighter-rouge">=&gt;</code> apenas indica o leitor que houve alguma saída. Já o <code class="highlighter-rouge">nil</code> é o resultado da expressão. O comando <code class="highlighter-rouge">puts</code> sempre avalia para <code class="highlighter-rouge">nil</code> (que é um outro nome para um item nulo).</p>
+
+<h3 id="mas-o-que-é-exatamente-avaliar-uma-expressão">Mas o que é exatamente avaliar uma expressão?</h3>
+
+<p>Expressões são formas de especificar computação em uma determinada linguagem de computação.</p>
+
+<p>Uma expressão é uma entidade que combina constantes, variáveis, funções e operadores. Uma entidade é interpretada e, após computada, retorna o valor avaliado.</p>
+
+<p>Em um nível mais elementar, poderíamos dizer que programação consiste basicamente em aplicar operadores a operandos. Operadores podem ser coisas simples como <code class="highlighter-rouge">+</code> e  <code class="highlighter-rouge">-</code>.</p>
+
+<p>Logo, se executássemos a expressão <code class="highlighter-rouge">2 + 3</code> no interpretador, teríamos a seguinte saída esperada:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="o">+</span><span class="mi">3</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<p>Vamos entender um pouco mais sobre expressões no capítulo sobre expressões e operadores desse guia.</p>
+
+<p>Por hora, encerramos a primeira parte do nosso guia. No próximo capítulo falaremos sobre <a href="/guide/ruby/vars">atribuição de variáveis</a>.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>Crie um arquivo chamado hello.rb</li>
+</ul>
+:ET

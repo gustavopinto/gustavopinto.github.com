@@ -179,6 +179,9 @@
 <loc>http://localhost:4000/archive-layout-with-content/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/guide/ruby/data-types</loc>
+</url>
+<url>
 <loc>http://localhost:4000/publications/ase2017</loc>
 </url>
 <url>
@@ -231,6 +234,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/edge-case/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/guide/ruby</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -324,6 +330,12 @@
 </url>
 <url>
 <loc>http://localhost:4000/teaching/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/guide/ruby/data-types</loc>
+</url>
+<url>
+<loc>http://localhost:4000/guide/ruby/vars</loc>
 </url>
 <url>
 <loc>http://localhost:4000/vlogs/</loc>
