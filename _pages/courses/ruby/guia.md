@@ -10,7 +10,7 @@ Esse é um guia para o ensino de Ruby em uma turma de programação de computado
 Esse guia cobre os seguintes pontos:
 
 1. [Atribuição de variáveis](/ruby-guide/vars)
-2. [Tipos de dados básicos](/ruby-guide/data-types)
+2. [Tipos de dados básicos](/ruby-guide/types)
 3. Expressões e operadores
 4. Controle de fluxo
 5. Funções

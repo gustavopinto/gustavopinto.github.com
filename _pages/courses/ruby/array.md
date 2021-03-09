@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 title: Arrays
-permalink: /guide/ruby/data-types
+permalink: /ruby-guide/arrays
 ---
 
 [Voltar ao começo do guia](/guide/ruby/)

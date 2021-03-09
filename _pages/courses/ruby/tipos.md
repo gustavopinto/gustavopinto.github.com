@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 title: Tipos de dados
-permalink: /guide/ruby/data-types
+permalink: /ruby-guide/types
 ---
 
 [Voltar ao começo do guia](/guide/ruby/)

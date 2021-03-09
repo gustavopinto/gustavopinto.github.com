@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 title: Atribuição de variáveis
-permalink: /guide/ruby/vars
+permalink: /ruby-guide/funcs
 ---
 [Voltar ao começo do guia](/guide/ruby/)
 
