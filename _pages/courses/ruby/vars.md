@@ -6,6 +6,8 @@ permalink: /ruby-guide/vars
 ---
 [Voltar ao começo do guia](/guide/ruby/)
 
+## Variáveis
+
 O conceito de uma variável é um dos mais importantes em programação.
 
 Variáveis são responsáveis por armazenar dados que serão utilizados ao longo da execução do programa.
@@ -42,6 +44,30 @@ As duas instruções acima apresentam duas declarações de variáveis. De agora
 
 > **DICA:** Bons nome de variáveis estão relacionados ao contexto do problema, como ```IPI``` e ```ICMS```. Evite nomes genéricos, como ```var1```, ```var2``` e ```var3```. Usar bons nomes de variável também ajuda na manutenção do programa. É muito mais fácil entender o que uma variável ```ICMS``` deve armazenar do que uma variável ```var3```.
 
+
+---
+**Literais**
+
+Antes de continuar falando sobre variáveis, é importante falar um pouco sobre literais.
+
+Um literal é uma representação textual de qualquer valor expressado em um código. No exemplo anterior, a expressão ```icms = 0.18``` tem uma variável (```icms```) e um literal (```0.18```).
+
+Há diversos tipos de literais, incluindo booleanos, inteiros, strings e tipos de datas. Alguns literais conhecidos na linguagem Ruby são apresentados a seguir:
+
+```ruby
+true              # boolean literal
+123               # integer literal
+1.23              # float literal
+"UFPA"            # string literal
+:ufpa             # symbol literal
+[1, 2, 3]         # array literal
+{ 'a' => 1}       # hash literal
+nil               # nil literal
+```
+
+Agora vamos voltar para nossa discussão sobre variáveis.
+---
+
 Para confirmar que o valor foi armazenado com sucesso na variável, podemos tentar imprimir o que a variável ```icms``` armazena:
 
 ```ruby
@@ -50,9 +76,7 @@ puts icms # => 0.18
 
 Perfeito, era isso mesmo que estávamos aguardando! Mas, uma dúvida, onde será que o valor ```0.18``` está sendo de fato armazenado. Se você parar pra pensar, uma variável é apenas uma abstração lógica. O valor deveria ser guardado na memória do computador, certo?
 
-Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso.[^1]
-
-Para saber qual é o endereço de memória em que a variável está armazenada, usaremos o método ```.object_id```.
+Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso.[^1] Para saber qual é o endereço de memória em que a variável está armazenada, usaremos o método ```.object_id```.
 
 ```ruby
 puts icms.object_id # => -128262517387511726

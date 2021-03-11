@@ -1,0 +1,205 @@
+I"�V<p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+
+<h2 id="variáveis">Variáveis</h2>
+
+<p>O conceito de uma variável é um dos mais importantes em programação.</p>
+
+<p>Variáveis são responsáveis por armazenar dados que serão utilizados ao longo da execução do programa.</p>
+
+<p>Digamos que você queira criar um programa que calcule o valor de um produto após a incidência do ICMS. Sabendo que o ICMS é de 18% e produto (a ser incidido o imposto) custou R$ 1,000, poderíamos fazer o cálculo do valor final do produto da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>O valor final do nosso produto é: R$ 1.180. Tudo certo!</p>
+
+<p>No entanto, e se mais pra frente poderíamos querer adicionar um novo imposto, digamos, o IPI? O percentual do IPI é diferente do ICMS, logo não podemos reaproveita-lo. Sabendo que o IPI é de 7% em cima do valor do produto (sem a incidência dos demais impostos), o nosso produto poderia ser calculado da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.18</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mf">0.07</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Funcionou de novo! Legal!</p>
+
+<p>Mas, preciso dizer que embora pequeno, esse programa parece estar um pouco confuso. Veja, eu acabei de escrever essa linha, fui beber uma água e já não lembro exatamente o que são esses números. O 0.18 é do IPI ou do ICMS? O 1000 é do que mesmo? Imagina quando eu tiver que calcular o preço de outros produtos juntos com outros impostos. Isso tudo vai virar uma bagunça na minha cabeça.</p>
+
+<p>Variáveis são uma excelente forma para guardar um determinado item de dado. Uma variável consiste basicamente de uma sacola que pode guardar apenas um item. Para que a gente saiba onde vamos guardar nosso item de dado, precisamos colocar um identificador na nossa sacola. O identificador é o nome da variável. No exemplo acima, poderíamos usar <code class="highlighter-rouge">IPI</code> e  <code class="highlighter-rouge">ICMS</code> como identificador. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+</code></pre></div></div>
+
+<p>As duas instruções acima apresentam duas declarações de variáveis. De agora em diante, toda vez que mencionarmos <code class="highlighter-rouge">icms</code> ou <code class="highlighter-rouge">ipi</code> o Ruby entenderá que estamos querendo usar os <em>valores</em> que estão armazenados nessas variáveis. Outros comentários sobre essas duas linhas de código:</p>
+
+<ul>
+  <li>Diferente de outras linguagens de programação, em Ruby não se faz necessário explicitamente definir qual o tipo da variável (por exemplo, se é inteiro ou string). Isso acontece pois a linguagem consegue inferir o tipo da variável dinamicamente, durante a execução do programa. É o que chamamos de <em>dynamic type checking</em>.</li>
+  <li>Também diferente de outras linguagens de programação, não foi necessário encerrar cada linha com um ponto e vírgula (<code class="highlighter-rouge">;</code>). O ponto e vírgula, comumente utilizado para indicar o fim de uma operação, tem seu uso facultado em Ruby. Poderíamos coloca-lo ao fim de cada uma das declarações de variáveis acima, mas optamos por não fazê-lo. Como vamos ver ao longo desse livro, em Ruby há sempre mais de uma forma de se obter o mesmo resultado.</li>
+</ul>
+
+<blockquote>
+  <p><strong>DICA:</strong> Bons nome de variáveis estão relacionados ao contexto do problema, como <code class="highlighter-rouge">IPI</code> e <code class="highlighter-rouge">ICMS</code>. Evite nomes genéricos, como <code class="highlighter-rouge">var1</code>, <code class="highlighter-rouge">var2</code> e <code class="highlighter-rouge">var3</code>. Usar bons nomes de variável também ajuda na manutenção do programa. É muito mais fácil entender o que uma variável <code class="highlighter-rouge">ICMS</code> deve armazenar do que uma variável <code class="highlighter-rouge">var3</code>.</p>
+</blockquote>
+
+<h2 id="literais">Literais</h2>
+
+<p>Antes de continuar falando sobre variáveis, é importante falar um pouco sobre literais.</p>
+
+<p>Um literal é uma representação textual de qualquer valor expressado em um código. No exemplo anterior, a expressão <code class="highlighter-rouge">icms = 0.18</code> tem uma variável (<code class="highlighter-rouge">icms</code>) e um literal (<code class="highlighter-rouge">0.18</code>).</p>
+
+<p>Há diversos tipos de literais, incluindo booleanos, inteiros, strings e tipos de datas. Alguns literais conhecidos na linguagem Ruby são apresentados a seguir:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">true</span>              <span class="c1"># boolean literal</span>
+<span class="mi">123</span>               <span class="c1"># integer literal</span>
+<span class="mf">1.23</span>              <span class="c1"># float literal</span>
+<span class="s2">"UFPA"</span>            <span class="c1"># string literal</span>
+<span class="ss">:ufpa</span>             <span class="c1"># symbol literal</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>         <span class="c1"># array literal</span>
+<span class="p">{</span> <span class="s1">'a'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>       <span class="c1"># hash literal</span>
+<span class="kp">nil</span>               <span class="c1"># nil literal</span>
+</code></pre></div></div>
+
+<p>Para confirmar que o valor foi armazenado com sucesso na variável, podemos tentar imprimir o que a variável <code class="highlighter-rouge">icms</code> armazena:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">icms</span> <span class="c1"># =&gt; 0.18</span>
+</code></pre></div></div>
+
+<p>Perfeito, era isso mesmo que estávamos aguardando! Mas, uma dúvida, onde será que o valor <code class="highlighter-rouge">0.18</code> está sendo de fato armazenado. Se você parar pra pensar, uma variável é apenas uma abstração lógica. O valor deveria ser guardado na memória do computador, certo?</p>
+
+<p>Para saber onde o valor da variável foi guardado, podemos consultar um método específico pra isso.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> Para saber qual é o endereço de memória em que a variável está armazenada, usaremos o método <code class="highlighter-rouge">.object_id</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">icms</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; -128262517387511726</span>
+</code></pre></div></div>
+
+<p>Na execução do seu programa, você deve ter recebido um número igualmente longo, porem diferente. Não tem problema, na verdade isso era esperado. Dificilmente conseguiríamos ter o mesmo endereço de memória :-)</p>
+
+<p>Agora vamos completar o nosso programa, realizando o resto do cálculo do imposto no produto.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">tv</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Perceba agora que além de declararmos variáveis (nas 3 primeiras linhas do nosso programa), nós estamos também usando essas variáveis (na última linha do programa). Definição e uso são as duas principais operações que podem ser realizadas com variáveis. Enquanto que na <em>definição</em> nós armazenamos o valor da variável em algum local da memória, no <em>uso</em> nós fazemos uma leitura desse valor para uso posterior. Acertou quem disse que usa-se o <code class="highlighter-rouge">object_id</code> para saber onde a variável foi armazenada.</p>
+
+<p>Nesse nosso pequeno programa há também outro trecho interessante de ser discutido. A variável <code class="highlighter-rouge">tv</code> foi definida na terceira linha e foi re-definida (ou sobrescrita) na última linha. Isso quer dizer que seu valor foi alterado. Mas onde será que o novo valor foi armazenado? Vamos checar. Pra isto, basta colocar algumas instruções de <code class="highlighter-rouge">puts</code> ao longo do programa.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="nb">puts</span> <span class="n">tv</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 2001</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">tv</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">tv</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 332210841262751746</span>
+</code></pre></div></div>
+
+<p>Como podemos perceber, o endereço de memória foi alterado. Isso aconteceu pois o interpretador precisou procurar outro lugar para armazenar o novo valor da variável <code class="highlighter-rouge">tv</code>.</p>
+
+<blockquote>
+  <p><strong><em>PARA PENSAR</em>:</strong> Poderia o interpretador utilizar o mesmo endereço de memória que estava armazenado o valor antigo de <code class="highlighter-rouge">tv</code> para armazenar o seu valor novo? Nesse caso, o interpretador sobrescreveria o valor que estava armazenado na memória. Mas e essa a variável <code class="highlighter-rouge">tv</code> estivesse sendo utilizada, digamos, por uma thread que estava bloqueada enquanto aguardava uma entrada de usuário? Isso criaria um bug no código?</p>
+</blockquote>
+
+<p>Agora, vamos elaborar um pouco mais o nosso código. Hoje sabemos que o valor do ICMS varia de estado para estado. Por exemplo, a alíquota de ICMS no Pará é de 17%, enquanto que em Pernambuco é de 18%. Precisamos leva-los em consideração. Para isso, poderíamos ter outras duas variáveis: <code class="highlighter-rouge">icms_pa</code> e <code class="highlighter-rouge">icms_pe</code>. Vamos também manter a nossa variável <code class="highlighter-rouge">icms</code> que poderia ser utilizada caso o estado da compra não fosse Pará ou Pernambuco.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">icms_pa</span> <span class="o">=</span> <span class="mf">0.17</span>
+<span class="n">icms_pe</span> <span class="o">=</span> <span class="n">icms</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">tv</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tv</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Uma vez que o valor da alíquota do ICMS em Pernambuco é o mesmo que tínhamos armazenado na variável <code class="highlighter-rouge">icms</code>, tomamos a decisão de apenas reaproveita-lo. Mas, calma. Onde será que o valor da variável <code class="highlighter-rouge">icms_pe</code> foi armazenado? Vamos checar:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">icms_pa</span> <span class="o">=</span> <span class="mf">0.17</span>
+<span class="n">icms_pe</span> <span class="o">=</span> <span class="n">icms</span>
+
+<span class="nb">puts</span> <span class="n">icms</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 128262517387511726</span>
+<span class="nb">puts</span> <span class="n">icms_pe</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 128262517387511726</span>
+</code></pre></div></div>
+
+<p>Duas variáveis diferentes estão apontando para o mesmo endereço de memória. Como isso é possível? Quanto decidimos por reaproveitar o valor armazenado em <code class="highlighter-rouge">icms</code> e atribui-lo para <code class="highlighter-rouge">icms_pe</code>, nós simplesmente dissemos ao interpretador de Ruby que a variável <code class="highlighter-rouge">icms_pe</code> deve <em>referenciar</em> qualquer valor que <code class="highlighter-rouge">icms</code> esteja referenciando. Agora vamos supor que o valor do <code class="highlighter-rouge">icms</code> precisou ser alterado. O que aconteceria com o valor da variável <code class="highlighter-rouge">icms_pe</code>? Seria alterado também? Considere o trecho de código abaixo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">icms_pa</span> <span class="o">=</span> <span class="mf">0.17</span>
+<span class="n">icms_pe</span> <span class="o">=</span> <span class="n">icms</span>
+
+<span class="nb">puts</span> <span class="n">icms</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 128262517387511726</span>
+<span class="nb">puts</span> <span class="n">icms_pe</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 128262517387511726</span>
+
+<span class="n">icms</span> <span class="o">=</span> <span class="mf">0.19</span>
+
+<span class="nb">puts</span> <span class="n">icms</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 125380213625994606</span>
+<span class="nb">puts</span> <span class="n">icms_pe</span><span class="p">.</span><span class="nf">object_id</span> <span class="c1"># =&gt; 128262517387511726</span>
+</code></pre></div></div>
+
+<p>Como podemos perceber, o endereço de memória foi alterado para a variável <code class="highlighter-rouge">icms</code> (o que era esperado), mas se manteve para a variável <code class="highlighter-rouge">icms_pe</code> (o que parece ser surpreendente). Por que isso aconteceu? Quando você re-atribui uma variável para um novo slot de memória, o <em>valor</em> original da variável não é afetado, somente o <em>object_id</em> é alterado.</p>
+
+<!-- https://blog.emitte.com.br/tipos-de-contribuintes-icms/ -->
+
+<h2 id="recebendo-dados-do-usuário">Recebendo dados do usuário</h2>
+
+<p>Hoje o nosso programa que calcula imposto sobre o produto está limitado a um único produto. E se nós quiséssemos calcular o imposto de outro produto? Uma vez que sabemos como funciona o cálculo, fica fácil fazer a operação: basta mudar o valor do produto que queremos calcular.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">icms_pa</span> <span class="o">=</span> <span class="mf">0.17</span>
+<span class="n">icms_pe</span> <span class="o">=</span> <span class="n">icms</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">celular</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">celular</span> <span class="o">=</span> <span class="n">celular</span> <span class="o">+</span> <span class="p">(</span><span class="n">celular</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">celular</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Mas esse nosso programa tem um problema. Ele assume que nós sabemos qual é o produto que devemos calcular antecipadamente. E se nós não soubéssemos qual o produto que precisamos calcular o imposto antecipadamente? Se somente o usuário do nosso programa soubesse? Teríamos que, de alguma forma, não deixar fixo o produto que vamos usar; precisamos dinamizar a escolha do produto. Como fazemos isso?</p>
+
+<p>No primeiro capítulo do guia, nós aprendemos como podemos fazer para mostrar os dados para um usuário (através do comando <code class="highlighter-rouge">puts</code>). Mas ainda não sabemos como podemos receber dados do usuário.</p>
+
+<p>Uma forma simples de receber dados do usuário é através do comando <code class="highlighter-rouge">gets</code> (que significa “get string”). O uso do comando <code class="highlighter-rouge">gets</code> é simples como:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">produto</span> <span class="o">=</span> <span class="nb">gets</span>
+<span class="nb">puts</span> <span class="n">produto</span>
+</code></pre></div></div>
+
+<p>Excelente! Agora vamos alterar o código do nosso programa para que possamos calcular o imposto de qualquer produto.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">icms_pa</span> <span class="o">=</span> <span class="mf">0.17</span>
+<span class="n">icms_pe</span> <span class="o">=</span> <span class="n">icms</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+<span class="n">produto</span> <span class="o">=</span> <span class="nb">gets</span> <span class="c1"># recebo o valor do produto pelo usuário</span>
+
+<span class="n">produto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="s2">"O valor do produto com imposto é"</span>
+<span class="nb">puts</span> <span class="n">produto</span>
+</code></pre></div></div>
+
+<p>Mas, calma. Parece que aconteceu algum problema aqui. Se eu passar 1000 para o comando <code class="highlighter-rouge">gets</code>, o mesmo 1000 é impresso ao fim do programa. Por algum motivo o calculo do imposto não está mais sendo executado. Por que isso está acontecendo?</p>
+
+<p>Esse capítulo se encerra com esse bug no código. No próximo capítulo nós vamos revisitar esse programa e resolver esse bug.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>Por que o tivemos o bug no último trecho de código? Tente resolver esse bug sem passar para o próximo capítulo.</li>
+  <li>O uso de ponto e vírgula (<code class="highlighter-rouge">;</code>) no final de uma declaração de variável é opcional em Ruby. Qual sua opinião a respeito?</li>
+  <li>Descreva pelo menos um cenário em que o uso de um ponto e vírgula é obrigatório, mesmo em Ruby.</li>
+  <li>Estude sobre passagem por valor e passagem por referência. Qual dessas estratégias é implementada em Ruby?</li>
+  <li>Há algumas restrições para nomenclatura de variáveis em Ruby. Quais são elas?</li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Se você ainda não sabe o que é um método, não se preocupe! Vamos falar sobre métodos mais pra frente. Por hora, assuma que é uma funcionalidade especial que nos apoia no desenvolvimento de software. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>O nome desta técnica é debugging. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

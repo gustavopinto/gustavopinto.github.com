@@ -1,0 +1,752 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tipos de dados - Gustavo Pinto</title>
+<meta name="description" content="Soft Eng Professor and Researcher ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Tipos de dados">
+<meta property="og:url" content="http://localhost:4000/ruby-guide/types">
+
+
+  <meta property="og:description" content="Soft Eng Professor and Researcher ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Tipos de dados">
+  <meta name="twitter:description" content="Soft Eng Professor and Researcher ">
+  <meta name="twitter:url" content="http://localhost:4000/ruby-guide/types">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ruby-guide/types">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/books/">Books</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/misc/">Misc</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Software Engingeering Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tipos de dados">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Tipos de dados
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+
+<p>Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:</p>
+
+<ul>
+  <li>Booleans</li>
+  <li>Numbers</li>
+  <li>Strings</li>
+  <li>Symbols</li>
+</ul>
+
+<p>Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados em Ruby.</p>
+
+<h2 id="booleans">Booleans</h2>
+
+<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre></div></div>
+
+<h2 id="numbers">Numbers</h2>
+
+<p>Numbers (ou números) são cadeias de dígitos. Números que representam a forma decimal podem ter um ponto. Em Ruby há basicamente dois tipos de dados para armazenar números: <code class="highlighter-rouge">Integer</code>s e <code class="highlighter-rouge">Float</code>s. Para descobrir qual é o tipo do seu número, podemos fazer novamente uma chamada ao <code class="highlighter-rouge">.class</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Integer</span>
+<span class="mf">3.1415</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Float</span>
+</code></pre></div></div>
+
+<p>A chamada ao código <code class="highlighter-rouge">3.1415.class</code> torna a discussão um pouco mais interessante, pois há dois pontos (<code class="highlighter-rouge">.</code>) definidos. O ponto que precede o <code class="highlighter-rouge">.class</code> é, como já sabemos, uma chamada ao método <code class="highlighter-rouge">class(...)</code>, enquanto que o ponto no número  <code class="highlighter-rouge">3.1415</code> é apenas uma separação decimal.</p>
+
+<p>Há outras formas de representar pontos flutuantes, como por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">3.1415</span> <span class="c1"># =&gt; 3.1415</span>
+<span class="o">-</span><span class="mf">3.1415</span> <span class="c1"># =&gt; -3.1415</span>
+<span class="mi">3_1415</span> <span class="c1"># =&gt; 31415 (underscore são ignorados; o resultado é um inteiro)</span>
+<span class="mf">3e2</span> <span class="c1"># =&gt; 300 (3.0 x 10e2)</span>
+<span class="mf">3.1e2</span> <span class="c1"># =&gt; 310 (3.1 x 10e2)</span>
+<span class="mf">3.1E2</span> <span class="c1"># =&gt; 310 (3.1 x 10e2)</span>
+</code></pre></div></div>
+
+<p>Em Ruby há também vários métodos auxiliares que apoiam a manipulação de tipos de dados numéricos. Por exemplo:</p>
+
+<h3 id="to_s">to_s</h3>
+
+<p>O método <code class="highlighter-rouge">to_s</code> converte um número para uma string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "34"</span>
+<span class="mf">3.1415</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "3.1415"</span>
+</code></pre></div></div>
+
+<h3 id="ceilfloor">ceil/floor</h3>
+
+<p>O método <code class="highlighter-rouge">ceil</code> faz o arredondamento para cima enquanto o método <code class="highlighter-rouge">floor</code> faz o arredondamento para baixo.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">34.1</span><span class="p">.</span><span class="nf">ceil</span> <span class="c1"># =&gt; "35"</span>
+<span class="mf">34.9</span><span class="p">.</span><span class="nf">floor</span> <span class="c1"># =&gt; "34"</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>PERGUNTA:</strong> Os métodos <code class="highlighter-rouge">ceil</code> e <code class="highlighter-rouge">flor</code> funcionam com inteiros? Por quê?</p>
+</blockquote>
+
+<h3 id="nextpred">next/pred</h3>
+
+<p>O método <code class="highlighter-rouge">next</code> retorna o próximo consecutivo inteiro enquanto o método <code class="highlighter-rouge">pred</code> retorna o predecessor imediato.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">next</span> <span class="c1"># =&gt; "35"</span>
+<span class="mi">34</span><span class="p">.</span><span class="nf">pred</span> <span class="c1"># =&gt; "33"</span>
+</code></pre></div></div>
+
+<p>Além dos métodos acima (e de vários outros, rode <code class="highlighter-rouge">1.methods</code> para ter uma idéia), a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:</p>
+
+<h3 id="adição">adição</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span> <span class="c1">#=&gt; 10</span>
+</code></pre></div></div>
+
+<h3 id="subtração">subtração</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">-</span> <span class="mi">5</span> <span class="c1">#=&gt; 0</span>
+</code></pre></div></div>
+
+<h3 id="multiplicação">multiplicação</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span> <span class="c1">#=&gt; 25</span>
+</code></pre></div></div>
+
+<h3 id="divisão">divisão</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">/</span> <span class="mi">5</span> <span class="c1">#=&gt; 1</span>
+</code></pre></div></div>
+
+<h3 id="resto">resto</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span> <span class="c1">#=&gt; 1 # uma vez que o resto da divisão 10/3 é igual a 1</span>
+</code></pre></div></div>
+
+<h3 id="exponencial">exponencial</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="c1">#=&gt; 8 # uma vez que  2 a terceira potência, ou 2 * 2 * 2, é igual a 8</span>
+</code></pre></div></div>
+
+<h2 id="strings">Strings</h2>
+
+<p>Strings são cadeias de caracteres. String podem ser definidas com uma ou duas aspas.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s2">"gustavo"</span>
+<span class="n">nome</span> <span class="o">=</span> <span class="s1">'gustavo'</span>
+</code></pre></div></div>
+
+<p>Como ruby não contém tipo de dados de caracteres (execute <code class="highlighter-rouge">'a'.class</code> no terminal e veja a saída), toda e qualquer String é instanciada via a classe String.</p>
+
+<p>É possível, no entanto, manipular o conteúdo de uma String. Para receber os caracteres de uma string, faça: <code class="highlighter-rouge">"teste".chars</code>. O <code class="highlighter-rouge">.chars</code> é uma chamada ao método <code class="highlighter-rouge">char()</code>, que é implementado pela classe String. Similar ao comando <code class="highlighter-rouge">put</code> que vimos no <a href="/guide/ruby">começo desse guia</a>, os parênteses do método char também foram omitidos. Mas, calma. Seria então o <code class="highlighter-rouge">put</code> também um método? Mais sobre métodos e classes em futuras páginas desse guia.</p>
+
+<p>O tamanho máximo de uma string é 2^63 - 1 (em uma instalação 64 bits; 2^31 - 1 caso contrário). Você pode testar o limite de tamanho máximo de uma string no interpretador usando o comando: <code class="highlighter-rouge">String.new("1" * (2**32))</code>.</p>
+
+<blockquote>
+  <p><strong><em>NOTA: O que esse comando faz?</em></strong> Vamos quebrar o comando acima em várias pequenas partes. Indo de trás pra frente. Primeiro, nós calculamos 2 elevado a 32a potência. Isso é feito pela operação <code class="highlighter-rouge">2**32</code>. Em seguida, nós multiplicamos a string “1” com o valor resultante do cálculo da potência anterior (feito pera operação <code class="highlighter-rouge">"1" * (2**32)</code>). O resultado dessa operação é uma string “111111…” de tamanho 2**32. Diferente de outras linguagens, em Ruby o operador <code class="highlighter-rouge">*</code> pode ser utilizado em strings, e seu comportamento é: multiplique a ocorrência da mesma string. Para entender melhor, execute a instrução <code class="highlighter-rouge">"oi" * 2</code> ou similares no seu interpretador. Por fim, a operação <code class="highlighter-rouge">String.new(...)</code> cria um novo objeto string, com o valor resultante.</p>
+</blockquote>
+
+<p>Alguns métodos comumente empregado em strings incluem, incluem:</p>
+
+<h3>[]</h3>
+
+<p>Similar a outras linguagens de programação, usa-se colchetes para acessar um determinado caracter em uma string. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># =&gt; "U"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># =&gt; "F"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "P"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "A"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>No entanto, diferente de outras linguagens de programação, o operador <code class="highlighter-rouge">[]</code> é implementado como um método, de mesmo nome, dentro da classe String. Logo a mesma chamada pode ser feita de forma análoga usando:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; "F"</span>
+</code></pre></div></div>
+
+<p>Parece estranho, não? No capítulo sobre métodos iremos descrever mais sobre esse tipo de comportamento. Por hora, basta-nos saber que o operador <code class="highlighter-rouge">[]</code> é um método. E por ser um método, pode aceitar parâmetros (no caso do exemplo de código acima, o valor <code class="highlighter-rouge">1</code> foi passado como parâmetro do método <code class="highlighter-rouge">[]</code>).</p>
+
+<p>O operador <code class="highlighter-rouge">[]</code> pode também receber dois parâmetros. Nesse acaso, em vez de retornar o caracter armazenado em uma determinada posição, ele retornará uma faixa de caracteres. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Alternativamente, poderíamos usar o método <code class="highlighter-rouge">slice</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Por fim, poderíamos também usar <code class="highlighter-rouge">..</code> (dois pontos consecutivos) no lugar da virgula.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Perceba que agora o comportamento foi ligeiramente diferente. O que aconteceu? E por que isso aconteceu?</p>
+
+<h3 id="sizelength">size/length</h3>
+
+<p>Calcula o tamanho de uma string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">size</span> <span class="c1"># =&gt; 4</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">length</span> <span class="c1"># =&gt; 4</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>**PERGUNTA:<em>** Por quê existem dois métodos que fazem _exatamente</em> a mesma coisa?</p>
+</blockquote>
+
+<h3 id="to_i">to_i</h3>
+
+<p>De forma análoga ao <code class="highlighter-rouge">to_s</code>, o método <code class="highlighter-rouge">to_i</code> converte uma string para um inteiro.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"3"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># =&gt; 3</span>
+<span class="s2">"3.1415"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># =&gt; 3</span>
+</code></pre></div></div>
+
+<p>Como pedimos para passar uma string que continha um número decimal para um formato de número inteiro, o arredondamento para para inteiro (sem ponto) ocorreu naturalmente. No entanto, se quiséssemos manter a precisão do número decimal, teríamos que usar o método <code class="highlighter-rouge">to_f</code>.</p>
+
+<h3 id="shovel">« (shovel)</h3>
+
+<p>O shovel (<code class="highlighter-rouge">&lt;&lt;</code>) é um operador (e também um método) que realiza a concatenação de strings. O operador <code class="highlighter-rouge">&lt;&lt;</code> tem um comportamento muito similar ao do operador <code class="highlighter-rouge">+</code>, que é mais conhecido em outras linguagens de programação.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="s2">"Estou cursando o curso de "</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">curso</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="s2">" na "</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">universidade</span>
+</code></pre></div></div>
+
+<p>Não custa também mencionar que a concatenação usando shovel poderia também ser feita usando o formato de chamada de método: <code class="highlighter-rouge">string.&lt;&lt;(string)</code>.</p>
+
+<p>No entanto, o operador <code class="highlighter-rouge">+</code> também é fornecido na linguagem Ruby. Como pode-se imaginar, a concatenação de strings também poderia ser implementada da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="s2">"Estou cursando o curso de "</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="n">curso</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="s2">" na "</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="n">universidade</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>PERGUNTA:_</strong> Existe alguma diferença entre usar <code class="highlighter-rouge">+=</code> e <code class="highlighter-rouge">&lt;&lt;</code> para concatenação de strings? Pesquise.</p>
+</blockquote>
+
+<p>Um outro recurso fornecido pela linguagem Ruby para concatenação de strings é a interpolação. Interpolação de strings é a capacidade de combinar duas ou mais strings em uma só. Em Ruby isso pode ser feito através do constructo <code class="highlighter-rouge">#{}</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="nb">puts</span> <span class="s2">"Estou cursando o curso de </span><span class="si">#{</span><span class="n">curso</span><span class="si">}</span><span class="s2"> na </span><span class="si">#{</span><span class="n">universidade</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="upcasedowncase">upcase/downcase</h3>
+
+<p>Esses métodos colocam o texto de uma string para caixa alta (<code class="highlighter-rouge">upcase</code>) ou caixa baixa (<code class="highlighter-rouge">downcase</code>).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">downcase</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span><span class="p">.</span><span class="nf">upcase</span>
+
+<span class="nb">puts</span> <span class="s2">"Estou cursando o curso de </span><span class="si">#{</span><span class="n">curso</span><span class="si">}</span><span class="s2"> na </span><span class="si">#{</span><span class="n">universidade</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="striplstriprstrip">strip/lstrip/rstrip</h3>
+
+<p>O <code class="highlighter-rouge">strip</code> remove a quantidade extra de espaço em branco no começo e no final de uma string. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"         UFPA         "</span><span class="p">.</span><span class="nf">strip</span>
+</code></pre></div></div>
+
+<p>Os métodos auxiliares (<code class="highlighter-rouge">lstrip</code> e <code class="highlighter-rouge">rstrip</code>) funcionam da mesma forma, exceto que estes são específicos para retirar o excesso de caracteres em branco na esquerda e na direita da string, respectivamente.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"         UFPA         "</span><span class="p">.</span><span class="nf">lstrip</span>
+</code></pre></div></div>
+
+<h3 id="splitjoin">split/join</h3>
+
+<p>O método <code class="highlighter-rouge">split</code> quebra uma string em um array. Para identificar o ponto de separação da string (chamado de delimitador), o método <code class="highlighter-rouge">split</code> usa por padrão um espaço em branco como separador. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+<span class="n">curso</span><span class="p">.</span><span class="nf">split</span> <span class="c1"># =&gt; ["Ciência", "da", "Computação"]</span>
+</code></pre></div></div>
+
+<p>No entanto, o programador pode fornecer qualquer outro delimitador. Isso é feito através da passagem de um valor por parâmetro do método <code class="highlighter-rouge">split</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">texto</span> <span class="o">=</span> <span class="s2">"Meu primeiro carro"</span>
+<span class="n">texto</span><span class="p">.</span><span class="nf">split</span> <span class="s2">"primeiro"</span> <span class="c1"># =&gt;  ["Meu ", " carro"]</span>
+</code></pre></div></div>
+
+<p>Lembrando que o uso de parênteses é opcional na chamada de métodos.</p>
+
+<h2 id="symbols">Symbols</h2>
+
+<p>Um outro tipo de dados que é extremamente importante em Ruby (e não tão frequente encontrado em outras linguagens) é o <code class="highlighter-rouge">:symbol</code>, isto é, um identificador que é precedido por um dois pontos (<code class="highlighter-rouge">:</code>). Símbolos são usados para identificar um recurso específico, seja um método, uma variável, uma chave de um hash, etc.</p>
+
+<p>Símbolos são de certa forma comparáveis a string, o que faz com que programadores novatos em Ruby se confundam em como usa-los. Símbolos tem duas importantes características:</p>
+
+<ul>
+  <li>Símbolos tem sempre o mesmo valor, e</li>
+  <li>Símbolos tem sempre o mesmo <code class="highlighter-rouge">object_id</code></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="ss">:a</span>
+
+<span class="nb">puts</span> <span class="s2">"a"</span><span class="p">.</span><span class="nf">object_id</span>  
+<span class="nb">puts</span> <span class="s2">"a"</span><span class="p">.</span><span class="nf">object_id</span>  
+
+<span class="nb">puts</span> <span class="ss">:a</span><span class="p">.</span><span class="nf">object_id</span>  
+<span class="nb">puts</span> <span class="ss">:a</span><span class="p">.</span><span class="nf">object_id</span>  
+</code></pre></div></div>
+
+<p>Como símbolos são únicos e não podem ser alterados durante a execução do programa. Seu maior benefício é deixar o código com uma nomenclatura consistente.</p>
+
+<p>Há uma regra simples para saber quando usar uma string ou um símbolo:</p>
+
+<ul>
+  <li>Se o conteúdo (a sequência de caracteres) for mais importante, use uma string.</li>
+  <li>Se a identidade do objeto for mais importante, use um símbolo.</li>
+</ul>
+
+<p>Basicamente, um símbolo é utilizado quando você quer referenciar alguma coisa como uma string, mas não tem a intenção de altera-lo ou imprimi-lo.</p>
+
+<p>É possível, no entanto, transformar uma string em um símbolo (e vice-versa).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"ufpa"</span><span class="p">.</span><span class="nf">to_sym</span> <span class="c1"># =&gt; :ufpa</span>
+<span class="ss">:ufpa</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "ufpa"</span>
+</code></pre></div></div>
+
+<p>Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>O tipo de dados String contem incríveis 183 métodos (rode <code class="highlighter-rouge">"".methods.count</code> e se surpreenda). Veja se você reconhece algum método familiar? E quais aqueles que você não conheceu? Pesquise e entenda mais sobre eles.</p>
+  </li>
+  <li>Método ou operador? Percebemos que alguns operadores são implementados como métodos. Pesquise como foi feita a implementação dos seguintes operadores:
+    <ul>
+      <li>Inteiros: +, /, **</li>
+      <li>String: +, *, []</li>
+    </ul>
+  </li>
+  <li>
+    <p>Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?</p>
+  </li>
+  <li>
+    <p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos <code class="highlighter-rouge">nil</code> nesse caso. No entanto, o uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
+  </li>
+  <li>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

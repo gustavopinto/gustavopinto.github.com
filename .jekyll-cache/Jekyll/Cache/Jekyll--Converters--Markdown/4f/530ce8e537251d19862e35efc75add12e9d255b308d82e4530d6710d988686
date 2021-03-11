@@ -1,0 +1,129 @@
+I"�<p>Expressões são construídas através de operações e operandos.</p>
+
+<p>Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Na expressão <code class="highlighter-rouge">1 + 3</code>, os literais <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code> são operandos e o sinal de adição <code class="highlighter-rouge">+</code> é o operador.</p>
+
+<p>Há diversos tipos de operadores; três grupos de operadores bem conhecidos são:</p>
+
+<ul>
+  <li>Operadores aritméticos (como o <code class="highlighter-rouge">+</code> na expressão <code class="highlighter-rouge">1 + 3</code>),</li>
+  <li>Operadores de comparação (como o <code class="highlighter-rouge">&gt;</code> na expressão <code class="highlighter-rouge">1 &gt; 3</code>),</li>
+  <li>Operadores lógicos (como o <code class="highlighter-rouge">&amp;&amp;</code> na expressão <code class="highlighter-rouge">1 &amp;&amp; 3</code>).</li>
+</ul>
+
+<h2 id="operadores-aritméticos">Operadores aritméticos</h2>
+
+<p>Para operações matemáticas, Ruby implementa os principais operadores aritméticos. São eles:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">+</code></td>
+      <td>Adição</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-</code></td>
+      <td>Subtração</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/</code></td>
+      <td>Divisão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">*</code></td>
+      <td>Multiplicação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">%</code></td>
+      <td>Resto da divisão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">**</code></td>
+      <td>Exponenciação</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Esses operadores, quando utilizado com operando numérico, tem óbvio resultado de avaliação:</p>
+
+<h2 id="operadores-de-comparação">Operadores de comparação</h2>
+
+<p>Usamos esses operadores para comparar dois objetos, comumente dentro de uma condicional. Essa são os operadores lógicos implementados em Ruby:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;</code></td>
+      <td>Maior que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;</code></td>
+      <td>Menor que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;=</code></td>
+      <td>Maior ou igual que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=</code></td>
+      <td>Menor ou igual que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">==</code></td>
+      <td>Igual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!=</code></td>
+      <td>Diferente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=&gt;</code></td>
+      <td>Maior, igual ou menor que</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O resultado da avaliação desses operadores é um literal booleano. A única excessão é o operador “nave espacial” (<code class="highlighter-rouge">&lt;=&gt;</code>), que retorna 1 (caso maior), 0 (caso igual), ou -1 (caso menor). Alguns exemplos:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="c1"># =&gt; false</span>
+<span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="c1"># =&gt; true</span>
+<span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span> <span class="c1"># =&gt; true</span>
+<span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span> <span class="c1"># =&gt; false</span>
+<span class="mi">1</span> <span class="o">&lt;=&gt;</span> <span class="mi">1</span> <span class="c1"># =&gt; 0</span>
+</code></pre></div></div>
+
+<h2 id="operadores-lógicos">Operadores lógicos</h2>
+
+<h2 id="ordem-de-avaliação">Ordem de avaliação</h2>
+
+<p>Existe também a ordem de avaliação dos operadores, ou seja, há operadores que precisam ser executados antes de outros. A ordem de avaliação é determinada pela <em>precedência</em> dos operadores.</p>
+
+<p>Operadores aritimeticos são métodos</p>
+
+<p>https://stackoverflow.com/questions/39311429/multiplying-string-by-integer-vs-integer-by-string-in-ruby/39311454</p>
+
+<h2 id="operadores-são-métodos">Operadores são métodos</h2>
+
+<p>Operadores são utilizados para <em>processar</em> operandos. Logo naturalmente a expressão expressão <code class="highlighter-rouge">1 + 3</code> é avaliada para <code class="highlighter-rouge">4</code>. Com base nisso, faz sentido dizer que um operando é um parâmetro de entrada para um operador?</p>
+
+<p>Em outras palavras: poderíamos dizer que um operador é um método que e os operandos são valores passados por parâmetro para esse método?</p>
+
+<p>Sim, podemos! E é exatamente assim que operadores são implementados em Ruby: como métodos.</p>
+
+<p>Mas, calma. Se operadores como <code class="highlighter-rouge">+</code> são, na verdade, métodos, eu não deveria usar um ponto (<code class="highlighter-rouge">.</code>) para invocá-los?</p>
+
+<p>O uso do ponto (<code class="highlighter-rouge">.</code>) não se faz necessário pois o interpretador Ruby adiciona o ponto para você, silenciosamente.</p>
+
+<p>Logo, a expressão <code class="highlighter-rouge">1 + 3</code> é traduzida para <code class="highlighter-rouge">1.+(3)</code>. Ambas as expressões são códigos válidos, e avaliam para o mesmo resultado, <code class="highlighter-rouge">4</code>.</p>
+:ET

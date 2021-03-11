@@ -11,7 +11,7 @@ Esse guia cobre os seguintes pontos:
 
 1. [Atribuição de variáveis](/ruby-guide/vars)
 2. [Tipos de dados básicos](/ruby-guide/types)
-3. Expressões e operadores
+3. [Expressões e operadores](/ruby-guide/exp)
 4. Controle de fluxo
 5. Funções
 6. Arrays
@@ -65,25 +65,25 @@ Primeiro, a instrução ```puts``` é um comando de Ruby que realiza uma impress
 
 Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com ```puts ("Olá mundo!")```) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.
 
-Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto ```"Olá mundo!"```, enquanto que a segunda saída foi o estranho ```=> nil```. A seta ```=>``` apenas indica o leitor que houve alguma saída. Já o ```nil``` é o resultado da expressão. O comando ```puts``` sempre avalia para ```nil``` (que é um outro nome para um item nulo).
+Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto ```"Olá mundo!"```, enquanto que a segunda saída foi o estranho ```=> nil```. A seta ```=>``` (conhecida como *hash rocket*) indica o leitor que houve alguma saída. Já o ```nil``` é o resultado da expressão. O comando ```puts``` sempre avalia para ```nil``` (que é um outro nome para um item nulo).
 
-Para fechar o ```irb```, digite ```exit``` no terminal  ou pressione ```CTRL+D```.
+Por fim, perceba que há também uma cerquilha (```#```) antes da seta (```=>```). Essa cerquilha indica um comentário no código. Qualquer instrução após o comentário não é interpretada. Por não serem trechos de código executáveis, comentários podem ser utilizados para melhor descrever a intenção de um código.
+
+Para fechar o ```irb```, digite ```exit``` ou pressione ```CTRL+D```.
 
 ### Mas o que significa exatamente 'avaliar uma expressão'?
 
-Uma expressão é uma entidade que combina constantes, variáveis, funções e operadores. Uma entidade é interpretada e, após computada, retorna o valor avaliado.
+Quando você digita algum comando no interpretador, esse comando na verdade é uma expressão.
 
-Em um nível mais elementar, poderíamos dizer que programação consiste basicamente em aplicar operadores a operandos. Operadores podem ser coisas simples como ```+``` e  ```-```.
+Uma expressão é uma entidade que combina operadores a operandos. Operadores podem ser um dos famosos operadores da matemática como ```+``` e  ```-```, enquanto que operando seriam os valores que utilizamos junto com o operador de soma, por exemplo.
 
-Logo, se executássemos a expressão ```2 + 3``` no interpretador, teríamos a seguinte saída esperada:
+Uma expressão precisa ser avaliada e, após avaliação, um valor deve ser retornado.
 
-```ruby
-2 + 3 # => 5
-```
+Logo, se executássemos a expressão ```2 + 3``` no interpretador, o cálculo da operação aritmética seria a avaliação e o resultado da avaliação seria o retorno da expressão (```5```, no caso).
 
-Vamos entender um pouco mais sobre expressões no capítulo sobre expressões e operadores desse guia.
+Vamos entender um pouco mais sobre expressões no capítulo sobre [expressões e operadores](/ruby-guide/exp) desse guia. Por hora, é preciso entender que tudo que digitamos no interpretador é uma expressão e, após avaliada, essa expressão sempre deve retornar algum valor.
 
-Por hora, encerramos a primeira parte do nosso guia. No próximo capítulo falaremos sobre [atribuição de variáveis](/guide/ruby/vars).
+No próximo capítulo falaremos sobre [atribuição de variáveis](/guide/ruby/vars).
 
 ## Exercícios de fixação
 

@@ -1,0 +1,289 @@
+I"I<p>Expressões são construídas através de operações e operandos.</p>
+
+<p>Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Na expressão <code class="highlighter-rouge">1 + 3</code>, os literais <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code> são operandos e o sinal de adição <code class="highlighter-rouge">+</code> é o operador.</p>
+
+<p>Antes de começamos a falar sobre os tipos de operadores, eu tenho uma curiosidade para lhe contar.</p>
+
+<h2 id="operadores-são-métodos">Operadores são métodos</h2>
+
+<p>Operadores são utilizados para <em>processar</em> operandos. Logo, naturalmente, a expressão expressão <code class="highlighter-rouge">1 + 3</code> é avaliada para <code class="highlighter-rouge">4</code>. Com base nisso, faz sentido dizer que um operando é um parâmetro de entrada para um operador?</p>
+
+<p>Parece que sim.</p>
+
+<p>E se nós generalizássemos um pouco mais? Poderíamos dizer que um operador é um método que e os operandos são os valores passados por parâmetro para esse método?</p>
+
+<p>Faz sentido também?</p>
+
+<p>E é exatamente assim que operadores são implementados em Ruby: como métodos.</p>
+
+<p>Mas, calma. Se operadores como <code class="highlighter-rouge">+</code> são, na verdade, métodos, eu não deveria usar um ponto (<code class="highlighter-rouge">.</code>) para invocá-los?</p>
+
+<p>Podemos usar o ponto (<code class="highlighter-rouge">.</code>), mas ele é opcional, pois o interpretador Ruby adiciona o ponto para você, silenciosamente.</p>
+
+<p>Logo, durante o processo de interpretação do código, a expressão <code class="highlighter-rouge">1 + 3</code> é traduzida para <code class="highlighter-rouge">1.+(3)</code>. Agora sim podemos ver claramente que <code class="highlighter-rouge">+</code> nada mais é do que um método que aceita um parâmetro.</p>
+
+<p>Ambas as expressões anteriores são códigos válidos, e avaliam para o mesmo resultado, <code class="highlighter-rouge">4</code>.</p>
+
+<p>Embora vários operadores sejam de fato implementados como métodos, isso nem sempre é o caso, logo não podemos generalizar. Leia o capítulo até o final e tente descobrir aqueles que não são métodos.</p>
+
+<h2 id="tipos-de-operadores">Tipos de operadores</h2>
+
+<p>Há diversos tipos de operadores; três grupos de operadores bem conhecidos são:</p>
+
+<ul>
+  <li>Operadores aritméticos (como o <code class="highlighter-rouge">+</code> na expressão <code class="highlighter-rouge">1 + 3</code>),</li>
+  <li>Operadores de comparação (como o <code class="highlighter-rouge">&gt;</code> na expressão <code class="highlighter-rouge">1 &gt; 3</code>),</li>
+  <li>Operadores lógicos (como o <code class="highlighter-rouge">&amp;&amp;</code> na expressão <code class="highlighter-rouge">1 &amp;&amp; 3</code>).</li>
+</ul>
+
+<h2 id="operadores-aritméticos">Operadores aritméticos</h2>
+
+<p>Para operações matemáticas, Ruby implementa os principais operadores aritméticos. São eles:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">+</code></td>
+      <td>Adição</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-</code></td>
+      <td>Subtração</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/</code></td>
+      <td>Divisão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">*</code></td>
+      <td>Multiplicação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">%</code></td>
+      <td>Resto da divisão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">**</code></td>
+      <td>Exponenciação</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Esses operadores, quando utilizado com operando numérico, tem óbvio resultado de avaliação:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># =&gt; 2</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># =&gt; 0</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># =&gt; 4</span>
+<span class="mi">2</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># =&gt; 0</span>
+</code></pre></div></div>
+
+<p>Talvez mais interessante, porém, é saber que esses operadores podem ser utilizados em outros <a href="/ruby-guide/types">tipos de dados</a>. Por exemplo, o operador de adição pode também ser utilizado com strings ou arrays<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UF"</span> <span class="o">+</span> <span class="s2">"PA"</span>  <span class="c1"># =&gt; UFPA</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># =&gt; [1, 2]</span>
+<span class="s2">"UFPA"</span> <span class="o">*</span> <span class="mi">2</span>   <span class="c1"># =&gt; UFPAUFPA</span>
+</code></pre></div></div>
+
+<p>Isso acontece pois, como discutiremos ao fim desse capítulo, operadores são métodos. Logo, como métodos, estes podem ter implementações específicas.</p>
+
+<h2 id="operadores-de-comparação">Operadores de comparação</h2>
+
+<p>Usamos esses operadores para comparar dois objetos, comumente dentro de uma condicional. Essa são os operadores lógicos implementados em Ruby:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;</code></td>
+      <td>Maior que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;</code></td>
+      <td>Menor que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;=</code></td>
+      <td>Maior ou igual que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=</code></td>
+      <td>Menor ou igual que</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">==</code></td>
+      <td>Igual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!=</code></td>
+      <td>Diferente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=&gt;</code></td>
+      <td>Maior, igual ou menor que</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O resultado da avaliação desses operadores é um literal booleano. A única excessão é o operador “nave espacial” (<code class="highlighter-rouge">&lt;=&gt;</code>), que retorna 1 (caso maior), 0 (caso igual), ou -1 (caso menor). Alguns exemplos:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">1</span>      <span class="c1"># =&gt; false</span>
+<span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">1</span>     <span class="c1"># =&gt; true</span>
+<span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">1</span> <span class="c1"># =&gt; true</span>
+<span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span>     <span class="c1"># =&gt; false</span>
+<span class="mi">1</span> <span class="o">&lt;=&gt;</span> <span class="mi">1</span>    <span class="c1"># =&gt; 0</span>
+</code></pre></div></div>
+
+<p>Da mesma forma que os operadores lógicos podem ser utilizados com strings e arrays, operadores de comparação também podem.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"a"</span> <span class="o">==</span> <span class="s2">"b"</span> <span class="c1"># =&gt; false</span>
+<span class="s2">"a"</span> <span class="o">&gt;</span> <span class="s2">"a"</span> <span class="c1"># =&gt; false</span>
+<span class="s2">"b"</span> <span class="o">&lt;=&gt;</span> <span class="s2">"c"</span> <span class="c1"># =&gt; -1</span>
+</code></pre></div></div>
+
+<p>Precisamos fazer alguns comentários sobre as expressões acima.</p>
+
+<p>Primeiro, diferente de outras linguagens como Java, em que o operador de igualdade (<code class="highlighter-rouge">==</code>) faz comparação da referência de memória de uma string, em Ruby, o operador <code class="highlighter-rouge">==</code> faz o que é de fato esperado: compara os valores de duas strings.</p>
+
+<p>Segundo, calma. Como seria possível um <code class="highlighter-rouge">a</code> ser maior que (<code class="highlighter-rouge">&gt;</code>) outro <code class="highlighter-rouge">a</code>? O que de fato a expressão <code class="highlighter-rouge">"a" &gt; "a"</code> estaria avaliando?</p>
+
+<p>No caso de comparações de strings, os operadores <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&lt;</code>, etc, são utilizados para comparar se uma determina string vem <em>alfabeticamente</em> antes ou depois de uma outra string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"b"</span> <span class="o">&gt;</span> <span class="s2">"a"</span>  <span class="c1"># =&gt; true</span>
+<span class="s2">"b"</span> <span class="o">&lt;</span> <span class="s2">"c"</span>  <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<h2 id="operadores-lógicos">Operadores lógicos</h2>
+
+<p>Operadores lógicos são também chamados de operadores booleanos. Existem três tipos de operadores básicos: conjunção, disjunção e negação. Em Ruby, esses três operadores são implementados da seguinte forma:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">&amp;&amp;</code> (ou <code class="highlighter-rouge">and</code>) representa a conjunção</li>
+  <li><code class="highlighter-rouge">||</code> (ou <code class="highlighter-rouge">or</code>) representa a disjunção.</li>
+  <li><code class="highlighter-rouge">!</code>  (ou <code class="highlighter-rouge">not</code>)representa a negação</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">true</span> <span class="o">&amp;&amp;</span> <span class="kp">false</span>   <span class="c1"># =&gt; false</span>
+<span class="kp">true</span> <span class="n">and</span> <span class="kp">false</span>  <span class="c1"># =&gt; false</span>
+
+<span class="kp">true</span> <span class="o">||</span> <span class="kp">false</span>   <span class="c1"># =&gt; true</span>
+<span class="kp">true</span> <span class="n">or</span> <span class="kp">false</span>   <span class="c1"># =&gt; true</span>
+
+<span class="o">!</span><span class="kp">true</span>           <span class="c1"># =&gt; false</span>
+<span class="n">not</span> <span class="kp">true</span>        <span class="c1"># =&gt; false</span>
+
+<span class="kp">true</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="kp">true</span>   <span class="c1"># =&gt; true</span>
+<span class="o">!</span><span class="kp">true</span> <span class="o">||</span> <span class="kp">true</span>   <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>Para que um operador <code class="highlighter-rouge">&amp;&amp;</code> seja avaliada pra <code class="highlighter-rouge">true</code> é preciso que os dois operandos sejam também <code class="highlighter-rouge">true</code>.</p>
+
+<p>Por outro lado, o operador <code class="highlighter-rouge">||</code> avalia para <code class="highlighter-rouge">true</code>, apenas um dos operandos precisa ser <code class="highlighter-rouge">true</code>.</p>
+
+<p>Por fim, o operador <code class="highlighter-rouge">!</code> inverte o estado lógico do seu operando. É por isso que se a variável <code class="highlighter-rouge">a</code> recebe um valor <code class="highlighter-rouge">true</code>, ela será avaliada para <code class="highlighter-rouge">false</code>.</p>
+
+<h2 id="ordem-de-avaliação">Ordem de avaliação</h2>
+
+<p>Agora que já entendemos sobre expressão, operadores e operandos que são avaliados e retornam um resultado, precisamos também entender que existe uma ordem de avaliação dos operadores. Considere a seguinte expressão:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Qual dos operadores deve ser avaliado primeiro?</p>
+
+<p>Assim como na matemática, em programação há operadores que precisam ser executados antes de outros. A ordem de avaliação é determinada pela <em>precedência</em> dos operadores. No caso do exemplo anterior, a expressão <code class="highlighter-rouge">2 * 6 + 1</code> é avaliada para <code class="highlighter-rouge">13</code>, pois o operador <code class="highlighter-rouge">*</code> tem precedência sobre o operador <code class="highlighter-rouge">+</code>, exatamente como aprendemos na escola.</p>
+
+<p>É possível, no entanto, sobrescrever a precedência dos operadores através do uso de parênteses. Por exemplo, a expressão abaixo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Que agora é avaliada para <code class="highlighter-rouge">18</code>.</p>
+
+<p>Para evitar confusões sobre a ordem de operadores, a tabela abaixo lista a ordem de precedência dos operadores discutidos nesse capítulo. São eles:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">**</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">%</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&gt;=</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=&gt;</code>, <code class="highlighter-rouge">==</code>, <code class="highlighter-rouge">!=</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&amp;&amp;</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">||</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">not</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">or</code>, <code class="highlighter-rouge">and</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A tabela deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>Há ainda alguns operadores que não foram cobertos neste guia, como por exemplo: <code class="highlighter-rouge">===</code>, <code class="highlighter-rouge">=~</code>, <code class="highlighter-rouge">&amp;.</code> e o <code class="highlighter-rouge">!!!</code>. Pesquise e descreva o que faz cada um desses operadores.</li>
+  <li>Vimos neste capítulo que vários operadores são implementados como métodos. Mas nem todos são métodos. Quais são esses?</li>
+  <li>Vimos que alguns operadores como <code class="highlighter-rouge">+</code> e o <code class="highlighter-rouge">*</code> podem ser utilizados em tipos diferentes como strings e arrays. Vimos inclusive que a expressão <code class="highlighter-rouge">"UFPA" * 2</code> é válida. No entanto, a expressão <code class="highlighter-rouge">2 * "UFPA"</code> não é válida (retorna um <code class="highlighter-rouge">TypeError</code>). Explique o porquê.</li>
+  <li>Explique por que as expressões <code class="highlighter-rouge">1 || 2 &amp;&amp; nil</code> e <code class="highlighter-rouge">1 or 2 and nil</code> tem avaliações diferentes.</li>
+  <li>Sem rodar no interpretador, tente inferir qual é o resultado de cada uma das expressões abaixo (nota: nenhuma delas lança erro):</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">12</span>
+<span class="kp">true</span> <span class="o">!=</span> <span class="o">!</span><span class="kp">false</span>
+<span class="kp">true</span> <span class="o">==</span> <span class="o">-</span><span class="mi">10</span>
+<span class="kp">false</span> <span class="o">==</span> <span class="p">(</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="o">!</span><span class="kp">true</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">||</span> <span class="p">((</span><span class="mi">12</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">))</span> <span class="o">||</span> <span class="kp">false</span>
+</code></pre></div></div>
+<ul>
+  <li>Sem rodar no interpretador, tente inferir qual o resultado da expressão abaixo:</li>
+</ul>
+
+<pre><code class="language-ruby`">'4' == 4 ? puts("VERDADEIRO") : puts("FALSO")
+</code></pre>
+
+<!-- https://womanonrails.com/operator-precedence-ruby -->
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Mais sobre Arrays nos próximos capítulos desse guia. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

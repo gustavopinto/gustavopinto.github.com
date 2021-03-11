@@ -1,0 +1,101 @@
+I"{!<p>Esse é um guia para o ensino de Ruby em uma turma de programação de computadores.</p>
+
+<p>Esse guia cobre os seguintes pontos:</p>
+
+<ol>
+  <li><a href="/ruby-guide/vars">Atribuição de variáveis</a></li>
+  <li><a href="/ruby-guide/types">Tipos de dados básicos</a></li>
+  <li><a href="/ruby-guide/exp">Expressões e operadores</a></li>
+  <li>Controle de fluxo</li>
+  <li>Funções</li>
+  <li>Arrays</li>
+  <li>Matrizes</li>
+  <li>Hashes</li>
+  <li>Entrada e saída</li>
+  <li>Classes e Objetos</li>
+  <li>Tratamento de excessão</li>
+  <li>Teste de unidade</li>
+  <li>Meta-programação</li>
+</ol>
+
+<h2 id="porque-ruby">Porque Ruby?</h2>
+
+<p>Ruby é uma linguagem de programação de propósito geral, de alto nível e interpretada (e não compilada). Ela foi desenhada pelo Japones Yukihiro “Matz” Matsumoto na década de 90. O código fonte da linguagem está disponível como software livre, licenciado pela licença BSD.</p>
+
+<p>Ruby é uma linguagem multi-paradigma, ou seja, programas escritos em Ruby podem ser feitos no paradigma procedural, orientado a objetos ou funcional. No entanto, Ruby é mais conhecida por ser uma linguagem que leva orientação a objetos a sério. Como vamos ver ao longo desse guia, <strong>tudo são objetos</strong>.</p>
+
+<p>Ruby também é dinamicamente tipada, ou seja, o sistema de tipos é capaz de inferir qual o tipo de dados sem que o programador precise explicitamente colocá-lo.</p>
+
+<p>Ruby também conta com um coletor de lixo, ou seja, não é necessário desalocar variáveis (assim como se é feito com C). A desalocação de variáveis que não estão sendo mais utilizadas são feitas de maneira automática, por esse software chamado garbage collector.</p>
+
+<p>Essas características colocam Ruby como uma linguagem moderna, que está em constante evolução (a sua versão 3.0 foi lançada em 25 de Dezembro de 2020).</p>
+
+<p>Embora hoje em dia existam dezenas de outras alternativas para o ensino e prática de programação (como Swift, Elixir, Kotlin, etc), ainda acredito que o uso de Ruby se destaca perante as demais. Algumas razões:</p>
+
+<ul>
+  <li>
+    <p>A sintaxe de Ruby é ligeiramente diferente da sintaxe de outras linguagens de programação de nicho similares, como Python ou Perl. A sintaxe de Ruby pode parecer menos intuitiva que a sintaxe de Python; no entanto, é muito mais agradável que a sintaxe de Perl. Dessa forma, Ruby pode ser considerada uma excelente opção para aqueles que já conhecem uma linguagem e gostariam de entender um pouco mais sobre outros formas de desenvolvimento de programas.</p>
+  </li>
+  <li>
+    <p>Ruby é uma excelente opção para desenvolvimento web. Parte disso é devido a popularidade do framework “Rails”, que não só introduziu mas também revolucionou muitas práticas de desenvolvimento web. Ademais, a integração com frameworks JavaScript é facilitada, fazendo com que Ruby (e o Rails) sejam facilmente utilizados no backend do desenvolvimento web.</p>
+  </li>
+  <li>
+    <p>Ruby não é mais hipster. Ruby passou no teste do tempo e da euforia da novidade. Programar Ruby não é mais tão <em>cool</em> como programar em Node.js ou aquela nova linguagem que acabou de aparecer. Hoje Ruby é uma linguagem madura e se mantém como uma das linguagens mais usada no mundo.</p>
+  </li>
+</ul>
+
+<h2 id="instalação">Instalação</h2>
+
+<p>Para instalações de versões mais recentes (durante a escrita deste guia, recomendo a instalação da versão 3.0+), sugiro o download direto do site oficial da linguagem: <a href="https://www.ruby-lang.org/en/documentation/installation/">https://www.ruby-lang.org/en/documentation/installation/</a>.</p>
+
+<p>Após a instalação, abra o terminal e rode os commandos <code class="highlighter-rouge">ruby -v</code> (que mostrará a versão instalada) e <code class="highlighter-rouge">irb</code> (que abrirá o interpretador interativo da linguagem; Interactive Ruby).</p>
+
+<p>Não se surpreenda caso você já tenha o Ruby instalado no seu computador por padrão. Isso pode acontecer caso você use alguma distribuição Linux ou MacOS.</p>
+
+<h2 id="hello-world">Hello world</h2>
+
+<p>Após terminar a instalação do Ruby, para fazer seu primeiro programa em Ruby, abra o interpretador (<code class="highlighter-rouge">irb</code>) e digite:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"Olá mundo!"</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>Embora esse programa seja incrivelmente pequeno, é possível ainda assim fazer alguns comentários.</p>
+
+<p>Primeiro, a instrução <code class="highlighter-rouge">puts</code> é um comando de Ruby que realiza uma impressão no terminal (similar ao <code class="highlighter-rouge">printf</code> ou <code class="highlighter-rouge">print</code> de outras linguagens de programação).</p>
+
+<p>Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com <code class="highlighter-rouge">puts ("Olá mundo!")</code>) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.</p>
+
+<p>Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto <code class="highlighter-rouge">"Olá mundo!"</code>, enquanto que a segunda saída foi o estranho <code class="highlighter-rouge">=&gt; nil</code>. A seta <code class="highlighter-rouge">=&gt;</code> (conhecida como <em>hash rocket</em>) indica o leitor que houve alguma saída. Já o <code class="highlighter-rouge">nil</code> é o resultado da expressão. O comando <code class="highlighter-rouge">puts</code> sempre avalia para <code class="highlighter-rouge">nil</code> (que é um outro nome para um item nulo).</p>
+
+<p>Por fim, perceba que há também uma cerquilha (<code class="highlighter-rouge">#</code>) antes da seta (<code class="highlighter-rouge">=&gt;</code>). Essa cerquilha indica um comentário no código. Qualquer instrução após o comentário não é interpretada. Por não serem trechos de código executáveis, comentários podem ser utilizados para melhor descrever a intenção de um código.</p>
+
+<p>Para fechar o <code class="highlighter-rouge">irb</code>, digite <code class="highlighter-rouge">exit</code> ou pressione <code class="highlighter-rouge">CTRL+D</code>.</p>
+
+<h3 id="mas-o-que-significa-exatamente-avaliar-uma-expressão">Mas o que significa exatamente ‘avaliar uma expressão’?</h3>
+
+<p>Quando você digita algum comando no interpretador, esse comando na verdade é uma expressão.</p>
+
+<p>Uma expressão é uma entidade que combina operadores a operandos. Operadores podem ser um dos famosos operadores da matemática como <code class="highlighter-rouge">+</code> e  <code class="highlighter-rouge">-</code>, enquanto que operando seriam os valores que utilizamos junto com o operador de soma, por exemplo.</p>
+
+<p>Uma expressão precisa ser avaliada e, após avaliação, um valor deve ser retornado.</p>
+
+<p>Logo, se executássemos a expressão <code class="highlighter-rouge">2 + 3</code> no interpretador, o cálculo da operação aritmética seria a avaliação e o resultado da avaliação é o retorno da expressão (<code class="highlighter-rouge">5</code>, no caso).</p>
+
+<p>Vamos entender um pouco mais sobre expressões no capítulo sobre <a href="/ruby-guide/exp">expressões e operadores</a> desse guia. Por hora, é preciso entender que tudo que digitamos no interpretador é uma expressão e, após avaliada, essa expressão sempre deve retornar algum valor.</p>
+
+<p>No próximo capítulo falaremos sobre <a href="/guide/ruby/vars">atribuição de variáveis</a>.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>Em vez de executar direto do interpretador, crie um arquivo chamado <code class="highlighter-rouge">hello.rb</code>. Coloque nesse arquivo o comando que imprime o texto <code class="highlighter-rouge">"Hello world!"</code>. Para executar, faça <code class="highlighter-rouge">ruby hello.rb</code>.</p>
+  </li>
+  <li>
+    <p>Quais são os operadores mais conhecidos em Ruby?</p>
+  </li>
+  <li>
+    <p>Um mesmo operador pode ser usado em contexto diferente? Se sim, cite um exemplo.</p>
+  </li>
+</ul>
+:ET
