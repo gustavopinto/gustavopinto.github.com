@@ -171,7 +171,7 @@ Em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Alternativamente
 "UFPA".slice(2,3) # => "PA"
 ```
 
-Por fim, poderíamos também usar ``..`` (dois pontos consecutivos) no lugar da virgula.
+Por fim, poderíamos também usar *range operator*, que é o símbolo ``..`` (dois pontos consecutivos) no lugar da virgula.
 
 ```ruby
 "UFPA".[](0..2) # => "UFP"

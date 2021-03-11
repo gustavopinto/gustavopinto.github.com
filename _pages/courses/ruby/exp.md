@@ -7,13 +7,19 @@ permalink: /ruby-guide/exp
 
 Expressões são construídas através de operações e operandos.
 
-Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Na expressão ```1 + 3```, os literais ```2``` e ```3``` são operandos e o sinal de adição ```+``` é o operador.
+Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Geralmente operadores são usados com um ou dois operandos. Operadores que funcionam somente com um operando são chamados de operadores unários (*unary operators*); aqueles que trabalham com dois operandos são os operadores binários (*binary operators*).
 
-Antes de começamos a falar sobre os tipos de operadores, eu tenho uma curiosidade para lhe contar.
+Na expressão ```1 + 3```, os literais ```2``` e ```3``` são operandos e o sinal de adição ```+``` é o operador binário.
+
+Alguns operadores podem ser utilizados em contextos diferentes. Como vimos no capítulo anterior, o operador ```+``` pode também ser utilizado como strings. Logo a expressão ```"UF" + "PA"``` é válida e avalia para ```"UFPA"```.
+
+A capacidade de um operador ter comportamento diferente em contextos diferentes é chamada de sobrecarga (*overloaded*). Sobrecarga também é um conceito utilizado na orientação a objetos, quando queremos que um que um método sobrescreva outro, mudando assim o comportamento do método original.
+
+Pareceu familiar?
 
 ## Operadores são métodos
 
-Operadores são utilizados para *processar* operandos. Logo, naturalmente, a expressão expressão ```1 + 3``` é avaliada para ```4```. Com base nisso, faz sentido dizer que um operando é um parâmetro de entrada para um operador?
+Operadores são utilizados para *processar* operandos. Como sabemos que a  expressão ```1 + 3``` é avaliada para ```4```, faz sentido dizer que um operando é um parâmetro de entrada para um operador? E que o resultado da avaliação é a saída do operador?
 
 Parece que sim.
 
@@ -140,11 +146,61 @@ true && !true   # => true
 !true || true   # => false
 ```
 
-Para que um operador ```&&``` seja avaliada pra ```true``` é preciso que os dois operandos sejam também ```true```.
+Os operadores ```||``` e ```&&``` implementam o conceito de avaliação mínima (ou avaliação de curto-circuito, *short circuit evaluation*). Isso significa que o segundo operando só será avaliado caso o primeiro não seja suficiente para determinar o resultado da expressão. Mais objetivamente:
 
-Por outro lado, o operador ```||``` avalia para ```true```, apenas um dos operandos precisa ser ```true```.
+- quando utilizamos o operador ```&&``` e primeiro operando da expressão é ```false```, a expressão toda é avaliada para ```false``` (falso E qualquer coisa avalia para falso).
+
+- quando utilizamos o operador ```||``` e primeiro operando da expressão é ```true```, a expressão toda é avaliada para ```true``` (verdadeiro E qualquer coisa avalia para verdadeiro).
+
+Nos dois casos acima o segundo operador não precisa ser avaliado. A tabela verdade abaixo apresenta o resultado da avaliação dos  operadores lógicos ```&&``` e ```||```.
+
+### Conjunção
+
+| A           | B          | ```&&```    |
+|-------------|------------|-------------|
+| ```true```  | ```true``` | ```true```  |
+| ```true```  | ```false```| ```false``` |  
+| ```false``` | ```true``` | ```false``` |
+| ```false``` | ```false```| ```false``` |  
+
+### Disjunção
+
+| A           | B          | ```||```    |
+|-------------|------------|-------------|
+| ```true```  | ```true``` | ```true```  |
+| ```true```  | ```false```| ```true```  |  
+| ```false``` | ```true``` | ```true```  |
+| ```false``` | ```false```| ```false``` |  
+
 
 Por fim, o operador ```!``` inverte o estado lógico do seu operando. É por isso que se a variável ```a``` recebe um valor ```true```, ela será avaliada para ```false```.
+
+
+| A           | !A         |
+|-------------|------------|
+| ```true```  | ```false```|
+| ```false``` | ```true``` |
+
+
+## Outros operadores
+
+Os operadores que discutimos nesse capítulo são os mais comumente utilizados; mas não quer dizer que são os únicos. Há vários outros operadores disponíveis em Ruby. Alguns outros exemplos incluem:
+
+### Operador de intervalo (*range*)
+
+Operadores de range existem para facilmente criar um intervalo de objetos (como números ou letras). Em Ruby existem dois operadores de range: o operador ```..``` que cria um intervalo inclusivo e o operador ```.``` que cria um intervalo exclusivo, no qual o maior valor é excluído.
+
+```ruby
+(1..5).to_a      # =>  => [1, 2, 3, 4, 5]
+('a'..'e').to_a  # => ["a", "b", "c", "d", "e"]
+
+(1...5).to_a      # =>  => [1, 2, 3, 4]
+('a'...'e').to_a  # => ["a", "b", "c", "d"]
+```
+
+A expressão ```(1..5)``` é avaliado para um objeto da classe ```Range```. A classe ```Range```, por sua vez, tem um método chamado ```to_a```, que transforma o objeto em um array.
+
+### Operador de atribuição composta (*compound assignment*)
 
 ## Ordem de avaliação
 
@@ -158,13 +214,13 @@ Qual dos operadores deve ser avaliado primeiro?
 
 Assim como na matemática, em programação há operadores que precisam ser executados antes de outros. A ordem de avaliação é determinada pela *precedência* dos operadores. No caso do exemplo anterior, a expressão ```2 * 6 + 1``` é avaliada para ```13```, pois o operador ```*``` tem precedência sobre o operador ```+```, exatamente como aprendemos na escola.
 
-É possível, no entanto, sobrescrever a precedência dos operadores através do uso de parênteses. Por exemplo, a expressão abaixo:
+É possível, no entanto, forçar que uma expressão seja avaliada em uma ordem particular através do uso de parênteses. Por exemplo, a expressão abaixo:
 
 ```ruby
 2 * (8 + 1)
 ```
 
-Que agora é avaliada para ```18```.
+Agora é avaliada para ```18```.
 
 Para evitar confusões sobre a ordem de operadores, a tabela abaixo lista a ordem de precedência dos operadores discutidos nesse capítulo. São eles:
 
@@ -185,12 +241,19 @@ Para a ordem de precedência de todos os operadores, acesse o site da documenta�
 
 A tabela deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.
 
+<!-- ## Árvore de expressão
+
+https://www.cs.bgu.ac.il/~ppl172/wiki.files/class/presentations/PPL172_L2.pdf -->
+
 ## Exercícios de fixação
 
+- Geralmente os operadores funcionam com um ou dois operando. Cite um exemplo de um operador que funciona com três operandos.
 - Há ainda alguns operadores que não foram cobertos neste guia, como por exemplo: ```===```, ```=~```, ```&.``` e o ```!!!```. Pesquise e descreva o que faz cada um desses operadores.
 - Vimos neste capítulo que vários operadores são implementados como métodos. Mas nem todos são métodos. Quais são esses?
 - Vimos que alguns operadores como ```+``` e o ```*``` podem ser utilizados em tipos diferentes como strings e arrays. Vimos inclusive que a expressão ```"UFPA" * 2``` é válida. No entanto, a expressão ```2 * "UFPA"``` não é válida (retorna um ```TypeError```). Explique o porquê.
 - Explique por que as expressões ```1 || 2 && nil``` e ```1 or 2 and nil``` tem avaliações diferentes.
+- Algumas vezes a precedência não é suficiente para determinar o resultado de uma expressão. Por exemplo, considere a expressão: ```8 / 2 * 4```. O resultado é 16 ou 1? Qual seria o novo critério de avaliação?
+- Converta a expressão matemática ```(4+5)(6+(8-1)2)``` para uma notação de linguagem de programação.
 - Sem rodar no interpretador, tente inferir qual é o resultado de cada uma das expressões abaixo (nota: nenhuma delas lança erro):
 
 ```ruby
