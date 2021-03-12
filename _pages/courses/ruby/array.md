@@ -5,7 +5,7 @@ title: Arrays
 permalink: /ruby-guide/arrays
 ---
 
-[Voltar ao começo do guia](/guide/ruby/)
+[Voltar ao começo do guia](/ruby-guide/)
 
 ## Arrays
 

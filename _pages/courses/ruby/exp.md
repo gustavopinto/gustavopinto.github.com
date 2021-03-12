@@ -5,6 +5,8 @@ title: Expressões e Operadores
 permalink: /ruby-guide/exp
 ---
 
+[Voltar ao começo do guia](/ruby-guide/)
+
 Expressões são construídas através de operações e operandos.
 
 Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Geralmente operadores são usados com um ou dois operandos. Operadores que funcionam somente com um operando são chamados de operadores unários (*unary operators*); aqueles que trabalham com dois operandos são os operadores binários (*binary operators*).

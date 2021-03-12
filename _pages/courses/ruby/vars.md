@@ -4,7 +4,7 @@ author_profile: true
 title: Atribuição de variáveis
 permalink: /ruby-guide/vars
 ---
-[Voltar ao começo do guia](/guide/ruby/)
+[Voltar ao começo do guia](/ruby-guide/)
 
 ## Variáveis
 
@@ -200,6 +200,24 @@ puts produto
 Mas, calma. Parece que aconteceu algum problema aqui. Se eu passar 1000 para o comando ```gets```, o mesmo 1000 é impresso ao fim do programa. Por algum motivo o calculo do imposto não está mais sendo executado. Por que isso está acontecendo?
 
 Esse capítulo se encerra com esse bug no código. No próximo capítulo nós vamos revisitar esse programa e resolver esse bug.
+
+## Escopo de variáveis
+
+Quando definimos uma variável como ```icms = 0.18```, além do nome, tipo e valor dessa variável, nós também precisamos nos perguntar quem poderia ser capaz de enxergar e, eventualmente, manipular essa variável.
+
+Será que queremos que qualquer pessoa, em qualquer parte do nosso programa, seja capaz de mudar o valor de uma variável?
+
+A media que o nosso programa cresce, nós, programadores, temos dificuldade de lembrar de todas as instruções e expressões que estão definidas nele. E isso é natural! No entanto, precisamos de garantias que o nosso código não vai parar de funcionar (ou exibir um comportamento diferente do esperado) caso alguém mude o valor da variável ```icms```.
+
+Uma das formas de proteger as nossas variáveis é diminuindo a sua visibilidade, ou seja, diminuindo o acesso que outras pessoas poderiam ter a aquela variável.
+
+O escopo determina onde uma variável pode ser visível.
+
+De maneira geral, há dois tipos de escopo: global e local. Uma variável com escopo global pode ser acessada a qualquer momento, de qualquer parte do programa. Variáveis no escopo local, por outro lado, só podem ser acessadas em um determinado pedaço de código.
+
+Linguagens de programação como Ruby, no entanto, implementam outros níveis de escopo, como escopo de classe e de instância. Falaremos mais sobre escopo nos capítulos de métodos e de orientação a objetos. Por hora, se quiser ler mais sobre os problemas de utilizar variáveis com escopo global, sugiro a leitura [dessa discussão](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil) no StackExchange.
+
+O próximo capítulo é sobre [expressões e operadores](/ruby-guide/exp).
 
 ## Exercícios de fixação
 

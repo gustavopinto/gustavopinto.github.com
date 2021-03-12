@@ -5,7 +5,7 @@ title: Tipos de dados
 permalink: /ruby-guide/types
 ---
 
-[Voltar ao começo do guia](/guide/ruby/)
+[Voltar ao começo do guia](/ruby-guide/)
 
 Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:
 
@@ -259,6 +259,21 @@ curso = "Ciência da Computação".upcase
 puts "Estou cursando o curso de #{curso} na #{universidade}"
 ```
 
+### chomp
+
+O ```chomp``` é um método muito comum de ser utilizado junto com o método ```gets```. O método gets lê toda a entrada de dados fornecida pelo usuário, incluíndo o ```ENTER``` que o usuário aperta para poder enviar os dados. O ```ENTER```, por sua vez, é traduzido para uma quebra de linha, identificada pelo símbolo ```\n```.
+
+Mas porque precisamos nos preocupar com um ```\n``` em uma string? Considere o trecho a seguir.
+
+```ruby
+advinhacao = "42"
+chute = gets
+
+advinhacao == chute # => false
+```
+
+Nesse exemplo acima, mesmo que o usuário passe a string ```"42"``` por parâmetro, a expressão ```advinhacao == chute``` será avaliada para ```false```. Isso acontece, pois, na verdade, a expressão em avaliação é a seguinte: ```"42" == "42\n"```, que são naturalmente duas strings diferentes.
+
 ### strip/lstrip/rstrip
 
 O ```strip``` remove a quantidade extra de espaço em branco no começo e no final de uma string. Por exemplo:
@@ -343,3 +358,13 @@ Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concret
 - Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado ```nil```. Usamos ```nil``` quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos ```nil``` nesse caso. No entanto, o uso do ```nil``` é percebidamente uma má prática de programação. Você saberia explicar o por quê?
 
 - Talvez não seja novidade pra você que a expressão ```0.2 + 0.1 == 0.3``` é avaliado para ```false```. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?
+
+- O DNA é uma string cujo alfabeto contém os seguintes símbolo: ```"A"```, ```"C"```, ```"G"``` e ```"T"```. Dado um DNA, calcule a ocorrência de cada símbolo. Imprima cada ocorrência separado por um espaço.
+  - Entrada: ```"AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"```
+  - Saída: 20 12 17 21
+
+- Um RNA é uma string formada de um alfabeto contendo os símbolos ```"A"```, ```"C"```, ```"G"``` e ```"U"```. Dado uma string de RNA, sua transcrição é feita através da substituição de todas ocorrências de "T" em para "U".  Transcreva o RNA a seguir: ```"GATGGAACTTGACTACGTAAATT"```.
+
+- Em um DNA, os símbolos "A" e "T" complementos de cada um, da mesma forma que "C" e "G". O complemento reverso (*reverse complement*) de uma string de DNA é formada pelo reverso do DNA e então aplicando seus complementos. Por exemplo, o complemento reverso de "GTCA" é "TGAC".
+  - Entrada: ```"AAAACCCGGT"```
+  - Saída: ```"ACCGGGTTTT"```

@@ -4,7 +4,7 @@ author_profile: true
 title: Atribuição de variáveis
 permalink: /ruby-guide/funcs
 ---
-[Voltar ao começo do guia](/guide/ruby/)
+[Voltar ao começo do guia](/ruby-guide/)
 
 ## Escopo de variáveis
 

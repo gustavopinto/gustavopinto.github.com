@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
 
 <h2 id="variáveis">Variáveis</h2>
 
@@ -511,6 +511,24 @@
 <p>Mas, calma. Parece que aconteceu algum problema aqui. Se eu passar 1000 para o comando <code class="highlighter-rouge">gets</code>, o mesmo 1000 é impresso ao fim do programa. Por algum motivo o calculo do imposto não está mais sendo executado. Por que isso está acontecendo?</p>
 
 <p>Esse capítulo se encerra com esse bug no código. No próximo capítulo nós vamos revisitar esse programa e resolver esse bug.</p>
+
+<h2 id="escopo-de-variáveis">Escopo de variáveis</h2>
+
+<p>Quando definimos uma variável como <code class="highlighter-rouge">icms = 0.18</code>, além do nome, tipo e valor dessa variável, nós também precisamos nos perguntar quem poderia ser capaz de enxergar e, eventualmente, manipular essa variável.</p>
+
+<p>Será que queremos que qualquer pessoa, em qualquer parte do nosso programa, seja capaz de mudar o valor de uma variável?</p>
+
+<p>A media que o nosso programa cresce, nós, programadores, temos dificuldade de lembrar de todas as instruções e expressões que estão definidas nele. E isso é natural! No entanto, precisamos de garantias que o nosso código não vai parar de funcionar (ou exibir um comportamento diferente do esperado) caso alguém mude o valor da variável <code class="highlighter-rouge">icms</code>.</p>
+
+<p>Uma das formas de proteger as nossas variáveis é diminuindo a sua visibilidade, ou seja, diminuindo o acesso que outras pessoas poderiam ter a aquela variável.</p>
+
+<p>O escopo determina onde uma variável pode ser visível.</p>
+
+<p>De maneira geral, há dois tipos de escopo: global e local. Uma variável com escopo global pode ser acessada a qualquer momento, de qualquer parte do programa. Variáveis no escopo local, por outro lado, só podem ser acessadas em um determinado pedaço de código.</p>
+
+<p>Linguagens de programação como Ruby, no entanto, implementam outros níveis de escopo, como escopo de classe e de instância. Falaremos mais sobre escopo nos capítulos de métodos e de orientação a objetos. Por hora, se quiser ler mais sobre os problemas de utilizar variáveis com escopo global, sugiro a leitura <a href="https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil">dessa discussão</a> no StackExchange.</p>
+
+<p>O próximo capítulo é sobre <a href="/ruby-guide/exp">expressões e operadores</a>.</p>
 
 <h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
 

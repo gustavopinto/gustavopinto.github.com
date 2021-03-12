@@ -1,0 +1,340 @@
+I"mq<p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+
+<p>Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:</p>
+
+<ul>
+  <li>Booleans</li>
+  <li>Numbers</li>
+  <li>Strings</li>
+  <li>Symbols</li>
+</ul>
+
+<p>Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados em Ruby.</p>
+
+<h2 id="booleans">Booleans</h2>
+
+<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kp">false</span>
+</code></pre></div></div>
+
+<h2 id="numbers">Numbers</h2>
+
+<p>Numbers (ou números) são cadeias de dígitos. Números que representam a forma decimal podem ter um ponto. Em Ruby há basicamente dois tipos de dados para armazenar números: <code class="highlighter-rouge">Integer</code>s e <code class="highlighter-rouge">Float</code>s. Para descobrir qual é o tipo do seu número, podemos fazer novamente uma chamada ao <code class="highlighter-rouge">.class</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Integer</span>
+<span class="mf">3.1415</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Float</span>
+</code></pre></div></div>
+
+<p>A chamada ao código <code class="highlighter-rouge">3.1415.class</code> torna a discussão um pouco mais interessante, pois há dois pontos (<code class="highlighter-rouge">.</code>) definidos. O ponto que precede o <code class="highlighter-rouge">.class</code> é, como já sabemos, uma chamada ao método <code class="highlighter-rouge">class(...)</code>, enquanto que o ponto no número  <code class="highlighter-rouge">3.1415</code> é apenas uma separação decimal.</p>
+
+<p>Há outras formas de representar pontos flutuantes, como por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">3.1415</span> <span class="c1"># =&gt; 3.1415</span>
+<span class="o">-</span><span class="mf">3.1415</span> <span class="c1"># =&gt; -3.1415</span>
+<span class="mi">3_1415</span> <span class="c1"># =&gt; 31415 (underscore são ignorados; o resultado é um inteiro)</span>
+<span class="mf">3e2</span> <span class="c1"># =&gt; 300 (3.0 x 10e2)</span>
+<span class="mf">3.1e2</span> <span class="c1"># =&gt; 310 (3.1 x 10e2)</span>
+<span class="mf">3.1E2</span> <span class="c1"># =&gt; 310 (3.1 x 10e2)</span>
+</code></pre></div></div>
+
+<p>Em Ruby há também vários métodos auxiliares que apoiam a manipulação de tipos de dados numéricos. Por exemplo:</p>
+
+<h3 id="to_s">to_s</h3>
+
+<p>O método <code class="highlighter-rouge">to_s</code> converte um número para uma string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "34"</span>
+<span class="mf">3.1415</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "3.1415"</span>
+</code></pre></div></div>
+
+<h3 id="ceilfloor">ceil/floor</h3>
+
+<p>O método <code class="highlighter-rouge">ceil</code> faz o arredondamento para cima enquanto o método <code class="highlighter-rouge">floor</code> faz o arredondamento para baixo.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">34.1</span><span class="p">.</span><span class="nf">ceil</span> <span class="c1"># =&gt; "35"</span>
+<span class="mf">34.9</span><span class="p">.</span><span class="nf">floor</span> <span class="c1"># =&gt; "34"</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>PERGUNTA:</strong> Os métodos <code class="highlighter-rouge">ceil</code> e <code class="highlighter-rouge">flor</code> funcionam com inteiros? Por quê?</p>
+</blockquote>
+
+<h3 id="nextpred">next/pred</h3>
+
+<p>O método <code class="highlighter-rouge">next</code> retorna o próximo consecutivo inteiro enquanto o método <code class="highlighter-rouge">pred</code> retorna o predecessor imediato.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">34</span><span class="p">.</span><span class="nf">next</span> <span class="c1"># =&gt; "35"</span>
+<span class="mi">34</span><span class="p">.</span><span class="nf">pred</span> <span class="c1"># =&gt; "33"</span>
+</code></pre></div></div>
+
+<p>Além dos métodos acima (e de vários outros, rode <code class="highlighter-rouge">1.methods</code> para ter uma idéia), a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:</p>
+
+<h3 id="adição">adição</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span> <span class="c1">#=&gt; 10</span>
+</code></pre></div></div>
+
+<h3 id="subtração">subtração</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">-</span> <span class="mi">5</span> <span class="c1">#=&gt; 0</span>
+</code></pre></div></div>
+
+<h3 id="multiplicação">multiplicação</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span> <span class="c1">#=&gt; 25</span>
+</code></pre></div></div>
+
+<h3 id="divisão">divisão</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">/</span> <span class="mi">5</span> <span class="c1">#=&gt; 1</span>
+</code></pre></div></div>
+
+<h3 id="resto">resto</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span> <span class="c1">#=&gt; 1 # uma vez que o resto da divisão 10/3 é igual a 1</span>
+</code></pre></div></div>
+
+<h3 id="exponencial">exponencial</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="c1">#=&gt; 8 # uma vez que  2 a terceira potência, ou 2 * 2 * 2, é igual a 8</span>
+</code></pre></div></div>
+
+<h2 id="strings">Strings</h2>
+
+<p>Strings são cadeias de caracteres. String podem ser definidas com uma ou duas aspas.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s2">"gustavo"</span>
+<span class="n">nome</span> <span class="o">=</span> <span class="s1">'gustavo'</span>
+</code></pre></div></div>
+
+<p>Como ruby não contém tipo de dados de caracteres (execute <code class="highlighter-rouge">'a'.class</code> no terminal e veja a saída), toda e qualquer String é instanciada via a classe String.</p>
+
+<p>É possível, no entanto, manipular o conteúdo de uma String. Para receber os caracteres de uma string, faça: <code class="highlighter-rouge">"teste".chars</code>. O <code class="highlighter-rouge">.chars</code> é uma chamada ao método <code class="highlighter-rouge">char()</code>, que é implementado pela classe String. Similar ao comando <code class="highlighter-rouge">put</code> que vimos no <a href="/guide/ruby">começo desse guia</a>, os parênteses do método char também foram omitidos. Mas, calma. Seria então o <code class="highlighter-rouge">put</code> também um método? Mais sobre métodos e classes em futuras páginas desse guia.</p>
+
+<p>O tamanho máximo de uma string é 2^63 - 1 (em uma instalação 64 bits; 2^31 - 1 caso contrário). Você pode testar o limite de tamanho máximo de uma string no interpretador usando o comando: <code class="highlighter-rouge">String.new("1" * (2**32))</code>.</p>
+
+<blockquote>
+  <p><strong><em>NOTA: O que esse comando faz?</em></strong> Vamos quebrar o comando acima em várias pequenas partes. Indo de trás pra frente. Primeiro, nós calculamos 2 elevado a 32a potência. Isso é feito pela operação <code class="highlighter-rouge">2**32</code>. Em seguida, nós multiplicamos a string “1” com o valor resultante do cálculo da potência anterior (feito pera operação <code class="highlighter-rouge">"1" * (2**32)</code>). O resultado dessa operação é uma string “111111…” de tamanho 2**32. Diferente de outras linguagens, em Ruby o operador <code class="highlighter-rouge">*</code> pode ser utilizado em strings, e seu comportamento é: multiplique a ocorrência da mesma string. Para entender melhor, execute a instrução <code class="highlighter-rouge">"oi" * 2</code> ou similares no seu interpretador. Por fim, a operação <code class="highlighter-rouge">String.new(...)</code> cria um novo objeto string, com o valor resultante.</p>
+</blockquote>
+
+<p>Alguns métodos comumente empregado em strings incluem, incluem:</p>
+
+<h3>[]</h3>
+
+<p>Similar a outras linguagens de programação, usa-se colchetes para acessar um determinado caracter em uma string. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># =&gt; "U"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># =&gt; "F"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "P"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "A"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>No entanto, diferente de outras linguagens de programação, o operador <code class="highlighter-rouge">[]</code> é implementado como um método, de mesmo nome, dentro da classe String. Logo a mesma chamada pode ser feita de forma análoga usando:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; "F"</span>
+</code></pre></div></div>
+
+<p>Parece estranho, não? No capítulo sobre métodos iremos descrever mais sobre esse tipo de comportamento. Por hora, basta-nos saber que o operador <code class="highlighter-rouge">[]</code> é um método. E por ser um método, pode aceitar parâmetros (no caso do exemplo de código acima, o valor <code class="highlighter-rouge">1</code> foi passado como parâmetro do método <code class="highlighter-rouge">[]</code>).</p>
+
+<p>O operador <code class="highlighter-rouge">[]</code> pode também receber dois parâmetros. Nesse acaso, em vez de retornar o caracter armazenado em uma determinada posição, ele retornará uma faixa de caracteres. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Alternativamente, poderíamos usar o método <code class="highlighter-rouge">slice</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UF"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Por fim, poderíamos também usar <em>range operator</em>, que é o símbolo <code class="highlighter-rouge">..</code> (dois pontos consecutivos) no lugar da virgula.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">[</span><span class="p">](</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">[</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; "PA"</span>
+
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "UFP"</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; "PA"</span>
+</code></pre></div></div>
+
+<p>Perceba que agora o comportamento foi ligeiramente diferente. O que aconteceu? E por que isso aconteceu?</p>
+
+<h3 id="sizelength">size/length</h3>
+
+<p>Calcula o tamanho de uma string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">size</span> <span class="c1"># =&gt; 4</span>
+<span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">length</span> <span class="c1"># =&gt; 4</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>**PERGUNTA:<em>** Por quê existem dois métodos que fazem _exatamente</em> a mesma coisa?</p>
+</blockquote>
+
+<h3 id="to_i">to_i</h3>
+
+<p>De forma análoga ao <code class="highlighter-rouge">to_s</code>, o método <code class="highlighter-rouge">to_i</code> converte uma string para um inteiro.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"3"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># =&gt; 3</span>
+<span class="s2">"3.1415"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># =&gt; 3</span>
+</code></pre></div></div>
+
+<p>Como pedimos para passar uma string que continha um número decimal para um formato de número inteiro, o arredondamento para para inteiro (sem ponto) ocorreu naturalmente. No entanto, se quiséssemos manter a precisão do número decimal, teríamos que usar o método <code class="highlighter-rouge">to_f</code>.</p>
+
+<h3 id="shovel">« (shovel)</h3>
+
+<p>O shovel (<code class="highlighter-rouge">&lt;&lt;</code>) é um operador (e também um método) que realiza a concatenação de strings. O operador <code class="highlighter-rouge">&lt;&lt;</code> tem um comportamento muito similar ao do operador <code class="highlighter-rouge">+</code>, que é mais conhecido em outras linguagens de programação.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="s2">"Estou cursando o curso de "</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">curso</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="s2">" na "</span>
+<span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">universidade</span>
+</code></pre></div></div>
+
+<p>Não custa também mencionar que a concatenação usando shovel poderia também ser feita usando o formato de chamada de método: <code class="highlighter-rouge">string.&lt;&lt;(string)</code>.</p>
+
+<p>No entanto, o operador <code class="highlighter-rouge">+</code> também é fornecido na linguagem Ruby. Como pode-se imaginar, a concatenação de strings também poderia ser implementada da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="s2">"Estou cursando o curso de "</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="n">curso</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="s2">" na "</span>
+<span class="n">string</span> <span class="o">+=</span> <span class="n">universidade</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>PERGUNTA:_</strong> Existe alguma diferença entre usar <code class="highlighter-rouge">+=</code> e <code class="highlighter-rouge">&lt;&lt;</code> para concatenação de strings? Pesquise.</p>
+</blockquote>
+
+<p>Um outro recurso fornecido pela linguagem Ruby para concatenação de strings é a interpolação. Interpolação de strings é a capacidade de combinar duas ou mais strings em uma só. Em Ruby isso pode ser feito através do constructo <code class="highlighter-rouge">#{}</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+
+<span class="nb">puts</span> <span class="s2">"Estou cursando o curso de </span><span class="si">#{</span><span class="n">curso</span><span class="si">}</span><span class="s2"> na </span><span class="si">#{</span><span class="n">universidade</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="upcasedowncase">upcase/downcase</h3>
+
+<p>Esses métodos colocam o texto de uma string para caixa alta (<code class="highlighter-rouge">upcase</code>) ou caixa baixa (<code class="highlighter-rouge">downcase</code>).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">universidade</span> <span class="o">=</span> <span class="s2">"UFPA"</span><span class="p">.</span><span class="nf">downcase</span>
+<span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span><span class="p">.</span><span class="nf">upcase</span>
+
+<span class="nb">puts</span> <span class="s2">"Estou cursando o curso de </span><span class="si">#{</span><span class="n">curso</span><span class="si">}</span><span class="s2"> na </span><span class="si">#{</span><span class="n">universidade</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="striplstriprstrip">strip/lstrip/rstrip</h3>
+
+<p>O <code class="highlighter-rouge">strip</code> remove a quantidade extra de espaço em branco no começo e no final de uma string. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"         UFPA         "</span><span class="p">.</span><span class="nf">strip</span>
+</code></pre></div></div>
+
+<p>Os métodos auxiliares (<code class="highlighter-rouge">lstrip</code> e <code class="highlighter-rouge">rstrip</code>) funcionam da mesma forma, exceto que estes são específicos para retirar o excesso de caracteres em branco na esquerda e na direita da string, respectivamente.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"         UFPA         "</span><span class="p">.</span><span class="nf">lstrip</span>
+</code></pre></div></div>
+
+<h3 id="splitjoin">split/join</h3>
+
+<p>O método <code class="highlighter-rouge">split</code> quebra uma string em um array. Para identificar o ponto de separação da string (chamado de delimitador), o método <code class="highlighter-rouge">split</code> usa por padrão um espaço em branco como separador. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curso</span> <span class="o">=</span> <span class="s2">"Ciência da Computação"</span>
+<span class="n">curso</span><span class="p">.</span><span class="nf">split</span> <span class="c1"># =&gt; ["Ciência", "da", "Computação"]</span>
+</code></pre></div></div>
+
+<p>No entanto, o programador pode fornecer qualquer outro delimitador. Isso é feito através da passagem de um valor por parâmetro do método <code class="highlighter-rouge">split</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">texto</span> <span class="o">=</span> <span class="s2">"Meu primeiro carro"</span>
+<span class="n">texto</span><span class="p">.</span><span class="nf">split</span> <span class="s2">"primeiro"</span> <span class="c1"># =&gt;  ["Meu ", " carro"]</span>
+</code></pre></div></div>
+
+<p>Lembrando que o uso de parênteses é opcional na chamada de métodos.</p>
+
+<h2 id="symbols">Symbols</h2>
+
+<p>Um outro tipo de dados que é extremamente importante em Ruby (e não tão frequente encontrado em outras linguagens) é o <code class="highlighter-rouge">:symbol</code>, isto é, um identificador que é precedido por um dois pontos (<code class="highlighter-rouge">:</code>). Símbolos são usados para identificar um recurso específico, seja um método, uma variável, uma chave de um hash, etc.</p>
+
+<p>Símbolos são de certa forma comparáveis a string, o que faz com que programadores novatos em Ruby se confundam em como usa-los. Símbolos tem duas importantes características:</p>
+
+<ul>
+  <li>Símbolos tem sempre o mesmo valor, e</li>
+  <li>Símbolos tem sempre o mesmo <code class="highlighter-rouge">object_id</code></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="ss">:a</span>
+
+<span class="nb">puts</span> <span class="s2">"a"</span><span class="p">.</span><span class="nf">object_id</span>  
+<span class="nb">puts</span> <span class="s2">"a"</span><span class="p">.</span><span class="nf">object_id</span>  
+
+<span class="nb">puts</span> <span class="ss">:a</span><span class="p">.</span><span class="nf">object_id</span>  
+<span class="nb">puts</span> <span class="ss">:a</span><span class="p">.</span><span class="nf">object_id</span>  
+</code></pre></div></div>
+
+<p>Como símbolos são únicos e não podem ser alterados durante a execução do programa. Seu maior benefício é deixar o código com uma nomenclatura consistente.</p>
+
+<p>Há uma regra simples para saber quando usar uma string ou um símbolo:</p>
+
+<ul>
+  <li>Se o conteúdo (a sequência de caracteres) for mais importante, use uma string.</li>
+  <li>Se a identidade do objeto for mais importante, use um símbolo.</li>
+</ul>
+
+<p>Basicamente, um símbolo é utilizado quando você quer referenciar alguma coisa como uma string, mas não tem a intenção de altera-lo ou imprimi-lo.</p>
+
+<p>É possível, no entanto, transformar uma string em um símbolo (e vice-versa).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"ufpa"</span><span class="p">.</span><span class="nf">to_sym</span> <span class="c1"># =&gt; :ufpa</span>
+<span class="ss">:ufpa</span><span class="p">.</span><span class="nf">to_s</span> <span class="c1"># =&gt; "ufpa"</span>
+</code></pre></div></div>
+
+<p>Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>O tipo de dados String contem incríveis 183 métodos (rode <code class="highlighter-rouge">"".methods.count</code> e se surpreenda). Veja se você reconhece algum método familiar? E quais aqueles que você não conheceu? Pesquise e entenda mais sobre eles.</p>
+  </li>
+  <li>Método ou operador? Percebemos que alguns operadores são implementados como métodos. Pesquise como foi feita a implementação dos seguintes operadores:
+    <ul>
+      <li>Inteiros: +, /, **</li>
+      <li>String: +, *, []</li>
+    </ul>
+  </li>
+  <li>
+    <p>Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?</p>
+  </li>
+  <li>
+    <p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos <code class="highlighter-rouge">nil</code> nesse caso. No entanto, o uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
+  </li>
+  <li>
+    <p>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</p>
+  </li>
+  <li>O DNA é uma string cujo alfabeto contém os seguintes símbolo: “A”, “C”, “G” e “T”. Dado um DNA t, calcule a ocorrência de cada símbolo. Imprima cada ocorrência separado por um espaço.
+    <ul>
+      <li>Entrada: “AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC”</li>
+      <li>Saída: 20 12 17 21</li>
+    </ul>
+  </li>
+  <li>
+    <p>Um RNA é uma string formada de um alfabeto contendo os símbolos “A”, “C”, “G” e “U”. Dado uma string de RNA, sua transcrição é feita através da substituição de todas ocorrências de “T” em para “U”.  Transcreva o RNA a seguir: “GATGGAACTTGACTACGTAAATT”.</p>
+  </li>
+  <li>Em um DNA, os símbolos “A” e “T” complementos de cada um, da mesma forma que “C” e “G”. O complemento reverso (<em>reverse complement</em>) de uma string de DNA é formada pelo reverso</li>
+</ul>
+:ET

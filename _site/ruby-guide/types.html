@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/guide/ruby/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
 
 <p>Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:</p>
 
@@ -565,6 +565,20 @@
 <span class="nb">puts</span> <span class="s2">"Estou cursando o curso de </span><span class="si">#{</span><span class="n">curso</span><span class="si">}</span><span class="s2"> na </span><span class="si">#{</span><span class="n">universidade</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div></div>
 
+<h3 id="chomp">chomp</h3>
+
+<p>O <code class="highlighter-rouge">chomp</code> é um método muito comum de ser utilizado junto com o método <code class="highlighter-rouge">gets</code>. O método gets lê toda a entrada de dados fornecida pelo usuário, incluíndo o <code class="highlighter-rouge">ENTER</code> que o usuário aperta para poder enviar os dados. O <code class="highlighter-rouge">ENTER</code>, por sua vez, é traduzido para uma quebra de linha, identificada pelo símbolo <code class="highlighter-rouge">\n</code>.</p>
+
+<p>Mas porque precisamos nos preocupar com um <code class="highlighter-rouge">\n</code> em uma string? Considere o trecho a seguir.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">advinhacao</span> <span class="o">=</span> <span class="s2">"42"</span>
+<span class="n">chute</span> <span class="o">=</span> <span class="nb">gets</span>
+
+<span class="n">advinhacao</span> <span class="o">==</span> <span class="n">chute</span> <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>Nesse exemplo acima, mesmo que o usuário passe a string <code class="highlighter-rouge">"42"</code> por parâmetro, a expressão <code class="highlighter-rouge">advinhacao == chute</code> será avaliada para <code class="highlighter-rouge">false</code>. Isso acontece, pois, na verdade, a expressão em avaliação é a seguinte: <code class="highlighter-rouge">"42" == "42\n"</code>, que são naturalmente duas strings diferentes.</p>
+
 <h3 id="striplstriprstrip">strip/lstrip/rstrip</h3>
 
 <p>O <code class="highlighter-rouge">strip</code> remove a quantidade extra de espaço em branco no começo e no final de uma string. Por exemplo:</p>
@@ -650,7 +664,24 @@
   <li>
     <p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos <code class="highlighter-rouge">nil</code> nesse caso. No entanto, o uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
   </li>
-  <li>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</li>
+  <li>
+    <p>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</p>
+  </li>
+  <li>O DNA é uma string cujo alfabeto contém os seguintes símbolo: <code class="highlighter-rouge">"A"</code>, <code class="highlighter-rouge">"C"</code>, <code class="highlighter-rouge">"G"</code> e <code class="highlighter-rouge">"T"</code>. Dado um DNA, calcule a ocorrência de cada símbolo. Imprima cada ocorrência separado por um espaço.
+    <ul>
+      <li>Entrada: <code class="highlighter-rouge">"AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"</code></li>
+      <li>Saída: 20 12 17 21</li>
+    </ul>
+  </li>
+  <li>
+    <p>Um RNA é uma string formada de um alfabeto contendo os símbolos <code class="highlighter-rouge">"A"</code>, <code class="highlighter-rouge">"C"</code>, <code class="highlighter-rouge">"G"</code> e <code class="highlighter-rouge">"U"</code>. Dado uma string de RNA, sua transcrição é feita através da substituição de todas ocorrências de “T” em para “U”.  Transcreva o RNA a seguir: <code class="highlighter-rouge">"GATGGAACTTGACTACGTAAATT"</code>.</p>
+  </li>
+  <li>Em um DNA, os símbolos “A” e “T” complementos de cada um, da mesma forma que “C” e “G”. O complemento reverso (<em>reverse complement</em>) de uma string de DNA é formada pelo reverso do DNA e então aplicando seus complementos. Por exemplo, o complemento reverso de “GTCA” é “TGAC”.
+    <ul>
+      <li>Entrada: <code class="highlighter-rouge">"AAAACCCGGT"</code></li>
+      <li>Saída: <code class="highlighter-rouge">"ACCGGGTTTT"</code></li>
+    </ul>
+  </li>
 </ul>
 
         
