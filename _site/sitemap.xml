@@ -200,6 +200,9 @@
 <loc>http://localhost:4000/teaching/bd2/exercise</loc>
 </url>
 <url>
+<loc>http://localhost:4000/ruby-guide/bin</loc>
+</url>
+<url>
 <loc>http://localhost:4000/blog/</loc>
 </url>
 <url>
@@ -257,10 +260,10 @@
 <loc>http://localhost:4000/how-to-do-research</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teaching/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+<loc>http://localhost:4000/teaching/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/teaching/labes/2020</loc>

@@ -1,0 +1,42 @@
+I"<p>Computadores não entendem inteiros, strings, booleanos, ou objetos. Logo, toda representação de tipos que vimos até aqui não são inteligíveis, do ponto de vista do computador. Precisamos converter não somente os tipos de dados, mas todas as expressões e construções que existem em um programa para um formato que o computador possa entender: o formato binário.</p>
+
+<p>Programas e dados compartilham o mesmo espaço em uma fita e o computador ler um bit de cada vez nessa fita. Mas o que é um bit?</p>
+
+<h2 id="bit-e-bytes">Bit e bytes</h2>
+
+<p>O <em>bit</em> (do inglês, <em>binary digit</em>) é a menor forma de se representar dados em um computador. O bit pode ter somente um dos seguintes valores: 0 ou 1.</p>
+
+<p>No entanto, como um bit tem somente duas representações, ele é muito limitante. Só conseguimos representar dois número com um bit. Como fazemos para representar todos os outros números?</p>
+
+<p>Podemos ir agrupando bits de forma a representar outros números. Com dois bits, já poderíamos representar o número dois (<code class="highlighter-rouge">10</code>) e o número três (<code class="highlighter-rouge">11</code>). Com três bits conseguimos representar o número quatro (<code class="highlighter-rouge">100</code>), cinco (<code class="highlighter-rouge">101</code>), seis (<code class="highlighter-rouge">110</code>) e sete (<code class="highlighter-rouge">111</code>). Para representar o número oito precisaríamos de quatro bits.</p>
+
+<p>A medida que vamos acrescentando mais bits, conseguimos representar um quantidade maior de números. Nesse momento é fácil perceber que precisamos de muitos bits para armazenar dados ligeiramente mais complexos. Uma simples string como <code class="highlighter-rouge">"UFPA"</code> precisa de 32 bits para ser representada.</p>
+
+<p>Com tantos bits pra armazenar, facilitaria  nossa vida se tivéssemos representações de mais alto nível pra armazena-los. A primeira representação mais alto nível de um bit é o <em>byte</em>, um grupo de 8 bits. Embora pouco conhecido, um há também um grupo de 4 bits, chamado <em>nibble</em>.</p>
+
+<p>Voltando ao nosso exemplo anterior, como sabemos que a string <code class="highlighter-rouge">"UFPA"</code> precisa de 32 bits para ser armazenada?</p>
+
+<p>Em Ruby, da caracter de uma string precisa de 8 bits (ou um byte) para ser armazenado. Como a string <code class="highlighter-rouge">"UFPA"</code> tem quatro caracteres, precisamos de quatro bytes (ou 32 bits). Logo, poderíamos generalizar que uma string de tamanho <em>n</em> ocupa <em>n</em> bytes?</p>
+
+<p>Vamos responder com um execício: quantos bits precisamos pra armazenar a string <code class="highlighter-rouge">"Olá mundo"</code>?</p>
+
+<h2 id="código-binário">Código binário</h2>
+
+<p>O código binário é a representação de <em>qualquer</em> dado computacional usando um sistema de dois símbolos, 0 e 1.</p>
+
+<h2 id="por-que-01--02--03">Por que 0.1 + 0.2 != 0.3?</h2>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>Implemente uma máquina de turing que avalie a expressão <code class="highlighter-rouge">1 + 1</code>.</p>
+  </li>
+  <li>
+    <p>Explique por que uma máquina de calcular não é um computador.</p>
+  </li>
+  <li>
+    <p>Crie um programa para fazer conversão de um número float qualquer para sua forma binária em Ruby. Explique cada pequeno passo do seu programa.</p>
+  </li>
+</ul>
+:ET

@@ -340,7 +340,7 @@
 
 <h2 id="booleans">Booleans</h2>
 
-<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido.</p>
+<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0 ou 1.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="n">b</span> <span class="o">=</span> <span class="kp">false</span>
@@ -697,7 +697,10 @@ No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="
     <p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos <code class="highlighter-rouge">nil</code> nesse caso. No entanto, o uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
   </li>
   <li>
-    <p>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</p>
+    <p>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Explique detalhadamente.</p>
+  </li>
+  <li>
+    <p>Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?</p>
   </li>
   <li>O DNA é uma string cujo alfabeto contém os seguintes símbolo: <code class="highlighter-rouge">"A"</code>, <code class="highlighter-rouge">"C"</code>, <code class="highlighter-rouge">"G"</code> e <code class="highlighter-rouge">"T"</code>. Dado um DNA, calcule a ocorrência de cada símbolo. Imprima cada ocorrência separado por um espaço.
     <ul>

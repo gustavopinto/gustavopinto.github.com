@@ -1,0 +1,20 @@
+I"i<p>Computadores não entendem inteiros, strings, booleanos, ou objetos. Logo, toda representação de tipos que vimos até aqui não são inteligíveis, do ponto de vista do computador. Precisamos converter não somente os tipos de dados, mas todas as expressões e construções que existem em um programa para um formato que o computador possa entender: o formato binário.</p>
+
+<p>Programas e dados compartilham o mesmo espaço em uma fita e o computador ler um bit de cada vez nessa fita. Mas o que é um bit?</p>
+
+<h2 id="o-bit">O bit</h2>
+
+<p>O bit (do inglês, <em>binary digit</em>) é a menor forma de se representar dados em um computador.</p>
+
+<h2 id="código-binário">Código binário</h2>
+
+<p>O código binário é a representação de <em>qualquer</em> dado computacional usando um sistema de dois símbolos, 0 e 1.</p>
+
+<h2 id="por-que-01--02--03">Por que 0.1 + 0.2 != 0.3?</h2>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>Crie um programa para fazer conversão de um número float qualquer para sua forma binária em Ruby. Explique cada pequeno passo do seu programa.</li>
+</ul>
+:ET

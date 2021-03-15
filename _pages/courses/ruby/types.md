@@ -18,7 +18,7 @@ Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados 
 
 ## Booleans
 
-Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido.
+Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0 ou 1.
 
 ```ruby
 a = true
@@ -392,7 +392,9 @@ Seja em comunidades de desenvolvimento de software ou na comunidade científica,
 
 - Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado ```nil```. Usamos ```nil``` quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos ```nil``` nesse caso. No entanto, o uso do ```nil``` é percebidamente uma má prática de programação. Você saberia explicar o por quê?
 
-- Talvez não seja novidade pra você que a expressão ```0.2 + 0.1 == 0.3``` é avaliado para ```false```. Mas, por que isso acontece? Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?
+- Talvez não seja novidade pra você que a expressão ```0.2 + 0.1 == 0.3``` é avaliado para ```false```. Mas, por que isso acontece? Explique detalhadamente.
+
+- Como você poderia criar programas que façam uso de casas decimais e que não exibem esse comportamento?
 
 - O DNA é uma string cujo alfabeto contém os seguintes símbolo: ```"A"```, ```"C"```, ```"G"``` e ```"T"```. Dado um DNA, calcule a ocorrência de cada símbolo. Imprima cada ocorrência separado por um espaço.
   - Entrada: ```"AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"```
