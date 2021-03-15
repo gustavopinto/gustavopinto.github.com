@@ -36,6 +36,11 @@ Numbers (ou números) são cadeias de dígitos. Números que representam a forma
 
 A chamada ao código ```3.1415.class``` torna a discussão um pouco mais interessante, pois há dois pontos (```.```) definidos. O ponto que precede o ```.class``` é, como já sabemos, uma chamada ao método ```class(...)```, enquanto que o ponto no número  ```3.1415``` é apenas uma separação decimal.
 
+---
+**Curiosidade**
+No Brasil, a separação de decimal é feia com uma virgula (e.g., ```3,1415```), enquanto que em outros países a separação é feita com ponto (e.g., ```3.1415```). É por isso que a separação oficial acabou sendo com ponto, e também por isso que chamamos *ponto flutuante* e não *vírgula flutuante*.
+---
+
 Há outras formas de representar pontos flutuantes, como por exemplo:
 
 ```ruby
@@ -117,12 +122,14 @@ Além dos métodos acima (e de vários outros, rode ```1.methods``` para ter uma
 
 ## Strings
 
-Strings são cadeias de caracteres. String podem ser definidas com uma ou duas aspas.
+O nome string vem do Inglês, traduzido para algo como fio ou barbante. Por isso que em Português chamamos que uma string é uma cadeia caracteres. String em Ruby podem ser definidas com uma (```'```) ou duas (```"```) aspas.
 
 ```ruby
-nome = "gustavo"
 nome = 'gustavo'
+nome = "gustavo"
 ```
+
+As duas atribuições acima são válidas para uma string.
 
 Como ruby não contém tipo de dados de caracteres (execute ```'a'.class``` no terminal e veja a saída), toda e qualquer String é instanciada via a classe String.
 
@@ -237,7 +244,6 @@ string += curso
 string += " na "
 string += universidade
 ```
-> **PERGUNTA:_** Existe alguma diferença entre usar ```+=``` e ```<<``` para concatenação de strings? Pesquise.
 
 Um outro recurso fornecido pela linguagem Ruby para concatenação de strings é a interpolação. Interpolação de strings é a capacidade de combinar duas ou mais strings em uma só. Em Ruby isso pode ser feito através do constructo ```#{}```. Por exemplo:
 
@@ -345,6 +351,33 @@ Basicamente, um símbolo é utilizado quando você quer referenciar alguma coisa
 
 Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.
 
+## Sistemas de tipos
+
+Uma parte extremamente importante de linguagens de programação é seu sistema de tipos. Um sistema de tipos é compostos por diversas regras que são capazes de associar uma determinada propriedade (por exemplo, uma variável) a um determinado tipo (por exemplo, string).
+
+Um dos principais objetivos de um sistema de tipos é tentar diminuir a quantidade de bugs que podem existir em um programa, checando se expressões foram bem definidas. Por exemplo, a expressão ```3 / "Olá mundo"``` não é bem definida pois não existem regras que especificam como um inteiro pode ser dividido por uma string. Se executarmos esse código no ```IRB```, receberemos um ```TypeError```, que é uma forma do interpretador nos dizer que há algum problema com os tipos da expressão (no caso, ```String can't be coerced into Integer```).
+
+Essa checagem pode acontecer tanto em tempo de compilação, quanto em tempo de execução. Algumas linguagens, inclusive, optam por usar uma combinação dos dois métodos. Ruby realiza checagem de tipos em tempo de execução, por isso Ruby é conhecida como tipada dinamicamente (ou *dynamic typed*). Isto não implica, no entanto, que o tipo seja explicitamente declarado antes do seu uso. Como já vimos ao longo desse guia, declaração de variáveis em Ruby pode ser simples como ```dez = 10``` (sem informar o tipo).
+
+No entanto, Ruby também é conhecida por ser uma linguagem fortemente tipada (ou *strongly typed*). De forma simplista, isto significa que o tipo de uma variável deve ser definido (e pode ser ser alterado) *antes* que operações que necessitem do tipo sejam executadas. Isto não implica, no entanto, que o tipo seja explicitamente declarado antes do seu uso. Por exemplo, em Ruby não há nenhum problema em declarar uma variável como um inteiro e depois como uma string:
+
+```ruby
+dez = "dez"
+dez = 10
+```
+
+Como mencionado, mudanças no tipo de uma variável podem acontecer antes de uma operação que necessite desse tipo, pois o que importa é o tipo no momento da avaliação da expressão.
+
+```ruby
+dez = "dez"
+dez.upcase   # => "DEZ"
+
+dez = 10
+dez.upcase   # => NoMethodError
+```
+
+Seja em comunidades de desenvolvimento de software ou na comunidade científica, há um aquecido debate sobre a quais características de um sistema de tipos são mais adequadas. Para se aprofundar na discussão, sugiro a leitura do artigo.
+
 ## Exercícios de fixação
 
 - O tipo de dados String contem incríveis 183 métodos (rode ```"".methods.count``` e se surpreenda). Veja se você reconhece algum método familiar? E quais aqueles que você não conheceu? Pesquise e entenda mais sobre eles.
@@ -352,6 +385,8 @@ Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concret
 - Método ou operador? Percebemos que alguns operadores são implementados como métodos. Pesquise como foi feita a implementação dos seguintes operadores:
   - Inteiros: +, /, **
   - String: +, *, []
+
+- Existe alguma diferença entre usar ```+=``` e ```<<``` para concatenação de strings? Pesquise.
 
 - Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?
 
@@ -368,3 +403,5 @@ Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concret
 - Em um DNA, os símbolos "A" e "T" complementos de cada um, da mesma forma que "C" e "G". O complemento reverso (*reverse complement*) de uma string de DNA é formada pelo reverso do DNA e então aplicando seus complementos. Por exemplo, o complemento reverso de "GTCA" é "TGAC".
   - Entrada: ```"AAAACCCGGT"```
   - Saída: ```"ACCGGGTTTT"```
+
+- JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?

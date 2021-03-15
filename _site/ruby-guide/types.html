@@ -356,6 +356,11 @@
 
 <p>A chamada ao código <code class="highlighter-rouge">3.1415.class</code> torna a discussão um pouco mais interessante, pois há dois pontos (<code class="highlighter-rouge">.</code>) definidos. O ponto que precede o <code class="highlighter-rouge">.class</code> é, como já sabemos, uma chamada ao método <code class="highlighter-rouge">class(...)</code>, enquanto que o ponto no número  <code class="highlighter-rouge">3.1415</code> é apenas uma separação decimal.</p>
 
+<hr />
+<p><strong>Curiosidade</strong>
+No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="highlighter-rouge">3,1415</code>), enquanto que em outros países a separação é feita com ponto (e.g., <code class="highlighter-rouge">3.1415</code>). É por isso que a separação oficial acabou sendo com ponto, e também por isso que chamamos <em>ponto flutuante</em> e não <em>vírgula flutuante</em>.
+—</p>
+
 <p>Há outras formas de representar pontos flutuantes, como por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">3.1415</span> <span class="c1"># =&gt; 3.1415</span>
@@ -429,11 +434,13 @@
 
 <h2 id="strings">Strings</h2>
 
-<p>Strings são cadeias de caracteres. String podem ser definidas com uma ou duas aspas.</p>
+<p>O nome string vem do Inglês, traduzido para algo como fio ou barbante. Por isso que em Português chamamos que uma string é uma cadeia caracteres. String em Ruby podem ser definidas com uma (<code class="highlighter-rouge">'</code>) ou duas (<code class="highlighter-rouge">"</code>) aspas.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s2">"gustavo"</span>
-<span class="n">nome</span> <span class="o">=</span> <span class="s1">'gustavo'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s1">'gustavo'</span>
+<span class="n">nome</span> <span class="o">=</span> <span class="s2">"gustavo"</span>
 </code></pre></div></div>
+
+<p>As duas atribuições acima são válidas para uma string.</p>
 
 <p>Como ruby não contém tipo de dados de caracteres (execute <code class="highlighter-rouge">'a'.class</code> no terminal e veja a saída), toda e qualquer String é instanciada via a classe String.</p>
 
@@ -543,9 +550,6 @@
 <span class="n">string</span> <span class="o">+=</span> <span class="s2">" na "</span>
 <span class="n">string</span> <span class="o">+=</span> <span class="n">universidade</span>
 </code></pre></div></div>
-<blockquote>
-  <p><strong>PERGUNTA:_</strong> Existe alguma diferença entre usar <code class="highlighter-rouge">+=</code> e <code class="highlighter-rouge">&lt;&lt;</code> para concatenação de strings? Pesquise.</p>
-</blockquote>
 
 <p>Um outro recurso fornecido pela linguagem Ruby para concatenação de strings é a interpolação. Interpolação de strings é a capacidade de combinar duas ou mais strings em uma só. Em Ruby isso pode ser feito através do constructo <code class="highlighter-rouge">#{}</code>. Por exemplo:</p>
 
@@ -646,6 +650,31 @@
 
 <p>Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.</p>
 
+<h2 id="sistemas-de-tipos">Sistemas de tipos</h2>
+
+<p>Uma parte extremamente importante de linguagens de programação é seu sistema de tipos. Um sistema de tipos é compostos por diversas regras que são capazes de associar uma determinada propriedade (por exemplo, uma variável) a um determinado tipo (por exemplo, string).</p>
+
+<p>Um dos principais objetivos de um sistema de tipos é tentar diminuir a quantidade de bugs que podem existir em um programa, checando se expressões foram bem definidas. Por exemplo, a expressão <code class="highlighter-rouge">3 / "Olá mundo"</code> não é bem definida pois não existem regras que especificam como um inteiro pode ser dividido por uma string. Se executarmos esse código no <code class="highlighter-rouge">IRB</code>, receberemos um <code class="highlighter-rouge">TypeError</code>, que é uma forma do interpretador nos dizer que há algum problema com os tipos da expressão (no caso, <code class="highlighter-rouge">String can't be coerced into Integer</code>).</p>
+
+<p>Essa checagem pode acontecer tanto em tempo de compilação, quanto em tempo de execução. Algumas linguagens, inclusive, optam por usar uma combinação dos dois métodos. Ruby realiza checagem de tipos em tempo de execução, por isso Ruby é conhecida como tipada dinamicamente (ou <em>dynamic typed</em>). Isto não implica, no entanto, que o tipo seja explicitamente declarado antes do seu uso. Como já vimos ao longo desse guia, declaração de variáveis em Ruby pode ser simples como <code class="highlighter-rouge">dez = 10</code> (sem informar o tipo).</p>
+
+<p>No entanto, Ruby também é conhecida por ser uma linguagem fortemente tipada (ou <em>strongly typed</em>). De forma simplista, isto significa que o tipo de uma variável deve ser definido (e pode ser ser alterado) <em>antes</em> que operações que necessitem do tipo sejam executadas. Isto não implica, no entanto, que o tipo seja explicitamente declarado antes do seu uso. Por exemplo, em Ruby não há nenhum problema em declarar uma variável como um inteiro e depois como uma string:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dez</span> <span class="o">=</span> <span class="s2">"dez"</span>
+<span class="n">dez</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<p>Como mencionado, mudanças no tipo de uma variável podem acontecer antes de uma operação que necessite desse tipo, pois o que importa é o tipo no momento da avaliação da expressão.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dez</span> <span class="o">=</span> <span class="s2">"dez"</span>
+<span class="n">dez</span><span class="p">.</span><span class="nf">upcase</span>   <span class="c1"># =&gt; "DEZ"</span>
+
+<span class="n">dez</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">dez</span><span class="p">.</span><span class="nf">upcase</span>   <span class="c1"># =&gt; NoMethodError</span>
+</code></pre></div></div>
+
+<p>Seja em comunidades de desenvolvimento de software ou na comunidade científica, há um aquecido debate sobre a quais características de um sistema de tipos são mais adequadas. Para se aprofundar na discussão, sugiro a leitura do artigo.</p>
+
 <h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
 
 <ul>
@@ -657,6 +686,9 @@
       <li>Inteiros: +, /, **</li>
       <li>String: +, *, []</li>
     </ul>
+  </li>
+  <li>
+    <p>Existe alguma diferença entre usar <code class="highlighter-rouge">+=</code> e <code class="highlighter-rouge">&lt;&lt;</code> para concatenação de strings? Pesquise.</p>
   </li>
   <li>
     <p>Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?</p>
@@ -682,6 +714,7 @@
       <li>Saída: <code class="highlighter-rouge">"ACCGGGTTTT"</code></li>
     </ul>
   </li>
+  <li>JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?</li>
 </ul>
 
         
