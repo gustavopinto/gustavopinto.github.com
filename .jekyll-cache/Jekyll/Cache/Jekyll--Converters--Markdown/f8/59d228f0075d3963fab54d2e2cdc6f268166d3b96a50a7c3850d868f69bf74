@@ -1,0 +1,94 @@
+I"j%<p>Computadores não entendem inteiros, strings, booleanos, ou objetos. Logo, toda representação de tipos que vimos até aqui não são inteligíveis, do ponto de vista do computador.</p>
+
+<p>Em algum momento, estas representações de mais alto nível precisam ser convertidas para o único formato que o computador possa entender: o formato binário.</p>
+
+<!-- Programas e dados compartilham o mesmo espaço em uma fita e o computador ler um bit de cada vez nessa fita. Mas o que é um bit? -->
+
+<h2 id="bits-e-bytes">Bits e bytes</h2>
+
+<p>O <em>bit</em> (do inglês, <em>binary digit</em>) é a menor forma de se representar dados em um computador. O bit pode ter somente um dos seguintes valores: 0 ou 1.</p>
+
+<p>No entanto, como um bit tem somente duas representações, ele é muito limitante. Só conseguimos representar dois número com um bit. Como fazemos para representar todos os outros números?</p>
+
+<p>Podemos ir agrupando bits de forma a representar outros números. Com dois bits, já poderíamos representar o número dois (<code class="highlighter-rouge">10</code>) e o número três (<code class="highlighter-rouge">11</code>). Vamos usar a equação abaixo para entender como isso seria possível.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 10
+10 + 1 = 11
+</code></pre></div></div>
+
+<p>A expressão <code class="highlighter-rouge">1 + 1</code> em binário é avaliado para <code class="highlighter-rouge">10</code> pois precisamos de dois bits para armazenar o número <code class="highlighter-rouge">2</code>. Com três bits conseguimos representar o número quatro (<code class="highlighter-rouge">100</code>), cinco (<code class="highlighter-rouge">101</code>), seis (<code class="highlighter-rouge">110</code>) e sete (<code class="highlighter-rouge">111</code>). Para representar o número oito precisaríamos de quatro bits.</p>
+
+<p>A medida que vamos acrescentando mais bits, conseguimos representar um quantidade maior de números. Com oito bits já é possível armazenar 256 dígitos (2^8 = 256); suficiente para representar os dígitos de 0 até 9, todas as letras do alfabeto, e mais alguns caracteres especiais, como <code class="highlighter-rouge">"!"</code>, <code class="highlighter-rouge">"@"</code>, ou <code class="highlighter-rouge">"#"</code>.</p>
+
+<p>Com tantos bits pra armazenar, facilitaria  nossa vida se tivéssemos representações de mais alto nível pra armazena-los. A primeira representação mais alto nível de um bit é o <em>byte</em>, um grupo de 8 bits. Embora pouco conhecido, um há também um grupo de 4 bits, chamado <em>nibble</em>. Representações de 4 e 8 bits são também mais comuns. Por exemplo, os mesmos dígitos de 1 a 4 do exemplo acima podem ser representados como abaixo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 0000
+0000 0001
+0000 0010
+0000 0011
+</code></pre></div></div>
+
+<p>Mas esses números são todos positivos. Como fazemos pra representar números negativos?</p>
+
+<p>Como sabemos, inteiros podem ser <em>signed</em> (com sinal) ou <em>unsigned</em>  (sem sinal). Inteiros de oito bytes sem sinal podem ser representados entre 0 a 256, enquanto que inteiros de oito bytes com sinal podem representar os números de -127 a 128 (zero incluso). Nesse caso, representamos o sinal pelo bit mais significativo, que geralmente é representado pelo primeiro dos oito bits. Se o primeiro bit for 0, o número é positivo; se for 1, o número é negativo. Por exemplo, o número 15, em binário, é representado como <code class="highlighter-rouge">1000 1111</code>.</p>
+
+<p>Nesse momento torna-se fácil perceber que precisamos de muitos bits para armazenar dados ligeiramente mais complexos. Uma string como <code class="highlighter-rouge">"UFPA"</code> precisa de 32 bits para ser representada. Em Ruby, cada caracter de uma string precisa de 8 bits (ou um byte) para ser armazenado. Como a string <code class="highlighter-rouge">"UFPA"</code> tem quatro caracteres, precisamos de quatro bytes (ou 32 bits).</p>
+
+<p>Logo, poderíamos generalizar que uma string de tamanho <em>n</em> ocupa <em>n</em> bytes?</p>
+
+<p>Vamos responder com um exercício: quantos bits precisamos pra armazenar a string <code class="highlighter-rouge">"Olá mundo"</code>? A string tem 9 caracteres, mas precisamos de 10 (!) bytes para representa-la. Rode a instrução <code class="highlighter-rouge">"Olá mundo".bytesize</code> para checar você mesmo (o método <code class="highlighter-rouge">bytesize</code> conta a quantidade de bytes de uma string). Como pode?</p>
+
+<p>Isso acontece pois caracteres como <code class="highlighter-rouge">"a"</code>, <code class="highlighter-rouge">"b"</code>, ou <code class="highlighter-rouge">"c"</code> necessitam de apenas um byte para serem representados (<code class="highlighter-rouge">"a".bytesize # =&gt; 1</code>), enquanto que caracteres especiais como o <code class="highlighter-rouge">"ç"</code> do Português e o <code class="highlighter-rouge">"¿"</code> do Espanhol precisaram de dois bytes para serem representados (<code class="highlighter-rouge">"ç".bytesize # =&gt; 2</code>).</p>
+
+<p>Agora sabemos que um charactere precisa de um byte para ser representado e caracteres especiais precisam de dois (ou mais) bytes. Mas como sabemos o binário dessa string? Podemos usar o método <code class="highlighter-rouge">"a".bytes</code>, que no caso da string <code class="highlighter-rouge">"a"</code> retorna <code class="highlighter-rouge">[97]</code>, ou seja, um array de um único elemento, o <code class="highlighter-rouge">97</code>. Mas o que seria esse número 97? Vamos testar com outros caracteres.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"a"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [97]</span>
+<span class="s2">"b"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [98]</span>
+<span class="s2">"c"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [99]</span>
+<span class="s2">"d"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [100]</span>
+
+<span class="s2">"A"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [65]</span>
+<span class="s2">"B"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [66]</span>
+<span class="s2">"C"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [67]</span>
+<span class="s2">"D"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [68]</span>
+</code></pre></div></div>
+
+<p>Cada caracter é representado por um código de um byte (ou oito bits) diferente e, aparentemente, estes códigos seguem uma determinada ordem. Os caracteres também são diferenciados entre maiúsculos e minúsculos. Curiosamente, os caracteres maiúsculos são representados com códigos menores que os caracteres minúsculos.</p>
+
+<p>Os códigos mapeiam um determinado caracter para sua representação binária. Por exemplo, o código <code class="highlighter-rouge">97</code> mapeia para o binário <code class="highlighter-rouge">01100001</code>, enquanto o <code class="highlighter-rouge">98</code> mapeia para <code class="highlighter-rouge">01100010</code>, e assim por diante. Esse processo de mapeamento caracter -&gt; código -&gt; binário é chamado de <em>encoding</em>. Há diversos tipos de <em>encoding</em>; um caracter com um byte em um determinado <em>encoding</em> pode ter dois ou mais em outro.</p>
+
+<p>Mas que códigos são esses?</p>
+
+<p>Estes códigos advêm de uma tabela de conversão, no caso, a famosa <a href="https://en.wikipedia.org/wiki/ASCII">tabela ASCII</a> (American Standard Code for Information Interchange). A tabela ASCII foi inicialmente desenvolvida para trabalhar com 7 bits (ou 2^7 = 128).</p>
+
+<hr />
+<p><strong>Curiosidade</strong></p>
+
+<p>Na época, 7 bits eram suficiente para armazenar muitos dos principais caracteres necessários da língua inglesa com folga (mais exatamente, 1 bit de folga). Esse 1 bit de folga fez com que localidades que não tinham todo seu alfabeto contemplado pela tabela ASCII (como já vimos o Português e o Espanho, mas não somente, como também o Chinês, Grego, Árabe, dentre tantos outros) criasse seu próprio mapa de caracteres. Esse 1 bit extra, no entanto, resultou em dezenas de variações de mapas de código. Não é necessário mencionar que essa diversidade de mapas de código criou uma barreira extra para</p>
+
+<hr />
+
+<h1 id="por-que-devemos-estudar-números-binários">Por que devemos estudar números binários.</h1>
+
+<h2 id="por-que-01--02--03">Por que 0.1 + 0.2 != 0.3?</h2>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>Implemente uma máquina de turing que avalie a expressão <code class="highlighter-rouge">1 + 1</code>.</p>
+  </li>
+  <li>
+    <p>Descreva o passo a passo da subtração binária da expressão <code class="highlighter-rouge">15 - 5</code>. Pesquise sobre “Two’s complement”.</p>
+  </li>
+  <li>
+    <p>Explique por que uma máquina de calcular não é um computador.</p>
+  </li>
+  <li>
+    <p>Crie um programa para fazer conversão de um número float qualquer para sua forma binária em Ruby. Explique cada pequeno passo do seu programa.</p>
+  </li>
+</ul>
+:ET

@@ -11,16 +11,18 @@ Esse guia cobre os seguintes pontos:
 
 1. [Atribuição de variáveis](/ruby-guide/vars)
 2. [Tipos de dados básicos](/ruby-guide/types)
-3. [Expressões e operadores](/ruby-guide/exp)
-4. [Controle de fluxo](/ruby-guide/flow)
-5. Funções
-6. Arrays e Matrizes
-7. Hashes
-8. Entrada e saída
-9. Classes e Objetos
-10. Tratamento de excessão
-11. Teste de unidade
-12. Meta-programação
+3. [Binário](/ruby-guide/bin)
+4. [Expressões e operadores](/ruby-guide/exp)
+5. [Controle de fluxo](/ruby-guide/flow)
+6. Funções
+7. Arrays e Matrizes
+8. Hashes
+9. Entrada e saída
+10. Extra
+  - Classes e Objetos
+  - Tratamento de excessão
+  - Teste de unidade
+  - Meta-programação
 
 ## Porque Ruby?
 

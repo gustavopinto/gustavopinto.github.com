@@ -56,7 +56,7 @@ end
 ---
 **Curiosidade**
 
-Curiosidade: a linguagem de programação ```bash``` talvez seja a linguagem que implemente mecanismos condicionais da maneira mais sintaticamente semelhante a da estrutura de alto nível (exceto pelo uso do ponto e vírgula ```;```):
+A linguagem de programação ```bash``` talvez seja a linguagem que implemente mecanismos condicionais da maneira mais sintaticamente semelhante a da estrutura de alto nível (exceto pelo uso do ponto e vírgula ```;```):
 
 ```bash
 if e1; then

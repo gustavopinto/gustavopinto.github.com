@@ -271,6 +271,8 @@ false == (10 == 10)
 '4' == 4 ? puts("VERDADEIRO") : puts("FALSO")
 ```
 
+- Implemente uma máquina de turing que avalie a expressão ```1 + 1```.
+
 <!-- https://womanonrails.com/operator-precedence-ruby -->
 
 [^1]: Mais sobre Arrays nos próximos capítulos desse guia.
