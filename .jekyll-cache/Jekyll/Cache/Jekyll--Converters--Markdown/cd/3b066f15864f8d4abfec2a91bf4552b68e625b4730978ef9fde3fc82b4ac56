@@ -1,0 +1,51 @@
+I"�<p>I devoted most part of my PhD to study software energy consumption. The full thesis <a href="http://gustavopinto.github.io/lost+found/thesis.pdf">is available here</a>. In the following I distill its main contributions.</p>
+
+<p>I studied two different perspectives: (1) what developers think/do about energy consumption, and (2) what are the energy behavior of parallel Java code.</p>
+
+<p>For the perspective of energy-aware programmers, I had two main contributions:</p>
+
+<ul>
+  <li><strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a> and <a href="http://www.cs.binghamton.edu/~davidl/">Yu David Liu</a>. “<a href="http://gustavopinto.github.io/lost+found/msr2014.pdf">Mining Questions About Software Energy Consumption</a>”. Accepted to the 11th Working Conference of Mining Software Repositories (MSR), Hyderabad, India, 2014.<br /></li>
+  <li>Irineu Moura, <strong>Gustavo Pinto</strong>, Felipe Ebert and <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>. “<a href="http://gustavopinto.github.io/lost+found/msr2015.pdf">Mining Energy-Aware Commits</a>”. Accepted to the 12th Working Conference on Mining Software Repositories (MSR), Florence, Italy, 2015.</li>
+</ul>
+
+<p>Although I’m not the first author of the second contribution, I had the idea of this study while doing my PhD, but a master student at the time (Irineu Moura) conducted most part of the study. This paper was not part of my PhD.</p>
+
+<p>Regarding the energy behavior of parallel Java code, I had four contributions:</p>
+<ul>
+  <li><strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a> and <a href="http://www.cs.binghamton.edu/~davidl/">Yu David Liu</a>. “<a href="http://gustavopinto.github.io/lost+found/oopsla2014.pdf">Understanding Energy Behaviors of Thread Management Constructs</a>”. Accepted to the 28th ACM Conference on Object-Oriented programming systems, languages, and applications (OOPSLA), Portland, USA, 2014.<br /></li>
+  <li><strong>Gustavo Pinto</strong>, <a href="https://www.linkedin.com/pub/kenan-liu/40/855/29">Kenan Liu</a>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>, <a href="http://www.cs.binghamton.edu/~davidl/">Yu David Liu</a>. “<a href="http://gustavopinto.github.io/lost+found/icsme2016.pdf">A Comprehensive Study on the Energy Efficiency of Java Thread-Safe Collections</a>”. Accepted to the 32nd IEEE International Conference on Software Maintenance and Evolution (ICSME’2016). Raleigh, USA. 2016</li>
+  <li><a href="https://www.linkedin.com/pub/kenan-liu/40/855/29">Kenan Liu</a>, <strong>Gustavo Pinto</strong> and <a href="http://www.cs.binghamton.edu/~davidl/">Yu David Liu</a>. “<a href="http://gustavopinto.github.io/lost+found/fase2015.pdf">Data-Oriented Characterization of Application-Level Energy Optimization</a>”. Accepted to the 18th International Conference on Fundamental Approaches to Software Engineering (FASE), London, UK, 2015.</li>
+  <li><strong>Gustavo Pinto</strong>, Anthony Canino, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>, <a href="http://www.ics.uci.edu/~guoqingx/">Guoqing Harry Xu</a>, <a href="http://www.cs.binghamton.edu/~davidl/">Yu David Liu</a>. “<a href="http://gustavopinto.github.io/lost+found/ase2017.pdf">Understanding and Overcoming Parallelism Bottlenecks in ForkJoin Applications</a>”. Accepted to the 32nd International Conference on Automated Software Engineering (ASE’2017). Illinois, USA, 2017.</li>
+</ul>
+
+<p>The interesting thing here is that only the first two papers and the last paper ended up on my thesis. The third one, although very related to my PhD, was mostly conducted by Kenan Liu, who was a PhD student at SUNY, the university that I visited during my PhD. The last contribution was accepted 2 years after graduation. However, you may have a hard time to find this fourth paper on my thesis, because this contribution changed a lot after my graduation (particularly thanks to Antony Canino, who did a great job working with Scala+Akka).</p>
+
+<p>I also have other small contributors that appear as posters or students-related tracks.</p>
+
+<ul>
+  <li><strong>Gustavo Pinto</strong> and <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>. “<a href="(http://gustavopinto.github.io/lost+found/splash-poster2013.pdf)">On The Implications of Language Constructs for Concurrent Execution for the Energy Efficiency of Multicore Applications</a>”. Accepted to the 4th ACM Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.</li>
+  <li><strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/splash-acm-src2013.pdf">Do Language Constructs for Concurrent Execution Have Impact on Energy Efficiency?</a>”. Accepted to the ACM Student Research Competition at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.</li>
+  <li><strong>Gustavo Pinto</strong>. “<a href="http://gustavopinto.github.io/lost+found/splash-doc-symp2013.pdf">Refactoring Multicore Applications Towards Energy Efficiency</a>”. Accepted to the Doctoral Symposium at the 4th ACM Conference on Systems, Programming, Languages and Applications: Software for Humanity (SPLASH), Indianapolis, EUA, 2013.</li>
+</ul>
+
+<p>After years of working on the same subject, I acquired a reasonable good perception of the field. After one ICSE conference, I decided to write a position paper summarizing the goals achieved and the problems ahead. This position paper ended up being my last contribution to this field:</p>
+
+<ul>
+  <li><strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>. “<a href="http://gustavopinto.github.io/lost+found/cacm2017.pdf">Energy Efficiency: A New Concern for Application Software Developers</a>”. Communications of the ACM 60(12), December 2017.<br /></li>
+</ul>
+
+<p>Not quite last contribution. I recently had a master student who got interested in working with energy consumption, and we had a paper accepted in a Brazilian workshop (and a follow up version was also published on ESEM’2019):</p>
+
+<ul>
+  <li>Gilson Rocha, <strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>. <a href="http://gustavopinto.github.io/lost+found/vem2018.pdf">Caracterizando o Consumo de Energia de APIs de E/S da Linguagem Java</a>. Accepted to the 6th Brazilian Workshop on Software Visualization, Evolution and Maintenance (VEM’2018). São Carlos, Brazil, 2018.</li>
+  <li>Gilson Rocha, <strong>Gustavo Pinto</strong>, <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a>. “<a href="http://gustavopinto.github.io/lost+found/esem2019c.pdf">Comprehending Energy Behaviors of Java I/O APIs</a>”. Accepted to the 13th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM’2019). Porto de Galinhas, Brazil. September 2019.</li>
+</ul>
+
+<p>However, I do plan to move ahead and work less and less with this energy consumption field. As <a href="http://andreas-zeller.blogspot.com.br/">Andreas Zeller</a> often says: “get our of a field when too crowded”.</p>
+
+<center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Here&#39;s the slides of my talk &quot;On Impact in Software Engineering Research&quot;.  Enjoy! <a href="https://t.co/GWmLZpQeRb">https://t.co/GWmLZpQeRb</a></p>&mdash; Andreas Zeller (@AndreasZeller) <a href="https://twitter.com/AndreasZeller/status/952851846284087296?ref_src=twsrc%5Etfw">January 15, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+:ET
