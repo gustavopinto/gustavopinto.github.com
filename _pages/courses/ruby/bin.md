@@ -123,7 +123,7 @@ Em resumo: abordagens de arredondamento se fazem necessárias uma vez que temos 
 
 - Quantos bytes são necessários para armazenar um caracter em um nintendinho?
 
-- Estude sobre como funciona algorimos de ordenação de palavras em Chinês.
+- Estude sobre como funciona algorimos de ordenação de palavras em Chinês. Se preciso, estude primeiro como fazer ordenação de caracteres em Português.
 
 - Explique por que a expressão ```"A" > "a"``` é avaliada para ```false```.
 

@@ -18,7 +18,7 @@ Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados 
 
 ## Booleans
 
-Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0 ou 1.
+Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0"T", "U" ou 1.
 
 ```ruby
 a = true
@@ -407,3 +407,5 @@ Seja em comunidades de desenvolvimento de software ou na comunidade científica,
   - Saída: ```"ACCGGGTTTT"```
 
 - JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?
+
+- Discorra sobre o trecho a seguir (que vem [deste livro](https://www.oreilly.com/library/view/software-engineering-at/9781492082781/ch22.html)): "We’ve also found that statically typed languages are much easier to perform large automated changes in than dynamically typed languages. Compiler-based tools along with strong static analysis provide a significant amount of information that we can use to build tools to affect LSCs and reject invalid transformations before they even get to the testing phase. The unfortunate result of this is that languages like Python, Ruby, and JavaScript that are dynamically typed are extra difficult for maintainers. Language choice is, in many respects, intimately tied to the question of code lifespan: languages that tend to be viewed as more focused on developer productivity tend to be more difficult to maintain. Although this isn’t an intrinsic design requirement, it is where the current state of the art happens to be."
