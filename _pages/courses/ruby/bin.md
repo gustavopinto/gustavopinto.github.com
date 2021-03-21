@@ -5,7 +5,7 @@ title: Binário
 permalink: /ruby-guide/bin
 ---
 
-[Voltar ao começo do guia](/ruby-guide/)
+[Voltar ao começo do guia](/ruby-guide)
 
 Computadores não entendem inteiros, strings, booleanos, ou objetos. Toda representação de tipos que vimos até aqui não são inteligíveis, do ponto de vista do computador.
 

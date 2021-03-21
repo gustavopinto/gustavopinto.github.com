@@ -5,7 +5,7 @@ title: Expressões e Operadores
 permalink: /ruby-guide/exp
 ---
 
-[Voltar ao começo do guia](/ruby-guide/)
+[Voltar ao começo do guia](/ruby-guide)
 
 Expressões são construídas através de operações e operandos.
 
@@ -131,8 +131,8 @@ No caso de comparações de strings, os operadores ```>```, ```<```, etc, são u
 Operadores lógicos são também chamados de operadores booleanos. Existem três tipos de operadores básicos: conjunção, disjunção e negação. Em Ruby, esses três operadores são implementados da seguinte forma:
 
 - ```&&``` (ou ```and```) representa a conjunção
-- ```||``` (ou ```or```) representa a disjunção.
-- ```!```  (ou ```not```)representa a negação
+- ```||``` (ou ```or```) representa a disjunção
+- ```!```  (ou ```not```) representa a negação
 
 ```ruby
 true && false   # => false
@@ -150,9 +150,9 @@ true && !true   # => true
 
 Os operadores ```||``` e ```&&``` implementam o conceito de avaliação mínima (ou avaliação de curto-circuito, *short circuit evaluation*). Isso significa que o segundo operando só será avaliado caso o primeiro não seja suficiente para determinar o resultado da expressão. Mais objetivamente:
 
-- quando utilizamos o operador ```&&``` e primeiro operando da expressão é ```false```, a expressão toda é avaliada para ```false``` (falso E qualquer coisa avalia para falso).
+- quando utilizamos o operador ```&&``` e primeiro operando da expressão é ```false```, a expressão toda é avaliada para ```false```.
 
-- quando utilizamos o operador ```||``` e primeiro operando da expressão é ```true```, a expressão toda é avaliada para ```true``` (verdadeiro E qualquer coisa avalia para verdadeiro).
+- quando utilizamos o operador ```||``` e primeiro operando da expressão é ```true```, a expressão toda é avaliada para ```true```.
 
 Nos dois casos acima o segundo operador não precisa ser avaliado. A tabela verdade abaixo apresenta o resultado da avaliação dos  operadores lógicos ```&&``` e ```||```.
 
@@ -203,6 +203,8 @@ Operadores de range existem para facilmente criar um intervalo de objetos (como 
 A expressão ```(1..5)``` é avaliado para um objeto da classe ```Range```. A classe ```Range```, por sua vez, tem um método chamado ```to_a```, que transforma o objeto em um array.
 
 ### Operador de atribuição composta (*compound assignment*)
+
+- TDB
 
 ## Ordem de avaliação
 

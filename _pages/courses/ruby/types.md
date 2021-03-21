@@ -5,7 +5,7 @@ title: Tipos de dados
 permalink: /ruby-guide/types
 ---
 
-[Voltar ao começo do guia](/ruby-guide/)
+[Voltar ao começo do guia](/ruby-guide)
 
 Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:
 

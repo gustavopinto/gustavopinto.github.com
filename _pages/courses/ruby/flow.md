@@ -5,7 +5,7 @@ title: Controle de fluxo
 permalink: /ruby-guide/flow
 ---
 
-[Voltar ao começo do guia](/ruby-guide/)
+[Voltar ao começo do guia](/ruby-guide)
 
 Programar é fazer com que os dados sigam um determinado caminho (podendo sofrer modificações ao longo desse caminho). O controle do fluxo se refere a ordem de como os dados irão ser executados ao longo deste caminho (que é a execução do programa).
 
@@ -158,6 +158,13 @@ end
 
 Agora sim conseguimos resolver o problema anterior!
 
+---
+**IMPORTANTE**
+
+Perceba que a medida que o programa cresce, a complexidade de entender o que acontece com o programa também cresce. Em poucas linhas de código, estamos usando cinco operadores e quatro caminhos diferentes. Raciocinar qual caminho uma determinada entrada vai percorrer necessita de um esforço cognitivo maior, mesmo embora o nosso programa tenha somente 11 linhas de código. Condicionais (e iterações como veremos mais pra frente) rapidamente adicionam complexidade no código. No entanto, é muito díficil programar sem utilizar essas construções. Toda vez que você for adicionar um ```if``` no código, tenha em mente que não é somente um ```if```, e sim um novo degrau de complexidade no código. Programa é tomar decisões.
+
+---
+
 ### Unless
 
 Ruby conta ainda com alguns particularidades para trabalhar com condicionais. Por exemplo, toda vez que temos uma instrução como ```if a > b ```, o ```if``` avalia se o resultado da expressão é ```true```. No entanto, há casos em que gostaríamos de saber se o resultado da expressão é ```false```. Por exemplo:
@@ -190,13 +197,6 @@ Caso você precise de um ```if```/```else``` de uma linha, você pode se apoiar 
 ```ruby
 idade > 18 ? "Bem vindo!" : "Você não pode ter acesso a esse conteúdo!"
 ```
-
-
----
-**IMPORTANTE**
-
-Perceba que a medida que o programa cresce, a complexidade de entender o que acontece com o programa também cresce. Em poucas linhas de código, estamos usando cinco operadores e quatro caminhos diferentes. Raciocinar qual caminho uma determinada entrada vai percorrer necessita de um esforço cognitivo maior, mesmo embora o nosso programa tenha somente 11 linhas de código. Condicionais (e iterações como veremos mais pra frente) rapidamente adicionam complexidade no código. No entanto, é muito díficil programar sem utilizar essas construções. Toda vez que você for adicionar um ```if``` no código, tenha em mente que não é somente um ```if```, e sim um novo degrau de complexidade no código. Programa é tomar decisões.
----
 
 <!--
 ## Iteração
