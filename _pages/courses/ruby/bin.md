@@ -103,17 +103,17 @@ O PI é diferente de outros número irracionais, como o resultado da divisão ``
 
 A saída foi flexibilizar; ao invés de armazenar o número PI completo, o que é inviável, podemos armazenar uma versão menor, *aproximada*.
 
-O tipo de dado ```Float``` é a implementação dessa aproximação. Considerando um ```Float``` de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base dois.
+O tipo de dado ```Float``` é a implementação dessa aproximação. Considerando um ```Float``` de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base 2. A base 10 é a notação que utilizamos no dia a dia, enquanto que a base 2 é a notação binária que computadores utilizam para realizar operações (com 0 e 1).
 
-Para representar um número como ```12.000``` na base dez, poderíamos usar a notação científica ```1.2 * 10^4```. O número ```1.2``` é a mantissa e o número ```4``` é o expoente na base dez.
+Para representar um número como ```12.000``` na base 10, poderíamos usar a notação científica ```1.2 * 10^4```. O número ```1.2``` é a mantissa e o número ```4``` é o expoente na base 10.
 
 Para representar o mesmo número como ```Float```, teríamos: o primeiro bit para o sinal (positivo ou negativo) * 2^expoente (número armazenados nos próximos 11 bits) * mantissa (numero armazenados nos últimos 53 bits). O número inteiro máximo que pode ser armazenado na mantissa é ```2^53``` (que pode ser checado com ```Float::MAX_EXP```).
 
-O problema é que não conseguimos representar um número de base dez da mesma forma na base dois.
+O problema é que não conseguimos representar um número de base 10 da mesma forma na base 2.
 
 A primeira vista isso pode parecer um pouco estranho, pois o comando ```puts 0.1``` retorna```0.1```. No entanto, se usarmos o comando ```sprintf("%0.50f", 0.1)``` temos a seguinte saída: ```"0.10000000000000000555111512312578270211815834045410"```. O comando ```sprintf``` retorna uma string formatada, no caso, um ```Float``` (representado pelo ```f```) de 50 caracteres após o ponto (representado pelo ```0.50```).
 
-Voltando a saída do comando ```sprintf```, essa *sujeira* que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão ```0.1 + 0.2``` é avaliado para ```0.30000000000000004440892098500626161694526672363281```, somente a expressão ```0.3``` é representado como ```0.29999999999999998889776975374843459576368331909180```. Mais objetivamente: os decimais da expressão ```0.1 + 0.2``` são individualmente convertidos para base dois *antes* da operação de soma, enquanto que ```0.3``` é convertido somente uma vez.
+Voltando a saída do comando ```sprintf```, essa *sujeira* que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão ```0.1 + 0.2``` é avaliado para ```0.30000000000000004440892098500626161694526672363281```, somente a expressão ```0.3``` é representado como ```0.29999999999999998889776975374843459576368331909180```. Mais objetivamente: os decimais da expressão ```0.1 + 0.2``` são individualmente convertidos para base 2 *antes* da operação de soma, enquanto que ```0.3``` é convertido somente uma vez.
 
 Em resumo: abordagens de arredondamento se fazem necessárias uma vez que temos uma limitação de espaço de 64 bits, embora números irracionais precisem de muito mais.
 
@@ -136,3 +136,5 @@ Em resumo: abordagens de arredondamento se fazem necessárias uma vez que temos 
 - Descreva o passo a passo da subtração binária da expressão ```15 - 5```. Pesquise sobre "Two's complement".
 
 - Crie um programa para fazer conversão de um número integer qualquer para sua forma binária em Ruby. Não use o método ```to_s```.
+
+- Crie um programa que imprima de 1 até 100, mas sem usar números.

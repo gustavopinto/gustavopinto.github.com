@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Computadores não entendem inteiros, strings, booleanos, ou objetos. Toda representação de tipos que vimos até aqui não são inteligíveis, do ponto de vista do computador.</p>
 
@@ -420,17 +420,17 @@
 
 <p>A saída foi flexibilizar; ao invés de armazenar o número PI completo, o que é inviável, podemos armazenar uma versão menor, <em>aproximada</em>.</p>
 
-<p>O tipo de dado <code class="highlighter-rouge">Float</code> é a implementação dessa aproximação. Considerando um <code class="highlighter-rouge">Float</code> de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base dois.</p>
+<p>O tipo de dado <code class="highlighter-rouge">Float</code> é a implementação dessa aproximação. Considerando um <code class="highlighter-rouge">Float</code> de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base 2. A base 10 é a notação que utilizamos no dia a dia, enquanto que a base 2 é a notação binária que computadores utilizam para realizar operações (com 0 e 1).</p>
 
-<p>Para representar um número como <code class="highlighter-rouge">12.000</code> na base dez, poderíamos usar a notação científica <code class="highlighter-rouge">1.2 * 10^4</code>. O número <code class="highlighter-rouge">1.2</code> é a mantissa e o número <code class="highlighter-rouge">4</code> é o expoente na base dez.</p>
+<p>Para representar um número como <code class="highlighter-rouge">12.000</code> na base 10, poderíamos usar a notação científica <code class="highlighter-rouge">1.2 * 10^4</code>. O número <code class="highlighter-rouge">1.2</code> é a mantissa e o número <code class="highlighter-rouge">4</code> é o expoente na base 10.</p>
 
 <p>Para representar o mesmo número como <code class="highlighter-rouge">Float</code>, teríamos: o primeiro bit para o sinal (positivo ou negativo) * 2^expoente (número armazenados nos próximos 11 bits) * mantissa (numero armazenados nos últimos 53 bits). O número inteiro máximo que pode ser armazenado na mantissa é <code class="highlighter-rouge">2^53</code> (que pode ser checado com <code class="highlighter-rouge">Float::MAX_EXP</code>).</p>
 
-<p>O problema é que não conseguimos representar um número de base dez da mesma forma na base dois.</p>
+<p>O problema é que não conseguimos representar um número de base 10 da mesma forma na base 2.</p>
 
 <p>A primeira vista isso pode parecer um pouco estranho, pois o comando <code class="highlighter-rouge">puts 0.1</code> retorna<code class="highlighter-rouge">0.1</code>. No entanto, se usarmos o comando <code class="highlighter-rouge">sprintf("%0.50f", 0.1)</code> temos a seguinte saída: <code class="highlighter-rouge">"0.10000000000000000555111512312578270211815834045410"</code>. O comando <code class="highlighter-rouge">sprintf</code> retorna uma string formatada, no caso, um <code class="highlighter-rouge">Float</code> (representado pelo <code class="highlighter-rouge">f</code>) de 50 caracteres após o ponto (representado pelo <code class="highlighter-rouge">0.50</code>).</p>
 
-<p>Voltando a saída do comando <code class="highlighter-rouge">sprintf</code>, essa <em>sujeira</em> que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão <code class="highlighter-rouge">0.1 + 0.2</code> é avaliado para <code class="highlighter-rouge">0.30000000000000004440892098500626161694526672363281</code>, somente a expressão <code class="highlighter-rouge">0.3</code> é representado como <code class="highlighter-rouge">0.29999999999999998889776975374843459576368331909180</code>. Mais objetivamente: os decimais da expressão <code class="highlighter-rouge">0.1 + 0.2</code> são individualmente convertidos para base dois <em>antes</em> da operação de soma, enquanto que <code class="highlighter-rouge">0.3</code> é convertido somente uma vez.</p>
+<p>Voltando a saída do comando <code class="highlighter-rouge">sprintf</code>, essa <em>sujeira</em> que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão <code class="highlighter-rouge">0.1 + 0.2</code> é avaliado para <code class="highlighter-rouge">0.30000000000000004440892098500626161694526672363281</code>, somente a expressão <code class="highlighter-rouge">0.3</code> é representado como <code class="highlighter-rouge">0.29999999999999998889776975374843459576368331909180</code>. Mais objetivamente: os decimais da expressão <code class="highlighter-rouge">0.1 + 0.2</code> são individualmente convertidos para base 2 <em>antes</em> da operação de soma, enquanto que <code class="highlighter-rouge">0.3</code> é convertido somente uma vez.</p>
 
 <p>Em resumo: abordagens de arredondamento se fazem necessárias uma vez que temos uma limitação de espaço de 64 bits, embora números irracionais precisem de muito mais.</p>
 
@@ -463,6 +463,9 @@
   </li>
   <li>
     <p>Crie um programa para fazer conversão de um número integer qualquer para sua forma binária em Ruby. Não use o método <code class="highlighter-rouge">to_s</code>.</p>
+  </li>
+  <li>
+    <p>Crie um programa que imprima de 1 até 100, mas sem usar números.</p>
   </li>
 </ul>
 

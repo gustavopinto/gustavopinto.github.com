@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Programar é fazer com que os dados sigam um determinado caminho (podendo sofrer modificações ao longo desse caminho). O controle do fluxo se refere a ordem de como os dados irão ser executados ao longo deste caminho (que é a execução do programa).</p>
 
@@ -474,6 +474,13 @@ End
 
 <p>Agora sim conseguimos resolver o problema anterior!</p>
 
+<hr />
+<p><strong>IMPORTANTE</strong></p>
+
+<p>Perceba que a medida que o programa cresce, a complexidade de entender o que acontece com o programa também cresce. Em poucas linhas de código, estamos usando cinco operadores e quatro caminhos diferentes. Raciocinar qual caminho uma determinada entrada vai percorrer necessita de um esforço cognitivo maior, mesmo embora o nosso programa tenha somente 11 linhas de código. Condicionais (e iterações como veremos mais pra frente) rapidamente adicionam complexidade no código. No entanto, é muito díficil programar sem utilizar essas construções. Toda vez que você for adicionar um <code class="highlighter-rouge">if</code> no código, tenha em mente que não é somente um <code class="highlighter-rouge">if</code>, e sim um novo degrau de complexidade no código. Programa é tomar decisões.</p>
+
+<hr />
+
 <h3 id="unless">Unless</h3>
 
 <p>Ruby conta ainda com alguns particularidades para trabalhar com condicionais. Por exemplo, toda vez que temos uma instrução como <code class="highlighter-rouge">if a &gt; b</code>, o <code class="highlighter-rouge">if</code> avalia se o resultado da expressão é <code class="highlighter-rouge">true</code>. No entanto, há casos em que gostaríamos de saber se o resultado da expressão é <code class="highlighter-rouge">false</code>. Por exemplo:</p>
@@ -502,11 +509,6 @@ End
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="p">?</span> <span class="s2">"Bem vindo!"</span> <span class="p">:</span> <span class="s2">"Você não pode ter acesso a esse conteúdo!"</span>
 </code></pre></div></div>
-
-<hr />
-<p><strong>IMPORTANTE</strong></p>
-
-<h2 id="perceba-que-a-medida-que-o-programa-cresce-a-complexidade-de-entender-o-que-acontece-com-o-programa-também-cresce-em-poucas-linhas-de-código-estamos-usando-cinco-operadores-e-quatro-caminhos-diferentes-raciocinar-qual-caminho-uma-determinada-entrada-vai-percorrer-necessita-de-um-esforço-cognitivo-maior-mesmo-embora-o-nosso-programa-tenha-somente-11-linhas-de-código-condicionais-e-iterações-como-veremos-mais-pra-frente-rapidamente-adicionam-complexidade-no-código-no-entanto-é-muito-díficil-programar-sem-utilizar-essas-construções-toda-vez-que-você-for-adicionar-um-if-no-código-tenha-em-mente-que-não-é-somente-um-if-e-sim-um-novo-degrau-de-complexidade-no-código-programa-é-tomar-decisões">Perceba que a medida que o programa cresce, a complexidade de entender o que acontece com o programa também cresce. Em poucas linhas de código, estamos usando cinco operadores e quatro caminhos diferentes. Raciocinar qual caminho uma determinada entrada vai percorrer necessita de um esforço cognitivo maior, mesmo embora o nosso programa tenha somente 11 linhas de código. Condicionais (e iterações como veremos mais pra frente) rapidamente adicionam complexidade no código. No entanto, é muito díficil programar sem utilizar essas construções. Toda vez que você for adicionar um <code class="highlighter-rouge">if</code> no código, tenha em mente que não é somente um <code class="highlighter-rouge">if</code>, e sim um novo degrau de complexidade no código. Programa é tomar decisões.</h2>
 
 <!--
 ## Iteração

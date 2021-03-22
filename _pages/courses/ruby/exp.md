@@ -202,7 +202,25 @@ Operadores de range existem para facilmente criar um intervalo de objetos (como 
 
 A expressão ```(1..5)``` é avaliado para um objeto da classe ```Range```. A classe ```Range```, por sua vez, tem um método chamado ```to_a```, que transforma o objeto em um array.
 
-### Operador de atribuição composta (*compound assignment*)
+### Operador de atribuição paralela (*parallel assignment*)
+
+Ruby é uma dessas linguagens que sempre há mais de uma forma de realizar a mesma operação, pois a linguagem fornece vários mecanismos que simplificam a codificação. Um desses mecanismos é o operador de atribuição paralela. Como já sabemos fazer nesse momento, podemos fazer atribuições sequenciais:
+
+```ruby
+a = 1
+b = 2
+c = 2
+```
+
+Atribuições paralelas nos economizam um pouco de espaço. Podemos re-escrever a mesma atribuição acima da seguinte forma:  ```a, b = 1, 2``` (a variável ```a``` recebe o valor ```1``` enquanto a variável ```b``` recebe o valor ```2```). Em vez de nú,números, poderíamos também usar string, boleanos, e ... Arrays! Por exemplo, a seguinte atribuição é válida e tem o mesmo resultado da atribuição anterior: ```a, b = [1, 2]```.
+
+Além da vantagem da economia de espaço, há outros recursos interessantes. Por exemplo, é possível alterar o valor de duas variáveis em uma única linha de código, por exemplo: ```a, b = b, a```.
+
+É possível, no entanto, fazer atribuições mais complexas. Por exemplo, a expressão ```a = 1, 2, 3``` é válida e o valor de ```a```, após atribuição, será de ```[1, 2, 3]```. Isso acontece pois, caso uma atribuição paralela tenha somente um valor a esqueda (*lvalue*) e dois ou mais valores a direita (*rvalue*), os valores a direita serão convertidos para um array (esta mesma atribuição poderia também ser feita usando o operador range (```..```),  por exemplo: ```a = (1..3).to_a```). Caso o *lvalue* seja maior do que um, porém menor do que o *rvalue*, por exemplo: ```a, b = 1, 2, 3```, os valores excedentes do *rvalue* serão descartados (no caso, o valor ```3``` será descartado). Por fim, se uma atribuição paralela tiver mais valores a esquerda (*lvalue*) do que a direita (*rvalue*), por exemplo, ```a, b, c = 1, 2```, será atribuído ```nil``` para as variáveis excedentes (no caso, ```c``` receberá ```nil```).
+
+Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição ```a, b, c =  (x=1), (x+=1), (x+=1)```. Nesse caso, ```a```, ```b``` e ```c``` receberiam os valores ```1```, ```2``` e ```3```, respectivamente.
+
+### Operadores binário
 
 - TDB
 
@@ -241,9 +259,12 @@ Para evitar confusões sobre a ordem de operadores, a tabela abaixo lista a orde
 | ```not```                             |
 | ```or```, ```and```                   |
 
-Para a ordem de precedência de todos os operadores, acesse o site da documentação da linguagem.
+A tabela acima deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.
 
-A tabela deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.
+Um leitor atento poderia facilmente observar que o operador ```&&``` tem maior precedência do que o operador ```||``` (e ambos tem maior precedência do que seus equivalentes ```and``` e ```or```). No entanto, e curiosamente, os operadores ```and``` e ```or``` tem a mesma precedência.
+
+Por fim, a tabela acima lista somente os operadores discutidos nesse guia. Para conhecer a ordem de precedência de todos os operadores da linguagem, acesse a [documentação oficial](https://ruby-doc.org/core-2.6.2/doc/syntax/precedence_rdoc.html).
+
 
 <!-- ## Árvore de expressão
 

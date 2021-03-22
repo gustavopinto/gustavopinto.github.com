@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Expressões são construídas através de operações e operandos.</p>
 
@@ -504,8 +504,8 @@
 
 <ul>
   <li><code class="highlighter-rouge">&amp;&amp;</code> (ou <code class="highlighter-rouge">and</code>) representa a conjunção</li>
-  <li><code class="highlighter-rouge">||</code> (ou <code class="highlighter-rouge">or</code>) representa a disjunção.</li>
-  <li><code class="highlighter-rouge">!</code>  (ou <code class="highlighter-rouge">not</code>)representa a negação</li>
+  <li><code class="highlighter-rouge">||</code> (ou <code class="highlighter-rouge">or</code>) representa a disjunção</li>
+  <li><code class="highlighter-rouge">!</code>  (ou <code class="highlighter-rouge">not</code>) representa a negação</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">true</span> <span class="o">&amp;&amp;</span> <span class="kp">false</span>   <span class="c1"># =&gt; false</span>
@@ -525,10 +525,10 @@
 
 <ul>
   <li>
-    <p>quando utilizamos o operador <code class="highlighter-rouge">&amp;&amp;</code> e primeiro operando da expressão é <code class="highlighter-rouge">false</code>, a expressão toda é avaliada para <code class="highlighter-rouge">false</code> (falso E qualquer coisa avalia para falso).</p>
+    <p>quando utilizamos o operador <code class="highlighter-rouge">&amp;&amp;</code> e primeiro operando da expressão é <code class="highlighter-rouge">false</code>, a expressão toda é avaliada para <code class="highlighter-rouge">false</code>.</p>
   </li>
   <li>
-    <p>quando utilizamos o operador <code class="highlighter-rouge">||</code> e primeiro operando da expressão é <code class="highlighter-rouge">true</code>, a expressão toda é avaliada para <code class="highlighter-rouge">true</code> (verdadeiro E qualquer coisa avalia para verdadeiro).</p>
+    <p>quando utilizamos o operador <code class="highlighter-rouge">||</code> e primeiro operando da expressão é <code class="highlighter-rouge">true</code>, a expressão toda é avaliada para <code class="highlighter-rouge">true</code>.</p>
   </li>
 </ul>
 
@@ -640,7 +640,28 @@
 
 <p>A expressão <code class="highlighter-rouge">(1..5)</code> é avaliado para um objeto da classe <code class="highlighter-rouge">Range</code>. A classe <code class="highlighter-rouge">Range</code>, por sua vez, tem um método chamado <code class="highlighter-rouge">to_a</code>, que transforma o objeto em um array.</p>
 
-<h3 id="operador-de-atribuição-composta-compound-assignment">Operador de atribuição composta (<em>compound assignment</em>)</h3>
+<h3 id="operador-de-atribuição-paralela-parallel-assignment">Operador de atribuição paralela (<em>parallel assignment</em>)</h3>
+
+<p>Ruby é uma dessas linguagens que sempre há mais de uma forma de realizar a mesma operação, pois a linguagem fornece vários mecanismos que simplificam a codificação. Um desses mecanismos é o operador de atribuição paralela. Como já sabemos fazer nesse momento, podemos fazer atribuições sequenciais:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>Atribuições paralelas nos economizam um pouco de espaço. Podemos re-escrever a mesma atribuição acima da seguinte forma:  <code class="highlighter-rouge">a, b = 1, 2</code> (a variável <code class="highlighter-rouge">a</code> recebe o valor <code class="highlighter-rouge">1</code> enquanto a variável <code class="highlighter-rouge">b</code> recebe o valor <code class="highlighter-rouge">2</code>). Em vez de nú,números, poderíamos também usar string, boleanos, e … Arrays! Por exemplo, a seguinte atribuição é válida e tem o mesmo resultado da atribuição anterior: <code class="highlighter-rouge">a, b = [1, 2]</code>.</p>
+
+<p>Além da vantagem da economia de espaço, há outros recursos interessantes. Por exemplo, é possível alterar o valor de duas variáveis em uma única linha de código, por exemplo: <code class="highlighter-rouge">a, b = b, a</code>.</p>
+
+<p>É possível, no entanto, fazer atribuições mais complexas. Por exemplo, a expressão <code class="highlighter-rouge">a = 1, 2, 3</code> é válida e o valor de <code class="highlighter-rouge">a</code>, após atribuição, será de <code class="highlighter-rouge">[1, 2, 3]</code>. Isso acontece pois, caso uma atribuição paralela tenha somente um valor a esqueda (<em>lvalue</em>) e dois ou mais valores a direita (<em>rvalue</em>), os valores a direita serão convertidos para um array (esta mesma atribuição poderia também ser feita usando o operador range (<code class="highlighter-rouge">..</code>),  por exemplo: <code class="highlighter-rouge">a = (1..3).to_a</code>). Caso o <em>lvalue</em> seja maior do que um, porém menor do que o <em>rvalue</em>, por exemplo: <code class="highlighter-rouge">a, b = 1, 2, 3</code>, os valores excedentes do <em>rvalue</em> serão descartados (no caso, o valor <code class="highlighter-rouge">3</code> será descartado). Por fim, se uma atribuição paralela tiver mais valores a esquerda (<em>lvalue</em>) do que a direita (<em>rvalue</em>), por exemplo, <code class="highlighter-rouge">a, b, c = 1, 2</code>, será atribuído <code class="highlighter-rouge">nil</code> para as variáveis excedentes (no caso, <code class="highlighter-rouge">c</code> receberá <code class="highlighter-rouge">nil</code>).</p>
+
+<p>Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição <code class="highlighter-rouge">a, b, c =  (x=1), (x+=1), (x+=1)</code>. Nesse caso, <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> e <code class="highlighter-rouge">c</code> receberiam os valores <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code>, respectivamente.</p>
+
+<h3 id="operadores-binário">Operadores binário</h3>
+
+<ul>
+  <li>TDB</li>
+</ul>
 
 <h2 id="ordem-de-avaliação">Ordem de avaliação</h2>
 
@@ -702,9 +723,11 @@
   </tbody>
 </table>
 
-<p>Para a ordem de precedência de todos os operadores, acesse o site da documentação da linguagem.</p>
+<p>A tabela acima deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.</p>
 
-<p>A tabela deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.</p>
+<p>Um leitor atento poderia facilmente observar que o operador <code class="highlighter-rouge">&amp;&amp;</code> tem maior precedência do que o operador <code class="highlighter-rouge">||</code> (e ambos tem maior precedência do que seus equivalentes <code class="highlighter-rouge">and</code> e <code class="highlighter-rouge">or</code>). No entanto, e curiosamente, os operadores <code class="highlighter-rouge">and</code> e <code class="highlighter-rouge">or</code> tem a mesma precedência.</p>
+
+<p>Por fim, a tabela acima lista somente os operadores discutidos nesse guia. Para conhecer a ordem de precedência de todos os operadores da linguagem, acesse a <a href="https://ruby-doc.org/core-2.6.2/doc/syntax/precedence_rdoc.html">documentação oficial</a>.</p>
 
 <!-- ## Árvore de expressão
 
