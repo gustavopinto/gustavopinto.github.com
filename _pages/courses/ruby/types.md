@@ -82,7 +82,7 @@ O método ```next``` retorna o próximo consecutivo inteiro enquanto o método `
 34.pred # => "33"
 ```
 
-Além dos métodos acima (e de vários outros, rode ```1.methods``` para ter uma idéia), integers também conta com alguns métodos que auxiliam iteração de objetos, como o ```times```, ```upto```, ```downto``` e o ```step```. Por exemplo, pra iterar 10 vezes, poderíamos escrever ```10.times { |i| puts i }```. A estrutura de chaves ```{}``` são chamamos de blocos. No capítulo sobre métodos vamos falar mais sobre blocos.
+Além dos métodos acima (e de vários outros, rode ```1.methods``` para ter uma idéia), integers também conta com alguns métodos que auxiliam iteração de objetos, como o ```times```, ```upto```, ```downto``` e o ```step```. Por exemplo, pra iterar 10 vezes, poderíamos escrever ```10.times { |i| puts i }```. A estrutura de chaves ```{}``` são chamamos de blocos. No [capítulo sobre métodos](/ruby-guide/methods) vamos falar mais sobre blocos.
 
 Por fim, a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:
 

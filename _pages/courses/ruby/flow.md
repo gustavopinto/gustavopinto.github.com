@@ -57,7 +57,7 @@ Em vez de executar esse código direto no ```irb```, dessa vez vamos criar um ar
 
 O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o codigo novamente no interpretador (chato, heim?).
 
-Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um ```if``` (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um ```if``` (ou um bloco) usando a instrução ```end```. E se não fecharmos um bloco com um ```end```? O que aconteceria?
+Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um ```if``` (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um ```if``` (ou um bloco) usando a instrução ```end```. E se não fecharmos um bloco com um ```end```? Algo como o exemplo abaixo. O que aconteceria?
 
 ```ruby
 idade = gets.to_i
@@ -175,7 +175,7 @@ if not idade > 18
 end
 ```
 
-Usamos o operador lógico ```not``` para representar a negação da expressão. Como vimos no capítulo anterior, ```not true # => false```. Porém, em Ruby, existe ainda a instrução ```unless```. A instrução ```unless``` é apenas um atalho para o ```if not```. Alguns consideram quem ela facilita o entendimento de uma expressão. Logo, o mesmo código escrito acima poderia ser re-escrito usando ```unless```:
+Usamos o operador lógico ```not``` para representar a negação de uma expressão. Como vimos no capítulo anterior, ```not true # => false```. Porém, em Ruby, existe ainda a instrução ```unless```. A instrução ```unless``` é apenas um atalho para o ```if not```. Alguns consideram quem ela facilita o entendimento de uma expressão. Logo, o mesmo código escrito acima poderia ser re-escrito usando ```unless```:
 
 ```ruby
 unless idade > 18
@@ -183,7 +183,7 @@ unless idade > 18
 end
 ```
 
-### Ifs em uma linha
+### If em uma linha
 
 Por fim, caso você queira fazer somente uma única condição, Ruby ainda fornece outros atalhos. Por exemplo, o mesmo código acima poderia ser escrito usando um ```if``` de uma única linha:
 
@@ -192,14 +192,35 @@ puts "Você não pode ter acesso a esse conteúdo" if not idade > 18
 puts "Você não pode ter acesso a esse conteúdo" unless idade > 18
 ```
 
-Caso você precise de um ```if```/```else``` de uma linha, você pode se apoiar no operador ternário.
+Por fim, caso você precise de um ```if```/```else``` de uma linha, você pode se apoiar no operador ternário.
 
 ```ruby
 idade > 18 ? "Bem vindo!" : "Você não pode ter acesso a esse conteúdo!"
 ```
 
+## Iterações
+
+Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida.
+
+### Interando com métodos
+
+Como vimos no capítulo sobre tipos de dados, os tipos numéricos fornecem o método ```times```, que itera em um bloco ```int``` vezes. Em outras palavras, a expressão ```5.times``` chama o método ```times``` do objeto ```5``` da classe  ```Integer```. Apenas executar a instrução ```5.times``` não retorna nada interessante -- um estranho ```#<Enumerator: 5:times>```, que nada mais é do que outro tipo de dado, chamado ```Enumerator```. Precisamos passar um bloco para o método executar. Um exemplo de bloco seria uma instrução delimitada por chaves ```{}```, algo como: ```5.times{|i| puts "Eu sei iterar até #{i}"}```. Mesmo para aqueles que já estudaram uma linguagem de programação, esse trecho de código pode parecer confuso. Vamos então olhar o passo a passo dessa instrução no microscópio:
+
+- Nós criamos um objeto inteiro de valor ```5```.
+- Nós chamamos o método ```times``` que existe dentro da classe ```Integer```.
+- Nós passamos as instruções dentro do bloco ```{}``` como parêmetro para o método ```times```.
+- Agora o método ```times``` chama o bloco que passamos por parâmetro.
+- Na primeira chamada ao bloco, é passado o valor ```0``` para a variável ```i``` que foi definida localmente, dentro do bloco.
+- Dentro do bloco, o comando ```puts``` é executado. Como essa é a única instrução dentro do nosso bloco, após a execução o bloco retorna com o valor ```0``` para o método ```times```.
+- O método times chama novamente o bloco, agora passando o valor ```1``` par aa variável ```i``` dentro do bloco.
+- O passos se repetem até que seja passado o último valor para o bloco.
+- Por fim, o método ```times``` retorna o inteiro inicialmente fornecido.
+
+O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, ```Range``` e ```Arrays``` contam com o método ```map```. O método ```map``` executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o ```times``` recebe o valor ```5``` como entrada e o ```map``` recebe o array ```[8, 6, 7, 10, 4]```). Como poderíamos receber outros valores de entrada do usuário? 
+
+
+
 <!--
-## Iteração
 
 There seem to be 5 kinds of loops:
 
@@ -214,4 +235,9 @@ loop through each item in a collection (or each char in a string, or each node i
 
 ## Exercícios de fixação
 
+- Escreva um programa que receba um ano e calcule se ele é bissexto ou não.
+- Escreva um convertor de moeadas que funcione para Real, Dolar e Euro. O usuário deve fornecer o valor a ser convertido, a moeda origem e a moeda destino. O programa deve retornar o valor convertido na moeda escolhida.
+- Faça um programa que calcule o conceito de um aluno da UFPA. O programa deve receber quatro números de entrada (entre 0 e 10), tirar uma média desses números, e retornar apenas o conceito. Lembrando que: 9--10 -> Excelente; 7--8,9 -> Bom; 5--6,9 -> Regular; Menor que 5 -> Insuficiente.
+- Faça um programa para determinar se um número é divisível por 3 ou por 5, mas não simultaneamente divisível pelos dois.
+- Faça um programa que leia a data de nascimento de uma pessoa no formato DD-MMM-AAAA. Verifique se cada parte da data informada é válida (por ex, o dia 33 não é válido, assim como o dia 30 não é válido em fevereiro, bem como o mês zero não é válido, etc.). Ao final das verificações, imprima se a data é válida ou inválida.  
 - O uso de recursão lhe parece natural como o uso de iteração? Explique.

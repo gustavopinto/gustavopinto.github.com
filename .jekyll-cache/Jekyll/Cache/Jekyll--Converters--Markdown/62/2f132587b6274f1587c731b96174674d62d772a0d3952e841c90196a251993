@@ -1,4 +1,4 @@
-I"lR<p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
+I"�R<p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Programar é fazer com que os dados sigam um determinado caminho (podendo sofrer modificações ao longo desse caminho). O controle do fluxo se refere a ordem de como os dados irão ser executados ao longo deste caminho (que é a execução do programa).</p>
 
@@ -52,7 +52,7 @@ End
 
 <p>O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o codigo novamente no interpretador (chato, heim?).</p>
 
-<p>Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um <code class="highlighter-rouge">if</code> (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um <code class="highlighter-rouge">if</code> (ou um bloco) usando a instrução <code class="highlighter-rouge">end</code>. E se não fecharmos um bloco com um <code class="highlighter-rouge">end</code>? O que aconteceria?</p>
+<p>Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um <code class="highlighter-rouge">if</code> (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um <code class="highlighter-rouge">if</code> (ou um bloco) usando a instrução <code class="highlighter-rouge">end</code>. E se não fecharmos um bloco com um <code class="highlighter-rouge">end</code>? Algo como o exemplo abaixo. O que aconteceria?</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
 
