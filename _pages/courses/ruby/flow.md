@@ -216,8 +216,9 @@ Como vimos no capítulo sobre tipos de dados, os tipos numéricos fornecem o mé
 - O passos se repetem até que seja passado o último valor para o bloco.
 - Por fim, o método ```times``` retorna o inteiro inicialmente fornecido.
 
-O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, ```Range``` e ```Arrays``` contam com o método ```map```. O método ```map``` executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o ```times``` recebe o valor ```5``` como entrada e o ```map``` recebe o array ```[8, 6, 7, 10, 4]```). Como poderíamos receber outros valores de entrada do usuário? 
+O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, ```Range``` e ```Arrays``` contam com o método ```map```. O método ```map``` executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o ```times``` recebe o valor ```5``` como entrada e o ```map``` recebe o array ```[8, 6, 7, 10, 4]```). Como poderíamos receber outros valores de entrada do usuário?
 
+### Interando com estruturas de repetição
 
 
 <!--

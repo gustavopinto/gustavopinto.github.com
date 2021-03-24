@@ -177,12 +177,31 @@ Nos dois casos acima o segundo operador não precisa ser avaliado. A tabela verd
 
 Por fim, o operador ```!``` inverte o estado lógico do seu operando. É por isso que se a variável ```a``` recebe um valor ```true```, ela será avaliada para ```false```.
 
-
 | A           | !A         |
 |-------------|------------|
 | ```true```  | ```false```|
 | ```false``` | ```true``` |
 
+
+### ```true``` ou ```false``` com variáveis não booleanas
+
+Depois de entendido que operadores lógicos avaliam operandos booleanos e resultam em valores como ```true``` ou ```false```, o próximo passo é entender um pouco mais das idiossincrasias de Ruby.
+
+Em Ruby, outros tipos de dados como inteiros e strings podem ser utilizados em um contexto booleano. Por exemplo, em Ruby a seguinte expressão ```1 and 1``` é válida e avalia para ```1```. Isso acontece pois, ```1``` é avaiado como ```true```. Logo, a expressão ```1 and 1``` é equivalente a expressão ```true and true```. De maneira mais geral, qualquer valor exceto ```nil``` ou o próprio ```false``` são considerados como ```true```. Logo, expressões como ```"a" and "b"```, ou ```"a" and 1```, ou ainda ```"a" and true``` também são válidas em Ruby.
+
+Podemos visualizar esse comportamento booleano de variáveis não booleanas usando o operador ```!!```.  O operador ```!!``` nada mais é do que o operador de negação ```!``` escrito duas vezes. Este operador vai negar o argumento e depois negar a negação. Com o operador ```!!``` é possível obter o valor booleano de qualquer tipo de dado.  Por exemplo:
+
+```ruby
+!! "Gustavo"  # => true
+!! :Gustavo   # => true
+!! 10         # => true
+!! nil        # => false
+
+!! true       # => true
+!! false      # => false
+```
+
+Para aqueles com bagagem em outras linguagens de programação, talvez seja fácil imaginar que valores como o número ```0``` ou uma string vazia ```""``` também seriam avaliados como ```false```, mas não é o caso em Ruby.
 
 ## Outros operadores
 
@@ -220,9 +239,6 @@ Além da vantagem da economia de espaço, há outros recursos interessantes. Por
 
 Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição ```a, b, c =  (x=1), (x+=1), (x+=1)```. Nesse caso, ```a```, ```b``` e ```c``` receberiam os valores ```1```, ```2``` e ```3```, respectivamente.
 
-### Operadores binário
-
-- TDB
 
 ## Ordem de avaliação
 
