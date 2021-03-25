@@ -200,34 +200,17 @@ idade > 18 ? "Bem vindo!" : "Você não pode ter acesso a esse conteúdo!"
 
 ## Iterações
 
-Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida.
+Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida. Há diversas estruturas de repetição em Ruby, como o ```for``` e o```while```. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método ```loop```.
 
-### Interando com métodos
+#### do/while
 
-Como vimos no capítulo sobre tipos de dados, os tipos numéricos fornecem o método ```times```, que itera em um bloco ```int``` vezes. Em outras palavras, a expressão ```5.times``` chama o método ```times``` do objeto ```5``` da classe  ```Integer```. Apenas executar a instrução ```5.times``` não retorna nada interessante -- um estranho ```#<Enumerator: 5:times>```, que nada mais é do que outro tipo de dado, chamado ```Enumerator```. Precisamos passar um bloco para o método executar. Um exemplo de bloco seria uma instrução delimitada por chaves ```{}```, algo como: ```5.times{|i| puts "Eu sei iterar até #{i}"}```. Mesmo para aqueles que já estudaram uma linguagem de programação, esse trecho de código pode parecer confuso. Vamos então olhar o passo a passo dessa instrução no microscópio:
+O método ```loop``` é uma estrutura de repetição no formato de um ```do/while```, ou seja, ele primeiro executa uma ação para depois verificar se é necessário executar novamente. Ou seja, o ```loop``` é executado ao menos uma vez. Na sua forma mais simples, o  ```loop``` executa um trecho de código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves ```{}```. Um ```loop``` de uma única linha tem o seguinte formato:
 
-- Nós criamos um objeto inteiro de valor ```5```.
-- Nós chamamos o método ```times``` que existe dentro da classe ```Integer```.
-- Nós passamos as instruções dentro do bloco ```{}``` como parêmetro para o método ```times```.
-- Agora o método ```times``` chama o bloco que passamos por parâmetro.
-- Na primeira chamada ao bloco, é passado o valor ```0``` para a variável ```i``` que foi definida localmente, dentro do bloco.
-- Dentro do bloco, o comando ```puts``` é executado. Como essa é a única instrução dentro do nosso bloco, após a execução o bloco retorna com o valor ```0``` para o método ```times```.
-- O método times chama novamente o bloco, agora passando o valor ```1``` par aa variável ```i``` dentro do bloco.
-- O passos se repetem até que seja passado o último valor para o bloco.
-- Por fim, o método ```times``` retorna o inteiro inicialmente fornecido.
+```ruby
+  loop { puts "Minha primeira repetição usando 'loop'." }
+```
 
-O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, ```Range``` e ```Arrays``` contam com o método ```map```. O método ```map``` executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o ```times``` recebe o valor ```5``` como entrada e o ```map``` recebe o array ```[8, 6, 7, 10, 4]```). Como poderíamos receber outros valores de entrada do usuário?
-
-### Iterando com estruturas de repetição
-
-Há diversas estruturas de repetição em Ruby, como o ```for```, ```while``` e o ```do/while```. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método ```loop```.
-
-#### Loop
-
-Um ```loop``` recebe um bloco e executa o código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves ```{}```.
-
-
-No entanto, o caso um bloco tenha mais de uma linha, podemos escrever usando a estrutura ```do ... end```. No caso da estrutura de repetição, podemos escrever o mesmo procedimento acima usando a estrutura de múltiplas linhas:
+No entanto, o caso um bloco tenha mais de uma linha, podemos escreve-lo usando a estrutura ```do ... end```. Poderíamos então escrever o mesmo procedimento acima usando a estrutura de múltiplas linhas:
 
 ```ruby
 loop do
@@ -263,7 +246,7 @@ Nesse exemplo, usamos uma variável chamada ```i``` para controlar a quantidade 
 
 ### while
 
-Uma outra estrutura de repetição muito similar ao ```loop``` é o ```while```. A primeira instrução de ```while``` é na realidade uma condição de verifica se o ```while``` deve ser executado. Enquanto o resultado da condição seja ```true```, o bloco é executado; caso o resultado da condição seja ```false```, o ```while``` não é mais executado. O mesmo programa do exemplo anterior poderia ser escrito usando um ```while```:
+Diferente do ```loop```, em que a verificação do laço acontece no final, no ```while``` a verificação acontece no começo. De fato, a primeira instrução de um ```while``` é na realidade uma condição que verifica se o ```while``` deve ainda ser executado. Enquanto o resultado da condição seja ```true```, o bloco é executado; caso o resultado da condição seja ```false```, o ```while``` não é mais executado. O mesmo programa do exemplo anterior poderia ser escrito usando um ```while```:
 
 
 ```ruby
@@ -274,22 +257,90 @@ while i < 5
 end
 ```
 
-O exemplo com ```while``` é mais conciso que o exemplo usando ```loop```, pois no ```while``` não foi preciso utilizar um ```if``` que testa a quantidade de vezes o laço foi executado; essa execução é feita na primeira chamada do ```while```. Como não precisamos do ```if```, também não precisamos do ```break```, pois o ```while``` não será mais executado quando o resultado da expressão ```i < 5``` for ```false```.
+O exemplo com ```while``` é mais conciso do que o exemplo usando ```loop```, pois no ```while``` não foi preciso utilizar um ```if``` que testa a quantidade de vezes o laço foi executado; esse teste é feito na primeira chamada do ```while```. Como não precisamos do ```if```, também não precisamos do ```break```, pois o ```while``` não será mais executado quando o resultado da expressão ```i < 5``` for ```false```.
 
-Além de ser mais conciso, o ```while``` também é muito utilizado quando queremos que nosso programa rode indefinidamente. Vamos voltar ao nosso exemplo do cálculode imposto do [capítulo sobre variáveis](/ruby-guide/vars). No exemplo daquele capítulo, nós calculavamos o imposto de somente um produto. Poderíamos agora avançar nesse exemplo, fazendo o cálculo para mais de um produto. Como a princípio não sabemos quantos produtos vamos calcular, usamos um ```while true``` que vai petir o procedimento de calculo indefinidamente, até o usuário nos avisar que não precisa mais calcular o imposto.
+Além de ser mais conciso, o ```while``` também é muito utilizado quando queremos que nosso programa rode indefinidamente. Vamos voltar ao nosso exemplo do cálculo de imposto do [capítulo sobre variáveis](/ruby-guide/vars). No exemplo daquele capítulo, nós calculávamos o imposto de somente um produto. Poderíamos agora avançar nesse exemplo, fazendo o cálculo para mais de um produto. Como a princípio não sabemos quantos produtos devemos calcular o imposto, usamos um ```while true```, que vai repetir o procedimento de calculo indefinidamente, até o usuário nos avisar que não precisa mais calcular o imposto.
 
 ```ruby
 icms = 0.18
 ipi = 0.07
 
 while true
-  puts "Digite o valor do produto (ou digite 0 para sair)"
+  puts "Digite o valor do produto: "
 
   produto = gets.to_i
 
-  if produto == 0
+  produto_com_imposto = produto + (produto * icms) + (produto * ipi)
+
+  puts "O valor do produto com imposto é: #{produto_com_imposto}"
+
+  puts "Digite 'S' se você gostaria de calcular outro produto? "
+
+  continua = gets.chomp
+
+  if continua.upcase != 'S'
     break
   end
+end
+```
+
+Nesse exemplo, nós começamos pedindo para o usuário nos informar o valor do produto. Fazemos o cálculo do imposto e imprimimos o resultado na tela. Em seguida, perguntamos ao usuário se ele gostaria de calcular o imposto de outro produto. Caso a resposta seja ```'S'```, o laço itera novamente. Como vimos mais a cima, é possível compor condicionais em uma única linha. Podemos tirar vantagem desse recurso e tornar o trecho que encerra a execução do programa mais conciso. Algo como:
+
+```ruby
+icms = 0.18
+ipi = 0.07
+
+while true
+  puts "Digite o valor do produto: "
+
+  produto = gets.to_i
+
+  produto_com_imposto = produto + (produto * icms) + (produto * ipi)
+
+  puts "O valor do produto com imposto é: #{produto_com_imposto}"
+
+  puts "Digite 'S' se você gostaria de calcular outro produto? "
+
+  continua = gets.chomp
+  break if continua.upcase != 'S'
+end
+```
+
+Por fim, como estamos testando uma negação ao fim do programa, poderíamos trocar o ```if``` por um ```unless```, a alterando a instrução para: ```break unless continua.upcase == 'S'```. Assim o nosso código fica mais legível (quase que escrito em Inglês).
+
+
+---
+**Curiosidade**
+
+Como em Ruby existe sempre mais de uma forma pra fazer a mesma coisa, existe também a estrutura de repetição ```until```. O ```until``` se assemelha a um ```while```, exceto pelo fato de que  o ```until``` é executado enquanto a condição for ```false```.
+
+---
+
+### for loop
+
+Diferente dos mecanismos de iteração que vimos até o momento neste capítulo, o laço ```for``` itera sobre um conjunto de elementos. Outra diferença com relação ao ```do/while``` e o ```while``` é que no ```for``` nós temos menos preocupação em cair em um loop infinito, uma vez que vamos estrar trabalhando com conjuntos finitos. Algo como:
+
+```ruby
+for i in 5 do
+  puts "Iterando meu primeiro laço com 'for' #{i} vezes"
+end
+```
+
+Esse laço pode ser lido da seguinte forma: a instrução ```1..5``` cria um objeto do tipo ```Enumerator``` com a representação dos elementos de ```1``` até ```5```. O ```for``` irá percorrer cada um desses elementos. Para cada iteração, o valor do elemento será armazenado na variável ```i```. Após a atribuição da variável ```i```, o bloco é executado.
+
+Mas como poderíamos fazer o mesmo exemplo anterior usando um ```for```?  Teríamos que mudar um pouco o nosso algoritmo, uma vez que precisamos saber exatamente quantos produtos vamos calcular o imposto. Por exemplo:
+
+```ruby
+icms = 0.18
+ipi = 0.07
+
+puts "Quantos produtos você deseja calular o imposto?"
+produtos_para_calcular = gets.to_i
+
+for i in 1..produtos_para_calcular do
+  puts "Digite o valor do produto #{i}: "
+
+  produto = gets.to_i
 
   produto_com_imposto = produto + (produto * icms) + (produto * ipi)
 
@@ -297,23 +348,63 @@ while true
 end
 ```
 
-
-### do/while
-
-A do/while loop works in a similar way to a while loop; one important difference is that the code within the loop gets executed one time, prior to the conditional check to see if the code should be executed. In a "do/while" loop, the conditional check is placed at the end of the loop as opposed to the beginning
-
-<!--
-
-There seem to be 5 kinds of loops:
-
-loop forever
-loop n timesloop
-loop while/until a condition is true
-loop through a range of numbers, optionally with a step
-loop through each item in a collection (or each char in a string, or each node in a linked list...)
+O ```for``` pode ser utilizado com um array no lugar de um range. Por exemplo, se e o usuário fornecesse os produtos antecipadamente (em vez de um por um), poderíamos fazer o cálculo dos produtos da seguinte forma:
 
 
--->
+```ruby
+icms = 0.18
+ipi = 0.07
+
+produtos = [10, 20, 40, 35, 70]
+
+for produto in produtos do
+  produto_com_imposto = produto + (produto * icms) + (produto * ipi)
+
+  puts "O valor do produto #{produto} com imposto é: #{produto_com_imposto}"
+end
+```
+
+Perceba que nesse exemplo, não foi mais necessário pedir informações para o usuário ao longo da execução do programa, pois nosso array de ```produtos``` já estava preenchido desde o começo. Perceba também que mudamos o nome da variável ```i``` para ```produtos```. Poderíamos deixar ```i``` como estava nos exemplos anteriores, no entanto, alterar o nome para ```produto``` torna a variável mais inteligível (ou seja, basta olhar pra saber do que se trata).
+
+Vamos encerrar o nosso exemplo de cálculo de imposto fazendo uma última modificação no algoritmo. Nosso novo requisito pede que não calculemos o imposto caso o valor do produto seja menor do que R$ 15. Como poderíamos fazer para evitar o cálculo de um único produto? Se usarmos o ```break```, todo o nosso laço será interrompido. Para casos como esse, podemos usar a instrução ```next``` que pula para a próxima iteração do laço. O novo requisito poderia ser implementado da seguinte forma:
+
+
+```ruby
+icms = 0.18
+ipi = 0.07
+
+produtos = [10, 20, 40, 35, 70]
+
+for produto in produtos do
+  if produto < 15
+    next
+  end
+
+  produto_com_imposto = produto + (produto * icms) + (produto * ipi)
+
+  puts "O valor do produto #{produto} com imposto é: #{produto_com_imposto}"
+end
+```
+
+### Iterators
+
+Como vimos no [capítulo sobre tipos de dados](/ruby-guide/types), os tipos numéricos implementam o método ```times```, que repete um bloco ```n``` vezes. Chamamos métodos com comportamento de repetição de ```iterators```.
+
+Mais pragmaticamente, a expressão ```5.times``` chama o método ```times``` do objeto ```5``` da classe  ```Integer```. Apenas executar a instrução ```5.times``` não retorna nada interessante -- um estranho ```#<Enumerator: 5:times>```, que nada mais é do que a instância de outro tipo de dado, chamado ```Enumerator```; ```Enumerator``` é a implementação em Ruby de um iterator. Precisamos passar um bloco para o método executar. Um exemplo simples de bloco seria uma instrução delimitada por chaves ```{}```, algo como: ```5.times {|i| puts "Eu sei iterar até #{i}"}```. Mesmo para aqueles que já estudaram uma linguagem de programação, esse trecho de código pode parecer confuso. Vamos então olhar o passo a passo dessa instrução no microscópio:
+
+- Nós criamos um objeto inteiro de valor ```5```.
+- Nós chamamos o método ```times``` que existe dentro da classe ```Integer```.
+- Nós passamos as instruções dentro do bloco ```{}``` como parêmetro para o método ```times```.
+- Agora o método ```times``` chama o bloco que passamos por parâmetro.
+- Na primeira chamada ao bloco, é passado o valor ```0``` para a variável ```i``` que foi definida localmente, dentro do bloco (representado por ```|i|```).
+- Dentro do bloco, o comando ```puts``` é executado e usa o valor da variável ```i```. Como essa é a única instrução dentro do nosso bloco, após a execução o bloco retorna com o valor ```0``` de volta para o método ```times```.
+- O método ```times``` chama novamente o bloco, agora passando o valor ```1``` para a variável ```i``` dentro do bloco.
+- O passos se repetem até que seja passado o último valor para o bloco.
+- Por fim, o método ```times``` retorna o inteiro inicialmente fornecido.
+
+O método ```times``` não é o único método que fornece a implementação de um iterator, pelo contrário. Outros tipos básicos da linguagem como  ```Range``` e ```Arrays``` contam, dentre vários métodos, com o método ```map```. O método ```map``` executa uma instrução em um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array.
+
+No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada um determinado tipo de dado (por exemplo, o ```times``` recebe o inteiro ```5``` como entrada enquanto que o ```map``` recebe o array ```[8, 6, 7, 10, 4]``` como entrada).
 
 ## Exercícios de fixação
 
