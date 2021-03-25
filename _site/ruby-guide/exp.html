@@ -623,6 +623,25 @@
   </tbody>
 </table>
 
+<h3 id="true-ou-false-com-variáveis-não-booleanas"><code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code> com variáveis não booleanas</h3>
+
+<p>Depois de entendido que operadores lógicos avaliam operandos booleanos e resultam em valores como <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>, o próximo passo é entender um pouco mais das idiossincrasias de Ruby.</p>
+
+<p>Em Ruby, outros tipos de dados como inteiros e strings podem ser utilizados em um contexto booleano. Por exemplo, em Ruby a seguinte expressão <code class="highlighter-rouge">1 and 1</code> é válida e avalia para <code class="highlighter-rouge">1</code>. Isso acontece pois, <code class="highlighter-rouge">1</code> é avaiado como <code class="highlighter-rouge">true</code>. Logo, a expressão <code class="highlighter-rouge">1 and 1</code> é equivalente a expressão <code class="highlighter-rouge">true and true</code>. De maneira mais geral, qualquer valor exceto <code class="highlighter-rouge">nil</code> ou o próprio <code class="highlighter-rouge">false</code> são considerados como <code class="highlighter-rouge">true</code>. Logo, expressões como <code class="highlighter-rouge">"a" and "b"</code>, ou <code class="highlighter-rouge">"a" and 1</code>, ou ainda <code class="highlighter-rouge">"a" and true</code> também são válidas em Ruby.</p>
+
+<p>Podemos visualizar esse comportamento booleano de variáveis não booleanas usando o operador <code class="highlighter-rouge">!!</code>.  O operador <code class="highlighter-rouge">!!</code> nada mais é do que o operador de negação <code class="highlighter-rouge">!</code> escrito duas vezes. Este operador vai negar o argumento e depois negar a negação. Com o operador <code class="highlighter-rouge">!!</code> é possível obter o valor booleano de qualquer tipo de dado.  Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!!</span> <span class="s2">"Gustavo"</span>  <span class="c1"># =&gt; true</span>
+<span class="o">!!</span> <span class="ss">:Gustavo</span>   <span class="c1"># =&gt; true</span>
+<span class="o">!!</span> <span class="mi">10</span>         <span class="c1"># =&gt; true</span>
+<span class="o">!!</span> <span class="kp">nil</span>        <span class="c1"># =&gt; false</span>
+
+<span class="o">!!</span> <span class="kp">true</span>       <span class="c1"># =&gt; true</span>
+<span class="o">!!</span> <span class="kp">false</span>      <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>Para aqueles com bagagem em outras linguagens de programação, talvez seja fácil imaginar que valores como o número <code class="highlighter-rouge">0</code> ou uma string vazia <code class="highlighter-rouge">""</code> também seriam avaliados como <code class="highlighter-rouge">false</code>, mas não é o caso em Ruby.</p>
+
 <h2 id="outros-operadores">Outros operadores</h2>
 
 <p>Os operadores que discutimos nesse capítulo são os mais comumente utilizados; mas não quer dizer que são os únicos. Há vários outros operadores disponíveis em Ruby. Alguns outros exemplos incluem:</p>
@@ -656,12 +675,6 @@
 <p>É possível, no entanto, fazer atribuições mais complexas. Por exemplo, a expressão <code class="highlighter-rouge">a = 1, 2, 3</code> é válida e o valor de <code class="highlighter-rouge">a</code>, após atribuição, será de <code class="highlighter-rouge">[1, 2, 3]</code>. Isso acontece pois, caso uma atribuição paralela tenha somente um valor a esqueda (<em>lvalue</em>) e dois ou mais valores a direita (<em>rvalue</em>), os valores a direita serão convertidos para um array (esta mesma atribuição poderia também ser feita usando o operador range (<code class="highlighter-rouge">..</code>),  por exemplo: <code class="highlighter-rouge">a = (1..3).to_a</code>). Caso o <em>lvalue</em> seja maior do que um, porém menor do que o <em>rvalue</em>, por exemplo: <code class="highlighter-rouge">a, b = 1, 2, 3</code>, os valores excedentes do <em>rvalue</em> serão descartados (no caso, o valor <code class="highlighter-rouge">3</code> será descartado). Por fim, se uma atribuição paralela tiver mais valores a esquerda (<em>lvalue</em>) do que a direita (<em>rvalue</em>), por exemplo, <code class="highlighter-rouge">a, b, c = 1, 2</code>, será atribuído <code class="highlighter-rouge">nil</code> para as variáveis excedentes (no caso, <code class="highlighter-rouge">c</code> receberá <code class="highlighter-rouge">nil</code>).</p>
 
 <p>Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição <code class="highlighter-rouge">a, b, c =  (x=1), (x+=1), (x+=1)</code>. Nesse caso, <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> e <code class="highlighter-rouge">c</code> receberiam os valores <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code>, respectivamente.</p>
-
-<h3 id="operadores-binário">Operadores binário</h3>
-
-<ul>
-  <li>TDB</li>
-</ul>
 
 <h2 id="ordem-de-avaliação">Ordem de avaliação</h2>
 

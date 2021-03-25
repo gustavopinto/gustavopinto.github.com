@@ -218,15 +218,96 @@ Como vimos no capítulo sobre tipos de dados, os tipos numéricos fornecem o mé
 
 O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, ```Range``` e ```Arrays``` contam com o método ```map```. O método ```map``` executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: ```[8, 6, 7, 10, 4].map {|i| i.to_s(2)}```. Nesse exemplo, chamamos o método ```to_s(2)``` para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o ```times``` recebe o valor ```5``` como entrada e o ```map``` recebe o array ```[8, 6, 7, 10, 4]```). Como poderíamos receber outros valores de entrada do usuário?
 
-### Interando com estruturas de repetição
+### Iterando com estruturas de repetição
 
+Há diversas estruturas de repetição em Ruby, como o ```for```, ```while``` e o ```do/while```. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método ```loop```.
+
+#### Loop
+
+Um ```loop``` recebe um bloco e executa o código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves ```{}```.
+
+
+No entanto, o caso um bloco tenha mais de uma linha, podemos escrever usando a estrutura ```do ... end```. No caso da estrutura de repetição, podemos escrever o mesmo procedimento acima usando a estrutura de múltiplas linhas:
+
+```ruby
+loop do
+  puts "Minha primeira repetição usando 'loop'."
+end
+```
+
+No entanto, faz pouco sentido o nosso programa ficar imprimindo essa string indefinidamente. Pedir para um usuário do nosso programa encerra-lo manualmente também não parece uma boa opção. Outra forma mais interessante de encerrar a execução de um ```loop``` é através da instrução ```break```. O ```break``` força que a repetição se encerre.
+
+```ruby
+loop do
+  puts "Minha primeira repetição usando 'loop'."
+  break
+end
+```
+
+Nesse exemplo conseguimos perceber que a instrução dentro do ```loop``` é executada somente uma única vez, até alcançar o ```break``` e então encerrar a execução do ```loop```. Parece que os dois exemplos usando ```loop``` são extremos. No primeiro caso, nós iteramos indefinidamente, até que o usuário manualmente encerre a operação. Já no segundo exemplo, não conseguimos iterar nem uma segunda vez. Como poderíamos fazer para ter um pouco mais de controle no nosso código, e decidir quantas vezes nós queremos iterar um trecho de código? Poderíamos usar um ```if``` pra decidir quando devemos encerrar a execução do ```loop```? Vejamos o próximo exemplo.
+
+```ruby
+i = 0
+loop do
+  i = i.succ
+  puts "Repetição de número #{i} usando 'loop'."
+
+  if i == 5
+    puts "Vou encerrar essa repetição agora."
+    break
+  end
+end
+```
+
+Nesse exemplo, usamos uma variável chamada ```i``` para controlar a quantidade de vezes que nosso ```loop``` deve iterar. A cada nova iteração do ```loop```, a variável ```i``` é incrementada (através do método ```succ```). A quantidade de vezes que o ```loop``` é executado é controlado pela condição ```if i == 5```.
+
+### while
+
+Uma outra estrutura de repetição muito similar ao ```loop``` é o ```while```. A primeira instrução de ```while``` é na realidade uma condição de verifica se o ```while``` deve ser executado. Enquanto o resultado da condição seja ```true```, o bloco é executado; caso o resultado da condição seja ```false```, o ```while``` não é mais executado. O mesmo programa do exemplo anterior poderia ser escrito usando um ```while```:
+
+
+```ruby
+i = 0
+while i < 5
+  i = i.succ
+  puts "Repetição de número #{i} usando 'loop'."
+end
+```
+
+O exemplo com ```while``` é mais conciso que o exemplo usando ```loop```, pois no ```while``` não foi preciso utilizar um ```if``` que testa a quantidade de vezes o laço foi executado; essa execução é feita na primeira chamada do ```while```. Como não precisamos do ```if```, também não precisamos do ```break```, pois o ```while``` não será mais executado quando o resultado da expressão ```i < 5``` for ```false```.
+
+Além de ser mais conciso, o ```while``` também é muito utilizado quando queremos que nosso programa rode indefinidamente. Vamos voltar ao nosso exemplo do cálculode imposto do [capítulo sobre variáveis](/ruby-guide/vars). No exemplo daquele capítulo, nós calculavamos o imposto de somente um produto. Poderíamos agora avançar nesse exemplo, fazendo o cálculo para mais de um produto. Como a princípio não sabemos quantos produtos vamos calcular, usamos um ```while true``` que vai petir o procedimento de calculo indefinidamente, até o usuário nos avisar que não precisa mais calcular o imposto.
+
+```ruby
+icms = 0.18
+ipi = 0.07
+
+while true
+  puts "Digite o valor do produto (ou digite 0 para sair)"
+
+  produto = gets.to_i
+
+  if produto == 0
+    break
+  end
+
+  produto_com_imposto = produto + (produto * icms) + (produto * ipi)
+
+  puts "O valor do produto com imposto é: #{produto_com_imposto}"
+end
+```
+
+
+### do/while
+
+A do/while loop works in a similar way to a while loop; one important difference is that the code within the loop gets executed one time, prior to the conditional check to see if the code should be executed. In a "do/while" loop, the conditional check is placed at the end of the loop as opposed to the beginning
 
 <!--
 
 There seem to be 5 kinds of loops:
 
 loop forever
-loop n times
+loop n timesloop
 loop while/until a condition is true
 loop through a range of numbers, optionally with a step
 loop through each item in a collection (or each char in a string, or each node in a linked list...)
