@@ -20,7 +20,7 @@ Há diversas formas de controlar o fluxo dos dados em um programa, por exemplo:
 
 Há ainda outras construções de linguagem como o ```goto``` (em C), que alteram o fluxo de dados. Mas esses são tópicos para outro guia 🙃.
 
-Neste capítulo vamos aprender sobre condicionais, iterações e recursão. Mais pra frente no guia também teremos um capítulo sobre exceção.
+Neste capítulo vamos aprender sobre condicionais e iterações. Recursão será abordado no capítulo sobre métodos. Mais pra frente no guia também teremos um capítulo sobre exceção.
 
 ## Condicionais
 
@@ -48,16 +48,18 @@ Diferentes linguagens de programação implementam condicionais de forma ligeira
 ```ruby
 idade = gets.to_i
 
-if idade == 10
+if idade == 10 then
   puts "A idade é igual 10"
 end
 ```
 
-Em vez de executar esse código direto no ```irb```, dessa vez vamos criar um arquivo chamado ```ifs.rb``` e colar e salvar esse conteúdo dentro dele. Pra rodar esse arquivo, basta navegar pela linha de comando até onde o arquivo foi salvo e rodar o comando ```ruby ifs.rb```.
+Antes de tudo: em vez de executar esse código direto no ```irb```, dessa vez vamos criar um arquivo chamado ```ifs.rb``` e colar e salvar esse conteúdo dentro dele. Pra rodar esse arquivo, basta navegar pela linha de comando até onde o arquivo foi salvo e rodar o comando ```ruby ifs.rb```.
 
 O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o codigo novamente no interpretador (chato, heim?).
 
-Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um ```if``` (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um ```if``` (ou um bloco) usando a instrução ```end```. E se não fecharmos um bloco com um ```end```? Algo como o exemplo abaixo. O que aconteceria?
+Voltando ao nosso exemplo. Perceba que a estrutura em Ruby é muito semelhante a estrutura de blocos apresentada anteriormente. No entanto, em Ruby, a instrução ```then``` após o ```if``` é opcional e pode ser omitida. Parece também ser uma prática comum em programadores Ruby, logo, ao longo do guia, vamos evitar utilizar o ```then```.
+
+Outro ponto importante é que sempre abrimos um ```if``` (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um ```if``` (ou um bloco) usando a instrução ```end```. E se não fecharmos um bloco com um ```end```? Algo como o exemplo abaixo. O que aconteceria?
 
 ```ruby
 idade = gets.to_i
@@ -202,7 +204,9 @@ idade > 18 ? "Bem vindo!" : "Você não pode ter acesso a esse conteúdo!"
 
 Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida. Há diversas estruturas de repetição em Ruby, como o ```for``` e o```while```. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método ```loop```.
 
-#### do/while
+Antes de continuarmos, vamos criar um arquivo chamado ```its.rb``` no mesmo diretório do arquivo ```ifs.rb```. Vamos seguir editando diretamente no arquivo ```its.rb``` e executando-o através do comando ```ruby its.rb```.
+
+### do/while
 
 O método ```loop``` é uma estrutura de repetição no formato de um ```do/while```, ou seja, ele primeiro executa uma ação para depois verificar se é necessário executar novamente. Ou seja, o ```loop``` é executado ao menos uma vez. Na sua forma mais simples, o  ```loop``` executa um trecho de código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves ```{}```. Um ```loop``` de uma única linha tem o seguinte formato:
 

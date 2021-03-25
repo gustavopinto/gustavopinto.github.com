@@ -342,7 +342,7 @@
 
 <p>Há ainda outras construções de linguagem como o <code class="highlighter-rouge">goto</code> (em C), que alteram o fluxo de dados. Mas esses são tópicos para outro guia 🙃.</p>
 
-<p>Neste capítulo vamos aprender sobre condicionais, iterações e recursão. Mais pra frente no guia também teremos um capítulo sobre exceção.</p>
+<p>Neste capítulo vamos aprender sobre condicionais e iterações. Recursão será abordado no capítulo sobre métodos. Mais pra frente no guia também teremos um capítulo sobre exceção.</p>
 
 <h2 id="condicionais">Condicionais</h2>
 
@@ -370,16 +370,18 @@ End
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
 
-<span class="k">if</span> <span class="n">idade</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">idade</span> <span class="o">==</span> <span class="mi">10</span> <span class="k">then</span>
   <span class="nb">puts</span> <span class="s2">"A idade é igual 10"</span>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Em vez de executar esse código direto no <code class="highlighter-rouge">irb</code>, dessa vez vamos criar um arquivo chamado <code class="highlighter-rouge">ifs.rb</code> e colar e salvar esse conteúdo dentro dele. Pra rodar esse arquivo, basta navegar pela linha de comando até onde o arquivo foi salvo e rodar o comando <code class="highlighter-rouge">ruby ifs.rb</code>.</p>
+<p>Antes de tudo: em vez de executar esse código direto no <code class="highlighter-rouge">irb</code>, dessa vez vamos criar um arquivo chamado <code class="highlighter-rouge">ifs.rb</code> e colar e salvar esse conteúdo dentro dele. Pra rodar esse arquivo, basta navegar pela linha de comando até onde o arquivo foi salvo e rodar o comando <code class="highlighter-rouge">ruby ifs.rb</code>.</p>
 
 <p>O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o codigo novamente no interpretador (chato, heim?).</p>
 
-<p>Voltando ao nosso exemplo. Perceba que sempre que nós abrimos um <code class="highlighter-rouge">if</code> (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um <code class="highlighter-rouge">if</code> (ou um bloco) usando a instrução <code class="highlighter-rouge">end</code>. E se não fecharmos um bloco com um <code class="highlighter-rouge">end</code>? Algo como o exemplo abaixo. O que aconteceria?</p>
+<p>Voltando ao nosso exemplo. Perceba que a estrutura em Ruby é muito semelhante a estrutura de blocos apresentada anteriormente. No entanto, em Ruby, a instrução <code class="highlighter-rouge">then</code> após o <code class="highlighter-rouge">if</code> é opcional e pode ser omitida. Parece também ser uma prática comum em programadores Ruby, logo, ao longo do guia, vamos evitar utilizar o <code class="highlighter-rouge">then</code>.</p>
+
+<p>Outro ponto importante é que sempre abrimos um <code class="highlighter-rouge">if</code> (ou um bloco, de maneira mais geral, como veremos mais para frente neste guia), nós também precisamos fecha-lo. Se fecha um <code class="highlighter-rouge">if</code> (ou um bloco) usando a instrução <code class="highlighter-rouge">end</code>. E se não fecharmos um bloco com um <code class="highlighter-rouge">end</code>? Algo como o exemplo abaixo. O que aconteceria?</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
 
@@ -512,35 +514,18 @@ End
 
 <h2 id="iterações">Iterações</h2>
 
-<p>Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida.</p>
+<p>Iteração é a forma em que um program tem de repetir uma determina operação, até que uma determinada condição seja atendida. Há diversas estruturas de repetição em Ruby, como o <code class="highlighter-rouge">for</code> e o<code class="highlighter-rouge">while</code>. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método <code class="highlighter-rouge">loop</code>.</p>
 
-<h3 id="interando-com-métodos">Interando com métodos</h3>
+<p>Antes de continuarmos, vamos criar um arquivo chamado <code class="highlighter-rouge">its.rb</code> no mesmo diretório do arquivo <code class="highlighter-rouge">ifs.rb</code>. Vamos seguir editando diretamente no arquivo <code class="highlighter-rouge">its.rb</code> e executando-o através do comando <code class="highlighter-rouge">ruby its.rb</code>.</p>
 
-<p>Como vimos no capítulo sobre tipos de dados, os tipos numéricos fornecem o método <code class="highlighter-rouge">times</code>, que itera em um bloco <code class="highlighter-rouge">int</code> vezes. Em outras palavras, a expressão <code class="highlighter-rouge">5.times</code> chama o método <code class="highlighter-rouge">times</code> do objeto <code class="highlighter-rouge">5</code> da classe  <code class="highlighter-rouge">Integer</code>. Apenas executar a instrução <code class="highlighter-rouge">5.times</code> não retorna nada interessante – um estranho <code class="highlighter-rouge">#&lt;Enumerator: 5:times&gt;</code>, que nada mais é do que outro tipo de dado, chamado <code class="highlighter-rouge">Enumerator</code>. Precisamos passar um bloco para o método executar. Um exemplo de bloco seria uma instrução delimitada por chaves <code class="highlighter-rouge">{}</code>, algo como: <code class="highlighter-rouge">5.times{|i| puts "Eu sei iterar até #{i}"}</code>. Mesmo para aqueles que já estudaram uma linguagem de programação, esse trecho de código pode parecer confuso. Vamos então olhar o passo a passo dessa instrução no microscópio:</p>
+<h3 id="dowhile">do/while</h3>
 
-<ul>
-  <li>Nós criamos um objeto inteiro de valor <code class="highlighter-rouge">5</code>.</li>
-  <li>Nós chamamos o método <code class="highlighter-rouge">times</code> que existe dentro da classe <code class="highlighter-rouge">Integer</code>.</li>
-  <li>Nós passamos as instruções dentro do bloco <code class="highlighter-rouge">{}</code> como parêmetro para o método <code class="highlighter-rouge">times</code>.</li>
-  <li>Agora o método <code class="highlighter-rouge">times</code> chama o bloco que passamos por parâmetro.</li>
-  <li>Na primeira chamada ao bloco, é passado o valor <code class="highlighter-rouge">0</code> para a variável <code class="highlighter-rouge">i</code> que foi definida localmente, dentro do bloco.</li>
-  <li>Dentro do bloco, o comando <code class="highlighter-rouge">puts</code> é executado. Como essa é a única instrução dentro do nosso bloco, após a execução o bloco retorna com o valor <code class="highlighter-rouge">0</code> para o método <code class="highlighter-rouge">times</code>.</li>
-  <li>O método times chama novamente o bloco, agora passando o valor <code class="highlighter-rouge">1</code> par aa variável <code class="highlighter-rouge">i</code> dentro do bloco.</li>
-  <li>O passos se repetem até que seja passado o último valor para o bloco.</li>
-  <li>Por fim, o método <code class="highlighter-rouge">times</code> retorna o inteiro inicialmente fornecido.</li>
-</ul>
+<p>O método <code class="highlighter-rouge">loop</code> é uma estrutura de repetição no formato de um <code class="highlighter-rouge">do/while</code>, ou seja, ele primeiro executa uma ação para depois verificar se é necessário executar novamente. Ou seja, o <code class="highlighter-rouge">loop</code> é executado ao menos uma vez. Na sua forma mais simples, o  <code class="highlighter-rouge">loop</code> executa um trecho de código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves <code class="highlighter-rouge">{}</code>. Um <code class="highlighter-rouge">loop</code> de uma única linha tem o seguinte formato:</p>
 
-<p>O método times não é o único método de tipos básicos da linguagem que fornece comportamento similar. Por exemplo, <code class="highlighter-rouge">Range</code> e <code class="highlighter-rouge">Arrays</code> contam com o método <code class="highlighter-rouge">map</code>. O método <code class="highlighter-rouge">map</code> executa um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: <code class="highlighter-rouge">[8, 6, 7, 10, 4].map {|i| i.to_s(2)}</code>. Nesse exemplo, chamamos o método <code class="highlighter-rouge">to_s(2)</code> para cada elemento do array. O retorno desse método é então armazenado em um novo array. No entanto, métodos como o <code class="highlighter-rouge">times</code> e o <code class="highlighter-rouge">map</code> tem várias limitações, pois estes recem como entrada o valor do tipos de dado (por exemplo, o <code class="highlighter-rouge">times</code> recebe o valor <code class="highlighter-rouge">5</code> como entrada e o <code class="highlighter-rouge">map</code> recebe o array <code class="highlighter-rouge">[8, 6, 7, 10, 4]</code>). Como poderíamos receber outros valores de entrada do usuário?</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kp">loop</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Minha primeira repetição usando 'loop'."</span> <span class="p">}</span>
+</code></pre></div></div>
 
-<h3 id="iterando-com-estruturas-de-repetição">Iterando com estruturas de repetição</h3>
-
-<p>Há diversas estruturas de repetição em Ruby, como o <code class="highlighter-rouge">for</code>, <code class="highlighter-rouge">while</code> e o <code class="highlighter-rouge">do/while</code>. No entanto, talvez a forma mais simples de se fazer uma repetição em Ruby é o método <code class="highlighter-rouge">loop</code>.</p>
-
-<h4 id="loop">Loop</h4>
-
-<p>Um <code class="highlighter-rouge">loop</code> recebe um bloco e executa o código dentro do bloco até que haja uma intevenção manual (como um control+c). Como vimos anteriormente, um bloco que pode ser executado em uma única linha pode ser delimitado por chaves <code class="highlighter-rouge">{}</code>.</p>
-
-<p>No entanto, o caso um bloco tenha mais de uma linha, podemos escrever usando a estrutura <code class="highlighter-rouge">do ... end</code>. No caso da estrutura de repetição, podemos escrever o mesmo procedimento acima usando a estrutura de múltiplas linhas:</p>
+<p>No entanto, o caso um bloco tenha mais de uma linha, podemos escreve-lo usando a estrutura <code class="highlighter-rouge">do ... end</code>. Poderíamos então escrever o mesmo procedimento acima usando a estrutura de múltiplas linhas:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">loop</span> <span class="k">do</span>
   <span class="nb">puts</span> <span class="s2">"Minha primeira repetição usando 'loop'."</span>
@@ -573,7 +558,7 @@ End
 
 <h3 id="while">while</h3>
 
-<p>Uma outra estrutura de repetição muito similar ao <code class="highlighter-rouge">loop</code> é o <code class="highlighter-rouge">while</code>. A primeira instrução de <code class="highlighter-rouge">while</code> é na realidade uma condição de verifica se o <code class="highlighter-rouge">while</code> deve ser executado. Enquanto o resultado da condição seja <code class="highlighter-rouge">true</code>, o bloco é executado; caso o resultado da condição seja <code class="highlighter-rouge">false</code>, o <code class="highlighter-rouge">while</code> não é mais executado. O mesmo programa do exemplo anterior poderia ser escrito usando um <code class="highlighter-rouge">while</code>:</p>
+<p>Diferente do <code class="highlighter-rouge">loop</code>, em que a verificação do laço acontece no final, no <code class="highlighter-rouge">while</code> a verificação acontece no começo. De fato, a primeira instrução de um <code class="highlighter-rouge">while</code> é na realidade uma condição que verifica se o <code class="highlighter-rouge">while</code> deve ainda ser executado. Enquanto o resultado da condição seja <code class="highlighter-rouge">true</code>, o bloco é executado; caso o resultado da condição seja <code class="highlighter-rouge">false</code>, o <code class="highlighter-rouge">while</code> não é mais executado. O mesmo programa do exemplo anterior poderia ser escrito usando um <code class="highlighter-rouge">while</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span>
@@ -582,21 +567,85 @@ End
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>O exemplo com <code class="highlighter-rouge">while</code> é mais conciso que o exemplo usando <code class="highlighter-rouge">loop</code>, pois no <code class="highlighter-rouge">while</code> não foi preciso utilizar um <code class="highlighter-rouge">if</code> que testa a quantidade de vezes o laço foi executado; essa execução é feita na primeira chamada do <code class="highlighter-rouge">while</code>. Como não precisamos do <code class="highlighter-rouge">if</code>, também não precisamos do <code class="highlighter-rouge">break</code>, pois o <code class="highlighter-rouge">while</code> não será mais executado quando o resultado da expressão <code class="highlighter-rouge">i &lt; 5</code> for <code class="highlighter-rouge">false</code>.</p>
+<p>O exemplo com <code class="highlighter-rouge">while</code> é mais conciso do que o exemplo usando <code class="highlighter-rouge">loop</code>, pois no <code class="highlighter-rouge">while</code> não foi preciso utilizar um <code class="highlighter-rouge">if</code> que testa a quantidade de vezes o laço foi executado; esse teste é feito na primeira chamada do <code class="highlighter-rouge">while</code>. Como não precisamos do <code class="highlighter-rouge">if</code>, também não precisamos do <code class="highlighter-rouge">break</code>, pois o <code class="highlighter-rouge">while</code> não será mais executado quando o resultado da expressão <code class="highlighter-rouge">i &lt; 5</code> for <code class="highlighter-rouge">false</code>.</p>
 
-<p>Além de ser mais conciso, o <code class="highlighter-rouge">while</code> também é muito utilizado quando queremos que nosso programa rode indefinidamente. Vamos voltar ao nosso exemplo do cálculode imposto do <a href="/ruby-guide/vars">capítulo sobre variáveis</a>. No exemplo daquele capítulo, nós calculavamos o imposto de somente um produto. Poderíamos agora avançar nesse exemplo, fazendo o cálculo para mais de um produto. Como a princípio não sabemos quantos produtos vamos calcular, usamos um <code class="highlighter-rouge">while true</code> que vai petir o procedimento de calculo indefinidamente, até o usuário nos avisar que não precisa mais calcular o imposto.</p>
+<p>Além de ser mais conciso, o <code class="highlighter-rouge">while</code> também é muito utilizado quando queremos que nosso programa rode indefinidamente. Vamos voltar ao nosso exemplo do cálculo de imposto do <a href="/ruby-guide/vars">capítulo sobre variáveis</a>. No exemplo daquele capítulo, nós calculávamos o imposto de somente um produto. Poderíamos agora avançar nesse exemplo, fazendo o cálculo para mais de um produto. Como a princípio não sabemos quantos produtos devemos calcular o imposto, usamos um <code class="highlighter-rouge">while true</code>, que vai repetir o procedimento de calculo indefinidamente, até o usuário nos avisar que não precisa mais calcular o imposto.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
 <span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
 
 <span class="k">while</span> <span class="kp">true</span>
-  <span class="nb">puts</span> <span class="s2">"Digite o valor do produto (ou digite 0 para sair)"</span>
+  <span class="nb">puts</span> <span class="s2">"Digite o valor do produto: "</span>
 
   <span class="n">produto</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
 
-  <span class="k">if</span> <span class="n">produto</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="n">produto_com_imposto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+  <span class="nb">puts</span> <span class="s2">"O valor do produto com imposto é: </span><span class="si">#{</span><span class="n">produto_com_imposto</span><span class="si">}</span><span class="s2">"</span>
+
+  <span class="nb">puts</span> <span class="s2">"Digite 'S' se você gostaria de calcular outro produto? "</span>
+
+  <span class="n">continua</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+  <span class="k">if</span> <span class="n">continua</span><span class="p">.</span><span class="nf">upcase</span> <span class="o">!=</span> <span class="s1">'S'</span>
     <span class="k">break</span>
   <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Nesse exemplo, nós começamos pedindo para o usuário nos informar o valor do produto. Fazemos o cálculo do imposto e imprimimos o resultado na tela. Em seguida, perguntamos ao usuário se ele gostaria de calcular o imposto de outro produto. Caso a resposta seja <code class="highlighter-rouge">'S'</code>, o laço itera novamente. Como vimos mais a cima, é possível compor condicionais em uma única linha. Podemos tirar vantagem desse recurso e tornar o trecho que encerra a execução do programa mais conciso. Algo como:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+
+<span class="k">while</span> <span class="kp">true</span>
+  <span class="nb">puts</span> <span class="s2">"Digite o valor do produto: "</span>
+
+  <span class="n">produto</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
+
+  <span class="n">produto_com_imposto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+  <span class="nb">puts</span> <span class="s2">"O valor do produto com imposto é: </span><span class="si">#{</span><span class="n">produto_com_imposto</span><span class="si">}</span><span class="s2">"</span>
+
+  <span class="nb">puts</span> <span class="s2">"Digite 'S' se você gostaria de calcular outro produto? "</span>
+
+  <span class="n">continua</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">continua</span><span class="p">.</span><span class="nf">upcase</span> <span class="o">!=</span> <span class="s1">'S'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Por fim, como estamos testando uma negação ao fim do programa, poderíamos trocar o <code class="highlighter-rouge">if</code> por um <code class="highlighter-rouge">unless</code>, a alterando a instrução para: <code class="highlighter-rouge">break unless continua.upcase == 'S'</code>. Assim o nosso código fica mais legível (quase que escrito em Inglês).</p>
+
+<hr />
+<p><strong>Curiosidade</strong></p>
+
+<p>Como em Ruby existe sempre mais de uma forma pra fazer a mesma coisa, existe também a estrutura de repetição <code class="highlighter-rouge">until</code>. O <code class="highlighter-rouge">until</code> se assemelha a um <code class="highlighter-rouge">while</code>, exceto pelo fato de que  o <code class="highlighter-rouge">until</code> é executado enquanto a condição for <code class="highlighter-rouge">false</code>.</p>
+
+<hr />
+
+<h3 id="for-loop">for loop</h3>
+
+<p>Diferente dos mecanismos de iteração que vimos até o momento neste capítulo, o laço <code class="highlighter-rouge">for</code> itera sobre um conjunto de elementos. Outra diferença com relação ao <code class="highlighter-rouge">do/while</code> e o <code class="highlighter-rouge">while</code> é que no <code class="highlighter-rouge">for</code> nós temos menos preocupação em cair em um loop infinito, uma vez que vamos estrar trabalhando com conjuntos finitos. Algo como:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">5</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">"Iterando meu primeiro laço com 'for' </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2"> vezes"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Esse laço pode ser lido da seguinte forma: a instrução <code class="highlighter-rouge">1..5</code> cria um objeto do tipo <code class="highlighter-rouge">Enumerator</code> com a representação dos elementos de <code class="highlighter-rouge">1</code> até <code class="highlighter-rouge">5</code>. O <code class="highlighter-rouge">for</code> irá percorrer cada um desses elementos. Para cada iteração, o valor do elemento será armazenado na variável <code class="highlighter-rouge">i</code>. Após a atribuição da variável <code class="highlighter-rouge">i</code>, o bloco é executado.</p>
+
+<p>Mas como poderíamos fazer o mesmo exemplo anterior usando um <code class="highlighter-rouge">for</code>?  Teríamos que mudar um pouco o nosso algoritmo, uma vez que precisamos saber exatamente quantos produtos vamos calcular o imposto. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+
+<span class="nb">puts</span> <span class="s2">"Quantos produtos você deseja calular o imposto?"</span>
+<span class="n">produtos_para_calcular</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">..</span><span class="n">produtos_para_calcular</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">"Digite o valor do produto </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">: "</span>
+
+  <span class="n">produto</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">to_i</span>
 
   <span class="n">produto_com_imposto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
 
@@ -604,22 +653,61 @@ End
 <span class="k">end</span>
 </code></pre></div></div>
 
-<h3 id="dowhile">do/while</h3>
+<p>O <code class="highlighter-rouge">for</code> pode ser utilizado com um array no lugar de um range. Por exemplo, se e o usuário fornecesse os produtos antecipadamente (em vez de um por um), poderíamos fazer o cálculo dos produtos da seguinte forma:</p>
 
-<p>A do/while loop works in a similar way to a while loop; one important difference is that the code within the loop gets executed one time, prior to the conditional check to see if the code should be executed. In a “do/while” loop, the conditional check is placed at the end of the loop as opposed to the beginning</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
 
-<!--
+<span class="n">produtos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
 
-There seem to be 5 kinds of loops:
+<span class="k">for</span> <span class="n">produto</span> <span class="k">in</span> <span class="n">produtos</span> <span class="k">do</span>
+  <span class="n">produto_com_imposto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
 
-loop forever
-loop n timesloop
-loop while/until a condition is true
-loop through a range of numbers, optionally with a step
-loop through each item in a collection (or each char in a string, or each node in a linked list...)
+  <span class="nb">puts</span> <span class="s2">"O valor do produto </span><span class="si">#{</span><span class="n">produto</span><span class="si">}</span><span class="s2"> com imposto é: </span><span class="si">#{</span><span class="n">produto_com_imposto</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
+<p>Perceba que nesse exemplo, não foi mais necessário pedir informações para o usuário ao longo da execução do programa, pois nosso array de <code class="highlighter-rouge">produtos</code> já estava preenchido desde o começo. Perceba também que mudamos o nome da variável <code class="highlighter-rouge">i</code> para <code class="highlighter-rouge">produtos</code>. Poderíamos deixar <code class="highlighter-rouge">i</code> como estava nos exemplos anteriores, no entanto, alterar o nome para <code class="highlighter-rouge">produto</code> torna a variável mais inteligível (ou seja, basta olhar pra saber do que se trata).</p>
 
--->
+<p>Vamos encerrar o nosso exemplo de cálculo de imposto fazendo uma última modificação no algoritmo. Nosso novo requisito pede que não calculemos o imposto caso o valor do produto seja menor do que R$ 15. Como poderíamos fazer para evitar o cálculo de um único produto? Se usarmos o <code class="highlighter-rouge">break</code>, todo o nosso laço será interrompido. Para casos como esse, podemos usar a instrução <code class="highlighter-rouge">next</code> que pula para a próxima iteração do laço. O novo requisito poderia ser implementado da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">icms</span> <span class="o">=</span> <span class="mf">0.18</span>
+<span class="n">ipi</span> <span class="o">=</span> <span class="mf">0.07</span>
+
+<span class="n">produtos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">produto</span> <span class="k">in</span> <span class="n">produtos</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="n">produto</span> <span class="o">&lt;</span> <span class="mi">15</span>
+    <span class="k">next</span>
+  <span class="k">end</span>
+
+  <span class="n">produto_com_imposto</span> <span class="o">=</span> <span class="n">produto</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">icms</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">produto</span> <span class="o">*</span> <span class="n">ipi</span><span class="p">)</span>
+
+  <span class="nb">puts</span> <span class="s2">"O valor do produto </span><span class="si">#{</span><span class="n">produto</span><span class="si">}</span><span class="s2"> com imposto é: </span><span class="si">#{</span><span class="n">produto_com_imposto</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="iterators">Iterators</h3>
+
+<p>Como vimos no <a href="/ruby-guide/types">capítulo sobre tipos de dados</a>, os tipos numéricos implementam o método <code class="highlighter-rouge">times</code>, que repete um bloco <code class="highlighter-rouge">n</code> vezes. Chamamos métodos com comportamento de repetição de <code class="highlighter-rouge">iterators</code>.</p>
+
+<p>Mais pragmaticamente, a expressão <code class="highlighter-rouge">5.times</code> chama o método <code class="highlighter-rouge">times</code> do objeto <code class="highlighter-rouge">5</code> da classe  <code class="highlighter-rouge">Integer</code>. Apenas executar a instrução <code class="highlighter-rouge">5.times</code> não retorna nada interessante – um estranho <code class="highlighter-rouge">#&lt;Enumerator: 5:times&gt;</code>, que nada mais é do que a instância de outro tipo de dado, chamado <code class="highlighter-rouge">Enumerator</code>; <code class="highlighter-rouge">Enumerator</code> é a implementação em Ruby de um iterator. Precisamos passar um bloco para o método executar. Um exemplo simples de bloco seria uma instrução delimitada por chaves <code class="highlighter-rouge">{}</code>, algo como: <code class="highlighter-rouge">5.times {|i| puts "Eu sei iterar até #{i}"}</code>. Mesmo para aqueles que já estudaram uma linguagem de programação, esse trecho de código pode parecer confuso. Vamos então olhar o passo a passo dessa instrução no microscópio:</p>
+
+<ul>
+  <li>Nós criamos um objeto inteiro de valor <code class="highlighter-rouge">5</code>.</li>
+  <li>Nós chamamos o método <code class="highlighter-rouge">times</code> que existe dentro da classe <code class="highlighter-rouge">Integer</code>.</li>
+  <li>Nós passamos as instruções dentro do bloco <code class="highlighter-rouge">{}</code> como parêmetro para o método <code class="highlighter-rouge">times</code>.</li>
+  <li>Agora o método <code class="highlighter-rouge">times</code> chama o bloco que passamos por parâmetro.</li>
+  <li>Na primeira chamada ao bloco, é passado o valor <code class="highlighter-rouge">0</code> para a variável <code class="highlighter-rouge">i</code> que foi definida localmente, dentro do bloco (representado por <code class="highlighter-rouge">|i|</code>).</li>
+  <li>Dentro do bloco, o comando <code class="highlighter-rouge">puts</code> é executado e usa o valor da variável <code class="highlighter-rouge">i</code>. Como essa é a única instrução dentro do nosso bloco, após a execução o bloco retorna com o valor <code class="highlighter-rouge">0</code> de volta para o método <code class="highlighter-rouge">times</code>.</li>
+  <li>O método <code class="highlighter-rouge">times</code> chama novamente o bloco, agora passando o valor <code class="highlighter-rouge">1</code> para a variável <code class="highlighter-rouge">i</code> dentro do bloco.</li>
+  <li>O passos se repetem até que seja passado o último valor para o bloco.</li>
+  <li>Por fim, o método <code class="highlighter-rouge">times</code> retorna o inteiro inicialmente fornecido.</li>
+</ul>
+
+<p>O método <code class="highlighter-rouge">times</code> não é o único método que fornece a implementação de um iterator, pelo contrário. Outros tipos básicos da linguagem como  <code class="highlighter-rouge">Range</code> e <code class="highlighter-rouge">Arrays</code> contam, dentre vários métodos, com o método <code class="highlighter-rouge">map</code>. O método <code class="highlighter-rouge">map</code> executa uma instrução em um bloco para cada objeto enumerável. Por exemplo, poderíamos converter um array de inteiros para sua representação binária usando o código a seguir: <code class="highlighter-rouge">[8, 6, 7, 10, 4].map {|i| i.to_s(2)}</code>. Nesse exemplo, chamamos o método <code class="highlighter-rouge">to_s(2)</code> para cada elemento do array. O retorno desse método é então armazenado em um novo array.</p>
+
+<p>No entanto, métodos como o <code class="highlighter-rouge">times</code> e o <code class="highlighter-rouge">map</code> tem várias limitações, pois estes recem como entrada um determinado tipo de dado (por exemplo, o <code class="highlighter-rouge">times</code> recebe o inteiro <code class="highlighter-rouge">5</code> como entrada enquanto que o <code class="highlighter-rouge">map</code> recebe o array <code class="highlighter-rouge">[8, 6, 7, 10, 4]</code> como entrada).</p>
 
 <h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
 
