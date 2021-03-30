@@ -414,7 +414,15 @@ No entanto, métodos como o ```times``` e o ```map``` tem várias limitações, 
 
 - Escreva um programa que receba um ano e calcule se ele é bissexto ou não.
 - Escreva um convertor de moeadas que funcione para Real, Dolar e Euro. O usuário deve fornecer o valor a ser convertido, a moeda origem e a moeda destino. O programa deve retornar o valor convertido na moeda escolhida.
-- Faça um programa que calcule o conceito de um aluno da UFPA. O programa deve receber quatro números de entrada (entre 0 e 10), tirar uma média desses números, e retornar apenas o conceito. Lembrando que: 9--10 -> Excelente; 7--8,9 -> Bom; 5--6,9 -> Regular; Menor que 5 -> Insuficiente.
+- Faça um programa que calcule o conceito de um aluno da UFPA. O programa deve receber quatro números de entrada (entre 0 e 10), tirar uma média desses números, e retornar apenas o conceito. Lembrando que:
+  - 9--10 -> Excelente;
+  - 7--8,9 -> Bom;
+  - 5--6,9 -> Regular;
+  - Menor que 5 -> Insuficiente.
 - Faça um programa para determinar se um número é divisível por 3 ou por 5, mas não simultaneamente divisível pelos dois.
 - Faça um programa que leia a data de nascimento de uma pessoa no formato DD-MMM-AAAA. Verifique se cada parte da data informada é válida (por ex, o dia 33 não é válido, assim como o dia 30 não é válido em fevereiro, bem como o mês zero não é válido, etc.). Ao final das verificações, imprima se a data é válida ou inválida.  
-- O uso de recursão lhe parece natural como o uso de iteração? Explique.
+- Faça um programa que converta um array de inteiros para um outro array em que cada elemento está representado como binário.
+- Faça um programa que converta um número inteiro para sua forma reversa. Por exemplo, se o número ```12345``` for informado, retorne o número ```54321```.
+- Jogo do chute: faça um programa que receba entradas de usuário que tentam acertar o número secreto que o computador está guardando. Deixe o número secreto em uma variável fixa no código. Guarde o número de tentativas do usuário. O usuário começa com zero pontos. A cada tentativa errada, o usuário perde 10 pontos. Caso acerte, o usuário recebe 50 pontos. Caso acerte, avise "Você acertou! Seu total de pontos é #{pontos}."; Caso erre por menos, avise "Você chutou mais baixo! Seu total de pontos até agora é #{pontos}"; Caso erre por mais, avise: "Você chutou mais baixo! Seu total de pontos até agora é #{pontos}". O programa encerra quando o usuário acertar o chute, ou quando ele desejar sair.
+- Avance o exercício do jogo do chute usando a função ```rand``` para escolha do número secreto.
+- Avance o exercício do jogo do chute limitando para cinco chutes.
