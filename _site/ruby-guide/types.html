@@ -325,7 +325,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
+        <p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:</p>
 
@@ -340,7 +340,7 @@
 
 <h2 id="booleans">Booleans</h2>
 
-<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0 ou 1.</p>
+<p>Booleans são tipos de dados que possuem um dos dois possíveis valores: <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0”T”, “U” ou 1.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="n">b</span> <span class="o">=</span> <span class="kp">false</span>
@@ -400,7 +400,9 @@ No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="
 <span class="mi">34</span><span class="p">.</span><span class="nf">pred</span> <span class="c1"># =&gt; "33"</span>
 </code></pre></div></div>
 
-<p>Além dos métodos acima (e de vários outros, rode <code class="highlighter-rouge">1.methods</code> para ter uma idéia), a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:</p>
+<p>Além dos métodos acima (e de vários outros, rode <code class="highlighter-rouge">1.methods</code> para ter uma idéia), integers também conta com alguns métodos que auxiliam iteração de objetos, como o <code class="highlighter-rouge">times</code>, <code class="highlighter-rouge">upto</code>, <code class="highlighter-rouge">downto</code> e o <code class="highlighter-rouge">step</code>. Por exemplo, pra iterar 10 vezes, poderíamos escrever <code class="highlighter-rouge">10.times { |i| puts i }</code>. A estrutura de chaves <code class="highlighter-rouge">{}</code> são chamamos de blocos. No <a href="/ruby-guide/methods">capítulo sobre métodos</a> vamos falar mais sobre blocos.</p>
+
+<p>Por fim, a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:</p>
 
 <h3 id="adição">adição</h3>
 
@@ -717,7 +719,10 @@ No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="
       <li>Saída: <code class="highlighter-rouge">"ACCGGGTTTT"</code></li>
     </ul>
   </li>
-  <li>JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?</li>
+  <li>
+    <p>JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?</p>
+  </li>
+  <li>Discorra sobre o trecho a seguir (que vem <a href="https://www.oreilly.com/library/view/software-engineering-at/9781492082781/ch22.html">deste livro</a>): “We’ve also found that statically typed languages are much easier to perform large automated changes in than dynamically typed languages. Compiler-based tools along with strong static analysis provide a significant amount of information that we can use to build tools to affect LSCs and reject invalid transformations before they even get to the testing phase. The unfortunate result of this is that languages like Python, Ruby, and JavaScript that are dynamically typed are extra difficult for maintainers. Language choice is, in many respects, intimately tied to the question of code lifespan: languages that tend to be viewed as more focused on developer productivity tend to be more difficult to maintain. Although this isn’t an intrinsic design requirement, it is where the current state of the art happens to be.”</li>
 </ul>
 
         

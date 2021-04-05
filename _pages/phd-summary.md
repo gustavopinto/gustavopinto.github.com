@@ -5,7 +5,7 @@ title: PhD Summary
 permalink: /phd-summary
 ---
 
-I devoted most part of my PhD to study software energy consumption. The full thesis [is available here](http://gustavopinto.github.io/lost+found/thesis.pdf). In the following I distil its main contributions.
+I devoted most part of my PhD to study software energy consumption. The full thesis [is available here](http://gustavopinto.github.io/lost+found/thesis.pdf). In the following I distill its main contributions.
 
 I studied two different perspectives: (1) what developers think/do about energy consumption, and (2) what are the energy behavior of parallel Java code.
 

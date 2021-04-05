@@ -5,7 +5,7 @@ title: Tipos de dados
 permalink: /ruby-guide/types
 ---
 
-[Voltar ao começo do guia](/ruby-guide/)
+[Voltar ao começo do guia](/ruby-guide)
 
 Tipos de dados (ou simplesmente tipos) são a principal forma de se expressar como dados são interpretados em uma determinada linguagem de programação. Em Ruby há vários tipos de dados. Os mais básicos são:
 
@@ -18,7 +18,7 @@ Neste capítulo do Guia Ruby vamos aprender o básico da manipulação de dados 
 
 ## Booleans
 
-Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0 ou 1.
+Booleans são tipos de dados que possuem um dos dois possíveis valores: ```true``` ou ```false```. Nenhum outro valor é permitido. No sistema binário, valores do tipo double ocupam somente dois dígitos (armazenados em um único bit): 0"T", "U" ou 1.
 
 ```ruby
 a = true
@@ -82,7 +82,9 @@ O método ```next``` retorna o próximo consecutivo inteiro enquanto o método `
 34.pred # => "33"
 ```
 
-Além dos métodos acima (e de vários outros, rode ```1.methods``` para ter uma idéia), a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:
+Além dos métodos acima (e de vários outros, rode ```1.methods``` para ter uma idéia), integers também conta com alguns métodos que auxiliam iteração de objetos, como o ```times```, ```upto```, ```downto``` e o ```step```. Por exemplo, pra iterar 10 vezes, poderíamos escrever ```10.times { |i| puts i }```. A estrutura de chaves ```{}``` são chamamos de blocos. No [capítulo sobre métodos](/ruby-guide/methods) vamos falar mais sobre blocos.
+
+Por fim, a linguagem Ruby também implementa alguns operadores aritméticos elementares. Por exemplo:
 
 ### adição
 
@@ -407,3 +409,5 @@ Seja em comunidades de desenvolvimento de software ou na comunidade científica,
   - Saída: ```"ACCGGGTTTT"```
 
 - JavaScript é conhecida por ser uma linguagem com tipagem dinâmica e fraca. Cite alguns exemplos de problemas que um sistema de tipos como JavaScript pode trazer para um desenvolvedor de software desatento?
+
+- Discorra sobre o trecho a seguir (que vem [deste livro](https://www.oreilly.com/library/view/software-engineering-at/9781492082781/ch22.html)): "We’ve also found that statically typed languages are much easier to perform large automated changes in than dynamically typed languages. Compiler-based tools along with strong static analysis provide a significant amount of information that we can use to build tools to affect LSCs and reject invalid transformations before they even get to the testing phase. The unfortunate result of this is that languages like Python, Ruby, and JavaScript that are dynamically typed are extra difficult for maintainers. Language choice is, in many respects, intimately tied to the question of code lifespan: languages that tend to be viewed as more focused on developer productivity tend to be more difficult to maintain. Although this isn’t an intrinsic design requirement, it is where the current state of the art happens to be."

@@ -1,8 +1,0 @@
-I"�<p>Computadores não entendem inteiros, strings, booleanos, ou objetos. Computadores entendem somente binários. Logo, toda representação de tipos que vimos até aqui não são enteligiveis, do ponto de vista do computador.</p>
-
-<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
-
-<ul>
-  <li>Crie um programa para fazer conversão de um número float qualquer para sua forma binária em Ruby. Explique cada pequeno passo do seu programa.</li>
-</ul>
-:ET

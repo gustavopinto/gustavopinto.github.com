@@ -1,6 +1,6 @@
 ---
-title: "1+5 Good Habits for Young Scholars"
-permalink: /books/good-rearch-habits/
+title: "1+5 Habits of Effective Young Researchers"
+permalink: /books/good-research-habits/
 layout: single
 author_profile: true
 ---
@@ -9,11 +9,11 @@ author_profile: true
 
 During the first 90 days, 100% of the sales will go to [UFPA hospitals fighting COVID-19](https://coronavirus.ufpa.br/doacoes).
 
-To make things transparent, in this webpage I will make available the summary of the sales and the donations made.
+To make things transparent, in this webpage I made available the summary of the sales and the donations made.
 
-I will update this website every week. I start selling the book on April, 26th.
+I updated this website every week. I start selling the book on April, 26th.
 
-**UPDATE**: on July 31st, I changed the price of the book to 0+ (it means one can take it for free, but could also leave any dollar). During this three months period, we were able to donate **946.06 BRL!**
+During this three months period, I donated **946.06 BRL!** to UFPA hospitals.
 
 Thank you!
 
