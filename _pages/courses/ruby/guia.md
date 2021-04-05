@@ -14,13 +14,14 @@ Esse guia cobre os seguintes pontos:
 3. [Expressões e operadores](/ruby-guide/exp)
 4. [Controle de fluxo](/ruby-guide/flow)
 5. Funções
-6. Arrays e Matrizes
-7. Hashes
-8. Entrada e saída
-9. Classes e Objetos
-10. Tratamento de excessão
-11. Teste de unidade
-12. Meta-programação
+6. Arrays e Hashes
+7. Entrada e saída
+8. Classes e Objetos
+9. Programação funcional
+10. Meta-programação
+11. Tratamento de excessão
+12. Teste de unidade
+13. Programação concorrente
 
 ## Porque Ruby?
 
