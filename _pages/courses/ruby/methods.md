@@ -157,7 +157,11 @@ defined? $cotacao_dolar  => "global-variable"
 
 Há ainda outros escopos diferentes para variáveis em Ruby, mas vamos deixar pra comentar sobre eles mais pra frente neste guia.
 
-## Parâmetros *default*
+## Tipos de parâmetros
+
+Em Ruby há diversas opções de parâmetros para utilizar na definição de métodos. Além do parâmetro obrigatório, guia vamos discutir duas outras formas: os parâmetros *default* e os parâmetros opcionais.
+
+### Parâmetros *default*
 
 No exemplo que trabalhamos acima, o nosso método ```converter_para_dolar``` recebia um único parâmetro, o ```valor_para_converter```. Toda vez que chamamos o método ```converter_para_dolar```, precisamos obrigatoriamente passar um valor para o parâmetro; do contrário, recebemos um erro com a seguinte mensagem ```ArgumentError (wrong number of arguments (given 0, expected 1))```. Isso acontece pois o parâmetro é *obrigatório*.
 
@@ -178,7 +182,7 @@ Como o valor padrão só será atribuído caso o usuário não passe o valor des
 Por fim, perceba também que no método ```converter_para_dolar``` há ainda um parâmetro obrigatório. Se executarmos novamente o método ```converter_para_dolar``` sem passar nenhum parâmetro, temos a seguinte mensagem de erro: ```ArgumentError (wrong number of arguments (given 0, expected 1..2))```. Diferente da mensagem de erro que tivemos anteriormente, que sabíamos exatamente quantos valores eram esperados, agora o Ruby nos avisa que é esperado um ```Range``` que varia de 1 até 2.
 
 
-## Parâmetros opcionais
+### Parâmetros opcionais
 
 Um outro recurso interessante em métodos são os parâmetros opcionais. Diferente dos parâmetros *default*, em que um valor vai ser passado para uma variável, independentemente se o usuário fornecer esse valor ou não, nos parâmetros opcionais, podemos contar ou não com os parâmetros para execução do nosso método. Ou seja, o método não sabe quantos parâmetros serão providos a cada chamada de método. Declaramos que um parâmetro é opcional através do símbolo ```*``` utilizado *antes* do nome do parâmetro.
 
@@ -194,16 +198,101 @@ end
 puts converter_para_dolar 100, 5.61, 5.6, 5.65, 5.58
 ```
 
-Quando passamos um ou mais valores para um parâmetro opcional, esses valores são armazenados em um ```Array```. Por isso, usamos um ```for``` para percorrer a variável ```cotacoes_dolar```.
+Algumas observações sobre o uso do parâmetro opcional:
 
-Nesse exemplo, o nosso método ```converter_para_dolar``` recebeu cinco parâmetros, mas poderia ter recebido três, oito, dez, ..., ou até mesmo inclusive um. Ou seja, poderíamos passar somente o parâmetro obrigatório e não passar nenhum parâmetro opcional. Neste caso, nosso método não seria executado, pois o ```for``` não teria nada para percorrer. Faz sentido usar parâmetros opcionais nesse caso, então?
+- Usamos o ```*``` somente na declaração da variável, e não no seu uso (diferente do ```$``` que usamos para declarar variáveis globais, que precisamos utilizar tanto na declaração quanto no uso).
+
+- O nosso método ```converter_para_dolar``` recebeu cinco parâmetros, mas poderia ter recebido três, oito, dez, ...,  ou  somente um. Ou seja, poderíamos passar somente o parâmetro obrigatório e não passar nenhum parâmetro opcional. Caso nenhum parâmetro opcional fosse fornecido, o ```for``` não seria executado. Faz sentido usar parâmetros opcionais nesse caso, então?
+
+- Quando passamos um ou mais valores para um parâmetro opcional, esses valores são armazenados em um ```Array```. Logo, a chamada de método ```converter_para_dolar 100, 5.61, 5.6, 5.65, 5.58``` é equivalente a ```converter_para_dolar 100, [5.61, 5.6, 5.65, 5.58]```.
 
 ### Podemos combinar parâmetros obrigatórios, default e opcionais?
 
-Sim! Podemos usar todos os três tipos de parâmetros na definição da assinatura de um único método. Mas note que, assim como os operadores tem diferentes graus de precedência sobre outros operadores (por exemplo, o operador ```*``` é avaliado antes do operador ```+```). 
+Sim! Podemos usar todos os três tipos de parâmetros na definição da assinatura de um único método. Mas note que, assim como os operadores tem diferentes graus de precedência sobre outros operadores (por exemplo, o operador ```*``` é avaliado antes do operador ```+```).
+
+Caso seja de interesse utilizar os três tipos de parâmetros no mesmo método, uma boa prática é utilizar primeiro os parâmetros obrigatório, depois os *default* e por fim os opcionais. Algo como:
+
+```ruby
+def converter_para_dolar valor_para_converter, cotacoes_dolar=5.61, *outras_cotacoes
+  puts "Eu quero converter o valor #{valor_para_converter} usando a cotação #{cotacoes_dolar} e, se possível, usando também as cotações #{outras_cotacoes}"
+end
+
+converter_para_dolar 100, 5.80, 5.66, 5.26, 5.63, 5.72
+converter_para_dolar 100, 5.80, 5.66
+converter_para_dolar 100, 5.80
+```
 
 ## Tipos de retorno
 
+Como já discutimos no começo deste capítulo, todo método em Ruby retorna algum valor, mesmo que não exista um ```return``` explícito no código. Neste caso, o método retorna a última linha. No entanto, caso mais de uma expressão seja fornecida, um ```Array``` agrupando os valores das expressões é retornado. Poderíamos observar esse comportamento se colocássemos um ```return``` com mais de um valor, separado por vírgulas:
+
+```ruby
+def converter_para_dolar valor_para_converter, cotacoes_dolar=5.61, *outras_cotacoes
+  # ...
+
+  return valor_para_converter, valor_convertido
+end
+```
+
+Por fim, e embora não recomendado, podemos também retornar ```nil```, caso a últimas instrução do método senha somente um ```return``` sem valor. Por exemplo:
+
+```ruby
+def converter_para_dolar valor_para_converter, cotacoes_dolar=5.61, *outras_cotacoes
+  # ...
+
+  return
+end
+```
+
+
+## Métodos ou blocos?
+
+Como já vimos em outros capítulos, bloco são uma forma de agrupar expressões. Embora blocos sejam comumente delimitados entre um ```do..end```, blocos de uma única linha podem ser delimitados por chaves ```{}```. Blocos, assim como métodos, podem conter seus próprios argumentos. Diferente de métodos, blocos não tem nome (e também não são associados a nenhum objeto). Os exercícios que fizemos usando ```loop``` e ```1.times``` no capítulo anterior foram usando blocos.
+
+Mas qual a relação de um método e um bloco? Considere o trecho de código abaixo.
+
+```ruby
+def bloco_metodo
+  puts "Estou dentro de um método"
+end
+
+bloco_metodo { puts "Um bloco foi chamado"}
+```
+
+Nas três primeiras linhas do exemplo acima nós declaramos o método ```bloco_metodo``` enquanto que na última linha nós chamamos esse método passando um bloco para ele.
+
+Sem executar esse programa, você saberia dizer qual é a saída?
+
+A saída é a ```String``` contendo ```Estou dentro de um método```. Isso acontece pois o bloco não foi invocado. Para invocar um bloco, podemos fazer uso da palavra reservada ```yield```.  Por exemplo:
+
+```ruby
+def bloco_metodo
+  puts "Estou dentro de um método"
+  yield
+  puts "Estou de volta para o método"
+end
+
+bloco_metodo { puts "Um bloco foi chamado"}
+```
+
+A palavra reservada ```yield``` vai procurar e invocar o bloco no método que foi invocado. Ou seja, o ```yield``` vai até a chamada do método e executa o bloco e depois retorna ao método para terminar sua execução. Perceba que não estamos passando o bloco por parâmetro do método e, sim, estamos chamando o bloco de dentro do método. Não passamos o bloco como parâmetro pois, como dissemos no começo desta seção, um bloco não é um objeto.
+
+É possível também passar parâmetros para dentro de um bloco. No capítulo anterior usamos o seguinte trecho de código: ```5.times {|i| puts "Eu sei iterar até #{i}"}```, onde ```i``` é uma variável passada por parâmetro para dentro de um bloco, através do método ```times```. Como isso é possível?
+
+Podemos passar parâmetros para o bloco também usando o ```yield```. Por exemplo:
+
+```ruby
+def bloco_metodo
+  puts "Estou dentro de um método"
+  yield 1
+  puts "Estou de volta para o método"
+  yield
+end
+
+bloco_metodo { |i| puts "Imprimindo o parâmetro #{i}"}
+```
+
+No exemplo acima, o ```yield``` é chamado duas vezes, cada uma passando uma parâmetro diferente.
 
 <!--
 ## Escopo de variáveis
@@ -242,5 +331,26 @@ end
 
 puts baz
 ```
+
+- Além de métodos e blocos, em Ruby há também uma estrutura chamada ```Proc```. Estude e entenda as diferenças entre estas três estruturas.
+
+- Dissemos ao fim do capítulo que blocos não são objetos, logo não podem ser passados por parâmetros para um método. No entanto, o código abaixo é funcional. Explique o por que.
+
+```ruby
+def bloco_como_parametro(&bloco)
+  bloco.call
+end
+
+bloco_como_parametro { puts "Não é que funciona?!" }
+```
+
+- Crie um programa que execute o comando ```times (5) {}``` de forma similar ao ```5.times {}```.
+
+- Métodos tem parâmetros opcionais que são convertidos para um ```Array```. Esses parâmetros são identificados pelo símbolo ```*``` que antecede o nome do parâmetro. No entanto, há também outro tipo de parâmetro opcional que é definido com dois ```**```.  Que tipo de parâmetro é esse?
+
+- Um outro tipo de parâmetro é com um operador *ampersand* (```&```). Em que caso um parâmetro com esse operador deve ser utilizado?
+
+- Pesquise se seria possível ter outra ordem de precedência (diferente de obrigatórios, *default* e opcionais) para os tipos de parâmetros de um método.
+
 
 [^1]: Como já discutimos em outros capítulos, os parênteses ```()``` são opcionais tanto na definição quanto no uso de métodos em Ruby.
