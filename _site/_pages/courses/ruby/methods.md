@@ -6,7 +6,9 @@ permalink: /ruby-guide/funcs
 ---
 [Voltar ao começo do guia](/ruby-guide/)
 
-Até o momento, os programas que criamos foram escritos de forma a resolver um problema uma única vez. Mas e se quisermos resolver o mesmo problema duas vezes? Três vezes? Considere o programa que faz conversão de valores entre moedas do [capítulo anterior](/ruby-guide/flow):
+Até o momento, os programas que criamos foram escritos de forma a resolver um problema uma única vez. Mas e se quisermos resolver o mesmo problema duas vezes? Três vezes? Temos que escrever novamente o mesmo código?
+
+Considere o programa que faz conversão de valores entre moedas do [capítulo anterior](/ruby-guide/flow):
 
 ```ruby
 puts "Digite o valor para ser convertido (em Real)"
@@ -24,7 +26,7 @@ else
 end
 ```
 
-Perceba que nesse exemplo, o valor da cotação das moedas estão fixos no nosso código, mas nós sabemos que a cotação é flutuante, muda o tempo todo! E se quisessemos usar o serviço do Google para
+Perceba que nesse exemplo, o valor da cotação das moedas estão fixos no nosso código, mas nós sabemos que a cotação é flutuante, muda o tempo todo! E se quiséssemos usar o serviço do Google para
 
 
 ## Métodos
@@ -145,10 +147,65 @@ puts converter_para_dolar 100
 
 Perceba que tivemos que alterar tanto na definição quanto no uso da variável ```$cotacao_dolar```. No entanto, grandes poderes requerem grandes responsabilidades. Variáveis globais tornam a compreensão de código mais difícil. Ao tornar uma variável global, qualquer método na sua aplicação ganha acesso para manipular tais variáveis. Isso dificulta entendimento e depuração de código, uma vez que se faz necessário investigar *todos* os métodos que fazem uso de variáveis globais.
 
+Por fim, perceba também que podemos confirmar a mudança do escopo usando novamente o comando ```defined?```, como abaixo:
+
+
+```ruby
+$cotacao_dolar = 5.61
+defined? $cotacao_dolar  => "global-variable"
+```
+
+Há ainda outros escopos diferentes para variáveis em Ruby, mas vamos deixar pra comentar sobre eles mais pra frente neste guia.
+
+## Parâmetros *default*
+
+No exemplo que trabalhamos acima, o nosso método ```converter_para_dolar``` recebia um único parâmetro, o ```valor_para_converter```. Toda vez que chamamos o método ```converter_para_dolar```, precisamos obrigatoriamente passar um valor para o parâmetro; do contrário, recebemos um erro com a seguinte mensagem ```ArgumentError (wrong number of arguments (given 0, expected 1))```. Isso acontece pois o parâmetro é *obrigatório*.
+
+No entanto, em Ruby é possível fornecer um valor padrão para um parâmetro (do Inglês, *default parameters*), ou seja, caso um valor não seja passado para o método, a variável definida no parâmetro receberá um valor previamente definido. Podemos alterar nosso ```converter_para_dolar``` para receber um valor padrão da seguinte forma:
+
+```ruby
+def converter_para_dolar valor_para_converter, cotacao_dolar=5.61
+ valor_para_converter / cotacao_dolar
+end
+
+puts converter_para_dolar 100
+```
+
+Nesse exemplo, a variável ```cotacao_dolar``` passou a ser um parâmetro *default* do método ```converter_para_dolar```, e o usuário deste método ganhou a opcionalidade de passar esse parâmetro ou não (veja que na chamada do método passamos somente o valor a ser convertido).
+
+Como o valor padrão só será atribuído caso o usuário não passe o valor desejado, nada impede que informe outro valor como parâmetro. Neste caso, o valor que o usuário informa será utilizado, enquanto que o valor *default* não será utilizado. Experimente fazendo a seguinte chamada de método ```converter_para_dolar 100, 5.8```.
+
+Por fim, perceba também que no método ```converter_para_dolar``` há ainda um parâmetro obrigatório. Se executarmos novamente o método ```converter_para_dolar``` sem passar nenhum parâmetro, temos a seguinte mensagem de erro: ```ArgumentError (wrong number of arguments (given 0, expected 1..2))```. Diferente da mensagem de erro que tivemos anteriormente, que sabíamos exatamente quantos valores eram esperados, agora o Ruby nos avisa que é esperado um ```Range``` que varia de 1 até 2.
+
+
 ## Parâmetros opcionais
 
-## Métodos sem nome
+Um outro recurso interessante em métodos são os parâmetros opcionais. Diferente dos parâmetros *default*, em que um valor vai ser passado para uma variável, independentemente se o usuário fornecer esse valor ou não, nos parâmetros opcionais, podemos contar ou não com os parâmetros para execução do nosso método. Ou seja, o método não sabe quantos parâmetros serão providos a cada chamada de método. Declaramos que um parâmetro é opcional através do símbolo ```*``` utilizado *antes* do nome do parâmetro.
 
+Para entender um pouco mais, consider o caso em que nós temos várias cotações de dólar, mas nem todas estão disponíveis ao mesmo instante. Logo, podemos fazer a nossa conversão para dólar somente com as cotações que estão disponíveis em um determinado momento. Vejamos o exemplo abaixo:
+
+```ruby
+def converter_para_dolar valor_para_converter, *cotacoes_dolar
+  for cotacao in cotacoes_dolar do
+    puts valor_para_converter / cotacao
+  end
+end
+
+puts converter_para_dolar 100, 5.61, 5.6, 5.65, 5.58
+```
+
+Quando passamos um ou mais valores para um parâmetro opcional, esses valores são armazenados em um ```Array```. Por isso, usamos um ```for``` para percorrer a variável ```cotacoes_dolar```.
+
+Nesse exemplo, o nosso método ```converter_para_dolar``` recebeu cinco parâmetros, mas poderia ter recebido três, oito, dez, ..., ou até mesmo inclusive um. Ou seja, poderíamos passar somente o parâmetro obrigatório e não passar nenhum parâmetro opcional. Neste caso, nosso método não seria executado, pois o ```for``` não teria nada para percorrer. Faz sentido usar parâmetros opcionais nesse caso, então?
+
+### Podemos combinar parâmetros obrigatórios, default e opcionais?
+
+Sim! Podemos usar todos os três tipos de parâmetros na definição da assinatura de um único método. Mas note que, assim como os operadores tem diferentes graus de precedência sobre outros operadores (por exemplo, o operador ```*``` é avaliado antes do operador ```+```). 
+
+## Tipos de retorno
+
+
+<!--
 ## Escopo de variáveis
 
 O escopo é o que define onde uma variável pode ser acessada. O escopo pode ser pequeno, a nível local, ou pode ser grande, a nível global.
@@ -159,7 +216,7 @@ https://www.techotopia.com/index.php/Ruby_Variable_Scope
 
 https://www.rubyguides.com/2019/03/ruby-scope-binding/
 
-
+-->
 
 
 ## Exercícios de fixação
