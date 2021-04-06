@@ -22,5 +22,3 @@ https://www.rubyguides.com/2018/01/functional-programming-ruby/
 
 
 ## Exercícios de fixação
-
-- Faça um programa que dado um inteiro, retorne o inverso desse inteiro. Por exemplo, o inverso do inteiro ```123``` é o inteiro ```321```. Não use variáveis para armazenar resultados intermediários.

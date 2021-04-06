@@ -652,6 +652,36 @@ No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="
 
 <p>Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.</p>
 
+<h2 id="nil-e-o-operador-">Nil e o operador ||=</h2>
+
+<p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos instanciar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Por exemplo, podemos fazer a seguinte atribuição:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+</code></pre></div></div>
+
+<p>Diferente de outras linguagens de programação, como Java, em Ruby um <code class="highlighter-rouge">nil</code>, na realidade, é instância da classe <code class="highlighter-rouge">NilClass</code>, ocupando espaço de memória. Podemos verificar isso com o seguinte trecho de código:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="nb">puts</span> <span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">"UFPA"</span>
+<span class="nb">puts</span> <span class="n">a</span><span class="p">.</span><span class="nf">object_id</span>
+</code></pre></div></div>
+
+<h3 id="o-operador--conditional-assingment">O operador ||= (conditional assingment)</h3>
+
+<p>Variáveis podem ser atribuídas sem nenhum valor, ou seja, um <code class="highlighter-rouge">nil</code>. No entanto, as vezes é comum termos que verificar se o valor de uma variável é diferente de <code class="highlighter-rouge">nil</code> antes de fazer uma atribuição. Para esses casos, podemos usar o operador <code class="highlighter-rouge">||=</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">idade</span> <span class="o">||=</span> <span class="mi">18</span> <span class="c1"># o valor vai ser alterado para 18</span>
+<span class="n">idade</span> <span class="o">||=</span> <span class="mi">18</span> <span class="c1"># o valor se mantem em 18</span>
+</code></pre></div></div>
+
+<p>O operador <code class="highlighter-rouge">||=</code> é na realidade um outro açúcar sintático para a expressão: <code class="highlighter-rouge">idade = idade || 18</code>. Ou seja, o valor de idade só vai ser alterado se a variável <code class="highlighter-rouge">idade</code> da expressão <code class="highlighter-rouge">idade || 18</code> for nulo. Como vimos no <a href="/ruby-guide/exp">capítulo anterior</a>, qualquer tipo de dado como inteiros e strings podem ser utilizados como operandos de operadores booleanos. Porém, somente os tipos <code class="highlighter-rouge">nil</code> e <code class="highlighter-rouge">false</code> são avaliados como <code class="highlighter-rouge">false</code>, enquanto todos os demais são avaliados como true.</p>
+
+<p>Logo, se a variável <code class="highlighter-rouge">idade</code> da expressão <code class="highlighter-rouge">idade || 18</code> for <code class="highlighter-rouge">nil</code>, a expressão seria avaliada como <code class="highlighter-rouge">false || true</code>, o que retornaria um <code class="highlighter-rouge">true</code> (no caso, <code class="highlighter-rouge">18</code>). Contudo, se idade não for <code class="highlighter-rouge">nil</code>, a expressão seria avaliada como <code class="highlighter-rouge">true || true</code>, o que retornaria o primeiro <code class="highlighter-rouge">true</code>, dado a avaliação de curto-circuito.</p>
+
 <h2 id="sistemas-de-tipos">Sistemas de tipos</h2>
 
 <p>Uma parte extremamente importante de linguagens de programação é seu sistema de tipos. Um sistema de tipos é compostos por diversas regras que são capazes de associar uma determinada propriedade (por exemplo, uma variável) a um determinado tipo (por exemplo, string).</p>
@@ -696,7 +726,7 @@ No Brasil, a separação de decimal é feia com uma virgula (e.g., <code class="
     <p>Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?</p>
   </li>
   <li>
-    <p>Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado <code class="highlighter-rouge">nil</code>. Usamos <code class="highlighter-rouge">nil</code> quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos <code class="highlighter-rouge">nil</code> nesse caso. No entanto, o uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
+    <p>O uso do <code class="highlighter-rouge">nil</code> é percebidamente uma má prática de programação. Você saberia explicar o por quê?</p>
   </li>
   <li>
     <p>Talvez não seja novidade pra você que a expressão <code class="highlighter-rouge">0.2 + 0.1 == 0.3</code> é avaliado para <code class="highlighter-rouge">false</code>. Mas, por que isso acontece? Explique detalhadamente.</p>

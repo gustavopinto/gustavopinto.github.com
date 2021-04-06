@@ -55,7 +55,7 @@ end
 
 Antes de tudo: em vez de executar esse código direto no ```irb```, dessa vez vamos criar um arquivo chamado ```ifs.rb``` e colar e salvar esse conteúdo dentro dele. Pra rodar esse arquivo, basta navegar pela linha de comando até onde o arquivo foi salvo e rodar o comando ```ruby ifs.rb```.
 
-O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o codigo novamente no interpretador (chato, heim?).
+O motivo para usar um arquivo de texto no lugar de colocar o código direto no interpretador é que, nesse momento, vamos começar a fazer várias modificações no nosso programa. A medida que o código for mudando e  crescendo, facilitará a nossa vida se nós tivermos o código salvo em algum arquivo; do contrário, a cada mudança teríamos que escrever todo o código novamente no interpretador (chato, heim?).
 
 Voltando ao nosso exemplo. Perceba que a estrutura em Ruby é muito semelhante a estrutura de blocos apresentada anteriormente. No entanto, em Ruby, a instrução ```then``` após o ```if``` é opcional e pode ser omitida. Parece também ser uma prática comum em programadores Ruby, logo, ao longo do guia, vamos evitar utilizar o ```then```.
 
@@ -158,7 +158,7 @@ else
 end
 ```
 
-Agora sim conseguimos resolver o problema anterior!
+Agora, sim, conseguimos resolver o problema anterior!
 
 ---
 **IMPORTANTE**

@@ -51,7 +51,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 
 ## Grant proposals rejected (16)
 
-- Serrapilheira, 2020
+- Serrapilheira, 2020, 2021
 - Google Faculty Award, 2020 (budget: U$ 16,000)
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
 - Helium grant, 2019 (budget: U$ 1,000)
@@ -68,6 +68,9 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Huawei Research Grant, 2017 (budget: U$ 68,750)
 - Google Research Grant, 2013 (budget: U$ 39,000)
 - Microsoft SEIF, 2013 (budget: U$ 25,000)
+
+## Talks rejected (2)
+- PyCon 2021 (2x)
 
 ## Jobs I did not get (1)
 

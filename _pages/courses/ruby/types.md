@@ -353,6 +353,41 @@ Basicamente, um símbolo é utilizado quando você quer referenciar alguma coisa
 
 Ainda está confuso? Nos próximos capítulos vamos trazer exemplos mais concretos da utilidade de símbolos no dia a dia do desenvolvedor Rubista.
 
+## Nil e o operador ||=
+
+Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado ```nil```. Usamos ```nil``` quando, por exemplo, queremos instanciar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Por exemplo, podemos fazer a seguinte atribuição:
+
+```ruby
+a = nil
+a = "UFPA"
+```
+
+Diferente de outras linguagens de programação, como Java, em Ruby um ```nil```, na realidade, é instância da classe ```NilClass```, ocupando espaço de memória. Podemos verificar isso com o seguinte trecho de código:
+
+```ruby
+a = nil
+puts a.object_id
+
+a = "UFPA"
+puts a.object_id
+```
+
+
+### O operador ||= (conditional assingment)
+
+Variáveis podem ser atribuídas sem nenhum valor, ou seja, um ```nil```. No entanto, as vezes é comum termos que verificar se o valor de uma variável é diferente de ```nil``` antes de fazer uma atribuição. Para esses casos, podemos usar o operador ```||=```.
+
+```ruby
+idade = nil
+idade ||= 18 # o valor vai ser alterado para 18
+idade ||= 18 # o valor se mantem em 18
+```
+
+O operador ```||=``` é na realidade um outro açúcar sintático para a expressão: ```idade = idade || 18```. Ou seja, o valor de idade só vai ser alterado se a variável ```idade``` da expressão ```idade || 18``` for nulo. Como vimos no [capítulo anterior](/ruby-guide/exp), qualquer tipo de dado como inteiros e strings podem ser utilizados como operandos de operadores booleanos. Porém, somente os tipos ```nil``` e ```false``` são avaliados como ```false```, enquanto todos os demais são avaliados como true.
+
+Logo, se a variável ```idade``` da expressão ```idade || 18``` for ```nil```, a expressão seria avaliada como ```false || true```, o que retornaria um ```true``` (no caso, ```18```). Contudo, se idade não for ```nil```, a expressão seria avaliada como ```true || true```, o que retornaria o primeiro ```true```, dado a avaliação de curto-circuito.
+
+
 ## Sistemas de tipos
 
 Uma parte extremamente importante de linguagens de programação é seu sistema de tipos. Um sistema de tipos é compostos por diversas regras que são capazes de associar uma determinada propriedade (por exemplo, uma variável) a um determinado tipo (por exemplo, string).
@@ -392,7 +427,7 @@ Seja em comunidades de desenvolvimento de software ou na comunidade científica,
 
 - Percebemos que os operadores podem também ser executados via chamada de método tradicional. Faça a implementação do exemplo do operador shovel usando chamada de métodos. Depois, compare com a solução apresentada aqui. Na sua opinião, qual das versões é mais legível e por quê?
 
-- Além dos tipos básicos mencionados, há também a inexistência de um tipo, o chamado ```nil```. Usamos ```nil``` quando, por exemplo, queremos inicializar uma variável mas não sabemos, no momento da instanciação, qual será seu valor. Usamos ```nil``` nesse caso. No entanto, o uso do ```nil``` é percebidamente uma má prática de programação. Você saberia explicar o por quê?
+- O uso do ```nil``` é percebidamente uma má prática de programação. Você saberia explicar o por quê?
 
 - Talvez não seja novidade pra você que a expressão ```0.2 + 0.1 == 0.3``` é avaliado para ```false```. Mas, por que isso acontece? Explique detalhadamente.
 
