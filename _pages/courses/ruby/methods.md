@@ -1,9 +1,10 @@
-Métodos---
+---
 layout: single
 author_profile: true
 title: Atribuição de variáveis
 permalink: /ruby-guide/funcs
 ---
+
 [Voltar ao começo do guia](/ruby-guide/)
 
 Até o momento, os programas que criamos foram escritos de forma a resolver um problema uma única vez. Mas e se quisermos resolver o mesmo problema duas vezes? Três vezes? Temos que escrever novamente o mesmo código?
@@ -184,7 +185,7 @@ Por fim, perceba também que no método ```converter_para_dolar``` há ainda um 
 
 ### Parâmetros opcionais
 
-Um outro recurso interessante em métodos são os parâmetros opcionais. Diferente dos parâmetros *default*, em que um valor vai ser passado para uma variável, independentemente se o usuário fornecer esse valor ou não, nos parâmetros opcionais, podemos contar ou não com os parâmetros para execução do nosso método. Ou seja, o método não sabe quantos parâmetros serão providos a cada chamada de método. Declaramos que um parâmetro é opcional através do símbolo ```*``` utilizado *antes* do nome do parâmetro.
+Um outro recurso interessante em métodos são os parâmetros opcionais. Diferente dos parâmetros *default*, em que um valor vai ser passado para uma variável, independentemente se o usuário fornecer esse valor ou não, nos parâmetros opcionais, podemos contar ou não com os parâmetros para execução do nosso método. Ou seja, o método não sabe quantos parâmetros serão providos a cada chamada de método. Declaramos que um parâmetro é opcional através do operador splat ```*``` utilizado *antes* do nome do parâmetro.
 
 Para entender um pouco mais, consider o caso em que nós temos várias cotações de dólar, mas nem todas estão disponíveis ao mesmo instante. Logo, podemos fazer a nossa conversão para dólar somente com as cotações que estão disponíveis em um determinado momento. Vejamos o exemplo abaixo:
 
@@ -277,7 +278,7 @@ bloco_metodo { puts "Um bloco foi chamado"}
 
 A palavra reservada ```yield``` vai procurar e invocar o bloco no método que foi invocado. Ou seja, o ```yield``` vai até a chamada do método e executa o bloco e depois retorna ao método para terminar sua execução. Perceba que não estamos passando o bloco por parâmetro do método e, sim, estamos chamando o bloco de dentro do método. Não passamos o bloco como parâmetro pois, como dissemos no começo desta seção, um bloco não é um objeto.
 
-É possível também passar parâmetros para dentro de um bloco. No capítulo anterior usamos o seguinte trecho de código: ```5.times {|i| puts "Eu sei iterar até #{i}"}```, onde ```i``` é uma variável passada por parâmetro para dentro de um bloco, através do método ```times```. Como isso é possível?
+É possível também passar parâmetros para dentro de um bloco. Parâmetros de blocos são definidos de forma similar aos parâmetros de métodos. No capítulo anterior usamos o seguinte trecho de código: ```5.times {|i| puts "Eu sei iterar até #{i}"}```, onde ```i``` é uma variável passada por parâmetro para dentro de um bloco, através do método ```times```. Como isso é possível?
 
 Podemos passar parâmetros para o bloco também usando o ```yield```. Por exemplo:
 
@@ -293,6 +294,34 @@ bloco_metodo { |i| puts "Imprimindo o parâmetro #{i}"}
 ```
 
 No exemplo acima, o ```yield``` é chamado duas vezes, cada uma passando uma parâmetro diferente.
+
+Perceba que o uso do bloco junto a chamada de método é opcional. Mas o que aconteceria se nenhum bloco fosse passado? Se fizermos somente a chamada do método ```bloco_metodo```, sem passar o bloco, recebemos um erro do tipo ```LocalJumpError (no block given (yield))```. Isso acontece pois o ```yield```, de fato, aguarda que um bloco seja passado.
+
+Logo, nosso programa precisa estar preparado para lidar com situações em que um bloco não seja passado. Para isso, podemos usar o método ```block_given?```, que verifica que se um bloco foi passado ou não. Assim evitamos erros caso um bloco não seja passado. Por exemplo:
+
+```ruby
+def bloco_metodo
+  puts "Estou dentro de um método"
+  yield if block_given?
+  puts "Estou de volta para o método"
+end
+
+bloco_metodo { puts "Um bloco foi chamado"}
+```
+
+Até o momento, estamos fazendo chamadas *implícitas* de um bloco, ou seja, estamos chamando um bloco sem que este seja passado por parâmetro para o método. No entanto, podemos também fazer chamadas *explicitas* ao bloco. Chamadas explícitas tratam o bloco como um parâmetro do método. Para diferenciar o bloco dos demais parâmetros, se utiliza o símbolo ```&``` antes o nome da variável que armazenará o bloco. Por exemplo:
+
+```ruby
+def bloco_metodo &bloco
+  puts "Estou dentro de um método"
+  bloco.call
+  puts "Estou de volta para o método"
+end
+
+bloco_metodo { puts "Um bloco foi chamado"}
+```
+
+Perceba que precisamos agora fazer uso do método ```call```, que é responsável por executar o trecho de código dentro do bloco. No entanto, quando um bloco é chamado explicitamente, o bloco é convertido para um objeto do tipo ```Proc```, que possibilita que este seja armazenado em uma variável e posteriormente executado.
 
 <!--
 ## Escopo de variáveis
@@ -311,9 +340,7 @@ https://www.rubyguides.com/2019/03/ruby-scope-binding/
 ## Exercícios de fixação
 
 
-- Escreva a seu próprio método que imprima na tela do usuário, similar ao ```puts```.
-- Faça um programa que dado um inteiro, retorne o inverso desse inteiro. Por exemplo, o inverso do inteiro ```123``` é o inteiro ```321```. Não use variáveis para armazenar resultados intermediários.
-
+<!--
 ```ruby
 x = 0
 
@@ -331,6 +358,10 @@ end
 
 puts baz
 ```
+-->
+
+- Escreva a seu próprio método que imprima na tela do usuário, similar ao ```puts```.
+
 
 - Além de métodos e blocos, em Ruby há também uma estrutura chamada ```Proc```. Estude e entenda as diferenças entre estas três estruturas.
 
@@ -344,9 +375,9 @@ end
 bloco_como_parametro { puts "Não é que funciona?!" }
 ```
 
-- Crie um programa que execute o comando ```times (5) {}``` de forma similar ao ```5.times {}```.
+- Crie um programa que execute o comando ```times (5) { .. }``` com comportamento similar ao ```5.times { .. }```.
 
-- Métodos tem parâmetros opcionais que são convertidos para um ```Array```. Esses parâmetros são identificados pelo símbolo ```*``` que antecede o nome do parâmetro. No entanto, há também outro tipo de parâmetro opcional que é definido com dois ```**```.  Que tipo de parâmetro é esse?
+- Métodos tem parâmetros opcionais que são convertidos para um ```Array```. Esses parâmetros são identificados pelo operador splat ```*``` que antecede o nome do parâmetro. No entanto, há também outro tipo de parâmetro opcional que é definido com dois ```**```.  Que tipo de parâmetro é esse?
 
 - Um outro tipo de parâmetro é com um operador *ampersand* (```&```). Em que caso um parâmetro com esse operador deve ser utilizado?
 

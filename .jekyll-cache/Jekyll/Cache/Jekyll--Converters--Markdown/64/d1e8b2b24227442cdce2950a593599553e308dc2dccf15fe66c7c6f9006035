@@ -1,0 +1,353 @@
+I"��<p><a href="/ruby-guide/">Voltar ao começo do guia</a></p>
+
+<p>Até o momento, os programas que criamos foram escritos de forma a resolver um problema uma única vez. Mas e se quisermos resolver o mesmo problema duas vezes? Três vezes? Temos que escrever novamente o mesmo código?</p>
+
+<p>Considere o programa que faz conversão de valores entre moedas do <a href="/ruby-guide/flow">capítulo anterior</a>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"Digite o valor para ser convertido (em Real)"</span>
+<span class="n">valor_para_converter</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span><span class="p">.</span><span class="nf">to_f</span>
+
+<span class="nb">puts</span> <span class="s2">"Digite a moeda para converter (D para Dólar ou E para Euro)"</span>
+<span class="n">moeda_para_converter</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span><span class="p">.</span><span class="nf">upcase</span>
+
+<span class="k">if</span> <span class="n">moeda_para_converter</span> <span class="o">==</span> <span class="s2">"D"</span>
+  <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+  <span class="nb">puts</span> <span class="s2">"A conversão em dolár será:"</span> <span class="p">,</span> <span class="p">(</span><span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span><span class="p">).</span><span class="nf">round</span>
+<span class="k">else</span>
+  <span class="n">cotacao_euro</span> <span class="o">=</span> <span class="mf">6.64</span>
+  <span class="nb">puts</span> <span class="s2">"A conversão em euro será:"</span><span class="p">,</span> <span class="p">(</span><span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span><span class="p">).</span><span class="nf">round</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Perceba que nesse exemplo, o valor da cotação das moedas estão fixos no nosso código, mas nós sabemos que a cotação é flutuante, muda o tempo todo! E se quiséssemos usar o serviço do Google para</p>
+
+<h2 id="métodos">Métodos</h2>
+
+<p>Métodos são blocos de código que englobam um determinado comportamento de forma que este seja reutilizado em outro local, evitando código duplicado. Código duplicado, na realidade, é um dos grandes problemas do desenvolvimento de software moderno. Métodos com escopo bem definido são são excelentes para evitar código duplicado. Ao longo desse guia nós já utilizamos diversas métodos como <code class="highlighter-rouge">puts</code>, <code class="highlighter-rouge">to_s</code>, <code class="highlighter-rouge">gets</code>, como muitas outras. Imagina se nós precisássemos escrever código para imprimir texto na tela? Ou converter uma variável para string, ou para receber dados do usuário? Que bom que já existem essas métodos! Nós apenas reutilizamo-as. Reuso é um termo chave em programação em geral e, em particular, quando falamos de métodos. Como reveremos nesse capítulo, podemos resolver problemas mais complexos, compondo métodos menores, bem definidas.</p>
+
+<h2 id="definição-de-métodos">Definição de métodos</h2>
+
+<p>Para declarar um método em ruby, devemos seguir a seguinte estrutura:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">nome_da_funcao</span> <span class="p">(</span><span class="n">argumentos</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">algum_valor</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Há alguns conceitos-chave aqui. Primeiro, usamos a palavra reservada <code class="highlighter-rouge">def</code> para definir o início de um método. De forma similar, a palavra reserva <code class="highlighter-rouge">end</code> define o fim de um método. Após nomear o método (no caso do nosso exemplo, usamos o nome <code class="highlighter-rouge">nome_da_funcao</code>), temos a opção de passar argumentos para o método. Opção pois podemos criar métodos sem argumentos. Argumentos são variáveis que devem ser manipuladas dentro de um método. Mais concretamente, o método <code class="highlighter-rouge">puts</code> recebe como argumento uma <code class="highlighter-rouge">String</code> que será impressa na tela (que são passadas por parênteses <code class="highlighter-rouge">()</code><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>). No entanto, o método <code class="highlighter-rouge">gets</code> não recebe nenhum argumento (não passamos nada por parênteses <code class="highlighter-rouge">()</code> pra esse método).</p>
+
+<p>O nome do método junto com seus argumentos são também conhecidos como a assinatura do método. A assinatura do método é utilizada em vários momentos pela linguagem, como por exemplo para resolução de nomes. Uma vez que diferentes métodos podem ter o mesmo nome (lembra que <code class="highlighter-rouge">+</code> é um método que existe tanto em <code class="highlighter-rouge">Integer</code>s e <code class="highlighter-rouge">String</code>s?), a linguagem de programação precisa saber exatamente qual método deve ser executado.</p>
+
+<p>Um outro conceito importante é o escopo do método. O escopo é o contexto que delimita quais valores e expressões que são criados dentro de um método (entre um <code class="highlighter-rouge">def</code> e um <code class="highlighter-rouge">end</code>). Trechos de código que são definidos dentro do contexto de um método só são visíveis e executáveis dentro do método; ou seja, estes não existem fora do método. Vamos observar isso no nosso programa abaixo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="p">(</span><span class="n">valor_para_converter</span><span class="p">)</span>
+ <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+
+ <span class="n">valor_convertido</span> <span class="o">=</span> <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+
+ <span class="k">return</span> <span class="n">valor_convertido</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span>
+
+<span class="nb">puts</span> <span class="n">valor_convertido</span>
+</code></pre></div></div>
+
+<p>Ao executar esse programa, é impresso na tela o valor <code class="highlighter-rouge">17.825311942959</code> que é o valor armazenado na variável <code class="highlighter-rouge">valor_convertido</code> e após recebemos um <code class="highlighter-rouge">NameError (undefined local variable or method `valor_convertido' for main:Object)</code>.  Isso acontece pois a variável <code class="highlighter-rouge">valor_convertido</code> foi definida dentro do método <code class="highlighter-rouge">converter_para_dolar</code>, logo ela não existe fora deste método. No entanto, variáveis que definidas antes de um método podem ser utilizadas dentro de um método. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+
+<span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="p">(</span><span class="n">valor_para_converter</span><span class="p">)</span>
+  <span class="n">valor_convertido</span> <span class="o">=</span> <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+  <span class="k">return</span> <span class="n">valor_convertido</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<p>A variável <code class="highlighter-rouge">cotacao_dolar</code> é visível dentro do método <code class="highlighter-rouge">converter_para_dolar</code> pois o escopo da variável é global, ou seja, a variável <code class="highlighter-rouge">cotacao_dolar</code> pode ser acessada de qualquer lugar do nosso programa. No entanto, variáveis definidas dentro do método só existem no escopo do método.</p>
+
+<p>Por fim, antes de encerrar o método com um <code class="highlighter-rouge">end</code>, podemos no entanto retornar um valor, através da palavra reservada <code class="highlighter-rouge">return</code>. O <code class="highlighter-rouge">return</code> deve obrigatoriamente ser a última instrução de um método. Caso exista alguma instrução após um <code class="highlighter-rouge">return</code>, esta instrução não é executada. Vejamos no exemplo a seguir:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="p">(</span><span class="n">valor_para_converter</span><span class="p">)</span>
+ <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+
+ <span class="n">valor_convertido</span> <span class="o">=</span> <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+
+ <span class="k">return</span> <span class="n">valor_convertido</span>
+ <span class="nb">puts</span> <span class="s2">"O valor convertido é "</span> <span class="o">+</span> <span class="n">valor_convertido</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Nesse caso, o método <code class="highlighter-rouge">puts</code> não é executada pois foi colocada após o <code class="highlighter-rouge">return</code>. Como já vimos em outros locais nesse guia, Ruby é uma linguagem que fornece vários açúcares sintáticos aos desenvolvedores. A opcionalidade dos parênteses é um açúcar sintático conhecido. Um outro exemplo de açúcar sintático é a opcionalidade do <code class="highlighter-rouge">return</code> ao fim de um método. Neste caso, a última instrução é imediatamente retornada. Vejamos no exemplo a seguir:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span>
+ <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+
+ <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<p>No caso do exemplo acima, a última instrução é a expressão <code class="highlighter-rouge">valor_para_converter / cotacao_dolar</code>. O <code class="highlighter-rouge">return</code> implícito avaliará essa expressão e retornará seu resultado. Sem os parênteses <code class="highlighter-rouge">()</code> (tanto na definição quanto no uso do método) e a ausência de um return deixaram o código mais simples, mais conciso.</p>
+
+<h2 id="escopo-de-variáveis">Escopo de variáveis</h2>
+
+<p>Escopo de uma variável se refere ao tempo de vida em que a variável vai estar visível em um programa. Variáveis que são ditas como fora de escopo não são visíveis, logo não podem ser manipuladas. De maneira geral, existem dois tipos de  escopos: o <strong>escopo local</strong>, em que a variável só pode ser acessada dentro de um método, e o <strong>escopo global</strong>, em que a variável pode ser acessada em qualquer lugar do programa, inclusive dentro de um método. Considere o exemplo anterior novamente:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span>
+ <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+ <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">cotacao_dolar</span>
+</code></pre></div></div>
+
+<p>O código acima retorna um <code class="highlighter-rouge">NameError</code>, pois a variável <code class="highlighter-rouge">cotacao_dolar</code> não é visível fora do método que foi definida. Podemos usar a palavra reservada <code class="highlighter-rouge">defined?</code> para entender um pouco mais do escopo da variável. Vamos mudar um pouco o nosso exemplo anterior pra entender um pouco mais sobre os escopos das variáveis.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+<span class="k">defined?</span> <span class="n">cotacao_dolar</span> <span class="c1"># =&gt; "local-variable"</span>
+
+<span class="k">def</span> <span class="nf">converter_para_dolar</span>
+ <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+ <span class="k">defined?</span> <span class="n">cotacao_dolar</span> <span class="c1"># =&gt; "local-variable"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>No exemplo acima, tanto a variável <code class="highlighter-rouge">cotacao_dolar</code> definida fora do método quanto a variável <code class="highlighter-rouge">cotacao_dolar</code> definida dento do método tem escopo local. De fato, embora as variáveis tenham o mesmo nome, estas são duas variáveis diferentes.</p>
+
+<p>De forma similar, uma variável declarada fora do método <code class="highlighter-rouge">converter_para_dolar</code> também não poderia ser acessada dentro do método. Porém, e se quiséssemos extrair a variável <code class="highlighter-rouge">cotacao_dolar</code> para fora do método, e assim utilizássemos em outros métodos? Nesse caso, teríamos que mudar o escopo da variável <code class="highlighter-rouge">cotacao_dolar</code> para global. Em Ruby, variáveis globais começam com o símbolo <code class="highlighter-rouge">$</code>. Poderíamos alterar o nosso exemplo anterior da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vg">$cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+<span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span>
+ <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="vg">$cotacao_dolar</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<p>Perceba que tivemos que alterar tanto na definição quanto no uso da variável <code class="highlighter-rouge">$cotacao_dolar</code>. No entanto, grandes poderes requerem grandes responsabilidades. Variáveis globais tornam a compreensão de código mais difícil. Ao tornar uma variável global, qualquer método na sua aplicação ganha acesso para manipular tais variáveis. Isso dificulta entendimento e depuração de código, uma vez que se faz necessário investigar <em>todos</em> os métodos que fazem uso de variáveis globais.</p>
+
+<p>Por fim, perceba também que podemos confirmar a mudança do escopo usando novamente o comando <code class="highlighter-rouge">defined?</code>, como abaixo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vg">$cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span>
+<span class="k">defined?</span> <span class="vg">$cotacao_dolar</span>  <span class="o">=&gt;</span> <span class="s2">"global-variable"</span>
+</code></pre></div></div>
+
+<p>Há ainda outros escopos diferentes para variáveis em Ruby, mas vamos deixar pra comentar sobre eles mais pra frente neste guia.</p>
+
+<h2 id="tipos-de-parâmetros">Tipos de parâmetros</h2>
+
+<p>Em Ruby há diversas opções de parâmetros para utilizar na definição de métodos. Além do parâmetro obrigatório, guia vamos discutir duas outras formas: os parâmetros <em>default</em> e os parâmetros opcionais.</p>
+
+<h3 id="parâmetros-default">Parâmetros <em>default</em></h3>
+
+<p>No exemplo que trabalhamos acima, o nosso método <code class="highlighter-rouge">converter_para_dolar</code> recebia um único parâmetro, o <code class="highlighter-rouge">valor_para_converter</code>. Toda vez que chamamos o método <code class="highlighter-rouge">converter_para_dolar</code>, precisamos obrigatoriamente passar um valor para o parâmetro; do contrário, recebemos um erro com a seguinte mensagem <code class="highlighter-rouge">ArgumentError (wrong number of arguments (given 0, expected 1))</code>. Isso acontece pois o parâmetro é <em>obrigatório</em>.</p>
+
+<p>No entanto, em Ruby é possível fornecer um valor padrão para um parâmetro (do Inglês, <em>default parameters</em>), ou seja, caso um valor não seja passado para o método, a variável definida no parâmetro receberá um valor previamente definido. Podemos alterar nosso <code class="highlighter-rouge">converter_para_dolar</code> para receber um valor padrão da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacao_dolar</span><span class="o">=</span><span class="mf">5.61</span>
+ <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<p>Nesse exemplo, a variável <code class="highlighter-rouge">cotacao_dolar</code> passou a ser um parâmetro <em>default</em> do método <code class="highlighter-rouge">converter_para_dolar</code>, e o usuário deste método ganhou a opcionalidade de passar esse parâmetro ou não (veja que na chamada do método passamos somente o valor a ser convertido).</p>
+
+<p>Como o valor padrão só será atribuído caso o usuário não passe o valor desejado, nada impede que informe outro valor como parâmetro. Neste caso, o valor que o usuário informa será utilizado, enquanto que o valor <em>default</em> não será utilizado. Experimente fazendo a seguinte chamada de método <code class="highlighter-rouge">converter_para_dolar 100, 5.8</code>.</p>
+
+<p>Por fim, perceba também que no método <code class="highlighter-rouge">converter_para_dolar</code> há ainda um parâmetro obrigatório. Se executarmos novamente o método <code class="highlighter-rouge">converter_para_dolar</code> sem passar nenhum parâmetro, temos a seguinte mensagem de erro: <code class="highlighter-rouge">ArgumentError (wrong number of arguments (given 0, expected 1..2))</code>. Diferente da mensagem de erro que tivemos anteriormente, que sabíamos exatamente quantos valores eram esperados, agora o Ruby nos avisa que é esperado um <code class="highlighter-rouge">Range</code> que varia de 1 até 2.</p>
+
+<h3 id="parâmetros-opcionais">Parâmetros opcionais</h3>
+
+<p>Um outro recurso interessante em métodos são os parâmetros opcionais. Diferente dos parâmetros <em>default</em>, em que um valor vai ser passado para uma variável, independentemente se o usuário fornecer esse valor ou não, nos parâmetros opcionais, podemos contar ou não com os parâmetros para execução do nosso método. Ou seja, o método não sabe quantos parâmetros serão providos a cada chamada de método. Declaramos que um parâmetro é opcional através do símbolo <code class="highlighter-rouge">*</code> utilizado <em>antes</em> do nome do parâmetro.</p>
+
+<p>Para entender um pouco mais, consider o caso em que nós temos várias cotações de dólar, mas nem todas estão disponíveis ao mesmo instante. Logo, podemos fazer a nossa conversão para dólar somente com as cotações que estão disponíveis em um determinado momento. Vejamos o exemplo abaixo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="o">*</span><span class="n">cotacoes_dolar</span>
+  <span class="k">for</span> <span class="n">cotacao</span> <span class="k">in</span> <span class="n">cotacoes_dolar</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">5.61</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">,</span> <span class="mf">5.65</span><span class="p">,</span> <span class="mf">5.58</span>
+</code></pre></div></div>
+
+<p>Algumas observações sobre o uso do parâmetro opcional:</p>
+
+<ul>
+  <li>
+    <p>Usamos o <code class="highlighter-rouge">*</code> somente na declaração da variável, e não no seu uso (diferente do <code class="highlighter-rouge">$</code> que usamos para declarar variáveis globais, que precisamos utilizar tanto na declaração quanto no uso).</p>
+  </li>
+  <li>
+    <p>O nosso método <code class="highlighter-rouge">converter_para_dolar</code> recebeu cinco parâmetros, mas poderia ter recebido três, oito, dez, …,  ou  somente um. Ou seja, poderíamos passar somente o parâmetro obrigatório e não passar nenhum parâmetro opcional. Caso nenhum parâmetro opcional fosse fornecido, o <code class="highlighter-rouge">for</code> não seria executado. Faz sentido usar parâmetros opcionais nesse caso, então?</p>
+  </li>
+  <li>
+    <p>Quando passamos um ou mais valores para um parâmetro opcional, esses valores são armazenados em um <code class="highlighter-rouge">Array</code>. Logo, a chamada de método <code class="highlighter-rouge">converter_para_dolar 100, 5.61, 5.6, 5.65, 5.58</code> é equivalente a <code class="highlighter-rouge">converter_para_dolar 100, [5.61, 5.6, 5.65, 5.58]</code>.</p>
+  </li>
+</ul>
+
+<h3 id="podemos-combinar-parâmetros-obrigatórios-default-e-opcionais">Podemos combinar parâmetros obrigatórios, default e opcionais?</h3>
+
+<p>Sim! Podemos usar todos os três tipos de parâmetros na definição da assinatura de um único método. Mas note que, assim como os operadores tem diferentes graus de precedência sobre outros operadores (por exemplo, o operador <code class="highlighter-rouge">*</code> é avaliado antes do operador <code class="highlighter-rouge">+</code>).</p>
+
+<p>Caso seja de interesse utilizar os três tipos de parâmetros no mesmo método, uma boa prática é utilizar primeiro os parâmetros obrigatório, depois os <em>default</em> e por fim os opcionais. Algo como:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacoes_dolar</span><span class="o">=</span><span class="mf">5.61</span><span class="p">,</span> <span class="o">*</span><span class="n">outras_cotacoes</span>
+  <span class="nb">puts</span> <span class="s2">"Eu quero converter o valor </span><span class="si">#{</span><span class="n">valor_para_converter</span><span class="si">}</span><span class="s2"> usando a cotação </span><span class="si">#{</span><span class="n">cotacoes_dolar</span><span class="si">}</span><span class="s2"> e, se possível, usando também as cotações </span><span class="si">#{</span><span class="n">outras_cotacoes</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="n">converter_para_dolar</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">5.80</span><span class="p">,</span> <span class="mf">5.66</span><span class="p">,</span> <span class="mf">5.26</span><span class="p">,</span> <span class="mf">5.63</span><span class="p">,</span> <span class="mf">5.72</span>
+<span class="n">converter_para_dolar</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">5.80</span><span class="p">,</span> <span class="mf">5.66</span>
+<span class="n">converter_para_dolar</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">5.80</span>
+</code></pre></div></div>
+
+<h2 id="tipos-de-retorno">Tipos de retorno</h2>
+
+<p>Como já discutimos no começo deste capítulo, todo método em Ruby retorna algum valor, mesmo que não exista um <code class="highlighter-rouge">return</code> explícito no código. Neste caso, o método retorna a última linha. No entanto, caso mais de uma expressão seja fornecida, um <code class="highlighter-rouge">Array</code> agrupando os valores das expressões é retornado. Poderíamos observar esse comportamento se colocássemos um <code class="highlighter-rouge">return</code> com mais de um valor, separado por vírgulas:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacoes_dolar</span><span class="o">=</span><span class="mf">5.61</span><span class="p">,</span> <span class="o">*</span><span class="n">outras_cotacoes</span>
+  <span class="c1"># ...</span>
+
+  <span class="k">return</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">valor_convertido</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Por fim, e embora não recomendado, podemos também retornar <code class="highlighter-rouge">nil</code>, caso a últimas instrução do método senha somente um <code class="highlighter-rouge">return</code> sem valor. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacoes_dolar</span><span class="o">=</span><span class="mf">5.61</span><span class="p">,</span> <span class="o">*</span><span class="n">outras_cotacoes</span>
+  <span class="c1"># ...</span>
+
+  <span class="k">return</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="métodos-ou-blocos">Métodos ou blocos?</h2>
+
+<p>Como já vimos em outros capítulos, bloco são uma forma de agrupar expressões. Embora blocos sejam comumente delimitados entre um <code class="highlighter-rouge">do..end</code>, blocos de uma única linha podem ser delimitados por chaves <code class="highlighter-rouge">{}</code>. Blocos, assim como métodos, podem conter seus próprios argumentos. Diferente de métodos, blocos não tem nome (e também não são associados a nenhum objeto). Os exercícios que fizemos usando <code class="highlighter-rouge">loop</code> e <code class="highlighter-rouge">1.times</code> no capítulo anterior foram usando blocos.</p>
+
+<p>Mas qual a relação de um método e um bloco? Considere o trecho de código abaixo.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bloco_metodo</span>
+  <span class="nb">puts</span> <span class="s2">"Estou dentro de um método"</span>
+<span class="k">end</span>
+
+<span class="n">bloco_metodo</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Um bloco foi chamado"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nas três primeiras linhas do exemplo acima nós declaramos o método <code class="highlighter-rouge">bloco_metodo</code> enquanto que na última linha nós chamamos esse método passando um bloco para ele.</p>
+
+<p>Sem executar esse programa, você saberia dizer qual é a saída?</p>
+
+<p>A saída é a <code class="highlighter-rouge">String</code> contendo <code class="highlighter-rouge">Estou dentro de um método</code>. Isso acontece pois o bloco não foi invocado. Para invocar um bloco, podemos fazer uso da palavra reservada <code class="highlighter-rouge">yield</code>.  Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bloco_metodo</span>
+  <span class="nb">puts</span> <span class="s2">"Estou dentro de um método"</span>
+  <span class="k">yield</span>
+  <span class="nb">puts</span> <span class="s2">"Estou de volta para o método"</span>
+<span class="k">end</span>
+
+<span class="n">bloco_metodo</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Um bloco foi chamado"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>A palavra reservada <code class="highlighter-rouge">yield</code> vai procurar e invocar o bloco no método que foi invocado. Ou seja, o <code class="highlighter-rouge">yield</code> vai até a chamada do método e executa o bloco e depois retorna ao método para terminar sua execução. Perceba que não estamos passando o bloco por parâmetro do método e, sim, estamos chamando o bloco de dentro do método. Não passamos o bloco como parâmetro pois, como dissemos no começo desta seção, um bloco não é um objeto.</p>
+
+<p>Mas o que aconteceria se nenhum bloco fosse passado? Se fizermos somente a chamada do método <code class="highlighter-rouge">bloco_metodo</code>, sem passar o bloco, recebemos um erro do tipo <code class="highlighter-rouge">LocalJumpError (no block given (yield))</code>. Isso acontece pois o <code class="highlighter-rouge">yield</code>, de fato, aguarda que um bloco seja passado. Caso queiramos deixar o nosso programa mais robusto, podendo ou não receber um</p>
+
+<p>É possível também passar parâmetros para dentro de um bloco. No capítulo anterior usamos o seguinte trecho de código: <code class="highlighter-rouge">5.times {|i| puts "Eu sei iterar até #{i}"}</code>, onde <code class="highlighter-rouge">i</code> é uma variável passada por parâmetro para dentro de um bloco, através do método <code class="highlighter-rouge">times</code>. Como isso é possível?</p>
+
+<p>Podemos passar parâmetros para o bloco também usando o <code class="highlighter-rouge">yield</code>. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bloco_metodo</span>
+  <span class="nb">puts</span> <span class="s2">"Estou dentro de um método"</span>
+  <span class="k">yield</span> <span class="mi">1</span>
+  <span class="nb">puts</span> <span class="s2">"Estou de volta para o método"</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+
+<span class="n">bloco_metodo</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Imprimindo o parâmetro </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>No exemplo acima, o <code class="highlighter-rouge">yield</code> é chamado duas vezes, cada uma passando uma parâmetro diferente.</p>
+
+<!--
+## Escopo de variáveis
+
+O escopo é o que define onde uma variável pode ser acessada. O escopo pode ser pequeno, a nível local, ou pode ser grande, a nível global.
+
+https://stackoverflow.com/questions/11495098/difference-between-various-variables-scopes-in-ruby
+
+https://www.techotopia.com/index.php/Ruby_Variable_Scope
+
+https://www.rubyguides.com/2019/03/ruby-scope-binding/
+
+-->
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<!--
+```ruby
+x = 0
+
+def foo
+    x = 10
+    return x
+end
+
+bar = foo
+
+def baz
+    x = 20
+    bar()
+end
+
+puts baz
+```
+-->
+
+<ul>
+  <li>
+    <p>Escreva a seu próprio método que imprima na tela do usuário, similar ao <code class="highlighter-rouge">puts</code>.</p>
+  </li>
+  <li>
+    <p>Além de métodos e blocos, em Ruby há também uma estrutura chamada <code class="highlighter-rouge">Proc</code>. Estude e entenda as diferenças entre estas três estruturas.</p>
+  </li>
+  <li>
+    <p>Dissemos ao fim do capítulo que blocos não são objetos, logo não podem ser passados por parâmetros para um método. No entanto, o código abaixo é funcional. Explique o por que.</p>
+  </li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bloco_como_parametro</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bloco</span><span class="p">)</span>
+  <span class="n">bloco</span><span class="p">.</span><span class="nf">call</span>
+<span class="k">end</span>
+
+<span class="n">bloco_como_parametro</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Não é que funciona?!"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Crie um programa que execute o comando <code class="highlighter-rouge">times (5) { .. }</code> com comportamento similar ao <code class="highlighter-rouge">5.times { .. }</code>.</p>
+  </li>
+  <li>
+    <p>Métodos tem parâmetros opcionais que são convertidos para um <code class="highlighter-rouge">Array</code>. Esses parâmetros são identificados pelo símbolo <code class="highlighter-rouge">*</code> que antecede o nome do parâmetro. No entanto, há também outro tipo de parâmetro opcional que é definido com dois <code class="highlighter-rouge">**</code>.  Que tipo de parâmetro é esse?</p>
+  </li>
+  <li>
+    <p>Um outro tipo de parâmetro é com um operador <em>ampersand</em> (<code class="highlighter-rouge">&amp;</code>). Em que caso um parâmetro com esse operador deve ser utilizado?</p>
+  </li>
+  <li>
+    <p>Pesquise se seria possível ter outra ordem de precedência (diferente de obrigatórios, <em>default</em> e opcionais) para os tipos de parâmetros de um método.</p>
+  </li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Como já discutimos em outros capítulos, os parênteses <code class="highlighter-rouge">()</code> são opcionais tanto na definição quanto no uso de métodos em Ruby. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

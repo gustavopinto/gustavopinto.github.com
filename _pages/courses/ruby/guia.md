@@ -14,7 +14,7 @@ Esse guia cobre os seguintes pontos:
 3. [Binário](/ruby-guide/bin)
 4. [Expressões e operadores](/ruby-guide/exp)
 5. [Controle de fluxo](/ruby-guide/flow)
-6. Funções
+6. [Funções](/ruby-guide/funcs)
 7. Arrays e Hashes
 8. Entrada e saída
 9. Extra

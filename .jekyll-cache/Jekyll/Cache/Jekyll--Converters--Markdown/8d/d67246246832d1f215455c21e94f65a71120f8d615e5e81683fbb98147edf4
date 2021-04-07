@@ -1,4 +1,4 @@
-I"pz<p>A variety of common markup showing how the theme styles them.</p>
+I"�{<p>A variety of common markup showing how the theme styles them.</p>
 
 <h1 id="header-one">Header one</h1>
 
@@ -803,6 +803,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/pos-graduacao/" rel="permalink">Ingresso na pós-graduação</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ruby-guide/funcs" rel="permalink">Atribuição de variáveis</a>
       
     </h2>
     

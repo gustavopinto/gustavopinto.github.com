@@ -1,4 +1,4 @@
-I"æø<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"˘¿<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -530,6 +530,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/pos-graduacao/" rel="permalink">Ingresso na p√≥s-gradua√ß√£o</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ruby-guide/funcs" rel="permalink">Atribui√ß√£o de vari√°veis</a>
       
     </h2>
     
