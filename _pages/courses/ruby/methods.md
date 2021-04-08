@@ -323,6 +323,8 @@ bloco_metodo { puts "Um bloco foi chamado"}
 
 Perceba que precisamos agora fazer uso do método ```call```, que é responsável por executar o trecho de código dentro do bloco. No entanto, quando um bloco é chamado explicitamente, o bloco é convertido para um objeto do tipo ```Proc```, que possibilita que este seja armazenado em uma variável e posteriormente executado.
 
+Vamos falar mais sobre ```Proc``` quando falarmos sobre ```lambda```.
+
 <!--
 ## Escopo de variáveis
 
