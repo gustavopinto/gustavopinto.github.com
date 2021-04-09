@@ -1,4 +1,4 @@
-I"�!<h2 id="horário">Horário</h2>
+I"�!<h2 id="horário">Horário</h2>
 
 <p>Terça e Quinta, às 16h:40m @ ONLINE</p>
 
@@ -137,21 +137,15 @@
       <td> </td>
     </tr>
     <tr>
-      <td>9</td>
-      <td>06/04</td>
-      <td>Métodos</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>10</td>
       <td>06/04</td>
-      <td>Array e Matrizes</td>
-      <td> </td>
+      <td>Métodos</td>
+      <td><a href="https://drive.google.com/file/d/1-dCnnNomLC9QHumhlPd6otn2CuBRfteY/view?usp=sharing">Video</a></td>
     </tr>
     <tr>
       <td>11</td>
       <td>08/04</td>
-      <td>Hashes</td>
+      <td>Array e Hashes</td>
       <td> </td>
     </tr>
     <tr>
@@ -199,7 +193,7 @@
     <tr>
       <td>19</td>
       <td>06/05</td>
-      <td>Definição de projetos</td>
+      <td>Programação funcional</td>
       <td> </td>
     </tr>
     <tr>
