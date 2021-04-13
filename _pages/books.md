@@ -6,7 +6,7 @@ permalink: /books/
 layouts_gallery:
   - url: /books/good-research-habits/
     image_path: /lost+found/cover-young-researchers.jpg
-    alt: "1+5 Habits of Effective Young Researchers"
+    alt: "1+5 Habits for Young Researchers"
   - url: /books/open-source-licensing-101/
     image_path: /lost+found/cover-oss-licensing.jpg
     alt: "Open Source Licensing 101"

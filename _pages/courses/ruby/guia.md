@@ -15,9 +15,10 @@ Esse guia cobre os seguintes pontos:
 4. [Expressões e operadores](/ruby-guide/exp)
 5. [Controle de fluxo](/ruby-guide/flow)
 6. [Funções](/ruby-guide/funcs)
-7. Arrays e Hashes
-8. Entrada e saída
-9. Extra
+7. [Arrays](/ruby-guide/arrays)
+8. Hashes
+9. Entrada e saída
+10. Extra
   - Classes e Objetos
   - Programação funcional
   - Tratamento de excessão
