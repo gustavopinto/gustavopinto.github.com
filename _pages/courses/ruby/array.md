@@ -7,8 +7,6 @@ permalink: /ruby-guide/arrays
 
 [Voltar ao começo do guia](/ruby-guide/).
 
-## Arrays
-
 Arrays são tipos de dados que podem armazenar elementos de qualquer tipo. Os elementos de um array são separados por vírgula, e os elementos de um array são delimitados por colchetes (```[]```).
 
 Já trabalhamos com Arrays em vários momentos nesse guia, quando por exemplo utilizamos o método ```char``` de uma ```String```, que retorna um Array ou quando passamos vários parâmetros opcionais para um método, que são agrupados em um Array, ou quando fazemos uma iteração em um ```for```. No entanto, em todos esses casos, estávamos apenas utilizando um Array que foi criado pela linguagem. Chegou o momento de nós criarmos os nossos próprios ```Arrays```.
@@ -303,3 +301,9 @@ letters = %w{a b c d e f} # => ["a", "b", "c", "d", "e", "f"]
 - Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array ```[1,2,2,2,2,3,3,3,4,4]``` como entrada imprima o seguinte hash ```{1 => 1, 2 => 4, 3 => 3, 4 => 2}```.
 
 - Crie um programa que leia um arquivo de texto (```.txt```) de um diretório, separe as palavras pelo espaço em branco, e converta as palavras para minúsculo. Imprima o total de palavras do arquivo, e o número de vezes cada palavra foi utilizada.
+
+- Crie um método chamado ```particiona``` que receba um Array de inteiros e retorne um array englobando dois outros arrays: um somente com os números pares e outro somente com os números ímpares. Por ex:
+```ruby
+particionado = particiona (1..10).to_a
+puts particionado # =>  [[2, 4, 6, 8, 10], [1, 3, 5, 7, 9]]
+```

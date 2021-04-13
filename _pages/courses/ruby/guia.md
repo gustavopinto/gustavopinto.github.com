@@ -16,7 +16,7 @@ Esse guia cobre os seguintes pontos:
 5. [Controle de fluxo](/ruby-guide/flow)
 6. [Funções](/ruby-guide/funcs)
 7. [Arrays](/ruby-guide/arrays)
-8. Hashes
+8. [Hashes](/ruby-guide/hashes)
 9. Entrada e saída
 10. Extra
   - Classes e Objetos

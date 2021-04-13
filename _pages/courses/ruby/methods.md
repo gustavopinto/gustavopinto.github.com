@@ -244,6 +244,68 @@ def converter_para_dolar valor_para_converter, cotacoes_dolar=5.61, *outras_cota
   return
 end
 ```
+## Convenção na nomenclatura de métodos
+
+O método que criamos nesse capítulo, ```converter_para_dolar```, começa com o verbo ```converter```, indicando a sua ação (o que o método deve fazer). No entanto, ao invés de realizar alguma ação, as vezes gostaríamos fazer uma consulta simples.
+
+Por exemplo, só devemos fazer conversões de moeda se o valor informado por parâmetro for um inteiro. Mas e se o usuário quisesse testar o nosso programa e passasse uma string no lugar? Vamos testar:
+
+```ruby
+def converter_para_dolar (valor_para_converter, cotacao_dolar = 5.61)
+  valor_para_converter / cotacao_dolar
+end
+
+puts converter_para_dolar "100"
+```
+
+Ao passar a String ```100```, recebemos o erro ```NoMethodError (undefined method `/' for "100":String)```, pois o interpretador tentou localizar o método ```/``` na classe String ([lembra que alguns operadores são implementados como métodos?](/ruby-guide/exp)) mas não encontrou, resultando em um ```NoMethodError```.
+
+Nosso programa deveria ser capaz de verificar se o valor que foi informado é, de fato, aquele que estava aguardando. Para estes métodos que tem finalidade de apenas fazer uma consulta (por exemplo, verificar se um valor é inteiro), usamos uma convenção um pouco diferente.
+
+Em suas pesquisas na documentação de Ruby, você já deve ter se deparado com vários métodos que encerram com um ```?``` (ponto de interrogação). Mas qual o sentido disso? Em Ruby, um método que retorna um booleano deve ter seu nome encerrado com um ```?```. Seguindo essa convenção, poderíamos criar um método chamado ```é_um_inteiro? (valor)```. O ```?```, sem dúvida, deixaria muito mais clara a intenção do método. No entanto, não vamos fazer isso pois a linguagem Ruby já nos fornece um método similar, chamado ```is_a?```, que existe em vários tipos conhecidos da linguagem. Por exemplo:
+
+```ruby
+1.is_a? Integer          # => true
+1.is_a? Float            # => false
+1.is_a? String           # => false
+"1".is_a? String         # => true
+"1".is_a? Integer        # => false
+true.is_a? TrueClass     # => true
+true.is_a? FalseCalss    # => false
+```
+
+Podemos usar o ```is_a?``` para evitar que o nosso método ```converter_para_dolar``` lance um ```NoMethodError```, como vimos anteriormente.
+
+```ruby
+def converter_para_dolar (valor_para_converter, cotacao_dolar = 5.61)
+
+  if valor_para_converter.is_a? Integer
+    valor_para_converter / cotacao_dolar
+  end
+end
+
+puts converter_para_dolar "100"
+```
+
+Uma outra convenção em Ruby é terminar o nome do método com um ```!``` (ponto de exclamação). Métodos que terminam com uma ```!``` tentam passar um aviso de *cuidado* para o desenvolvedor. Isto pois estes métodos tendem a mudar o comportamento do objeto associado. Por exemplo, vimos no capítulo que abordamos Strings o método ```upcase```, em que ele capitaliza toda uma String. Mas, na realidade, o método ```upcase``` cria uma nova String capitaliza. Podemos ver isso no exemplo abaixo.
+
+```ruby
+nome = "Gustavo"
+puts nome.upcase    # => GUSTAVO
+puts nome           # => Gustavo
+```
+
+Ou seja, ele não alterou a String armazenada na variável ```nome```, mas retornou uma nova String com o valor capitalizado. Por outro lado, o método ```upcase!```, de fato, muda o valor da String associada. Por exemplo:
+
+```ruby
+nome = "Gustavo"
+puts nome.upcase!    # => GUSTAVO
+puts nome            # => GUSTAVO
+```
+
+Por isso, toda vez que vemos um método com ```!``` como sufixo, devemos ter cuidado com a sua utilização. A documentação a linguagem é uma excelente fonte de referência que deve ser consultada com frequência.
+
+Mas o que exatamente é uma convenção? Convenção é um conjunto de decisões de design de software que tem como objetivo facilitar a vida do programador. Por exemplo, quando se nomeia um método que termina com um ```?```, o programador já sabe que esse método vai retornar um booleano. Não é necessário executar ou, muito menos, abrir o código fonte pra saber qual o tipo de retorno. Convenções não são regras fixas. Ou seja, qualquer desenvolvedor pode escrever um método que retorna um booleano sem nomea-lo com um ```?``` ao fim. No entanto, quando outros desenvolvedores forem ler este método, eles não terão a clareza da intenção do método apenas lendo sua assinatura.
 
 
 ## Métodos ou blocos?
