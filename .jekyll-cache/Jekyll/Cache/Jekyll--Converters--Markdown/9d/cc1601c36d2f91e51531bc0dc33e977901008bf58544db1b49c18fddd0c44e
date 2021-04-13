@@ -1,0 +1,84 @@
+I"7(<p><a href="/ruby-guide/">Voltar ao começo do guia</a>.</p>
+
+<p>Hashes são tipos de dados que são capazes de armazenar grupos de elementos, assim como um Array. Hashes, na verdade, são construídos com base em Arrays, logo muito do que aprendemos em Arrays pode ser reaproveitado para utilização de Hashes.</p>
+
+<p>Diferente de um Array, no entanto, Hashes são mais sofisticados e tem melhor desempenho em várias operações. Vamos discutir mais a frente alguns desses casos. Uma outra característica de um hash é o uso de chaves (<code class="highlighter-rouge">{}</code>) para delimitar seu escopo.</p>
+
+<h3 id="criando-hashes">Criando hashes</h3>
+
+<p>Podemos criar um Hash vazio usando a notação de chaves:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="p">{}</span>          <span class="c1"># =&gt; {}</span>
+<span class="n">meu_hash</span> <span class="o">=</span> <span class="p">{}</span>    <span class="c1"># =&gt; {}</span>
+</code></pre></div></div>
+
+<p>Hashes são tipos de dados que além de um valor, armazenam também uma chave. A chave é utilizada para buscar o valor armazenado. Podemos definir um Hash em ruby usando a notação <code class="highlighter-rouge">{chave =&gt; valor}</code>. O símbolo <code class="highlighter-rouge">=&gt;</code> (hash rockets) separa a definição de chave e valor. Veja a seguir:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"três"</span> <span class="o">=&gt;</span> <span class="s2">"three"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nesse hash temos três pares de chave e valor. Isto significa que temos três chaves (<code class="highlighter-rouge">um</code>, <code class="highlighter-rouge">dois</code> e <code class="highlighter-rouge">três</code>) que podem ser utilizadas pra acessar três valores (<code class="highlighter-rouge">one</code>, <code class="highlighter-rouge">two</code> e <code class="highlighter-rouge">three</code>). A chave (que marca a posição) aparece ao lado esquedo do <code class="highlighter-rouge">=&gt;</code>, enquanto que o valor aparece ao lado direito.</p>
+
+<p>Percba que a ideia de chave é que ela seja capaz de referenciar um determinado valor dentro de um Hash. Logo, não podem existir duas chaves iguais; do contrário, como poderíamos recuperar o valor associado? Todavia, podemos ter o mesmo valor para duas chaves diferentes.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chaves_duplicadas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"ten"</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="n">chaves_duplicadas</span> <span class="c1"># =&gt; {"um"=&gt;"ten", "dois"=&gt;"two"}</span>
+
+<span class="n">valores_duplicados</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"três"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="n">valores_duplicados</span> <span class="c1"># =&gt; {"um"=&gt;"one", "dois"=&gt;"two", "três"=&gt;"two"}</span>
+</code></pre></div></div>
+
+<p>Como já é de se imaginar, há várias outras formas de se criar um Hash em Ruby. Uma das quais é utilizando a orientação a objetos:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span>         <span class="c1"># =&gt; {}</span>
+<span class="nb">puts</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="o">==</span> <span class="p">{}</span>   <span class="c1"># =&gt; true</span>
+
+<span class="nb">puts</span> <span class="no">Hash</span><span class="p">[</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">]</span>   <span class="c1"># =&gt; {"um" =&gt; "one"}w</span>
+</code></pre></div></div>
+
+<p>Nos dois exemplos anteriores, criamos um Hash de strings como chave e valor. No entanto, assim como Arrays, podemos criar Hashes com tipos de dados diferentes, como no exemplo abaixo.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"nome"</span> <span class="o">=&gt;</span> <span class="s2">"Gustavo Pinto"</span><span class="p">,</span>
+  <span class="s2">"cpf"</span> <span class="o">=&gt;</span> <span class="mo">00011122233</span><span class="p">,</span>
+  <span class="s2">"telefones"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"(91) 99052-0000"</span><span class="p">,</span> <span class="s2">"(91) 99052-0001"</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Note que podemos inclusive usar Arrays como valores de um Hash. No entanto, embora estamo utilizando Strings para as chaves, Symbols são mais comumente utilizados para este propósito, pois símbolos são imutáveis (e, como vimos acima, chaves não podem ser publicadas). Vamos refatorar nosso Array para usar Symbols como chave:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:nome</span> <span class="o">=&gt;</span> <span class="s2">"Gustavo Pinto"</span><span class="p">,</span>
+  <span class="ss">:cpf</span> <span class="o">=&gt;</span> <span class="mo">00011122233</span><span class="p">,</span>
+  <span class="ss">:telefones</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"(91) 99052-0000"</span><span class="p">,</span> <span class="s2">"(91) 99052-0001"</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="manipulando-arrays">Manipulando arrays</h3>
+
+<p>Para acessar uma determinada chave em um Hash, usamos a mesma notação de colchetes que usamos em Arrays:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="c1"># ...</span>
+
+<span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">[</span><span class="ss">:nome</span><span class="p">]</span>      <span class="c1"># =&gt; "Gustavo Pinto"</span>
+<span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">[</span><span class="ss">:rg</span><span class="p">]</span>        <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>Você consegue perceber o que está acontecendo? A instrução <code class="highlighter-rouge">dados_pessoais[:nome]</code> busca no Hash por uma chave chamada <code class="highlighter-rouge">:nome</code>. Ao encontrar essa chave, o Hash devolve o valor associado a esta chave, no caso, a String <code class="highlighter-rouge">Gustavo Pinto</code>. Essa String é então enviada para o método <code class="highlighter-rouge">puts</code> que imprime na tela o resultado.</p>
+
+<p>Assim como nos Arrays, em que um acesso a uma posição inexistente retorna um <code class="highlighter-rouge">nil</code>, em Hash, tentar acessar uma chave inexistente também retorna um <code class="highlighter-rouge">nil</code>.</p>
+
+<p>Para atribuir um valor a um Hash já existente, podemos usar o mesmo mecanismo de atribuição. Por exemplo: <code class="highlighter-rouge">dados_pessoais[:nome] = "Gustavo Henrique"</code>. Caso a chave informada não exista no Hash, um novo registro é criado. Dessa forma, podemos popular um Hash da seguinte forma:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">livros</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nb">puts</span> <span class="n">livros</span><span class="p">[</span><span class="ss">:sapiens</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Sapiens: A Brief History of Humankind"</span>
+<span class="nb">puts</span> <span class="n">livros</span><span class="p">[</span><span class="ss">:mindset</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Mindset: The New Psychology of Success"</span>
+</code></pre></div></div>
+
+<p>. Por exemplo, em um Array, para remover um elemento que não conhecemos, precisamos percorrer todo o Array até encontra-lo. Em um Hash, isso fazemos buscas usando uma <em>chave</em>.</p>
+
+<p>Até o Ruby 1.8, a notação de hash rockets (<code class="highlighter-rouge">=&gt;</code>) era a padrão para criação de hashes. No entanto, no Ruby 1.9, foi introduzida a notação de dois pontos (<code class="highlighter-rouge">:</code>). A notação de dois pontos tinha dois objetivos principais: um era tornar os Hashes sintaticamente mais próximos de um JSON. A notação de dois pontos também era mais fácil de ser utilizada. Nas atuais versões de Ruby (versão 3.0 incluída), ambas as notações de <code class="highlighter-rouge">=&gt;</code> e <code class="highlighter-rouge">:</code> são válidas para criar Hashes. Mas há um problema.</p>
+
+<p>http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html</p>
+:ET

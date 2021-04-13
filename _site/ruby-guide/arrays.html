@@ -327,8 +327,6 @@
         
         <p><a href="/ruby-guide/">Voltar ao começo do guia</a>.</p>
 
-<h2 id="arrays">Arrays</h2>
-
 <p>Arrays são tipos de dados que podem armazenar elementos de qualquer tipo. Os elementos de um array são separados por vírgula, e os elementos de um array são delimitados por colchetes (<code class="highlighter-rouge">[]</code>).</p>
 
 <p>Já trabalhamos com Arrays em vários momentos nesse guia, quando por exemplo utilizamos o método <code class="highlighter-rouge">char</code> de uma <code class="highlighter-rouge">String</code>, que retorna um Array ou quando passamos vários parâmetros opcionais para um método, que são agrupados em um Array, ou quando fazemos uma iteração em um <code class="highlighter-rouge">for</code>. No entanto, em todos esses casos, estávamos apenas utilizando um Array que foi criado pela linguagem. Chegou o momento de nós criarmos os nossos próprios <code class="highlighter-rouge">Arrays</code>.</p>
@@ -610,6 +608,12 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
   </li>
   <li>
     <p>Crie um programa que leia um arquivo de texto (<code class="highlighter-rouge">.txt</code>) de um diretório, separe as palavras pelo espaço em branco, e converta as palavras para minúsculo. Imprima o total de palavras do arquivo, e o número de vezes cada palavra foi utilizada.</p>
+  </li>
+  <li>
+    <p>Crie um método chamado <code class="highlighter-rouge">particiona</code> que receba um Array de inteiros e retorne um array englobando dois outros arrays: um somente com os números pares e outro somente com os números ímpares. Por ex:</p>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">particionado</span> <span class="o">=</span> <span class="n">particiona</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">to_a</span>
+<span class="nb">puts</span> <span class="n">particionado</span> <span class="c1"># =&gt;  [[2, 4, 6, 8, 10], [1, 3, 5, 7, 9]]</span>
+</code></pre></div>    </div>
   </li>
 </ul>
 

@@ -552,6 +552,63 @@
   <span class="k">return</span>
 <span class="k">end</span>
 </code></pre></div></div>
+<h2 id="convenção-na-nomenclatura-de-métodos">Convenção na nomenclatura de métodos</h2>
+
+<p>O método que criamos nesse capítulo, <code class="highlighter-rouge">converter_para_dolar</code>, começa com o verbo <code class="highlighter-rouge">converter</code>, indicando a sua ação (o que o método deve fazer). No entanto, ao invés de realizar alguma ação, as vezes gostaríamos fazer uma consulta simples.</p>
+
+<p>Por exemplo, só devemos fazer conversões de moeda se o valor informado por parâmetro for um inteiro. Mas e se o usuário quisesse testar o nosso programa e passasse uma string no lugar? Vamos testar:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="p">(</span><span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span><span class="p">)</span>
+  <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="s2">"100"</span>
+</code></pre></div></div>
+
+<p>Ao passar a String <code class="highlighter-rouge">100</code>, recebemos o erro <code class="highlighter-rouge">NoMethodError (undefined method `/' for "100":String)</code>, pois o interpretador tentou localizar o método <code class="highlighter-rouge">/</code> na classe String (<a href="/ruby-guide/exp">lembra que alguns operadores são implementados como métodos?</a>) mas não encontrou, resultando em um <code class="highlighter-rouge">NoMethodError</code>.</p>
+
+<p>Nosso programa deveria ser capaz de verificar se o valor que foi informado é, de fato, aquele que estava aguardando. Para estes métodos que tem finalidade de apenas fazer uma consulta (por exemplo, verificar se um valor é inteiro), usamos uma convenção um pouco diferente.</p>
+
+<p>Em suas pesquisas na documentação de Ruby, você já deve ter se deparado com vários métodos que encerram com um <code class="highlighter-rouge">?</code> (ponto de interrogação). Mas qual o sentido disso? Em Ruby, um método que retorna um booleano deve ter seu nome encerrado com um <code class="highlighter-rouge">?</code>. Seguindo essa convenção, poderíamos criar um método chamado <code class="highlighter-rouge">é_um_inteiro? (valor)</code>. O <code class="highlighter-rouge">?</code>, sem dúvida, deixaria muito mais clara a intenção do método. No entanto, não vamos fazer isso pois a linguagem Ruby já nos fornece um método similar, chamado <code class="highlighter-rouge">is_a?</code>, que existe em vários tipos conhecidos da linguagem. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Integer</span>          <span class="c1"># =&gt; true</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Float</span>            <span class="c1"># =&gt; false</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">String</span>           <span class="c1"># =&gt; false</span>
+<span class="s2">"1"</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">String</span>         <span class="c1"># =&gt; true</span>
+<span class="s2">"1"</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Integer</span>        <span class="c1"># =&gt; false</span>
+<span class="kp">true</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">TrueClass</span>     <span class="c1"># =&gt; true</span>
+<span class="kp">true</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">FalseCalss</span>    <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<p>Podemos usar o <code class="highlighter-rouge">is_a?</code> para evitar que o nosso método <code class="highlighter-rouge">converter_para_dolar</code> lance um <code class="highlighter-rouge">NoMethodError</code>, como vimos anteriormente.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">converter_para_dolar</span> <span class="p">(</span><span class="n">valor_para_converter</span><span class="p">,</span> <span class="n">cotacao_dolar</span> <span class="o">=</span> <span class="mf">5.61</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">valor_para_converter</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Integer</span>
+    <span class="n">valor_para_converter</span> <span class="o">/</span> <span class="n">cotacao_dolar</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">converter_para_dolar</span> <span class="s2">"100"</span>
+</code></pre></div></div>
+
+<p>Uma outra convenção em Ruby é terminar o nome do método com um <code class="highlighter-rouge">!</code> (ponto de exclamação). Métodos que terminam com uma <code class="highlighter-rouge">!</code> tentam passar um aviso de <em>cuidado</em> para o desenvolvedor. Isto pois estes métodos tendem a mudar o comportamento do objeto associado. Por exemplo, vimos no capítulo que abordamos Strings o método <code class="highlighter-rouge">upcase</code>, em que ele capitaliza toda uma String. Mas, na realidade, o método <code class="highlighter-rouge">upcase</code> cria uma nova String capitaliza. Podemos ver isso no exemplo abaixo.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s2">"Gustavo"</span>
+<span class="nb">puts</span> <span class="n">nome</span><span class="p">.</span><span class="nf">upcase</span>    <span class="c1"># =&gt; GUSTAVO</span>
+<span class="nb">puts</span> <span class="n">nome</span>           <span class="c1"># =&gt; Gustavo</span>
+</code></pre></div></div>
+
+<p>Ou seja, ele não alterou a String armazenada na variável <code class="highlighter-rouge">nome</code>, mas retornou uma nova String com o valor capitalizado. Por outro lado, o método <code class="highlighter-rouge">upcase!</code>, de fato, muda o valor da String associada. Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nome</span> <span class="o">=</span> <span class="s2">"Gustavo"</span>
+<span class="nb">puts</span> <span class="n">nome</span><span class="p">.</span><span class="nf">upcase!</span>    <span class="c1"># =&gt; GUSTAVO</span>
+<span class="nb">puts</span> <span class="n">nome</span>            <span class="c1"># =&gt; GUSTAVO</span>
+</code></pre></div></div>
+
+<p>Por isso, toda vez que vemos um método com <code class="highlighter-rouge">!</code> como sufixo, devemos ter cuidado com a sua utilização. A documentação a linguagem é uma excelente fonte de referência que deve ser consultada com frequência.</p>
+
+<p>Mas o que exatamente é uma convenção? Convenção é um conjunto de decisões de design de software que tem como objetivo facilitar a vida do programador. Por exemplo, quando se nomeia um método que termina com um <code class="highlighter-rouge">?</code>, o programador já sabe que esse método vai retornar um booleano. Não é necessário executar ou, muito menos, abrir o código fonte pra saber qual o tipo de retorno. Convenções não são regras fixas. Ou seja, qualquer desenvolvedor pode escrever um método que retorna um booleano sem nomea-lo com um <code class="highlighter-rouge">?</code> ao fim. No entanto, quando outros desenvolvedores forem ler este método, eles não terão a clareza da intenção do método apenas lendo sua assinatura.</p>
 
 <h2 id="métodos-ou-blocos">Métodos ou blocos?</h2>
 
