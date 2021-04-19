@@ -7,8 +7,8 @@ permalink: /publications/
 
 ## 2021
 
-1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), **Gustavo Pinto**, and [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). [Improving Energy-Efficiency by Recommending Java Collections.](#) Accepted to the Empirical Software Engineering journal, 2021. <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), **Gustavo Pinto**, and [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). [Improving Energy-Efficiency by Recommending Java Collections.](http://gustavopinto.github.io/lost+found/emse2021.pdf) Accepted to the Empirical Software Engineering journal, 2021. <br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/emse2021.pdf)<br/>
 
 1. [João Pedro Moraes](https://www.linkedin.com/in/joao-pedro-moraes/), [Ivanilton Polato](https://scholar.google.com/citations?user=fQTkB9cAAAAJ), [Igor Wiese](http://igorwiese.com/), [Filipe Saraiva](https://filipesaraiva.info/), **Gustavo Pinto**. [From One to Hundreds: Multi-Licensing in the JavaScript Ecosystem](https://arxiv.org/abs/2012.05016). Accepted to the Empirical Software Engineering journal, 2021.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2012.05016)<br/>
