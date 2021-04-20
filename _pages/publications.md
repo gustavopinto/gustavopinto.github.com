@@ -24,10 +24,12 @@ permalink: /publications/
 
 1. Edson Dias, [Paulo Meirelles](https://scholar.google.com.br/citations?user=zvU_PlcAAAAJ&hl=en), [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [Igor Steinmacher](http://www.igor.pro.br/), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**. [What Makes a Great Maintainer of Open Source Projects?](http://gustavopinto.github.io/lost+found/icse2021.pdf). Accepted to the 43rd ACM/IEEE International Conference on Software Engineering. Madrid, Spain. June 2021. Accepted for publication.
 <br/>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> ACM SIGSOFT Distinguished Paper award](https://twitter.com/gustavopinto/status/1384103177658650630)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/icse2021.pdf)
 
-1. [Michel Albonico](https://michelalbonico.github.io/), [Ivano Malavolta](http://www.ivanomalavolta.com/), **Gustavo Pinto**, [Emitza Guzman](https://research.vu.nl/en/persons/emitza-guzman-ortega), [Katerina Chinnappan](http://katerinachinnppan.com/), [Patricia Lago](http://patricialago.nl/). "[Mining Energy-Related Practices in Robotics Software](#)". Accepted for the 18th International Conference on Mining Software Repositories (MSR), Madrid, Spain, 2021.<br>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+1. [Michel Albonico](https://michelalbonico.github.io/), [Ivano Malavolta](http://www.ivanomalavolta.com/), **Gustavo Pinto**, [Emitza Guzman](https://research.vu.nl/en/persons/emitza-guzman-ortega), [Katerina Chinnappan](http://katerinachinnppan.com/), [Patricia Lago](http://patricialago.nl/). "[Mining Energy-Related Practices in Robotics Software](https://arxiv.org/pdf/2103.13762.pdf)". Accepted for the 18th International Conference on Mining Software Repositories (MSR), Madrid, Spain, 2021.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/pdf/2103.13762.pdf)
 
 1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). "[Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency](http://arxiv.org/abs/2012.03738)". Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03738)

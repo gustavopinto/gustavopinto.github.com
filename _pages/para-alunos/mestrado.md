@@ -22,4 +22,5 @@ Outros links que recomendo fortemente:
 
 - [Pesquisa em Engenharia de Software – Hipsters #84](https://hipsters.tech/pesquisa-em-engenharia-de-software-hipsters-84/), com Mauricio Aniche e Marco Gerosa
 - [Para entrar no jogo - uma conversa com quem realmente quer ser um pesquisador](https://www.youtube.com/watch?v=6Whq07GegI4), com Tayana Conte
+- [Academia e Universidade VS Mercado e Indústria – Hipsters Ponto Tech #249](https://open.spotify.com/episode/4UqKa6XmMFx2CbsKoPC9wG?si=V-OKQCrbTY-c0vxMUSu79A), com Bruno Cartaxo
 - [Roberta Arcoverde - TRAJETÓRIAS HiDev #7](https://anchor.fm/hidevpodcast/episodes/Roberta-Arcoverde---TRAJETRIAS-7-er19ce), com Roberta Arcoverde
