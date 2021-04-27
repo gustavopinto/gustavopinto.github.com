@@ -17,7 +17,7 @@ Esse guia cobre os seguintes pontos:
 6. [Funções](/ruby-guide/funcs)
 7. [Arrays](/ruby-guide/arrays)
 8. [Hashes](/ruby-guide/hashes)
-9. Entrada e saída
+9. [Entrada e saída](/ruby-guide/io)
 10. Extra
   - Classes e Objetos
   - Programação funcional

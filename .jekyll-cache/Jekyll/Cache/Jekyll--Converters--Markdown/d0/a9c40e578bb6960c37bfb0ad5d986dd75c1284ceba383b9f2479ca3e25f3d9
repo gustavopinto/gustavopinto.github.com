@@ -1,0 +1,15 @@
+I"�<p>Para ler um arquivo de texto, usamos</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"teste.txt"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>O resultado desta operação é uma String</p>
+
+<p>Pra isso, precisamos ter o arquivo <code class="highlighter-rouge">teste.txt</code> no mesmo diretório do nosso programa ruby.</p>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>Escreva um programa que lsite todos os arquivos de formato de imagem no diretório corrente e nos seus subdiretórios.</li>
+</ul>
+:ET
