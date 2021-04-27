@@ -1,4 +1,4 @@
-I"I√<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"O√<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -438,7 +438,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/ruby-guide/hashes" rel="permalink">Arrays</a>
+        <a href="/ruby-guide/io" rel="permalink">Entrada e Sa√≠da</a>
       
     </h2>
     

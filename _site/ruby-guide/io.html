@@ -1,0 +1,583 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Entrada e Saída - Gustavo Pinto</title>
+<meta name="description" content="Soft Eng Professor and Researcher ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Entrada e Saída">
+<meta property="og:url" content="http://localhost:4000/ruby-guide/io">
+
+
+  <meta property="og:description" content="Soft Eng Professor and Researcher ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Entrada e Saída">
+  <meta name="twitter:description" content="Soft Eng Professor and Researcher ">
+  <meta name="twitter:url" content="http://localhost:4000/ruby-guide/io">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ruby-guide/io">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/books/">Books</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/misc/">Misc</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Software Engingeering Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Entrada e Saída">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Entrada e Saída
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Dispositivos de entrada e saída (do Inglês, <em>input</em> e <em>output</em>, IO) são meios que computadores utilizam para se comunicar com o mundo externo. Operações de <em>entrada</em> são meios em que programas recebem dados no sistema enquanto que operações de  <em>saída</em> são formas de enviar dados pelo sistema. Além das operações de entrada e saída, há também os dispositivos de entrada e saída, como por exemplo, um teclado que se comunica com o seu computador, enviando dados a cada tecla pressionada, ou um impressora, que recebe dados para que sejam impressos em um papel.</p>
+
+<p>Desde a leitura de um byte na memória até acesso a um site de rede social na internet são fortemente baseados em operações de entrada e saída. Neste capítulo, vamos focar nos mecanismos que a linguagem de programação nos fornece para fazer manipulações de entrada e saída. No entanto, para uma mais profunda descrição sobre as etapas e os dispositivos envolvidos em um operação de entra e saía, recomendo a leitura do livro do Andrew Tanenbaum, sobre sistemas operacionais.</p>
+
+<h2 id="a-classe-file">A classe File</h2>
+
+<p>A classe File é o ponto de partida para realizer manipulações de leitura e escrita em arquivos no disco. A classe File implementa vários métodos que abstraem a complexidade de manipulação de arquivos. Por exemplo, podemos usar o método <code class="highlighter-rouge">read</code> para ler um determinado arquivo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span> <span class="s2">"teste.txt"</span>
+</code></pre></div></div>
+
+<p>No exemplo acima, tentamos imprimir o conteúdo do arquivo <code class="highlighter-rouge">teste.txt</code>. No entanto, esse programa retornará um erro (<code class="highlighter-rouge">No such file or directory</code>). Certifique-se que o arquivo <code class="highlighter-rouge">teste.txt</code> existe e está no mesmo diretório do nosso programa Ruby. Se você usa Linux ou similares, você pode usar o comando <code class="highlighter-rouge">echo</code> para imprimir uma string e o redirecionador  <code class="highlighter-rouge">&gt;</code> para enviar este conteúdo para um arquivo. Por exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"rosas são vermelhas,
+violetas são azuis.
+ruby é massa,
+mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
+</code></pre></div></div>
+
+<p>O resultado desta operação <code class="highlighter-rouge">File.read "teste.txt"</code> é uma única String com todo o conteúdo do arquivo. Como nossa tinha várias linhas, o método <code class="highlighter-rouge">read</code> identificou essas quebras de linhas e as substituiu por vários <code class="highlighter-rouge">\n</code>, que é o caractere utilizado para identificar uma quebra de linha. Caso quiséssemos percorrer o arquivo, e imprimir seu conteúdo da mesma forma que foi inserido (respeitando a quebra de linhas), teríamos que identificar os caracteres <code class="highlighter-rouge">\n</code> para então separar a sentenças.</p>
+
+<p>Poderíamos evitar esse trabalho e usar o método <code class="highlighter-rouge">readlines</code>, que em vez de retornar uma única String com todo o conteúdo do arquivo, este retorna um Array, separando os elementos a cada quebra de linha (<code class="highlighter-rouge">\n</code>).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
+</code></pre></div></div>
+
+<p>Perceba que o caractere <code class="highlighter-rouge">\n</code> não é removido da String, e nem é nossa intenção remove-lo, do contrário, teríamos que forçadamente adicionar uma outra forma de quebra de linha, para manter a formatação do nosso texto.</p>
+
+<p>Ler um arquivo usando o <code class="highlighter-rouge">readlines</code> tem agora o mesmo idioma de percorrer elementos de uma lista.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">linha</span> <span class="k">in</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
+  <span class="nb">puts</span> <span class="n">linha</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Assim, podemos usar o que aprendemos sobre Strings e fazer manipulações no conteúdo do nosso arquivo. Por exemplo, poderíamos deixar o texto mais elegante colocando a primeira letra como maiúscula (usando o método <code class="highlighter-rouge">capitalize</code>). Poderíamos também alterar o texto do nosso poema (usando o método <code class="highlighter-rouge">sub</code>). Por exemplo:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">linha</span> <span class="k">in</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
+  <span class="k">if</span> <span class="n">linha</span><span class="p">.</span><span class="nf">start_with?</span> <span class="s2">"mas"</span>
+    <span class="n">linha</span> <span class="o">=</span> <span class="n">linha</span><span class="p">.</span><span class="nf">sub</span> <span class="s2">"mas ainda não me seduz"</span><span class="p">,</span> <span class="s2">"gosto mais do que cuscuz"</span>
+  <span class="k">end</span>
+  <span class="nb">puts</span> <span class="n">linha</span><span class="p">.</span><span class="nf">capitalize</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>No código acima, nós colocamos um <code class="highlighter-rouge">if</code> que verifica se a <code class="highlighter-rouge">linha</code> começa com a String <code class="highlighter-rouge">mas</code>, ou seja, nosso indício pra saber que é a última linha. Se for, fazemos uma substituição usando o método <code class="highlighter-rouge">sub</code>. Perceba que precisamos atribuir o retorno do método <code class="highlighter-rouge">sub</code> para a mesma variável linha. Porque devemos fazer isso? Se estiver confuso, experimente remover a re-atribuição da variável e inspecione o resultado.</p>
+
+<p>Por fim, imprimimos usando um <code class="highlighter-rouge">linha.capitalize</code> para garantir que a primeira letra de cada linha será capitalizada.</p>
+
+<p>Há um problema no nosso código, no entanto. Toda vez que lemos um arquivo, esse arquivo é armazenado em memória. Logo, após realizarmos a leitura, precisamos também fechar o arquivo. Mas qual é a nossa referência ao arquivo que abrimos? Usamos o <code class="highlighter-rouge">File.readlines</code> para ler as linhas dentro de um laço, mas não temos controle sobre o arquivo que abrimos, pois isso foi abstraído pela classe <code class="highlighter-rouge">File</code>. Para que possamos fechar o arquivo, precisamos ter uma referência a esse arquivo. Para isso, usamos o método <code class="highlighter-rouge">open</code> que, além de abrir o arquivo, nos retorna uma referência para o arquivo aberto.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">linha</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">linha</span>
+<span class="k">end</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">close</span>
+</code></pre></div></div>
+
+<p>No caso do exemplo acima, a variável <code class="highlighter-rouge">f</code> guarda a referência ao arquivo. Assim podemos lê-lo (<code class="highlighter-rouge">f.each</code>) e fecha-lo (<code class="highlighter-rouge">f.close</code>). Mas qual existe algum problema em manter o arquivo aberto? Há basicamente dois problemas: primeiro, se não indicar o momento em que o arquivo será fechado, perdemos as garantias das alterações no arquivo se efetivarem, pois ficará a cargo do sistema operacional decidir quando o arquivo será fechado ou não. Um segundo problema é que embora o sistema operacional consiga lidar com algumas centenas (ou até milhares) de arquivos abertos simultaneamente, cada arquivo que abrimos ocupa espaço de memória. Em ambientes com restrição de memória, ou ambientes em que buscamos otimizar o máximo possível, o custo de gerenciar arquivos sem utilização pode impactar no desempenho da aplicação. Logo, é uma boa prática garantir que um arquivo que foi aberto será fechado.</p>
+
+<p>Para evitar eventuais esquecimentos com arquivos abertos (e só perceber depois quando a sua aplicação que precisar navegar por todos os diretórios do sistema de arquivos der algum erro), podemos usar o idioma de blocos, que fecha automaticamente o arquivo após execução do bloco.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"io.txt"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">arquivo</span><span class="o">|</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">linha</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">linha</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Perceba que ao usar o idioma de bloco, não temos mais a referência ao arquivo aberto. Depois de estudar métodos e blocos, pense como você poderia implementar o método <code class="highlighter-rouge">open</code> de forma que um bloco possa ser passado por parâmetro e a referência ao arquivo seja fechada após a execução do bloco.</p>
+
+<p>Para escrever em um arquivo, temos também que primeiro abri-lo. A diferença, nesse caso, é que precisamos informar o interesse de escrita no dado arquivo, passado pelo parâmetro <code class="highlighter-rouge">"w"</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"log.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">f</span><span class="p">.</span><span class="nf">write</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="métodos-auxiliares">Métodos auxiliares</h2>
+
+<p>A classe File conta com diversos métodos auxiliares. Um dos quais é o método <code class="highlighter-rouge">each_byte</code>, que retorna a representação em bytes de cada caracter do nosso texto. Outro método é o <code class="highlighter-rouge">each_char</code>, que retorna cada caracter individualmente. Outros métodos importantes da classe File:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># renomear um arquico</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">rename</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">,</span> <span class="s2">"Poema.txt"</span><span class="p">)</span>
+<span class="c1"># tamanho do arquivo em bytes</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">)</span>
+<span class="c1"># verifica se o arquivo existe</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">)</span>
+<span class="c1"># retorna o nome do arquivo, sem o diretório</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="s2">"/home/gustavo/poema.txt"</span><span class="p">)</span>
+<span class="c1"># =&gt; "poema.txt"</span>
+<span class="c1"># retorna o diretório do arquivo, sem o nome do arquivo</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="s2">"/home/gustavo/poema.txt"</span><span class="p">)</span>
+<span class="c1"># =&gt; "/home/gustavo/"</span>
+<span class="c1"># verifica se é arquivo ou diretório</span>
+<span class="no">File</span><span class="p">.</span><span class="nf">directory?</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">)</span>
+<span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<h2 id="manipulando-dados-tabulados">Manipulando dados tabulados</h2>
+
+<h3 id="csv">CSV</h3>
+
+<h3 id="json">JSON</h3>
+
+<p>Mas o que podemos fazer se o arquivo for um pouco mais estruturado? Por exemplo, um JSON?</p>
+
+<p>Para criar um arquivo JSON:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"json"</span>
+
+<span class="k">def</span> <span class="nf">write_to_json</span>
+
+  <span class="n">livros</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="n">livros</span><span class="p">[</span><span class="ss">:sapiens</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Sapiens: A Brief History of Humankind"</span>
+  <span class="n">livros</span><span class="p">[</span><span class="ss">:mindset</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Mindset: The New Psychology of Success"</span>
+  <span class="n">livros</span><span class="p">[</span><span class="ss">:metrics</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"The tyranny of Metrics"</span>
+
+  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"livros.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">arquivo</span><span class="o">|</span>
+    <span class="n">arquivo</span><span class="p">.</span><span class="nf">write</span> <span class="n">livros</span><span class="p">.</span><span class="nf">to_json</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">write_to_json</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">read_from_json</span>
+  <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"livros.json"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">json</span><span class="o">|</span>
+    <span class="n">json</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">linha</span><span class="o">|</span>
+      <span class="nb">puts</span> <span class="n">linha</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">read_from_json</span>
+</code></pre></div></div>
+
+<p>Mas como podemos fazer pra manipular esse arquivo?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"json"</span>
+
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">read</span> <span class="p">(</span><span class="n">livros</span><span class="p">.</span><span class="nf">json</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="lendo-dados-da-web">Lendo dados da web</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'open-uri'
+URI.open("https://raw.githubusercontent.com/facebook/react/master/package.json")
+</code></pre></div></div>
+
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<ul>
+  <li>
+    <p>Escreva um programa que liste todos os arquivos de formato de imagem no diretório corrente e nos seus subdiretórios.</p>
+  </li>
+  <li>
+    <p>Faça um programa que conte quais são as três bibliotecas mais utilizadas por 20 projetos JavaScript do GitHub.</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

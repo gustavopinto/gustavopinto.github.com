@@ -1,10 +1,10 @@
-I"MN<p><a href="/ruby-guide/">Voltar ao começo do guia</a>.</p>
+I"�N<p><a href="/ruby-guide/">Voltar ao começo do guia</a>.</p>
 
 <p>Hashes são tipos de dados que são capazes de armazenar grupos de elementos, assim como um Array. Hashes, na verdade, são construídos com base em Arrays, logo muito do que aprendemos em Arrays pode ser reaproveitado para utilização de Hashes.</p>
 
 <p>Diferente de um Array, no entanto, Hashes são mais sofisticados e tem melhor desempenho em várias operações. Vamos discutir mais a frente alguns desses casos. Uma outra característica de um hash é o uso de chaves (<code class="highlighter-rouge">{}</code>) para delimitar seu escopo.</p>
 
-<h3 id="criando-hashes">Criando hashes</h3>
+<h2 id="criando-hashes">Criando hashes</h2>
 
 <p>Podemos criar um Hash vazio usando a notação de chaves:</p>
 
@@ -54,7 +54,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="manipulando-arrays">Manipulando arrays</h3>
+<h2 id="manipulando-hashes">Manipulando Hashes</h2>
 
 <p>Para acessar uma determinada chave em um Hash, usamos a mesma notação de colchetes que usamos em Arrays:</p>
 
@@ -97,7 +97,7 @@
 
 <p>Algo interessante aconteceu. Por que a primeira chamada ao <code class="highlighter-rouge">delete</code> retornou <code class="highlighter-rouge">nil</code> enquanto que a segunda chamada retornou o nome do livro. Em primeiro lugar, devemos saber que o método <code class="highlighter-rouge">delete</code> ele remove do Hash e retorna o valor removido. Logo, é por isso que o valor removido é impresso na tela. Mas por que a primeira chamada retorna <code class="highlighter-rouge">nil</code>?  Isso acontece pois estamos passando por parâmetro um Array de um único elemento como chave (<code class="highlighter-rouge">[:metrics]</code>), e esta chave não existe dentro do Hash que criamos. O valor dentro do Array (<code class="highlighter-rouge">:metrics</code>) é o que de fato existe como chave no nosso Hash.</p>
 
-<h3 id="percorrendo-elementos-do-hash">Percorrendo elementos do Hash</h3>
+<h2 id="percorrendo-elementos-do-hash">Percorrendo elementos do Hash</h2>
 
 <p>Mas, como podemos manipular os elementos de um Hash sem saber exatamente quais são as suas chaves? Para isso, precisamos percorrer os elementos, verificando cada uma das chaves. Há várias de iterar por um Hash. Umas das formas mais procedurais é utilizando um laço <code class="highlighter-rouge">for</code>. Para os dados de entrada do <code class="highlighter-rouge">for</code>, podemos informar o Array de chaves do Hash, através do método <code class="highlighter-rouge">keys</code>. Como por exemplo:</p>
 
@@ -122,7 +122,7 @@
 <span class="n">livros</span><span class="p">.</span><span class="nf">each_key</span> <span class="p">{</span><span class="o">|</span><span class="n">chave</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">chave</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="outras-operações-com-hashes">Outras operações com Hashes</h3>
+<h2 id="outras-operações-com-hashes">Outras operações com Hashes</h2>
 
 <p>A classe Hash tem diversos métodos, e <a href="https://ruby-doc.org/core-3.0.0/Hash.html">documentação oficial descreve-os em detalhes</a>. Alguns dos mais comumente utilizados estão a seguir.</p>
 
@@ -159,7 +159,9 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:um=&gt;"one", :dois=&gt;"two", :tres=&gt;"three"}
 </code></pre></div></div>
 
-<p>http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html</p>
+<h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
+
+<!--http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html-->
 
 <ul>
   <li>Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array <code class="highlighter-rouge">[1,2,2,2,2,3,3,3,4,4]</code> como entrada imprima o seguinte hash <code class="highlighter-rouge">{1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 3, 4 =&gt; 2}</code>.</li>

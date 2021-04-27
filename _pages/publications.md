@@ -7,6 +7,9 @@ permalink: /publications/
 
 ## 2021
 
+1. Fernando Kameia, Igor Wiese, Crescencio Lima, Ivanilton Polato, Vilmar Nepomuceno, Waldemar Ferreira, Márcio Ribeiro, Carolline Pena, Bruno Cartaxo, Gustavo Pinto and Sérgio Soares. "[Grey Literature in Software Engineering: A Critical Review](#)". Accepted for Information and Software Technology, 2021.<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+
 1. [Wellington Oliveira Jr](https://dblp.org/pers/hd/o/Oliveira:Wellington), Renato Oliveira, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), **Gustavo Pinto**, and [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). [Improving Energy-Efficiency by Recommending Java Collections.](http://gustavopinto.github.io/lost+found/emse2021.pdf) Accepted to the Empirical Software Engineering journal, 2021. <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/emse2021.pdf)<br/>
 

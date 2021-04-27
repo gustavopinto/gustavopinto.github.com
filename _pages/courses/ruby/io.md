@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: Arrays
+title: Entrada e Saída
 permalink: /ruby-guide/io
 ---
 

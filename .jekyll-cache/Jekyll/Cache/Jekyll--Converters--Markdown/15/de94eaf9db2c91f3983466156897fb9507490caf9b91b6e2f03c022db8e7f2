@@ -1,4 +1,4 @@
-I"û}<p>A variety of common markup showing how the theme styles them.</p>
+I"~<p>A variety of common markup showing how the theme styles them.</p>
 
 <h1 id="header-one">Header one</h1>
 
@@ -711,7 +711,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/ruby-guide/hashes" rel="permalink">Arrays</a>
+        <a href="/ruby-guide/io" rel="permalink">Entrada e SaÃ­da</a>
       
     </h2>
     
