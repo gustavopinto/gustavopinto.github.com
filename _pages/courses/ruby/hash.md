@@ -11,7 +11,7 @@ Hashes são tipos de dados que são capazes de armazenar grupos de elementos, as
 
 Diferente de um Array, no entanto, Hashes são mais sofisticados e tem melhor desempenho em várias operações. Vamos discutir mais a frente alguns desses casos. Uma outra característica de um hash é o uso de chaves (```{}```) para delimitar seu escopo.
 
-### Criando hashes
+## Criando hashes
 
 Podemos criar um Hash vazio usando a notação de chaves:
 
@@ -67,7 +67,7 @@ dados_pessoais = {
 }
 ```
 
-### Manipulando arrays
+## Manipulando Hashes
 
 Para acessar uma determinada chave em um Hash, usamos a mesma notação de colchetes que usamos em Arrays:
 
@@ -116,7 +116,7 @@ livros.delete :metrics      # => "The tyranny of Metrics"
 Algo interessante aconteceu. Por que a primeira chamada ao ```delete``` retornou ```nil``` enquanto que a segunda chamada retornou o nome do livro. Em primeiro lugar, devemos saber que o método ```delete``` ele remove do Hash e retorna o valor removido. Logo, é por isso que o valor removido é impresso na tela. Mas por que a primeira chamada retorna ```nil```?  Isso acontece pois estamos passando por parâmetro um Array de um único elemento como chave (```[:metrics]```), e esta chave não existe dentro do Hash que criamos. O valor dentro do Array (```:metrics```) é o que de fato existe como chave no nosso Hash.
 
 
-### Percorrendo elementos do Hash
+## Percorrendo elementos do Hash
 
 Mas, como podemos manipular os elementos de um Hash sem saber exatamente quais são as suas chaves? Para isso, precisamos percorrer os elementos, verificando cada uma das chaves. Há várias de iterar por um Hash. Umas das formas mais procedurais é utilizando um laço ```for```. Para os dados de entrada do ```for```, podemos informar o Array de chaves do Hash, através do método ```keys```. Como por exemplo:
 
@@ -144,7 +144,7 @@ livros = # ...
 livros.each_key {|chave| puts chave }
 ```
 
-### Outras operações com Hashes
+## Outras operações com Hashes
 
 A classe Hash tem diversos métodos, e [documentação oficial descreve-os em detalhes](https://ruby-doc.org/core-3.0.0/Hash.html). Alguns dos mais comumente utilizados estão a seguir.
 
@@ -185,6 +185,8 @@ Perceberam que os dois pontos da definição do Symbol sumiram? Curiosamente, is
 {:um=>"one", :dois=>"two", :tres=>"three"}
 ```
 
-http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html
+## Exercícios de fixação
+
+<!--http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html-->
 
 - Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array ```[1,2,2,2,2,3,3,3,4,4]``` como entrada imprima o seguinte hash ```{1 => 1, 2 => 4, 3 => 3, 4 => 2}```.
