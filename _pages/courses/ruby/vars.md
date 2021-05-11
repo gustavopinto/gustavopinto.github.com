@@ -3,8 +3,8 @@ layout: single
 author_profile: true
 title: Atribuição de variáveis
 permalink: /ruby-guide/vars
-
 ---
+
 [Voltar ao começo do guia](/ruby-guide)
 
 ## Variáveis
