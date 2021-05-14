@@ -33,7 +33,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - SBLP: 2013, 2015
 - CHASE: 2019
 - CSMR: 2014
-- EASE: 2016
+- EASE: 2016, 2020
 - ECOOP: 2014
 - ESEM: 2016, 2017, 2018 (2x), 2019
 - FSE: 2018
