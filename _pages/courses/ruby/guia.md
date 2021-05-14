@@ -21,9 +21,8 @@ Esse guia cobre os seguintes pontos:
 10. Extra
   - Classes e Objetos
   - Programação funcional
-  - Tratamento de excessão
+  - Tratamento de exceção
   - Teste de unidade
-  - Meta-programação
   - Programação concorrente
 
 ## Porque Ruby?
