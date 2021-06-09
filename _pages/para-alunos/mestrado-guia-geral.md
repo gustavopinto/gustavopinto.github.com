@@ -13,7 +13,7 @@ Como você deve saber, o mestrado tem duração de dois anos. O que você talvez
 
 ## Bolsas
 
-Até 2020, o PPGCC da UFPA tinha um número razoável de bolsas que era suficiente para (praticamente?) todos os alunos que de mestrado que tinham interesse em bolsa e que não tinham emprego. No entanto, em 2021, dado a uma série de acontecimentos, o número de bolsas do PPGCC diminuiu significativamente. [Saiba mais sobre bolsas de estudo no PPGCC por este link](http://ppgcc.propesp.ufpa.br/index.php/br/77-editais/abertos/bolsas/196-bolsas).
+Até 2020, o PPGCC da UFPA tinha um número razoável de bolsas que era suficiente para (praticamente?) todos os alunos que de mestrado que tinham interesse em bolsa e que não tinham emprego. No entanto, em 2021, dado a uma série de acontecimentos, o número de bolsas do PPGCC diminuiu significativamente. [Saiba mais sobre bolsas de estudo no PPGCC por este link](http://ppgcc.propesp.ufpa.br/index.php/br/77-editais/abertos/bolsas/196-bolsas). Para 2022, é esperado um número muito pequeno de bolsas do PPGCC. Alternativamente, estou sempre em busca de outros mecanismos de financiamento.
 
 ## Disciplinas
 
@@ -55,6 +55,8 @@ Junto com outros professores e alunos, nós realizamos seminários (semanalmente
 
 # Orientador
 
-O seu orientador está aqui para lhe ajudar. Muitas vezes questionando, outras vezes revisando texto, enviando artigos, ou indicando outras pessoas que possam lhe ajudar, caso eu não possa. No entanto, não é papel do orientador fazer as provas, estudar Inglês, saber dos prazos das disciplinas ou do seu mestrado, ou saber quantos créditos estão faltando (leia sobre créditos [aqui](/mestrado-ppgcc)). O aluno deve saber e tomar nota.
+O seu orientador está aqui para lhe ajudar. Muitas vezes questionando, outras vezes revisando texto e artigos, ou até mesmo indicando outras pessoas que possam lhe ajudar, caso eu não possa. No entanto, o orientador também [não é seu chefe](/pos-graduacao/nao-sou-seu-chefe), no sentido de lhe dizer exatamente o que deve ser feito e como deve ser feito. Uma atividade de pesquisa é, intríssicamente, estudar o desconhecido. Embora hajam metodologias científicas que apoiem o processo de pesquisa, é improvável que um orientador (ou qualquer outra pessoa), saiba exatamente o que deve ser feito. Se soubese, é muito provável que não seja pesquisa.
+
+Ademais, não é papel do orientador fazer as provas, estudar Inglês, saber dos prazos das disciplinas ou do seu mestrado, ou saber quantos créditos estão faltando (leia sobre créditos [aqui](/mestrado-ppgcc)). O aluno deve saber e tomar nota.
 
 Se tudo der certo, ao fim do mestrado, o aluno deve saber mais sobre o problema de pesquisa do que seu próprio orientador.

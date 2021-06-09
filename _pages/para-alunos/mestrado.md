@@ -5,7 +5,7 @@ title: Ingresso na pós-graduação
 permalink: /pos-graduacao/
 ---
 
-Bem vindo, você está na pós-graduação!
+Bem vindo!
 
 Nesse documento eu mantenho algumas das principais ideias que eu acredito que todo aluno com interesse em pesquisa deveria conhecer.
 
@@ -16,7 +16,7 @@ Se você tem interesse em trabalhar comigo (ou se já é meu aluno), certifique-
 - [Créditos necessários para o mestrado](/pos-graduacao/creditos/)
 - [Instruções gerais para alunos de mestrado](/pos-graduacao/instrucoes/)
 - [Sou seu orientador, não sou seu chefe](/pos-graduacao/nao-sou-seu-chefe)
-- [1+5 Good Habits for Young Scholars](/books/good-research-habits/) (e-book gratuito)
+- [1+5 Good Habits for Young Scholars](/books/good-research-habits/) (se você for meu aluno, me peça uma cópia)
 
 Outros links que recomendo fortemente:
 
