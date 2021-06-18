@@ -1,4 +1,4 @@
-I"�"<p>Esse é um guia para o ensino de Ruby em uma turma de programação de computadores.</p>
+I"�"<p>Esse é um guia para o ensino de Ruby em uma turma de programação de computadores.</p>
 
 <p>Esse guia cobre os seguintes pontos:</p>
 
@@ -16,9 +16,8 @@
     <ul>
       <li>Classes e Objetos</li>
       <li>Programação funcional</li>
-      <li>Tratamento de excessão</li>
+      <li>Tratamento de exceção</li>
       <li>Teste de unidade</li>
-      <li>Meta-programação</li>
       <li>Programação concorrente</li>
     </ul>
   </li>

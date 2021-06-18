@@ -1,4 +1,4 @@
-I"O√<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"Y√<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -139,19 +139,6 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/ruby-guide/bin" rel="permalink">Bin√°rio</a>
-      
-    </h2>
-    
-    
-  </article>
-</div>
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/ruby-guide/methods" rel="permalink">Ruby Guide</a>
       
     </h2>
     
@@ -346,7 +333,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/ruby-guide/flow" rel="permalink">Controle de fluxo</a>
+        <a href="/ruby-guide/fp" rel="permalink">Programa√ß√£o Funcional</a>
       
     </h2>
     
@@ -412,7 +399,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/teaching/" rel="permalink">Teaching</a>
+        <a href="/" rel="permalink">Home</a>
       
     </h2>
     
@@ -425,7 +412,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/" rel="permalink">Home</a>
+        <a href="/teaching/" rel="permalink">Teaching</a>
       
     </h2>
     
@@ -844,6 +831,19 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="/teaching/" rel="permalink">Teaching</a>
+      
+    </h2>
+    
+    
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ruby-guide/testing" rel="permalink">Teste de unidade</a>
       
     </h2>
     
