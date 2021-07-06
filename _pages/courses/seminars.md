@@ -37,8 +37,7 @@ Seminaŕios sistemáticos, abertos à comunidade acadêmica, onde são apresenta
 Passível de alterações.
 
 | # | Data  | Convidado                                | Links |
-| 1 | 30/06 | Bruno Cartaxo (IFPE)                     |
-| 2 | 07/07 | Apresentação de trabalho de convidado    |
+| 2 | 07/07 | Bruno Cartaxo (IFPE)    |
 | 3 | 14/07 | Vinicius Abreu (UFPA)                    |
 | 4 | 21/07 | Apresentação de trabalho de convidado    |
 | 5 | 28/07 | Apresentação de trabalho de convidado    |
