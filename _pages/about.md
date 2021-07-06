@@ -11,10 +11,11 @@ Dr. Gustavo Pinto is an assistant professor at the [Federal University of Pará]
 
 ## Research highlight
 
-- He has 1,600+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 19).
+- He has 1,600+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 21).
 - He (co-)authored [90+ research papers](/publications) in peer reviewed conferences and journals.
-- His research on [great maintainers](http://gustavopinto.github.io/lost+found/icse2021.pdf) received the [ACM SIGSOFT Distinguished Paper Award](https://twitter.com/gustavopinto/status/1384103177658650630) at ICSE 2021 (the most premier software engineering conference).
+- He was highlighted as one of the most active early-stage researcher and one of the most active researcher in Software Engineering top-quality journals in a [2021 JSS publication](https://doi.org/10.1016/j.jss.2021.111029).
 - His work o [DevOps adoption](http://gustavopinto.github.io/lost+found/jss2019.pdf) was named the [paper of the year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year) (over 1,200 submissions) by the staff of the Journal of Systems and Software.
+- His research on [great maintainers](http://gustavopinto.github.io/lost+found/icse2021.pdf) received the [ACM SIGSOFT Distinguished Paper Award](https://twitter.com/gustavopinto/status/1384103177658650630) at ICSE 2021 (the premier software engineering conference).
 - His work on [energy-aware developers](http://gustavopinto.github.io/lost+found/msr2014.pdf) is the [most cited](https://medium.com/@csindexbr/top-10-most-cited-software-engineering-papers-by-brazilian-professors-2598a2d1954e) Brazilian software engineering paper indexed by [CSIndexBR](http://csindexbr.org/), during the 2013--2018 time window.
 - He won four other best papers awards: [SBES'20](https://twitter.com/fkenjikamei/status/1319730656105160706), [ICSE-SEET'19](https://twitter.com/rmmilewi/status/1134445184111058947), [MSR-Challenge'17](https://twitter.com/msrconf/status/866378622596247553), and [VEM'17](https://twitter.com/gustavopinto/status/910609691918643201), and received one nomination to the best paper ([ESEM'18](https://twitter.com/gustavopinto/status/1050511483304640512)).
 - He received one distinguished reviewer award for [SCAM'19](https://twitter.com/gustavopinto/status/1178806201078943746).

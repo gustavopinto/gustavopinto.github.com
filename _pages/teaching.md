@@ -5,7 +5,10 @@ title: Teaching
 permalink: /teaching/
 ---
 
-## 2020.1 (ERE)
+## 2021.1 (ERE)
+1. [Software Engineering Seminars](/teaching/seminars/2021)
+
+## 2020.2 (ERE)
 1. [Programming Languages 101](/teaching/pc1/2020)
 
 ## 2020.1 (ERE)
