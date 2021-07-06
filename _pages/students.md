@@ -13,13 +13,13 @@ I am continuously looking for good people to join my research group, at all leve
 - Albert Richard Moraes Lopes (PhD)
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
+- Fabio Pacheco de Souza (MS)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
-- Aian Shay Bentes Damasceno Cardoso (UROP)
+- Jherson Haryson Almeida Pereira (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
-- Wagner Felidré Negrão da Silva (Capstone)
-- Leonardo Barbosa Furtado (Capstone)
+- Dannilo Cabral (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -35,3 +35,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Marcos Felipe Carvalho Nazário (MS), September 2019
 - João Pedro Moraes (Capstone), December 2019
 - Enzo Gabriel Da Rocha Santos (UROP), February 2020
+- Aian Shay Bentes Damasceno Cardoso (UROP + Capstone), June 2021
+- Wagner Felidré Negrão da Silva (UROP + Capstone), June 2021
+- Leonardo Barbosa Furtado (UROP + Capstone), June 2021

@@ -1,0 +1,312 @@
+I"V,<h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 14:50 @ Online</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram. Para ingressar, clique <a href="https://t.me/joinchat/GeSB2RTFln6cqTUj3ja54g">aqui</a>.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Apresentar os principais conceitos relacionados às etapas de análise e projeto de sistemas de informação. Procura-se abordar desde questões históricas sobre as metodologias de desenvolvimento, até abordagens práticas e atuais da construção de sistemas de informação.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Introdução à Análise e Projeto de Sistemas: Conceitos de Sistemas de Informação, Ciclo de Vida de Software, Metodologias de Análise e Projeto; UML; Descrição de Requisitos com Casos de Uso; Modelos Conceituais; Projeto de Arquitetura; Projeto de Persistência.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>SOMMERVILLE,  I. Engenharia  de  Software.  São  Paulo: Pearson  Education  do  Brasil, 2011.</li>
+  <li>PILONE, D.; PITMAN, N. UML 2: rápido e prático. São Paulo: Alta Books, 2006.</li>
+  <li>Valente. M. Engenharia de software moderna. Online em https://engsoftmoderna.info/.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://refactoring.guru/design-patterns">Design patterns</a></li>
+  <li><a href="https://refactoring.com/">Refactoring</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Rational_Unified_Process">Rational Unified Process</a></li>
+  <li><a href="https://engineering.fb.com/uncategorized/software-design-glossary/">Software design glossary</a></li>
+  <li><a href="https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/">On the criteria to be used in decomposing systems into modules</a></li>
+  <li><a href="http://www.literateprogramming.com/mccabe.pdf">A complexity measure (McCabe complexity)</a></li>
+  <li><a href="https://blog.caelum.com.br/como-medir-a-coesao-lcom/">Como medir a coesão do seu código? A métrica LCOM</a></li>
+  <li>Podcast: <a href="https://anchor.fm/fronteirases/episodes/8--Arquitetura-de-Software-com-Ingrid-Nunes-UFRGS-ep4lg3">Arquitetura de Software</a> com <a href="#">Ingrid Nunes</a> (UFRGS)
+    <h2 id="avaliação">Avaliação</h2>
+  </li>
+</ul>
+
+<ol>
+  <li>Exercícios em sala: 3 pontos (1pt cada exercício)</li>
+  <li>Prova do primeiro bimestre: 7 pontos</li>
+  <li>Seminário (PD): 5 pontos (2 pontos da apresentação, e 3 pontos do relatório)</li>
+  <li>Projeto de disciplina: 5 pontos</li>
+  <li>Atividades extras (AEs): 3 pontos</li>
+</ol>
+
+<!--
+### Seminário
+
+O Seminário deve abordar tópicos que não foram mencionados em sala de aula. O Seminário deve ter duração mínima de 20 e no máxima de 25 minutos. Há uma penalidade de 1 ponto para quem usar menos ou mais tempo (**ENSAIEM!**).
+
+O seminário deve ser composto pelo mesmo grupo do projeto de disciplina.
+
+Algumas sugestões de tópicos (alunos também podem trazer suas próprias sugestões):
+
+- Crystal Methods
+- SCRUM
+- Spotify Squad framework
+- Design Science
+- Object-relational impedance mismatch
+- Test driven development
+- Model driven development
+- Behavior-driven development
+- Bad smells
+- Continuous Integration
+- Continuous Delivery
+- Docker e containers
+- Outro?
+
+
+**Lista de apresentações:**
+
+| Data       | Ordem  | Alunos                               | Tema            |
+| 05/11/2019 | 1o     | Renan Ramos e Kaled Maciel           | BDD             |              
+| 05/11/2019 | 2o     | Teoian, Tainá, Jamilly, Felipe, Pedro| ORM             |   
+| 05/11/2019 | 3o     | Fabio, Fabricio e Yan                | Crystal Methods |               
+| 05/11/2019 | 4o     | Arthur, Isabela e João Victor        | TDD             |
+| 05/11/2019 | 5o     | Victor Daniel, Necy Trindade, Sandy, José de Senna     | CD              |
+| 07/11/2019 | 6o     | João Marcelo, Leonardo, Yury         | Microserviços   |             
+| 07/11/2019 | 7o     | Acza, Ana Vitoria e Tuby             | Squads          |      
+| 07/11/2019 | 8o     | Pedro Victor, Aian, Renan Cunha e Vitor Cantão    | Docker e containers |
+| 07/11/2019 | 9o     | Alberto, Renato, Ronaldd e Wagner    | Bad smells      |
+| 07/11/2019 | 10o    | Edson, Mauricio, Paulo Durval e Egry | Scrum           |
+
+
+**Para garantir que todos apresentem no horário:** É necessário enviar o PDF da apresentação para o grupo do Telegram até às 23:00hs do dia 04/11. O arquivo deve ser nomeado como "aluno1-aluno2-alunoN.pdf", onde "nome" é o nome e sobrenome de um aluno. O não envio do relatório ou da apresentação até a data estipulada acarretará em penalidade de outro 1 ponto. Não é necessário levar computador para apresentação do seminário.
+
+**Sobre os grupos dos seminários:** Como não chegamos num consenso com relação ao número de alunos no seminário (alguns grupos tem 4 alunos enquanto outros alunos irão fazer individualmente), também se faz necessário a entrega de um relatório. O relatório deve estar no formato da SBC (link [aqui](https://www.sbc.org.br/documentos-da-sbc/summary/169-templates-para-artigos-e-capitulos-de-livros/878-modelosparapublicaodeartigos)). O template não deve ser alterado. A quantidade de folhas varia de acordo com o número de alunos. Por exemplo, trabalhos individuais devem ter, no mínimo, 5 folhas. 10 folhas para duplas, 15 folhas para trios, e 20 folhas para grupos de quatro alunos. É permitido somente uma figura ou tabela por aluno (por ex, grupo de três pode ter no máximo três figuras ou tabelas). O relatório deve ser entregue em formato impresso antes da apresentação.
+
+**Sobre a apresentação do seminário:** alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.
+-->
+
+<h3 id="projeto-de-disciplina-pd">Projeto de disciplina (PD)</h3>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<!--Sobre a apresentação do projeto de disciplina: alunos sem domínio algum do conteúdo (por exemplo, lendo papéis de consulta rápida durante a apresentação), terão nota da apresentação correspondente a zero.-->
+
+<h3 id="atividade-extra-ae">Atividade Extra (AE)</h3>
+
+<ul>
+  <li>
+    <p>AE1: Ler um artigo completo (10+ folhas) do SBES de 2020. O resumo deve ter 5 folhas (formato SBC). Entrega no 15/11/2021, até às 18:30, via mensagem privada no Telegram.</p>
+  </li>
+  <li>
+    <p>AE2: Participar e fazer um resumo da palestra do professor Christoph Treude (local e data a ser definido). 2 pontos. Envio em mensagem privada pelo Telegram até dia 15/10. <strong>Encerrado</strong></p>
+  </li>
+</ul>
+
+<h2 id="nota-final">Nota final</h2>
+
+<p>Soma de todas as atividades dividido por dois.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>27/08</td>
+      <td>Introdução e objetivos de análise de projetos</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>29/08</td>
+      <td>Visão simplificada do processo unificado</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>03/09</td>
+      <td>Outros processos</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>05/09</td>
+      <td>Tratamento de complexidade via OO</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>10/09</td>
+      <td>Métricas de Orientação a Objetos</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>12/09</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>17/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>19/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>24/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>26/09</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>01/10</td>
+      <td><strong><em>SEMINIC</em></strong></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>03/10</td>
+      <td><strong><em>SEMINIC</em></strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>08/10</td>
+      <td>Diagrama de classe</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>10/10</td>
+      <td>Diagrama de pacote, sequencia e atividades</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>15/10</td>
+      <td><strong><em>Dia do professor</em></strong></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>17/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>22/10</td>
+      <td>Padrões arquiteturais</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>24/10</td>
+      <td>Padrões de projetos</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>29/10</td>
+      <td>Padrões de projetos</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>31/10</td>
+      <td>Exercício em sala</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>05/11</td>
+      <td><strong><em>Seminário (parte 1)</em></strong></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>07/11</td>
+      <td><strong><em>Seminário (parte 2)</em></strong></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>12/11</td>
+      <td>Refatoração</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>14/11</td>
+      <td>Testes automatizados</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>19/11</td>
+      <td>Qualidade de software</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>21/11</td>
+      <td><strong><em>NAO TEREMOS AULA</em></strong></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>26/11</td>
+      <td>PROVA</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>28/11</td>
+      <td>Definição de trabalho &amp; Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>03/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>05/11</td>
+      <td>Acompanhamento das atividades</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>10/12</td>
+      <td><strong><em>Apresentação de PD</em></strong></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>12/12</td>
+      <td><strong><em>Apresentação de PD</em></strong></td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>17/12</td>
+      <td>Buffer</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>19/12</td>
+      <td>Buffer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+
+<h2 id="pontuação-extra">Pontuação extra</h2>
+
+<p>Dado a existência da atividade extra (AE), qualquer pontuação extra não será possível.</p>
+:ET
