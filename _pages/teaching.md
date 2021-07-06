@@ -7,6 +7,7 @@ permalink: /teaching/
 
 ## 2021.1 (ERE)
 1. [Software Engineering Seminars](/teaching/seminars/2021)
+1. [Project Analysis and Design](/teaching/pad/2021)
 
 ## 2020.2 (ERE)
 1. [Programming Languages 101](/teaching/pc1/2020)
