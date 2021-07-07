@@ -11,11 +11,11 @@ Quarta-feira, às 13h:00m @ ONLINE
 
 ## Telegram
 
-Todo material de aula será postado no Google Classroom. Clique [aqui para](#) acessar.
+Todo material de aula será postado no Google Classroom. Clique [aqui para](https://t.me/joinchat/3XE6d_nE8Ck2ZTEx) acessar.
 
 ## Formato
 
-Apresentação de seminários síncronos. Todo seminário será um convidado diferente. Após o seminário todos os alunos precisam fazer um resumo da apresentação de no mínimo 500 palavras.
+Apresentação de seminários síncronos. Todo seminário será um convidado diferente.
 
 ## Objetivo
 
