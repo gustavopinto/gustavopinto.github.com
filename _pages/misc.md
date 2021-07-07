@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 1. [Academic service](/service)
-2. Podcasts
+2. Co-Hosting Podcasts
   - #1. [Métodos Ágeis](https://anchor.fm/fronteirases/episodes/1--Mtodos-geis-com-Prof--Fabio-Kon-IMEUSP-efcsgo/a-a2f6hlf) com [Fábio Kon](https://www.ime.usp.br/~kon/) (USP)
   - #2. [Desenvolvimento de Software Distribuido](https://anchor.fm/fronteirases/episodes/2--Desenvolvimento-de-Software-Distribudo-com-Prof--Rafael-Prikladnicki-PUCRS-egnuaj/a-a2mreo1) com [Rafael Prikladnicki](https://www.inf.pucrs.br/rafael/) (PUCRS)
   - #3. [Segurança em DevOps](https://anchor.fm/fronteirases/episodes/3--Segurana-em-DevOps-com-Daniela-S--Cruzes-SINTEFNTNU-ei0u14/a-a2u1mgj) com [Daniela Souza Cruzes](https://scholar.google.com/citations?user=w_cOgesAAAAJ&hl=en) (SINTEF)
