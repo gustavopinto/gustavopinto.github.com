@@ -35,7 +35,7 @@ Seminários sistemáticos, abertos à comunidade acadêmica, onde são apresenta
 Passível de alterações.
 
 | # | Data  | Convidado                         | Assunto          | Links |
-| 2 | 07/07 | Bruno Cartaxo (IFPE)              | Revisões rápidas |       |
+| 2 | 07/07 | Bruno Cartaxo (IFPE)              | Revisões rápidas | [Video](https://drive.google.com/file/d/1v0KXK_-WanTMbBsNuffIw1nOeY7Xi_mj/view?usp=sharing)      |
 | 3 | 14/07 | Vinicius Abreu (UFPA)             |                  |       |
 | 4 | 21/07 | Apresentação de convidado         |                  |       |
 | 5 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 |       |
