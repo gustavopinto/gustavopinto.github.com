@@ -36,7 +36,7 @@ Passível de alterações.
 
 | # | Data  | Convidado                         | Assunto          | Links |
 | 2 | 07/07 | Bruno Cartaxo (IFPE)              | Revisões rápidas | [Video](https://drive.google.com/file/d/1v0KXK_-WanTMbBsNuffIw1nOeY7Xi_mj/view?usp=sharing)      |
-| 3 | 14/07 | Vinicius Abreu (UFPA)             |                  |       |
+| 3 | 14/07 | Vinicius Abreu (UFPA)             | Porque Bioinformática?        | [Video](https://drive.google.com/file/d/15-drxBkX8t01p_lzcfMd9euJjCXN00T0/view?usp=sharing)      |
 | 4 | 21/07 | Apresentação de convidado         |                  |       |
 | 5 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 |       |
 | 6 | 04/08 | Apresentação de convidado         |                  |       |
@@ -48,7 +48,7 @@ Passível de alterações.
 | 12 | 15/09 | Apresentação de convidado        |                  |       |
 | 13 | 22/09 | Apresentação de convidado        |                  |       |
 | 14 | 29/09 | Victor Hugo Santiago (UFPA)      |                  |       |
-| 15 | 04/10 | Encerramento da disciplina       |                  |       |
+| 15 | 04/10 | Fernanda Madeiral (KTH)          |                  |       |
 
 
 ## Entrega atrasada
