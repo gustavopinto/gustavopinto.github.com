@@ -37,15 +37,15 @@ Passível de alterações.
 | # | Data  | Convidado                         | Assunto          | Links |
 | 2 | 07/07 | Bruno Cartaxo (IFPE)              | Revisões rápidas | [Video](https://drive.google.com/file/d/1v0KXK_-WanTMbBsNuffIw1nOeY7Xi_mj/view?usp=sharing)      |
 | 3 | 14/07 | Vinicius Abreu (UFPA)             | Porque Bioinformática?        | [Video](https://drive.google.com/file/d/15-drxBkX8t01p_lzcfMd9euJjCXN00T0/view?usp=sharing)      |
-| 4 | 21/07 | Apresentação de convidado         |                  |       |
+| 4 | 21/07 | Ingrid Nunes (UFRGS)              | Qualidade de Código: Raiz vs. Nutella |   |
 | 5 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 |       |
-| 6 | 04/08 | Apresentação de convidado         |                  |       |
+| 6 | 04/08 | Wellington Oliveira               | Consumo de energia de aplicações móveis                 |       |
 | 7 | 11/08 | Fabio Petrillo (UQAC, CA)         |                  |       |
 | 8 | 18/08 | Danilo Monteiro (Zup Innotation)  |                  |       |
 | 9 | 25/08 | Paulo Meirelles (UFABC)           |                  |       |
 | 10 | 01/09 | Apresentação de convidado        |                  |       |
 | 11 | 08/09 | Renato Hidaka (UFPA)             |                  |       |
-| 12 | 15/09 | Apresentação de convidado        |                  |       |
+| 12 | 15/09 | Mauricio Aniche (TU Delft)       | ML4SE            |       |
 | 13 | 22/09 | Apresentação de convidado        |                  |       |
 | 14 | 29/09 | Victor Hugo Santiago (UFPA)      |                  |       |
 | 15 | 04/10 | Fernanda Madeiral (KTH)          |                  |       |
