@@ -41,8 +41,7 @@ Passível de alterações.
 | 4 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 |       |
 | 5 | 04/08 | Wellington Oliveira (UFPE)        | Consumo de energia de aplicações móveis                 |       |
 | 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              |       |
-| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria:
-Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              |       |
+| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria: Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              |       |
 | 8 | 25/08 | Paulo Meirelles (UFABC)           | TBD              |       |
 | 9 | 01/09 | Apresentação de convidado         | TBD              |       |
 | 10 | 08/09 | Renato Hidaka (UFPA)             | TBD              |       |
