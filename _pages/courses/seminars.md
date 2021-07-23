@@ -11,7 +11,7 @@ Quarta-feira, às 13h:00m @ ONLINE
 
 ## Telegram
 
-Todo material de aula será postado no Google Classroom. Clique [aqui para](https://t.me/joinchat/3XE6d_nE8Ck2ZTEx) acessar.
+Todo material de aula será postado no Telegram. Clique [aqui para](https://t.me/joinchat/3XE6d_nE8Ck2ZTEx) entrar no grupo.
 
 ## Formato
 
@@ -37,13 +37,14 @@ Passível de alterações.
 | # | Data  | Convidado                         | Assunto          | Links |
 | 1 | 07/07 | Bruno Cartaxo (IFPE)              | Revisões rápidas | [Video](https://drive.google.com/file/d/1v0KXK_-WanTMbBsNuffIw1nOeY7Xi_mj/view?usp=sharing)      |
 | 2 | 14/07 | Vinicius Abreu (UFPA)             | Porque Bioinformática?        | [Video](https://drive.google.com/file/d/15-drxBkX8t01p_lzcfMd9euJjCXN00T0/view?usp=sharing)      |
-| 3 | 21/07 | Ingrid Nunes (UFRGS)              | Qualidade de Código: Raiz vs. Nutella |   |
+| 3 | 21/07 | Ingrid Nunes (UFRGS)              | Qualidade de Código: Raiz vs. Nutella | [Video](https://drive.google.com/file/d/1_oWmVPhur_9324XyFAyqmhTa2NdziPwd/view?usp=sharing)  |
 | 4 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 |       |
-| 5 | 04/08 | Wellington Oliveira               | Consumo de energia de aplicações móveis                 |       |
-| 6 | 11/08 | Fabio Petrillo (UQAC)             | TBD              |       |
-| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | TBD              |       |
+| 5 | 04/08 | Wellington Oliveira (UFPE)        | Consumo de energia de aplicações móveis                 |       |
+| 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              |       |
+| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria:
+Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              |       |
 | 8 | 25/08 | Paulo Meirelles (UFABC)           | TBD              |       |
-| 9 | 01/09 | Apresentação de convidado        | TBD              |       |
+| 9 | 01/09 | Apresentação de convidado         | TBD              |       |
 | 10 | 08/09 | Renato Hidaka (UFPA)             | TBD              |       |
 | 11 | 15/09 | Mauricio Aniche (TU Delft)       | ML4SE            |       |
 | 12 | 22/09 | Tayana Conte (UFAM)              | TBD              |       |
