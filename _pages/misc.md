@@ -21,4 +21,7 @@ author_profile: true
   - #12. [Modularidade](https://anchor.fm/fronteirases/episodes/Modularidade-de-Software-com-Paulo-Borba-UFPE-e11atq2) com [Paulo Borba](#) (UFPE)
 3. Interviews, Panels, etc
  - [Interview with Adolfo Neto](https://anchor.fm/adolfont/episodes/Gustavo-Pinto-Professor-da-Universidade-Federal-do-Par-edaps1)
- - [JSS Happy Hour](https://www.youtube.com/watch?v=rXASV77Sbvk)
+ - [Panelist on JSS Happy Hour (2020)](https://www.youtube.com/watch?v=rXASV77Sbvk)
+ - [Panelist on Agile Diversity and Equity (Agile 2021)](#)
+ - [Interview for FACOMP UFPA](https://www.youtube.com/watch?v=H7OeIxuNMSM)
+ - [Interview for CIN-UFPE podcast](https://anchor.fm/podcast-cin/episodes/Episdio-piloto-podcasts-organizados-por-alunas--alunos--ex-alunas-e-ex-alunos-do-CIn-e154nt5)
