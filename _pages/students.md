@@ -20,6 +20,8 @@ I am continuously looking for good people to join my research group, at all leve
 - Jherson Haryson Almeida Pereira (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
 - Dannilo Cabral (Capstone)
+- Fabricio Souza (Capstone)
+- Victor Santos (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)

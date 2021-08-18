@@ -39,11 +39,11 @@ Passível de alterações.
 | 2 | 14/07 | Vinicius Abreu (UFPA)             | Porque Bioinformática?        | [Video](https://drive.google.com/file/d/15-drxBkX8t01p_lzcfMd9euJjCXN00T0/view?usp=sharing)      |
 | 3 | 21/07 | Ingrid Nunes (UFRGS)              | Qualidade de Código: Raiz vs. Nutella | [Video](https://drive.google.com/file/d/1_oWmVPhur_9324XyFAyqmhTa2NdziPwd/view?usp=sharing)  |
 | 4 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 | [Video](https://drive.google.com/file/d/1IUgokeALXS3DK0ta8vKpIi-lUbL7iXCP/view)      |
-| 5 | 04/08 | Wellington Oliveira (UFPE)        | As alegrias e os percalços de fazer doutorado em computação (num centro de excelência na periferia do mundo)?      |       |
-| 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              |       |
+| 5 | 04/08 | Wellington Oliveira (UFPE)        | As alegrias e os percalços de fazer doutorado em computação (num centro de excelência na periferia do mundo)?      | [Video](https://drive.google.com/file/d/1XdMrkoNvVVaJF6pPb7mjj2COFwdIdIUq/view?usp=sharing)       |
+| 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              | [Video](https://drive.google.com/file/d/1CiM4-Dggdo9J2JuHf550-8uInuxVNeZD/view?usp=sharing)      |
 | 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria: Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              |       |
 | 8 | 25/08 | Paulo Meirelles (UFABC)           | TBD              |       |
-| 9 | 01/09 | Filipe Varjão (Erlang Solutions)  | TBD              |       |
+| 9 | 01/09 | Filipe Varjão (2600Hz)            | Programação Funcional em Erlang/Elixir              |       |
 | 10 | 08/09 | Renato Hidaka (UFPA)             | TBD              |       |
 | 11 | 15/09 | Mauricio Aniche (TU Delft)       | ML4SE            |       |
 | 12 | 22/09 | Tayana Conte (UFAM)              | TBD              |       |
