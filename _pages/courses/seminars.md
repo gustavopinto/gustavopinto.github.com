@@ -41,8 +41,8 @@ Passível de alterações.
 | 4 | 28/07 | Cesar França (UFRPE)              | O problema é seu! (Pragmatismo Científico)                 | [Video](https://drive.google.com/file/d/1IUgokeALXS3DK0ta8vKpIi-lUbL7iXCP/view)      |
 | 5 | 04/08 | Wellington Oliveira (UFPE)        | As alegrias e os percalços de fazer doutorado em computação (num centro de excelência na periferia do mundo)?      | [Video](https://drive.google.com/file/d/1XdMrkoNvVVaJF6pPb7mjj2COFwdIdIUq/view?usp=sharing)       |
 | 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              | [Video](https://drive.google.com/file/d/1CiM4-Dggdo9J2JuHf550-8uInuxVNeZD/view?usp=sharing)      |
-| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria: Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              |       |
-| 8 | 25/08 | Paulo Meirelles (UFABC)           | TBD              |       |
+| 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria: Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              | [Video](https://drive.google.com/file/d/1kbMYIH-lSx_HajOR_q-Q3zHK7sxKSTbK/view?usp=sharing)      |
+| 8 | 25/08 | Paulo Meirelles (UFABC)           | Diferentes perspectivas sobre o modelo de desenvolvimento do Kernel Linux: academia, comunidade e oportunidades de pesquisas              | [Video](https://drive.google.com/file/d/1pv3JMoyu4EzN4AFMfcWojyU76kwJyyaB/view?usp=sharing)      |
 | 9 | 01/09 | Filipe Varjão (2600Hz)            | Programação Funcional em Erlang/Elixir              |       |
 | 10 | 08/09 | Renato Hidaka (UFPA)             | TBD              |       |
 | 11 | 15/09 | Mauricio Aniche (TU Delft)       | ML4SE            |       |
