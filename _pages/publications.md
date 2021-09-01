@@ -46,6 +46,8 @@ permalink: /publications/
 1. [Wellington Oliveira](https://dblp.org/pers/hd/o/Oliveira:Wellington), [Hugo Matalonga](https://scholar.google.com/citations?user=fceXVy4AAAAJ&hl=en), **Gustavo Pinto**, [Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor/), [João Paulo Fernandes](https://eden.dei.uc.pt/~jpf/Site/Home.html). "[Small Changes, Big Impacts: Leveraging Diversity to Improve Energy Efficiency](http://arxiv.org/abs/2012.03738)". Software Sustainability, 2021. Springer-Verlag. Accepted for publication.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://arxiv.org/abs/2012.03738)
 
+1. Nabor Mendonca, Igor Steinmacher, Igor Wiese, Bruno Cartaxo, Gustavo Pinto. Quão Fechada é a Comunidade do SBES? TL;DR: Não Passarás!  Accepted to the 1st OpenScienSE workshop (OpenScienSE @ CBSoft 2021). Joinvile, Brazil, 2021.<br>
+
 ## 2020
 
 1. [Diego Marcilio](https://dvmarcilio.github.io/), [Carlo A. Furia](https://bugcounting.net/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[SpongeBugs: Automatically Generating Fix Suggestions in Response to Static Code Analysis Warnings](http://gustavopinto.github.io/lost+found/jss2020.pdf)". Accepted to the Journal of Systems and Software, 2020. **[This paper is an extension of a [SCAM'2019](http://gustavopinto.github.io/lost+found/scam2019.pdf) paper]**<br/>

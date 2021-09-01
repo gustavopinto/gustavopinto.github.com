@@ -14,8 +14,8 @@ author_profile: true
 
 ## Steering committee (3)
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
-1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- )
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
+1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- 2020)
 
 ## Service for 2021 (6)
 1. PC member, [ESEC/FSE'21](https://2021.esec-fse.org/)
