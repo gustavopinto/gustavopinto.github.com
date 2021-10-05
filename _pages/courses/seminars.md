@@ -43,10 +43,10 @@ Passível de alterações.
 | 6 | 11/08 | Fabio Petrillo (UQAC)             | Challenges and Opportunities in Software Engineering for Computer Games              | [Video](https://drive.google.com/file/d/1CiM4-Dggdo9J2JuHf550-8uInuxVNeZD/view?usp=sharing)      |
 | 7 | 18/08 | Danilo Monteiro (Zup Innotation)  | Pesquisador na indústria: Quem são, onde vivem, de que se alimentam, e quais são suas diferenças?              | [Video](https://drive.google.com/file/d/1kbMYIH-lSx_HajOR_q-Q3zHK7sxKSTbK/view?usp=sharing)      |
 | 8 | 25/08 | Paulo Meirelles (UFABC)           | Diferentes perspectivas sobre o modelo de desenvolvimento do Kernel Linux: academia, comunidade e oportunidades de pesquisas              | [Video](https://drive.google.com/file/d/1pv3JMoyu4EzN4AFMfcWojyU76kwJyyaB/view?usp=sharing)      |
-| 9 | 01/09 | Filipe Varjão (2600Hz)            | Programação Funcional em Erlang/Elixir              |       |
-| 10 | 08/09 | Renato Hidaka (UFPA)             | TBD              |       |
-| 11 | 15/09 | Mauricio Aniche (TU Delft)       | ML4SE            |       |
-| 12 | 22/09 | Tayana Conte (UFAM)              | TBD              |       |
+| 9 | 01/09 | Filipe Varjão (2600Hz)            | Industry OR Research?       | [Video](https://drive.google.com/file/d/1k9zZZNV1IByQJ74U9q-epLYIrvfQkhLi/view?usp=sharing)      |
+| 10 | 08/09 | Renato Hidaka (UFPA)             | Desenvolvimento de software seguro    | [Video](https://drive.google.com/file/d/1gHhQC11v95c8rGPKIKwzMmVIgZH35uMl/view?usp=sharing)      |
+| 11 | 15/09 | Mauricio Aniche (TU Delft)       | An Introduction to ML4SE | [Video](https://drive.google.com/file/d/1d6Z5W__6nFYfAgWAvMYuBj9QijjhCdD1/view?usp=sharing)  |
+| 12 | 22/09 | Tayana Conte (UFAM)              | Para entrar no jogo - uma conversa com quem realmente quer ser um pesquisador              |       |
 | 13 | 29/09 | Victor Hugo Santiago (UFPA)      | TBD              |       |
 | 14 | 04/10 | Fernanda Madeiral (KTH)          | TBD              |       |
 

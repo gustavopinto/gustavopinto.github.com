@@ -50,12 +50,14 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (16)
+## Grant proposals rejected (18)
 
 - Serrapilheira, 2020, 2021
 - Google Faculty Award, 2020 (budget: U$ 16,000)
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
+- CAPES/STIC-AmSud (budget: U$ 100,000)
 - Helium grant, 2019 (budget: U$ 1,000)
+- FAPESPA/FAPESP joint grant, 2019 (budget: U$ 35,000)
 - BASA research grant, 2018 (budget: U$ 30,000)
 - Ford Foundation Grant, 2020 (budget: U$ 50,000)
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)

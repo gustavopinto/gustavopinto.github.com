@@ -7,11 +7,11 @@ author_profile: true
 
 ## Brief bio
 
-Dr. Gustavo Pinto is an assistant professor at the [Federal University of Pará](www.ufpa.br), Brazil. Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the [Federal University of Pernambuco](www.cin.ufpe.br), Brazil. He has very broad interests in Software Engineering, including Open Source Software (communities and contributors), Human Aspects of Software Engineering, Empirical Software Engineering, and Mining Software Repositories techniques. As a young researcher, he has published over 90 research papers, some of them in the most important venues in his field (e.g., ICSE, ASE, EMSE, etc). He has won seven international research and service awards including one ACM SIGSOFT Distinguished Paper award in ICSE 2021. His research was cited over 1,600 times. He is a CNPq researcher (level 2), a scholarship only provided to exceptional Brazilian researchers. Since 2020, he has been serving as a (co-)Editor-in-Chief of the [Journal of Software Engineering Research and Development](http://jserd.sbc.org.br). He also started and was the co-host of first season of the [Frontiers in Software Engineering](https://anchor.fm/FronteirasES) (in PT-BR), a podcast for disseminating software engineering research. He authored two short e-books (one for young researchers and another one explaining open source licensing, and their hidden problems).
+Dr. Gustavo Pinto is an assistant professor at the [Federal University of Pará](www.ufpa.br), Brazil. Dr. Pinto holds a PhD in Software Engineering from the Informatics Center at the [Federal University of Pernambuco](www.cin.ufpe.br), Brazil. He has very broad interests in Software Engineering, including Open Source Software (communities and contributors), Human Aspects of Software Engineering, Empirical Software Engineering, and Mining Software Repositories techniques. As a young researcher, he published over 90 research papers, some of them in the most important venues in his field (e.g., ICSE, ASE, EMSE, etc). He won several international research and service awards, including one ACM SIGSOFT Distinguished Paper award in ICSE 2021 and one JSS Paper of the Year in 2019. He is a CNPq researcher (level 2), a scholarship only provided to exceptional Brazilian researchers. Since 2020, he has been serving as a (co-)Editor-in-Chief of the [Journal of Software Engineering Research and Development](http://jserd.sbc.org.br). He also started and was the co-host of first season of the [Frontiers in Software Engineering](https://anchor.fm/FronteirasES) (in PT-BR), a podcast for disseminating software engineering research. He authored two short e-books: one for young researchers and another one explaining open source licensing, and their hidden problems.
 
 ## Research highlight
 
-- He has 1,600+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 21).
+- He has 1,700+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 22).
 - He (co-)authored [90+ research papers](/publications) in peer reviewed conferences and journals.
 - He was highlighted as one of the most active early-stage researcher and one of the most active researcher in Software Engineering top-quality journals in a [2021 JSS publication](https://doi.org/10.1016/j.jss.2021.111029).
 - His work o [DevOps adoption](http://gustavopinto.github.io/lost+found/jss2019.pdf) was named the [paper of the year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year) (over 1,200 submissions) by the staff of the Journal of Systems and Software.
@@ -21,8 +21,8 @@ Dr. Gustavo Pinto is an assistant professor at the [Federal University of Pará]
 - He received one distinguished reviewer award for [SCAM'19](https://twitter.com/gustavopinto/status/1178806201078943746).
 - He served as a member of [60+ program committees](/service) for international and national conferences/journals.
 - He gave [20+ talks](https://speakerdeck.com/gustavopinto/) about this research work at conferences, workshops, research groups, and meetups.
-- He failed [70+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
-- He wrote [40+ blog posts](http://gustavopinto.org/books/) about the academic environment.
+- He failed [80+ times](/cv-of-failures/) to have a paper accepted or a grant funded.
+- He wrote [50+ blog posts](http://gustavopinto.org/books/) about the academic environment.
 - He self-published two short ebooks: one about [open source licensing](https://gum.co/oss-licensing-101) and another one about [good habits to foster in academia](http://gustavopinto.org/books/good-rearch-habits/).
 - He is supported by the [CNPq research productivity](http://plsql1.cnpq.br/divulg/RESULTADO_PQ_102003.buscapelonome2000?f_nome=gustavo+henrique+lima+pinto&v_sele_modal=BOL_CURSO) grant since 2020.
 

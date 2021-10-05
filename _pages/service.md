@@ -17,6 +17,9 @@ author_profile: true
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- 2020)
 
+## Service for 2022 (1)
+1. PC member, [MSR'21](https://conf.researchr.org/home/msr-2022)
+
 ## Service for 2021 (6)
 1. PC member, [ESEC/FSE'21](https://2021.esec-fse.org/)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)

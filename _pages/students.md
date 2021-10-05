@@ -13,14 +13,13 @@ I am continuously looking for good people to join my research group, at all leve
 - Albert Richard Moraes Lopes (PhD)
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
-- Fabio Pacheco de Souza (MS)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
 - Jherson Haryson Almeida Pereira (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
+- Fabricio de Souza Miranda (UROP+Capstone)
 - Dannilo Cabral (Capstone)
-- Fabricio Souza (Capstone)
 - Victor Santos (Capstone)
 - You?
 
