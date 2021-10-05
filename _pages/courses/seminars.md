@@ -46,8 +46,8 @@ Passível de alterações.
 | 9 | 01/09 | Filipe Varjão (2600Hz)            | Industry OR Research?       | [Video](https://drive.google.com/file/d/1k9zZZNV1IByQJ74U9q-epLYIrvfQkhLi/view?usp=sharing)      |
 | 10 | 08/09 | Renato Hidaka (UFPA)             | Desenvolvimento de software seguro    | [Video](https://drive.google.com/file/d/1gHhQC11v95c8rGPKIKwzMmVIgZH35uMl/view?usp=sharing)      |
 | 11 | 15/09 | Mauricio Aniche (TU Delft)       | An Introduction to ML4SE | [Video](https://drive.google.com/file/d/1d6Z5W__6nFYfAgWAvMYuBj9QijjhCdD1/view?usp=sharing)  |
-| 12 | 22/09 | Tayana Conte (UFAM)              | Para entrar no jogo - uma conversa com quem realmente quer ser um pesquisador              |       |
-| 13 | 29/09 | Victor Hugo Santiago (UFPA)      | TBD              |       |
+| 12 | 22/09 | Tayana Conte (UFAM)              | [Para entrar no jogo - uma conversa com quem realmente quer ser um pesquisador](https://drive.google.com/file/d/14ODxbAFOMombuUVtZzUs3czyUWqm01Q2/view?usp=sharing)              |       |
+| 13 | 29/09 | Victor Hugo Santiago (UFPA)      | [Psicologia da Cognição e a Complexidade do Software](https://drive.google.com/file/d/1KqLDKqkWyPMzyn6YpWYuy350X-TjI5O8/view?usp=sharing)              |       |
 | 14 | 04/10 | Fernanda Madeiral (KTH)          | TBD              |       |
 
 
