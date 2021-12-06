@@ -39,7 +39,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - FSE: 2018
 - GPCE: 2015
 - ICPC: 2019
-- ICSE: 2017 (2x), 2019 (2x), 2020 (2x)
+- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - MSR: 2020 (2x)
 - OOPSLA: 2021
@@ -52,6 +52,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 
 ## Grant proposals rejected (18)
 
+- CNPq Universal 2021
 - Serrapilheira, 2020, 2021
 - Google Faculty Award, 2020 (budget: U$ 16,000)
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
