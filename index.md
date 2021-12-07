@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a Researcher at [Zup Innovation](https://www.zup.com.br/). I am also the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development ([JSERD](https://sol.sbc.org.br/journals/index.php/jserd/)).
 
-At UFPA, I teach programming at the BSc level. I (eventually) [blog](http://gustavopinto.org/blog/), do [talks](https://speakerdeck.com/gustavopinto), and [videos](http://gustavopinto.org/vlogs/). I am also active on [twitter](http://twitter.com/gustavopinto/). I've published two short [e-books](/books).
+I (eventually) [blog](http://gustavopinto.org/blog/), do [talks](https://speakerdeck.com/gustavopinto), and [videos](http://gustavopinto.org/vlogs/). I am also active on [twitter](http://twitter.com/gustavopinto/). I've published two short [e-books](/books).
 
 <!--
 
@@ -24,4 +24,4 @@ Are you a [student looking for an advisor](/students)? Are you a researcher and 
 
 ### Mini-bio
 
-I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During the academic year of 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl). My [Ph.D. thesis](http://gustavopinto.github.io/lost+found/thesis.pdf) was all about software energy consumption. I wrote a summary of my PhD thesis [here](/phd-summary). A summary about my research is available [here](http://gustavopinto.org/about/).
+I'm an associate professor at UFPA, Brazil, and a software engineering researcher at Zup Innovation, Brazil. I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil, under [Dr. Fernando Castor](https://sites.google.com/a/cin.ufpe.br/castor) supervision. During the academic year of 2013-2014, I was a visiting scholar at the [State University of New York](http://binghamton.edu), working with [Dr. Yu David Liu](http://www.cs.binghamton.edu/~davidl). My [Ph.D. thesis](http://gustavopinto.github.io/lost+found/thesis.pdf) was all about software energy consumption. I wrote a summary of my PhD thesis [here](/phd-summary). A summary about my research is available [here](http://gustavopinto.org/about/).
