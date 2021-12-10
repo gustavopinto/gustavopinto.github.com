@@ -10,12 +10,6 @@ permalink: /publications/
 1. [Leonardo Leite](https://www.ime.usp.br/~leofl/), **Gustavo Pinto**, [Fabio Kon](https://www.ime.usp.br/~kon/), [Paulo Meirelles](https://scholar.google.com/citations?user=LnO5njYAAAAJ&hl=pt-BR). "[The Organization of Software Teams in the Quest for Continuous Delivery: A Grounded Theory Approach](https://arxiv.org/abs/2008.08652)". Accepted for Information and Software Technology, 2021.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2008.08652)<br/>
 
-Jairo Raphael ; Baldoino Fonseca ; Rodrigo dos Santos Lima ; Alessandro Garcia ; Márcio Ribeiro ; BRUNO CARTAXO; Gustavo Pinto ; Rohit Gheyi . Developers’ Viewpoints to Avoid Bug-introducing Changes. Information and Software Technology, 2021. [preprint]
-
-
-1. [Jairo Raphael](#), [Baldoino Fonseca](#), [Rodrigo dos Santos Lima](#), [Alessandro Garcia](#), [Márcio Ribeiro](#), [Bruno Cartaxo](#), **Gustavo Pinto**, [Rohit Gheyi](#). "[Developers' Viewpoints to Avoid Bug-introducing Changes](#)". Accepted for Information and Software Technology, 2021.<br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
-
 1. [Fernando Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), [Crescencio Lima](https://scholar.google.com/citations?user=0DzUe-YAAAAJ&hl=en), [Ivanilton Polato](https://scholar.google.com/citations?user=fQTkB9cAAAAJ), [Vilmar Nepomuceno](https://www.linkedin.com/in/vilmarnepomuceno), [Waldemar Ferreira](https://scholar.google.com.br/citations?user=I2qS5E8AAAAJ&hl=pt-BR), [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), Carolline Pena, [Bruno Cartaxo](http://brunocartaxo.com/), **Gustavo Pinto** and [Sérgio Soares](http://www.cin.ufpe.br/~scbs/). "[Grey Literature in Software Engineering: A Critical Review](https://arxiv.org/abs/2104.13435)". Accepted for Information and Software Technology, 2021.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2104.13435)<br/>
 
