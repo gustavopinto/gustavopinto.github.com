@@ -39,12 +39,12 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - FSE: 2018
 - GPCE: 2015
 - ICPC: 2019
-- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022
+- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x)
 - ICSME: 2012, 2016 (2x), 2017, 2018
 - MSR: 2020 (2x)
 - OOPSLA: 2021
 - SANER: 2015, 2018, 2019, 2020 (2x)
-- SCAM: 2019, 2020
+- SCAM: 2019, 2020, 2022
 - SBES: 2020, 2021 (2x)
 - SIGCSE: 2019, 2020
 - XP: 2017
@@ -64,8 +64,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - Ford Foundation Grant, 2018 (budget: U$ 50,000)
 - Mozilla Research Grant, 2018 (budget: U$ 17,033)
 - Facebook Research Award, 2018 (budget: U$ 66,000)
-- FAPESP/CGI grant, 2019 (budget: U$ 50,000)
-- FAPESP/CGI grant, 2020 (budget: U$ 40,000)
+- FAPESP/CGI grant, 2019 (budget: U$ 50,000), 2020 (budget: U$ 40,000), 2021 (budget: U$ 40,000)
 - SECTET Social Technology grant, 2018
 - CNPq Productivity Fellowship, 2017, 2018
 - CNPq Women in tech grant, 2018
