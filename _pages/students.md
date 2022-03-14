@@ -7,6 +7,8 @@ author_profile: true
 
 I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/pos-graduacao) if interested.
 
+UPDATE: I recently accepted a position in the industry, so my time became even scarse. If you _really_ want to work with me, please make sure you can conduct most your work in an independent manner. 
+
 ## Current students
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
@@ -22,7 +24,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Dannilo Cabral (Capstone)
 - Victor Santos (Capstone)
 - Leonardo Barbosa (Capstone)
-- 
 - You?
 
 ## Alumni (sorted by graduation year)
