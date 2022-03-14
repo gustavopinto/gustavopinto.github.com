@@ -10,17 +10,19 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
-- Albert Richard Moraes Lopes (PhD)
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
 - Wendy Mendes Galeno (MS)
 - Edson Cruz dos Santos (MS)
 - Jefferson Junior Alves da Silva (MS)
 - Jherson Haryson Almeida Pereira (MS)
+- Ediberto Almeida (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
-- Fabricio de Souza Miranda (UROP+Capstone)
+- Fabricio de Souza Miranda (UROP)
 - Dannilo Cabral (Capstone)
 - Victor Santos (Capstone)
+- Leonardo Barbosa (Capstone)
+- 
 - You?
 
 ## Alumni (sorted by graduation year)
