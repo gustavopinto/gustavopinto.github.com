@@ -11,7 +11,6 @@ UPDATE: I recently accepted a position in the industry, so my time became even s
 
 ## Current students
 
-- [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
 - Wendy Mendes Galeno (MS)
@@ -19,11 +18,14 @@ UPDATE: I recently accepted a position in the industry, so my time became even s
 - Jefferson Junior Alves da Silva (MS)
 - Jherson Haryson Almeida Pereira (MS)
 - Ediberto Almeida (MS)
+- Leonardo Barbosa (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
-- Fabricio de Souza Miranda (UROP)
-- Dannilo Cabral (Capstone)
+- Fernando Rodrigo (UROP)
+- Jhoylan Gonçalves dos Santos (UROP)
+- Dannilo Cabral Rabelo (Capstone)
+- Leonardo Santos (Capstone)
+- Raphael Campos de Barros (Capstone)
 - Victor Santos (Capstone)
-- Leonardo Barbosa (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -42,3 +44,4 @@ UPDATE: I recently accepted a position in the industry, so my time became even s
 - Aian Shay Bentes Damasceno Cardoso (UROP + Capstone), June 2021
 - Wagner Felidré Negrão da Silva (UROP + Capstone), June 2021
 - Leonardo Barbosa Furtado (UROP + Capstone), June 2021
+- [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
