@@ -19,7 +19,11 @@ author_profile: true
   - #10. [User eXperience](https://anchor.fm/fronteirases/episodes/10--User-Experience-UX-com-Tayana-Conte-UFAM-esqjr9) com [Tayana Conte](https://scholar.google.com.br/citations?user=aThv_5UAAAAJ&hl=en) (UFAM)
   - #11. [Reuso](https://anchor.fm/fronteirases/episodes/11--Reuso-de-Software-com-Eduardo-Almeida-UFBA-ev9co7) com [Eduardo Almeira](#) (UFBA)
   - #12. [Modularidade](https://anchor.fm/fronteirases/episodes/Modularidade-de-Software-com-Paulo-Borba-UFPE-e11atq2) com [Paulo Borba](https://pauloborba.github.io/) (UFPE)
-3. Interviews, Panels, etc
+3. Writing Blogs (at Zup Innovation)
+- [O que é Engenharia de Software Empírica?](https://www.zup.com.br/blog/o-que-e-engenharia-de-software-empirica)
+- [O que sabemos sobre documentação de código (e por que isso é importante)?](https://www.zup.com.br/blog/documentacao-de-software)
+- [Más práticas de segurança em scripts de infraestrutura como código](https://www.zup.com.br/blog/infraestrutura-como-codigo-seguranca-em-scripts)
+4. Interviews, Panels, etc
  - [Interview for Adolfo Neto Podcast](https://anchor.fm/adolfont/episodes/Gustavo-Pinto-Professor-da-Universidade-Federal-do-Par-edaps1)
  - [Panelist on JSS Happy Hour (2020)](https://www.youtube.com/watch?v=rXASV77Sbvk)
  - [Panelist on Agile Diversity and Equity (Agile 2021)](#)

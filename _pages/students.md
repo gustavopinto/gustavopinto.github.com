@@ -23,9 +23,9 @@ I am continuously looking for good people to join my research group, at all leve
 - Fernando Rodrigo (UROP)
 - Jhoylan Gonçalves dos Santos (UROP)
 - Dannilo Cabral Rabelo (Capstone)
-- Leonardo Santos (Capstone)
+- Leonardo Pereira dos Santos (Capstone)
 - Raphael Campos de Barros (Capstone)
-- Victor Santos (Capstone)
+- Victor Daniel Gaia Santos Dos Santos (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)

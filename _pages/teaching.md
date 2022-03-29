@@ -7,7 +7,7 @@ permalink: /teaching/
 
 
 ## 2022.1
-1. [Data Bases 101](#)
+1. [Databases 101](/teaching/bd1/2022)
 1. [Software Engineering Lab](#)
 
 
@@ -26,7 +26,7 @@ permalink: /teaching/
 1. [Object-Oriented Programming](/teaching/oop/2020)
 
 ## 2020.1
-1. [Data Bases 101](/teaching/bd1/2020)
+1. [Databases 101](/teaching/bd1/2020)
 1. [Software Engineering Lab](/teaching/labes/2020)
 
 ## 2019.2
