@@ -11,9 +11,10 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jserd2022.pdf)<br/>
 
 
-1. [Wendy Mendes](#), [Albert Richard](#), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](#), [Alexander Nolte](#). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
+1. [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Albert Richard](#), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Alexander Nolte](https://alexandernolte.github.io/). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/cscw2022.pdf)<br/>
 
+1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto Luiz O. Tavares de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](#). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
 
 
 ## 2021
