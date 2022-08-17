@@ -16,6 +16,9 @@ permalink: /publications/
 
 1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto Luiz O. Tavares de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](#). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
 
+Dannilo Rabelo, Albert Lopes, Wendy Mendes, Cleidson de Souza, Kiev Gama, Danilo Monteiro, **Gustavo Pinto**. [The Role of Non-Technical Skills in the Software Development Market](#). Accepted to the 35th Brazilian Symposium on Software Engineering (SBES'2022). Joinvile, Brazil, 2022.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
 
 ## 2021
 

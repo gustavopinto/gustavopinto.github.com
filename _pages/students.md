@@ -13,16 +13,13 @@ I am continuously looking for good people to join my research group, at all leve
 
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
-- Wendy Mendes Galeno (MS)
-- Edson Cruz dos Santos (MS)
+<!--- Edson Cruz dos Santos (MS) -->
 - Jefferson Junior Alves da Silva (MS)
 - Jherson Haryson Almeida Pereira (MS)
-- Ediberto Almeida (MS)
 - Leonardo Barbosa (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
-- Fernando Rodrigo (UROP)
+<!--- Fernando Rodrigo (UROP)-->
 - Jhoylan Gonçalves dos Santos (UROP)
-- Dannilo Cabral Rabelo (Capstone)
 - Leonardo Pereira dos Santos (Capstone)
 - Raphael Campos de Barros (Capstone)
 - Victor Daniel Gaia Santos Dos Santos (Capstone)
@@ -44,4 +41,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Aian Shay Bentes Damasceno Cardoso (UROP + Capstone), June 2021
 - Wagner Felidré Negrão da Silva (UROP + Capstone), June 2021
 - Leonardo Barbosa Furtado (UROP + Capstone), June 2021
-- [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE)
+- [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE), March 2022
+- Dannilo Cabral Rabelo (Capstone), July 2022
+- Wendy Mendes Galeno (MS), August 2022
