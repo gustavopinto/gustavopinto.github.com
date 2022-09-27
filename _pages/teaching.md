@@ -5,6 +5,10 @@ title: Teaching
 permalink: /teaching/
 ---
 
+## 2022.2
+1. Entrepreneurship
+1. Advanced Databases
+
 
 ## 2022.1
 1. [Databases 101](/teaching/bd1/2022)

@@ -7,17 +7,22 @@ permalink: /publications/
 
 ## 2022
 
+1. Keila Costa, Ronivaldo Ferreira, **Gustavo Pinto**, Marcelo d'Amorim, Breno Miranda. "[Test Flakiness Across Programming Languages](#)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+
 1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Perceptions of the Brazilian Software Engineering Research Community About Grey Literature](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jserd2022.pdf)<br/>
 
 
-1. [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Albert Richard](#), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Alexander Nolte](https://alexandernolte.github.io/). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
+1. [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Albert Richard](https://www.linkedin.com/in/albert-richard-73983723/), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Alexander Nolte](https://alexandernolte.github.io/). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/cscw2022.pdf)<br/>
 
-1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto Luiz O. Tavares de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](#). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
+1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto Luiz O. Tavares de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](https://arxiv.org/abs/2206.10655). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2206.10655)<br/>
 
-1. Dannilo Rabelo, Albert Lopes, Wendy Mendes, Cleidson de Souza, Kiev Gama, Danilo Monteiro, **Gustavo Pinto**. [The Role of Non-Technical Skills in the Software Development Market](#). Accepted to the 35th Brazilian Symposium on Software Engineering (SBES'2022). Joinvile, Brazil, 2022.<br>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
+1. Dannilo Rabelo, [Albert Richard](https://www.linkedin.com/in/albert-richard-73983723/), [Wendy Mendes](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Danilo Monteiro, **Gustavo Pinto**. [The Role of Non-Technical Skills in the Software Development Market](http://gustavopinto.github.io/lost+found/sbes2022.pdf). Accepted to the 35th Brazilian Symposium on Software Engineering (SBES'2022). Joinvile, Brazil, 2022.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/sbes2022.pdf)
 
 
 ## 2021

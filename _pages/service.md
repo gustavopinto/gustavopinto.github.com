@@ -10,7 +10,7 @@ author_profile: true
 
 ## Associate Editor
 
-1. [Journal of the Brazilian Computer Society (JSERD)](https://journal-bcs.springeropen.com/) (2020 -- )
+1. [Journal of the Brazilian Computer Society (JBCS)](https://journal-bcs.springeropen.com/) (2020 -- )
 
 ## Steering committee (3)
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )

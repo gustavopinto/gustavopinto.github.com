@@ -7,7 +7,7 @@ permalink: /
 
 Hi, I'm **Gustavo Pinto**.
 
-I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a Researcher at [Zup Innovation](https://www.zup.com.br/). I am also the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development ([JSERD](https://sol.sbc.org.br/journals/index.php/jserd/)).
+I'm an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and the Head of Research at [Zup Innovation](https://www.zup.com.br/). I am also the (co-)Editor-in-Chief of the Journal of Software Engineering Research and Development ([JSERD](https://sol.sbc.org.br/journals/index.php/jserd/)).
 
 I (eventually) [blog](http://gustavopinto.org/blog/), do [talks](https://speakerdeck.com/gustavopinto), and [videos](http://gustavopinto.org/vlogs/). I am also active on [twitter](http://twitter.com/gustavopinto/). I've published two short [e-books](/books).
 
