@@ -18,11 +18,11 @@ I am continuously looking for good people to join my research group, at all leve
 - Jherson Haryson Almeida Pereira (MS)
 - Leonardo Barbosa (MS)
 - Ronivaldo Ferreira Silva Junior (UROP)
-<!--- Fernando Rodrigo (UROP)-->
-- Jhoylan Gonçalves dos Santos (UROP)
+<!--- Fernando Rodrigo (UROP)
+- Jhoylan Gonçalves dos Santos (UROP)-->
 - Leonardo Pereira dos Santos (Capstone)
-- Raphael Campos de Barros (Capstone)
-- Victor Daniel Gaia Santos Dos Santos (Capstone)
+- Enzo Gabriel Da Rocha Santos (Capstone)
+<!-- - Victor Daniel Gaia Santos Dos Santos (Capstone) -->
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -44,3 +44,4 @@ I am continuously looking for good people to join my research group, at all leve
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE), March 2022
 - Dannilo Cabral Rabelo (Capstone), July 2022
 - Wendy Mendes Galeno (MS), August 2022
+- Raphael Campos de Barros, December 2022

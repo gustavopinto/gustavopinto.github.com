@@ -5,9 +5,6 @@ permalink: /service/
 author_profile: true
 ---
 
-## Editor in Chief (1)
-1. [Journal of Software Engineering Research and Development (JSERD)](https://sol.sbc.org.br/journals/index.php/jserd/) (2020 -- )
-
 ## Associate Editor
 
 1. [Journal of the Brazilian Computer Society (JBCS)](https://journal-bcs.springeropen.com/) (2020 -- )
@@ -17,12 +14,11 @@ author_profile: true
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- 2020)
 
-## Service for 2022 (2)
-1. PC member, [MSR'22](https://conf.researchr.org/home/msr-2022)
-1. PC member, [ICSE'23](https://conf.researchr.org/home/icse-2023)
-
 
 ## Older (61)
+1. [Journal of Software Engineering Research and Development (JSERD)](https://sol.sbc.org.br/journals/index.php/jserd/) (2020 -- 2022)
+1. PC member, [MSR'22](https://conf.researchr.org/home/msr-2022)
+1. PC member, [ICSE'23](https://conf.researchr.org/home/icse-2023)
 1. PC member, [ESEC/FSE'21](https://2021.esec-fse.org/)
 1. PC member, [JSEET-ICSE'21](https://conf.researchr.org/track/icse-2021/icse-2021-Software-Engineering-and-Education-Track)
 
