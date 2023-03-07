@@ -5,10 +5,16 @@ title: Publications
 permalink: /publications/
 ---
 
+## 2023
+
+1. Danilo Ribeiro, Rayfran Lima, Cesar França, Alberto Souza, Isadora Silva and Gustavo Pinto. "[Understanding self-efficacy in the context of Software Engineering: A qualitative study in the Industry](#)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+
 ## 2022
 
-1. Keila Costa, Ronivaldo Ferreira, **Gustavo Pinto**, Marcelo d'Amorim, Breno Miranda. "[Test Flakiness Across Programming Languages](#)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+1. Keila Costa, Ronivaldo Ferreira, **Gustavo Pinto**, Marcelo d'Amorim, Breno Miranda. "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/tse2022.pdf)<br/>
 
 1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Perceptions of the Brazilian Software Engineering Research Community About Grey Literature](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jserd2022.pdf)<br/>
