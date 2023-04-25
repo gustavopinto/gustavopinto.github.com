@@ -35,4 +35,6 @@ author_profile: true
  - [Interview for CIN-UFPE podcast](https://anchor.fm/podcast-cin/episodes/Episdio-piloto-podcasts-organizados-por-alunas--alunos--ex-alunas-e-ex-alunos-do-CIn-e154nt5)
  - [Interview for FACOMPCast](https://open.spotify.com/show/7oGkFKS4eV4WM2XjbEFeJu)
  - [UFF Seminar on Fuzzing](https://www.youtube.com/watch?v=_u2le0BQvDI)
- - [SIGSOFT Webinar on CDD](https://events.zoom.us/ev/AkTdJnpvc2Dz9cPwATnKzeLm38z9EojN0H0_LGsuk5VMOzI0Op23~AggLXsr32QYFjq8BlYLZ5I06Dg?lmt=1666042207000)
+ - [Talk at SIGSOFT Webinar about CDD](https://events.zoom.us/ev/AkTdJnpvc2Dz9cPwATnKzeLm38z9EojN0H0_LGsuk5VMOzI0Op23~AggLXsr32QYFjq8BlYLZ5I06Dg?lmt=1666042207000)
+ - [Interview for Fronteiras da Engenharia de Software podcast](https://podcasters.spotify.com/pod/show/fronteirases/episodes/32-Cognitive-Driven-Development--com-Gustavo-Pinto-Zup-Innovation-e-UFPA-e1utfhr)
+ - [Talk at It will never work in theory! about CDD](#)

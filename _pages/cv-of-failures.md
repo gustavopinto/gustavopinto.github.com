@@ -10,7 +10,7 @@ This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak
 <center><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/IEEEICSME?ref_src=twsrc%5Etfw">@IEEEICSME</a> for reminding me that is time to update my CV of failure ~&gt; <a href="https://t.co/7CXV8WdxjQ">https://t.co/7CXV8WdxjQ</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1003685173924388864?ref_src=twsrc%5Etfw">June 4, 2018</a></blockquote></center>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I don't like rejections, but I try to see rejections as an opportunity to improve even further.
+As most researchers, I don't like rejections, but I try to see rejections as an opportunity to improve even further.
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
@@ -50,11 +50,11 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (18)
+## Grant proposals rejected (20)
 
 - CNPq Universal 2021
 - Serrapilheira, 2020, 2021
-- Google Faculty Award, 2020 (budget: U$ 16,000)
+- Google Faculty Award, 2020, 2021, 2022
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)
 - CAPES/STIC-AmSud (budget: U$ 100,000)
 - Helium grant, 2019 (budget: U$ 1,000)
