@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an **Assistant Professor** at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and **Head of Research** at [Zup Innovation](https://www.zup.com.br/). 
 
-I (eventually) [blog](https://gustavopinto.medium.com/), do [talks](https://speakerdeck.com/gustavopinto), and [videos](http://gustavopinto.org/vlogs/). I am also active on [twitter](http://twitter.com/gustavopinto/). I've written two short [e-books](/books).
+I (eventually) [blog](https://gustavopinto.medium.com/) and do [talks](https://speakerdeck.com/gustavopinto). I am maintainng the [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR) and have written two short [e-books](/books). I am also active user on [twitter](http://twitter.com/gustavopinto/).
 
 <!--
 
@@ -24,4 +24,4 @@ Are you a [student looking for an advisor](/students)? Are you a researcher and 
 
 ### Mini-bio
 
-I'm an Assistant Professor at UFPA, Brazil and Head of Research at Zup Innovation, Brazil. In 2015, I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil. I have very broad interests in Software Engineering, including software design, Empirical software engineering, and mining software repositories techniques.
+I'm an Assistant Professor at UFPA, Brazil and Head of Research at Zup Innovation, Brazil. In 2015, I received my Ph.D. from [Federal University of Pernambuco](http://cin.ufpe.br), Brazil. I have very broad interests in Software Engineering, including software design, empirical software engineering, and mining software repositories techniques.

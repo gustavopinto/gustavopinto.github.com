@@ -2,7 +2,6 @@
 layout: single
 author_profile: true
 title: Books
-permalink: /books/
 layouts_gallery:
   - url: /books/good-research-habits/
     image_path: /lost+found/cover-young-researchers.jpg

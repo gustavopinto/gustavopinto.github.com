@@ -5,14 +5,22 @@ permalink: /service/
 author_profile: true
 ---
 
-## Associate Editor
+
+<!--## Associate Editor
 
 1. [Journal of the Brazilian Computer Society (JBCS)](https://journal-bcs.springeropen.com/) (2020 -- )
 
-<!-- ## Steering committee (3)
+
+ ## Steering committee (3)
 1. [WBMA](http://www.agilebrazil.com/2018/en/wbma2018/) (2017 -- )
 1. [SBCARS](https://sites.google.com/site/cesbcars/home) (2020 -- 2023)
 1. [IWoR](https://iwor.github.io/iwor2018/) (2018 -- 2020) -->
+
+
+## 2023 
+1. PC member, [ICSE'24](https://conf.researchr.org/home/icse-2024)
+1. PC member, [ICSE-SEIP'24](https://conf.researchr.org/track/icse-2024/icse-2024-software-engineering-in-practice)
+
 
 
 ## Older (61)
