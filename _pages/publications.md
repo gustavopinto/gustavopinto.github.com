@@ -7,9 +7,13 @@ permalink: /publications/
 
 ## 2023
 
-1. Danilo Ribeiro, Rayfran Lima, Cesar França, Alberto Souza, Isadora Silva and Gustavo Pinto. "[Understanding self-efficacy in the context of Software Engineering: A qualitative study in the Industry](#)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
+1. Danilo Monteiro Ribeiro, Rayfran Lima, Cesar França, Alberto Souza, Isadora Silva and Gustavo Pinto. "[Understanding Self-Efficacy in Software Engineering Industry: An Interview study](#)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+
+1. Isadora Cardoso-Pereira, Geraldo Gomes, Danilo Monteiro Ribeiro, Alberto de Souza, Danilo Lucena, Gustavo Pinto. "[Supporting the Careers of Developers with Disabilities: Lessons from Zup Innovation](https://arxiv.org/abs/2303.05429)" Accepted to the IEEE Software (Special Issue on Developing your Software Engineering Career), 2023.
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2303.05429)<br/>
 
 ## 2022
 
