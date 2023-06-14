@@ -1,7 +1,5 @@
 # main links
 main:
-  - title: "Books"
-    url: /books/
   - title: "Publications"
     url: /publications/
   - title: "Blog"

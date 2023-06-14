@@ -37,4 +37,4 @@ author_profile: true
  - [UFF Seminar on Fuzzing](https://www.youtube.com/watch?v=_u2le0BQvDI)
  - [Talk at SIGSOFT Webinar about CDD](https://events.zoom.us/ev/AkTdJnpvc2Dz9cPwATnKzeLm38z9EojN0H0_LGsuk5VMOzI0Op23~AggLXsr32QYFjq8BlYLZ5I06Dg?lmt=1666042207000)
  - [Interview for Fronteiras da Engenharia de Software podcast](https://podcasters.spotify.com/pod/show/fronteirases/episodes/32-Cognitive-Driven-Development--com-Gustavo-Pinto-Zup-Innovation-e-UFPA-e1utfhr)
- - [Talk at It will never work in theory! about CDD](#)
+ - [Talk at It will never work in theory! about CDD](https://www.youtube.com/watch?v=g_ht_LDm5Hw)
