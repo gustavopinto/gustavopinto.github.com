@@ -7,17 +7,17 @@ permalink: /publications/
 
 ## 2023
 
-1. Danilo Monteiro Ribeiro, Rayfran Lima, Cesar França, Alberto Souza, Isadora Silva and Gustavo Pinto. "[Understanding Self-Efficacy in Software Engineering Industry: An Interview study](#)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
+1. [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), Rayfran Lima, [Cesar França](https://about.me/cesarfranca), [Alberto Souza](https://twitter.com/alberto_souza), [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/) and **Gustavo Pinto**. "[Understanding Self-Efficacy in the Context of Software Engineering: A Qualitative Study in the Industry](https://arxiv.org/abs/2305.17106)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2305.17106)<br/>
 
-1. Isadora Cardoso-Pereira, Geraldo Gomes, Danilo Monteiro Ribeiro, Alberto de Souza, Danilo Lucena, Gustavo Pinto. "[Supporting the Careers of Developers with Disabilities: Lessons from Zup Innovation](https://arxiv.org/abs/2303.05429)" Accepted to the IEEE Software (Special Issue on Developing your Software Engineering Career), 2023.
+1. [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/), [Geraldo Gomes](https://www.linkedin.com/in/geraldogomes/), [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Alberto de Souza](https://twitter.com/alberto_souza), [Danilo Lucena](https://www.linkedin.com/in/danilocglucena/), **Gustavo Pinto**. "[Supporting the Careers of Developers with Disabilities: Lessons from Zup Innovation](https://arxiv.org/abs/2303.05429)" Accepted to the IEEE Software (Special Issue on Developing your Software Engineering Career), 2023.
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2303.05429)<br/>
 
 ## 2022
 
-1. Keila Costa, Ronivaldo Ferreira, **Gustavo Pinto**, Marcelo d'Amorim, Breno Miranda. "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
+1. [Keila Costa](https://keilabcs.github.io/), Ronivaldo Ferreira, **Gustavo Pinto**, [Marcelo d'Amorim](https://damorim.github.io/), [Breno Miranda](https://www.cin.ufpe.br/~bafm/). "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/tse2022.pdf)<br/>
 
 1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Perceptions of the Brazilian Software Engineering Research Community About Grey Literature](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
@@ -27,7 +27,7 @@ permalink: /publications/
 1. [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Albert Richard](https://www.linkedin.com/in/albert-richard-73983723/), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Alexander Nolte](https://alexandernolte.github.io/). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/cscw2022.pdf)<br/>
 
-1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto Luiz O. Tavares de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](https://arxiv.org/abs/2206.10655). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
+1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**. [To What Extent Cognitive-Driven Development Improves Code Readability?](https://arxiv.org/abs/2206.10655). Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2206.10655)<br/>
 
 
