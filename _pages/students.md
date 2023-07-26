@@ -13,16 +13,11 @@ I am continuously looking for good people to join my research group, at all leve
 
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
-<!--- Edson Cruz dos Santos (MS) -->
-- Jefferson Junior Alves da Silva (MS)
-- Jherson Haryson Almeida Pereira (MS)
 - Leonardo Barbosa (MS)
-- Ronivaldo Ferreira Silva Junior (UROP)
-<!--- Fernando Rodrigo (UROP)
-- Jhoylan Gonçalves dos Santos (UROP)-->
+- Dannilo Cabral Rabelo (MS)
+- Ronivaldo Ferreira Silva Junior (Capstone)
 - Leonardo Pereira dos Santos (Capstone)
 - Enzo Gabriel Da Rocha Santos (Capstone)
-<!-- - Victor Daniel Gaia Santos Dos Santos (Capstone) -->
 - You?
 
 ## Alumni (sorted by graduation year)
