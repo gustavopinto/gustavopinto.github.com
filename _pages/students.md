@@ -39,4 +39,4 @@ I am continuously looking for good people to join my research group, at all leve
 - [Fernando Kamei](Fernando Kamei) (PhD, co-supervised with [Sergio Soares](https://sites.google.com/a/cin.ufpe.br/castor/), UFPE), March 2022
 - Dannilo Cabral Rabelo (Capstone), July 2022
 - Wendy Mendes Galeno (MS), August 2022
-- Raphael Campos de Barros, December 2022
+- Raphael Campos de Barros (Capstone), December 2022

@@ -7,6 +7,14 @@ permalink: /publications/
 
 ## 2023
 
+1. **Gustavo Pinto**, [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/), [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Danilo Lucena](https://www.linkedin.com/in/danilocglucena/), [Alberto Souza](https://twitter.com/alberto_souza), [Kiev Gama](https://www.cin.ufpe.br/~kiev/). [Large Language Models for Education: Grading Open-Ended Questions Using ChatGPT](https://arxiv.org/abs/2307.16696). Accepted to the 37th Brazilian Symposium on Software Engineering (SBES'2023 -- Education Track). Campo Grande, Brazil, 2023.<br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2307.16696)
+&#8226;
+[<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](#)
+&#8226;
+[<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](https://ml4se.substack.com/p/utilizando-o-chatgpt-como-ferramenta)
+
+
 1. [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), Rayfran Lima, [Cesar França](https://about.me/cesarfranca), [Alberto Souza](https://twitter.com/alberto_souza), [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/) and **Gustavo Pinto**. "[Understanding Self-Efficacy in the Context of Software Engineering: A Qualitative Study in the Industry](https://arxiv.org/abs/2305.17106)" International Conference on Evaluation and Assessment in Software Engineering (EASE), 2023.
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2305.17106)<br/>
