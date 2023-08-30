@@ -7,6 +7,12 @@ permalink: /publications/
 
 ## 2023
 
+
+1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). [Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/abs/2301.12345) Accepted to the Journal of Systems and Software, 2023.
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2210.07342) &#8226;
+[<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://www.youtube.com/watch?v=g_ht_LDm5Hw)
+
+
 1. **Gustavo Pinto**, [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/), [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Danilo Lucena](https://www.linkedin.com/in/danilocglucena/), [Alberto Souza](https://twitter.com/alberto_souza), [Kiev Gama](https://www.cin.ufpe.br/~kiev/). [Large Language Models for Education: Grading Open-Ended Questions Using ChatGPT](https://arxiv.org/abs/2307.16696). Accepted to the 37th Brazilian Symposium on Software Engineering (SBES'2023 -- Education Track). Campo Grande, Brazil, 2023.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2307.16696)
 &#8226;
@@ -28,7 +34,7 @@ permalink: /publications/
 1. [Keila Costa](https://keilabcs.github.io/), Ronivaldo Ferreira, **Gustavo Pinto**, [Marcelo d'Amorim](https://damorim.github.io/), [Breno Miranda](https://www.cin.ufpe.br/~bafm/). "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/tse2022.pdf)<br/>
 
-1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Perceptions of the Brazilian Software Engineering Research Community About Grey Literature](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
+1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Assessing the Credibility of Grey Literature - A Study with Brazilian Software Engineering Researchers](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/jserd2022.pdf)<br/>
 
 
