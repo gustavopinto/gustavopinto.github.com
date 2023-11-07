@@ -17,7 +17,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 ## Journal papers rejected (26)
 
 - IEEE Computer: 2018
-- IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019, 2020, 2023
+- IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019, 2020, 2023 (2x)
 - Empirical Software Engineering Journal: 2017, 2018 (2x), 2020, 2022 (2x)
 - Information and Software Technology: 2016 (2x), 2019
 - Journal of Systems and Software: 2017 (2x), 2019, 2020
@@ -26,7 +26,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018
 
-## Conference papers rejected (49)
+## Conference papers rejected (50)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
@@ -39,7 +39,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - FSE: 2018
 - GPCE: 2015
 - ICPC: 2019
-- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x), 2023 (2x)
+- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x), 2023 (2x), 2024
 - ICSME: 2012, 2016 (2x), 2017, 2018, 2022
 - MSR: 2020 (2x), 2022, 2023 (2x)
 - OOPSLA: 2021

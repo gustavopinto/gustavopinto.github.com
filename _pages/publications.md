@@ -8,7 +8,7 @@ permalink: /publications/
 ## 2023
 
 
-1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). [Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/abs/2301.12345) Accepted to the Journal of Systems and Software, 2023.
+1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). [Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/abs/2301.12345) Accepted to the Journal of Systems and Software, 2023.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2210.07342) &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://www.youtube.com/watch?v=g_ht_LDm5Hw)
 
