@@ -5,6 +5,10 @@ title: Publications
 permalink: /publications/
 ---
 
+## 2024
+
+1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). [Lessons from Building CodeBuddy: A Contextualized AI Coding Assistant](#). Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE -- SEIP Track). Lisbon, Portugal. June 2024. 
+
 ## 2023
 
 1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Lavinia Paganini, [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. [Toward more gender-inclusive game jams and hackathons](#). Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. 
