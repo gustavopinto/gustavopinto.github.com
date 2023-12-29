@@ -7,7 +7,7 @@ author_profile: true
 
 I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/pos-graduacao) if interested.
 
-**UPDATE**: I recently accepted a position in the industry, so I am only accepting 1--3 new students per year at most.
+**UPDATE**: As I hold a position in the industry, I only accept 1--3 new students per year, at most.
 
 ## Current students
 
@@ -15,9 +15,8 @@ I am continuously looking for good people to join my research group, at all leve
 - Edson Costa Dias (PhD)
 - Leonardo Barbosa (MS)
 - Dannilo Cabral Rabelo (MS)
-- Ronivaldo Ferreira Silva Junior (Capstone)
 - Leonardo Pereira dos Santos (Capstone)
-- Enzo Gabriel Da Rocha Santos (Capstone)
+- Victor Hugo Machado da Silva (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -40,3 +39,5 @@ I am continuously looking for good people to join my research group, at all leve
 - Dannilo Cabral Rabelo (Capstone), July 2022
 - Wendy Mendes Galeno (MS), August 2022
 - Raphael Campos de Barros (Capstone), December 2022
+- Ronivaldo Ferreira Silva Junior (Capstone), December 2023
+- Fabricio de Souza Miranda (Capstone), December 2023
