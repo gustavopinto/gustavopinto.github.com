@@ -7,7 +7,7 @@ permalink: /publications/
 
 ## 2024
 
-1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building CodeBuddy: A Contextualized AI Coding Assistant](#)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE -- SEIP Track). Lisbon, Portugal. June 2024. 
+1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](#)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE -- SEIP Track). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18450)  &#8226; 
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](https://ml4se.substack.com/p/entre-tokens-e-rags-desafios-na-construcao)
