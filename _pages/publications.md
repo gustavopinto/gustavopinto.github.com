@@ -15,13 +15,13 @@ permalink: /publications/
 1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), Thayssa Rocha, [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
 [Developer Experiences with a Contextualized AI Coding Assistant: Usability Expectations, and Outcomes](https://arxiv.org/abs/2311.18452). Accepted to the 3rd International Conference on AI Engineering – Software Engineering for AI (CAIN). Lisbon, Portugal. June 2024. 
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)  &#8226; 
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)
 
 ## 2023
 
 1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Lavinia Paganini, [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. "[Toward more gender-inclusive game jams and hackathons](#)". Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. 
 
-1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). "[Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!]"(https://arxiv.org/pdf/2210.07342.pdf) Accepted to the Journal of Systems and Software, 2023.<br>
+1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). "[Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/pdf/2210.07342.pdf)". Accepted to the Journal of Systems and Software, 2023.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2210.07342) &#8226;
 [<i class="fa fa-fw fa-video-camera" aria-hidden="true"></i>Short Summary](https://www.youtube.com/watch?v=g_ht_LDm5Hw)
 
