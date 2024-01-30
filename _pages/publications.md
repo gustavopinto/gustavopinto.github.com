@@ -7,13 +7,17 @@ permalink: /publications/
 
 ## 2024
 
-1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](https://arxiv.org/abs/2311.18450)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE -- SEIP Track). Lisbon, Portugal. June 2024. 
+1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](https://arxiv.org/abs/2311.18450)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- SEIP Track). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18450)  &#8226; 
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](https://ml4se.substack.com/p/entre-tokens-e-rags-desafios-na-construcao)
 
+1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://ppgi.uniriotec.br/professores-do-ppgi/rodrigo-santos/) and [Alexander Serebrenik](https://www.win.tue.nl/~aserebre/). "[An Actionable Framework for Understanding and Improving Talent Retention as a Competitive Advantage in IT Organizations](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- Poster track). Lisbon, Portugal. June 2024. 
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)
+
 1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), Thayssa Rocha, [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
-[Developer Experiences with a Contextualized AI Coding Assistant: Usability Expectations, and Outcomes](https://arxiv.org/abs/2311.18452). Accepted to the 3rd International Conference on AI Engineering – Software Engineering for AI (CAIN). Lisbon, Portugal. June 2024. 
+"[Developer Experiences with a Contextualized AI Coding Assistant: Usability Expectations, and Outcomes](https://arxiv.org/abs/2311.18452)". Accepted to the 3rd International Conference on AI Engineering – Software Engineering for AI (CAIN'2024). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)
 
