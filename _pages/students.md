@@ -13,9 +13,10 @@ I am continuously looking for good people to join my research group, at all leve
 
 - Marcos Felipe Carvalho Nazário (PhD)
 - Edson Costa Dias (PhD)
-- Leonardo Barbosa (MS)
 - Dannilo Cabral Rabelo (MS)
 - Leonardo Pereira dos Santos (Capstone)
+- Josiane de Oliveira Coelho (Capstone)
+- Thiago José Junior Marinho (Capstone)
 - Victor Hugo Machado da Silva (Capstone)
 - You?
 
@@ -41,3 +42,4 @@ I am continuously looking for good people to join my research group, at all leve
 - Raphael Campos de Barros (Capstone), December 2022
 - Ronivaldo Ferreira Silva Junior (Capstone), December 2023
 - Fabricio de Souza Miranda (Capstone), December 2023
+- Leonardo Barbosa (MS), March, 2024
