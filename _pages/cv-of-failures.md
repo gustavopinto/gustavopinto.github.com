@@ -14,28 +14,28 @@ As most researchers, I don't like rejections, but I try to see rejections as an 
 
 My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
 
-## Journal papers rejected (26)
+## Journal papers rejected (28)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019, 2020, 2023 (2x)
 - Empirical Software Engineering Journal: 2017, 2018 (2x), 2020, 2022 (2x)
 - Information and Software Technology: 2016 (2x), 2019
-- Journal of Systems and Software: 2017 (2x), 2019, 2020
+- Journal of Systems and Software: 2017 (2x), 2019, 2020, 2024
 - Journal of Internet Services and Applications: 2018
 - PeerJ Computer Science: 2018, 2019
 - PlosONE Computer Software: 2018
-- Software: Practice and Experience: 2014, 2018
+- Software: Practice and Experience: 2014, 2018, 2024
 
-## Conference papers rejected (51)
+## Conference papers rejected (54)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
 - SBLP: 2013, 2015
 - CHASE: 2019, 2023, 2024
 - CSMR: 2014
-- EASE: 2016, 2020
+- EASE: 2016, 2020, 2024
 - ECOOP: 2014
-- ESEM: 2016, 2017, 2018 (2x), 2019
+- ESEM: 2016, 2017, 2018 (2x), 2019, 2024
 - FSE: 2018
 - GPCE: 2015
 - ICPC: 2019
@@ -45,7 +45,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - OOPSLA: 2021
 - SANER: 2015, 2018, 2019, 2020 (2x)
 - SCAM: 2019, 2020, 2022
-- SBES: 2020, 2021 (2x)
+- SBES: 2020, 2021 (2x), 2024
 - SIGCSE: 2019, 2020
 - XP: 2017
 - WTDSoft: 2018
