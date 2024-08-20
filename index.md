@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an **Assistant Professor** at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a **Research Engineer** at [Zup Innovation](https://www.zup.com.br/). 
 
-I do a lot of writting. I am a [well-published author](/publications), I write weekly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I was an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
+I do a lot of writting. I am a [well-published author](/publications), I write regularly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I used to be an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
 
 ### Research & Development
 

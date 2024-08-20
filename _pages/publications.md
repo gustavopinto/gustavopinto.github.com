@@ -16,10 +16,17 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)
 
-1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), Thayssa Rocha, [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
+1. **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), Thayssa Rocha, [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
 "[Developer Experiences with a Contextualized AI Coding Assistant: Usability Expectations, and Outcomes](https://arxiv.org/abs/2311.18452)". Accepted to the 3rd International Conference on AI Engineering – Software Engineering for AI (CAIN'2024). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)
+
+
+[Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), [Victor H. S. Santiago](https://about.me/victorhugosantiago), [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), **Gustavo Pinto**. "[Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development](#)". Accepted to the 38th Brazilian Symposium on Software Engineering (SBES'2024 -- Education Track). Curitiba, Paraná, Brazil.
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
+
 
 ## 2023
 
@@ -48,7 +55,7 @@ permalink: /publications/
 
 ## 2022
 
-1. [Keila Costa](https://keilabcs.github.io/), Ronivaldo Ferreira, **Gustavo Pinto**, [Marcelo d'Amorim](https://damorim.github.io/), [Breno Miranda](https://www.cin.ufpe.br/~bafm/). "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
+1. [Keila Costa](https://keilabcs.github.io/), [Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), **Gustavo Pinto**, [Marcelo d'Amorim](https://damorim.github.io/), [Breno Miranda](https://www.cin.ufpe.br/~bafm/). "[Test Flakiness Across Programming Languages](http://gustavopinto.github.io/lost+found/tse2022.pdf)". IEEE Transactions on Software Engineering (TSE), 2022. <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/tse2022.pdf)<br/>
 
 1. [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), [Igor Wiese](http://igorwiese.com/), **Gustavo Pinto**, [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/), [Sérgio Soares](http://www.cin.ufpe.br/~scbs/), Waldemar Neto, and [Renata Souza](https://scholar.google.com.br/citations?user=hy2Mw-0AAAAJ&hl=pt-BR&oi=ao). "[Assessing the Credibility of Grey Literature - A Study with Brazilian Software Engineering Researchers](http://gustavopinto.github.io/lost+found/jserd2022.pdf)". Journal of Software Engineering Research and Development (JSERD), 2022. **[This paper is an extension of a [SBES'2020](http://gustavopinto.github.io/lost+found/sbes2020.pdf) paper]**<br/>
@@ -58,7 +65,7 @@ permalink: /publications/
 1. [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), [Albert Richard](https://www.linkedin.com/in/albert-richard-73983723/), [Tähe-Kai Tillo](#), **Gustavo Pinto**, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Alexander Nolte](https://alexandernolte.github.io/). "[Socio-technical constraints and affordances of virtual collaboration - A study of four online hackathons](http://gustavopinto.github.io/lost+found/cscw2022.pdf)". Computer Supported Cooperative Work (CSCW), 2022.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/cscw2022.pdf)<br/>
 
-1. [Leonardo Barbosa](#), [Victor Hugo Santiago](https://about.me/victorhugosantiago), [Alberto de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**."[To What Extent Cognitive-Driven Development Improves Code Readability?](https://arxiv.org/abs/2206.10655)". Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
+1. [Leonardo Barbosa](#), [Victor H. S. Santiago](https://about.me/victorhugosantiago), [Alberto de Souza](https://twitter.com/alberto_souza), **Gustavo Pinto**."[To What Extent Cognitive-Driven Development Improves Code Readability?](https://arxiv.org/abs/2206.10655)". Accepted to the 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM). Helsinki, Finland. September, 2022.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2206.10655)<br/>
 
 
