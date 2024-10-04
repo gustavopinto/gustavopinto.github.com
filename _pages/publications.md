@@ -21,10 +21,9 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)
 
-
-[Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), [Victor H. S. Santiago](https://about.me/victorhugosantiago), [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), **Gustavo Pinto**. "[Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development](#)". Accepted to the 38th Brazilian Symposium on Software Engineering (SBES'2024 -- Education Track). Curitiba, Paraná, Brazil.
+1. [Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), [Victor H. S. Santiago](https://about.me/victorhugosantiago), [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), **Gustavo Pinto**. "[Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development](https://arxiv.org/abs/2408.11209)". Accepted to the 38th Brazilian Symposium on Software Engineering (SBES'2024 -- Education Track). Curitiba, Paraná, Brazil.
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2408.11209)
 
 
 
