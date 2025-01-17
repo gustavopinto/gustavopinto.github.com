@@ -5,6 +5,18 @@ title: Publications
 permalink: /publications/
 ---
 
+## 2025
+
+[Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. [Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](#). Journal of Software Engineering Research and Development (JSERD), 2025.
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
+[Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), [Nicole Davila](https://scholar.google.com.br/citations?user=skYGhVwAAAAJ&hl=pt-BR), [Rafaella Vaccari](https://www.linkedin.com/in/rafaella-vaccari/), [Nicoly Menezes](https://www.researchgate.net/profile/Nicoly-Menezes-3), [Marcelle Mota](https://scholar.google.com.br/citations?user=jHPSIzwAAAAJ&hl=pt-BR), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), **Gustavo Pinto**. "[Affirmative Hackathon for Software Developers with Disabilities: An Industry Initiative](https://arxiv.org/abs/2501.07344)". Accepted to the 18th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE'2025). Ottawa, Canada. April 2025. 
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2501.07344)
+
+
+
 ## 2024
 
 1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](https://arxiv.org/abs/2311.18450)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- SEIP Track). Lisbon, Portugal. June 2024. 
@@ -16,7 +28,7 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)
 
-1. **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), Thayssa Rocha, [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
+1. **Gustavo Pinto**, [Cleidson R. B. de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), [Igor Steinmacher](http://www.igor.pro.br/), [Alberto Souza](https://twitter.com/alberto_souza), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). 
 "[Developer Experiences with a Contextualized AI Coding Assistant: Usability Expectations, and Outcomes](https://arxiv.org/abs/2311.18452)". Accepted to the 3rd International Conference on AI Engineering – Software Engineering for AI (CAIN'2024). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18452)
