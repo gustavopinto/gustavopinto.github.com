@@ -12,12 +12,9 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - Marcos Felipe Carvalho Nazário (PhD)
-- Edson Costa Dias (PhD)
+- Emmanuel Dias Pereira (PhD)
 - Dannilo Cabral Rabelo (MS)
-- Leonardo Pereira dos Santos (Capstone)
 - Josiane de Oliveira Coelho (Capstone)
-- Thiago José Junior Marinho (Capstone)
-- Victor Hugo Machado da Silva (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)

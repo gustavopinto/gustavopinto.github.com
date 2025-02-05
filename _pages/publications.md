@@ -7,7 +7,7 @@ permalink: /publications/
 
 ## 2025
 
-1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. [Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](#). Journal of Software Engineering Research and Development (JSERD), 2025.
+1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. "[Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](#)". Journal of Software Engineering Research and Development (JSERD), 2025.
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
