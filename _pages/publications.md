@@ -49,6 +49,8 @@ permalink: /publications/
 
 
 1. **Gustavo Pinto**, [Isadora Cardoso-Pereira](https://www.linkedin.com/in/isadoracps/), [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Danilo Lucena](https://www.linkedin.com/in/danilocglucena/), [Alberto Souza](https://twitter.com/alberto_souza), [Kiev Gama](https://www.cin.ufpe.br/~kiev/). "[Large Language Models for Education: Grading Open-Ended Questions Using ChatGPT](https://arxiv.org/abs/2307.16696)". Accepted to the 37th Brazilian Symposium on Software Engineering (SBES'2023 -- Education Track). Campo Grande, Brazil, 2023.<br>
+[<i class="fas fa-fw fa-star" aria-hidden="true"></i> Best paper Award](#)
+&#8226;
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2307.16696)
 &#8226;
 [<i class="fa fa-fw fa-desktop" aria-hidden="true"></i>Slides](#)
