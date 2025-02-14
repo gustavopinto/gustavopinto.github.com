@@ -7,7 +7,7 @@ author_profile: true
 
 I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/pos-graduacao) if interested.
 
-**UPDATE**: As I hold a position in the industry, I only accept 1--3 new students per year, at most.
+**UPDATE**: As I hold a position in industry, I only accept 1--3 new students per year, at most.
 
 ## Current students
 

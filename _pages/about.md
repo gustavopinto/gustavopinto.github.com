@@ -11,8 +11,9 @@ Dr. Gustavo Pinto is an assistant professor at the [Federal University of Pará]
 
 ## Research highlight
 
-- He has 3,000+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 30).
+- He has 4,000+ citations, according to [Google Scholar](https://scholar.google.com.br/citations?user=dOeggYMAAAAJ&hl=en) (h-index: 30).
 - He (co-)authored [100+ research papers](/publications) in peer reviewed conferences and journals.
+- He was included in the [list of the most influential scientists](https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/7) released in 2024 by the publisher Elsevier.
 - He received the [MSR Ric Holt Early Career Achievement Award](https://conf.researchr.org/info/msr-2022/awards), an award that ''[recognizes outstanding junior researchers who have provided outstanding contributions in the area of mining software repositories](https://conf.researchr.org/track/msr-2022/msr-2022-msr-awards?#Call-for-Nominations-)''.
 - He was highlighted as one of the most active early-stage researchers in Software Engineering top-quality journals, according to a [2021 JSS publication](https://doi.org/10.1016/j.jss.2021.111029).
 - His work o [DevOps adoption](http://gustavopinto.github.io/lost+found/jss2019.pdf) was named the [paper of the year](https://www.journals.elsevier.com/journal-of-systems-and-software/news/jss-2019-paper-of-the-year) (over 1,200 submissions) by the staff of the Journal of Systems and Software.

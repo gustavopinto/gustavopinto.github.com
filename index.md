@@ -13,12 +13,11 @@ I do a lot of writting. I am a [well-published author](/publications), I write r
 
 ### Research & Development
 
-Since 2021, I have been working at [Zup Innovation](https://www.zup.com.br/), where I conduct research & development initiatives to improve the software development process and tools. This change also reflected my research agenda. 
+Since 2021, I have been working at [Zup Innovation](https://www.zup.com.br/), where I conduct research & development initiatives to improve the software development process and tools. This move also reflected my research agenda. Recently, my current research focuses on machine learning techniques to improve software engineering tasks. 
 
-Recently, my current research focuses on machine learning techniques to improve software engineering tasks. In the past, I had broader interests, including refactoring (*e.g.*, [JSS'2019](http://gustavopinto.org/lost+found/jss2019b.pdf)), human aspects of software development (*e.g.*, [ICSE'2018](http://gustavopinto.github.io/lost+found/icse2018.pdf)), and open source software (*e.g.*, [ICSE-SEET'2019](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)).
+In the past, I had broader interests, including refactoring (*e.g.*, [JSS'2019](http://gustavopinto.org/lost+found/jss2019b.pdf)), human aspects of software development (*e.g.*, [ICSE'2018](http://gustavopinto.github.io/lost+found/icse2018.pdf)), and open source software (*e.g.*, [ICSE-SEET'2019](http://gustavopinto.github.io/lost+found/icse-seet2019.pdf)).
 
 You can see my list of [publications here](/publications), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures).
-
 
 ### Minibio
 
