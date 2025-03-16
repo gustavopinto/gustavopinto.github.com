@@ -15,6 +15,9 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2501.07344)
 
+3. [Igor Wiese](http://igorwiese.com/), [Jasmine Boyer](https://www.linkedin.com/in/jasmine-boyer/), [Ethan Rasgorshek](https://www.linkedin.com/in/ethan-rasgorshek-3745381b1), **Gustavo Pinto**, [Marco Gerosa](http://www.ime.usp.br/~gerosa/), [Igor Steinmacher](http://www.igor.pro.br/), [Bonita Sharif](https://www.shbonita.me/). "[How Developers Make Decisions When Choosing Issues and Reviewing Code: An Eye Tracking GitHub Study](#)". Accepted to the 16th ACM Symposium on Eye Tracking Research & Applications (ETRA'2025). Tokyo, Japan. May 2025. 
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
 
 ## 2024
@@ -41,7 +44,8 @@ permalink: /publications/
 
 ## 2023
 
-1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Lavinia Paganini, [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. "[Toward more gender-inclusive game jams and hackathons](#)". Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. 
+1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Lavinia Paganini, [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. "[Toward more gender-inclusive game jams and hackathons](https://link.springer.com/content/pdf/10.1007/978-1-4842-9651-6.pdf)". Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. <br>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://link.springer.com/content/pdf/10.1007/978-1-4842-9651-6.pdf)
 
 1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). "[Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/pdf/2210.07342.pdf)". Accepted to the Journal of Systems and Software, 2023.<br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2210.07342) &#8226;
