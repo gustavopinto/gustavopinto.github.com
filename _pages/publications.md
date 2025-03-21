@@ -15,7 +15,11 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2501.07344)
 
-3. [Igor Wiese](http://igorwiese.com/), [Jasmine Boyer](https://www.linkedin.com/in/jasmine-boyer/), [Ethan Rasgorshek](https://www.linkedin.com/in/ethan-rasgorshek-3745381b1), **Gustavo Pinto**, [Marco Gerosa](http://www.ime.usp.br/~gerosa/), [Igor Steinmacher](http://www.igor.pro.br/), [Bonita Sharif](https://www.shbonita.me/). "[How Developers Make Decisions When Choosing Issues and Reviewing Code: An Eye Tracking GitHub Study](#)". Accepted to the 16th ACM Symposium on Eye Tracking Research & Applications (ETRA'2025). Tokyo, Japan. May 2025. 
+3. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifacio](http://wp.rbonifacio.net/), **Gustavo Pinto**. "[Mitigating Configuration Differences Between Development and Production Environments: A Catalog of Strategies](#)". Accepted to the 29th International Conference on Evaluation and Assessment in Software Engineering (EASE). Istanbul, Turkey. June 2025. 
+<br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+
+4. [Igor Wiese](http://igorwiese.com/), [Jasmine Boyer](https://www.linkedin.com/in/jasmine-boyer/), [Ethan Rasgorshek](https://www.linkedin.com/in/ethan-rasgorshek-3745381b1), **Gustavo Pinto**, [Marco Gerosa](http://www.ime.usp.br/~gerosa/), [Igor Steinmacher](http://www.igor.pro.br/), [Bonita Sharif](https://www.shbonita.me/). "[How Developers Make Decisions When Choosing Issues and Reviewing Code: An Eye Tracking GitHub Study](#)". Accepted to the 16th ACM Symposium on Eye Tracking Research & Applications (ETRA'2025). Tokyo, Japan. May 2025. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
