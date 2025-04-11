@@ -11,10 +11,12 @@ I am continuously looking for good people to join my research group, at all leve
 
 ## Current students
 
-- Marcos Felipe Carvalho Nazário (PhD)
 - Emmanuel Dias Pereira (PhD)
 - Dannilo Cabral Rabelo (MS)
-- Josiane de Oliveira Coelho (Capstone)
+- Ronivaldo Ferreira Silva Junior (MS)
+- Pedro Lucas Almeida Andre (Capstone)
+- Daniel Naiff Da Costa (Capstone)
+- Luiz Mateus Pereira Da Conceicao (Capstone)
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -40,3 +42,5 @@ I am continuously looking for good people to join my research group, at all leve
 - Ronivaldo Ferreira Silva Junior (Capstone), December 2023
 - Fabricio de Souza Miranda (Capstone), December 2023
 - Leonardo Barbosa (MS), March, 2024
+- Marcos Felipe Carvalho Nazário (PhD), March, 2025
+- Josiane de Oliveira Coelho (Capstone), March, 2025
