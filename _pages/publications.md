@@ -7,9 +7,9 @@ permalink: /publications/
 
 ## 2025
 
-1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. "[Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](#)". Journal of Software Engineering Research and Development (JSERD), 2025.
+1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. "[Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](https://journals-sol.sbc.org.br/index.php/jserd/article/view/4378/3122)". Journal of Software Engineering Research and Development (JSERD), 2025.
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://journals-sol.sbc.org.br/index.php/jserd/article/view/4378/3122)
 
 2. [Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), [Nicole Davila](https://scholar.google.com.br/citations?user=skYGhVwAAAAJ&hl=pt-BR), [Rafaella Vaccari](https://www.linkedin.com/in/rafaella-vaccari/), [Nicoly Menezes](https://www.researchgate.net/profile/Nicoly-Menezes-3), [Marcelle Mota](https://scholar.google.com.br/citations?user=jHPSIzwAAAAJ&hl=pt-BR), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), **Gustavo Pinto**. "[Affirmative Hackathon for Software Developers with Disabilities: An Industry Initiative](https://arxiv.org/abs/2501.07344)". Accepted to the 18th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE'2025). Ottawa, Canada. April 2025. 
 <br/>
