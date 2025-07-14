@@ -16,6 +16,7 @@ Se você tem interesse em trabalhar comigo (ou se já é meu aluno), certifique-
 - [Créditos necessários para o mestrado](/pos-graduacao/creditos/)
 - [Instruções gerais para alunos de mestrado](/pos-graduacao/instrucoes/)
 - [Sou seu orientador, não sou seu chefe](/pos-graduacao/nao-sou-seu-chefe)
+- [Posso fazer um app no meu mestrado?](/pos-graduacao/app)
 - [1+5 Good Habits for Young Scholars](/books/good-research-habits/) (se você for meu aluno, me peça uma cópia)
 
 Outros links que recomendo fortemente:
