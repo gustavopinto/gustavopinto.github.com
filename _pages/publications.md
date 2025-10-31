@@ -8,7 +8,7 @@ permalink: /publications/
 
 ## 2026
 
-[Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). [Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#). Accepted to the Empirical Software Engineering journal, 2026. <br/>
+1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). [Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#). Accepted to the Empirical Software Engineering journal, 2026. <br/>
 
 
 ## 2025
@@ -25,9 +25,9 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2505.09392)
 
-4. [Igor Wiese](http://igorwiese.com/), [Jasmine Boyer](https://www.linkedin.com/in/jasmine-boyer/), [Ethan Rasgorshek](https://www.linkedin.com/in/ethan-rasgorshek-3745381b1), **Gustavo Pinto**, [Marco Gerosa](http://www.ime.usp.br/~gerosa/), [Igor Steinmacher](http://www.igor.pro.br/), [Bonita Sharif](https://www.shbonita.me/). "[How Developers Make Decisions When Choosing Issues and Reviewing Code: An Eye Tracking GitHub Study](#)". Accepted to the 16th ACM Symposium on Eye Tracking Research & Applications (ETRA'2025). Tokyo, Japan. May 2025. 
+4. [Igor Wiese](http://igorwiese.com/), [Jasmine Boyer](https://www.linkedin.com/in/jasmine-boyer/), [Ethan Rasgorshek](https://www.linkedin.com/in/ethan-rasgorshek-3745381b1), **Gustavo Pinto**, [Marco Gerosa](http://www.ime.usp.br/~gerosa/), [Igor Steinmacher](http://www.igor.pro.br/), [Bonita Sharif](https://www.shbonita.me/). "[How Developers Make Decisions When Choosing Issues and Reviewing Code: An Eye Tracking GitHub Study](http://gustavopinto.github.io/lost+found/etra2025.pdf)". Accepted to the 16th ACM Symposium on Eye Tracking Research & Applications (ETRA'2025). Tokyo, Japan. May 2025. 
 <br/>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/etra2025.pdf)
 
 5. [Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), Guilherme da Silva, [Carla Rocha](https://carlarocha.org/), **Gustavo Pinto**. [Semantic Clustering of Civic Proposals: A Case Study on Brazil's National Participation Platform](https://arxiv.org/abs/2509.21292v2). Accepted to the 22nd Encontro Nacional de Inteligência Artificial e Computacional (ENIAC'2025). Fortaleza, Brazil. Setembro 2025.
 <br/>
