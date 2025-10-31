@@ -5,6 +5,12 @@ title: Publications
 permalink: /publications/
 ---
 
+
+## 2026
+
+[Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). [Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#). Accepted to the Empirical Software Engineering journal, 2026. <br/>
+
+
 ## 2025
 
 1. [Marcos Nazário](https://www.linkedin.com/in/marcos-felipe-carvalho-naz%C3%A1rio-43916b6b/?originalSubdomain=br), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Fernando Kenji Kamei](http://www.researchgate.net/profile/Fernando_Kamei), **Gustavo Pinto**. "[Strategies to Mitigate Configuration Differences in Software Development: A Rapid Review of Grey Literature](https://journals-sol.sbc.org.br/index.php/jserd/article/view/4378/3122)". Journal of Software Engineering Research and Development (JSERD), 2025.
