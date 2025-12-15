@@ -8,8 +8,11 @@ permalink: /publications/
 
 ## 2026
 
-1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). [Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#). Accepted to the Empirical Software Engineering journal, 2026. <br/>
+1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). "[Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#)". Accepted to the Empirical Software Engineering journal, 2026. <br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
+[Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), Luciano Teran, Marcelle Mota](https://scholar.google.com.br/citations?user=jHPSIzwAAAAJ&hl=pt-BR), [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [Kiev Gama](https://www.cin.ufpe.br/~kiev/), **Gustavo Pinto**. [Challenges and Enablers: Remote Work for People with Disabilities in Software Development Teams](#). Accepted to the 48th ACM/IEEE International Conference on Software Engineering (ICSE'2026 -- SEIS Track). Rio de Janeiro, Brazil. April 2026.  <br/>
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
 
 ## 2025
 
@@ -29,19 +32,19 @@ permalink: /publications/
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/etra2025.pdf)
 
-5. [Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), Guilherme da Silva, [Carla Rocha](https://carlarocha.org/), **Gustavo Pinto**. [Semantic Clustering of Civic Proposals: A Case Study on Brazil's National Participation Platform](https://arxiv.org/abs/2509.21292v2). Accepted to the 22nd Encontro Nacional de Inteligência Artificial e Computacional (ENIAC'2025). Fortaleza, Brazil. Setembro 2025.
+5. [Ronivaldo Ferreira](https://www.linkedin.com/in/ronivaldo-junior/), Guilherme da Silva, [Carla Rocha](https://carlarocha.org/), **Gustavo Pinto**. "[Semantic Clustering of Civic Proposals: A Case Study on Brazil's National Participation Platform](https://arxiv.org/abs/2509.21292v2)". Accepted to the 22nd Encontro Nacional de Inteligência Artificial e Computacional (ENIAC'2025). Fortaleza, Brazil. Setembro 2025.
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2509.21292v2)
 
 
 ## 2024
 
-1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](https://arxiv.org/abs/2311.18450)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- SEIP Track). Lisbon, Portugal. June 2024. 
+1. **Gustavo Pinto**, [Cleidson de Souza](https://scholar.google.com/citations?user=5kncGscAAAAJ&hl=en), [João Batista Neto](https://www.linkedin.com/in/joaobatista-cordeironeto/), [Alberto Souza](https://twitter.com/alberto_souza), [Tarcisio Gotto](https://www.linkedin.com/in/tarcisio-gotto-6bb19716/), [Edward Monteiro](https://www.linkedin.com/in/edward-m-8237341/). "[Lessons from Building StackSpot AI: A Contextualized AI Coding Assistant](https://arxiv.org/abs/2311.18450)". Accepted to the 46th ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- SEIP Track). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2311.18450)  &#8226; 
 [<i class="fa fa-fw fa-wordpress" aria-hidden="true"></i>Blog Post](https://ml4se.substack.com/p/entre-tokens-e-rags-desafios-na-construcao)
 
-1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://ppgi.uniriotec.br/professores-do-ppgi/rodrigo-santos/) and [Alexander Serebrenik](https://www.win.tue.nl/~aserebre/). "[An Actionable Framework for Understanding and Improving Talent Retention as a Competitive Advantage in IT Organizations](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)". Accepted to the 46rd ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- Poster track). Lisbon, Portugal. June 2024. 
+1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://ppgi.uniriotec.br/professores-do-ppgi/rodrigo-santos/) and [Alexander Serebrenik](https://www.win.tue.nl/~aserebre/). "[An Actionable Framework for Understanding and Improving Talent Retention as a Competitive Advantage in IT Organizations](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)". Accepted to the 46th ACM/IEEE International Conference on Software Engineering (ICSE'2024 -- Poster track). Lisbon, Portugal. June 2024. 
 <br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://www.win.tue.nl/~aserebre/ICSE2024.pdf)
 
@@ -58,7 +61,7 @@ permalink: /publications/
 
 ## 2023
 
-1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), Lavinia Paganini, [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. "[Toward more gender-inclusive game jams and hackathons](https://link.springer.com/content/pdf/10.1007/978-1-4842-9651-6.pdf)". Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. <br>
+1. [Kiev Gama](https://www.cin.ufpe.br/~kiev/), [Lavinia Paganini](https://scholar.google.com.br/citations?user=FfyAp2AAAAAJ&hl=pt-BR), [Rafa Prado](https://www.linkedin.com/in/rafa-prado-santos/), Claudia Ferraz, Dayanne Coutinho, [Wendy Galeno](https://www.linkedin.com/in/wendy-mendes-b396b0144/), **Gustavo Pinto** and George Valença. "[Toward more gender-inclusive game jams and hackathons](https://link.springer.com/content/pdf/10.1007/978-1-4842-9651-6.pdf)". Springer Book "Equity, Diversity, and Inclusion in Software Engineering"Book", 2023. <br>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://link.springer.com/content/pdf/10.1007/978-1-4842-9651-6.pdf)
 
 1. **Gustavo Pinto**, [Alberto Souza](https://twitter.com/alberto_souza). "[Cognitive-Driven Development Helps Software Teams to Keep Code Units Under the Limit!](https://arxiv.org/pdf/2210.07342.pdf)". Accepted to the Journal of Systems and Software, 2023.<br>
