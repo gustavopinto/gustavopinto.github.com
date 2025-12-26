@@ -26,7 +26,7 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018, 2024
 
-## Conference papers rejected (54)
+## Conference papers rejected (58)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
@@ -35,24 +35,27 @@ My list of rejections are in the following (this list is incomplete; some are ju
 - CSMR: 2014
 - EASE: 2016, 2020, 2024
 - ECOOP: 2014
-- ESEM: 2016, 2017, 2018 (2x), 2019, 2024
+- ESEM: 2016, 2017, 2018 (2x), 2019, 2024, 2025 (2x)
+- ETRA: 2025
 - FSE: 2018
 - GPCE: 2015
-- ICPC: 2019
-- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x), 2023 (2x), 2024
+- ICPC: 2019, 2025
+- ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x), 2023 (2x), 2024, 2025
 - ICSME: 2012, 2016 (2x), 2017, 2018, 2022
 - MSR: 2020 (2x), 2022, 2023 (2x)
 - OOPSLA: 2021
 - SANER: 2015, 2018, 2019, 2020 (2x)
 - SCAM: 2019, 2020, 2022
 - SBES: 2020, 2021 (2x), 2024
+- SBSI: 2025
+- SBQS: 2025
 - SIGCSE: 2019, 2020
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (20)
+## Grant proposals rejected (21)
 
-- CNPq Universal 2021
+- CNPq Universal 2021, 2024
 - Serrapilheira, 2020, 2021
 - Google Faculty Award, 2020, 2021, 2022
 - Microsoft Research Faculty Fellowship, 2020 (budget: U$ 100,000)

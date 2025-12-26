@@ -15,7 +15,7 @@ permalink: /publications/
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2512.12965)
 
 1. [Luís Amaral](https://twitter.com/AmaralhLuis), [Michael Schlichtig](https://scholar.google.com/citations?user=Bp8wDfcAAAAJ&hl=en), Wagner Emanuel, Joilton Almeida de Jesus, Carine Ferreira, [Jérôme Kempf](https://www.linkedin.com/in/j%C3%A9r%C3%B4mekempf?originalSubdomain=at), [Rodrigo Bonifacio](http://wp.rbonifacio.net/), [Eric Bodden](https://scholar.google.com/citations?user=Kr7kPfAAAAAJ&hl=en), [Laerte Peotta](https://scholar.google.com/citations?user=-6hFEmYAAAAJ&hl=en), **Gustavo Pinto**, and [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/). "[From Legacy Designs to Vulnerability Fixes: Understanding SAST Adoption in Non-Technological Companies](#)". Accepted to the 33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Limassol, Cyprus, 2020.<br>
-[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](#)
+[<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020.pdf)
 
 
 ## 2025
