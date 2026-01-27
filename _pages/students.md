@@ -12,14 +12,12 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - Emmanuel Dias Pereira (PhD)
-- Jamison Da Silva Vera Cruz (PhD)
+- Leandro Veloso Dos Santos (MS)
 - Dannilo Cabral Rabelo (MS)
 - Ronivaldo Ferreira Silva Junior (MS)
 - Pedro Lucas Almeida Andre (Capstone)
-- Daniel Naiff Da Costa (UROP)
-- Luiz Mateus Pereira Da Conceicao (UROP)
-- Leonardo Pereira Dos Santos (Capstone)
 - Christian de Jesus da Costa Marinho (Capstone)
+- Daniel Naiff Da Costa (UROP)
 - You?
 
 ## Alumni (sorted by graduation year)
