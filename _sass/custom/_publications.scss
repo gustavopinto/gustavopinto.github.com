@@ -20,33 +20,41 @@
     margin-top: 0;
   }
 
-  // Ícones dos links (Preprint, Blog, Slides, etc.) — mais destaque
-  a .fa,
-  a .fas,
-  a .far {
-    margin-right: 0.25em;
-    opacity: 0.9;
-  }
+  // Botões/links de recurso ao final de cada publicação (Preprint, Blog, Slides, etc.)
+  a:has(> .fa),
+  a:has(> .fas),
+  a:has(> .far) {
+    display: inline-block;
+    margin: 0.2em 0.35em 0.2em 0;
+    padding: 0.35em 0.7em;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    color: #2e4057;
+    background-color: #e8ecf1;
+    border: 1px solid #c5cdd9;
+    border-radius: 6px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 
-  // Ícone de documento nos links de artigos (PDF, arXiv, Springer, etc.)
-  a[href*="arxiv.org"],
-  a[href*="gustavopinto.github.io"],
-  a[href*=".pdf"],
-  a[href*="springer.com"],
-  a[href*="link.springer"],
-  a[href*="win.tue.nl"],
-  a[href*="journals-sol.sbc.org"],
-  a[href*="sol.sbc.org.br"],
-  a[href*="dropbox.com"] {
-    &:not(:has(> .fa)):not(:has(> .fas)):not(:has(> .far)) {
-      &::before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f15c"; // fa-file-alt
-        margin-right: 0.35em;
-        font-size: 0.9em;
-        opacity: 0.85;
-      }
+    &:hover {
+      background-color: #2e4057;
+      border-color: #2e4057;
+      color: #fff;
+    }
+
+    .fa,
+    .fas,
+    .far {
+      margin-right: 0.35em;
+      opacity: 0.95;
     }
   }
+
+  // Espaço entre os botões e o separador •
+  p a:has(> .fa) + a:has(> .fa),
+  p a:has(> .fas) + a:has(> .fas),
+  p a:has(> .far) + a:has(> .far) {
+    margin-left: 0;
+  }
+
 }
