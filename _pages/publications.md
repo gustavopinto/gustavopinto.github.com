@@ -6,8 +6,6 @@ permalink: /publications/
 classes: ["publications-page"]
 ---
 
-<div class="publications-list">
-
 ## 2026
 
 1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). "[Supporting Software Engineering Managers in Talent Retention: The Brazilian Context](#)". Accepted to the Empirical Software Engineering journal, 2026. <br/>
@@ -513,5 +511,3 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 2. **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "[A Multi-Objective Genetic Algorithm to Test Data Generation](http://gustavopinto.github.io/lost+found/ictai2010.pdf)". Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ictai2010.pdf)
-
-</div>
