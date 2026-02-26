@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an **Assistant Professor** at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a **Research Engineer** at [Zup Innovation](https://www.zup.com.br/). 
 
-I do a lot of writting. I am a [well-published author](/publications), I write regularly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I used to be an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
+I do a lot of writing. I am a [well-published author](/publications), I write regularly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I offer [training and consulting](/consulting/) on LLMs for software engineering (bootcamps and mentorship). I used to be an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
 
 ### Research & Development
 
@@ -21,4 +21,4 @@ You can see my list of [publications here](/publications), along with ***all*** 
 
 ### Minibio
 
-Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning techniques to improve software engineering tasks. Gustavo is a well-published author, with over 100 research papers published. He writes regularly at his [ML4SE](https://ml4se.substack.com/) newsletter (in PT-BR). 
+Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers, and writes regularly at his [ML4SE](https://ml4se.substack.com/) newsletter (in PT-BR). He also offers [consulting](/consulting/) programs for Brazilian companies. 

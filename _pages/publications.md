@@ -3,8 +3,10 @@ layout: single
 author_profile: true
 title: Publications
 permalink: /publications/
+classes: ["publications-page"]
 ---
 
+<div class="publications-list">
 
 ## 2026
 
@@ -511,3 +513,5 @@ A Reflection on the State of the Art](http://gustavopinto.github.io/lost+found/g
 
 2. **Gustavo Pinto** and [Silvia Vergilio](http://www.inf.ufpr.br/silvia/). "[A Multi-Objective Genetic Algorithm to Test Data Generation](http://gustavopinto.github.io/lost+found/ictai2010.pdf)". Accepted to the 22th International Conference on Tools with Artificial Intelligence (ICTAI), Arras, Italy, 2010.<br/>
 [<i class="fa fa-fw fa-file-pdf" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ictai2010.pdf)
+
+</div>
