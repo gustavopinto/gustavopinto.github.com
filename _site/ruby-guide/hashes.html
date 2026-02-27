@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -329,7 +327,7 @@
 
 <p>Hashes são tipos de dados que são capazes de armazenar grupos de elementos, assim como um Array. Hashes, na verdade, são construídos com base em Arrays, logo muito do que aprendemos em Arrays pode ser reaproveitado para utilização de Hashes.</p>
 
-<p>Diferente de um Array, no entanto, Hashes são mais sofisticados e tem melhor desempenho em várias operações. Vamos discutir mais a frente alguns desses casos. Uma outra característica de um hash é o uso de chaves (<code class="highlighter-rouge">{}</code>) para delimitar seu escopo.</p>
+<p>Diferente de um Array, no entanto, Hashes são mais sofisticados e tem melhor desempenho em várias operações. Vamos discutir mais a frente alguns desses casos. Uma outra característica de um hash é o uso de chaves (<code class="language-plaintext highlighter-rouge">{}</code>) para delimitar seu escopo.</p>
 
 <h2 id="criando-hashes">Criando hashes</h2>
 
@@ -339,12 +337,12 @@
 <span class="n">meu_hash</span> <span class="o">=</span> <span class="p">{}</span>    <span class="c1"># =&gt; {}</span>
 </code></pre></div></div>
 
-<p>Hashes são tipos de dados que além de um valor, armazenam também uma chave. A chave é utilizada para buscar o valor armazenado. Podemos definir um Hash em ruby usando a notação <code class="highlighter-rouge">{chave =&gt; valor}</code>. O símbolo <code class="highlighter-rouge">=&gt;</code> (hash rockets) separa a definição de chave e valor. Veja a seguir:</p>
+<p>Hashes são tipos de dados que além de um valor, armazenam também uma chave. A chave é utilizada para buscar o valor armazenado. Podemos definir um Hash em ruby usando a notação <code class="language-plaintext highlighter-rouge">{chave =&gt; valor}</code>. O símbolo <code class="language-plaintext highlighter-rouge">=&gt;</code> (hash rockets) separa a definição de chave e valor. Veja a seguir:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"três"</span> <span class="o">=&gt;</span> <span class="s2">"three"</span><span class="p">}</span>
 </code></pre></div></div>
 
-<p>Nesse hash temos três pares de chave e valor. Isto significa que temos três chaves (<code class="highlighter-rouge">um</code>, <code class="highlighter-rouge">dois</code> e <code class="highlighter-rouge">três</code>) que podem ser utilizadas pra acessar três valores (<code class="highlighter-rouge">one</code>, <code class="highlighter-rouge">two</code> e <code class="highlighter-rouge">three</code>). A chave (que marca a posição) aparece ao lado esquedo do <code class="highlighter-rouge">=&gt;</code>, enquanto que o valor aparece ao lado direito.</p>
+<p>Nesse hash temos três pares de chave e valor. Isto significa que temos três chaves (<code class="language-plaintext highlighter-rouge">um</code>, <code class="language-plaintext highlighter-rouge">dois</code> e <code class="language-plaintext highlighter-rouge">três</code>) que podem ser utilizadas pra acessar três valores (<code class="language-plaintext highlighter-rouge">one</code>, <code class="language-plaintext highlighter-rouge">two</code> e <code class="language-plaintext highlighter-rouge">three</code>). A chave (que marca a posição) aparece ao lado esquedo do <code class="language-plaintext highlighter-rouge">=&gt;</code>, enquanto que o valor aparece ao lado direito.</p>
 
 <p>Percba que a ideia de chave é que ela seja capaz de referenciar um determinado valor dentro de um Hash. Logo, não podem existir duas chaves iguais; do contrário, como poderíamos recuperar o valor associado? Todavia, podemos ter o mesmo valor para duas chaves diferentes.</p>
 
@@ -391,9 +389,9 @@
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">[</span><span class="ss">:rg</span><span class="p">]</span>        <span class="c1"># =&gt; nil</span>
 </code></pre></div></div>
 
-<p>Você consegue perceber o que está acontecendo? A instrução <code class="highlighter-rouge">dados_pessoais[:nome]</code> busca no Hash por uma chave chamada <code class="highlighter-rouge">:nome</code>. Ao encontrar essa chave, o Hash devolve o valor associado a esta chave, no caso, a String <code class="highlighter-rouge">Gustavo Pinto</code>. Essa String é então enviada para o método <code class="highlighter-rouge">puts</code> que imprime na tela o resultado.</p>
+<p>Você consegue perceber o que está acontecendo? A instrução <code class="language-plaintext highlighter-rouge">dados_pessoais[:nome]</code> busca no Hash por uma chave chamada <code class="language-plaintext highlighter-rouge">:nome</code>. Ao encontrar essa chave, o Hash devolve o valor associado a esta chave, no caso, a String <code class="language-plaintext highlighter-rouge">Gustavo Pinto</code>. Essa String é então enviada para o método <code class="language-plaintext highlighter-rouge">puts</code> que imprime na tela o resultado.</p>
 
-<p>Poderíamos também recuperar um valor do Hash usando o método <code class="highlighter-rouge">fetch</code>.</p>
+<p>Poderíamos também recuperar um valor do Hash usando o método <code class="language-plaintext highlighter-rouge">fetch</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -401,11 +399,11 @@
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">.</span><span class="nf">fetch</span> <span class="ss">:rg</span>        <span class="c1"># =&gt; KeyError (key not found: :rg)</span>
 </code></pre></div></div>
 
-<p>No entanto, diferente do acesso direto a chave, a chamada ao método <code class="highlighter-rouge">fetch</code> retorna um <code class="highlighter-rouge">KeyError</code> caso a chave não existe no Hash.</p>
+<p>No entanto, diferente do acesso direto a chave, a chamada ao método <code class="language-plaintext highlighter-rouge">fetch</code> retorna um <code class="language-plaintext highlighter-rouge">KeyError</code> caso a chave não existe no Hash.</p>
 
-<p>Assim como nos Arrays, em que um acesso a uma posição inexistente retorna um <code class="highlighter-rouge">nil</code>, em Hash, tentar acessar uma chave inexistente também retorna um <code class="highlighter-rouge">nil</code>.</p>
+<p>Assim como nos Arrays, em que um acesso a uma posição inexistente retorna um <code class="language-plaintext highlighter-rouge">nil</code>, em Hash, tentar acessar uma chave inexistente também retorna um <code class="language-plaintext highlighter-rouge">nil</code>.</p>
 
-<p>Para atribuir um valor a um Hash já existente, podemos usar o mesmo mecanismo de atribuição. Por exemplo: <code class="highlighter-rouge">dados_pessoais[:nome] = "Gustavo Henrique"</code>. Caso a chave informada não exista no Hash, um novo registro é criado. Dessa forma, podemos popular um Hash da seguinte forma:</p>
+<p>Para atribuir um valor a um Hash já existente, podemos usar o mesmo mecanismo de atribuição. Por exemplo: <code class="language-plaintext highlighter-rouge">dados_pessoais[:nome] = "Gustavo Henrique"</code>. Caso a chave informada não exista no Hash, um novo registro é criado. Dessa forma, podemos popular um Hash da seguinte forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">livros</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -414,7 +412,7 @@
 <span class="n">livros</span><span class="p">[</span><span class="ss">:metrics</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"The tyranny of Metrics"</span>
 </code></pre></div></div>
 
-<p>Por fim, para encerrar nosso processo de manipulação de um Hash, falta a capacidade de remover elementos. Hashes possuem o método <code class="highlighter-rouge">delete</code>, para que possamos remover valores com base em uma chave. Por exemplo:</p>
+<p>Por fim, para encerrar nosso processo de manipulação de um Hash, falta a capacidade de remover elementos. Hashes possuem o método <code class="language-plaintext highlighter-rouge">delete</code>, para que possamos remover valores com base em uma chave. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">livros</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -422,11 +420,11 @@
 <span class="n">livros</span><span class="p">.</span><span class="nf">delete</span> <span class="ss">:metrics</span>      <span class="c1"># =&gt; "The tyranny of Metrics"</span>
 </code></pre></div></div>
 
-<p>Algo interessante aconteceu. Por que a primeira chamada ao <code class="highlighter-rouge">delete</code> retornou <code class="highlighter-rouge">nil</code> enquanto que a segunda chamada retornou o nome do livro. Em primeiro lugar, devemos saber que o método <code class="highlighter-rouge">delete</code> ele remove do Hash e retorna o valor removido. Logo, é por isso que o valor removido é impresso na tela. Mas por que a primeira chamada retorna <code class="highlighter-rouge">nil</code>?  Isso acontece pois estamos passando por parâmetro um Array de um único elemento como chave (<code class="highlighter-rouge">[:metrics]</code>), e esta chave não existe dentro do Hash que criamos. O valor dentro do Array (<code class="highlighter-rouge">:metrics</code>) é o que de fato existe como chave no nosso Hash.</p>
+<p>Algo interessante aconteceu. Por que a primeira chamada ao <code class="language-plaintext highlighter-rouge">delete</code> retornou <code class="language-plaintext highlighter-rouge">nil</code> enquanto que a segunda chamada retornou o nome do livro. Em primeiro lugar, devemos saber que o método <code class="language-plaintext highlighter-rouge">delete</code> ele remove do Hash e retorna o valor removido. Logo, é por isso que o valor removido é impresso na tela. Mas por que a primeira chamada retorna <code class="language-plaintext highlighter-rouge">nil</code>?  Isso acontece pois estamos passando por parâmetro um Array de um único elemento como chave (<code class="language-plaintext highlighter-rouge">[:metrics]</code>), e esta chave não existe dentro do Hash que criamos. O valor dentro do Array (<code class="language-plaintext highlighter-rouge">:metrics</code>) é o que de fato existe como chave no nosso Hash.</p>
 
 <h2 id="percorrendo-elementos-do-hash">Percorrendo elementos do Hash</h2>
 
-<p>Mas, como podemos manipular os elementos de um Hash sem saber exatamente quais são as suas chaves? Para isso, precisamos percorrer os elementos, verificando cada uma das chaves. Há várias de iterar por um Hash. Umas das formas mais procedurais é utilizando um laço <code class="highlighter-rouge">for</code>. Para os dados de entrada do <code class="highlighter-rouge">for</code>, podemos informar o Array de chaves do Hash, através do método <code class="highlighter-rouge">keys</code>. Como por exemplo:</p>
+<p>Mas, como podemos manipular os elementos de um Hash sem saber exatamente quais são as suas chaves? Para isso, precisamos percorrer os elementos, verificando cada uma das chaves. Há várias de iterar por um Hash. Umas das formas mais procedurais é utilizando um laço <code class="language-plaintext highlighter-rouge">for</code>. Para os dados de entrada do <code class="language-plaintext highlighter-rouge">for</code>, podemos informar o Array de chaves do Hash, através do método <code class="language-plaintext highlighter-rouge">keys</code>. Como por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">livros</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -435,7 +433,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>No entanto, esse design de iteração pouco utilizado por programadores Ruby, pois há outras formas de iteração que são mais orientadas a objetos. Vimos algumas desas no <a href="/ruby-guide/arrays">capítulo anterior</a>. Podemos utilizar algumas delas aqui também, como o método <code class="highlighter-rouge">each</code>.</p>
+<p>No entanto, esse design de iteração pouco utilizado por programadores Ruby, pois há outras formas de iteração que são mais orientadas a objetos. Vimos algumas desas no <a href="/ruby-guide/arrays">capítulo anterior</a>. Podemos utilizar algumas delas aqui também, como o método <code class="language-plaintext highlighter-rouge">each</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">livros</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -469,21 +467,21 @@
 
 <h2 id="sobre-a-notação-de-hash">Sobre a notação de Hash</h2>
 
-<p>Até o Ruby 1.8, a notação de hash rockets (<code class="highlighter-rouge">=&gt;</code>) era a padrão para criação de hashes. No entanto, no Ruby 1.9, foi introduzida a notação de dois pontos (<code class="highlighter-rouge">:</code>). Um exemplo de um mesmo Hash usando as duas notações pode ser visto a seguir:</p>
+<p>Até o Ruby 1.8, a notação de hash rockets (<code class="language-plaintext highlighter-rouge">=&gt;</code>) era a padrão para criação de hashes. No entanto, no Ruby 1.9, foi introduzida a notação de dois pontos (<code class="language-plaintext highlighter-rouge">:</code>). Um exemplo de um mesmo Hash usando as duas notações pode ser visto a seguir:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"um"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"três"</span> <span class="o">=&gt;</span> <span class="s2">"three"</span><span class="p">}</span>
 <span class="p">{</span><span class="s2">"um"</span><span class="p">:</span> <span class="s2">"one"</span><span class="p">,</span> <span class="s2">"dois"</span><span class="p">:</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"três"</span><span class="p">:</span> <span class="s2">"three"</span><span class="p">}</span>
 </code></pre></div></div>
-<p>A notação de dois pontos tinha dois objetivos principais: um era tornar os Hashes sintaticamente mais próximos de um JSON. A notação de dois pontos também era mais fácil de ser utilizada. Nas atuais versões de Ruby (versão 3.0 incluída), ambas as notações de <code class="highlighter-rouge">=&gt;</code> e <code class="highlighter-rouge">:</code> são válidas para criar Hashes. Mas há um problema.</p>
+<p>A notação de dois pontos tinha dois objetivos principais: um era tornar os Hashes sintaticamente mais próximos de um JSON. A notação de dois pontos também era mais fácil de ser utilizada. Nas atuais versões de Ruby (versão 3.0 incluída), ambas as notações de <code class="language-plaintext highlighter-rouge">=&gt;</code> e <code class="language-plaintext highlighter-rouge">:</code> são válidas para criar Hashes. Mas há um problema.</p>
 
-<p>Quando usamos a notação mais recente (<code class="highlighter-rouge">:</code>), as chaves do Hash são automaticamente convertidas para um Symbol. Logo, ao invés de esperar pela conversão automática, alguns desenvolvedores utilizam Symbols desde o momento da criação do Hash (o que faz todo sentido). No entanto, para evitar que uma chave tenha o formato <code class="highlighter-rouge">:chave:</code> (sendo o primeiro ponto e vírgula para a definição do Symbol e o segundo para a delimitação da chave do Hash), a definição de um Hash passou a ser da seguinte forma:</p>
+<p>Quando usamos a notação mais recente (<code class="language-plaintext highlighter-rouge">:</code>), as chaves do Hash são automaticamente convertidas para um Symbol. Logo, ao invés de esperar pela conversão automática, alguns desenvolvedores utilizam Symbols desde o momento da criação do Hash (o que faz todo sentido). No entanto, para evitar que uma chave tenha o formato <code class="language-plaintext highlighter-rouge">:chave:</code> (sendo o primeiro ponto e vírgula para a definição do Symbol e o segundo para a delimitação da chave do Hash), a definição de um Hash passou a ser da seguinte forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="ss">um: </span><span class="s2">"one"</span><span class="p">,</span> <span class="ss">dois: </span><span class="s2">"two"</span><span class="p">,</span> <span class="ss">tres: </span><span class="s2">"three"</span> <span class="p">}</span>
 </code></pre></div></div>
 
 <p>Perceberam que os dois pontos da definição do Symbol sumiram? Curiosamente, isto não é tudo. Ao defini-lo no interpretador, o Hash assume o seguinte formato.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:um=&gt;"one", :dois=&gt;"two", :tres=&gt;"three"}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:um=&gt;"one", :dois=&gt;"two", :tres=&gt;"three"}
 </code></pre></div></div>
 
 <h2 id="exercícios-de-fixação">Exercícios de fixação</h2>
@@ -491,7 +489,7 @@
 <!--http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html-->
 
 <ul>
-  <li>Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array <code class="highlighter-rouge">[1,2,2,2,2,3,3,3,4,4]</code> como entrada imprima o seguinte hash <code class="highlighter-rouge">{1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 3, 4 =&gt; 2}</code>.</li>
+  <li>Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array <code class="language-plaintext highlighter-rouge">[1,2,2,2,2,3,3,3,4,4]</code> como entrada imprima o seguinte hash <code class="language-plaintext highlighter-rouge">{1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 3, 4 =&gt; 2}</code>.</li>
 </ul>
 
         
@@ -567,7 +565,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

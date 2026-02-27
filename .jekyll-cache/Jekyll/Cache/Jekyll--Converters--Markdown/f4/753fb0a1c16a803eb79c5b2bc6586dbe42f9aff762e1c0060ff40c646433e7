@@ -1,4 +1,4 @@
-I"99<p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
+I"�:<p><a href="/ruby-guide">Voltar ao começo do guia</a></p>
 
 <p>Principais características do paradigma funcional:</p>
 
@@ -37,7 +37,7 @@
 <span class="nb">puts</span> <span class="n">a</span>   <span class="c1"># =&gt; [1, 2]</span>
 </code></pre></div></div>
 
-<p>Podemos perceber que o comportamento do <code class="highlighter-rouge">reject!</code> é diferente do <code class="highlighter-rouge">reject</code>, pois o primeiro muda o valor da variável <code class="highlighter-rouge">a</code> enquanto que o segundo não muda (este, na realidade, devolve um novo array com os elementos necessários). Como estudamos no capítulo sobre métodos, em Ruby usamos como convenção uma exclamação (<code class="highlighter-rouge">!</code>) ao fim do nome do método, quando queremos passar um aviso de <em>cuidado</em> ao desenvolvedor. Um dos motivos desse cuidado é que estes métodos alterarem o comportamento da variável a qual eles operam. Mas, novamente, <em>cuidado</em>. Há vários métodos em Ruby que mudam estado e não necessáriamente tem uma exclamação no seu nome. Exemplos incluem os métodos, shift, pop, clear, delete (e vários outros) da classe Array.</p>
+<p>Podemos perceber que o comportamento do <code class="language-plaintext highlighter-rouge">reject!</code> é diferente do <code class="language-plaintext highlighter-rouge">reject</code>, pois o primeiro muda o valor da variável <code class="language-plaintext highlighter-rouge">a</code> enquanto que o segundo não muda (este, na realidade, devolve um novo array com os elementos necessários). Como estudamos no capítulo sobre métodos, em Ruby usamos como convenção uma exclamação (<code class="language-plaintext highlighter-rouge">!</code>) ao fim do nome do método, quando queremos passar um aviso de <em>cuidado</em> ao desenvolvedor. Um dos motivos desse cuidado é que estes métodos alterarem o comportamento da variável a qual eles operam. Mas, novamente, <em>cuidado</em>. Há vários métodos em Ruby que mudam estado e não necessáriamente tem uma exclamação no seu nome. Exemplos incluem os métodos, shift, pop, clear, delete (e vários outros) da classe Array.</p>
 
 <p>O primeiro passo para programação funcional em Ruby é conhecer quais métodos manipulam estado de variáveis.</p>
 
@@ -54,12 +54,12 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>E chamando o nome da função, <code class="highlighter-rouge">ola</code>, obtemos como saída a string <code class="highlighter-rouge">oi pessoal</code>. Uma função anônima com comportamento similar, pode ser feita da seguinte forma:</p>
+<p>E chamando o nome da função, <code class="language-plaintext highlighter-rouge">ola</code>, obtemos como saída a string <code class="language-plaintext highlighter-rouge">oi pessoal</code>. Uma função anônima com comportamento similar, pode ser feita da seguinte forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">meu_lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"oi pessoal"</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Perceba que a declaração da função começa na palavra reservada <code class="highlighter-rouge">lambda</code>, e a referência para a função é aramazenada na varíavel <code class="highlighter-rouge">meu_lambda</code>. Ou seja, uma chamada ao <code class="highlighter-rouge">meu_lambda</code> retorna somente a referência para a função anômia, e não a executa (como talvez fosse o esperado). Para de fato executa-a, precisamos chamar o método <code class="highlighter-rouge">call</code>, da seguinte forma:</p>
+<p>Perceba que a declaração da função começa na palavra reservada <code class="language-plaintext highlighter-rouge">lambda</code>, e a referência para a função é aramazenada na varíavel <code class="language-plaintext highlighter-rouge">meu_lambda</code>. Ou seja, uma chamada ao <code class="language-plaintext highlighter-rouge">meu_lambda</code> retorna somente a referência para a função anômia, e não a executa (como talvez fosse o esperado). Para de fato executa-a, precisamos chamar o método <code class="language-plaintext highlighter-rouge">call</code>, da seguinte forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">meu_lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"oi pessoal"</span> <span class="p">}</span>
 
@@ -75,9 +75,9 @@
 <span class="n">meu_lambda</span><span class="p">.</span><span class="nf">call</span> <span class="s2">"Gustavo"</span>   <span class="c1"># =&gt; oi Gustavo</span>
 </code></pre></div></div>
 
-<p>Percebam que o conteúdo de um lambda é definido por um bloco (note as chaves (<code class="highlighter-rouge">{}</code>) no começo e no fim do método), e não por um <code class="highlighter-rouge">def</code> e um <code class="highlighter-rouge">end</code>.  Isso acontece pois lambdas são implementados como blocos em Ruby. No entanto, não são os mesmos tipos de blocos que vimos no capítulo sobre métodos. Em Ruby, lambdas são implementações do tipo <code class="highlighter-rouge">Proc</code>, por isso que recebemos o valor <code class="highlighter-rouge">Proc:0x00005563f10ec298</code> ao imprimir a referência do objeto que guarda nossa variável <code class="highlighter-rouge">meu_lambda</code>. Um <code class="highlighter-rouge">Proc</code> difere de um bloco simplesmente pois objetos do tipo <code class="highlighter-rouge">Proc</code> podem ser armazenados em uma variável.</p>
+<p>Percebam que o conteúdo de um lambda é definido por um bloco (note as chaves (<code class="language-plaintext highlighter-rouge">{}</code>) no começo e no fim do método), e não por um <code class="language-plaintext highlighter-rouge">def</code> e um <code class="language-plaintext highlighter-rouge">end</code>.  Isso acontece pois lambdas são implementados como blocos em Ruby. No entanto, não são os mesmos tipos de blocos que vimos no capítulo sobre métodos. Em Ruby, lambdas são implementações do tipo <code class="language-plaintext highlighter-rouge">Proc</code>, por isso que recebemos o valor <code class="language-plaintext highlighter-rouge">Proc:0x00005563f10ec298</code> ao imprimir a referência do objeto que guarda nossa variável <code class="language-plaintext highlighter-rouge">meu_lambda</code>. Um <code class="language-plaintext highlighter-rouge">Proc</code> difere de um bloco simplesmente pois objetos do tipo <code class="language-plaintext highlighter-rouge">Proc</code> podem ser armazenados em uma variável.</p>
 
-<p>Por fim, perceba que <code class="highlighter-rouge">lambda</code>, em Ruby, é apenas um alias para <code class="highlighter-rouge">proc</code>:</p>
+<p>Por fim, perceba que <code class="language-plaintext highlighter-rouge">lambda</code>, em Ruby, é apenas um alias para <code class="language-plaintext highlighter-rouge">proc</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">meu_proc</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"oi pessoal"</span> <span class="p">}</span>
 <span class="n">meu_proc</span><span class="p">.</span><span class="nf">call</span>  <span class="c1"># =&gt; oi pessoal</span>
@@ -88,7 +88,7 @@
 
 <h2 id="funções-de-alta-ordem">Funções de alta ordem</h2>
 
-<p>Com lambdas, linguagens funcionais ganham uma nova características, chamada funções de alta ordem. Essa característica permite que funções possam ser armazenadas em variáveis do programa, que percebemos ao fazermos nosso primeiro exemplo usando o <code class="highlighter-rouge">meu_lambda</code>. Se uma função pode ser armazenada em uma variável, podemos também passar a função por parâmetro para outro método. Por exemplo:</p>
+<p>Com lambdas, linguagens funcionais ganham uma nova características, chamada funções de alta ordem. Essa característica permite que funções possam ser armazenadas em variáveis do programa, que percebemos ao fazermos nosso primeiro exemplo usando o <code class="language-plaintext highlighter-rouge">meu_lambda</code>. Se uma função pode ser armazenada em uma variável, podemos também passar a função por parâmetro para outro método. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Salario</span>
 

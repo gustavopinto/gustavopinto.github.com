@@ -1,4 +1,4 @@
-I"E<p>Hi there.</p>
+I"sF<p>Hi there.</p>
 
 <p>As you may know, I’m a graduate student and part of my work is spent on writing papers. And, frequently, these papers contains a lot of charts. As long as I’m a graduate student, I’m very disapointed with the charts that open-office plots. Specially, the line charts. It is kinda a four-years-old-children playing with their paint and brush. Do not believe? Take a look.</p>
 
@@ -6,7 +6,7 @@
 
 <p>It is terrible.</p>
 
-<p>So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as <code class="highlighter-rouge">summary</code>, <code class="highlighter-rouge">sd</code>, <code class="highlighter-rouge">cor</code>, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like <code class="highlighter-rouge">plotanincrediblechart</code>, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.</p>
+<p>So, yesterday I really decided to revert this game. Surfing on the internet, I read some people writing that R is outstanding to ploting charts, which I had serious doubts, mainly because I have been using R for a long time. But, most of the time is to plot boxplot, or to use few functions such as <code class="language-plaintext highlighter-rouge">summary</code>, <code class="language-plaintext highlighter-rouge">sd</code>, <code class="language-plaintext highlighter-rouge">cor</code>, among more two or three. Not less, not more. In my (naive) imagination, R should had a function like <code class="language-plaintext highlighter-rouge">plotanincrediblechart</code>, and I only should pass the data array. But R does not have this function. In fact, R has a number of functions, and, when you play with they together, you can get a nice chart like the this one.</p>
 
 <p><img src="/images/post2/usage-per-thread-r.png" /></p>
 
@@ -27,23 +27,23 @@
 
 <h1 id="second">Second</h1>
 
-<p>Create a simple line chart with one of your data set using the <code class="highlighter-rouge">plot</code> function. In this case, I used the <code class="highlighter-rouge">thread</code> var.</p>
+<p>Create a simple line chart with one of your data set using the <code class="language-plaintext highlighter-rouge">plot</code> function. In this case, I used the <code class="language-plaintext highlighter-rouge">thread</code> var.</p>
 
 <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">thread</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">))</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In this function, we passed the <code class="highlighter-rouge">thread</code> var and more four arguments. They are:</p>
+<p>In this function, we passed the <code class="language-plaintext highlighter-rouge">thread</code> var and more four arguments. They are:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">type</code>: the plot type;</li>
-  <li><code class="highlighter-rouge">col</code>: the line color (see <a href="http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf">here</a> to see all colors avaiable in R);</li>
-  <li><code class="highlighter-rouge">pch</code>: the vector of plotting characters or symbols;</li>
-  <li><code class="highlighter-rouge">ylim</code>: the y limits of the plot;</li>
+  <li><code class="language-plaintext highlighter-rouge">type</code>: the plot type;</li>
+  <li><code class="language-plaintext highlighter-rouge">col</code>: the line color (see <a href="http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf">here</a> to see all colors avaiable in R);</li>
+  <li><code class="language-plaintext highlighter-rouge">pch</code>: the vector of plotting characters or symbols;</li>
+  <li><code class="language-plaintext highlighter-rouge">ylim</code>: the y limits of the plot;</li>
 </ul>
 
 <p>There are several other parameters that you can use in your chart. If you have the time, take a lot at the <a href="http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.default.html">official documentation</a>.</p>
 
-<p>Now, we have to add the remaining data. To do so, we will use another function called <code class="highlighter-rouge">lines</code>. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the <code class="highlighter-rouge">plot</code> function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:</p>
+<p>Now, we have to add the remaining data. To do so, we will use another function called <code class="language-plaintext highlighter-rouge">lines</code>. In this example, we pass five arguments to this function. Note that these arguments are the same ones that we have passed to the <code class="language-plaintext highlighter-rouge">plot</code> function. Therefore, for each new vector that you want to plot, you have to add a new line, such as follows:</p>
 
 <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lines</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s2">"darkred"</span><span class="p">)</span><span class="w">
 </span><span class="n">lines</span><span class="p">(</span><span class="n">executors</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s2">"purple"</span><span class="p">)</span><span class="w">
@@ -76,11 +76,11 @@
 </span><span class="n">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (<code class="highlighter-rouge">v</code> for vertical lines and <code class="highlighter-rouge">h</code> for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, …) or as one of the character strings “blank”, “solid”, etc.</p>
+<p>Note that, we first add the vertical lines, and then, the horizontal lines. We differ each other by the first parameter (<code class="language-plaintext highlighter-rouge">v</code> for vertical lines and <code class="language-plaintext highlighter-rouge">h</code> for horizontal lines). The second parameter, as you might guess, is the color of the line, and the last one is the line type. Line types can either be specified as an integer (0=blank, 1=solid, …) or as one of the character strings “blank”, “solid”, etc.</p>
 
 <h1 id="fourth">Fourth</h1>
 
-<p>The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: <code class="highlighter-rouge">box</code> and <code class="highlighter-rouge">legend</code>. I think the name of these functions are meaningful. But, the <code class="highlighter-rouge">legend</code> function receives several parameters.</p>
+<p>The fourth and finally part is to plot a box with the lines information. To this, you will need two functions: <code class="language-plaintext highlighter-rouge">box</code> and <code class="language-plaintext highlighter-rouge">legend</code>. I think the name of these functions are meaningful. But, the <code class="language-plaintext highlighter-rouge">legend</code> function receives several parameters.</p>
 
 <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">box</span><span class="p">()</span><span class="w">
 </span><span class="n">labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Sequential"</span><span class="p">,</span><span class="s2">"Thread"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Executors"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ForkJoin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Scala Actors"</span><span class="p">)</span><span class="w">

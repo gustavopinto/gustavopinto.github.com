@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -331,12 +329,12 @@
 
 <h2 id="a-classe-file">A classe File</h2>
 
-<p>A classe File é o ponto de partida para realizer manipulações de leitura e escrita em arquivos no disco. A classe File implementa vários métodos que abstraem a complexidade de manipulação de arquivos. Por exemplo, podemos usar o método <code class="highlighter-rouge">read</code> para ler um determinado arquivo:</p>
+<p>A classe File é o ponto de partida para realizer manipulações de leitura e escrita em arquivos no disco. A classe File implementa vários métodos que abstraem a complexidade de manipulação de arquivos. Por exemplo, podemos usar o método <code class="language-plaintext highlighter-rouge">read</code> para ler um determinado arquivo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span> <span class="s2">"teste.txt"</span>
 </code></pre></div></div>
 
-<p>No exemplo acima, tentamos imprimir o conteúdo do arquivo <code class="highlighter-rouge">teste.txt</code>. No entanto, esse programa retornará um erro (<code class="highlighter-rouge">No such file or directory</code>). Certifique-se que o arquivo <code class="highlighter-rouge">teste.txt</code> existe e está no mesmo diretório do nosso programa Ruby. Se você usa Linux ou similares, você pode usar o comando <code class="highlighter-rouge">echo</code> para imprimir uma string e o redirecionador  <code class="highlighter-rouge">&gt;</code> para enviar este conteúdo para um arquivo. Por exemplo:</p>
+<p>No exemplo acima, tentamos imprimir o conteúdo do arquivo <code class="language-plaintext highlighter-rouge">teste.txt</code>. No entanto, esse programa retornará um erro (<code class="language-plaintext highlighter-rouge">No such file or directory</code>). Certifique-se que o arquivo <code class="language-plaintext highlighter-rouge">teste.txt</code> existe e está no mesmo diretório do nosso programa Ruby. Se você usa Linux ou similares, você pode usar o comando <code class="language-plaintext highlighter-rouge">echo</code> para imprimir uma string e o redirecionador  <code class="language-plaintext highlighter-rouge">&gt;</code> para enviar este conteúdo para um arquivo. Por exemplo:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"rosas são vermelhas,
 violetas são azuis.
@@ -344,23 +342,23 @@ ruby é massa,
 mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
 </code></pre></div></div>
 
-<p>O resultado desta operação <code class="highlighter-rouge">File.read "teste.txt"</code> é uma única String com todo o conteúdo do arquivo. Como nossa tinha várias linhas, o método <code class="highlighter-rouge">read</code> identificou essas quebras de linhas e as substituiu por vários <code class="highlighter-rouge">\n</code>, que é o caractere utilizado para identificar uma quebra de linha. Caso quiséssemos percorrer o arquivo, e imprimir seu conteúdo da mesma forma que foi inserido (respeitando a quebra de linhas), teríamos que identificar os caracteres <code class="highlighter-rouge">\n</code> para então separar a sentenças.</p>
+<p>O resultado desta operação <code class="language-plaintext highlighter-rouge">File.read "teste.txt"</code> é uma única String com todo o conteúdo do arquivo. Como nossa tinha várias linhas, o método <code class="language-plaintext highlighter-rouge">read</code> identificou essas quebras de linhas e as substituiu por vários <code class="language-plaintext highlighter-rouge">\n</code>, que é o caractere utilizado para identificar uma quebra de linha. Caso quiséssemos percorrer o arquivo, e imprimir seu conteúdo da mesma forma que foi inserido (respeitando a quebra de linhas), teríamos que identificar os caracteres <code class="language-plaintext highlighter-rouge">\n</code> para então separar a sentenças.</p>
 
-<p>Poderíamos evitar esse trabalho e usar o método <code class="highlighter-rouge">readlines</code>, que em vez de retornar uma única String com todo o conteúdo do arquivo, este retorna um Array, separando os elementos a cada quebra de linha (<code class="highlighter-rouge">\n</code>).</p>
+<p>Poderíamos evitar esse trabalho e usar o método <code class="language-plaintext highlighter-rouge">readlines</code>, que em vez de retornar uma única String com todo o conteúdo do arquivo, este retorna um Array, separando os elementos a cada quebra de linha (<code class="language-plaintext highlighter-rouge">\n</code>).</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
 </code></pre></div></div>
 
-<p>Perceba que o caractere <code class="highlighter-rouge">\n</code> não é removido da String, e nem é nossa intenção remove-lo, do contrário, teríamos que forçadamente adicionar uma outra forma de quebra de linha, para manter a formatação do nosso texto.</p>
+<p>Perceba que o caractere <code class="language-plaintext highlighter-rouge">\n</code> não é removido da String, e nem é nossa intenção remove-lo, do contrário, teríamos que forçadamente adicionar uma outra forma de quebra de linha, para manter a formatação do nosso texto.</p>
 
-<p>Ler um arquivo usando o <code class="highlighter-rouge">readlines</code> tem agora o mesmo idioma de percorrer elementos de uma lista.</p>
+<p>Ler um arquivo usando o <code class="language-plaintext highlighter-rouge">readlines</code> tem agora o mesmo idioma de percorrer elementos de uma lista.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">linha</span> <span class="k">in</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
   <span class="nb">puts</span> <span class="n">linha</span>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Assim, podemos usar o que aprendemos sobre Strings e fazer manipulações no conteúdo do nosso arquivo. Por exemplo, poderíamos deixar o texto mais elegante colocando a primeira letra como maiúscula (usando o método <code class="highlighter-rouge">capitalize</code>). Poderíamos também alterar o texto do nosso poema (usando o método <code class="highlighter-rouge">sub</code>). Por exemplo:</p>
+<p>Assim, podemos usar o que aprendemos sobre Strings e fazer manipulações no conteúdo do nosso arquivo. Por exemplo, poderíamos deixar o texto mais elegante colocando a primeira letra como maiúscula (usando o método <code class="language-plaintext highlighter-rouge">capitalize</code>). Poderíamos também alterar o texto do nosso poema (usando o método <code class="language-plaintext highlighter-rouge">sub</code>). Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">linha</span> <span class="k">in</span> <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span> <span class="s2">"poema.txt"</span>
   <span class="k">if</span> <span class="n">linha</span><span class="p">.</span><span class="nf">start_with?</span> <span class="s2">"mas"</span>
@@ -370,11 +368,11 @@ mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>No código acima, nós colocamos um <code class="highlighter-rouge">if</code> que verifica se a <code class="highlighter-rouge">linha</code> começa com a String <code class="highlighter-rouge">mas</code>, ou seja, nosso indício pra saber que é a última linha. Se for, fazemos uma substituição usando o método <code class="highlighter-rouge">sub</code>. Perceba que precisamos atribuir o retorno do método <code class="highlighter-rouge">sub</code> para a mesma variável linha. Porque devemos fazer isso? Se estiver confuso, experimente remover a re-atribuição da variável e inspecione o resultado.</p>
+<p>No código acima, nós colocamos um <code class="language-plaintext highlighter-rouge">if</code> que verifica se a <code class="language-plaintext highlighter-rouge">linha</code> começa com a String <code class="language-plaintext highlighter-rouge">mas</code>, ou seja, nosso indício pra saber que é a última linha. Se for, fazemos uma substituição usando o método <code class="language-plaintext highlighter-rouge">sub</code>. Perceba que precisamos atribuir o retorno do método <code class="language-plaintext highlighter-rouge">sub</code> para a mesma variável linha. Porque devemos fazer isso? Se estiver confuso, experimente remover a re-atribuição da variável e inspecione o resultado.</p>
 
-<p>Por fim, imprimimos usando um <code class="highlighter-rouge">linha.capitalize</code> para garantir que a primeira letra de cada linha será capitalizada.</p>
+<p>Por fim, imprimimos usando um <code class="language-plaintext highlighter-rouge">linha.capitalize</code> para garantir que a primeira letra de cada linha será capitalizada.</p>
 
-<p>Há um problema no nosso código, no entanto. Toda vez que lemos um arquivo, esse arquivo é armazenado em memória. Logo, após realizarmos a leitura, precisamos também fechar o arquivo. Mas qual é a nossa referência ao arquivo que abrimos? Usamos o <code class="highlighter-rouge">File.readlines</code> para ler as linhas dentro de um laço, mas não temos controle sobre o arquivo que abrimos, pois isso foi abstraído pela classe <code class="highlighter-rouge">File</code>. Para que possamos fechar o arquivo, precisamos ter uma referência a esse arquivo. Para isso, usamos o método <code class="highlighter-rouge">open</code> que, além de abrir o arquivo, nos retorna uma referência para o arquivo aberto.</p>
+<p>Há um problema no nosso código, no entanto. Toda vez que lemos um arquivo, esse arquivo é armazenado em memória. Logo, após realizarmos a leitura, precisamos também fechar o arquivo. Mas qual é a nossa referência ao arquivo que abrimos? Usamos o <code class="language-plaintext highlighter-rouge">File.readlines</code> para ler as linhas dentro de um laço, mas não temos controle sobre o arquivo que abrimos, pois isso foi abstraído pela classe <code class="language-plaintext highlighter-rouge">File</code>. Para que possamos fechar o arquivo, precisamos ter uma referência a esse arquivo. Para isso, usamos o método <code class="language-plaintext highlighter-rouge">open</code> que, além de abrir o arquivo, nos retorna uma referência para o arquivo aberto.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">)</span>
 <span class="n">f</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">linha</span><span class="o">|</span>
@@ -383,7 +381,7 @@ mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
 <span class="n">f</span><span class="p">.</span><span class="nf">close</span>
 </code></pre></div></div>
 
-<p>No caso do exemplo acima, a variável <code class="highlighter-rouge">f</code> guarda a referência ao arquivo. Assim podemos lê-lo (<code class="highlighter-rouge">f.each</code>) e fecha-lo (<code class="highlighter-rouge">f.close</code>). Mas qual existe algum problema em manter o arquivo aberto? Há basicamente dois problemas: primeiro, se não indicar o momento em que o arquivo será fechado, perdemos as garantias das alterações no arquivo se efetivarem, pois ficará a cargo do sistema operacional decidir quando o arquivo será fechado ou não. Um segundo problema é que embora o sistema operacional consiga lidar com algumas centenas (ou até milhares) de arquivos abertos simultaneamente, cada arquivo que abrimos ocupa espaço de memória. Em ambientes com restrição de memória, ou ambientes em que buscamos otimizar o máximo possível, o custo de gerenciar arquivos sem utilização pode impactar no desempenho da aplicação. Logo, é uma boa prática garantir que um arquivo que foi aberto será fechado.</p>
+<p>No caso do exemplo acima, a variável <code class="language-plaintext highlighter-rouge">f</code> guarda a referência ao arquivo. Assim podemos lê-lo (<code class="language-plaintext highlighter-rouge">f.each</code>) e fecha-lo (<code class="language-plaintext highlighter-rouge">f.close</code>). Mas qual existe algum problema em manter o arquivo aberto? Há basicamente dois problemas: primeiro, se não indicar o momento em que o arquivo será fechado, perdemos as garantias das alterações no arquivo se efetivarem, pois ficará a cargo do sistema operacional decidir quando o arquivo será fechado ou não. Um segundo problema é que embora o sistema operacional consiga lidar com algumas centenas (ou até milhares) de arquivos abertos simultaneamente, cada arquivo que abrimos ocupa espaço de memória. Em ambientes com restrição de memória, ou ambientes em que buscamos otimizar o máximo possível, o custo de gerenciar arquivos sem utilização pode impactar no desempenho da aplicação. Logo, é uma boa prática garantir que um arquivo que foi aberto será fechado.</p>
 
 <p>Para evitar eventuais esquecimentos com arquivos abertos (e só perceber depois quando a sua aplicação que precisar navegar por todos os diretórios do sistema de arquivos der algum erro), podemos usar o idioma de blocos, que fecha automaticamente o arquivo após execução do bloco.</p>
 
@@ -393,16 +391,16 @@ mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Perceba que ao usar o idioma de bloco, não temos mais a referência ao arquivo aberto. Depois de estudar métodos e blocos, pense como você poderia implementar o método <code class="highlighter-rouge">open</code> de forma que um bloco possa ser passado por parâmetro e a referência ao arquivo seja fechada após a execução do bloco.</p>
+<p>Perceba que ao usar o idioma de bloco, não temos mais a referência ao arquivo aberto. Depois de estudar métodos e blocos, pense como você poderia implementar o método <code class="language-plaintext highlighter-rouge">open</code> de forma que um bloco possa ser passado por parâmetro e a referência ao arquivo seja fechada após a execução do bloco.</p>
 
-<p>Para escrever em um arquivo, temos também que primeiro abri-lo. A diferença, nesse caso, é que precisamos informar o interesse de escrita no dado arquivo, passado pelo parâmetro <code class="highlighter-rouge">"w"</code>.</p>
+<p>Para escrever em um arquivo, temos também que primeiro abri-lo. A diferença, nesse caso, é que precisamos informar o interesse de escrita no dado arquivo, passado pelo parâmetro <code class="language-plaintext highlighter-rouge">"w"</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"log.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">f</span><span class="p">.</span><span class="nf">write</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="métodos-auxiliares">Métodos auxiliares</h2>
 
-<p>A classe File conta com diversos métodos auxiliares. Um dos quais é o método <code class="highlighter-rouge">each_byte</code>, que retorna a representação em bytes de cada caracter do nosso texto. Outro método é o <code class="highlighter-rouge">each_char</code>, que retorna cada caracter individualmente. Outros métodos importantes da classe File:</p>
+<p>A classe File conta com diversos métodos auxiliares. Um dos quais é o método <code class="language-plaintext highlighter-rouge">each_byte</code>, que retorna a representação em bytes de cada caracter do nosso texto. Outro método é o <code class="language-plaintext highlighter-rouge">each_char</code>, que retorna cada caracter individualmente. Outros métodos importantes da classe File:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># renomear um arquico</span>
 <span class="no">File</span><span class="p">.</span><span class="nf">rename</span><span class="p">(</span><span class="s2">"poema.txt"</span><span class="p">,</span> <span class="s2">"Poema.txt"</span><span class="p">)</span>
@@ -469,7 +467,7 @@ mas ainda não me seduz."</span> <span class="o">&gt;</span> poema.txt
 
 <h3 id="lendo-dados-da-web">Lendo dados da web</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'open-uri'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'open-uri'
 URI.open("https://raw.githubusercontent.com/facebook/react/master/package.json")
 </code></pre></div></div>
 
@@ -557,7 +555,7 @@ URI.open("https://raw.githubusercontent.com/facebook/react/master/package.json")
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

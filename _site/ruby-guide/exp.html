@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -331,9 +329,9 @@
 
 <p>Os operadores são construções de linguagem que indicam quais operações podem ser aplicadas nos operandos. Geralmente operadores são usados com um ou dois operandos. Operadores que funcionam somente com um operando são chamados de operadores unários (<em>unary operators</em>); aqueles que trabalham com dois operandos são os operadores binários (<em>binary operators</em>).</p>
 
-<p>Na expressão <code class="highlighter-rouge">1 + 3</code>, os literais <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code> são operandos e o sinal de adição <code class="highlighter-rouge">+</code> é o operador binário.</p>
+<p>Na expressão <code class="language-plaintext highlighter-rouge">1 + 3</code>, os literais <code class="language-plaintext highlighter-rouge">2</code> e <code class="language-plaintext highlighter-rouge">3</code> são operandos e o sinal de adição <code class="language-plaintext highlighter-rouge">+</code> é o operador binário.</p>
 
-<p>Alguns operadores podem ser utilizados em contextos diferentes. Como vimos no capítulo anterior, o operador <code class="highlighter-rouge">+</code> pode também ser utilizado como strings. Logo a expressão <code class="highlighter-rouge">"UF" + "PA"</code> é válida e avalia para <code class="highlighter-rouge">"UFPA"</code>.</p>
+<p>Alguns operadores podem ser utilizados em contextos diferentes. Como vimos no capítulo anterior, o operador <code class="language-plaintext highlighter-rouge">+</code> pode também ser utilizado como strings. Logo a expressão <code class="language-plaintext highlighter-rouge">"UF" + "PA"</code> é válida e avalia para <code class="language-plaintext highlighter-rouge">"UFPA"</code>.</p>
 
 <p>A capacidade de um operador ter comportamento diferente em contextos diferentes é chamada de sobrecarga (<em>overloaded</em>). Sobrecarga também é um conceito utilizado na orientação a objetos, quando queremos que um que um método sobrescreva outro, mudando assim o comportamento do método original.</p>
 
@@ -341,7 +339,7 @@
 
 <h2 id="operadores-são-métodos">Operadores são métodos</h2>
 
-<p>Operadores são utilizados para <em>processar</em> operandos. Como sabemos que a  expressão <code class="highlighter-rouge">1 + 3</code> é avaliada para <code class="highlighter-rouge">4</code>, faz sentido dizer que um operando é um parâmetro de entrada para um operador? E que o resultado da avaliação é a saída do operador?</p>
+<p>Operadores são utilizados para <em>processar</em> operandos. Como sabemos que a  expressão <code class="language-plaintext highlighter-rouge">1 + 3</code> é avaliada para <code class="language-plaintext highlighter-rouge">4</code>, faz sentido dizer que um operando é um parâmetro de entrada para um operador? E que o resultado da avaliação é a saída do operador?</p>
 
 <p>Parece que sim.</p>
 
@@ -351,13 +349,13 @@
 
 <p>E é exatamente assim que operadores são implementados em Ruby: como métodos.</p>
 
-<p>Mas, calma. Se operadores como <code class="highlighter-rouge">+</code> são, na verdade, métodos, eu não deveria usar um ponto (<code class="highlighter-rouge">.</code>) para invocá-los?</p>
+<p>Mas, calma. Se operadores como <code class="language-plaintext highlighter-rouge">+</code> são, na verdade, métodos, eu não deveria usar um ponto (<code class="language-plaintext highlighter-rouge">.</code>) para invocá-los?</p>
 
-<p>Podemos usar o ponto (<code class="highlighter-rouge">.</code>), mas ele é opcional, pois o interpretador Ruby adiciona o ponto para você, silenciosamente.</p>
+<p>Podemos usar o ponto (<code class="language-plaintext highlighter-rouge">.</code>), mas ele é opcional, pois o interpretador Ruby adiciona o ponto para você, silenciosamente.</p>
 
-<p>Logo, durante o processo de interpretação do código, a expressão <code class="highlighter-rouge">1 + 3</code> é traduzida para <code class="highlighter-rouge">1.+(3)</code>. Agora sim podemos ver claramente que <code class="highlighter-rouge">+</code> nada mais é do que um método que aceita um parâmetro.</p>
+<p>Logo, durante o processo de interpretação do código, a expressão <code class="language-plaintext highlighter-rouge">1 + 3</code> é traduzida para <code class="language-plaintext highlighter-rouge">1.+(3)</code>. Agora sim podemos ver claramente que <code class="language-plaintext highlighter-rouge">+</code> nada mais é do que um método que aceita um parâmetro.</p>
 
-<p>Ambas as expressões anteriores são códigos válidos, e avaliam para o mesmo resultado, <code class="highlighter-rouge">4</code>.</p>
+<p>Ambas as expressões anteriores são códigos válidos, e avaliam para o mesmo resultado, <code class="language-plaintext highlighter-rouge">4</code>.</p>
 
 <p>Embora vários operadores sejam de fato implementados como métodos, isso nem sempre é o caso, logo não podemos generalizar. Leia o capítulo até o final e tente descobrir aqueles que não são métodos.</p>
 
@@ -366,9 +364,9 @@
 <p>Há diversos tipos de operadores; três grupos de operadores bem conhecidos são:</p>
 
 <ul>
-  <li>Operadores aritméticos (como o <code class="highlighter-rouge">+</code> na expressão <code class="highlighter-rouge">1 + 3</code>),</li>
-  <li>Operadores de comparação (como o <code class="highlighter-rouge">&gt;</code> na expressão <code class="highlighter-rouge">1 &gt; 3</code>),</li>
-  <li>Operadores lógicos (como o <code class="highlighter-rouge">&amp;&amp;</code> na expressão <code class="highlighter-rouge">1 &amp;&amp; 3</code>).</li>
+  <li>Operadores aritméticos (como o <code class="language-plaintext highlighter-rouge">+</code> na expressão <code class="language-plaintext highlighter-rouge">1 + 3</code>),</li>
+  <li>Operadores de comparação (como o <code class="language-plaintext highlighter-rouge">&gt;</code> na expressão <code class="language-plaintext highlighter-rouge">1 &gt; 3</code>),</li>
+  <li>Operadores lógicos (como o <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> na expressão <code class="language-plaintext highlighter-rouge">1 &amp;&amp; 3</code>).</li>
 </ul>
 
 <h2 id="operadores-aritméticos">Operadores aritméticos</h2>
@@ -384,27 +382,27 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">+</code></td>
+      <td><code class="language-plaintext highlighter-rouge">+</code></td>
       <td>Adição</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">-</code></td>
+      <td><code class="language-plaintext highlighter-rouge">-</code></td>
       <td>Subtração</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">/</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/</code></td>
       <td>Divisão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">*</code></td>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
       <td>Multiplicação</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">%</code></td>
       <td>Resto da divisão</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">**</code></td>
+      <td><code class="language-plaintext highlighter-rouge">**</code></td>
       <td>Exponenciação</td>
     </tr>
   </tbody>
@@ -418,7 +416,7 @@
 <span class="mi">2</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># =&gt; 0</span>
 </code></pre></div></div>
 
-<p>Talvez mais interessante, porém, é saber que esses operadores podem ser utilizados em outros <a href="/ruby-guide/types">tipos de dados</a>. Por exemplo, o operador de adição pode também ser utilizado com strings ou arrays<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+<p>Talvez mais interessante, porém, é saber que esses operadores podem ser utilizados em outros <a href="/ruby-guide/types">tipos de dados</a>. Por exemplo, o operador de adição pode também ser utilizado com strings ou arrays<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"UF"</span> <span class="o">+</span> <span class="s2">"PA"</span>  <span class="c1"># =&gt; UFPA</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># =&gt; [1, 2]</span>
@@ -440,37 +438,37 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
       <td>Maior que</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&lt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
       <td>Menor que</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&gt;=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
       <td>Maior ou igual que</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&lt;=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
       <td>Menor ou igual que</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">==</code></td>
+      <td><code class="language-plaintext highlighter-rouge">==</code></td>
       <td>Igual</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">!=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">!=</code></td>
       <td>Diferente</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&lt;=&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=&gt;</code></td>
       <td>Maior, igual ou menor que</td>
     </tr>
   </tbody>
 </table>
 
-<p>O resultado da avaliação desses operadores é um literal booleano. A única excessão é o operador “nave espacial” (<code class="highlighter-rouge">&lt;=&gt;</code>), que retorna 1 (caso maior), 0 (caso igual), ou -1 (caso menor). Alguns exemplos:</p>
+<p>O resultado da avaliação desses operadores é um literal booleano. A única excessão é o operador “nave espacial” (<code class="language-plaintext highlighter-rouge">&lt;=&gt;</code>), que retorna 1 (caso maior), 0 (caso igual), ou -1 (caso menor). Alguns exemplos:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">1</span>      <span class="c1"># =&gt; false</span>
 <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">1</span>     <span class="c1"># =&gt; true</span>
@@ -488,11 +486,11 @@
 
 <p>Precisamos fazer alguns comentários sobre as expressões acima.</p>
 
-<p>Primeiro, diferente de outras linguagens como Java, em que o operador de igualdade (<code class="highlighter-rouge">==</code>) faz comparação da referência de memória de uma string, em Ruby, o operador <code class="highlighter-rouge">==</code> faz o que é de fato esperado: compara os valores de duas strings.</p>
+<p>Primeiro, diferente de outras linguagens como Java, em que o operador de igualdade (<code class="language-plaintext highlighter-rouge">==</code>) faz comparação da referência de memória de uma string, em Ruby, o operador <code class="language-plaintext highlighter-rouge">==</code> faz o que é de fato esperado: compara os valores de duas strings.</p>
 
-<p>Segundo, calma. Como seria possível um <code class="highlighter-rouge">a</code> ser maior que (<code class="highlighter-rouge">&gt;</code>) outro <code class="highlighter-rouge">a</code>? O que de fato a expressão <code class="highlighter-rouge">"a" &gt; "a"</code> estaria avaliando?</p>
+<p>Segundo, calma. Como seria possível um <code class="language-plaintext highlighter-rouge">a</code> ser maior que (<code class="language-plaintext highlighter-rouge">&gt;</code>) outro <code class="language-plaintext highlighter-rouge">a</code>? O que de fato a expressão <code class="language-plaintext highlighter-rouge">"a" &gt; "a"</code> estaria avaliando?</p>
 
-<p>No caso de comparações de strings, os operadores <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&lt;</code>, etc, são utilizados para comparar se uma determina string vem <em>alfabeticamente</em> antes ou depois de uma outra string.</p>
+<p>No caso de comparações de strings, os operadores <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, etc, são utilizados para comparar se uma determina string vem <em>alfabeticamente</em> antes ou depois de uma outra string.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"b"</span> <span class="o">&gt;</span> <span class="s2">"a"</span>  <span class="c1"># =&gt; true</span>
 <span class="s2">"b"</span> <span class="o">&lt;</span> <span class="s2">"c"</span>  <span class="c1"># =&gt; true</span>
@@ -503,36 +501,36 @@
 <p>Operadores lógicos são também chamados de operadores booleanos. Existem três tipos de operadores básicos: conjunção, disjunção e negação. Em Ruby, esses três operadores são implementados da seguinte forma:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">&amp;&amp;</code> (ou <code class="highlighter-rouge">and</code>) representa a conjunção</li>
-  <li><code class="highlighter-rouge">||</code> (ou <code class="highlighter-rouge">or</code>) representa a disjunção</li>
-  <li><code class="highlighter-rouge">!</code>  (ou <code class="highlighter-rouge">not</code>) representa a negação</li>
+  <li><code class="language-plaintext highlighter-rouge">&amp;&amp;</code> (ou <code class="language-plaintext highlighter-rouge">and</code>) representa a conjunção</li>
+  <li><code class="language-plaintext highlighter-rouge">||</code> (ou <code class="language-plaintext highlighter-rouge">or</code>) representa a disjunção</li>
+  <li><code class="language-plaintext highlighter-rouge">!</code>  (ou <code class="language-plaintext highlighter-rouge">not</code>) representa a negação</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kp">true</span> <span class="o">&amp;&amp;</span> <span class="kp">false</span>   <span class="c1"># =&gt; false</span>
-<span class="kp">true</span> <span class="n">and</span> <span class="kp">false</span>  <span class="c1"># =&gt; false</span>
+<span class="kp">true</span> <span class="ow">and</span> <span class="kp">false</span>  <span class="c1"># =&gt; false</span>
 
 <span class="kp">true</span> <span class="o">||</span> <span class="kp">false</span>   <span class="c1"># =&gt; true</span>
-<span class="kp">true</span> <span class="n">or</span> <span class="kp">false</span>   <span class="c1"># =&gt; true</span>
+<span class="kp">true</span> <span class="ow">or</span> <span class="kp">false</span>   <span class="c1"># =&gt; true</span>
 
 <span class="o">!</span><span class="kp">true</span>           <span class="c1"># =&gt; false</span>
-<span class="n">not</span> <span class="kp">true</span>        <span class="c1"># =&gt; false</span>
+<span class="ow">not</span> <span class="kp">true</span>        <span class="c1"># =&gt; false</span>
 
 <span class="kp">true</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="kp">true</span>   <span class="c1"># =&gt; true</span>
 <span class="o">!</span><span class="kp">true</span> <span class="o">||</span> <span class="kp">true</span>   <span class="c1"># =&gt; false</span>
 </code></pre></div></div>
 
-<p>Os operadores <code class="highlighter-rouge">||</code> e <code class="highlighter-rouge">&amp;&amp;</code> implementam o conceito de avaliação mínima (ou avaliação de curto-circuito, <em>short circuit evaluation</em>). Isso significa que o segundo operando só será avaliado caso o primeiro não seja suficiente para determinar o resultado da expressão. Mais objetivamente:</p>
+<p>Os operadores <code class="language-plaintext highlighter-rouge">||</code> e <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> implementam o conceito de avaliação mínima (ou avaliação de curto-circuito, <em>short circuit evaluation</em>). Isso significa que o segundo operando só será avaliado caso o primeiro não seja suficiente para determinar o resultado da expressão. Mais objetivamente:</p>
 
 <ul>
   <li>
-    <p>quando utilizamos o operador <code class="highlighter-rouge">&amp;&amp;</code> e primeiro operando da expressão é <code class="highlighter-rouge">false</code>, a expressão toda é avaliada para <code class="highlighter-rouge">false</code>.</p>
+    <p>quando utilizamos o operador <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> e primeiro operando da expressão é <code class="language-plaintext highlighter-rouge">false</code>, a expressão toda é avaliada para <code class="language-plaintext highlighter-rouge">false</code>.</p>
   </li>
   <li>
-    <p>quando utilizamos o operador <code class="highlighter-rouge">||</code> e primeiro operando da expressão é <code class="highlighter-rouge">true</code>, a expressão toda é avaliada para <code class="highlighter-rouge">true</code>.</p>
+    <p>quando utilizamos o operador <code class="language-plaintext highlighter-rouge">||</code> e primeiro operando da expressão é <code class="language-plaintext highlighter-rouge">true</code>, a expressão toda é avaliada para <code class="language-plaintext highlighter-rouge">true</code>.</p>
   </li>
 </ul>
 
-<p>Nos dois casos acima o segundo operador não precisa ser avaliado. A tabela verdade abaixo apresenta o resultado da avaliação dos  operadores lógicos <code class="highlighter-rouge">&amp;&amp;</code> e <code class="highlighter-rouge">||</code>.</p>
+<p>Nos dois casos acima o segundo operador não precisa ser avaliado. A tabela verdade abaixo apresenta o resultado da avaliação dos  operadores lógicos <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> e <code class="language-plaintext highlighter-rouge">||</code>.</p>
 
 <h3 id="conjunção">Conjunção</h3>
 
@@ -541,29 +539,29 @@
     <tr>
       <th>A</th>
       <th>B</th>
-      <th><code class="highlighter-rouge">&amp;&amp;</code></th>
+      <th><code class="language-plaintext highlighter-rouge">&amp;&amp;</code></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
   </tbody>
 </table>
@@ -575,34 +573,34 @@
     <tr>
       <th>A</th>
       <th>B</th>
-      <th><code class="highlighter-rouge">||</code></th>
+      <th><code class="language-plaintext highlighter-rouge">||</code></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
   </tbody>
 </table>
 
-<p>Por fim, o operador <code class="highlighter-rouge">!</code> inverte o estado lógico do seu operando. É por isso que se a variável <code class="highlighter-rouge">a</code> recebe um valor <code class="highlighter-rouge">true</code>, ela será avaliada para <code class="highlighter-rouge">false</code>.</p>
+<p>Por fim, o operador <code class="language-plaintext highlighter-rouge">!</code> inverte o estado lógico do seu operando. É por isso que se a variável <code class="language-plaintext highlighter-rouge">a</code> recebe um valor <code class="language-plaintext highlighter-rouge">true</code>, ela será avaliada para <code class="language-plaintext highlighter-rouge">false</code>.</p>
 
 <table>
   <thead>
@@ -613,23 +611,23 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">true</code></td>
-      <td><code class="highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">false</code></td>
-      <td><code class="highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="true-ou-false-com-variáveis-não-booleanas"><code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code> com variáveis não booleanas</h3>
+<h3 id="true-ou-false-com-variáveis-não-booleanas"><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code> com variáveis não booleanas</h3>
 
-<p>Depois de entendido que operadores lógicos avaliam operandos booleanos e resultam em valores como <code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>, o próximo passo é entender um pouco mais das idiossincrasias de Ruby.</p>
+<p>Depois de entendido que operadores lógicos avaliam operandos booleanos e resultam em valores como <code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>, o próximo passo é entender um pouco mais das idiossincrasias de Ruby.</p>
 
-<p>Em Ruby, outros tipos de dados como inteiros e strings podem ser utilizados em um contexto booleano. Por exemplo, em Ruby a seguinte expressão <code class="highlighter-rouge">1 and 1</code> é válida e avalia para <code class="highlighter-rouge">1</code>. Isso acontece pois, <code class="highlighter-rouge">1</code> é avaiado como <code class="highlighter-rouge">true</code>. Logo, a expressão <code class="highlighter-rouge">1 and 1</code> é equivalente a expressão <code class="highlighter-rouge">true and true</code>. De maneira mais geral, qualquer valor exceto <code class="highlighter-rouge">nil</code> ou o próprio <code class="highlighter-rouge">false</code> são considerados como <code class="highlighter-rouge">true</code>. Logo, expressões como <code class="highlighter-rouge">"a" and "b"</code>, ou <code class="highlighter-rouge">"a" and 1</code>, ou ainda <code class="highlighter-rouge">"a" and true</code> também são válidas em Ruby.</p>
+<p>Em Ruby, outros tipos de dados como inteiros e strings podem ser utilizados em um contexto booleano. Por exemplo, em Ruby a seguinte expressão <code class="language-plaintext highlighter-rouge">1 and 1</code> é válida e avalia para <code class="language-plaintext highlighter-rouge">1</code>. Isso acontece pois, <code class="language-plaintext highlighter-rouge">1</code> é avaiado como <code class="language-plaintext highlighter-rouge">true</code>. Logo, a expressão <code class="language-plaintext highlighter-rouge">1 and 1</code> é equivalente a expressão <code class="language-plaintext highlighter-rouge">true and true</code>. De maneira mais geral, qualquer valor exceto <code class="language-plaintext highlighter-rouge">nil</code> ou o próprio <code class="language-plaintext highlighter-rouge">false</code> são considerados como <code class="language-plaintext highlighter-rouge">true</code>. Logo, expressões como <code class="language-plaintext highlighter-rouge">"a" and "b"</code>, ou <code class="language-plaintext highlighter-rouge">"a" and 1</code>, ou ainda <code class="language-plaintext highlighter-rouge">"a" and true</code> também são válidas em Ruby.</p>
 
-<p>Podemos visualizar esse comportamento booleano de variáveis não booleanas usando o operador <code class="highlighter-rouge">!!</code>.  O operador <code class="highlighter-rouge">!!</code> nada mais é do que o operador de negação <code class="highlighter-rouge">!</code> escrito duas vezes. Este operador vai negar o argumento e depois negar a negação. Com o operador <code class="highlighter-rouge">!!</code> é possível obter o valor booleano de qualquer tipo de dado.  Por exemplo:</p>
+<p>Podemos visualizar esse comportamento booleano de variáveis não booleanas usando o operador <code class="language-plaintext highlighter-rouge">!!</code>.  O operador <code class="language-plaintext highlighter-rouge">!!</code> nada mais é do que o operador de negação <code class="language-plaintext highlighter-rouge">!</code> escrito duas vezes. Este operador vai negar o argumento e depois negar a negação. Com o operador <code class="language-plaintext highlighter-rouge">!!</code> é possível obter o valor booleano de qualquer tipo de dado.  Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!!</span> <span class="s2">"Gustavo"</span>  <span class="c1"># =&gt; true</span>
 <span class="o">!!</span> <span class="ss">:Gustavo</span>   <span class="c1"># =&gt; true</span>
@@ -640,7 +638,7 @@
 <span class="o">!!</span> <span class="kp">false</span>      <span class="c1"># =&gt; false</span>
 </code></pre></div></div>
 
-<p>Para aqueles com bagagem em outras linguagens de programação, talvez seja fácil imaginar que valores como o número <code class="highlighter-rouge">0</code> ou uma string vazia <code class="highlighter-rouge">""</code> também seriam avaliados como <code class="highlighter-rouge">false</code>, mas não é o caso em Ruby.</p>
+<p>Para aqueles com bagagem em outras linguagens de programação, talvez seja fácil imaginar que valores como o número <code class="language-plaintext highlighter-rouge">0</code> ou uma string vazia <code class="language-plaintext highlighter-rouge">""</code> também seriam avaliados como <code class="language-plaintext highlighter-rouge">false</code>, mas não é o caso em Ruby.</p>
 
 <h2 id="outros-operadores">Outros operadores</h2>
 
@@ -648,7 +646,7 @@
 
 <h3 id="operador-de-intervalo-range">Operador de intervalo (<em>range</em>)</h3>
 
-<p>Operadores de range existem para facilmente criar um intervalo de objetos (como números ou letras). Em Ruby existem dois operadores de range: o operador <code class="highlighter-rouge">..</code> que cria um intervalo inclusivo e o operador <code class="highlighter-rouge">.</code> que cria um intervalo exclusivo, no qual o maior valor é excluído.</p>
+<p>Operadores de range existem para facilmente criar um intervalo de objetos (como números ou letras). Em Ruby existem dois operadores de range: o operador <code class="language-plaintext highlighter-rouge">..</code> que cria um intervalo inclusivo e o operador <code class="language-plaintext highlighter-rouge">.</code> que cria um intervalo exclusivo, no qual o maior valor é excluído.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">to_a</span>      <span class="c1"># =&gt;  =&gt; [1, 2, 3, 4, 5]</span>
 <span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'e'</span><span class="p">).</span><span class="nf">to_a</span>  <span class="c1"># =&gt; ["a", "b", "c", "d", "e"]</span>
@@ -657,7 +655,7 @@
 <span class="p">(</span><span class="s1">'a'</span><span class="o">...</span><span class="s1">'e'</span><span class="p">).</span><span class="nf">to_a</span>  <span class="c1"># =&gt; ["a", "b", "c", "d"]</span>
 </code></pre></div></div>
 
-<p>A expressão <code class="highlighter-rouge">(1..5)</code> é avaliado para um objeto da classe <code class="highlighter-rouge">Range</code>. A classe <code class="highlighter-rouge">Range</code>, por sua vez, tem um método chamado <code class="highlighter-rouge">to_a</code>, que transforma o objeto em um array.</p>
+<p>A expressão <code class="language-plaintext highlighter-rouge">(1..5)</code> é avaliado para um objeto da classe <code class="language-plaintext highlighter-rouge">Range</code>. A classe <code class="language-plaintext highlighter-rouge">Range</code>, por sua vez, tem um método chamado <code class="language-plaintext highlighter-rouge">to_a</code>, que transforma o objeto em um array.</p>
 
 <h3 id="operador-de-atribuição-paralela-parallel-assignment">Operador de atribuição paralela (<em>parallel assignment</em>)</h3>
 
@@ -668,13 +666,13 @@
 <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
 </code></pre></div></div>
 
-<p>Atribuições paralelas nos economizam um pouco de espaço. Podemos re-escrever a mesma atribuição acima da seguinte forma:  <code class="highlighter-rouge">a, b = 1, 2</code> (a variável <code class="highlighter-rouge">a</code> recebe o valor <code class="highlighter-rouge">1</code> enquanto a variável <code class="highlighter-rouge">b</code> recebe o valor <code class="highlighter-rouge">2</code>). Em vez de nú,números, poderíamos também usar string, boleanos, e … Arrays! Por exemplo, a seguinte atribuição é válida e tem o mesmo resultado da atribuição anterior: <code class="highlighter-rouge">a, b = [1, 2]</code>.</p>
+<p>Atribuições paralelas nos economizam um pouco de espaço. Podemos re-escrever a mesma atribuição acima da seguinte forma:  <code class="language-plaintext highlighter-rouge">a, b = 1, 2</code> (a variável <code class="language-plaintext highlighter-rouge">a</code> recebe o valor <code class="language-plaintext highlighter-rouge">1</code> enquanto a variável <code class="language-plaintext highlighter-rouge">b</code> recebe o valor <code class="language-plaintext highlighter-rouge">2</code>). Em vez de nú,números, poderíamos também usar string, boleanos, e … Arrays! Por exemplo, a seguinte atribuição é válida e tem o mesmo resultado da atribuição anterior: <code class="language-plaintext highlighter-rouge">a, b = [1, 2]</code>.</p>
 
-<p>Além da vantagem da economia de espaço, há outros recursos interessantes. Por exemplo, é possível alterar o valor de duas variáveis em uma única linha de código, por exemplo: <code class="highlighter-rouge">a, b = b, a</code>.</p>
+<p>Além da vantagem da economia de espaço, há outros recursos interessantes. Por exemplo, é possível alterar o valor de duas variáveis em uma única linha de código, por exemplo: <code class="language-plaintext highlighter-rouge">a, b = b, a</code>.</p>
 
-<p>É possível, no entanto, fazer atribuições mais complexas. Por exemplo, a expressão <code class="highlighter-rouge">a = 1, 2, 3</code> é válida e o valor de <code class="highlighter-rouge">a</code>, após atribuição, será de <code class="highlighter-rouge">[1, 2, 3]</code>. Isso acontece pois, caso uma atribuição paralela tenha somente um valor a esqueda (<em>lvalue</em>) e dois ou mais valores a direita (<em>rvalue</em>), os valores a direita serão convertidos para um array (esta mesma atribuição poderia também ser feita usando o operador range (<code class="highlighter-rouge">..</code>),  por exemplo: <code class="highlighter-rouge">a = (1..3).to_a</code>). Caso o <em>lvalue</em> seja maior do que um, porém menor do que o <em>rvalue</em>, por exemplo: <code class="highlighter-rouge">a, b = 1, 2, 3</code>, os valores excedentes do <em>rvalue</em> serão descartados (no caso, o valor <code class="highlighter-rouge">3</code> será descartado). Por fim, se uma atribuição paralela tiver mais valores a esquerda (<em>lvalue</em>) do que a direita (<em>rvalue</em>), por exemplo, <code class="highlighter-rouge">a, b, c = 1, 2</code>, será atribuído <code class="highlighter-rouge">nil</code> para as variáveis excedentes (no caso, <code class="highlighter-rouge">c</code> receberá <code class="highlighter-rouge">nil</code>).</p>
+<p>É possível, no entanto, fazer atribuições mais complexas. Por exemplo, a expressão <code class="language-plaintext highlighter-rouge">a = 1, 2, 3</code> é válida e o valor de <code class="language-plaintext highlighter-rouge">a</code>, após atribuição, será de <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>. Isso acontece pois, caso uma atribuição paralela tenha somente um valor a esqueda (<em>lvalue</em>) e dois ou mais valores a direita (<em>rvalue</em>), os valores a direita serão convertidos para um array (esta mesma atribuição poderia também ser feita usando o operador range (<code class="language-plaintext highlighter-rouge">..</code>),  por exemplo: <code class="language-plaintext highlighter-rouge">a = (1..3).to_a</code>). Caso o <em>lvalue</em> seja maior do que um, porém menor do que o <em>rvalue</em>, por exemplo: <code class="language-plaintext highlighter-rouge">a, b = 1, 2, 3</code>, os valores excedentes do <em>rvalue</em> serão descartados (no caso, o valor <code class="language-plaintext highlighter-rouge">3</code> será descartado). Por fim, se uma atribuição paralela tiver mais valores a esquerda (<em>lvalue</em>) do que a direita (<em>rvalue</em>), por exemplo, <code class="language-plaintext highlighter-rouge">a, b, c = 1, 2</code>, será atribuído <code class="language-plaintext highlighter-rouge">nil</code> para as variáveis excedentes (no caso, <code class="language-plaintext highlighter-rouge">c</code> receberá <code class="language-plaintext highlighter-rouge">nil</code>).</p>
 
-<p>Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição <code class="highlighter-rouge">a, b, c =  (x=1), (x+=1), (x+=1)</code>. Nesse caso, <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> e <code class="highlighter-rouge">c</code> receberiam os valores <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code> e <code class="highlighter-rouge">3</code>, respectivamente.</p>
+<p>Podemos ainda atribuir expressões em vez de literais. Por exemplo, a atribuição <code class="language-plaintext highlighter-rouge">a, b, c =  (x=1), (x+=1), (x+=1)</code>. Nesse caso, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code> e <code class="language-plaintext highlighter-rouge">c</code> receberiam os valores <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">2</code> e <code class="language-plaintext highlighter-rouge">3</code>, respectivamente.</p>
 
 <h2 id="ordem-de-avaliação">Ordem de avaliação</h2>
 
@@ -685,14 +683,14 @@
 
 <p>Qual dos operadores deve ser avaliado primeiro?</p>
 
-<p>Assim como na matemática, em programação há operadores que precisam ser executados antes de outros. A ordem de avaliação é determinada pela <em>precedência</em> dos operadores. No caso do exemplo anterior, a expressão <code class="highlighter-rouge">2 * 6 + 1</code> é avaliada para <code class="highlighter-rouge">13</code>, pois o operador <code class="highlighter-rouge">*</code> tem precedência sobre o operador <code class="highlighter-rouge">+</code>, exatamente como aprendemos na escola.</p>
+<p>Assim como na matemática, em programação há operadores que precisam ser executados antes de outros. A ordem de avaliação é determinada pela <em>precedência</em> dos operadores. No caso do exemplo anterior, a expressão <code class="language-plaintext highlighter-rouge">2 * 6 + 1</code> é avaliada para <code class="language-plaintext highlighter-rouge">13</code>, pois o operador <code class="language-plaintext highlighter-rouge">*</code> tem precedência sobre o operador <code class="language-plaintext highlighter-rouge">+</code>, exatamente como aprendemos na escola.</p>
 
 <p>É possível, no entanto, forçar que uma expressão seja avaliada em uma ordem particular através do uso de parênteses. Por exemplo, a expressão abaixo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Agora é avaliada para <code class="highlighter-rouge">18</code>.</p>
+<p>Agora é avaliada para <code class="language-plaintext highlighter-rouge">18</code>.</p>
 
 <p>Para evitar confusões sobre a ordem de operadores, a tabela abaixo lista a ordem de precedência dos operadores discutidos nesse capítulo. São eles:</p>
 
@@ -704,41 +702,41 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">**</code></td>
+      <td><code class="language-plaintext highlighter-rouge">**</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">!</code></td>
+      <td><code class="language-plaintext highlighter-rouge">!</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">/</code>, <code class="language-plaintext highlighter-rouge">%</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code></td>
+      <td><code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">-</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>, <code class="highlighter-rouge">&gt;=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&lt;=&gt;</code>, <code class="highlighter-rouge">==</code>, <code class="highlighter-rouge">!=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=&gt;</code>, <code class="language-plaintext highlighter-rouge">==</code>, <code class="language-plaintext highlighter-rouge">!=</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">&amp;&amp;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&amp;&amp;</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">||</code></td>
+      <td><code class="language-plaintext highlighter-rouge">||</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">not</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">or</code>, <code class="highlighter-rouge">and</code></td>
+      <td><code class="language-plaintext highlighter-rouge">or</code>, <code class="language-plaintext highlighter-rouge">and</code></td>
     </tr>
   </tbody>
 </table>
 
 <p>A tabela acima deve ser lida da seguinte forma: os operadores que estão mais acima tem maior precedência aos operadores mais abaixo. Mais de um operador na mesma linha indica mesma precedência.</p>
 
-<p>Um leitor atento poderia facilmente observar que o operador <code class="highlighter-rouge">&amp;&amp;</code> tem maior precedência do que o operador <code class="highlighter-rouge">||</code> (e ambos tem maior precedência do que seus equivalentes <code class="highlighter-rouge">and</code> e <code class="highlighter-rouge">or</code>). No entanto, e curiosamente, os operadores <code class="highlighter-rouge">and</code> e <code class="highlighter-rouge">or</code> tem a mesma precedência.</p>
+<p>Um leitor atento poderia facilmente observar que o operador <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> tem maior precedência do que o operador <code class="language-plaintext highlighter-rouge">||</code> (e ambos tem maior precedência do que seus equivalentes <code class="language-plaintext highlighter-rouge">and</code> e <code class="language-plaintext highlighter-rouge">or</code>). No entanto, e curiosamente, os operadores <code class="language-plaintext highlighter-rouge">and</code> e <code class="language-plaintext highlighter-rouge">or</code> tem a mesma precedência.</p>
 
 <p>Por fim, a tabela acima lista somente os operadores discutidos nesse guia. Para conhecer a ordem de precedência de todos os operadores da linguagem, acesse a <a href="https://ruby-doc.org/core-2.6.2/doc/syntax/precedence_rdoc.html">documentação oficial</a>.</p>
 
@@ -750,12 +748,12 @@ https://www.cs.bgu.ac.il/~ppl172/wiki.files/class/presentations/PPL172_L2.pdf --
 
 <ul>
   <li>Geralmente os operadores funcionam com um ou dois operando. Cite um exemplo de um operador que funciona com três operandos.</li>
-  <li>Há ainda alguns operadores que não foram cobertos neste guia, como por exemplo: <code class="highlighter-rouge">===</code>, <code class="highlighter-rouge">=~</code>, <code class="highlighter-rouge">&amp;.</code> e o <code class="highlighter-rouge">!!!</code>. Pesquise e descreva o que faz cada um desses operadores.</li>
+  <li>Há ainda alguns operadores que não foram cobertos neste guia, como por exemplo: <code class="language-plaintext highlighter-rouge">===</code>, <code class="language-plaintext highlighter-rouge">=~</code>, <code class="language-plaintext highlighter-rouge">&amp;.</code> e o <code class="language-plaintext highlighter-rouge">!!!</code>. Pesquise e descreva o que faz cada um desses operadores.</li>
   <li>Vimos neste capítulo que vários operadores são implementados como métodos. Mas nem todos são métodos. Quais são esses?</li>
-  <li>Vimos que alguns operadores como <code class="highlighter-rouge">+</code> e o <code class="highlighter-rouge">*</code> podem ser utilizados em tipos diferentes como strings e arrays. Vimos inclusive que a expressão <code class="highlighter-rouge">"UFPA" * 2</code> é válida. No entanto, a expressão <code class="highlighter-rouge">2 * "UFPA"</code> não é válida (retorna um <code class="highlighter-rouge">TypeError</code>). Explique o porquê.</li>
-  <li>Explique por que as expressões <code class="highlighter-rouge">1 || 2 &amp;&amp; nil</code> e <code class="highlighter-rouge">1 or 2 and nil</code> tem avaliações diferentes.</li>
-  <li>Algumas vezes a precedência não é suficiente para determinar o resultado de uma expressão. Por exemplo, considere a expressão: <code class="highlighter-rouge">8 / 2 * 4</code>. O resultado é 16 ou 1? Qual seria o novo critério de avaliação?</li>
-  <li>Converta a expressão matemática <code class="highlighter-rouge">(4+5)(6+(8-1)2)</code> para uma notação de linguagem de programação.</li>
+  <li>Vimos que alguns operadores como <code class="language-plaintext highlighter-rouge">+</code> e o <code class="language-plaintext highlighter-rouge">*</code> podem ser utilizados em tipos diferentes como strings e arrays. Vimos inclusive que a expressão <code class="language-plaintext highlighter-rouge">"UFPA" * 2</code> é válida. No entanto, a expressão <code class="language-plaintext highlighter-rouge">2 * "UFPA"</code> não é válida (retorna um <code class="language-plaintext highlighter-rouge">TypeError</code>). Explique o porquê.</li>
+  <li>Explique por que as expressões <code class="language-plaintext highlighter-rouge">1 || 2 &amp;&amp; nil</code> e <code class="language-plaintext highlighter-rouge">1 or 2 and nil</code> tem avaliações diferentes.</li>
+  <li>Algumas vezes a precedência não é suficiente para determinar o resultado de uma expressão. Por exemplo, considere a expressão: <code class="language-plaintext highlighter-rouge">8 / 2 * 4</code>. O resultado é 16 ou 1? Qual seria o novo critério de avaliação?</li>
+  <li>Converta a expressão matemática <code class="language-plaintext highlighter-rouge">(4+5)(6+(8-1)2)</code> para uma notação de linguagem de programação.</li>
   <li>Sem rodar no interpretador, tente inferir qual é o resultado de cada uma das expressões abaixo (nota: nenhuma delas lança erro):</li>
 </ul>
 
@@ -773,14 +771,14 @@ https://www.cs.bgu.ac.il/~ppl172/wiki.files/class/presentations/PPL172_L2.pdf --
 </code></pre></div></div>
 
 <ul>
-  <li>Implemente uma máquina de turing que avalie a expressão <code class="highlighter-rouge">1 + 1</code>.</li>
+  <li>Implemente uma máquina de turing que avalie a expressão <code class="language-plaintext highlighter-rouge">1 + 1</code>.</li>
 </ul>
 
 <!-- https://womanonrails.com/operator-precedence-ruby -->
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Mais sobre Arrays nos próximos capítulos desse guia. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
@@ -859,7 +857,7 @@ https://www.cs.bgu.ac.il/~ppl172/wiki.files/class/presentations/PPL172_L2.pdf --
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

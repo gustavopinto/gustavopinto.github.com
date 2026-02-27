@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -341,16 +339,16 @@
 
 <h3 id="inteiros-em-binário">Inteiros em binário</h3>
 
-<p>Podemos ir agrupando bits de forma a representar outros números. Com dois bits, já poderíamos representar o número dois (<code class="highlighter-rouge">10</code>) e o número três (<code class="highlighter-rouge">11</code>). Vamos usar as operações abaixo para entender como isso seria possível.</p>
+<p>Podemos ir agrupando bits de forma a representar outros números. Com dois bits, já poderíamos representar o número dois (<code class="language-plaintext highlighter-rouge">10</code>) e o número três (<code class="language-plaintext highlighter-rouge">11</code>). Vamos usar as operações abaixo para entender como isso seria possível.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 + 0 = 0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 + 0 = 0
 0 + 1 = 1
 1 + 0 = 1
 1 + 1 = 10
 10 + 1 = 11
 </code></pre></div></div>
 
-<p>A expressão <code class="highlighter-rouge">1 + 1</code> em binário é avaliada para <code class="highlighter-rouge">10</code> pois precisamos de dois bits para armazenar o número <code class="highlighter-rouge">2</code>. Com três bits conseguimos representar o número quatro (<code class="highlighter-rouge">100</code>), cinco (<code class="highlighter-rouge">101</code>), seis (<code class="highlighter-rouge">110</code>) e sete (<code class="highlighter-rouge">111</code>). Para representar o número oito precisaríamos de quatro bits.</p>
+<p>A expressão <code class="language-plaintext highlighter-rouge">1 + 1</code> em binário é avaliada para <code class="language-plaintext highlighter-rouge">10</code> pois precisamos de dois bits para armazenar o número <code class="language-plaintext highlighter-rouge">2</code>. Com três bits conseguimos representar o número quatro (<code class="language-plaintext highlighter-rouge">100</code>), cinco (<code class="language-plaintext highlighter-rouge">101</code>), seis (<code class="language-plaintext highlighter-rouge">110</code>) e sete (<code class="language-plaintext highlighter-rouge">111</code>). Para representar o número oito precisaríamos de quatro bits.</p>
 
 <p>A medida que vamos acrescentando mais bits, conseguimos representar um quantidade maior de números. Com oito bits já é possível armazenar 256 dígitos (2^8 = 256).</p>
 
@@ -358,7 +356,7 @@
 
 <p>Com tantos bits pra armazenar, facilitaria  nossa vida se tivéssemos representações de mais alto nível pra armazena-los. A primeira representação mais alto nível de um bit é o <em>byte</em>, um grupo de 8 bits. Embora pouco conhecido, um há também um grupo de 4 bits, chamado <em>nibble</em>. Os mesmos dígitos de 1 a 4 do exemplo acima poderiam ser representados como abaixo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 0000
 0000 0001
 0000 0010
 0000 0011
@@ -366,19 +364,19 @@
 
 <p>Mas esses números são todos positivos. Como fazemos pra representar números negativos?</p>
 
-<p>Como sabemos, inteiros podem ser <em>signed</em> (com sinal) ou <em>unsigned</em>  (sem sinal). Inteiros de oito bytes sem sinal podem ser representados entre 0 a 256, enquanto que inteiros de oito bytes com sinal podem representar os números de -127 a 128 (zero incluso). Nesse caso, representamos o sinal pelo bit mais significativo, que geralmente é representado pelo primeiro dos oito bits. Se o primeiro bit for 0, o número é positivo; se for 1, o número é negativo. Por exemplo, o número 15, em binário, é representado como <code class="highlighter-rouge">1000 1111</code>.</p>
+<p>Como sabemos, inteiros podem ser <em>signed</em> (com sinal) ou <em>unsigned</em>  (sem sinal). Inteiros de oito bytes sem sinal podem ser representados entre 0 a 256, enquanto que inteiros de oito bytes com sinal podem representar os números de -127 a 128 (zero incluso). Nesse caso, representamos o sinal pelo bit mais significativo, que geralmente é representado pelo primeiro dos oito bits. Se o primeiro bit for 0, o número é positivo; se for 1, o número é negativo. Por exemplo, o número 15, em binário, é representado como <code class="language-plaintext highlighter-rouge">1000 1111</code>.</p>
 
 <h3 id="strings-em-binário">Strings em Binário</h3>
 
-<p>Nesse momento torna-se fácil perceber que precisamos de muitos bits para armazenar dados ligeiramente mais complexos. Uma string como <code class="highlighter-rouge">"UFPA"</code> precisa de 32 bits para ser representada. Em Ruby, cada caracter de uma string precisa de 8 bits (ou um byte) para ser armazenado. Como a string <code class="highlighter-rouge">"UFPA"</code> tem quatro caracteres, precisamos de quatro bytes (ou 32 bits).</p>
+<p>Nesse momento torna-se fácil perceber que precisamos de muitos bits para armazenar dados ligeiramente mais complexos. Uma string como <code class="language-plaintext highlighter-rouge">"UFPA"</code> precisa de 32 bits para ser representada. Em Ruby, cada caracter de uma string precisa de 8 bits (ou um byte) para ser armazenado. Como a string <code class="language-plaintext highlighter-rouge">"UFPA"</code> tem quatro caracteres, precisamos de quatro bytes (ou 32 bits).</p>
 
 <p>Logo, poderíamos generalizar que uma string de tamanho <em>n</em> ocupa <em>n</em> bytes?</p>
 
-<p>Vamos responder com um exercício: quantos bits precisamos pra armazenar a string <code class="highlighter-rouge">"Olá mundo"</code>? A string tem 9 caracteres, mas precisamos de 10 (!) bytes para representa-la. Rode a instrução <code class="highlighter-rouge">"Olá mundo".bytesize</code> para checar você mesmo (o método <code class="highlighter-rouge">bytesize</code> conta a quantidade de bytes de uma string). Como pode?</p>
+<p>Vamos responder com um exercício: quantos bits precisamos pra armazenar a string <code class="language-plaintext highlighter-rouge">"Olá mundo"</code>? A string tem 9 caracteres, mas precisamos de 10 (!) bytes para representa-la. Rode a instrução <code class="language-plaintext highlighter-rouge">"Olá mundo".bytesize</code> para checar você mesmo (o método <code class="language-plaintext highlighter-rouge">bytesize</code> conta a quantidade de bytes de uma string). Como pode?</p>
 
-<p>Isso acontece pois caracteres como <code class="highlighter-rouge">"a"</code>, <code class="highlighter-rouge">"b"</code>, ou <code class="highlighter-rouge">"c"</code> necessitam de apenas um byte para serem representados (<code class="highlighter-rouge">"a".bytesize # =&gt; 1</code>), enquanto que caracteres especiais como o <code class="highlighter-rouge">"ç"</code> do Português e o <code class="highlighter-rouge">"¿"</code> do Espanhol precisaram de dois bytes para serem representados (<code class="highlighter-rouge">"ç".bytesize # =&gt; 2</code>).</p>
+<p>Isso acontece pois caracteres como <code class="language-plaintext highlighter-rouge">"a"</code>, <code class="language-plaintext highlighter-rouge">"b"</code>, ou <code class="language-plaintext highlighter-rouge">"c"</code> necessitam de apenas um byte para serem representados (<code class="language-plaintext highlighter-rouge">"a".bytesize # =&gt; 1</code>), enquanto que caracteres especiais como o <code class="language-plaintext highlighter-rouge">"ç"</code> do Português e o <code class="language-plaintext highlighter-rouge">"¿"</code> do Espanhol precisaram de dois bytes para serem representados (<code class="language-plaintext highlighter-rouge">"ç".bytesize # =&gt; 2</code>).</p>
 
-<p>Agora sabemos que um charactere precisa de um byte para ser representado e caracteres especiais precisam de dois (ou mais) bytes. Mas como sabemos o binário dessa string? Podemos usar o método <code class="highlighter-rouge">"a".bytes</code>, que no caso da string <code class="highlighter-rouge">"a"</code> retorna <code class="highlighter-rouge">[97]</code>, ou seja, um array de um único elemento, o <code class="highlighter-rouge">97</code>. Mas o que seria esse número 97? Vamos testar com outros caracteres.</p>
+<p>Agora sabemos que um charactere precisa de um byte para ser representado e caracteres especiais precisam de dois (ou mais) bytes. Mas como sabemos o binário dessa string? Podemos usar o método <code class="language-plaintext highlighter-rouge">"a".bytes</code>, que no caso da string <code class="language-plaintext highlighter-rouge">"a"</code> retorna <code class="language-plaintext highlighter-rouge">[97]</code>, ou seja, um array de um único elemento, o <code class="language-plaintext highlighter-rouge">97</code>. Mas o que seria esse número 97? Vamos testar com outros caracteres.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"a"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [97]</span>
 <span class="s2">"b"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [98]</span>
@@ -391,11 +389,11 @@
 <span class="s2">"D"</span><span class="p">.</span><span class="nf">bytes</span>   <span class="c1"># =&gt; [68]</span>
 </code></pre></div></div>
 
-<p>Cada caracter é representado por um código de um byte (ou oito bits) diferente e, aparentemente, estes códigos seguem uma determinada ordem. Os caracteres também são diferenciados entre maiúsculos e minúsculos. Curiosamente, os caracteres maiúsculos são representados com códigos menores que os caracteres minúsculos. Cada caracter retorna um código diferente. Por exemplo, <code class="highlighter-rouge">"a"</code> retorna <code class="highlighter-rouge">[97]</code> enquanto que <code class="highlighter-rouge">"b"</code> retorna <code class="highlighter-rouge">[98]</code>. Por hora, vamos abstrair os colchetes (<code class="highlighter-rouge">[]</code>) e focar nos códigos.</p>
+<p>Cada caracter é representado por um código de um byte (ou oito bits) diferente e, aparentemente, estes códigos seguem uma determinada ordem. Os caracteres também são diferenciados entre maiúsculos e minúsculos. Curiosamente, os caracteres maiúsculos são representados com códigos menores que os caracteres minúsculos. Cada caracter retorna um código diferente. Por exemplo, <code class="language-plaintext highlighter-rouge">"a"</code> retorna <code class="language-plaintext highlighter-rouge">[97]</code> enquanto que <code class="language-plaintext highlighter-rouge">"b"</code> retorna <code class="language-plaintext highlighter-rouge">[98]</code>. Por hora, vamos abstrair os colchetes (<code class="language-plaintext highlighter-rouge">[]</code>) e focar nos códigos.</p>
 
 <p>Mas que códigos são esses?</p>
 
-<p>Estes códigos advêm de uma tabela de conversão, no caso, a famosa <a href="https://en.wikipedia.org/wiki/ASCII">tabela ASCII</a> (abreviação de <em>American Standard Code for Information Interchange</em>). A tabela ASCII foi inicialmente desenvolvida para trabalhar com 7 bits (ou 2^7 = 128). Embora suficiente para época (década de 70), essa tabela deixava de fora vários caracteres especiais, como o <code class="highlighter-rouge">"ç"</code> e o <code class="highlighter-rouge">"¿"</code>,que já mencionamos anteriormente.</p>
+<p>Estes códigos advêm de uma tabela de conversão, no caso, a famosa <a href="https://en.wikipedia.org/wiki/ASCII">tabela ASCII</a> (abreviação de <em>American Standard Code for Information Interchange</em>). A tabela ASCII foi inicialmente desenvolvida para trabalhar com 7 bits (ou 2^7 = 128). Embora suficiente para época (década de 70), essa tabela deixava de fora vários caracteres especiais, como o <code class="language-plaintext highlighter-rouge">"ç"</code> e o <code class="language-plaintext highlighter-rouge">"¿"</code>,que já mencionamos anteriormente.</p>
 
 <hr />
 <p><strong>Curiosidade</strong></p>
@@ -404,33 +402,33 @@
 
 <hr />
 
-<p>Os códigos de retorno do método <code class="highlighter-rouge">bytes</code> são, na realidade, a representação decimal de um determinado binário. Por exemplo, o código <code class="highlighter-rouge">97</code> é a representação decimal para o binário <code class="highlighter-rouge">01100001</code>, enquanto o código <code class="highlighter-rouge">98</code> é a representação decimal para o binário <code class="highlighter-rouge">01100010</code>, e assim por diante.</p>
+<p>Os códigos de retorno do método <code class="language-plaintext highlighter-rouge">bytes</code> são, na realidade, a representação decimal de um determinado binário. Por exemplo, o código <code class="language-plaintext highlighter-rouge">97</code> é a representação decimal para o binário <code class="language-plaintext highlighter-rouge">01100001</code>, enquanto o código <code class="language-plaintext highlighter-rouge">98</code> é a representação decimal para o binário <code class="language-plaintext highlighter-rouge">01100010</code>, e assim por diante.</p>
 
 <p>Esse processo de tradução caracter -&gt; código -&gt; binário é chamado de <em>encoding</em>. Há diversos tipos de <em>encoding</em>; um caracter com um byte em um determinado <em>encoding</em> pode ter dois ou mais em outro. Encodings de um byte por caracter são extremamente limitados (e, como vimos na caixa acima, também causam boa dor de cabeça), mas encodings de dois bytes (16 bits) já são mais plausiveis, pois podem representar 2^16 (65.536) caracteres. Em Unicode, temos UTF-8 (que representam 8 bits por caracter) e o UTF-16 (que representam 16 bits por caracter). Embora utilizar mais bytes por caracter resolva o problema da representação de caracteres de localidades específicas (pense nos símbolos Japoneses), eles aumentam a chance de desperdício de espaço em arquivos de texto.</p>
 
-<p>Até agora estamos fazendo tradução de caracter por caracter, mas a tradução de textos mais longos seguem o mesmo raciocínio. A expressão <code class="highlighter-rouge">"UFPA".bytes</code> é avaliada para <code class="highlighter-rouge">[85, 70, 80, 65]</code>, que nada mais é do que um array em que cada posição é a representação decimal de cada caracter da string <code class="highlighter-rouge">"UFPA"</code>.</p>
+<p>Até agora estamos fazendo tradução de caracter por caracter, mas a tradução de textos mais longos seguem o mesmo raciocínio. A expressão <code class="language-plaintext highlighter-rouge">"UFPA".bytes</code> é avaliada para <code class="language-plaintext highlighter-rouge">[85, 70, 80, 65]</code>, que nada mais é do que um array em que cada posição é a representação decimal de cada caracter da string <code class="language-plaintext highlighter-rouge">"UFPA"</code>.</p>
 
 <h2 id="por-que-01--02--03">Por que 0.1 + 0.2 != 0.3?</h2>
 
 <p>Entendemos como representar números inteiros e strings em binário, mas como poderíamos representar números com ponto flutuante?</p>
 
-<p>Caso estejamos trabalhando com moeda (salário, impostos, valores de porudo), em que o número de casa decimais é pequeno e conhecido, basta transformar o número fracionado para inteiro (multiplicando por <code class="highlighter-rouge">100</code>) e, após a operação, transformar de volta para a fração (dividindo por <code class="highlighter-rouge">100</code>). A principal vantagem dessa abordagem é a rapidez, pois o hardware tem circuitos para lidar com números inteiros. No entanto, essa abordagem tem pouca precisão. Mas poucas pessoas se queixam de 0.001 faltando no troco. Esta baixa precisão se torna um problema, por exemplo, em aplicações matemáticas que fazem uso de números irracionais como o PI (3.141592…).</p>
+<p>Caso estejamos trabalhando com moeda (salário, impostos, valores de porudo), em que o número de casa decimais é pequeno e conhecido, basta transformar o número fracionado para inteiro (multiplicando por <code class="language-plaintext highlighter-rouge">100</code>) e, após a operação, transformar de volta para a fração (dividindo por <code class="language-plaintext highlighter-rouge">100</code>). A principal vantagem dessa abordagem é a rapidez, pois o hardware tem circuitos para lidar com números inteiros. No entanto, essa abordagem tem pouca precisão. Mas poucas pessoas se queixam de 0.001 faltando no troco. Esta baixa precisão se torna um problema, por exemplo, em aplicações matemáticas que fazem uso de números irracionais como o PI (3.141592…).</p>
 
-<p>O PI é diferente de outros número irracionais, como o resultado da divisão <code class="highlighter-rouge">1/3</code>, o qual se conhece os decimais, mas não se sabe quantos são. No PI não se conhece (todos) os decimais, e estes também não seguem nenhum padrão. Também não faz sentido armazenar o número PI na memória. Simplesmente não temos memória pra isso. O que poderíamos fazer então?</p>
+<p>O PI é diferente de outros número irracionais, como o resultado da divisão <code class="language-plaintext highlighter-rouge">1/3</code>, o qual se conhece os decimais, mas não se sabe quantos são. No PI não se conhece (todos) os decimais, e estes também não seguem nenhum padrão. Também não faz sentido armazenar o número PI na memória. Simplesmente não temos memória pra isso. O que poderíamos fazer então?</p>
 
 <p>A saída foi flexibilizar; ao invés de armazenar o número PI completo, o que é inviável, podemos armazenar uma versão menor, <em>aproximada</em>.</p>
 
-<p>O tipo de dado <code class="highlighter-rouge">Float</code> é a implementação dessa aproximação. Considerando um <code class="highlighter-rouge">Float</code> de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base 2. A base 10 é a notação que utilizamos no dia a dia, enquanto que a base 2 é a notação binária que computadores utilizam para realizar operações (com 0 e 1).</p>
+<p>O tipo de dado <code class="language-plaintext highlighter-rouge">Float</code> é a implementação dessa aproximação. Considerando um <code class="language-plaintext highlighter-rouge">Float</code> de 64 bits, o primeiro bit é reservado para o sinal (assim como nos números inteiros). Os próximos 11 bits representam o número do expoente, enquanto os 52 restantes representam a mantissa, que é a notação científica na base 2. A base 10 é a notação que utilizamos no dia a dia, enquanto que a base 2 é a notação binária que computadores utilizam para realizar operações (com 0 e 1).</p>
 
-<p>Para representar um número como <code class="highlighter-rouge">12.000</code> na base 10, poderíamos usar a notação científica <code class="highlighter-rouge">1.2 * 10^4</code>. O número <code class="highlighter-rouge">1.2</code> é a mantissa e o número <code class="highlighter-rouge">4</code> é o expoente na base 10.</p>
+<p>Para representar um número como <code class="language-plaintext highlighter-rouge">12.000</code> na base 10, poderíamos usar a notação científica <code class="language-plaintext highlighter-rouge">1.2 * 10^4</code>. O número <code class="language-plaintext highlighter-rouge">1.2</code> é a mantissa e o número <code class="language-plaintext highlighter-rouge">4</code> é o expoente na base 10.</p>
 
-<p>Para representar o mesmo número como <code class="highlighter-rouge">Float</code>, teríamos: o primeiro bit para o sinal (positivo ou negativo) * 2^expoente (número armazenados nos próximos 11 bits) * mantissa (numero armazenados nos últimos 53 bits). O número inteiro máximo que pode ser armazenado na mantissa é <code class="highlighter-rouge">2^53</code> (que pode ser checado com <code class="highlighter-rouge">Float::MAX_EXP</code>).</p>
+<p>Para representar o mesmo número como <code class="language-plaintext highlighter-rouge">Float</code>, teríamos: o primeiro bit para o sinal (positivo ou negativo) * 2^expoente (número armazenados nos próximos 11 bits) * mantissa (numero armazenados nos últimos 53 bits). O número inteiro máximo que pode ser armazenado na mantissa é <code class="language-plaintext highlighter-rouge">2^53</code> (que pode ser checado com <code class="language-plaintext highlighter-rouge">Float::MAX_EXP</code>).</p>
 
 <p>O problema é que não conseguimos representar um número de base 10 da mesma forma na base 2.</p>
 
-<p>A primeira vista isso pode parecer um pouco estranho, pois o comando <code class="highlighter-rouge">puts 0.1</code> retorna<code class="highlighter-rouge">0.1</code>. No entanto, se usarmos o comando <code class="highlighter-rouge">sprintf("%0.50f", 0.1)</code> temos a seguinte saída: <code class="highlighter-rouge">"0.10000000000000000555111512312578270211815834045410"</code>. O comando <code class="highlighter-rouge">sprintf</code> retorna uma string formatada, no caso, um <code class="highlighter-rouge">Float</code> (representado pelo <code class="highlighter-rouge">f</code>) de 50 caracteres após o ponto (representado pelo <code class="highlighter-rouge">0.50</code>).</p>
+<p>A primeira vista isso pode parecer um pouco estranho, pois o comando <code class="language-plaintext highlighter-rouge">puts 0.1</code> retorna<code class="language-plaintext highlighter-rouge">0.1</code>. No entanto, se usarmos o comando <code class="language-plaintext highlighter-rouge">sprintf("%0.50f", 0.1)</code> temos a seguinte saída: <code class="language-plaintext highlighter-rouge">"0.10000000000000000555111512312578270211815834045410"</code>. O comando <code class="language-plaintext highlighter-rouge">sprintf</code> retorna uma string formatada, no caso, um <code class="language-plaintext highlighter-rouge">Float</code> (representado pelo <code class="language-plaintext highlighter-rouge">f</code>) de 50 caracteres após o ponto (representado pelo <code class="language-plaintext highlighter-rouge">0.50</code>).</p>
 
-<p>Voltando a saída do comando <code class="highlighter-rouge">sprintf</code>, essa <em>sujeira</em> que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão <code class="highlighter-rouge">0.1 + 0.2</code> é avaliado para <code class="highlighter-rouge">0.30000000000000004440892098500626161694526672363281</code>, somente a expressão <code class="highlighter-rouge">0.3</code> é representado como <code class="highlighter-rouge">0.29999999999999998889776975374843459576368331909180</code>. Mais objetivamente: os decimais da expressão <code class="highlighter-rouge">0.1 + 0.2</code> são individualmente convertidos para base 2 <em>antes</em> da operação de soma, enquanto que <code class="highlighter-rouge">0.3</code> é convertido somente uma vez.</p>
+<p>Voltando a saída do comando <code class="language-plaintext highlighter-rouge">sprintf</code>, essa <em>sujeira</em> que aparece após sete zeros é exatamente o nosso problema de aproximação. Logo, enquanto que a expressão <code class="language-plaintext highlighter-rouge">0.1 + 0.2</code> é avaliado para <code class="language-plaintext highlighter-rouge">0.30000000000000004440892098500626161694526672363281</code>, somente a expressão <code class="language-plaintext highlighter-rouge">0.3</code> é representado como <code class="language-plaintext highlighter-rouge">0.29999999999999998889776975374843459576368331909180</code>. Mais objetivamente: os decimais da expressão <code class="language-plaintext highlighter-rouge">0.1 + 0.2</code> são individualmente convertidos para base 2 <em>antes</em> da operação de soma, enquanto que <code class="language-plaintext highlighter-rouge">0.3</code> é convertido somente uma vez.</p>
 
 <p>Em resumo: abordagens de arredondamento se fazem necessárias uma vez que temos uma limitação de espaço de 64 bits, embora números irracionais precisem de muito mais.</p>
 
@@ -447,7 +445,7 @@
     <p>Estude sobre como funciona algorimos de ordenação de palavras em Chinês. Se preciso, estude primeiro como fazer ordenação de caracteres em Português.</p>
   </li>
   <li>
-    <p>Explique por que a expressão <code class="highlighter-rouge">"A" &gt; "a"</code> é avaliada para <code class="highlighter-rouge">false</code>.</p>
+    <p>Explique por que a expressão <code class="language-plaintext highlighter-rouge">"A" &gt; "a"</code> é avaliada para <code class="language-plaintext highlighter-rouge">false</code>.</p>
   </li>
   <li>
     <p>Por qual razão algumas linguagens de programação fornecem diveros tipos inteiros primitivos, como byte, short, int, ou long?</p>
@@ -459,10 +457,10 @@
     <p>Faça um programa em C que calcule o produtório um array com 2^16 elementos e retorne o tempo da operação. Faça implementações com elementos do tipo byte, short, int e long.</p>
   </li>
   <li>
-    <p>Descreva o passo a passo da subtração binária da expressão <code class="highlighter-rouge">15 - 5</code>. Pesquise sobre “Two’s complement”.</p>
+    <p>Descreva o passo a passo da subtração binária da expressão <code class="language-plaintext highlighter-rouge">15 - 5</code>. Pesquise sobre “Two’s complement”.</p>
   </li>
   <li>
-    <p>Crie um programa para fazer conversão de um número integer qualquer para sua forma binária em Ruby. Não use o método <code class="highlighter-rouge">to_s</code>.</p>
+    <p>Crie um programa para fazer conversão de um número integer qualquer para sua forma binária em Ruby. Não use o método <code class="language-plaintext highlighter-rouge">to_s</code>.</p>
   </li>
   <li>
     <p>Crie um programa que imprima de 1 até 100, mas sem usar números.</p>
@@ -542,7 +540,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

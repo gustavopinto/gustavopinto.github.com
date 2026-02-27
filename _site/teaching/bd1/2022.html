@@ -1,0 +1,714 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Banco de Dados 1 - Gustavo Pinto</title>
+<meta name="description" content="Soft Eng Professor and Researcher ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Banco de Dados 1">
+<meta property="og:url" content="http://localhost:4000/teaching/bd1/2022">
+
+
+  <meta property="og:description" content="Soft Eng Professor and Researcher ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Banco de Dados 1">
+  <meta name="twitter:description" content="Soft Eng Professor and Researcher ">
+  <meta name="twitter:url" content="http://localhost:4000/teaching/bd1/2022">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/teaching/bd1/2022">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/scholarship/">Scholarship</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/misc/">Misc</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Professor &amp; Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Banco de Dados 1">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Banco de Dados 1
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, às 20:20.</p>
+
+<h2 id="telegram">Telegram</h2>
+
+<p>Todo material de aula será postado no Telegram.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Introduzir os fundamentos que permitam ao aluno adquirir o domínio básico da tecnologia de banco de dados.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Conceitos básicos de banco de dados. Modelos de dados e linguagens. Projeto de bancos de dados. Novas tecnologias e aplicações de banco de dados.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>HEUSER, Carlos Alberto. Projeto de Banco de Dados. 2a edição. Porto Alegre: Sagra - Luzzato, 1999.</li>
+  <li>SILBERSCHATZ, A.; KORTH, H.; SUDARSHAN, S. Sistema de Banco de Dados. 3a edição. São Paulo: Markon Books, 1999.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="http://www.tusharma.in/preprints/dbSchemaQuality_Preprint_ICSE2018.pdf">Smelly Relations: Measuring and Understanding Database Schema Quality</a></li>
+  <li><a href="https://pure.tudelft.nl/portal/en/publications/searchbased-test-data-generation-for-sql-queries(90a6431f-f78f-4ac3-bf87-c052cd9cd5d4).html">Search-Based Test Data Generation for SQL Queries</a></li>
+  <li><a href="https://github.com/tushartushar/DbDeo">Database smell detector</a></li>
+  <li><a href="https://medium.com/@skyetetra/getting-out-of-the-academic-trap-6c40d92ab436">How to get a data science position after academia with no previous industry experience</a></li>
+  <li><a href="https://github.com/fhoffa/analyzing_github">A growing collection of what I know about analyzing GitHub with BigQuery and other tools</a></li>
+  <li><a href="https://www.spinellis.gr/blog/20180403/">How to Perform Set Operations on Terabyte Files</a></li>
+  <li><a href="http://www.gousios.gr/courses/bigdata/ds-cmd-line.html">Data Science at the command line</a></li>
+  <li><a href="http://blog.alura.com.br/liberada-a-apostila-gratuita-de-sql-do-alura/">Apostila sobre SQL (Alura)</a></li>
+  <li><a href="https://blog.acolyer.org/2020/03/04/millions-of-tiny-databases/">Millions of tiny databases</a></li>
+  <li><a href="https://dl.acm.org/doi/pdf/10.1145/3379597.3387467?casa_token=_D3QiqrtM5IAAAAA:9X0PZ0jQ0CCJvlgmqGJKQZtmTJlZ7WKNlXRcijEaPSDKGSVeuOPTG30I_erN_E2G0emWeOC9G4w">On the Prevalence, Impact, and Evolution of SQL Code Smells in Data-Intensive Systems</a></li>
+  <li>Database-Access Performance Antipatterns in Database-Backed Web Applications](https://people.engr.ncsu.edu/gjin2/icsme-2020-dbperf)</li>
+  <li><a href="https://www.youtube.com/watch?v=xYSPo-GfOoQ">Video sobre melhoria de performance, index, query personalizada e cache</a></li>
+</ul>
+
+<h4 id="base-de-dados-abertas">Base de dados abertas</h4>
+
+<ul>
+  <li>StackOverflow: http://data.stackexchange.com/stackoverflow/queries</li>
+  <li>Github: https://cloud.google.com/bigquery/public-data/github e http://ghtorrent.org/ (exemplos <a href="https://github.com/fhoffa/analyzing_github">aqui</a>)</li>
+  <li>Wikipedia: https://bigquery.cloud.google.com/dataset/fh-bigquery:wikipedia?pli=1 (exemplos <a href="https://www.reddit.com/r/bigquery/comments/3dg9le/analyzing_50_billion_wikipedia_pageviews_in_5/?st=jgq90t8u&amp;sh=3d541169">aqui</a>)</li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Projeto sobre modelagem de dados: 5 pontos</li>
+  <li>Prova sobre modelagem de dados: 5 pontos</li>
+  <li>Projeto de disciplina (PD): 10 pontos</li>
+  <li>Atividade extra (AE): 2 pontos</li>
+</ol>
+
+<h2 id="projeto-sobre-modelagem-de-dados">Projeto sobre modelagem de Dados</h2>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<!-- Os alunos devem criar o modelo entidade relacionamento de um sistema de software **não trivial**. Os alunos devem apontar o sistema escolhido no Telegram. O critério de escolha é *first come, first served*. O trabalho é em dupla. Cada dupla deve descrever em profundidade o sistema escolhido. No entanto, entidades e relacionamentos que não são vitais para o domínio da aplicação não precisam ser descritos. A dupla deve saber justificar as escolhas e implementações feitas. A dupla deverá apresentar o trabalho na data marcada. Na apresentação, a dupla deve descrever o domínio do problema da aplicação escolhida (o que ela faz), as entidades e seus relacionamentos. A riqueza de detalhes (atributos e seus tipos, relacionamentos e seus tipos) é importante para as principais entidades do sistema. Os modelos devem conter, no mímimo, as seguintes características: (1) cardinalidade mínima e máxima, (2) atributo simples, identificador e multivalorado, (3) relacionamento com atributo, (4) relacionamento unário, (5) relacionamento ternário, (6) entidade fracas. Não é necessário descrever essas características para todas entidades e relacionamento; somente para aquelas que representam o core da aplicação. A não apresentação de uma das características acarretará na redução de 0.50 pontos da atividade (somado para cada característica pendente).  Se a dupla optar por usar um software de modelagem que não implemente as características mencionadas anteriormente, certifiquem-se de modificar os diagramas para que essas características sejam cobertas. No mímimo de 3 horas antes da apresentação, a dupla deve enviar os slides bem como o diagrama para o slack (o não envio no prazo estipulado acarretará na redução de 2 pontos da atividade). As duplas que apresentarem no segundo dia serão mais cobradas. Apresentação de até 25 minutos por dupla. -->
+
+<h2 id="projeto-de-disciplina-pd">Projeto de Disciplina (PD)</h2>
+
+<ul>
+  <li>TBD</li>
+</ul>
+
+<h2 id="atividade-extra-ae">Atividade Extra (AE)</h2>
+
+<p>Alunos interessados em fazer a atividade extra devem entrar em contato com o professor, avisando o interesse, até o dia 16/04. As instruções da atividade extra será passada para o aluno interessado. A atividade extra é individual.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações.</p>
+
+<!-- https://sites.google.com/site/ufcregis/home/2015-2/fundamentos-de-banco-de-dados-cc-->
+
+<table>
+  <tbody>
+    <tr>
+      <td>#</td>
+      <td>Data</td>
+      <td>Conteúdo de Aula</td>
+      <td>Link?</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>22/03</td>
+      <td>Apresentação da disciplina</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>24/03</td>
+      <td>Fundamentos de Banco de dados</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>29/03</td>
+      <td>Fundamentos de Banco de dados</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>31/03</td>
+      <td>Fundamentos de Banco de dados</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>05/04</td>
+      <td>DDL, DML, SQL CREATE, INSERT</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>07/04</td>
+      <td>SQL DELETE UPDATE</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>12/04</td>
+      <td><strong>Exercício</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>14/04</td>
+      <td>SQL Complexo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>19/04</td>
+      <td>SQL Funções</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>21/04</td>
+      <td>FERIADO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>26/04</td>
+      <td>SQL Autorização</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>28/04</td>
+      <td><strong>Exercício</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>03/05</td>
+      <td>Boas práticas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>05/05</td>
+      <td>Boas práticas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>10/05</td>
+      <td>Definição de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>12/05</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>17/05</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>19/05</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>24/05</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>26/05</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>31/05</td>
+      <td>Apresentação de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>02/06</td>
+      <td>Modelagem ER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>07/06</td>
+      <td>Modelagem ER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>09/06</td>
+      <td>Modelagem ER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>14/06</td>
+      <td><strong>Prova</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>16/06</td>
+      <td>Definição de projetos ER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>21/06</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>23/06</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>28/06</td>
+      <td>Acompanhamento de projetos</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>30/06</td>
+      <td>Apresentação de projetos ER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>05/07</td>
+      <td>Buffer</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>07/07</td>
+      <td>Buffer</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas de trabalhos após o prazo serão aceitas mas os pontos referentes não serão contabilizados.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Todos os trabalhos (a não ser que indicados explicitamentes) devem ser feitos de forma individual. O que você entregar deve ser fruto do seu trabalho. Alunos são permitidos e encorajados para discutir os trabalhos e projetos com outros alunos. Alunos não são permitidos copiar solução ou parte de solução de colegas. Na presença de plágio, os alunos envolvidos não receberão pontos da atividade em questão.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

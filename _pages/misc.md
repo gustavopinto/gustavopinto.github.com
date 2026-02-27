@@ -27,7 +27,7 @@ author_profile: true
 - [Testes automatizados com Fuzzers](https://www.zup.com.br/blog/teste-fuzzing)
 - [De modelos para sistema: como a engenharia de software pode apoiar a construção de sistemas com componentes de machine learning (SE4ML)](https://www.zup.com.br/blog/se4ml)
 - [Reunião one-on-one ou 1:1: guia de boas práticas](https://www.zup.com.br/blog/reuniao-one-on-one-1-1)
-4. Interviews, Panels, etc
+4. Interviews, Panels, etc.
  - [Interview for Adolfo Neto Podcast](https://anchor.fm/adolfont/episodes/Gustavo-Pinto-Professor-da-Universidade-Federal-do-Par-edaps1)
  - [Panelist on JSS Happy Hour (2020)](https://www.youtube.com/watch?v=rXASV77Sbvk)
  - [Panelist on Agile Diversity and Equity (Agile 2021)](#)

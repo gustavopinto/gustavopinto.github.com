@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -327,9 +325,9 @@
         
         <p><a href="/ruby-guide/">Voltar ao começo do guia</a>.</p>
 
-<p>Arrays são tipos de dados que podem armazenar elementos de qualquer tipo. Os elementos de um array são separados por vírgula, e os elementos de um array são delimitados por colchetes (<code class="highlighter-rouge">[]</code>).</p>
+<p>Arrays são tipos de dados que podem armazenar elementos de qualquer tipo. Os elementos de um array são separados por vírgula, e os elementos de um array são delimitados por colchetes (<code class="language-plaintext highlighter-rouge">[]</code>).</p>
 
-<p>Já trabalhamos com Arrays em vários momentos nesse guia, quando por exemplo utilizamos o método <code class="highlighter-rouge">char</code> de uma <code class="highlighter-rouge">String</code>, que retorna um Array ou quando passamos vários parâmetros opcionais para um método, que são agrupados em um Array, ou quando fazemos uma iteração em um <code class="highlighter-rouge">for</code>. No entanto, em todos esses casos, estávamos apenas utilizando um Array que foi criado pela linguagem. Chegou o momento de nós criarmos os nossos próprios <code class="highlighter-rouge">Arrays</code>.</p>
+<p>Já trabalhamos com Arrays em vários momentos nesse guia, quando por exemplo utilizamos o método <code class="language-plaintext highlighter-rouge">char</code> de uma <code class="language-plaintext highlighter-rouge">String</code>, que retorna um Array ou quando passamos vários parâmetros opcionais para um método, que são agrupados em um Array, ou quando fazemos uma iteração em um <code class="language-plaintext highlighter-rouge">for</code>. No entanto, em todos esses casos, estávamos apenas utilizando um Array que foi criado pela linguagem. Chegou o momento de nós criarmos os nossos próprios <code class="language-plaintext highlighter-rouge">Arrays</code>.</p>
 
 <h3 id="criando-arrays">Criando arrays</h3>
 
@@ -346,24 +344,24 @@
 <span class="nb">puts</span> <span class="n">emails</span>
 </code></pre></div></div>
 
-<p>Perceba que cada elemento do Array é separado por uma vírgula. Mais acima mencionei que era a forma mais simples, o que deixou entender que existem outras formas. Sim, em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Caso queiramos criar um Array em que cada elemento seja uma única palavra, podemos usar a notação <code class="highlighter-rouge">%w{}</code> que cria um Array de palavras (<em>word array</em>):</p>
+<p>Perceba que cada elemento do Array é separado por uma vírgula. Mais acima mencionei que era a forma mais simples, o que deixou entender que existem outras formas. Sim, em Ruby há sempre mais de uma forma de se fazer a mesma coisa. Caso queiramos criar um Array em que cada elemento seja uma única palavra, podemos usar a notação <code class="language-plaintext highlighter-rouge">%w{}</code> que cria um Array de palavras (<em>word array</em>):</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">emails</span> <span class="o">=</span>  <span class="sx">%w{gustavo@google.com gustavo@yahoo.com mail@gustavopinto.org}</span>
 
 <span class="nb">puts</span> <span class="n">emails</span>
 </code></pre></div></div>
 
-<p>Embora seja equivalente a notação de colchetes (<code class="highlighter-rouge">[]</code>), usar o <code class="highlighter-rouge">%w{}</code> pode simplificar a leitura pois não exige que aspas e virgulas sejam fornecidas. Outra forma de criar um Array com valores específicos é usando um Range, junto com o método <code class="highlighter-rouge">to_a</code>, que converte um Range em um Array. Por exemplo:</p>
+<p>Embora seja equivalente a notação de colchetes (<code class="language-plaintext highlighter-rouge">[]</code>), usar o <code class="language-plaintext highlighter-rouge">%w{}</code> pode simplificar a leitura pois não exige que aspas e virgulas sejam fornecidas. Outra forma de criar um Array com valores específicos é usando um Range, junto com o método <code class="language-plaintext highlighter-rouge">to_a</code>, que converte um Range em um Array. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">to_a</span>       <span class="c1">#  =&gt; [1, 2, 3, 4, 5]</span>
 <span class="p">(</span><span class="s2">"a"</span><span class="o">..</span><span class="s2">"e"</span><span class="p">).</span><span class="nf">to_a</span>   <span class="c1">#  =&gt; ["a", "b", "c", "d", "e"]</span>
 </code></pre></div></div>
 
-<p>Como Ruby é uma linguagem que emprega fortemente o paradigma orientado a objetos, Arrays também ser criados usando a estrutura <code class="highlighter-rouge">emails = Array.new(["gustavo@google.com", "gustavo@yahoo.com", "mail@gustavopinto.org"])</code>. Quais dessas você achou mais simples?</p>
+<p>Como Ruby é uma linguagem que emprega fortemente o paradigma orientado a objetos, Arrays também ser criados usando a estrutura <code class="language-plaintext highlighter-rouge">emails = Array.new(["gustavo@google.com", "gustavo@yahoo.com", "mail@gustavopinto.org"])</code>. Quais dessas você achou mais simples?</p>
 
 <h3 id="acessando-elementos-do-array">Acessando elementos do array</h3>
 
-<p>No nosso exemplo, criamos um Array com elementos do tipo <code class="highlighter-rouge">Integer</code> e outro Array com elementos do tipo <code class="highlighter-rouge">String</code>. No entanto, Arrays podem ser heterogêneos, comportando elementos de tipos diferentes. Por exemplo:</p>
+<p>No nosso exemplo, criamos um Array com elementos do tipo <code class="language-plaintext highlighter-rouge">Integer</code> e outro Array com elementos do tipo <code class="language-plaintext highlighter-rouge">String</code>. No entanto, Arrays podem ser heterogêneos, comportando elementos de tipos diferentes. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="p">[</span>
   <span class="s2">"Gustavo Pinto"</span><span class="p">,</span>
@@ -375,9 +373,9 @@
 <span class="nb">puts</span> <span class="n">dados_pessoais</span>
 </code></pre></div></div>
 
-<p>Para acessar um determinado elemento no Array, usamos também a notação de colchetes (<code class="highlighter-rouge">[]</code>). No exemplo do Array acima, acessamos o primeiro elemento utilizando: <code class="highlighter-rouge">dados_pessoais[0]</code>. A posição zero (0) informada dentro dos colchetes se refere ao primeiro elemento do Array.
+<p>Para acessar um determinado elemento no Array, usamos também a notação de colchetes (<code class="language-plaintext highlighter-rouge">[]</code>). No exemplo do Array acima, acessamos o primeiro elemento utilizando: <code class="language-plaintext highlighter-rouge">dados_pessoais[0]</code>. A posição zero (0) informada dentro dos colchetes se refere ao primeiro elemento do Array.
 <!--Começamos a contar por zero por uma questão de design da linguagem, possivelmente inspirado em C. Em C um array aponta para a localização na memória, portanto a expressão *array[n]*, n não deve ser tratado como um índice, mas como um deslocamento da cabeça do array.-->
-Podemos acessar qualquer elemento do Array usando a notação de colchetes (<code class="highlighter-rouge">[]</code>).</p>
+Podemos acessar qualquer elemento do Array usando a notação de colchetes (<code class="language-plaintext highlighter-rouge">[]</code>).</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="p">[</span>
   <span class="s2">"Gustavo Pinto"</span><span class="p">,</span>
@@ -393,13 +391,13 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>   <span class="c1"># =&gt; nil</span>
 </code></pre></div></div>
 
-<p>Diferente de outras linguagens de programação, acessar uma posição sem que exista um elemento armazenado nele não retorna um erro; em Ruby, isto retorna um <code class="highlighter-rouge">nil</code>. Uma outra forma de acessar os elementos de um Array é através do método <code class="highlighter-rouge">at</code>, que funciona de forma análoga a notação de colchetes (<code class="highlighter-rouge">[]</code>).</p>
+<p>Diferente de outras linguagens de programação, acessar uma posição sem que exista um elemento armazenado nele não retorna um erro; em Ruby, isto retorna um <code class="language-plaintext highlighter-rouge">nil</code>. Uma outra forma de acessar os elementos de um Array é através do método <code class="language-plaintext highlighter-rouge">at</code>, que funciona de forma análoga a notação de colchetes (<code class="language-plaintext highlighter-rouge">[]</code>).</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># =&gt; Gustavo Pinto</span>
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; gustavopinto</span>
 </code></pre></div></div>
 
-<p>Para conveniência, podemos acessar o primeiro elemento usando o método <code class="highlighter-rouge">first</code> e o último elemento usando o método <code class="highlighter-rouge">last</code>.</p>
+<p>Para conveniência, podemos acessar o primeiro elemento usando o método <code class="language-plaintext highlighter-rouge">first</code> e o último elemento usando o método <code class="language-plaintext highlighter-rouge">last</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># =&gt; Gustavo Pinto</span>
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; gustavopinto</span>
@@ -421,7 +419,7 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="nb">puts</span> <span class="n">dados_pessoais</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>   <span class="c1"># =&gt; nil</span>
 </code></pre></div></div>
 
-<p>Logo, o índice <code class="highlighter-rouge">-1</code> acessa a última posição do Array, enquanto que o <code class="highlighter-rouge">-2</code> acessa a penúltima, e assim por diante. Novamente, se passarmos um índice sem elemento na posição, Ruby retorna um <code class="highlighter-rouge">nil</code>.</p>
+<p>Logo, o índice <code class="language-plaintext highlighter-rouge">-1</code> acessa a última posição do Array, enquanto que o <code class="language-plaintext highlighter-rouge">-2</code> acessa a penúltima, e assim por diante. Novamente, se passarmos um índice sem elemento na posição, Ruby retorna um <code class="language-plaintext highlighter-rouge">nil</code>.</p>
 
 <p>Assim como aprendemos a utilizar o operador de Range em Strings, podemos também usar o mesmo operador com Arrays.</p>
 
@@ -433,11 +431,11 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="n">dados_pessoais</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="o">..-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># =&gt; []</span>
 </code></pre></div></div>
 
-<p>Como já discutimos em capítulos anteriores, vários operadores em Ruby são, na realidade, métodos. O operador <code class="highlighter-rouge">[]</code> é outro exemplo. Logo, quando fazemos uma chamada como <code class="highlighter-rouge">dados_pessoais[1..2]</code>, é o equivalente a fazer <code class="highlighter-rouge">dados_pessoais.[](1..2)</code>. Como também já discutimos no capítulo sobre tipos de dados, o operador <code class="highlighter-rouge">..</code> é implementado pela classe Range. Logo, a expressão <code class="highlighter-rouge">1..2</code> é equivalente a <code class="highlighter-rouge">Range.new(1,2)</code>. Logo, a nossa chamada <code class="highlighter-rouge">dados_pessoais[1..2]</code> nada mais é do que um açúcar sintático da expressão <code class="highlighter-rouge">dados_pessoais.[](Range.new(1,2))</code>.</p>
+<p>Como já discutimos em capítulos anteriores, vários operadores em Ruby são, na realidade, métodos. O operador <code class="language-plaintext highlighter-rouge">[]</code> é outro exemplo. Logo, quando fazemos uma chamada como <code class="language-plaintext highlighter-rouge">dados_pessoais[1..2]</code>, é o equivalente a fazer <code class="language-plaintext highlighter-rouge">dados_pessoais.[](1..2)</code>. Como também já discutimos no capítulo sobre tipos de dados, o operador <code class="language-plaintext highlighter-rouge">..</code> é implementado pela classe Range. Logo, a expressão <code class="language-plaintext highlighter-rouge">1..2</code> é equivalente a <code class="language-plaintext highlighter-rouge">Range.new(1,2)</code>. Logo, a nossa chamada <code class="language-plaintext highlighter-rouge">dados_pessoais[1..2]</code> nada mais é do que um açúcar sintático da expressão <code class="language-plaintext highlighter-rouge">dados_pessoais.[](Range.new(1,2))</code>.</p>
 
 <h3 id="manipulando-arrays">Manipulando arrays</h3>
 
-<p>Podemos também usar a notação de colchetes para manipular elementos no Array. Por exemplo, a instrução <code class="highlighter-rouge">dados_pessoais[0] = "Gustavo"</code> altera o valor que estava na posição zero para o novo valor que foi passado, no caso a String <code class="highlighter-rouge">Gustavo</code>. Podemos também fazer <a href="/ruby-guide/exp">atribuições paralelas</a> em Arrays. Nesse caso, ao invés de passar um índice específico, podemos passar um Range. Por exemplo:</p>
+<p>Podemos também usar a notação de colchetes para manipular elementos no Array. Por exemplo, a instrução <code class="language-plaintext highlighter-rouge">dados_pessoais[0] = "Gustavo"</code> altera o valor que estava na posição zero para o novo valor que foi passado, no caso a String <code class="language-plaintext highlighter-rouge">Gustavo</code>. Podemos também fazer <a href="/ruby-guide/exp">atribuições paralelas</a> em Arrays. Nesse caso, ao invés de passar um índice específico, podemos passar um Range. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="p">[</span>
   <span class="s2">"Gustavo Pinto"</span><span class="p">,</span>
@@ -451,21 +449,21 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="nb">puts</span> <span class="n">dados_pessoais</span>
 </code></pre></div></div>
 
-<p>Até agora estamos trabalhando em um Array pre-definido. E se quiséssemos adicionar outros elementos no Array <em>ao longo</em> da execução do programa? Podemos usar o operador shovel (<code class="highlighter-rouge">&lt;&lt;</code>) que utilizamos para concatenar Strings também para adicionar novos elementos em um Array.</p>
+<p>Até agora estamos trabalhando em um Array pre-definido. E se quiséssemos adicionar outros elementos no Array <em>ao longo</em> da execução do programa? Podemos usar o operador shovel (<code class="language-plaintext highlighter-rouge">&lt;&lt;</code>) que utilizamos para concatenar Strings também para adicionar novos elementos em um Array.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span>          <span class="c1"># =&gt; [1,2,3,4]</span>
 </code></pre></div></div>
 
-<p>Em outras linguagens, o operador <code class="highlighter-rouge">+</code> é utilizado para adicionar elementos no Array. Como vimos, em Ruby fazemos isso usando o <code class="highlighter-rouge">&lt;&lt;</code>. No entanto, podemos também utilizar o operador <code class="highlighter-rouge">+</code> em Arrays. Nesse caso, o seu comportamento é ligeiramente diferente. Ao invés de adicionar um elemento ao Array, o operador <code class="highlighter-rouge">+</code> concatena dois Arrays. Vamos experimentar um pouco com esses dois operadores:</p>
+<p>Em outras linguagens, o operador <code class="language-plaintext highlighter-rouge">+</code> é utilizado para adicionar elementos no Array. Como vimos, em Ruby fazemos isso usando o <code class="language-plaintext highlighter-rouge">&lt;&lt;</code>. No entanto, podemos também utilizar o operador <code class="language-plaintext highlighter-rouge">+</code> em Arrays. Nesse caso, o seu comportamento é ligeiramente diferente. Ao invés de adicionar um elemento ao Array, o operador <code class="language-plaintext highlighter-rouge">+</code> concatena dois Arrays. Vamos experimentar um pouco com esses dois operadores:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>          <span class="c1"># =&gt; [1,2,3,4,5]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span>            <span class="c1"># =&gt; TypeError</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>         <span class="c1"># =&gt; [1,2,3,[4]]</span>
 </code></pre></div></div>
 
-<p>Enquanto que usar o operador <code class="highlighter-rouge">+</code> com um Array e um Inteiro retorna um <code class="highlighter-rouge">TypeError</code> (não há conversão clara de Inteiro para Array), usar o <code class="highlighter-rouge">&lt;&lt;</code> com dois Arrays acabou inserindo um elemento do tipo Array dentro do nosso Array.</p>
+<p>Enquanto que usar o operador <code class="language-plaintext highlighter-rouge">+</code> com um Array e um Inteiro retorna um <code class="language-plaintext highlighter-rouge">TypeError</code> (não há conversão clara de Inteiro para Array), usar o <code class="language-plaintext highlighter-rouge">&lt;&lt;</code> com dois Arrays acabou inserindo um elemento do tipo Array dentro do nosso Array.</p>
 
-<p>Existe também o método <code class="highlighter-rouge">push</code> que funciona de maneira similar ao operador shovel (<code class="highlighter-rouge">&lt;&lt;</code>). No entanto há uma sutil diferença entre os dois: enquanto que o <code class="highlighter-rouge">&lt;&lt;</code> aceita somente um único argumento e o insere ao final do Array, o método <code class="highlighter-rouge">push</code> aceita um ou mais argumentos (mas também insere ao final do Array). Por exemplo:</p>
+<p>Existe também o método <code class="language-plaintext highlighter-rouge">push</code> que funciona de maneira similar ao operador shovel (<code class="language-plaintext highlighter-rouge">&lt;&lt;</code>). No entanto há uma sutil diferença entre os dois: enquanto que o <code class="language-plaintext highlighter-rouge">&lt;&lt;</code> aceita somente um único argumento e o insere ao final do Array, o método <code class="language-plaintext highlighter-rouge">push</code> aceita um ou mais argumentos (mas também insere ao final do Array). Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span>          <span class="c1"># =&gt; [1,2,3,4]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">push</span> <span class="mi">4</span>        <span class="c1"># =&gt; [1,2,3,4]</span>
@@ -485,9 +483,9 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">delete_at</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># =&gt; 2</span>
 </code></pre></div></div>
 
-<p>Enquanto que o <code class="highlighter-rouge">shift</code> remove o primeiro elemento, o <code class="highlighter-rouge">pop</code> remove o último elemento, o <code class="highlighter-rouge">delete</code> remove um específico, e o <code class="highlighter-rouge">delete_at</code> remove um elemento de uma posição específica. Note que todos os métodos acima retornam o elemento removido, e não o Array modificado.</p>
+<p>Enquanto que o <code class="language-plaintext highlighter-rouge">shift</code> remove o primeiro elemento, o <code class="language-plaintext highlighter-rouge">pop</code> remove o último elemento, o <code class="language-plaintext highlighter-rouge">delete</code> remove um específico, e o <code class="language-plaintext highlighter-rouge">delete_at</code> remove um elemento de uma posição específica. Note que todos os métodos acima retornam o elemento removido, e não o Array modificado.</p>
 
-<p>Por fim, assim como podemos combinar Arrays usando o operador <code class="highlighter-rouge">+</code>, podemos fazer subtração de elementos usando o operador <code class="highlighter-rouge">-</code>.</p>
+<p>Por fim, assim como podemos combinar Arrays usando o operador <code class="language-plaintext highlighter-rouge">+</code>, podemos fazer subtração de elementos usando o operador <code class="language-plaintext highlighter-rouge">-</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1">#=&gt;  [2,3,4,5]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>    <span class="c1">#=&gt;  [2,4]</span>
@@ -495,11 +493,11 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>          <span class="c1">#=&gt;  TypeError</span>
 </code></pre></div></div>
 
-<p>Perceba que o operador <code class="highlighter-rouge">-</code> recebe dois Arrays como operandos. Embora pareça intuitivo tentar remover um elemento sem precisar engloba-lo em um Array, essa operação retorna um <code class="highlighter-rouge">TypeError</code>.</p>
+<p>Perceba que o operador <code class="language-plaintext highlighter-rouge">-</code> recebe dois Arrays como operandos. Embora pareça intuitivo tentar remover um elemento sem precisar engloba-lo em um Array, essa operação retorna um <code class="language-plaintext highlighter-rouge">TypeError</code>.</p>
 
 <h3 id="percorrendo-elementos-do-array">Percorrendo elementos do Array</h3>
 
-<p>Para percorrer elementos em um Array, podemos usar um <code class="highlighter-rouge">for</code>, como vimos no <a href="/ruby-guide/flow">capítulo anterior</a>. Por exemplo:</p>
+<p>Para percorrer elementos em um Array, podemos usar um <code class="language-plaintext highlighter-rouge">for</code>, como vimos no <a href="/ruby-guide/flow">capítulo anterior</a>. Por exemplo:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -508,7 +506,7 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Embora essa seja uma forma muito comum de se percorrer Arrays em algumas linguagens de programação, em Ruby ela é pouco utilizada. Isso pois Ruby conta com várias outras formas (menos procedurais) que são preferidas pela comunidade. Podemos por exemplo utilizar o método <code class="highlighter-rouge">each</code>, que recebe um bloco.</p>
+<p>Embora essa seja uma forma muito comum de se percorrer Arrays em algumas linguagens de programação, em Ruby ela é pouco utilizada. Isso pois Ruby conta com várias outras formas (menos procedurais) que são preferidas pela comunidade. Podemos por exemplo utilizar o método <code class="language-plaintext highlighter-rouge">each</code>, que recebe um bloco.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dados_pessoais</span> <span class="o">=</span> <span class="c1"># ...</span>
 
@@ -517,21 +515,21 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Como esperado, poderíamos escrever blocos de uma única linha usando a notação de chaves <code class="highlighter-rouge">{}</code>, como <code class="highlighter-rouge">dados_pessoais.each {|i| puts i}</code>.</p>
+<p>Como esperado, poderíamos escrever blocos de uma única linha usando a notação de chaves <code class="language-plaintext highlighter-rouge">{}</code>, como <code class="language-plaintext highlighter-rouge">dados_pessoais.each {|i| puts i}</code>.</p>
 
-<p>Na classe Array há diversos outros métodos que podem ser utilizados para iterar por seus elementos. Outro exemplo é o método <code class="highlighter-rouge">reverse_each</code>, que itera pela order reversa dos elementos:</p>
+<p>Na classe Array há diversos outros métodos que podem ser utilizados para iterar por seus elementos. Outro exemplo é o método <code class="language-plaintext highlighter-rouge">reverse_each</code>, que itera pela order reversa dos elementos:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="n">items</span><span class="p">.</span><span class="nf">reverse_each</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">i</span><span class="p">}</span>  <span class="c1"># =&gt; 5, 4, 3, 2, 1</span>
 </code></pre></div></div>
 
-<p>Outro método bastante utilizado é o <code class="highlighter-rouge">map</code>. O <code class="highlighter-rouge">map</code> não somente itera pelos elementos de um Array, também é capaz de fazer manipulações nesses elementos. Por exemplo, poderíamos converter um Array dos primeiros 50 inteiros positivos para sua representação binária usando um <code class="highlighter-rouge">map</code>:</p>
+<p>Outro método bastante utilizado é o <code class="language-plaintext highlighter-rouge">map</code>. O <code class="language-plaintext highlighter-rouge">map</code> não somente itera pelos elementos de um Array, também é capaz de fazer manipulações nesses elementos. Por exemplo, poderíamos converter um Array dos primeiros 50 inteiros positivos para sua representação binária usando um <code class="language-plaintext highlighter-rouge">map</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">50</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="n">items</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">i</span><span class="p">.</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>
 </code></pre></div></div>
 
-<p>Além do <code class="highlighter-rouge">map</code>, o select também é outro método muito útil. O <code class="highlighter-rouge">select</code> filtra elementos do Array baseado em alguma condição. Por exemplo, poderíamos remover todos os elementos ímpares de um Array da seguinte forma:</p>
+<p>Além do <code class="language-plaintext highlighter-rouge">map</code>, o select também é outro método muito útil. O <code class="language-plaintext highlighter-rouge">select</code> filtra elementos do Array baseado em alguma condição. Por exemplo, poderíamos remover todos os elementos ímpares de um Array da seguinte forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">50</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="n">items</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="p">.</span><span class="nf">even?</span> <span class="p">}</span>  <span class="c1"># =&gt; [2, 4, 6, 8, ..., 50]</span>
@@ -556,8 +554,8 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 <span class="n">matriz</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">]</span> <span class="c1"># =&gt; [[0, 0, 0], [1, 1, 1], [0,1,0]]</span>
 </code></pre></div></div>
 
-<p>Imprimir o objeto <code class="highlighter-rouge">matriz</code> em uma única linha não ajuda a entender o seu formato. Vamos quebra-lo em várias linhas apenas para fins de facilitar a visualização:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<p>Imprimir o objeto <code class="language-plaintext highlighter-rouge">matriz</code> em uma única linha não ajuda a entender o seu formato. Vamos quebra-lo em várias linhas apenas para fins de facilitar a visualização:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   [0, 0, 0],
   [1, 1, 1],
   [0, 1, 0]
@@ -571,7 +569,7 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
     <p>Crie um algoritmo de <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">busca binária</a>.</p>
   </li>
   <li>
-    <p>Quantos bytes são necessários para armazenar o seguinte array: <code class="highlighter-rouge">[1,2,3,4]</code>. Justifique sua resposta.</p>
+    <p>Quantos bytes são necessários para armazenar o seguinte array: <code class="language-plaintext highlighter-rouge">[1,2,3,4]</code>. Justifique sua resposta.</p>
   </li>
   <li>
     <p>Explique o resultado das seguintes expressões:</p>
@@ -604,13 +602,13 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
 
 <ul>
   <li>
-    <p>Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array <code class="highlighter-rouge">[1,2,2,2,2,3,3,3,4,4]</code> como entrada imprima o seguinte hash <code class="highlighter-rouge">{1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 3, 4 =&gt; 2}</code>.</p>
+    <p>Crie um método que receba um array de inteiros com valores duplicados e imprima como saída um hash com a quantidade de ocorrência de cada item do array. Por exemplo, dado o array <code class="language-plaintext highlighter-rouge">[1,2,2,2,2,3,3,3,4,4]</code> como entrada imprima o seguinte hash <code class="language-plaintext highlighter-rouge">{1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 3, 4 =&gt; 2}</code>.</p>
   </li>
   <li>
-    <p>Crie um programa que leia um arquivo de texto (<code class="highlighter-rouge">.txt</code>) de um diretório, separe as palavras pelo espaço em branco, e converta as palavras para minúsculo. Imprima o total de palavras do arquivo, e o número de vezes cada palavra foi utilizada.</p>
+    <p>Crie um programa que leia um arquivo de texto (<code class="language-plaintext highlighter-rouge">.txt</code>) de um diretório, separe as palavras pelo espaço em branco, e converta as palavras para minúsculo. Imprima o total de palavras do arquivo, e o número de vezes cada palavra foi utilizada.</p>
   </li>
   <li>
-    <p>Crie um método chamado <code class="highlighter-rouge">particiona</code> que receba um Array de inteiros e retorne um array englobando dois outros arrays: um somente com os números pares e outro somente com os números ímpares. Por ex:</p>
+    <p>Crie um método chamado <code class="language-plaintext highlighter-rouge">particiona</code> que receba um Array de inteiros e retorne um array englobando dois outros arrays: um somente com os números pares e outro somente com os números ímpares. Por ex:</p>
     <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">particionado</span> <span class="o">=</span> <span class="n">particiona</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="nb">puts</span> <span class="n">particionado</span> <span class="c1"># =&gt;  [[2, 4, 6, 8, 10], [1, 3, 5, 7, 9]]</span>
 </code></pre></div>    </div>
@@ -690,7 +688,7 @@ Podemos acessar qualquer elemento do Array usando a notação de colchetes (<cod
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

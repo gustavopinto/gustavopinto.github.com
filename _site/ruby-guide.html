@@ -140,9 +140,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/books/">Books</a>
-            </li><li class="masthead__menu-item">
-              <a href="/publications/">Publications</a>
+              <a href="/scholarship/">Scholarship</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
             </li><li class="masthead__menu-item">
@@ -202,7 +200,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>Software Engingeering Researcher</p>
+        <p>Professor &amp; Researcher</p>
 
       </div>
     
@@ -380,38 +378,38 @@
 
 <p>Para instalações de versões mais recentes (durante a escrita deste guia, recomendo a instalação da versão 3.0+), sugiro o download direto do site oficial da linguagem: <a href="https://www.ruby-lang.org/en/documentation/installation/">https://www.ruby-lang.org/en/documentation/installation/</a>.</p>
 
-<p>Após a instalação, abra o terminal e rode os commandos <code class="highlighter-rouge">ruby -v</code> (que mostrará a versão instalada) e <code class="highlighter-rouge">irb</code> (que abrirá o interpretador interativo da linguagem; Interactive Ruby).</p>
+<p>Após a instalação, abra o terminal e rode os commandos <code class="language-plaintext highlighter-rouge">ruby -v</code> (que mostrará a versão instalada) e <code class="language-plaintext highlighter-rouge">irb</code> (que abrirá o interpretador interativo da linguagem; Interactive Ruby).</p>
 
 <p>Não se surpreenda caso você já tenha o Ruby instalado no seu computador por padrão. Isso pode acontecer caso você use alguma distribuição Linux ou MacOS.</p>
 
 <h2 id="hello-world">Hello world</h2>
 
-<p>Após terminar a instalação do Ruby, para fazer seu primeiro programa em Ruby, abra o interpretador (<code class="highlighter-rouge">irb</code>) e digite:</p>
+<p>Após terminar a instalação do Ruby, para fazer seu primeiro programa em Ruby, abra o interpretador (<code class="language-plaintext highlighter-rouge">irb</code>) e digite:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"Olá mundo!"</span> <span class="c1"># =&gt; nil</span>
 </code></pre></div></div>
 
 <p>Embora esse programa seja incrivelmente pequeno, é possível ainda assim fazer alguns comentários.</p>
 
-<p>Primeiro, a instrução <code class="highlighter-rouge">puts</code> é um comando de Ruby que realiza uma impressão no terminal (similar ao <code class="highlighter-rouge">printf</code> ou <code class="highlighter-rouge">print</code> de outras linguagens de programação).</p>
+<p>Primeiro, a instrução <code class="language-plaintext highlighter-rouge">puts</code> é um comando de Ruby que realiza uma impressão no terminal (similar ao <code class="language-plaintext highlighter-rouge">printf</code> ou <code class="language-plaintext highlighter-rouge">print</code> de outras linguagens de programação).</p>
 
-<p>Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com <code class="highlighter-rouge">puts ("Olá mundo!")</code>) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.</p>
+<p>Segundo, perceba também que não foi fornecido um parênteses. Os parênteses, no entanto, podem ser fornecidos (tente executar com <code class="language-plaintext highlighter-rouge">puts ("Olá mundo!")</code>) mas são facultado pois acredita-se que sua omissão torna a leitura do código mais fluída. De toda forma, como eles podem ser fornecidos, fica a cargo do programador e sua equipe a decisão de fornece-los ou não. Neste guia, optaremos por não utilizar parênteses.</p>
 
-<p>Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto <code class="highlighter-rouge">"Olá mundo!"</code>, enquanto que a segunda saída foi o estranho <code class="highlighter-rouge">=&gt; nil</code>. A seta <code class="highlighter-rouge">=&gt;</code> (conhecida como <em>hash rocket</em>) indica o leitor que houve alguma saída. Já o <code class="highlighter-rouge">nil</code> é o resultado da expressão. O comando <code class="highlighter-rouge">puts</code> sempre avalia para <code class="highlighter-rouge">nil</code> (que é um outro nome para um item nulo).</p>
+<p>Terceiro, note que, após a execução do nosso programa, tivemos duas saídas. A primeira saída foi de fato a impressão do texto <code class="language-plaintext highlighter-rouge">"Olá mundo!"</code>, enquanto que a segunda saída foi o estranho <code class="language-plaintext highlighter-rouge">=&gt; nil</code>. A seta <code class="language-plaintext highlighter-rouge">=&gt;</code> (conhecida como <em>hash rocket</em>) indica o leitor que houve alguma saída. Já o <code class="language-plaintext highlighter-rouge">nil</code> é o resultado da expressão. O comando <code class="language-plaintext highlighter-rouge">puts</code> sempre avalia para <code class="language-plaintext highlighter-rouge">nil</code> (que é um outro nome para um item nulo).</p>
 
-<p>Por fim, perceba que há também uma cerquilha (<code class="highlighter-rouge">#</code>) antes da seta (<code class="highlighter-rouge">=&gt;</code>). Essa cerquilha indica um comentário no código. Qualquer instrução após o comentário não é interpretada. Por não serem trechos de código executáveis, comentários podem ser utilizados para melhor descrever a intenção de um código.</p>
+<p>Por fim, perceba que há também uma cerquilha (<code class="language-plaintext highlighter-rouge">#</code>) antes da seta (<code class="language-plaintext highlighter-rouge">=&gt;</code>). Essa cerquilha indica um comentário no código. Qualquer instrução após o comentário não é interpretada. Por não serem trechos de código executáveis, comentários podem ser utilizados para melhor descrever a intenção de um código.</p>
 
-<p>Para fechar o <code class="highlighter-rouge">irb</code>, digite <code class="highlighter-rouge">exit</code> ou pressione <code class="highlighter-rouge">CTRL+D</code>.</p>
+<p>Para fechar o <code class="language-plaintext highlighter-rouge">irb</code>, digite <code class="language-plaintext highlighter-rouge">exit</code> ou pressione <code class="language-plaintext highlighter-rouge">CTRL+D</code>.</p>
 
 <h3 id="mas-o-que-significa-exatamente-avaliar-uma-expressão">Mas o que significa exatamente ‘avaliar uma expressão’?</h3>
 
 <p>Quando você digita algum comando no interpretador, esse comando na verdade é uma expressão.</p>
 
-<p>Uma expressão é uma entidade que combina operadores a operandos. Operadores podem ser um dos famosos operadores da matemática como <code class="highlighter-rouge">+</code> e  <code class="highlighter-rouge">-</code>, enquanto que operando seriam os valores que utilizamos junto com o operador de soma, por exemplo.</p>
+<p>Uma expressão é uma entidade que combina operadores a operandos. Operadores podem ser um dos famosos operadores da matemática como <code class="language-plaintext highlighter-rouge">+</code> e  <code class="language-plaintext highlighter-rouge">-</code>, enquanto que operando seriam os valores que utilizamos junto com o operador de soma, por exemplo.</p>
 
 <p>Uma expressão precisa ser avaliada e, após avaliação, um valor deve ser retornado.</p>
 
-<p>Logo, se executássemos a expressão <code class="highlighter-rouge">2 + 3</code> no interpretador, o cálculo da operação aritmética seria a avaliação e o resultado da avaliação seria o retorno da expressão (<code class="highlighter-rouge">5</code>, no caso).</p>
+<p>Logo, se executássemos a expressão <code class="language-plaintext highlighter-rouge">2 + 3</code> no interpretador, o cálculo da operação aritmética seria a avaliação e o resultado da avaliação seria o retorno da expressão (<code class="language-plaintext highlighter-rouge">5</code>, no caso).</p>
 
 <p>Vamos entender um pouco mais sobre expressões no capítulo sobre <a href="/ruby-guide/exp">expressões e operadores</a> desse guia. Por hora, é preciso entender que tudo que digitamos no interpretador é uma expressão e, após avaliada, essa expressão sempre deve retornar algum valor.</p>
 
@@ -421,7 +419,7 @@
 
 <ul>
   <li>
-    <p>Em vez de executar direto do interpretador, crie um arquivo chamado <code class="highlighter-rouge">hello.rb</code>. Coloque nesse arquivo o comando que imprime o texto <code class="highlighter-rouge">"Hello world!"</code>. Para executar, faça <code class="highlighter-rouge">ruby hello.rb</code>.</p>
+    <p>Em vez de executar direto do interpretador, crie um arquivo chamado <code class="language-plaintext highlighter-rouge">hello.rb</code>. Coloque nesse arquivo o comando que imprime o texto <code class="language-plaintext highlighter-rouge">"Hello world!"</code>. Para executar, faça <code class="language-plaintext highlighter-rouge">ruby hello.rb</code>.</p>
   </li>
   <li>
     <p>Quais são os operadores mais conhecidos em Ruby?</p>
@@ -504,7 +502,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

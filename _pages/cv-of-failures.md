@@ -5,14 +5,14 @@ layout: single
 author_profile: true
 ---
 
-This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2019/06/vitak-cv-of-failures-june19-1.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. Since rejections is part of the process (e.g., acceptance rate in software engineering venues are often around 20%--30%), I think people should talk more about failure.
+This "CV of Failures" was heavily inspired by the [CV of Failures](https://vitak.files.wordpress.com/2019/06/vitak-cv-of-failures-june19-1.pdf) of [Jessica Vitak](https://jessicavitak.com/). While academia is full of failure, we only know about the success of our peers. Since rejection is part of the process (e.g., acceptance rates in software engineering venues are often around 20%--30%), I think people should talk more about failure.
 
 <center><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/IEEEICSME?ref_src=twsrc%5Etfw">@IEEEICSME</a> for reminding me that is time to update my CV of failure ~&gt; <a href="https://t.co/7CXV8WdxjQ">https://t.co/7CXV8WdxjQ</a></p>&mdash; Gustavo Pinto (@gustavopinto) <a href="https://twitter.com/gustavopinto/status/1003685173924388864?ref_src=twsrc%5Etfw">June 4, 2018</a></blockquote></center>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-As most researchers, I don't like rejections, but I try to see rejections as an opportunity to improve even further.
+Like most researchers, I don't like rejections, but I try to see them as an opportunity to improve even further.
 
-My list of rejections are in the following (this list is incomplete; some are just too old that I cannot recall).
+My list of rejections is in the following (this list is incomplete; some are so old that I cannot recall them).
 
 ## Journal papers rejected (28)
 

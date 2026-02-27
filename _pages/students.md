@@ -5,7 +5,7 @@ permalink: /students/
 author_profile: true
 ---
 
-I am continuously looking for good people to join my research group, at all levels: undergraduate students (urop), M.S students, Ph.D. students, Postdocs, or research programmers. Read more [here](/pos-graduacao) if interested.
+I am continuously looking for good people to join my research group, at all levels: undergraduate students (UROP), M.S. students, Ph.D. students, postdocs, or research programmers. Read more [here](/pos-graduacao) if you are interested.
 
 **UPDATE**: As I hold a position in industry, I only accept 1--3 new students per year, at most.
 
@@ -42,6 +42,7 @@ I am continuously looking for good people to join my research group, at all leve
 - Raphael Campos de Barros (Capstone), December 2022
 - Ronivaldo Ferreira Silva Junior (Capstone), December 2023
 - Fabricio de Souza Miranda (Capstone), December 2023
-- Leonardo Barbosa (MS), March, 2024
-- Marcos Felipe Carvalho Nazário (PhD), March, 2025
-- Josiane de Oliveira Coelho (Capstone), March, 2025
+- Leonardo Barbosa (MS), March 2024
+- Marcos Felipe Carvalho Nazário (PhD), March 2025
+- Josiane de Oliveira Coelho (Capstone), March 2025
+- Dannilo Cabral Rabelo (MS), Feb. 2026

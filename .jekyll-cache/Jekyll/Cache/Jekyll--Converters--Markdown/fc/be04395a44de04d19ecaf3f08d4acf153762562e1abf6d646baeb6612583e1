@@ -1,4 +1,4 @@
-I"^<h2 id="energy-efficiency-a-new-concern-for-application-software-developers">Energy Efficiency: A New Concern for Application Software Developers</h2>
+I"q<h2 id="energy-efficiency-a-new-concern-for-application-software-developers">Energy Efficiency: A New Concern for Application Software Developers</h2>
 
 <p>by Gustavo Pinto and <a href="https://sites.google.com/a/cin.ufpe.br/castor/">Fernando Castor</a></p>
 
@@ -9,7 +9,7 @@
 <p>A shorter version of this paper was also invited to appear in the Brazilian Computing magazine (in Portuguese). Paper <a href="http://gustavopinto.github.io/lost+found/compbrasil2018.pdf">here</a>, full edition <a href="http://www.sbc.org.br/images/flippingbook/computacaobrasil/computa_37/pdf/CompBrasil_37_180.pdf">here</a>.</p>
 
 <p>Bibtex record</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{Pinto:2017:CACM,
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{Pinto:2017:CACM,
  author = {Pinto, Gustavo and Castor, Fernando},
  title = {Energy Efficiency: A New Concern for Application Software Developers},
  journal = {Commun. ACM},
