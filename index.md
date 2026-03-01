@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an **Assistant Professor** at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a **Research Engineer** at [Zup Innovation](https://www.zup.com.br/). 
 
-I do a lot of writing. I am a [well-published author](/scholarship/), I write regularly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I offer [training and consulting](/consulting/) on LLMs for software engineering (bootcamps and mentorship). I used to be an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
+I do a lot of writing. I am a [well-published author](/scholarship/), I write regularly for my [ML4SE newsletter](https://ml4se.substack.com/) (in PT-BR), and I eventually [blog](https://gustavopinto.medium.com/). I also self-published two short [e-books](/books). I used to be an active user on [Twitter](http://twitter.com/gustavopinto/) and on [LinkedIn](https://www.linkedin.com/in/ghlp/). I used to write in the [ML4SE](https://ml4se.substack.com/) newsletter. I welcome emails at mail<span style="display:none">ignorethis</span>@gustavopinto.org.
 
 ### Research & Development
 
@@ -19,6 +19,14 @@ In the past, I had broader interests, including refactoring (*e.g.*, [JSS'2019](
 
 You can see my list of [publications here](/scholarship/), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures/).
 
+### Fun
+
+Beyond the above, I also enjoy:
+- Training jiu jitsu (black belt) & judo (yellow belt)
+- Running and hiking
+- Having fun with my three kids :)
+
+
 ### Minibio
 
-Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers, and writes regularly at his [ML4SE](https://ml4se.substack.com/) newsletter (in PT-BR). He also offers [consulting](/consulting/) programs for Brazilian companies. 
+Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers. He also offers [consulting](/consulting/) programs for Brazilian companies. 
