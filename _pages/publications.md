@@ -1,8 +1,8 @@
 ---
 layout: single
 author_profile: true
-title: Scholarship
-permalink: /scholarship/
+title: Publications
+permalink: /publications/
 classes: ["publications-page"]
 ---
 

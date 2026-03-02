@@ -28,7 +28,7 @@ This is a Jekyll-based personal academic website using the [Minimal Mistakes](ht
 
 ### Key pages to update
 
-- **Scholarship**: `_pages/publications.md` — scholarship intro and publications list at `/scholarship/`; entries grouped by year in reverse chronological order, formatted as numbered Markdown lists with author links and PDF links pointing to `lost+found/`.
+- **Publications**: `_pages/publications.md` — intro and publications list at `/publications/`; entries grouped by year in reverse chronological order, formatted as numbered Markdown lists with author links and PDF links pointing to `lost+found/`.
 - **Students**: `_pages/students.md` — current students and alumni sections.
 
 ### Front matter defaults
