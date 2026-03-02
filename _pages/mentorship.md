@@ -5,14 +5,14 @@ title: Mentoria
 permalink: /mentorship/
 ---
 
-Você quer acelerar decisões e construir soluções de IA sem ficar travado em arquitetura, avaliação e roadmap? Se sim, Conheça meu plano de mentoria!
+Você quer acelerar sua carreira e evoluir na construir soluções que usam IA, sem ficar travado detalhes técnicos ou científicos? Se sim, conheça meu plano de mentoria!
 
-Por 12 meses, você tem encontros semanais comigo para sair de dúvida e virar execução, com direção técnica e estratégia.
+TL;DR: 1:1 de 50m, eu e você, toda semana, por 12 meses. Meu objetivo é colocar minha experiência em IA, pesquisa, estratégia e execução a serviço dos seus projetos, de forma que eu me torne desnecessário em 12 meses.
 
 
-## Suporte contínuo por 12 meses
+## Mentoria contínua por 12 meses
 
-Após o pagamento, você receberá um link para agendamento e poderá marcar **até 1 encontro por semana**, sempre em horários **após as 17h**, com duração de 50 minutos. A ideia é que você tenha um espaço recorrente para destravar decisões, revisar caminhos e acelerar execução.
+Que tal seria receber um link para agendamento de reunião e marcar **até 1 encontro por semana**, sempre em horários **após as 17h**, com duração de 50 minutos? A ideia é que você tenha um espaço recorrente para destravar decisões, revisar caminhos e acelerar execução.
 
 O investimento é um **valor fixo para o programa completo de 1 ano**. Sem cobranças recorrentes, sem upsell no meio do caminho: você entra uma vez e tem acompanhamento ao longo de todo o período combinado. Meu objetivo é colocar minha experiência em IA, pesquisa, estratégia e execução a serviço dos seus projetos, de forma que eu me torne desnecessário em 12 meses.
 
@@ -61,8 +61,6 @@ Eu apoio a estruturar apresentações para públicos diferentes, conectando prob
 
 Eu apoio a revisão de projetos em andamento com foco em direção, escopo, riscos e próximos passos, conectando decisões técnicas e de negócio. Também contribuo na estruturação de propostas com potencial de financiamento, com base na experiência de aprovação de projetos nacionais e internacionais. Esse tipo de acompanhamento pode ser útil para startups que precisam transformar uma ideia em plano executável, proposta robusta ou iniciativa de inovação com parceiros.
 
----
-
 ## Investimento
 
 **Para quem é:** profissionais de tecnologia, pesquisadores, líderes técnicos e pessoas em transição para IA.
@@ -80,13 +78,13 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 - **Formato:** até 1 reunião por semana (máx. 4/mês), sempre após às 17h
 - **Duração das reuniões:** 50 min
 - **Foco:** carreira, direção técnica, conteúdo técnico, pesquisa, leitura de artigos e projetos pessoais/profissionais
-- **Garantia:** reembolso integral em até 30 dias
-- **Nota fiscal:** emissão de nota fiscal, inclusive para apoio em processos de reembolso de programas de educação
+- **Garantia:** reembolso integral em até 30 dias (*no questions asked*)
+- **Nota fiscal:** emissão de nota fiscal para apoio em processos de reembolso de programas de educação coorporativa
 
 ---
 
 ## Pagamento
 
-Para confirmar sua vaga, finalize o [pagamento por este link](https://checkout.nubank.com.br/IDcjBYQkJIbolu6f). Em seguida, me envie o comprovante do pagamento para mail@gustavopinto.org. Em seguida, eu te envio o link de agendamento e você já pode marcar o primeiro encontro! 
+Para confirmar sua vaga, realize o [pagamento por este link](https://checkout.nubank.com.br/IDcjBYQkJIbolu6f). Em seguida, envie o comprovante do pagamento para mail@gustavopinto.org. Após a confirmação, eu te envio o link de agendamento e você já pode marcar o primeiro encontro! 
 
 Vamos lá?
