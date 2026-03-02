@@ -5,13 +5,18 @@ title: Mentoria
 permalink: /mentorship/
 ---
 
+Você quer acelerar decisões e construir soluções de IA sem ficar travado em arquitetura, avaliação e roadmap? Se sim, Conheça meu plano de mentoria!
+
+Por 12 meses, você tem encontros semanais comigo para sair de dúvida e virar execução, com direção técnica e estratégia.
+
+
 ## Suporte contínuo por 12 meses
 
-Sempre que você precisar de ajuda, basta agendar uma reunião comigo e eu vou te apoiar no que estiver ao meu alcance. Você recebe um link para agendamento após o pagamento e pode marcar **até 1 encontro por semana**, sempre em horários **após as 17h**. A ideia é que você tenha um espaço recorrente para destravar decisões, revisar caminhos e acelerar execução.
+Após o pagamento, você receberá um link para agendamento e poderá marcar **até 1 encontro por semana**, sempre em horários **após as 17h**, com duração de 50 minutos. A ideia é que você tenha um espaço recorrente para destravar decisões, revisar caminhos e acelerar execução.
 
-O investimento é um **valor fixo para o programa completo de 1 ano**. Sem cobranças recorrentes, sem upsell no meio do caminho: você entra uma vez e tem acompanhamento ao longo de todo o período combinado. Meu objetivo é colocar minha experiência em IA, pesquisa, estratégia e execução a serviço dos seus projetos de forma prática e contínua.
+O investimento é um **valor fixo para o programa completo de 1 ano**. Sem cobranças recorrentes, sem upsell no meio do caminho: você entra uma vez e tem acompanhamento ao longo de todo o período combinado. Meu objetivo é colocar minha experiência em IA, pesquisa, estratégia e execução a serviço dos seus projetos, de forma que eu me torne desnecessário em 12 meses.
 
-Estou abrindo **apenas 5 vagas** para conseguir manter qualidade no acompanhamento. Se fizer sentido para você, me mande uma mensagem e eu te envio os próximos passos.
+Estou abrindo **apenas 5 vagas** para conseguir manter qualidade no acompanhamento. Se fizer sentido para você, continue lendo pra saber como posso te apoiar.
 
 ---
 
@@ -35,7 +40,7 @@ Eu ajudo a tomar decisões técnicas sobre arquitetura, ferramentas, memória, p
 
 ### 5) Escrita de conteúdo técnico (artigos, posts, white papers, abstracts, talks)
 
-Eu apoio a estruturar ideias técnicas em textos publicáveis e materiais de comunicação, desde abstracts e artigos até conteúdo para talks e documentos executivos. Meu histórico de publicações em conferências e periódicos mostra repertório em pesquisa, indústria e temas emergentes.
+Eu apoio a estruturar ideias técnicas em textos publicáveis e materiais de comunicação, desde textos para LinkeDin, artigos até conteúdo para talks e documentos executivos. Meu histórico de publicações em conferências e periódicos mostra repertório em pesquisa, indústria e temas emergentes.
 
 ### 6) Leitura e discussão de artigos científicos (curadoria, entendimento, aplicação prática)
 
@@ -73,7 +78,7 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 
 ## Benefícios
 
-- **Formato:** até 1 reunião por semana (máx. 4/mês), sempre após as 17h
+- **Formato:** até 1 reunião por semana (máx. 4/mês), sempre após às 17h
 - **Duração das reuniões:** 50 min
 - **Foco:** carreira, direção técnica, conteúdo técnico, pesquisa, leitura de artigos e projetos pessoais/profissionais
 - **Garantia:** reembolso integral em até 30 dias
@@ -81,18 +86,13 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 
 ---
 
-## Resumo
+## Pagamento
 
-Estou abrindo uma **turma fundadora** da minha mentoria anual para acompanhar, ao longo de 1 ano, profissionais que querem evoluir com consistência em IA, carreira e direção técnica. A dinâmica é simples: após o pagamento, você recebe um link para agendamento e pode marcar até 1 encontro por semana (máx. 4/mês), sempre em horários após as 17h.
+Para confirmar sua vaga, finalize o [pagamento por este link](https://checkout.nubank.com.br/IDcjBYQkJIbolu6f). Em seguida, me envie o comprovante do pagamento para mail@gustavopinto.org. Em seguida, eu te envio o link de agendamento e você já pode marcar o primeiro encontro! 
 
-Para esta primeira abertura, o valor será **R$ 5.000** para as primeiras 5 vagas (uma única vez). Depois disso, o próximo lote passa para R$ 9.900, e o valor regular do programa será R$ 18.000 por ano. Se em até 30 dias você perceber que a mentoria não faz sentido para você, basta pedir reembolso e eu devolvo 100% do valor.
+Vamos lá?
 
----
 
-## Contato
 
-Se fizer sentido para você, me mande uma mensagem e eu te envio os próximos passos:
 
-- mail<span style="display:none">ignorethis</span>@gustavopinto.org
 
-Veja também a página de [consultoria](/consulting/) para bootcamps e outros serviços.
