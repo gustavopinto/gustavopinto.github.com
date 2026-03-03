@@ -68,7 +68,7 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 | Oferta | Valor |
 |--------|--------|
 | **Turma fundadora** (primeiras 5 vagas, uma única vez) | R$ 5.000 |
-| Próximo lote | R$ 10.00 |
+| Próximo lote | R$ 10.000 |
 | Valor regular | R$ 15.000 / ano |
 
 ---
