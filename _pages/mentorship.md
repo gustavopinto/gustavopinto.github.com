@@ -68,8 +68,8 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 | Oferta | Valor |
 |--------|--------|
 | **Turma fundadora** (primeiras 5 vagas, uma única vez) | R$ 5.000 |
-| Próximo lote | R$ 9.900 |
-| Valor regular | R$ 18.000 / ano |
+| Próximo lote | R$ 10.00 |
+| Valor regular | R$ 15.000 / ano |
 
 ---
 
@@ -85,6 +85,6 @@ Eu apoio a revisão de projetos em andamento com foco em direção, escopo, risc
 
 ## Pagamento
 
-Para confirmar sua vaga, realize o [pagamento por este link](https://checkout.nubank.com.br/IDcjBYQkJIbolu6f). Em seguida, envie o comprovante do pagamento para mail@gustavopinto.org. Após a confirmação, eu te envio o link de agendamento e você já pode marcar o primeiro encontro! 
+Para confirmar sua vaga, realize o [pagamento por este link](https://checkout.nubank.com.br/IDcjBYQkJIbolu6f), podendo ser parcelado de até 12x. Em seguida, envie o comprovante do pagamento para mail@gustavopinto.org. Após a confirmação, eu te envio o link de agendamento e você já pode marcar o primeiro encontro! 
 
 Vamos lá?
