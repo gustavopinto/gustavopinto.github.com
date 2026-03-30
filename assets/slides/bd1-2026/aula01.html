@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 1 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 1<br><span class="accent">Apresentação da Disciplina</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>31 de março de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Apresentação da disciplina e avaliação</li>
+      <li>O que é um banco de dados?</li>
+      <li>Problemas sem um BD</li>
+      <li>O que é um SGBD?</li>
+      <li>Modelos de dados</li>
+      <li>Arquitetura em 3 níveis</li>
+    </ul>
+  </div>
+
+  <!-- ══ 3. SOBRE A DISCIPLINA ══ -->
+  <div class="slide slide-content">
+    <h2>Sobre a Disciplina</h2>
+    <ul>
+      <li><span class="accent">Horário:</span> Terça e Quinta, 7h30 – 9h10</li>
+      <li><span class="accent">Objetivo:</span> domínio básico da tecnologia de banco de dados</li>
+      <li><span class="accent">SGBD usado:</span> PostgreSQL (gratuito e open source)</li>
+      <li><span class="accent">Comunicação:</span> via plataforma da disciplina</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. FERRAMENTAS ══ -->
+  <div class="slide slide-content">
+    <h2>Ferramentas da Disciplina</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">🗂️ Modelagem ER</h3>
+        <p><strong>BRModelo Web</strong></p>
+        <p class="note">brmodeloweb.com</p>
+        <p style="font-size:1.2rem; margin-top:0.8rem; color:var(--secondary)">Gratuito, no navegador, notação do Heuser. Usado nas aulas de MER.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent)">💻 Aulas e Exercícios</h3>
+        <p><strong>DB Fiddle</strong></p>
+        <p class="note">db-fiddle.com</p>
+        <p style="font-size:1.2rem; margin-top:0.8rem; color:var(--secondary)">Escreva e execute SQL no navegador sem instalar nada. Selecione <strong>PostgreSQL</strong> antes de rodar.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">🏗️ Projeto Final</h3>
+        <p><strong>Supabase</strong></p>
+        <p class="note">supabase.com</p>
+        <p style="font-size:1.2rem; margin-top:0.8rem; color:var(--secondary)">PostgreSQL completo na nuvem. Cada grupo cria uma conta gratuita e usa o SQL Editor integrado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 5. EMENTA ══ -->  <!-- (era 4) -->
+  <div class="slide slide-content">
+    <h2>Ementa</h2>
+    <ul>
+      <li>Conceitos básicos de banco de dados</li>
+      <li>Modelagem Entidade-Relacionamento (MER)</li>
+      <li>Modelo Relacional e Normalização</li>
+      <li>SQL — DDL, DML e Consultas</li>
+      <li>Projeto de banco de dados</li>
+    </ul>
+  </div>
+
+  <!-- ══ 5. AVALIAÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Avaliação</h2>
+    <table class="eval-table">
+      <tr>
+        <td>📝 Prova (P1)</td>
+        <td>MER, Modelo Relacional, Normalização — <em>23/04</em></td>
+        <td>25 pts</td>
+      </tr>
+      <tr>
+        <td>💻 Atividade Prática</td>
+        <td>SQL: DDL, DML, SELECT, JOINs — <em>02/06</em></td>
+        <td>25 pts</td>
+      </tr>
+      <tr>
+        <td>🏗️ Projeto Final</td>
+        <td>Banco completo em grupo — <em>jun/jul</em></td>
+        <td>50 pts</td>
+      </tr>
+    </table>
+    <p style="margin-top:1.5rem; font-size:1.55rem; color:var(--secondary)">
+      Projeto: EP1 (10 pts) + EP2 (15 pts) + Apresentação (25 pts)
+    </p>
+  </div>
+
+  <!-- ══ 6. CALENDÁRIO — PARTE 1 ══ -->
+  <div class="slide slide-content" style="padding:2.5rem 4rem">
+    <h2 style="margin-bottom:0.8rem">Calendário — Março a Junho</h2>
+    <table class="sched-table">
+      <thead><tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>31/03</td><td>Ter</td><td>Apresentação da disciplina. O que é BD? SGBD, modelos de dados, arquitetura em 3 níveis</td></tr>
+        <tr class="row-even"><td>2</td><td>02/04</td><td>Qui</td><td>MER: entidades, atributos, relacionamentos, cardinalidade, participação</td></tr>
+        <tr><td>3</td><td>07/04</td><td>Ter</td><td>MER: entidades fracas, generalização/especialização. Exercícios de modelagem</td></tr>
+        <tr class="row-even"><td>4</td><td>09/04</td><td>Qui</td><td>Modelo Relacional: mapeamento MER→Relacional. Normalização (1FN, 2FN, 3FN)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>14/04</td><td>Ter</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>16/04</td><td>Qui</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>21/04</td><td>Ter</td><td>Tiradentes — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-eval"><td>P1</td><td>23/04</td><td>Qui</td><td>⭐ Avaliação 1 — MER, Modelo Relacional, Normalização</td></tr>
+        <tr class="row-holiday"><td>—</td><td>28/04</td><td>Ter</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>30/04</td><td>Qui</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr><td>5</td><td>05/05</td><td>Ter</td><td>Introdução ao SQL. DDL: CREATE TABLE, tipos de dados, constraints</td></tr>
+        <tr class="row-even"><td>6</td><td>07/05</td><td>Qui</td><td>DDL: ALTER TABLE, DROP TABLE. Laboratório prático</td></tr>
+        <tr><td>7</td><td>12/05</td><td>Ter</td><td>DML: INSERT, UPDATE, DELETE. Transações básicas: COMMIT, ROLLBACK</td></tr>
+        <tr class="row-even"><td>8</td><td>14/05</td><td>Qui</td><td>Laboratório: criação completa de um banco (DDL + DML)</td></tr>
+        <tr><td>9</td><td>19/05</td><td>Ter</td><td>SELECT: WHERE, ORDER BY, LIMIT. Funções escalares básicas</td></tr>
+        <tr class="row-even"><td>10</td><td>21/05</td><td>Qui</td><td>SELECT: Funções de agregação (COUNT, SUM, AVG). GROUP BY e HAVING</td></tr>
+        <tr><td>11</td><td>26/05</td><td>Ter</td><td>JOINs: INNER JOIN, LEFT JOIN, RIGHT JOIN. Exercícios multi-tabela</td></tr>
+        <tr class="row-even"><td>12</td><td>28/05</td><td>Qui</td><td>Laboratório de consultas: exercícios progressivos</td></tr>
+        <tr class="row-eval"><td>AP</td><td>02/06</td><td>Ter</td><td>⭐ Atividade Prática — DDL, DML, SELECT, JOINs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 6b. CALENDÁRIO — PARTE 2 ══ -->
+  <div class="slide slide-content" style="padding:2.5rem 4rem">
+    <h2 style="margin-bottom:0.8rem">Calendário — Junho a Julho</h2>
+    <table class="sched-table">
+      <thead><tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr class="row-holiday"><td>—</td><td>04/06</td><td>Qui</td><td>Corpus Christi — sem aula</td></tr>
+        <tr><td>13</td><td>09/06</td><td>Ter</td><td>Subqueries (IN, EXISTS). Views. CTEs básicas</td></tr>
+        <tr class="row-even"><td>14</td><td>11/06</td><td>Qui</td><td>Índices: conceito e criação. Transações: ACID em profundidade</td></tr>
+        <tr><td>15</td><td>16/06</td><td>Ter</td><td>Revisão geral + tirar dúvidas antes do projeto</td></tr>
+        <tr class="row-project row-eval"><td>16</td><td>18/06</td><td>Qui</td><td>🏗️ Kickoff do Projeto: formação de grupos, escolha de tema, proposta</td></tr>
+        <tr class="row-project"><td>17</td><td>23/06</td><td>Ter</td><td>Orientação: modelagem ER</td></tr>
+        <tr class="row-project row-even"><td>18</td><td>25/06</td><td>Qui</td><td>Orientação: modelo relacional + normalização do esquema</td></tr>
+        <tr class="row-project"><td>19</td><td>30/06</td><td>Ter</td><td>Orientação: DDL — criação das tabelas no SGBD</td></tr>
+        <tr class="row-eval"><td>EP1</td><td>02/07</td><td>Qui</td><td>⭐ Entrega Parcial 1: diagrama ER + scripts DDL funcionando</td></tr>
+        <tr class="row-project"><td>20</td><td>07/07</td><td>Ter</td><td>Orientação: DML — população do banco com dados consistentes</td></tr>
+        <tr class="row-project row-even"><td>21</td><td>09/07</td><td>Qui</td><td>Orientação: consultas SQL (relatórios, filtros, JOINs)</td></tr>
+        <tr class="row-eval"><td>EP2</td><td>14/07</td><td>Ter</td><td>⭐ Entrega Parcial 2: banco com dados + conjunto de consultas</td></tr>
+        <tr class="row-project"><td>22</td><td>16/07</td><td>Qui</td><td>Apresentações — Grupos 1 e 2</td></tr>
+        <tr class="row-project row-even"><td>23</td><td>21/07</td><td>Ter</td><td>Apresentações — Grupos 3 e 4</td></tr>
+        <tr class="row-project"><td>24</td><td>23/07</td><td>Qui</td><td>Apresentações — Grupos 5 e 6 + encerramento</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 7. DADOS vs INFORMAÇÃO (steps) ══ -->
+  <div class="slide slide-content" data-steps="3">
+    <h2>Dados vs. Informação</h2>
+    <div class="question">
+      <p>Qual a diferença entre <span class="accent">dado</span> e <span class="highlight">informação</span>?</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card step" data-step="1">
+        <h3>📦 Dado</h3>
+        <p>Fato bruto, isolado, sem contexto</p>
+        <p class="note">"42" &nbsp;|&nbsp; "João" &nbsp;|&nbsp; "2026-03-31"</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>💡 Informação</h3>
+        <p>Dados processados com contexto e significado</p>
+        <p class="note">"João tem 42 anos e se matriculou em 31/03/2026"</p>
+      </div>
+    </div>
+    <p class="step" data-step="3" style="margin-top:1.5rem; font-size:1.9rem">
+      Banco de dados = infraestrutura para transformar <span class="accent">dados em informação</span>.
+    </p>
+  </div>
+
+  <!-- ══ 8. O QUE É UM BD (com imagem) ══ -->
+  <div class="slide slide-split">
+    <h2>O que é um Banco de Dados?</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <div class="definition">
+          <p>Uma <strong>coleção organizada de dados inter-relacionados</strong>, representando aspectos do mundo real, projetada para atender a um propósito específico.</p>
+        </div>
+        <ul class="plain">
+          <li>Agenda de contatos do celular</li>
+          <li>Cadastro de clientes de um banco</li>
+          <li>Histórico de compras num e-commerce</li>
+          <li>Prontuário de pacientes de um hospital</li>
+        </ul>
+      </div>
+      <div class="split-right">
+        <!-- Phone contact list SVG -->
+        <svg width="190" height="310" viewBox="0 0 190 310" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="180" height="300" rx="22" fill="#1e293b"/>
+          <rect x="14" y="28" width="162" height="248" rx="5" fill="#f8fafc"/>
+          <!-- Header bar -->
+          <rect x="14" y="28" width="162" height="44" rx="5" fill="#0369a1"/>
+          <text x="95" y="55" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Contatos</text>
+          <!-- Search bar -->
+          <rect x="22" y="80" width="146" height="24" rx="12" fill="#e2e8f0"/>
+          <text x="95" y="96" text-anchor="middle" fill="#94a3b8" font-size="11">🔍  Buscar</text>
+          <!-- Contact 1 -->
+          <circle cx="42" cy="128" r="16" fill="#dbeafe"/>
+          <text x="42" y="133" text-anchor="middle" fill="#1d4ed8" font-size="12" font-weight="bold">AG</text>
+          <text x="68" y="123" fill="#0f172a" font-size="12" font-weight="600">Ana Gomes</text>
+          <text x="68" y="138" fill="#94a3b8" font-size="10">+55 91 9 8000-0001</text>
+          <line x1="14" y1="152" x2="176" y2="152" stroke="#e2e8f0" stroke-width="1"/>
+          <!-- Contact 2 -->
+          <circle cx="42" cy="168" r="16" fill="#dcfce7"/>
+          <text x="42" y="173" text-anchor="middle" fill="#166534" font-size="12" font-weight="bold">BC</text>
+          <text x="68" y="163" fill="#0f172a" font-size="12" font-weight="600">Bruno Costa</text>
+          <text x="68" y="178" fill="#94a3b8" font-size="10">+55 91 9 8000-0002</text>
+          <line x1="14" y1="192" x2="176" y2="192" stroke="#e2e8f0" stroke-width="1"/>
+          <!-- Contact 3 -->
+          <circle cx="42" cy="208" r="16" fill="#fef3c7"/>
+          <text x="42" y="213" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">CS</text>
+          <text x="68" y="203" fill="#0f172a" font-size="12" font-weight="600">Carla Silva</text>
+          <text x="68" y="218" fill="#94a3b8" font-size="10">+55 91 9 8000-0003</text>
+          <line x1="14" y1="232" x2="176" y2="232" stroke="#e2e8f0" stroke-width="1"/>
+          <!-- Contact 4 -->
+          <circle cx="42" cy="248" r="16" fill="#fce7f3"/>
+          <text x="42" y="253" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold">DS</text>
+          <text x="68" y="243" fill="#0f172a" font-size="12" font-weight="600">Diego Santos</text>
+          <text x="68" y="258" fill="#94a3b8" font-size="10">+55 91 9 8000-0004</text>
+          <!-- Home button -->
+          <circle cx="95" cy="291" r="9" fill="#334155"/>
+          <circle cx="95" cy="291" r="6" fill="none" stroke="#475569" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. PROBLEMAS SEM BD (steps) ══ -->
+  <div class="slide slide-content" data-steps="4">
+    <h2 style="color:var(--highlight)">O que acontece sem um banco de dados?</h2>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card step" data-step="1">
+        <h3>🔁 Redundância</h3>
+        <p>Mesmo dado repetido em vários arquivos</p>
+        <p class="note">Ex: nome do cliente em planilha de vendas, faturamento e suporte</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>⚠️ Inconsistência</h3>
+        <p>Dados divergentes entre arquivos diferentes</p>
+        <p class="note">Ex: endereço atualizado em um lugar, desatualizado em outro</p>
+      </div>
+      <div class="card step" data-step="3">
+        <h3>🔍 Acesso difícil</h3>
+        <p>Sem mecanismo padrão para consultar e filtrar</p>
+        <p class="note">Ex: "quantos clientes compraram mais de 3 vezes?" — impossível em CSV</p>
+      </div>
+      <div class="card step" data-step="4">
+        <h3>🔒 Sem controle</h3>
+        <p>Qualquer pessoa pode modificar ou apagar tudo</p>
+        <p class="note">Ex: arquivo compartilhado no Google Drive com edição livre</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. O QUE É UM SGBD ══ -->
+  <div class="slide slide-content">
+    <h2>O que é um SGBD?</h2>
+    <div class="definition">
+      <p>Um <strong>Sistema de Gerenciamento de Banco de Dados</strong> é o software que permite criar, manter e acessar bancos de dados de forma eficiente, segura e confiável.</p>
+    </div>
+    <ul>
+      <li>Controle de acesso e segurança</li>
+      <li>Recuperação em caso de falhas</li>
+      <li>Controle de concorrência (múltiplos usuários)</li>
+      <li>Interface padronizada via <span class="accent">SQL</span></li>
+    </ul>
+  </div>
+
+  <!-- ══ 11. SGBDs NO MERCADO ══ -->
+  <div class="slide slide-content">
+    <h2>SGBDs no mercado</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>🐘 PostgreSQL</h3>
+        <p>Open source, robusto, rico em recursos</p>
+        <p class="note success">← usaremos na disciplina (ver Anexo)</p>
+      </div>
+      <div class="card">
+        <h3>🐬 MySQL / MariaDB</h3>
+        <p>Muito popular na web, simples e rápido</p>
+        <p class="note">Usado por Facebook, Twitter, Wikipedia</p>
+      </div>
+      <div class="card">
+        <h3>🏢 Oracle / SQL Server</h3>
+        <p>Soluções corporativas pagas e robustas</p>
+        <p class="note">Dominantes em bancos e grandes empresas</p>
+      </div>
+      <div class="card">
+        <h3>📱 SQLite</h3>
+        <p>Embarcado, sem servidor — apps e protótipos</p>
+        <p class="note">Dentro de todo celular Android e iOS</p>
+      </div>
+      <div class="card">
+        <h3>🍃 MongoDB</h3>
+        <p>NoSQL orientado a documentos JSON</p>
+        <p class="note">Flexível para dados sem esquema fixo</p>
+      </div>
+      <div class="card">
+        <h3>🔴 Redis</h3>
+        <p>NoSQL chave-valor, altíssima performance</p>
+        <p class="note">Cache, sessões, filas em tempo real</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 12. MODELOS DE DADOS — VISÃO GERAL ══ -->
+  <div class="slide slide-content">
+    <h2>Modelos de Dados</h2>
+    <ul>
+      <li><span class="highlight">Hierárquico (1960s):</span> dados em árvore, pai → filhos</li>
+      <li><span class="highlight">Rede (1969):</span> grafo — um filho pode ter múltiplos pais</li>
+      <li><span class="accent">Relacional (1970):</span> tabelas com linhas e colunas — o dominante</li>
+      <li><span class="highlight">Orientado a Objetos:</span> objetos como em programação OO</li>
+      <li><span class="highlight">NoSQL (2000s):</span> documento, chave-valor, grafo, colunar</li>
+    </ul>
+    <p style="margin-top:1.6rem; font-size:1.9rem">
+      Foco desta disciplina: <span class="accent">modelo relacional</span>.
+    </p>
+  </div>
+
+  <!-- ══ 13. MODELO HIERÁRQUICO ══ -->
+  <div class="slide slide-split">
+    <h2>Modelo Hierárquico</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Proposto pela IBM nos anos 1960 (IMS)</li>
+          <li>Estrutura em <strong>árvore</strong>: cada filho tem <strong>exatamente um</strong> pai</li>
+          <li>Navegação sempre de cima para baixo</li>
+          <li>Limitado: relacionamentos M:N são difíceis</li>
+          <li>Ainda usado em mainframes bancários</li>
+        </ul>
+        <div class="card" style="margin-top:1.2rem; background:rgba(146,64,14,0.06)">
+          <p style="font-size:1.3rem"><strong>Problema:</strong> um funcionário que pertence a dois departamentos precisa ser duplicado na árvore.</p>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="280" height="210" viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg">
+          <!-- Root -->
+          <rect x="90" y="8" width="100" height="36" rx="8" fill="#0369a1"/>
+          <text x="140" y="31" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Empresa</text>
+          <!-- Lines to departments -->
+          <line x1="140" y1="44" x2="140" y2="60" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="65" y1="60" x2="215" y2="60" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="65" y1="60" x2="65" y2="76" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="215" y1="60" x2="215" y2="76" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Depts -->
+          <rect x="20" y="76" width="90" height="34" rx="7" fill="#475569"/>
+          <text x="65" y="98" text-anchor="middle" fill="white" font-size="13">Depto A</text>
+          <rect x="170" y="76" width="90" height="34" rx="7" fill="#475569"/>
+          <text x="215" y="98" text-anchor="middle" fill="white" font-size="13">Depto B</text>
+          <!-- Lines to employees A -->
+          <line x1="65" y1="110" x2="65" y2="126" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="126" x2="95" y2="126" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="126" x2="35" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="95" y1="126" x2="95" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <rect x="5" y="140" width="60" height="28" rx="6" fill="#94a3b8"/>
+          <text x="35" y="158" text-anchor="middle" fill="white" font-size="11">Func 1</text>
+          <rect x="66" y="140" width="60" height="28" rx="6" fill="#94a3b8"/>
+          <text x="96" y="158" text-anchor="middle" fill="white" font-size="11">Func 2</text>
+          <!-- Lines to employee B -->
+          <line x1="215" y1="110" x2="215" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <rect x="185" y="140" width="60" height="28" rx="6" fill="#94a3b8"/>
+          <text x="215" y="158" text-anchor="middle" fill="white" font-size="11">Func 3</text>
+          <!-- Legend -->
+          <text x="140" y="200" text-anchor="middle" fill="#94a3b8" font-size="11">Cada nó tem exatamente um pai</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14. MODELO EM REDE ══ -->
+  <div class="slide slide-split">
+    <h2>Modelo em Rede</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Padrão CODASYL (1969)</li>
+          <li>Estrutura em <strong>grafo</strong>: um filho pode ter <strong>múltiplos pais</strong></li>
+          <li>Resolve o problema M:N do hierárquico</li>
+          <li>Navegação complexa via ponteiros</li>
+          <li>Prático mas difícil de manter</li>
+        </ul>
+        <div class="card" style="margin-top:1.2rem; background:rgba(3,105,161,0.06)">
+          <p style="font-size:1.3rem"><strong>Avanço:</strong> "Estudante matriculado em vários cursos, cada curso com vários estudantes" — possível sem duplicação.</p>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="260" height="210" viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg">
+          <!-- Alunos -->
+          <rect x="80" y="10" width="100" height="34" rx="8" fill="#0369a1"/>
+          <text x="130" y="32" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Aluno A</text>
+          <rect x="80" y="60" width="100" height="34" rx="8" fill="#0369a1"/>
+          <text x="130" y="82" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Aluno B</text>
+          <!-- Cursos -->
+          <rect x="10" y="148" width="80" height="34" rx="8" fill="#475569"/>
+          <text x="50" y="170" text-anchor="middle" fill="white" font-size="12">BD I</text>
+          <rect x="100" y="148" width="80" height="34" rx="8" fill="#475569"/>
+          <text x="140" y="170" text-anchor="middle" fill="white" font-size="12">POO</text>
+          <rect x="190" y="148" width="60" height="34" rx="8" fill="#475569"/>
+          <text x="220" y="170" text-anchor="middle" fill="white" font-size="12">LP</text>
+          <!-- Many-to-many connections -->
+          <line x1="130" y1="44" x2="50"  y2="148" stroke="#0369a1" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="130" y1="44" x2="140" y2="148" stroke="#0369a1" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="130" y1="94" x2="140" y2="148" stroke="#92400e" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="130" y1="94" x2="220" y2="148" stroke="#92400e" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="130" y1="44" x2="220" y2="148" stroke="#0369a1" stroke-width="2" stroke-dasharray="4"/>
+          <!-- Legend -->
+          <rect x="10" y="194" width="12" height="3" fill="#0369a1"/>
+          <text x="28" y="199" fill="#475569" font-size="10">Aluno A</text>
+          <rect x="80" y="194" width="12" height="3" fill="#92400e"/>
+          <text x="98" y="199" fill="#475569" font-size="10">Aluno B</text>
+          <text x="130" y="207" text-anchor="middle" fill="#94a3b8" font-size="10">Múltiplas conexões sem hierarquia</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 15. MODELO RELACIONAL ══ -->
+  <div class="slide slide-content">
+    <h2>Modelo Relacional ⭐</h2>
+    <div style="display:flex; gap:2rem; width:100%; align-items:flex-start; margin-top:0.5rem">
+      <div style="flex:1">
+        <ul class="plain">
+          <li>Proposto por <strong>E.F. Codd</strong> (IBM, 1970)</li>
+          <li>Dados em <strong>tabelas</strong> (relações) com linhas e colunas</li>
+          <li>Relacionamentos via <strong>chaves estrangeiras</strong></li>
+          <li>Linguagem padronizada: <span class="accent">SQL</span></li>
+          <li>Independente de implementação física</li>
+          <li>Dominante até hoje — o foco desta disciplina</li>
+        </ul>
+      </div>
+      <div style="flex:1">
+        <p class="table-label">FUNCIONARIO</p>
+        <table class="rel-table" style="margin-bottom:1.2rem">
+          <thead><tr><th>id</th><th>nome</th><th>depto_id</th></tr></thead>
+          <tbody>
+            <tr><td class="pk">1</td><td>Ana Gomes</td><td class="fk">10</td></tr>
+            <tr><td class="pk">2</td><td>Bruno Costa</td><td class="fk">20</td></tr>
+            <tr><td class="pk">3</td><td>Carla Silva</td><td class="fk">10</td></tr>
+          </tbody>
+        </table>
+        <p class="table-label">DEPARTAMENTO</p>
+        <table class="rel-table">
+          <thead><tr><th>id</th><th>nome</th></tr></thead>
+          <tbody>
+            <tr><td class="pk">10</td><td>Engenharia</td></tr>
+            <tr><td class="pk">20</td><td>Marketing</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:1.1rem; margin-top:0.5rem; color:var(--secondary)">
+          <span style="color:var(--accent)">■</span> PK &nbsp; <span style="color:var(--highlight)">■</span> FK
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 16. NoSQL ══ -->
+  <div class="slide slide-content">
+    <h2>Modelos NoSQL</h2>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card">
+        <h3>📄 Orientado a Documentos</h3>
+        <p>Armazena documentos JSON/BSON. Flexível, sem esquema fixo.</p>
+        <p class="note">Ex: <strong>MongoDB</strong> — perfil de usuário, catálogo de produtos</p>
+      </div>
+      <div class="card">
+        <h3>🔑 Chave-Valor</h3>
+        <p>Estrutura mais simples: chave → valor. Altíssima performance.</p>
+        <p class="note">Ex: <strong>Redis</strong> — sessões, cache, carrinho de compras</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Orientado a Grafos</h3>
+        <p>Nós e arestas para modelar relacionamentos complexos.</p>
+        <p class="note">Ex: <strong>Neo4j</strong> — redes sociais, detecção de fraude</p>
+      </div>
+      <div class="card">
+        <h3>📊 Colunar</h3>
+        <p>Armazena dados por coluna, eficiente para análises em larga escala.</p>
+        <p class="note">Ex: <strong>Cassandra</strong> — séries temporais, IoT, analytics</p>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:1.6rem; color:var(--secondary)">
+      NoSQL = "Not Only SQL" — usados quando o relacional não é a melhor escolha.
+    </p>
+  </div>
+
+  <!-- ══ 17. ARQUITETURA 3 NÍVEIS — VISÃO GERAL ══ -->
+  <div class="slide slide-content">
+    <h2>Arquitetura em 3 Níveis (ANSI/SPARC)</h2>
+    <div class="levels">
+      <div class="level level-v">
+        <span class="level-icon">👁️</span>
+        <div class="level-text">
+          <h4 class="highlight">Nível Externo — Visão</h4>
+          <p>O que cada usuário ou aplicação enxerga — apenas os dados relevantes para ele</p>
+        </div>
+      </div>
+      <div class="level level-c">
+        <span class="level-icon">🧠</span>
+        <div class="level-text">
+          <h4 class="accent">Nível Conceitual — Lógico</h4>
+          <p>Estrutura global do banco: tabelas, colunas, relacionamentos e restrições</p>
+        </div>
+      </div>
+      <div class="level level-f">
+        <span class="level-icon">💾</span>
+        <div class="level-text">
+          <h4 class="success">Nível Interno — Físico</h4>
+          <p>Como os dados são efetivamente armazenados em disco (arquivos, índices, blocos)</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.3rem; font-size:1.7rem">
+      Proposta em 1975 — base para a <span class="accent">independência de dados</span>.
+    </p>
+  </div>
+
+  <!-- ══ 18. NÍVEL EXTERNO ══ -->
+  <div class="slide slide-content">
+    <h2>Nível Externo — Visão</h2>
+    <div style="display:flex; gap:2rem; width:100%; margin-top:0.5rem">
+      <div style="flex:1">
+        <ul class="plain">
+          <li>Cada usuário/aplicação vê apenas <strong>seus dados</strong></li>
+          <li>Implementado com <strong>Views SQL</strong></li>
+          <li>Garante <strong>segurança</strong>: salário visível só pelo RH</li>
+          <li>Permite simplificar dados complexos</li>
+          <li>Vários níveis externos coexistem</li>
+        </ul>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:0.8rem">
+        <div class="card" style="border-left:4px solid var(--highlight)">
+          <h3 style="font-size:1.3rem">👨‍💼 Visão do Funcionário</h3>
+          <p>Vê: nome, cargo, departamento</p>
+          <p class="note">Não vê: salário dos colegas, dados financeiros</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--accent)">
+          <h3 style="font-size:1.3rem">🏢 Visão do Gerente</h3>
+          <p>Vê: equipe completa + salários do setor</p>
+          <p class="note">Não vê: dados de outros departamentos</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--success)">
+          <h3 style="font-size:1.3rem">📊 Visão do RH</h3>
+          <p>Vê: todos os funcionários e todos os salários</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 19. NÍVEL CONCEITUAL ══ -->
+  <div class="slide slide-content">
+    <h2>Nível Conceitual — Lógico</h2>
+    <div style="display:flex; gap:2rem; width:100%; margin-top:0.5rem">
+      <div style="flex:1">
+        <ul class="plain">
+          <li>Esquema global — <strong>toda a estrutura</strong> do BD</li>
+          <li>Define tabelas, colunas, tipos e domínios</li>
+          <li>Define <strong>restrições</strong>: PK, FK, NOT NULL, UNIQUE</li>
+          <li>Define relacionamentos entre entidades</li>
+          <li>Gerenciado pelo <strong>DBA</strong> (Administrador de BD)</li>
+          <li>O modelo ER é uma ferramenta para projetá-lo</li>
+        </ul>
+      </div>
+      <div style="flex:1">
+        <p class="table-label" style="margin-bottom:0.8rem">Esquema conceitual (exemplo)</p>
+        <div class="card" style="font-size:1.2rem; font-family:monospace; background:#1e293b; color:#e2e8f0; border:none">
+          <span style="color:#38bdf8">TABLE</span> Funcionario (<br>
+          &nbsp;&nbsp;id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INT <span style="color:#4ade80">PRIMARY KEY</span>,<br>
+          &nbsp;&nbsp;nome &nbsp;&nbsp; VARCHAR(100) <span style="color:#fbbf24">NOT NULL</span>,<br>
+          &nbsp;&nbsp;salario DECIMAL(10,2),<br>
+          &nbsp;&nbsp;depto &nbsp; INT <span style="color:#fb923c">REFERENCES</span> Depto(id)<br>
+          )
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 20. NÍVEL INTERNO ══ -->
+  <div class="slide slide-content">
+    <h2>Nível Interno — Físico</h2>
+    <div style="display:flex; gap:2rem; width:100%; margin-top:0.5rem">
+      <div style="flex:1">
+        <ul class="plain">
+          <li>Como os dados são <strong>fisicamente gravados</strong> em disco</li>
+          <li>Organização em <strong>páginas e blocos</strong> (ex: 8KB cada)</li>
+          <li><strong>Estruturas de índice</strong>: B-Tree, Hash, GiST</li>
+          <li>Compressão, criptografia, particionamento</li>
+          <li>Gerenciado automaticamente pelo SGBD</li>
+          <li>O desenvolvedor normalmente <strong>não precisa se preocupar</strong></li>
+        </ul>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:0.8rem">
+        <div class="card">
+          <h3 style="font-size:1.3rem">📁 Arquivo de dados</h3>
+          <p>Registros armazenados em páginas de disco</p>
+          <p class="note">Bloco 1: linhas 1-100 &nbsp;|&nbsp; Bloco 2: linhas 101-200 …</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.3rem">🌲 Índice B-Tree</h3>
+          <p>Estrutura de árvore para buscas em O(log n)</p>
+          <p class="note">Ex: buscar por <code>id = 42</code> em 1 milhão de registros</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.3rem">💿 Buffer Pool</h3>
+          <p>Páginas em memória RAM para evitar acesso a disco</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 21. INDEPENDÊNCIA DE DADOS ══ -->
+  <div class="slide slide-content">
+    <h2>Independência de Dados</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>🔧 Independência Física</h3>
+        <p>Posso mudar <strong>como</strong> os dados são armazenados sem afetar a estrutura lógica.</p>
+        <p class="note">Ex: reorganizar índices, trocar o disco, mudar formato — o esquema não muda.</p>
+      </div>
+      <div class="card">
+        <h3>🏗️ Independência Lógica</h3>
+        <p>Posso mudar a estrutura lógica sem quebrar as aplicações que usam o banco.</p>
+        <p class="note">Ex: adicionar uma coluna nova sem precisar alterar o sistema.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.6rem; font-size:1.9rem">
+      Independência é o principal benefício da arquitetura em 3 níveis.
+    </p>
+  </div>
+
+  <!-- ══ 22. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 02/04 (Qui)</span>
+    <h1>Modelagem<br><span class="accent">Entidade-Relacionamento</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem">Entidades e atributos</li>
+      <li style="font-size:1.9rem">Relacionamentos e cardinalidade</li>
+      <li style="font-size:1.9rem">Participação total e parcial</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">
+      📖 Leitura recomendada: Heuser, cap. 2
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!--           A N E X O S             -->
+  <!-- ══════════════════════════════════ -->
+
+  <!-- ══ A1. INSTALAÇÃO POSTGRESQL — INTRO ══ -->
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Anexo</span>
+    <h2>Instalação do PostgreSQL</h2>
+    <p style="margin-bottom:1.5rem; font-size:1.7rem">
+      PostgreSQL é o SGBD que usaremos na disciplina. É gratuito, open source e disponível para todos os sistemas operacionais.
+    </p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>🪟 Windows</h3>
+        <p>Instalador gráfico oficial com pgAdmin incluso</p>
+        <p class="note">postgresql.org/download/windows</p>
+      </div>
+      <div class="card">
+        <h3>🍎 macOS</h3>
+        <p>Postgres.app (mais simples) ou Homebrew</p>
+        <p class="note">postgresapp.com</p>
+      </div>
+      <div class="card">
+        <h3>🐧 Linux</h3>
+        <p>Via gerenciador de pacotes (apt, dnf, pacman)</p>
+        <p class="note">postgresql.org/download/linux</p>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:1.5rem; color:var(--secondary)">
+      Versão recomendada: <strong>PostgreSQL 17</strong> (última estável)
+    </p>
+  </div>
+
+  <!-- ══ A2. INSTALAÇÃO — WINDOWS ══ -->
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Anexo</span>
+    <h2>Instalação — Windows</h2>
+    <div class="install-section">
+      <h3 class="accent">1. Download</h3>
+      <p style="font-size:1.5rem">Acesse <strong>postgresql.org/download/windows</strong> → clique em <em>"Download the installer"</em> → escolha a versão 17 para Windows x86-64.</p>
+    </div>
+    <div class="install-section">
+      <h3 class="accent">2. Instalação</h3>
+      <ul class="plain">
+        <li>Execute o instalador como Administrador</li>
+        <li>Componentes: PostgreSQL Server + pgAdmin 4 + Command Line Tools</li>
+        <li>Defina uma senha para o usuário <code>postgres</code> (anote!)</li>
+        <li>Porta padrão: <strong>5432</strong> — não altere</li>
+      </ul>
+    </div>
+    <div class="install-section">
+      <h3 class="accent">3. Teste no terminal</h3>
+      <pre><span class="cmd">psql</span> -U postgres -c <span style="color:#86efac">"SELECT version();"</span>
+<span class="cmt"># deve mostrar: PostgreSQL 17.x ...</span></pre>
+    </div>
+  </div>
+
+  <!-- ══ A3. INSTALAÇÃO — macOS / LINUX ══ -->
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Anexo</span>
+    <h2>Instalação — macOS e Linux</h2>
+    <div class="install-section">
+      <h3 class="highlight">macOS — Opção 1: Postgres.app (recomendado)</h3>
+      <p style="font-size:1.4rem; margin-bottom:0.5rem">Baixe em <strong>postgresapp.com</strong>, arraste para Aplicativos, clique em <em>Initialize</em>. Pronto.</p>
+    </div>
+    <div class="install-section">
+      <h3 class="highlight">macOS — Opção 2: Homebrew</h3>
+      <pre><span class="cmd">brew</span> install postgresql@17
+<span class="cmd">brew</span> services start postgresql@17</pre>
+    </div>
+    <div class="install-section">
+      <h3 class="success">Ubuntu / Debian</h3>
+      <pre><span class="cmd">sudo</span> apt update && sudo apt install -y postgresql
+<span class="cmd">sudo</span> systemctl start postgresql</pre>
+    </div>
+    <div class="install-section">
+      <h3 class="success">Fedora / RHEL</h3>
+      <pre><span class="cmd">sudo</span> dnf install postgresql-server postgresql-contrib
+<span class="cmd">sudo</span> postgresql-setup --initdb && sudo systemctl start postgresql</pre>
+    </div>
+  </div>
+
+  <!-- ══ A4. PRIMEIRO ACESSO ══ -->
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Anexo</span>
+    <h2>Primeiro Acesso</h2>
+    <div class="install-section">
+      <h3 class="accent">Via terminal (psql)</h3>
+      <pre><span class="cmt"># conectar ao PostgreSQL</span>
+<span class="cmd">psql</span> -U postgres
+
+<span class="cmt"># criar um banco de dados de teste</span>
+<span class="cmd">CREATE DATABASE</span> bd1_teste;
+
+<span class="cmt"># conectar a ele</span>
+<span class="cmd">\c</span> bd1_teste
+
+<span class="cmt"># verificar versão</span>
+<span class="cmd">SELECT</span> version();</pre>
+    </div>
+    <div class="install-section">
+      <h3 class="accent">Via pgAdmin 4 (interface gráfica)</h3>
+      <ul class="plain">
+        <li>Abra o pgAdmin → clique em <em>Add New Server</em></li>
+        <li>Name: <code>local</code> &nbsp;|&nbsp; Host: <code>localhost</code> &nbsp;|&nbsp; Port: <code>5432</code></li>
+        <li>Username: <code>postgres</code> &nbsp;|&nbsp; Password: (a que você definiu)</li>
+        <li>Salve e expanda o servidor para ver os bancos</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ I am continuously looking for good people to join my research group, at all leve
 
 - Emmanuel Dias Pereira (PhD)
 - Leandro Veloso Dos Santos (MS)
-- Dannilo Cabral Rabelo (MS)
+- Carlos Hesketh (MS)
 - Ronivaldo Ferreira Silva Junior (MS)
 - Pedro Lucas Almeida Andre (Capstone)
 - Christian de Jesus da Costa Marinho (Capstone)

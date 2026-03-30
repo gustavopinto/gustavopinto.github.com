@@ -19,14 +19,13 @@ In the past, I had broader interests, including refactoring (*e.g.*, [JSS'2019](
 
 You can see my list of [publications here](/publications/), along with ***all*** preprints. I also maintain my [cv of failure](/cv-of-failures/).
 
+### Minibio
+
+Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers. He also offers [consulting](/consulting/) programs for Brazilian companies. 
+
 ### Fun
 
 Beyond the above, I also enjoy:
 - Training jiu jitsu (black belt) & judo (yellow belt)
-- Running and hiking
+- Running and biking
 - Having fun with my three kids :)
-
-
-### Minibio
-
-Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers. He also offers [consulting](/consulting/) programs for Brazilian companies. 
