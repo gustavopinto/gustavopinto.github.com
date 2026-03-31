@@ -6,8 +6,6 @@ permalink: /publications/
 classes: ["publications-page"]
 ---
 
-Gustavo Pinto is currently an Assistant Professor at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/) (UFPA), Brazil, and a Research Engineer at [Zup Innovation](https://www.zup.com.br/). Before joining UFPA, he received his PhD in Software Engineering from the Informatics Center at the [Federal University of Pernambuco](http://www.cin.ufpe.br/) (CIN-UFPE), Brazil. His current research focuses on machine learning and language models applied to software engineering tasks. If you are a student looking for an advisor, [read here](/students).
-
 ## 2026
 
 1. [Luiz Alexandre Costa](https://www.linkedin.com/in/luiz-alexandre-m-costa/), [Edson Dias](https://www.linkedin.com/in/edson-dias-6a507035/), [Danilo Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Awdren Fontão](https://awdren.github.io/), **Gustavo Pinto**, [Rodrigo Pereira dos Santos](https://scholar.google.com/citations?user=i2CPlZQAAAAJ&hl=pt-BR) and [Alexander Serebrenik](https://aserebre.win.tue.nl/). "Supporting Software Engineering Managers in Talent Retention: The Brazilian Context". Accepted to the Empirical Software Engineering journal, 2026. <br/>

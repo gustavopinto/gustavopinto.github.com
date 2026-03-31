@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 1 — Organização &amp; Métodos</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 16rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    /* ── Contrast box ── */
+    .contrast-box {
+      display: flex; gap: 2rem; width: 100%; margin-top: 1rem;
+    }
+    .contrast-side {
+      flex: 1; border-radius: var(--radius); padding: 1.6rem 2rem;
+      border: 2px solid;
+    }
+    .contrast-side h3 { font-size: 1.7rem; margin-bottom: 0.7rem; }
+    .contrast-side p  { font-size: 1.35rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .contrast-side.left  { border-color: rgba(3,105,161,0.4);  background: rgba(3,105,161,0.05); }
+    .contrast-side.right { border-color: rgba(146,64,14,0.4); background: rgba(146,64,14,0.05); }
+    .contrast-side.left  h3 { color: var(--accent); }
+    .contrast-side.right h3 { color: var(--highlight); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 1<br><span class="accent">Apresentação da Disciplina</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>31 de março de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Apresentação da disciplina e avaliação</li>
+      <li>Cronograma do semestre</li>
+      <li>O que é Organização &amp; Métodos?</li>
+      <li>Eficácia vs eficiência</li>
+      <li>O papel do analista de O&amp;M em TI</li>
+      <li>Exercício para a próxima aula</li>
+    </ul>
+  </div>
+
+  <!-- ══ 3. SOBRE A DISCIPLINA ══ -->
+  <div class="slide slide-content">
+    <h2>Sobre a Disciplina</h2>
+    <ul>
+      <li><span class="accent">Horário:</span> Terça e Quinta, 20h10 – 22h00</li>
+      <li><span class="accent">Objetivo:</span> analisar, diagnosticar e propor melhorias em estruturas e processos organizacionais</li>
+      <li><span class="accent">Foco:</span> organizações de tecnologia e software</li>
+      <li><span class="accent">Comunicação:</span> toda comunicação da disciplina acontece pelo Telegram — entre no grupo pelo link fixado</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. AVALIAÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Avaliação</h2>
+    <table class="eval-table">
+      <tr>
+        <td>📋 Mini-Projeto (MP)</td>
+        <td>Diagnóstico de organização real — <em>apresentação 28/05</em></td>
+        <td>30 pts</td>
+      </tr>
+      <tr>
+        <td>🏗️ Projeto Final (PF)</td>
+        <td>Consultoria para startup — <em>apresentações 18–23/06</em></td>
+        <td>70 pts</td>
+      </tr>
+    </table>
+    <p style="margin-top:1.5rem; font-size:1.55rem; color:var(--secondary)">
+      Projeto Final: Entrega Parcial (20 pts) + Apresentação Final (50 pts)
+    </p>
+    <div class="card" style="margin-top:1.5rem; border-left:4px solid var(--accent)">
+      <p style="font-size:1.4rem">Não há provas. A avaliação é <strong>100% prática</strong> — os projetos são o instrumento central da disciplina.</p>
+    </div>
+  </div>
+
+  <!-- ══ 5. CRONOGRAMA — PARTE 1 ══ -->
+  <div class="slide slide-content" style="padding:2.5rem 4rem">
+    <h2 style="margin-bottom:0.8rem">Cronograma — Março a Junho</h2>
+    <table class="sched-table">
+      <thead><tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>31/03</td><td>Ter</td><td>Apresentação da disciplina. Introdução à O&M: conceito, histórico, eficácia vs eficiência</td></tr>
+        <tr><td>2</td><td>02/04</td><td>Qui</td><td>Estruturas organizacionais: Funcional, Produto/Squad, Matricial, Projetizada, Modelo Spotify</td></tr>
+        <tr><td>3</td><td>07/04</td><td>Ter</td><td>Processos organizacionais: primários, de suporte e de gestão</td></tr>
+        <tr><td>4</td><td>09/04</td><td>Qui</td><td>Mapeamento de processos: técnicas e ferramentas</td></tr>
+        <tr class="row-holiday"><td>—</td><td>14/04</td><td>Ter</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>16/04</td><td>Qui</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>21/04</td><td>Ter</td><td>Tiradentes — sem aula (atividade assíncrona)</td></tr>
+        <tr><td>5</td><td>23/04</td><td>Qui</td><td>OKRs: origem (Intel/Google), estrutura, erros comuns</td></tr>
+        <tr class="row-holiday"><td>—</td><td>28/04</td><td>Ter</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr class="row-holiday"><td>—</td><td>30/04</td><td>Qui</td><td>Viagem — sem aula (atividade assíncrona)</td></tr>
+        <tr><td>6</td><td>05/05</td><td>Ter</td><td>KPIs: definição, tipos (operacional, tático, estratégico)</td></tr>
+        <tr><td>7</td><td>07/05</td><td>Qui</td><td>KPIs na prática: OKRs vs KPIs, como construir bons indicadores</td></tr>
+        <tr><td>8</td><td>12/05</td><td>Ter</td><td>Gestão da Mudança: Modelo de Kotter (8 passos), barreiras à mudança em TI</td></tr>
+        <tr><td>9</td><td>14/05</td><td>Qui</td><td>Tecnologia e processos: por que tecnologia não transforma sozinha</td></tr>
+        <tr><td>10</td><td>19/05</td><td>Ter</td><td>Revisão integrada: estrutura + processos + metas + mudança</td></tr>
+        <tr class="row-eval"><td>MP</td><td>21/05</td><td>Qui</td><td>⭐ Kickoff do Mini-Projeto: formação de trios, escolha da organização</td></tr>
+        <tr><td>11</td><td>26/05</td><td>Ter</td><td>Trabalho em sala: diagnóstico + proposta de melhoria</td></tr>
+        <tr class="row-eval"><td>MP</td><td>28/05</td><td>Qui</td><td>⭐ Apresentações Mini-Projeto (5–8 min/grupo)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 5b. CRONOGRAMA — PARTE 2 ══ -->
+  <div class="slide slide-content" style="padding:2.5rem 4rem">
+    <h2 style="margin-bottom:0.8rem">Cronograma — Junho</h2>
+    <table class="sched-table">
+      <thead><tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr class="row-project row-eval"><td>PF</td><td>02/06</td><td>Ter</td><td>🏗️ Kickoff do Projeto Final: entrega do cenário, formação de times</td></tr>
+        <tr class="row-holiday"><td>—</td><td>04/06</td><td>Qui</td><td>Corpus Christi — sem aula</td></tr>
+        <tr class="row-project"><td>12</td><td>09/06</td><td>Ter</td><td>Orientação: diagnóstico organizacional + redesenho estrutural</td></tr>
+        <tr class="row-project"><td>13</td><td>11/06</td><td>Qui</td><td>Orientação: OKRs por área + plano de mudança</td></tr>
+        <tr class="row-project row-eval"><td>EP</td><td>16/06</td><td>Ter</td><td>⭐ Entrega Parcial: diagnóstico + redesenho + OKRs propostos</td></tr>
+        <tr class="row-project row-eval"><td>PF</td><td>18/06</td><td>Qui</td><td>⭐ Apresentações Finais — Grupos 1, 2 e 3</td></tr>
+        <tr class="row-project row-eval"><td>PF</td><td>23/06</td><td>Ter</td><td>⭐ Apresentações Finais — Grupos 4, 5 e 6 + encerramento</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 6. O QUE É O&M ══ -->
+  <div class="slide slide-split">
+    <h2>O que é Organização &amp; Métodos?</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <div class="definition">
+          <p>Área responsável por estudar, analisar e melhorar a <strong>estrutura</strong> e os <strong>processos</strong> de uma organização, com o objetivo de aumentar sua eficiência e eficácia.</p>
+        </div>
+        <ul class="plain" style="margin-top:1rem">
+          <li>Surgiu no início do séc. XX com Taylor e Fayol</li>
+          <li>Evoluiu da linha de montagem para o <strong>escritório</strong></li>
+          <li>Hoje fundamental em empresas de tecnologia</li>
+          <li>Conecta <span class="accent">pessoas</span>, <span class="highlight">processos</span> e <span class="success">tecnologia</span></li>
+        </ul>
+      </div>
+      <div class="split-right">
+        <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- Central circle -->
+          <circle cx="130" cy="130" r="45" fill="#0369a1" opacity="0.9"/>
+          <text x="130" y="124" text-anchor="middle" fill="white" font-size="13" font-weight="bold">O&amp;M</text>
+          <text x="130" y="142" text-anchor="middle" fill="white" font-size="11">Análise</text>
+          <!-- Pessoas -->
+          <circle cx="130" cy="42" r="34" fill="#475569" opacity="0.85"/>
+          <text x="130" y="37" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Pessoas</text>
+          <text x="130" y="53" text-anchor="middle" fill="white" font-size="10">estrutura e cultura</text>
+          <line x1="130" y1="76" x2="130" y2="85" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Processos -->
+          <circle cx="46" cy="180" r="34" fill="#92400e" opacity="0.85"/>
+          <text x="46" y="175" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Processos</text>
+          <text x="46" y="191" text-anchor="middle" fill="white" font-size="10">fluxos e métodos</text>
+          <line x1="84" y1="161" x2="93" y2="153" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Tecnologia -->
+          <circle cx="214" cy="180" r="34" fill="#166534" opacity="0.85"/>
+          <text x="214" y="175" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Tecnologia</text>
+          <text x="214" y="191" text-anchor="middle" fill="white" font-size="10">ferramentas e sistemas</text>
+          <line x1="176" y1="161" x2="167" y2="153" stroke="#94a3b8" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. EFICÁCIA VS EFICIÊNCIA ══ -->
+  <div class="slide slide-content" data-steps="2">
+    <h2>Eficácia vs Eficiência</h2>
+    <div class="contrast-box">
+      <div class="contrast-side left step" data-step="1">
+        <h3>🎯 Eficácia</h3>
+        <p><strong>Fazer a coisa certa.</strong></p>
+        <p>Atingir o objetivo proposto — independente dos recursos consumidos.</p>
+        <p style="margin-top:0.8rem; font-size:1.2rem; font-style:italic">"Entregamos o produto que o cliente pediu."</p>
+      </div>
+      <div class="contrast-side right step" data-step="2">
+        <h3>⚙️ Eficiência</h3>
+        <p><strong>Fazer certo a coisa.</strong></p>
+        <p>Atingir o objetivo consumindo o mínimo de recursos (tempo, custo, esforço).</p>
+        <p style="margin-top:0.8rem; font-size:1.2rem; font-style:italic">"Entregamos com metade do time e no prazo."</p>
+      </div>
+    </div>
+    <p style="margin-top:2rem; font-size:1.9rem">
+      O ideal: ser <span class="accent">eficaz <em>e</em> eficiente</span>. Mas quando há conflito, <strong>eficácia vem primeiro.</strong>
+    </p>
+  </div>
+
+  <!-- ══ 8. EXEMPLOS PRÁTICOS ══ -->
+  <div class="slide slide-content">
+    <h2>Eficácia vs Eficiência — Exemplos em TI</h2>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">Eficaz, mas ineficiente</h3>
+        <p>Time entrega a feature certa, mas com 3x o esforço estimado, usando gambiarras e débito técnico.</p>
+        <p class="note">Resultado correto, processo ruim.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Eficiente, mas ineficaz</h3>
+        <p>Time entrega rapidíssimo, dentro do orçamento — mas a feature não resolve o problema do usuário.</p>
+        <p class="note">Processo ótimo, resultado errado.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Eficaz e eficiente</h3>
+        <p>Feature certa, entregue no prazo, com qualidade e sem retrabalho. O objetivo de O&M.</p>
+        <p class="note">O que boas práticas organizacionais buscam.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--secondary)">Nem eficaz, nem eficiente</h3>
+        <p>Feature errada, entregue atrasada, com bugs. Infelizmente comum em ambientes sem processos claros.</p>
+        <p class="note">Sintoma de problema organizacional grave.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. O ANALISTA DE O&M ══ -->
+  <div class="slide slide-content">
+    <h2>O Papel do Analista de O&amp;M</h2>
+    <p style="margin-bottom:1.4rem">Em organizações de tecnologia, o analista de O&amp;M atua como um <span class="accent">médico organizacional</span>: diagnostica problemas, propõe tratamentos e acompanha a recuperação.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>🔍 Diagnóstico</h3>
+        <p>Mapeia a estrutura atual, identifica gargalos, redundâncias e conflitos entre processos.</p>
+      </div>
+      <div class="card">
+        <h3>📐 Redesenho</h3>
+        <p>Propõe novos fluxos, estruturas e métricas. Define OKRs e KPIs alinhados à estratégia.</p>
+      </div>
+      <div class="card">
+        <h3>🔄 Gestão da Mudança</h3>
+        <p>Acompanha a implementação, trata resistências e garante que a transformação seja sustentável.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.2rem; border-left:4px solid var(--accent)">
+      <p style="font-size:1.35rem">Em TI: engenheiro de processos, Agile Coach, Product Manager, CTO e gerentes de engenharia exercem papéis de O&amp;M constantemente.</p>
+    </div>
+  </div>
+
+  <!-- ══ 10. POR QUE IMPORTA ══ -->
+  <div class="slide slide-content">
+    <h2>Por que O&amp;M importa em TI?</h2>
+    <div class="question">
+      <p>Uma empresa pode ter a melhor stack tecnológica do mercado e ainda assim falhar. Por quê?</p>
+    </div>
+    <ul>
+      <li>Tecnologia não resolve <span class="highlight">problemas organizacionais</span> — só os amplifica</li>
+      <li>Times mal estruturados geram <span class="accent">conflitos de responsabilidade e retrabalho</span></li>
+      <li>Processos mal definidos criam <span class="highlight">gargalos e entregas inconsistentes</span></li>
+      <li>Metas vagas levam times a otimizar <span class="accent">métricas erradas</span></li>
+      <li>Mudanças sem gestão geram <span class="highlight">resistência e abandono</span></li>
+    </ul>
+    <p style="margin-top:1.4rem; font-size:1.75rem">
+      Esta disciplina te dá ferramentas para <span class="accent">ver, analisar e transformar</span> organizações.
+    </p>
+  </div>
+
+  <!-- ══ 11. EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <h2>Exercício — Para a próxima aula</h2>
+    <p style="margin-bottom:1.6rem">Pense em uma organização que você conhece bem (empresa, laboratório, grupo de pesquisa, projeto acadêmico) e responda:</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>🏢 Como ela está organizada?</h3>
+        <p>Quem decide o quê? Existe hierarquia clara? Os times têm autonomia ou dependem de aprovações constantes?</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Onde estão os atritos?</h3>
+        <p>Que processos demoram mais do que deveriam? Onde o retrabalho acontece? O que gera conflito entre as pessoas?</p>
+      </div>
+    </div>
+    <p style="margin-top:1.8rem; font-size:1.6rem; color:var(--secondary)">
+      💬 Traga suas observações para a próxima aula — usaremos como base para discutir estruturas organizacionais.
+    </p>
+  </div>
+
+  <!-- ══ 12. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 02/04 (Qui)</span>
+    <h1>Estruturas<br><span class="accent">Organizacionais</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Estrutura Funcional, Produto/Squad e Matricial</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Estrutura Projetizada</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">O Modelo Spotify</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">
+      Traga o exercício de hoje para discussão.
+    </p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.45rem; color: var(--highlight); margin-bottom: 0.4rem; font-weight: 700; }
+    .card p   { font-size: 1.25rem; color: var(--secondary); }
+    .card .note { font-size: 1.05rem; color: var(--secondary); margin-top: 0.5rem; opacity: 0.8; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 2rem; margin: 0.6rem 0 1.2rem; max-width: 62rem;
+    }
+    .definition p { font-size: 1.8rem; color: var(--text); font-style: italic; }
+
+    /* ── SVG diagram area ── */
+    .diagram-wrap {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1rem; width: 100%; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; }
+
+    /* notation card (legend) */
+    .notation-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; width: 100%;
+    }
+    .notation-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 0.8rem 0.6rem 0.6rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .notation-card svg { width: 100%; max-height: 70px; }
+    .notation-card span {
+      font-size: 1.15rem; color: var(--secondary); text-align: center; font-weight: 600;
+    }
+
+    /* step system */
+    .step { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+    #step-dots { position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%); display: none; gap: 0.4rem; z-index: 200; }
+    #step-dots.visible { display: flex; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: background 0.2s; }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 2<br><span class="accent">Modelagem Entidade-Relacionamento</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>02 de abril de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O que é MER e para que serve</li>
+      <li>Notação do Diagrama ER (BRModelo)</li>
+      <li>Entidades</li>
+      <li>Atributos e suas classificações</li>
+      <li>Relacionamentos e grau</li>
+      <li>Cardinalidade e participação</li>
+    </ul>
+  </div>
+
+  <!-- ══ 3. O QUE É MER ══ -->
+  <div class="slide slide-content">
+    <h2>O que é o MER?</h2>
+    <div class="definition">
+      <p>O <strong>Modelo Entidade-Relacionamento</strong> é uma técnica de modelagem conceitual que representa o mundo real por meio de entidades, atributos e relacionamentos.</p>
+    </div>
+    <ul>
+      <li>Proposto por <span class="accent">Peter Chen</span> em 1976</li>
+      <li>Produto: o <span class="accent">Diagrama ER (DER)</span> — representação visual do modelo</li>
+      <li>Independente de SGBD — foca <em>o quê</em> armazenar, não <em>como</em></li>
+      <li>Ferramenta que usaremos: <span class="highlight">BRModelo Web</span> (brmodeloweb.com)</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. NOTAÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Notação do Diagrama ER</h2>
+    <div class="notation-grid">
+
+      <!-- Entidade -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="10" width="124" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <text x="70" y="37" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif">Entidade</text>
+        </svg>
+        <span>Entidade</span>
+      </div>
+
+      <!-- Entidade Fraca -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="10" width="124" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <rect x="14" y="16" width="112" height="32" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+          <text x="70" y="37" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">Ent. Fraca</text>
+        </svg>
+        <span>Entidade Fraca</span>
+      </div>
+
+      <!-- Relacionamento -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="70,6 132,32 70,58 8,32" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <text x="70" y="37" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">Rel</text>
+        </svg>
+        <span>Relacionamento</span>
+      </div>
+
+      <!-- Rel. Identificador -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="70,6 132,32 70,58 8,32" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <polygon points="70,13 122,32 70,51 18,32" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+          <text x="70" y="37" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Rel. Id.</text>
+        </svg>
+        <span>Rel. Identificador</span>
+      </div>
+
+      <!-- Atributo simples -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="70" cy="32" rx="56" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+          <text x="70" y="37" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">Atributo</text>
+        </svg>
+        <span>Atributo</span>
+      </div>
+
+      <!-- Atributo chave -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="70" cy="32" rx="56" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+          <text x="70" y="35" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" text-decoration="underline">chave</text>
+        </svg>
+        <span>Attr. Identificador</span>
+      </div>
+
+      <!-- Atributo multivalorado -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="70" cy="32" rx="56" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+          <ellipse cx="70" cy="32" rx="46" ry="15" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+          <text x="70" y="37" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">multivalorado</text>
+        </svg>
+        <span>Attr. Multivalorado</span>
+      </div>
+
+      <!-- Atributo derivado -->
+      <div class="notation-card">
+        <svg viewBox="0 0 140 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="70" cy="32" rx="56" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white" stroke-dasharray="6 3"/>
+          <text x="70" y="37" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">derivado</text>
+        </svg>
+        <span>Attr. Derivado</span>
+      </div>
+
+    </div>
+    <p style="margin-top:1.2rem; font-size:1.5rem">Notação de <span class="accent">Peter Chen</span>, utilizada pelo BRModelo Web.</p>
+  </div>
+
+  <!-- ══ 5. ENTIDADES ══ -->
+  <div class="slide slide-content">
+    <h2>Entidades</h2>
+    <div class="definition">
+      <p>Uma <strong>entidade</strong> é qualquer objeto do mundo real sobre o qual queremos armazenar informações. Representada por um <strong>retângulo</strong>.</p>
+    </div>
+    <div class="diagram-wrap" style="margin-bottom:1.2rem">
+      <svg viewBox="0 0 760 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Aluno -->
+        <rect x="20" y="25" width="140" height="60" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="90" y="60" text-anchor="middle" font-size="22" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <!-- Produto -->
+        <rect x="310" y="25" width="140" height="60" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="380" y="60" text-anchor="middle" font-size="22" fill="#0f172a" font-family="sans-serif" font-weight="600">Produto</text>
+        <!-- Departamento -->
+        <rect x="600" y="25" width="140" height="60" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="670" y="60" text-anchor="middle" font-size="22" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <!-- rótulos -->
+        <text x="90"  y="105" text-anchor="middle" font-size="14" fill="#475569" font-family="sans-serif">pessoa matriculada</text>
+        <text x="380" y="105" text-anchor="middle" font-size="14" fill="#475569" font-family="sans-serif">item comercializado</text>
+        <text x="670" y="105" text-anchor="middle" font-size="14" fill="#475569" font-family="sans-serif">setor da organização</text>
+      </svg>
+    </div>
+    <p style="font-size:1.7rem"><span class="highlight">Entidade</span> = tipo/classe &nbsp;·&nbsp; <span class="accent">Instância</span> = ocorrência específica (ex: "João", "Notebook Dell")</p>
+  </div>
+
+  <!-- ══ 6. ATRIBUTOS ══ -->
+  <div class="slide slide-content">
+    <h2>Atributos</h2>
+    <div class="definition">
+      <p>Um <strong>atributo</strong> é uma propriedade que descreve uma entidade. Representado por uma <strong>elipse</strong> ligada à entidade por uma linha.</p>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Entidade Aluno centralizada -->
+        <rect x="310" y="75" width="160" height="55" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="390" y="108" text-anchor="middle" font-size="22" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+
+        <!-- matrícula (chave) — acima esquerda -->
+        <line x1="310" y1="90" x2="195" y2="45" stroke="#0f172a" stroke-width="1.5"/>
+        <ellipse cx="145" cy="32" rx="54" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+        <text x="145" y="36" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif" text-decoration="underline">matrícula</text>
+
+        <!-- nome — acima centro -->
+        <line x1="390" y1="75" x2="390" y2="48" stroke="#0f172a" stroke-width="1.5"/>
+        <ellipse cx="390" cy="28" rx="46" ry="20" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+        <text x="390" y="33" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">nome</text>
+
+        <!-- idade (derivado) — acima direita -->
+        <line x1="470" y1="90" x2="590" y2="45" stroke="#0f172a" stroke-width="1.5"/>
+        <ellipse cx="638" cy="32" rx="46" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white" stroke-dasharray="5 3"/>
+        <text x="638" y="37" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">idade</text>
+
+        <!-- telefone (multivalorado) — abaixo esquerda -->
+        <line x1="330" y1="130" x2="190" y2="168" stroke="#0f172a" stroke-width="1.5"/>
+        <ellipse cx="140" cy="172" rx="54" ry="22" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+        <ellipse cx="140" cy="172" rx="44" ry="14" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+        <text x="140" y="177" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">telefone</text>
+
+        <!-- e-mail — abaixo direita -->
+        <line x1="450" y1="130" x2="590" y2="168" stroke="#0f172a" stroke-width="1.5"/>
+        <ellipse cx="638" cy="172" rx="46" ry="22" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+        <text x="638" y="177" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">e-mail</text>
+
+        <!-- legenda -->
+        <text x="145" y="8"  text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">chave (sublinhado)</text>
+        <text x="638" y="8"  text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">derivado (tracejado)</text>
+        <text x="132" y="198" text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">multivalorado (dupla elipse)</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 7. CLASSIFICAÇÃO DOS ATRIBUTOS ══ -->
+  <div class="slide slide-content">
+    <h2>Classificação dos Atributos</h2>
+    <div class="cards cards-2" style="margin-top:0.2rem">
+      <div class="card">
+        <h3>🔑 Identificador (Chave)</h3>
+        <p>Identifica unicamente cada instância — texto <u>sublinhado</u> na elipse</p>
+        <p class="note">Ex: matrícula, CPF, código do produto</p>
+      </div>
+      <div class="card">
+        <h3>🔹 Simples vs Composto</h3>
+        <p><strong>Simples:</strong> valor atômico (CPF, preço)<br>
+        <strong>Composto:</strong> elipse ligada a sub-elipses</p>
+        <p class="note">Ex: Endereço → Rua, Número, CEP</p>
+      </div>
+      <div class="card">
+        <h3>🔸 Multivalorado</h3>
+        <p>Pode ter vários valores — representado por <strong>elipse dupla</strong></p>
+        <p class="note">Ex: telefone(s) de contato</p>
+      </div>
+      <div class="card">
+        <h3>📐 Derivado</h3>
+        <p>Calculado a partir de outro atributo — elipse com <strong>borda tracejada</strong></p>
+        <p class="note">Ex: idade ← calculada da data de nascimento</p>
+      </div>
+    </div>
+    <!-- atributo composto -->
+    <div class="diagram-wrap" style="margin-top:1rem">
+      <svg viewBox="0 0 620 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="10" y="18" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Atributo Composto — Endereço:</text>
+        <!-- Endereço (pai) -->
+        <ellipse cx="130" cy="60" rx="64" ry="26" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+        <text x="130" y="65" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif">Endereço</text>
+        <!-- Rua -->
+        <line x1="194" y1="60" x2="268" y2="38" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="308" cy="30" rx="44" ry="20" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="308" y="35" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">Rua</text>
+        <!-- Número -->
+        <line x1="194" y1="62" x2="268" y2="62" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="318" cy="62" rx="50" ry="20" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="318" y="67" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">Número</text>
+        <!-- CEP -->
+        <line x1="194" y1="66" x2="268" y2="88" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="310" cy="90" rx="44" ry="20" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="310" y="95" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">CEP</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 8. RELACIONAMENTOS ══ -->
+  <div class="slide slide-content">
+    <h2>Relacionamentos</h2>
+    <div class="definition">
+      <p>Um <strong>relacionamento</strong> é uma associação entre entidades. Representado por um <strong>losango</strong> conectado às entidades por linhas.</p>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- === Exemplo 1: Aluno cursa Disciplina === -->
+        <text x="10" y="18" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Exemplo 1</text>
+        <rect x="10" y="28" width="130" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="75" y="58" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <line x1="140" y1="53" x2="215" y2="53" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="175" y="45" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">N</text>
+        <polygon points="265,28 325,53 265,78 205,53" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="265" y="58" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="325" y1="53" x2="400" y2="53" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="360" y="45" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">M</text>
+        <rect x="400" y="28" width="150" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="475" y="58" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+
+        <!-- === Exemplo 2: Funcionário trabalha em Departamento === -->
+        <text x="10" y="118" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Exemplo 2</text>
+        <rect x="10" y="128" width="150" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="85" y="158" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <line x1="160" y1="153" x2="230" y2="153" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="195" y="145" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">N</text>
+        <polygon points="285,128 350,153 285,178 220,153" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="285" y="157" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">trabalha em</text>
+        <line x1="350" y1="153" x2="420" y2="153" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="385" y="145" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">1</text>
+        <rect x="420" y="128" width="160" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="500" y="158" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+
+        <!-- nota: relacionamentos também têm atributos -->
+        <rect x="580" y="28" width="185" height="44" fill="#f0f4f8" stroke="#94a3b8" stroke-width="1" rx="4"/>
+        <text x="672" y="47" text-anchor="middle" font-size="12" fill="#475569" font-family="sans-serif">Relacionamentos podem ter</text>
+        <text x="672" y="63" text-anchor="middle" font-size="12" fill="#475569" font-family="sans-serif">atributos próprios</text>
+        <text x="672" y="79" text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">Ex: "cursa" → nota, semestre</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 9. GRAU DO RELACIONAMENTO ══ -->
+  <div class="slide slide-content">
+    <h2>Grau do Relacionamento</h2>
+    <div class="cards cards-3" style="margin-bottom:1rem">
+      <div class="card">
+        <h3>① Unário</h3>
+        <p>A entidade se relaciona consigo mesma (auto-relacionamento)</p>
+        <p class="note">Ex: Funcionário <em>supervisiona</em> Funcionário</p>
+      </div>
+      <div class="card">
+        <h3>② Binário</h3>
+        <p>Duas entidades distintas — o caso mais comum na prática</p>
+        <p class="note">Ex: Aluno <em>cursa</em> Disciplina</p>
+      </div>
+      <div class="card">
+        <h3>③ Ternário</h3>
+        <p>Três entidades envolvidas simultaneamente</p>
+        <p class="note">Ex: Médico <em>prescreve</em> Medicamento a Paciente</p>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Unário -->
+        <text x="90" y="14" text-anchor="middle" font-size="12" fill="#475569" font-family="sans-serif" font-weight="600">Unário</text>
+        <rect x="20" y="22" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="90" y="51" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <path d="M 160 34 Q 210 5 210 46 Q 210 88 160 70" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+        <polygon points="210,46 192,34 200,52" fill="#0f172a"/>
+        <text x="222" y="50" font-size="12" fill="#0f172a" font-family="sans-serif">supervisiona</text>
+
+        <!-- Binário -->
+        <text x="450" y="14" text-anchor="middle" font-size="12" fill="#475569" font-family="sans-serif" font-weight="600">Binário</text>
+        <rect x="300" y="22" width="100" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="350" y="51" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <line x1="400" y1="46" x2="440" y2="46" stroke="#0f172a" stroke-width="1.5"/>
+        <polygon points="490,22 540,46 490,70 440,46" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="490" y="50" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="540" y1="46" x2="580" y2="46" stroke="#0f172a" stroke-width="1.5"/>
+        <rect x="580" y="22" width="120" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="640" y="51" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 10. CARDINALIDADE ══ -->
+  <div class="slide slide-content">
+    <h2>Cardinalidade</h2>
+    <p style="margin-bottom:1rem; font-size:1.7rem">Define <strong>quantas instâncias</strong> de cada entidade participam do relacionamento. A notação é escrita <span class="highlight">ao lado da linha</span>, próximo à entidade.</p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- 1:1 -->
+        <text x="120" y="16" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : 1</text>
+        <rect x="10" y="24" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="70" y="51" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <line x1="130" y1="46" x2="170" y2="46" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="152" y="40" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <polygon points="215,24 265,46 215,68 165,46" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="215" y="50" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">gerencia</text>
+        <line x1="265" y1="46" x2="305" y2="46" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="285" y="40" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <rect x="305" y="24" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="365" y="51" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+
+        <!-- 1:N -->
+        <text x="120" y="106" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : N</text>
+        <rect x="10" y="114" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="70" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <line x1="130" y1="136" x2="170" y2="136" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="152" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <polygon points="215,114 265,136 215,158 165,136" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="215" y="140" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">contém</text>
+        <line x1="265" y1="136" x2="305" y2="136" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="285" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <rect x="305" y="114" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="365" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+
+        <!-- N:M -->
+        <text x="530" y="106" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">N : M</text>
+        <rect x="420" y="114" width="100" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="470" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <line x1="520" y1="136" x2="558" y2="136" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="540" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <polygon points="603,114 653,136 603,158 553,136" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="603" y="140" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="653" y1="136" x2="691" y2="136" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="673" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">M</text>
+        <rect x="691" y="114" width="82" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="732" y="141" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 11. PARTICIPAÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Participação</h2>
+    <p style="margin-bottom:1rem; font-size:1.7rem">Define se a participação de uma entidade no relacionamento é <strong>obrigatória</strong> ou <strong>opcional</strong>.</p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Total (linha dupla) -->
+        <text x="10" y="16" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Total (obrigatória) — linha dupla</text>
+        <rect x="10" y="24" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="80" y="53" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <!-- linha dupla = participação total -->
+        <line x1="150" y1="44" x2="220" y2="44" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="150" y1="52" x2="220" y2="52" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="185" y="38" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <polygon points="270,24 330,48 270,72 210,48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="270" y="52" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">trabalha em</text>
+        <line x1="330" y1="48" x2="400" y2="48" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="365" y="40" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <rect x="400" y="24" width="150" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="475" y="53" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <text x="640" y="40" font-size="12" fill="#166534" font-family="sans-serif">← todo funcionário deve</text>
+        <text x="640" y="56" font-size="12" fill="#166534" font-family="sans-serif">trabalhar em algum depto.</text>
+
+        <!-- Parcial (linha simples) -->
+        <text x="10" y="110" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Parcial (opcional) — linha simples</text>
+        <rect x="10" y="118" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="80" y="147" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <!-- linha simples = participação parcial -->
+        <line x1="150" y1="142" x2="220" y2="142" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="185" y="136" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <polygon points="270,118 330,142 270,166 210,142" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="270" y="146" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">gerencia</text>
+        <line x1="330" y1="142" x2="400" y2="142" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="365" y="136" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <rect x="400" y="118" width="150" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="475" y="147" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <text x="640" y="136" font-size="12" fill="#92400e" font-family="sans-serif">← nem todo funcionário</text>
+        <text x="640" y="152" font-size="12" fill="#92400e" font-family="sans-serif">gerencia um depto.</text>
+      </svg>
+    </div>
+    <p style="margin-top:0.8rem; font-size:1.6rem">Participação + Cardinalidade = <span class="accent">restrições estruturais</span> do modelo.</p>
+  </div>
+
+  <!-- ══ 12. EXEMPLO COMPLETO ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Sistema Universitário</h2>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- ── Atributos de Aluno ── -->
+        <!-- matrícula (chave) -->
+        <line x1="90" y1="138" x2="54" y2="82" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="40" cy="66" rx="44" ry="20" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="40" y="71" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">matrícula</text>
+
+        <!-- nome -->
+        <line x1="110" y1="132" x2="110" y2="88" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="110" cy="72" rx="38" ry="18" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="110" y="77" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nome</text>
+
+        <!-- Entidade Aluno -->
+        <rect x="50" y="132" width="120" height="46" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="110" y="160" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Aluno</text>
+
+        <!-- ── cursa (N:M, total para Aluno) ── -->
+        <line x1="170" y1="152" x2="218" y2="152" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="170" y1="158" x2="218" y2="158" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="197" y="146" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <polygon points="265,132 318,155 265,178 212,155" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="265" y="159" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="318" y1="155" x2="366" y2="155" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="345" y="148" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">M</text>
+
+        <!-- atrib. de cursa: nota -->
+        <line x1="265" y1="178" x2="265" y2="212" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="265" cy="224" rx="36" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="265" y="229" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nota</text>
+
+        <!-- ── Entidade Disciplina ── -->
+        <rect x="366" y="132" width="134" height="46" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="433" y="160" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">Disciplina</text>
+
+        <!-- atributos Disciplina: código (chave), créditos -->
+        <line x1="400" y1="132" x2="380" y2="86" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="368" cy="70" rx="40" ry="18" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="368" y="75" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">código</text>
+
+        <line x1="466" y1="132" x2="490" y2="86" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="502" cy="70" rx="42" ry="18" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="502" y="75" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">créditos</text>
+
+        <!-- ── ministrada por (N:1, total para Disciplina) ── -->
+        <line x1="500" y1="152" x2="548" y2="152" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="500" y1="158" x2="548" y2="158" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="528" y="147" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <polygon points="595,132 648,155 595,178 542,155" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="595" y="153" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">ministrada</text>
+        <text x="595" y="166" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">por</text>
+        <line x1="648" y1="155" x2="696" y2="155" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="675" y="148" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+
+        <!-- ── Entidade Professor ── -->
+        <rect x="696" y="132" width="130" height="46" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="761" y="160" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Professor</text>
+
+        <!-- atributos Professor: SIAPE (chave), nome -->
+        <line x1="740" y1="132" x2="718" y2="86" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="706" cy="70" rx="38" ry="18" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="706" y="75" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">SIAPE</text>
+
+        <line x1="800" y1="132" x2="826" y2="86" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="840" cy="70" rx="38" ry="18" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="840" y="75" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nome</text>
+      </svg>
+    </div>
+    <ul style="margin-top:0.6rem">
+      <li style="font-size:1.5rem">Aluno <span class="accent">cursa</span> Disciplina: N:M · linha dupla em Aluno (participação total)</li>
+      <li style="font-size:1.5rem">Disciplina <span class="accent">ministrada por</span> Professor: N:1 · linha dupla em Disciplina</li>
+    </ul>
+  </div>
+
+  <!-- ══ 13. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 07/04 (Ter)</span>
+    <h1>MER — Continuação<br><span class="accent">Entidades Fracas &amp; Generalização</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Entidades fracas e identificadores parciais</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Generalização e especialização</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Exercícios de modelagem</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">📖 Leitura recomendada: Heuser, cap. 3</p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
