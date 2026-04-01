@@ -305,6 +305,62 @@
     <p style="font-size:1.7rem"><span class="highlight">Entidade</span> = tipo/classe &nbsp;·&nbsp; <span class="accent">Instância</span> = ocorrência específica (ex: "João", "Notebook Dell")</p>
   </div>
 
+  <!-- ══ 5b. ENTIDADE vs ENTIDADE FRACA ══ -->
+  <div class="slide slide-content">
+    <h2>Entidade vs Entidade Fraca</h2>
+    <div class="cards cards-2" style="margin-bottom:1.2rem">
+      <div class="card">
+        <h3>🟦 Entidade (Forte)</h3>
+        <p>Possui um <strong>atributo identificador próprio</strong> — existe independentemente de outras entidades.</p>
+        <p class="note">Ex: <em>Funcionário</em> é identificado pelo CPF; existe por si só.</p>
+      </div>
+      <div class="card">
+        <h3>🔲 Entidade Fraca</h3>
+        <p>Não possui chave própria suficiente — depende de outra entidade para ser identificada. Representada por <strong>retângulo duplo</strong>.</p>
+        <p class="note">Ex: <em>Dependente</em> é identificado apenas pelo nome <strong>mais</strong> o funcionário ao qual pertence.</p>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Funcionário (forte) -->
+        <rect x="30" y="45" width="160" height="52" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="110" y="76" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Funcionário</text>
+        <!-- atrib chave -->
+        <line x1="110" y1="45" x2="110" y2="18" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="110" cy="10" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="110" y="14" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif" text-decoration="underline">CPF</text>
+        <!-- rótulo forte -->
+        <text x="110" y="120" text-anchor="middle" font-size="12" fill="#166534" font-family="sans-serif">existe por si só</text>
+
+        <!-- rel identificador (losango duplo) -->
+        <line x1="190" y1="71" x2="240" y2="71" stroke="#0f172a" stroke-width="2"/>
+        <line x1="190" y1="77" x2="240" y2="77" stroke="#0f172a" stroke-width="2"/>
+        <polygon points="290,50 340,74 290,98 240,74" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <polygon points="290,58 328,74 290,90 252,74" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+        <text x="290" y="79" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">tem</text>
+        <line x1="340" y1="74" x2="390" y2="74" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Dependente (fraca) — retângulo duplo -->
+        <rect x="390" y="48" width="160" height="52" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <rect x="397" y="54" width="146" height="40" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+        <text x="470" y="79" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Dependente</text>
+        <!-- atrib chave parcial (sublinhado tracejado) -->
+        <line x1="470" y1="48" x2="470" y2="20" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="470" cy="12" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="470" y="16" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif" text-decoration="underline">nome</text>
+        <text x="508" y="6" text-anchor="start" font-size="10" fill="#92400e" font-family="sans-serif">(parcial)</text>
+        <!-- rótulo fraca -->
+        <text x="470" y="120" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif">precisa de Funcionário</text>
+
+        <!-- legenda -->
+        <text x="620" y="60" font-size="12" fill="#475569" font-family="sans-serif" font-weight="600">Regra:</text>
+        <text x="620" y="78" font-size="11" fill="#475569" font-family="sans-serif">Sem o Funcionário,</text>
+        <text x="620" y="94" font-size="11" fill="#475569" font-family="sans-serif">o Dependente não</text>
+        <text x="620" y="110" font-size="11" fill="#475569" font-family="sans-serif">pode existir.</text>
+      </svg>
+    </div>
+  </div>
+
   <!-- ══ 6. ATRIBUTOS ══ -->
   <div class="slide slide-content">
     <h2>Atributos</h2>
@@ -352,33 +408,33 @@
   </div>
 
   <!-- ══ 7. CLASSIFICAÇÃO DOS ATRIBUTOS ══ -->
-  <div class="slide slide-content">
+  <div class="slide slide-content" data-steps="5">
     <h2>Classificação dos Atributos</h2>
     <div class="cards cards-2" style="margin-top:0.2rem">
-      <div class="card">
+      <div class="card step" data-step="1">
         <h3>🔑 Identificador (Chave)</h3>
         <p>Identifica unicamente cada instância — texto <u>sublinhado</u> na elipse</p>
         <p class="note">Ex: matrícula, CPF, código do produto</p>
       </div>
-      <div class="card">
+      <div class="card step" data-step="2">
+        <h3>🔸 Multivalorado</h3>
+        <p>Pode ter vários valores — representado por <strong>elipse dupla</strong></p>
+        <p class="note">Ex: telefone(s) de contato</p>
+      </div>
+      <div class="card step" data-step="3">
+        <h3>📐 Derivado</h3>
+        <p>Calculado a partir de outro atributo — elipse com <strong>borda tracejada</strong></p>
+        <p class="note">Ex: idade ← calculada da data de nascimento</p>
+      </div>
+      <div class="card step" data-step="4">
         <h3>🔹 Simples vs Composto</h3>
         <p><strong>Simples:</strong> valor atômico (CPF, preço)<br>
         <strong>Composto:</strong> elipse ligada a sub-elipses</p>
         <p class="note">Ex: Endereço → Rua, Número, CEP</p>
       </div>
-      <div class="card">
-        <h3>🔸 Multivalorado</h3>
-        <p>Pode ter vários valores — representado por <strong>elipse dupla</strong></p>
-        <p class="note">Ex: telefone(s) de contato</p>
-      </div>
-      <div class="card">
-        <h3>📐 Derivado</h3>
-        <p>Calculado a partir de outro atributo — elipse com <strong>borda tracejada</strong></p>
-        <p class="note">Ex: idade ← calculada da data de nascimento</p>
-      </div>
     </div>
     <!-- atributo composto -->
-    <div class="diagram-wrap" style="margin-top:1rem">
+    <div class="diagram-wrap step" data-step="5" style="margin-top:1rem">
       <svg viewBox="0 0 620 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <text x="10" y="18" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Atributo Composto — Endereço:</text>
         <!-- Endereço (pai) -->
@@ -414,11 +470,9 @@
         <rect x="10" y="28" width="130" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="75" y="58" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
         <line x1="140" y1="53" x2="215" y2="53" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="175" y="45" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">N</text>
         <polygon points="265,28 325,53 265,78 205,53" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="265" y="58" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">cursa</text>
         <line x1="325" y1="53" x2="400" y2="53" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="360" y="45" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">M</text>
         <rect x="400" y="28" width="150" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="475" y="58" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
 
@@ -427,11 +481,9 @@
         <rect x="10" y="128" width="150" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="85" y="158" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
         <line x1="160" y1="153" x2="230" y2="153" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="195" y="145" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">N</text>
         <polygon points="285,128 350,153 285,178 220,153" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="285" y="157" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">trabalha em</text>
         <line x1="350" y1="153" x2="420" y2="153" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="385" y="145" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif">1</text>
         <rect x="420" y="128" width="160" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
         <text x="500" y="158" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
 
@@ -442,6 +494,59 @@
         <text x="672" y="79" text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">Ex: "cursa" → nota, semestre</text>
       </svg>
     </div>
+  </div>
+
+  <!-- ══ 8b. RELACIONAMENTO vs REL. IDENTIFICADOR ══ -->
+  <div class="slide slide-content">
+    <h2>Relacionamento vs Rel. Identificador</h2>
+    <div class="cards cards-2" style="margin-bottom:1.2rem">
+      <div class="card">
+        <h3>◇ Relacionamento</h3>
+        <p>Associa duas <strong>entidades fortes</strong>. Representado por <strong>losango simples</strong>.</p>
+        <p class="note">Ex: <em>Aluno</em> cursa <em>Disciplina</em> — ambas existem independentemente.</p>
+      </div>
+      <div class="card">
+        <h3>◇◇ Rel. Identificador</h3>
+        <p>Liga uma <strong>entidade fraca</strong> à entidade forte da qual depende. Representado por <strong>losango duplo</strong>.</p>
+        <p class="note">Ex: <em>Dependente</em> tem <em>Funcionário</em> — Dependente só existe porque o Funcionário existe.</p>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Relacionamento simples -->
+        <text x="10" y="16" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Relacionamento simples</text>
+        <rect x="10" y="26" width="110" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="65" y="53" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <line x1="120" y1="48" x2="165" y2="48" stroke="#0f172a" stroke-width="1.5"/>
+        <polygon points="210,26 260,48 210,70 160,48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="210" y="53" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="260" y1="48" x2="305" y2="48" stroke="#0f172a" stroke-width="1.5"/>
+        <rect x="305" y="26" width="130" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="370" y="53" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+        <text x="215" y="92" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">losango simples — entidades fortes</text>
+
+        <!-- Relacionamento identificador -->
+        <text x="470" y="16" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Relacionamento identificador</text>
+        <!-- Funcionário (forte) -->
+        <rect x="470" y="26" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="540" y="53" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <!-- linha dupla -->
+        <line x1="610" y1="42" x2="648" y2="42" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="610" y1="54" x2="648" y2="54" stroke="#0f172a" stroke-width="1.5"/>
+        <!-- losango duplo -->
+        <polygon points="690,26 738,48 690,70 642,48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <polygon points="690,33 728,48 690,63 652,48" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+        <text x="690" y="53" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">tem</text>
+        <line x1="738" y1="48" x2="772" y2="48" stroke="#0f172a" stroke-width="1.5"/>
+        <!-- Dependente (fraca) -->
+        <rect x="772" y="26" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <rect x="778" y="32" width="108" height="32" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+        <text x="832" y="53" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Dependente</text>
+        <text x="690" y="92" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">losango duplo — entidade fraca</text>
+      </svg>
+    </div>
+    <p style="font-size:1.55rem; margin-top:0.6rem">O losango duplo implica que a entidade fraca é <span class="highlight">identificada pelo relacionamento</span> — sem ele, não há como distinguir instâncias.</p>
   </div>
 
   <!-- ══ 9. GRAU DO RELACIONAMENTO ══ -->
@@ -488,97 +593,162 @@
     </div>
   </div>
 
-  <!-- ══ 10. CARDINALIDADE ══ -->
+  <!-- ══ 9b. GRAU UNÁRIO — EXEMPLO ══ -->
   <div class="slide slide-content">
-    <h2>Cardinalidade</h2>
-    <p style="margin-bottom:1rem; font-size:1.7rem">Define <strong>quantas instâncias</strong> de cada entidade participam do relacionamento. A notação é escrita <span class="highlight">ao lado da linha</span>, próximo à entidade.</p>
-    <div class="diagram-wrap">
-      <svg viewBox="0 0 780 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- 1:1 -->
-        <text x="120" y="16" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : 1</text>
-        <rect x="10" y="24" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="70" y="51" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
-        <line x1="130" y1="46" x2="170" y2="46" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="152" y="40" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <polygon points="215,24 265,46 215,68 165,46" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="215" y="50" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">gerencia</text>
-        <line x1="265" y1="46" x2="305" y2="46" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="285" y="40" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <rect x="305" y="24" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="365" y="51" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
-
-        <!-- 1:N -->
-        <text x="120" y="106" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : N</text>
-        <rect x="10" y="114" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="70" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
-        <line x1="130" y1="136" x2="170" y2="136" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="152" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <polygon points="215,114 265,136 215,158 165,136" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="215" y="140" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">contém</text>
-        <line x1="265" y1="136" x2="305" y2="136" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="285" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
-        <rect x="305" y="114" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="365" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
-
-        <!-- N:M -->
-        <text x="530" y="106" text-anchor="middle" font-size="14" fill="#0369a1" font-family="sans-serif" font-weight="700">N : M</text>
-        <rect x="420" y="114" width="100" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="470" y="141" text-anchor="middle" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
-        <line x1="520" y1="136" x2="558" y2="136" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="540" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
-        <polygon points="603,114 653,136 603,158 553,136" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="603" y="140" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">cursa</text>
-        <line x1="653" y1="136" x2="691" y2="136" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="673" y="130" text-anchor="middle" font-size="14" fill="#92400e" font-family="sans-serif" font-weight="700">M</text>
-        <rect x="691" y="114" width="82" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="732" y="141" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+    <span class="tag">Grau Unário</span>
+    <h2>Auto-relacionamento</h2>
+    <div class="definition">
+      <p>Uma entidade se relaciona <strong>consigo mesma</strong>. A mesma entidade aparece nos dois papéis do relacionamento.</p>
+    </div>
+    <div class="diagram-wrap" style="margin-bottom:1rem; max-width:50%">
+      <svg viewBox="0 0 380 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Entidade Funcionário -->
+        <rect x="20" y="46" width="150" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="95" y="73" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Funcionário</text>
+        <!-- arco de auto-relacionamento -->
+        <path d="M 170 58 Q 250 14 250 68 Q 250 122 170 90" stroke="#0f172a" stroke-width="2" fill="none"/>
+        <!-- seta de chegada -->
+        <polygon points="170,90 186,82 182,98" fill="#0f172a"/>
+        <!-- losango no arco -->
+        <polygon points="228,50 264,68 228,86 192,68" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="228" y="72" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">supervisiona</text>
+        <!-- papéis -->
+        <text x="178" y="44" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">supervisor</text>
+        <text x="178" y="106" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">supervisionado</text>
       </svg>
     </div>
+    <ul>
+      <li>Um <span class="accent">gerente</span> supervisiona vários funcionários</li>
+      <li>Cada funcionário tem no máximo um supervisor direto</li>
+      <li>O papel (<em>supervisor / supervisionado</em>) é indicado nas linhas</li>
+    </ul>
   </div>
 
-  <!-- ══ 11. PARTICIPAÇÃO ══ -->
+  <!-- ══ 9c. GRAU BINÁRIO — EXEMPLO ══ -->
   <div class="slide slide-content">
-    <h2>Participação</h2>
-    <p style="margin-bottom:1rem; font-size:1.7rem">Define se a participação de uma entidade no relacionamento é <strong>obrigatória</strong> ou <strong>opcional</strong>.</p>
-    <div class="diagram-wrap">
-      <svg viewBox="0 0 780 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- Total (linha dupla) -->
-        <text x="10" y="16" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Total (obrigatória) — linha dupla</text>
-        <rect x="10" y="24" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="80" y="53" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
-        <!-- linha dupla = participação total -->
-        <line x1="150" y1="44" x2="220" y2="44" stroke="#0f172a" stroke-width="1.5"/>
-        <line x1="150" y1="52" x2="220" y2="52" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="185" y="38" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
-        <polygon points="270,24 330,48 270,72 210,48" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="270" y="52" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">trabalha em</text>
-        <line x1="330" y1="48" x2="400" y2="48" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="365" y="40" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <rect x="400" y="24" width="150" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="475" y="53" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
-        <text x="640" y="40" font-size="12" fill="#166534" font-family="sans-serif">← todo funcionário deve</text>
-        <text x="640" y="56" font-size="12" fill="#166534" font-family="sans-serif">trabalhar em algum depto.</text>
-
-        <!-- Parcial (linha simples) -->
-        <text x="10" y="110" font-size="13" fill="#475569" font-family="sans-serif" font-weight="600">Parcial (opcional) — linha simples</text>
-        <rect x="10" y="118" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="80" y="147" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
-        <!-- linha simples = participação parcial -->
-        <line x1="150" y1="142" x2="220" y2="142" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="185" y="136" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <polygon points="270,118 330,142 270,166 210,142" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="270" y="146" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">gerencia</text>
-        <line x1="330" y1="142" x2="400" y2="142" stroke="#0f172a" stroke-width="1.5"/>
-        <text x="365" y="136" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
-        <rect x="400" y="118" width="150" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="475" y="147" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
-        <text x="640" y="136" font-size="12" fill="#92400e" font-family="sans-serif">← nem todo funcionário</text>
-        <text x="640" y="152" font-size="12" fill="#92400e" font-family="sans-serif">gerencia um depto.</text>
+    <span class="tag">Grau Binário</span>
+    <h2>Relacionamento entre duas entidades</h2>
+    <div class="definition">
+      <p>O caso <strong>mais comum</strong> na prática. Duas entidades distintas participam do relacionamento.</p>
+    </div>
+    <div class="diagram-wrap" style="margin-bottom:1rem">
+      <svg viewBox="0 0 480 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cliente -->
+        <rect x="20" y="20" width="120" height="40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="80" y="45" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Cliente</text>
+        <!-- linha -->
+        <line x1="140" y1="40" x2="188" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <!-- losango -->
+        <polygon points="230,20 278,40 230,60 182,40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="230" y="44" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">realiza</text>
+        <!-- linha -->
+        <line x1="278" y1="40" x2="326" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <!-- Pedido -->
+        <rect x="326" y="20" width="120" height="40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="386" y="45" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Pedido</text>
       </svg>
     </div>
-    <p style="margin-top:0.8rem; font-size:1.6rem">Participação + Cardinalidade = <span class="accent">restrições estruturais</span> do modelo.</p>
+    <ul>
+      <li>Um <span class="accent">cliente</span> realiza muitos pedidos; cada pedido pertence a um cliente</li>
+      <li>Duas entidades distintas conectadas por um único relacionamento</li>
+    </ul>
+  </div>
+
+  <!-- ══ 9d. GRAU TERNÁRIO — EXEMPLO ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Grau Ternário</span>
+    <h2>Relacionamento entre três entidades</h2>
+    <div class="definition">
+      <p>Três entidades participam <strong>simultaneamente</strong>. Use apenas quando o significado não pode ser decomposto em relacionamentos binários.</p>
+    </div>
+    <div class="diagram-wrap" style="margin-bottom:1rem; max-width:50%">
+      <svg viewBox="0 0 560 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Médico (topo esquerda) -->
+        <rect x="10" y="8" width="120" height="40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="70" y="33" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">Médico</text>
+        <!-- linha Médico → losango -->
+        <line x1="130" y1="28" x2="248" y2="78" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Medicamento (baixo esquerda) -->
+        <rect x="10" y="122" width="148" height="40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="84" y="147" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">Medicamento</text>
+        <!-- linha Medicamento → losango -->
+        <line x1="158" y1="138" x2="248" y2="98" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Losango ternário -->
+        <polygon points="300,68 360,88 300,108 240,88" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="300" y="86" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">prescreve</text>
+        <text x="300" y="100" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">para</text>
+
+        <!-- linha losango → Paciente -->
+        <line x1="360" y1="88" x2="430" y2="88" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Paciente -->
+        <rect x="430" y="68" width="118" height="40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="489" y="93" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">Paciente</text>
+      </svg>
+    </div>
+    <ul>
+      <li>Um <span class="accent">médico</span> prescreve <span class="accent">medicamento(s)</span> a <span class="accent">paciente(s)</span> — os três são necessários</li>
+      <li>Não dá para decompor sem perder a semântica de quem prescreveu o quê a quem</li>
+    </ul>
+  </div>
+
+  <!-- ══ 10. CARDINALIDADE ══ -->
+  <div class="slide slide-content" data-steps="2">
+    <h2>Cardinalidade</h2>
+    <p style="margin-bottom:0.6rem; font-size:1.6rem">Define <strong>quantas instâncias</strong> de cada entidade participam do relacionamento. A notação é escrita <span class="highlight">ao lado da linha</span>, próximo à entidade.</p>
+    <div class="diagram-wrap step" data-step="1" style="max-width:80%">
+      <svg viewBox="0 0 480 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 1:1 label -->
+        <text x="10" y="14" font-size="13" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : 1</text>
+        <rect x="10" y="22" width="120" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="70" y="45" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <line x1="130" y1="40" x2="168" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="150" y="34" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <polygon points="210,22 254,40 210,58 166,40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="210" y="44" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">gerencia</text>
+        <line x1="254" y1="40" x2="292" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="274" y="34" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <rect x="292" y="22" width="130" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="357" y="45" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <text x="440" y="38" font-size="11" fill="#475569" font-family="sans-serif">cada funcionário</text>
+        <text x="440" y="52" font-size="11" fill="#475569" font-family="sans-serif">gerencia 1 depto.</text>
+      </svg>
+    </div>
+    <div class="diagram-wrap step" data-step="2" style="margin-top:0.8rem">
+      <svg viewBox="0 0 780 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 1:N -->
+        <text x="10" y="14" font-size="13" fill="#0369a1" font-family="sans-serif" font-weight="700">1 : N</text>
+        <rect x="10" y="22" width="130" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="75" y="45" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Departamento</text>
+        <line x1="140" y1="40" x2="178" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="160" y="34" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+        <polygon points="220,20 264,40 220,60 176,40" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="220" y="44" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">contém</text>
+        <line x1="264" y1="40" x2="302" y2="40" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="284" y="34" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <rect x="302" y="22" width="120" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="362" y="45" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Funcionário</text>
+        <text x="440" y="38" font-size="11" fill="#475569" font-family="sans-serif">1 depto. tem vários</text>
+        <text x="440" y="52" font-size="11" fill="#475569" font-family="sans-serif">funcionários</text>
+
+        <!-- N:M -->
+        <text x="10" y="84" font-size="13" fill="#0369a1" font-family="sans-serif" font-weight="700">N : M</text>
+        <rect x="10" y="90" width="90" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="55" y="113" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <line x1="100" y1="108" x2="138" y2="108" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="120" y="102" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <polygon points="180,88 224,108 180,128 136,108" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="180" y="112" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">cursa</text>
+        <line x1="224" y1="108" x2="262" y2="108" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="244" y="102" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">M</text>
+        <rect x="262" y="90" width="110" height="36" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="317" y="113" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="600">Disciplina</text>
+        <text x="400" y="106" font-size="11" fill="#475569" font-family="sans-serif">aluno cursa várias</text>
+        <text x="400" y="120" font-size="11" fill="#475569" font-family="sans-serif">disciplinas e vice-versa</text>
+      </svg>
+    </div>
   </div>
 
   <!-- ══ 12. EXEMPLO COMPLETO ══ -->
@@ -659,8 +829,41 @@
     </ul>
   </div>
 
-  <!-- ══ 13. PRÓXIMA AULA ══ -->
-  <div class="slide slide-cover">
+  <!-- ══ EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício</span>
+    <h2>Pratique: Modelagem de uma Locadora</h2>
+    <div class="definition">
+      <p>Uma locadora aluga filmes para clientes. Cada <strong>cliente</strong> tem CPF, nome e telefone. Cada <strong>filme</strong> tem código, título e gênero. Um cliente pode alugar vários filmes e um filme pode ser alugado por vários clientes. O aluguel registra a <strong>data de retirada</strong> e a <strong>data de devolução</strong>.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>① Identifique entidades e atributos</h3>
+        <p>Quais entidades existem? Quais atributos cada uma possui? Qual é a <strong>chave</strong> de cada entidade?</p>
+        <p class="note">Atenção: data de retirada e devolução pertencem a qual entidade?</p>
+      </div>
+      <div class="card">
+        <h3>② Conecte e defina participação</h3>
+        <p>Qual o relacionamento entre Cliente e Filme? Qual a <strong>cardinalidade</strong>? A participação é total ou parcial em cada lado?</p>
+        <p class="note">Dica: todo cliente precisa ter pelo menos um aluguel para existir no sistema?</p>
+      </div>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.6rem">
+      <div class="card">
+        <h3>🛠 Ferramenta</h3>
+        <p>Construa o DER no <strong>BRModelo Web</strong>:<br><span class="accent">brmodeloweb.com</span></p>
+        <p class="note">Crie uma conta gratuita e use a notação de Peter Chen.</p>
+      </div>
+      <div class="card">
+        <h3>📤 Entrega</h3>
+        <p>Compartilhe o print do diagrama no <strong>Telegram da turma</strong> até o final da aula.</p>
+        <p class="note">O BRModelo permite exportar como imagem ou compartilhar link direto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover" id="proxima-aula">
     <span class="tag">Próxima Aula — 07/04 (Ter)</span>
     <h1>MER — Continuação<br><span class="accent">Entidades Fracas &amp; Generalização</span></h1>
     <ul style="text-align:left; margin-top:2rem">
