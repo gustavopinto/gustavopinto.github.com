@@ -26,12 +26,13 @@ My list of rejections is in the following (this list is incomplete; some are so 
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018, 2024
 
-## Conference papers rejected (58)
+## Conference papers rejected (61)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
 - SBLP: 2013, 2015
-- CHASE: 2019, 2023, 2024
+- CAIN: 2026
+- CHASE: 2019, 2023, 2024, 2026 (2x)
 - CSMR: 2014
 - EASE: 2016, 2020, 2024
 - ECOOP: 2014
