@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 8 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary); }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.2rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    #step-dots { display:none; }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 8<br><span class="accent">Laboratório: Criação Completa de um Banco</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>14 de maio de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Objetivo do Lab</h2>
+    <div class="definition">
+      <p>Criar um banco de dados completo do zero: <strong>DDL</strong> (estrutura) + <strong>DML</strong> (dados). Domínio: <strong>Sistema de Biblioteca</strong>.</p>
+    </div>
+    <ul>
+      <li>Entidades: Editora, Autor, Livro, Membro, Empréstimo</li>
+      <li>Relacionamentos: Livro pertence a Editora (1:N), Livro tem Autores (N:M), Membro faz Empréstimos</li>
+      <li>Ferramenta: <span class="accent">DB Fiddle</span> (PostgreSQL)</li>
+    </ul>
+  </div>
+
+  <!-- DDL -->
+  <div class="slide slide-content">
+    <h2>Passo 1 — CREATE TABLE</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> editora (
+    id    <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome  <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL UNIQUE</span>
+);
+<span class="kw">CREATE TABLE</span> autor (
+    id    <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome  <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>
+);
+<span class="kw">CREATE TABLE</span> livro (
+    isbn       <span class="kw">CHAR</span>(13) <span class="kw">PRIMARY KEY</span>,
+    titulo     <span class="kw">VARCHAR</span>(200) <span class="kw">NOT NULL</span>,
+    ano        <span class="kw">INTEGER CHECK</span> (ano > 1900),
+    editora_id <span class="kw">INTEGER NOT NULL REFERENCES</span> editora(id)
+);
+<span class="kw">CREATE TABLE</span> livro_autor ( <span class="cm">-- tabela associativa N:M</span>
+    livro_isbn <span class="kw">CHAR</span>(13) <span class="kw">REFERENCES</span> livro(isbn),
+    autor_id   <span class="kw">INTEGER REFERENCES</span> autor(id),
+    <span class="kw">PRIMARY KEY</span> (livro_isbn, autor_id)
+);</pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Passo 1 — CREATE TABLE (cont.)</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> membro (
+    id       <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome     <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>,
+    email    <span class="kw">VARCHAR</span>(150) <span class="kw">UNIQUE</span>,
+    dt_cadastro <span class="kw">DATE DEFAULT CURRENT_DATE</span>
+);
+<span class="kw">CREATE TABLE</span> emprestimo (
+    id         <span class="kw">SERIAL PRIMARY KEY</span>,
+    membro_id  <span class="kw">INTEGER NOT NULL REFERENCES</span> membro(id),
+    livro_isbn <span class="kw">CHAR</span>(13) <span class="kw">NOT NULL REFERENCES</span> livro(isbn),
+    dt_retirada <span class="kw">DATE NOT NULL DEFAULT CURRENT_DATE</span>,
+    dt_devolucao <span class="kw">DATE</span>,
+    <span class="kw">CHECK</span> (dt_devolucao <span class="kw">IS NULL OR</span> dt_devolucao >= dt_retirada)
+);</pre>
+  </div>
+
+  <!-- DML -->
+  <div class="slide slide-content">
+    <h2>Passo 2 — INSERT (populando)</h2>
+    <pre class="code-block"><span class="kw">INSERT INTO</span> editora (nome) <span class="kw">VALUES</span>
+  (<span class="str">'Novatec'</span>), (<span class="str">'Casa do Código'</span>), (<span class="str">'O Reilly'</span>);
+
+<span class="kw">INSERT INTO</span> autor (nome) <span class="kw">VALUES</span>
+  (<span class="str">'Carlos Heuser'</span>), (<span class="str">'Abraham Silberschatz'</span>),
+  (<span class="str">'Thomas Connolly'</span>);
+
+<span class="kw">INSERT INTO</span> livro (isbn, titulo, ano, editora_id) <span class="kw">VALUES</span>
+  (<span class="str">'9788577807826'</span>, <span class="str">'Projeto de Banco de Dados'</span>, 2009, 1),
+  (<span class="str">'9780073523323'</span>, <span class="str">'Database System Concepts'</span>, 2019, 3),
+  (<span class="str">'9780132943727'</span>, <span class="str">'Database Systems'</span>, 2015, 3);
+
+<span class="kw">INSERT INTO</span> livro_autor <span class="kw">VALUES</span>
+  (<span class="str">'9788577807826'</span>, 1), (<span class="str">'9780073523323'</span>, 2),
+  (<span class="str">'9780132943727'</span>, 3);
+
+<span class="kw">INSERT INTO</span> membro (nome, email) <span class="kw">VALUES</span>
+  (<span class="str">'Ana'</span>, <span class="str">'ana@ufpa.br'</span>), (<span class="str">'Bia'</span>, <span class="str">'bia@ufpa.br'</span>);
+
+<span class="kw">INSERT INTO</span> emprestimo (membro_id, livro_isbn, dt_retirada) <span class="kw">VALUES</span>
+  (1, <span class="str">'9788577807826'</span>, <span class="str">'2026-05-01'</span>),
+  (2, <span class="str">'9780073523323'</span>, <span class="str">'2026-05-03'</span>);</pre>
+  </div>
+
+  <!-- EXERCÍCIO -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício</span>
+    <h2>Estenda o banco da Biblioteca</h2>
+    <div class="cards cards-2" style="margin-top:.8rem">
+      <div class="card">
+        <h3>① Crie a tabela Reserva</h3>
+        <p>Um membro pode <strong>reservar</strong> um livro. Campos: id (PK), membro_id (FK), livro_isbn (FK), dt_reserva (NOT NULL), status (VARCHAR: 'ativa', 'cancelada', 'concluída').</p>
+      </div>
+      <div class="card">
+        <h3>② Popule com dados</h3>
+        <p>Insira mais 3 livros, 2 autores, 3 membros e 5 empréstimos. Registre 3 devoluções (UPDATE dt_devolucao). Insira 2 reservas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 19/05 (Ter)</span>
+    <h1>SELECT<br><span class="accent">WHERE, ORDER BY &amp; LIMIT</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Consultando dados com SELECT</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Filtros, ordenação e paginação</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>
