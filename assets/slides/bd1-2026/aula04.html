@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.45rem; color: var(--highlight); margin-bottom: 0.4rem; font-weight: 700; }
+    .card p   { font-size: 1.25rem; color: var(--secondary); }
+    .card .note { font-size: 1.05rem; color: var(--secondary); margin-top: 0.5rem; opacity: 0.8; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 2rem; margin: 0.6rem 0 1.2rem; max-width: 62rem;
+    }
+    .definition p { font-size: 1.8rem; color: var(--text); font-style: italic; }
+
+    .warning {
+      background: rgba(146,64,14,0.07); border-left: 5px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 2rem; margin: 0.6rem 0 1rem;
+    }
+    .warning p { font-size: 1.7rem; color: var(--text); }
+
+    .diagram-wrap {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1rem; width: 100%; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; }
+
+    .table-rel {
+      width: 100%; border-collapse: collapse; font-size: 1.5rem;
+    }
+    .table-rel th {
+      background: var(--accent); color: #fff; padding: 0.6rem 1.2rem;
+      text-align: left; font-weight: 700;
+    }
+    .table-rel td {
+      padding: 0.55rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08);
+      color: var(--text);
+    }
+    .table-rel tr:nth-child(even) td { background: rgba(3,105,161,0.04); }
+    .table-rel .pk { font-weight: 700; text-decoration: underline; color: var(--accent); }
+    .table-rel .fk { font-style: italic; color: var(--highlight); }
+
+    .step { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+    #step-dots { position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%); display: none; gap: 0.4rem; z-index: 200; }
+    #step-dots.visible { display: flex; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: background 0.2s; }
+    .dot.active { background: var(--accent); }
+
+    code {
+      font-family: 'Fira Code', 'Courier New', monospace;
+      background: rgba(3,105,161,0.1); border-radius: 4px;
+      padding: 0.1em 0.4em; font-size: 0.9em; color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 4<br><span class="accent">Modelo Relacional &amp; Normalização</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>09 de abril de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Modelo Relacional: conceitos fundamentais</li>
+      <li>Mapeamento MER → Relacional (regras)</li>
+      <li>O problema da redundância</li>
+      <li>Dependências funcionais</li>
+      <li>1FN — Primeira Forma Normal</li>
+      <li>2FN — Segunda Forma Normal</li>
+      <li>3FN — Terceira Forma Normal</li>
+    </ul>
+  </div>
+
+  <!-- ══ 3. MODELO RELACIONAL ══ -->
+  <div class="slide slide-content">
+    <h2>Modelo Relacional</h2>
+    <div class="definition">
+      <p>O <strong>Modelo Relacional</strong> representa dados em <strong>tabelas</strong> (relações). Cada linha é uma tupla; cada coluna, um atributo. Proposto por <strong>E. F. Codd</strong> (IBM, 1970).</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>Relação (Tabela)</h3>
+        <p>Conjunto de tuplas com o mesmo esquema. Nome único no banco.</p>
+      </div>
+      <div class="card">
+        <h3>Tupla (Linha)</h3>
+        <p>Uma ocorrência / instância da relação. Não há ordem entre tuplas.</p>
+      </div>
+      <div class="card">
+        <h3>Atributo (Coluna)</h3>
+        <p>Propriedade com nome e domínio. Valores atômicos (sem repetição).</p>
+      </div>
+    </div>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Chave Primária (PK)</h3>
+        <p>Identifica unicamente cada tupla. Não pode ser NULL.</p>
+      </div>
+      <div class="card">
+        <h3>Chave Estrangeira (FK)</h3>
+        <p>Referencia a PK de outra tabela. Garante integridade referencial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 4. MAPEAMENTO — VISÃO GERAL ══ -->
+  <div class="slide slide-content">
+    <h2>Mapeamento MER → Relacional</h2>
+    <p style="margin-bottom:1.4rem">O DER é um modelo <span class="accent">conceitual</span>. O Modelo Relacional é <span class="accent">lógico</span>. O mapeamento traduz um para o outro seguindo regras.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>MER (conceitual)</h3>
+        <p>Entidade, Atributo, Relacionamento, Cardinalidade, Especialização</p>
+      </div>
+      <div class="card">
+        <h3>Relacional (lógico)</h3>
+        <p>Tabela, Coluna, PK, FK, Restrições</p>
+      </div>
+    </div>
+    <ul style="margin-top:1.2rem">
+      <li>Regra 1 — Entidade forte → tabela</li>
+      <li>Regra 2 — Relacionamentos 1:N → FK no lado N</li>
+      <li>Regra 3 — Relacionamentos N:M → tabela associativa</li>
+      <li>Regra 4 — Relacionamentos 1:1 → FK em qualquer lado</li>
+      <li>Regra 5 — Entidade fraca → tabela com PK composta</li>
+    </ul>
+  </div>
+
+  <!-- ══ 5. REGRA 1 — ENTIDADE FORTE ══ -->
+  <div class="slide slide-content">
+    <h2>Regra 1 — Entidade Forte</h2>
+    <p style="margin-bottom:1.2rem">Cada <span class="accent">entidade forte</span> do DER vira uma <span class="accent">tabela</span>. Seus atributos viram colunas. O atributo identificador vira a <strong>chave primária</strong>.</p>
+    <div class="diagram-wrap" style="margin-bottom:1.2rem">
+      <svg viewBox="0 0 760 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- DER side -->
+        <text x="10" y="20" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">DER</text>
+        <rect x="10" y="28" width="120" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="70" y="57" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <!-- arrow -->
+        <text x="155" y="57" font-size="22" fill="#0369a1">→</text>
+        <!-- Relational side -->
+        <text x="200" y="20" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">Relacional</text>
+        <text x="200" y="42" font-size="15" fill="#0f172a" font-family="sans-serif" font-weight="700">Aluno(</text>
+        <text x="275" y="42" font-size="15" fill="#0369a1" font-family="sans-serif" font-weight="700" text-decoration="underline">matricula</text>
+        <text x="360" y="42" font-size="15" fill="#0f172a" font-family="sans-serif">, nome, email, dataNasc)</text>
+        <text x="200" y="64" font-size="13" fill="#475569" font-family="sans-serif">PK: matricula</text>
+      </svg>
+    </div>
+    <div class="warning">
+      <p><strong>Atributos multivalorados</strong> NÃO viram colunas diretamente — geram uma tabela auxiliar com FK para a entidade-pai.</p>
+    </div>
+  </div>
+
+  <!-- ══ 6. REGRA 2 — RELACIONAMENTO 1:N ══ -->
+  <div class="slide slide-content">
+    <h2>Regra 2 — Relacionamento 1:N</h2>
+    <div class="definition">
+      <p>A <strong>chave primária</strong> do lado <strong>1</strong> migra como <strong>chave estrangeira</strong> para a tabela do lado <strong>N</strong>.</p>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 760 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- DER -->
+        <text x="10" y="18" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">DER</text>
+        <rect x="10" y="26" width="110" height="42" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="65" y="52" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Turma</text>
+        <line x1="120" y1="47" x2="170" y2="47" stroke="#0f172a" stroke-width="2"/>
+        <text x="140" y="42" font-size="13" fill="#0f172a" font-family="sans-serif">1</text>
+        <polygon points="170,26 230,47 170,68" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="200" y="52" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">matricula</text>
+        <line x1="230" y1="47" x2="280" y2="47" stroke="#0f172a" stroke-width="2"/>
+        <text x="256" y="42" font-size="13" fill="#0f172a" font-family="sans-serif">N</text>
+        <rect x="280" y="26" width="110" height="42" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="335" y="52" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
+        <!-- Relacional -->
+        <text x="10" y="100" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">Relacional</text>
+        <text x="10" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">Turma(<span></span></text>
+        <text x="70" y="116" font-size="14" fill="#0369a1" font-family="sans-serif" text-decoration="underline" font-weight="700">codTurma</text>
+        <text x="145" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">, sala, horario)&nbsp;&nbsp;&nbsp;</text>
+        <text x="360" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">Aluno(<span></span></text>
+        <text x="415" y="116" font-size="14" fill="#0369a1" font-family="sans-serif" text-decoration="underline" font-weight="700">matricula</text>
+        <text x="490" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">, nome,&nbsp;</text>
+        <text x="556" y="116" font-size="14" fill="#92400e" font-family="sans-serif" font-style="italic">codTurma</text>
+        <text x="622" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">)</text>
+      </svg>
+    </div>
+    <p style="margin-top:0.8rem; font-size:1.6rem"><span class="accent">codTurma</span> na tabela Aluno é a FK referenciando Turma.</p>
+  </div>
+
+  <!-- ══ 7. REGRA 3 — RELACIONAMENTO N:M ══ -->
+  <div class="slide slide-content">
+    <h2>Regra 3 — Relacionamento N:M</h2>
+    <div class="definition">
+      <p>Relacionamentos N:M geram uma <strong>tabela associativa</strong> cujas colunas são as chaves primárias das duas entidades participantes (formando uma <strong>PK composta</strong>).</p>
+    </div>
+    <p style="margin-bottom:1rem; font-size:1.7rem">Exemplo: <em>Aluno</em> se matricula em várias <em>Disciplinas</em>; cada disciplina tem vários alunos.</p>
+    <table class="table-rel">
+      <thead><tr><th>Tabela</th><th>Colunas</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td>Aluno</td><td><span class="pk">matricula</span>, nome</td><td>PK: matricula</td></tr>
+        <tr><td>Disciplina</td><td><span class="pk">codDisc</span>, nome, carga</td><td>PK: codDisc</td></tr>
+        <tr><td>Matricula</td><td><span class="pk"><span class="fk">matricula</span>, <span class="fk">codDisc</span></span>, nota, semestre</td><td>PK composta; FKs p/ Aluno e Disciplina</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem; font-size:1.6rem">Atributos do relacionamento (ex.: <em>nota</em>) ficam na tabela associativa.</p>
+  </div>
+
+  <!-- ══ 8. REGRAS 4 e 5 ══ -->
+  <div class="slide slide-content">
+    <h2>Regras 4 e 5</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Regra 4 — Relacionamento 1:1</h3>
+        <p>A FK migra para o lado com participação <strong>total</strong>. Se ambos têm participação total, pode-se fundir as duas tabelas em uma.</p>
+        <p class="note">Exemplo: Funcionário ←1:1→ Lotação. FK <em>codLotacao</em> em Funcionário.</p>
+      </div>
+      <div class="card">
+        <h3>Regra 5 — Entidade Fraca</h3>
+        <p>A tabela da entidade fraca recebe a PK da entidade forte como parte de sua <strong>chave primária composta</strong>.</p>
+        <p class="note">Exemplo: Dependente(<u>cpfFunc, nomeDep</u>, dataNasc). cpfFunc é FK para Funcionário.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.3rem">
+      <h3>Especialização / Generalização</h3>
+      <p>Opção 1: Uma tabela por subclasse + FK para a superclasse. &nbsp;|&nbsp; Opção 2: Uma única tabela com coluna tipo + NULLs. &nbsp;|&nbsp; Opção 3: Tabela única por subclasse replicando atributos da super.</p>
+    </div>
+  </div>
+
+  <!-- ══ 9. PROBLEMA DA REDUNDÂNCIA ══ -->
+  <div class="slide slide-content">
+    <h2>O problema da redundância</h2>
+    <table class="table-rel" style="font-size:1.35rem; margin-bottom:1.2rem">
+      <thead><tr><th>pedidoID</th><th>clienteNome</th><th>clienteEmail</th><th>produtoNome</th><th>categoria</th><th>preco</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ana</td><td>ana@x.com</td><td>Notebook</td><td>Eletrônicos</td><td>3200</td></tr>
+        <tr><td>2</td><td>Ana</td><td>ana@x.com</td><td>Mouse</td><td>Eletrônicos</td><td>80</td></tr>
+        <tr><td>3</td><td>Bruno</td><td>bru@y.com</td><td>Notebook</td><td>Eletrônicos</td><td>3200</td></tr>
+      </tbody>
+    </table>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Anomalia de inserção</h3>
+        <p>Não posso cadastrar produto sem pedido associado.</p>
+      </div>
+      <div class="card">
+        <h3>Anomalia de atualização</h3>
+        <p>Mudar o e-mail de Ana exige atualizar múltiplas linhas.</p>
+      </div>
+      <div class="card">
+        <h3>Anomalia de deleção</h3>
+        <p>Remover o pedido 3 apaga informação do produto Notebook.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. DEPENDÊNCIA FUNCIONAL ══ -->
+  <div class="slide slide-content">
+    <h2>Dependência Funcional</h2>
+    <div class="definition">
+      <p>Dizemos que <strong>X → Y</strong> (X determina Y) quando, para cada valor de X, existe <strong>exatamente um</strong> valor de Y.</p>
+    </div>
+    <ul>
+      <li><code>matricula → nome, email</code> &nbsp;— matrícula determina nome e e-mail do aluno</li>
+      <li><code>codProduto → descricao, preco</code> &nbsp;— código determina o produto</li>
+      <li><code>{pedidoID, codProduto} → quantidade</code> &nbsp;— chave composta determina a quantidade</li>
+    </ul>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Dependência Parcial</h3>
+        <p>Y depende de <em>parte</em> de uma chave composta. Viola a 2FN.</p>
+      </div>
+      <div class="card">
+        <h3>Dependência Transitiva</h3>
+        <p>X → Z via Y (X → Y → Z, Y não é chave). Viola a 3FN.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 11. 1FN ══ -->
+  <div class="slide slide-content">
+    <h2>Primeira Forma Normal (1FN)</h2>
+    <div class="definition">
+      <p>Uma relação está em <strong>1FN</strong> quando todos os seus atributos contêm apenas <strong>valores atômicos</strong> (indivisíveis) e <strong>não há grupos repetitivos</strong>.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>❌ Viola 1FN</h3>
+        <p>Pedido(<u>pedidoID</u>, cliente, <strong>itens: {prod1, prod2, ...}</strong>)</p>
+        <p class="note">Atributo multivalorado dentro da tupla.</p>
+      </div>
+      <div class="card">
+        <h3>✅ Em 1FN</h3>
+        <p>Pedido(<u>pedidoID</u>, cliente)<br>ItemPedido(<u>pedidoID, codProd</u>, qtd)</p>
+        <p class="note">Cada célula tem um único valor.</p>
+      </div>
+    </div>
+    <ul style="margin-top:0.8rem">
+      <li>Eliminar atributos multivalorados → nova tabela com FK</li>
+      <li>Eliminar grupos repetitivos de colunas (telefone1, telefone2…)</li>
+      <li>Definir uma <span class="accent">chave primária</span> clara</li>
+    </ul>
+  </div>
+
+  <!-- ══ 12. 2FN ══ -->
+  <div class="slide slide-content">
+    <h2>Segunda Forma Normal (2FN)</h2>
+    <div class="definition">
+      <p>Uma relação está em <strong>2FN</strong> se está em 1FN e <strong>todo atributo não-chave depende funcionalmente da chave primária inteira</strong> (sem dependências parciais).</p>
+    </div>
+    <div class="warning">
+      <p>⚠️ Só é relevante quando a chave primária é <strong>composta</strong>.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>❌ Viola 2FN</h3>
+        <p>ItemPedido(<u>pedidoID, codProd</u>, qtd, <strong>nomeProd</strong>, <strong>preco</strong>)</p>
+        <p class="note">nomeProd e preco dependem só de codProd, não da chave inteira.</p>
+      </div>
+      <div class="card">
+        <h3>✅ Em 2FN</h3>
+        <p>ItemPedido(<u>pedidoID, codProd</u>, qtd)<br>Produto(<u>codProd</u>, nomeProd, preco)</p>
+        <p class="note">Dependência parcial removida.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 13. 3FN ══ -->
+  <div class="slide slide-content">
+    <h2>Terceira Forma Normal (3FN)</h2>
+    <div class="definition">
+      <p>Uma relação está em <strong>3FN</strong> se está em 2FN e <strong>não há dependências transitivas</strong>: nenhum atributo não-chave depende de outro atributo não-chave.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>❌ Viola 3FN</h3>
+        <p>Funcionario(<u>id</u>, nome, <strong>codDept</strong>, <strong>nomeDept</strong>)</p>
+        <p class="note">id → codDept → nomeDept. nomeDept depende de codDept (não da PK diretamente).</p>
+      </div>
+      <div class="card">
+        <h3>✅ Em 3FN</h3>
+        <p>Funcionario(<u>id</u>, nome, codDept)<br>Departamento(<u>codDept</u>, nomeDept)</p>
+        <p class="note">Dependência transitiva removida.</p>
+      </div>
+    </div>
+    <p style="margin-top:0.8rem; font-size:1.6rem">Regra prática: <em>"Todo atributo não-chave deve depender da chave, de toda a chave, e somente da chave."</em></p>
+  </div>
+
+  <!-- ══ 14. RESUMO FORMAS NORMAIS ══ -->
+  <div class="slide slide-content">
+    <h2>Resumo: 1FN → 2FN → 3FN</h2>
+    <table class="table-rel">
+      <thead><tr><th>Forma Normal</th><th>Condição eliminada</th><th>Como resolver</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>1FN</strong></td>
+          <td>Valores não-atômicos / grupos repetitivos</td>
+          <td>Extrair em nova tabela com FK</td>
+        </tr>
+        <tr>
+          <td><strong>2FN</strong></td>
+          <td>Dependência parcial da chave composta</td>
+          <td>Separar atributo + parte da chave em nova tabela</td>
+        </tr>
+        <tr>
+          <td><strong>3FN</strong></td>
+          <td>Dependência transitiva (não-chave → não-chave)</td>
+          <td>Extrair o determinante em nova tabela com FK</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="definition" style="margin-top:1.2rem">
+      <p>Normalizar = eliminar redundância + preservar dados + manter integridade.</p>
+    </div>
+  </div>
+
+  <!-- ══ 15. EXEMPLO COMPLETO ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Normalização passo a passo</h2>
+    <p style="margin-bottom:0.8rem; font-size:1.7rem"><strong>Tabela original (não normalizada):</strong></p>
+    <table class="table-rel" style="font-size:1.3rem; margin-bottom:1rem">
+      <thead><tr><th>pedidoID</th><th>data</th><th>clienteNome</th><th>clienteCidade</th><th>produtos (lista)</th></tr></thead>
+      <tbody>
+        <tr><td>101</td><td>2026-04-01</td><td>Ana</td><td>Belém</td><td>Notebook, Mouse</td></tr>
+      </tbody>
+    </table>
+    <div class="cards cards-3" style="font-size:1.3rem">
+      <div class="card">
+        <h3>→ 1FN</h3>
+        <p>Separar produtos em ItemPedido(<u>pedidoID, codProd</u>, qtd). Pedido(<u>pedidoID</u>, data, clienteNome, clienteCidade).</p>
+      </div>
+      <div class="card">
+        <h3>→ 2FN</h3>
+        <p>nomeProd / preco dependem só de codProd → Produto(<u>codProd</u>, nome, preco).</p>
+      </div>
+      <div class="card">
+        <h3>→ 3FN</h3>
+        <p>clienteCidade depende de clienteNome, não de pedidoID → Cliente(<u>codCliente</u>, nome, cidade). Pedido recebe codCliente (FK).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 16. ENCERRAMENTO ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1 style="font-size:3.2rem">Próxima aula: <span class="accent">Avaliação 1</span></h1>
+    <ul style="margin-top:2rem; text-align:left">
+      <li style="font-size:1.9rem; color:#f1f5f9">P1 em 23/04 — MER, Modelo Relacional, Normalização</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Atividade assíncrona: modelagem ER (entrega 23/04)</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Quiz online de normalização (entrega 23/04)</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">📖 Heuser, cap. 4–5 &nbsp;|&nbsp; Silberschatz, cap. 7</p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
