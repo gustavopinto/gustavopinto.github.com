@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 6 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary); }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .step { opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none; }
+    .step.visible { opacity:1;transform:none;pointer-events:auto; }
+    #step-dots { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);display:none;gap:.4rem;z-index:200; }
+    #step-dots.visible { display:flex; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 6<br><span class="accent">DDL: ALTER TABLE &amp; DROP TABLE</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>07 de maio de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>ALTER TABLE: adicionar, remover, renomear colunas</li>
+      <li>ALTER TABLE: adicionar e remover constraints</li>
+      <li>DROP TABLE: CASCADE vs RESTRICT</li>
+      <li>TRUNCATE TABLE</li>
+      <li>Laboratório prático</li>
+    </ul>
+  </div>
+
+  <!-- ALTER TABLE: ADD/DROP COLUMN -->
+  <div class="slide slide-content">
+    <h2>ALTER TABLE — Colunas</h2>
+    <pre class="code-block"><span class="cm">-- Adicionar coluna</span>
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">ADD COLUMN</span> telefone <span class="kw">VARCHAR</span>(15);
+
+<span class="cm">-- Remover coluna</span>
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">DROP COLUMN</span> telefone;
+
+<span class="cm">-- Renomear coluna</span>
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">RENAME COLUMN</span> dt_nasc <span class="kw">TO</span> data_nascimento;
+
+<span class="cm">-- Alterar tipo</span>
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">ALTER COLUMN</span> nome <span class="kw">TYPE VARCHAR</span>(200);
+
+<span class="cm">-- Setar / remover NOT NULL</span>
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">ALTER COLUMN</span> email <span class="kw">SET NOT NULL</span>;
+<span class="kw">ALTER TABLE</span> aluno <span class="kw">ALTER COLUMN</span> email <span class="kw">DROP NOT NULL</span>;</pre>
+  </div>
+
+  <!-- ALTER TABLE: CONSTRAINTS -->
+  <div class="slide slide-content">
+    <h2>ALTER TABLE — Constraints</h2>
+    <pre class="code-block"><span class="cm">-- Adicionar FK</span>
+<span class="kw">ALTER TABLE</span> pedido
+  <span class="kw">ADD CONSTRAINT</span> fk_cliente
+  <span class="kw">FOREIGN KEY</span> (cli_cpf) <span class="kw">REFERENCES</span> cliente(cpf);
+
+<span class="cm">-- Adicionar UNIQUE</span>
+<span class="kw">ALTER TABLE</span> produto
+  <span class="kw">ADD CONSTRAINT</span> uq_produto_nome <span class="kw">UNIQUE</span> (nome);
+
+<span class="cm">-- Adicionar CHECK</span>
+<span class="kw">ALTER TABLE</span> produto
+  <span class="kw">ADD CONSTRAINT</span> chk_preco <span class="kw">CHECK</span> (preco > 0);
+
+<span class="cm">-- Remover constraint pelo nome</span>
+<span class="kw">ALTER TABLE</span> produto <span class="kw">DROP CONSTRAINT</span> chk_preco;</pre>
+  </div>
+
+  <!-- DROP TABLE -->
+  <div class="slide slide-content">
+    <h2>DROP TABLE &amp; TRUNCATE</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>DROP TABLE</h3>
+        <p>Remove a tabela inteira (estrutura + dados).</p>
+        <pre class="code-block" style="font-size:1.1rem"><span class="cm">-- Falha se houver FKs apontando</span>
+<span class="kw">DROP TABLE</span> departamento;
+
+<span class="cm">-- Remove tabela e todas as FKs dependentes</span>
+<span class="kw">DROP TABLE</span> departamento <span class="kw">CASCADE</span>;
+
+<span class="cm">-- Só remove se não houver dependências</span>
+<span class="kw">DROP TABLE</span> departamento <span class="kw">RESTRICT</span>;</pre>
+      </div>
+      <div class="card">
+        <h3>TRUNCATE TABLE</h3>
+        <p>Remove <strong>todos os dados</strong> mas mantém a estrutura da tabela. Mais rápido que DELETE.</p>
+        <pre class="code-block" style="font-size:1.1rem"><span class="kw">TRUNCATE TABLE</span> pedido;
+
+<span class="cm">-- Com CASCADE para tabelas dependentes</span>
+<span class="kw">TRUNCATE TABLE</span> cliente <span class="kw">CASCADE</span>;</pre>
+        <p class="note">Diferente de DELETE: não gera log de cada linha, reseta sequências.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDEM DE CRIAÇÃO/EXCLUSÃO -->
+  <div class="slide slide-content">
+    <h2>Ordem importa!</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Criar: tabelas referenciadas primeiro</h3>
+        <p>① departamento<br>② professor (FK → departamento)<br>③ disciplina (FK → professor)</p>
+        <p class="note">Quem é referenciado deve existir antes</p>
+      </div>
+      <div class="card">
+        <h3>Excluir: tabelas dependentes primeiro</h3>
+        <p>① disciplina<br>② professor<br>③ departamento</p>
+        <p class="note">Ou use DROP ... CASCADE (cuidado!)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCÍCIO -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício — Laboratório</span>
+    <h2>Evolução de schema no DB Fiddle</h2>
+    <div class="definition">
+      <p>Usando as tabelas criadas na Aula 5 (departamento, professor, disciplina), execute as alterações abaixo no DB Fiddle.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:.8rem">
+      <div class="card">
+        <h3>① Alterações</h3>
+        <p>Adicione coluna <strong>email</strong> (UNIQUE) em professor. Adicione CHECK em disciplina para créditos entre 1 e 10. Renomeie a coluna "nome" de departamento para "nome_depto".</p>
+      </div>
+      <div class="card">
+        <h3>② DROP + recriação</h3>
+        <p>Remova a tabela disciplina (CASCADE). Recrie-a com uma coluna extra <strong>carga_horaria</strong> (INTEGER, NOT NULL, DEFAULT 60).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 12/05 (Ter)</span>
+    <h1>DML<br><span class="accent">INSERT, UPDATE &amp; DELETE</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Inserindo, atualizando e removendo dados</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Transações básicas: BEGIN, COMMIT, ROLLBACK</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>

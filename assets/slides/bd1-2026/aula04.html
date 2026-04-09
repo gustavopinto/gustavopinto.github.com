@@ -148,8 +148,10 @@
       color: var(--text);
     }
     .table-rel tr:nth-child(even) td { background: rgba(3,105,161,0.04); }
-    .table-rel .pk { font-weight: 700; text-decoration: underline; color: var(--accent); }
-    .table-rel .fk { font-style: italic; color: var(--highlight); }
+    .table-rel td.pk, .table-rel td .pk { font-weight: 700; text-decoration: underline; color: var(--accent); }
+    .table-rel th.pk, .table-rel th .pk { font-weight: 700; text-decoration: underline; color: #fff; }
+    .table-rel td.fk, .table-rel td .fk { font-style: italic; color: var(--highlight); }
+    .table-rel th.fk, .table-rel th .fk { font-style: italic; color: #fde68a; }
 
     .step { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
     .step.visible { opacity: 1; transform: none; pointer-events: auto; }
@@ -288,33 +290,30 @@
     <div class="definition">
       <p>A <strong>chave primária</strong> do lado <strong>1</strong> migra como <strong>chave estrangeira</strong> para a tabela do lado <strong>N</strong>.</p>
     </div>
-    <div class="diagram-wrap">
-      <svg viewBox="0 0 760 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- DER -->
-        <text x="10" y="18" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">DER</text>
-        <rect x="10" y="26" width="110" height="42" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="65" y="52" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Turma</text>
-        <line x1="120" y1="47" x2="170" y2="47" stroke="#0f172a" stroke-width="2"/>
-        <text x="140" y="42" font-size="13" fill="#0f172a" font-family="sans-serif">1</text>
-        <polygon points="170,26 230,47 170,68" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="200" y="52" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">matricula</text>
-        <line x1="230" y1="47" x2="280" y2="47" stroke="#0f172a" stroke-width="2"/>
-        <text x="256" y="42" font-size="13" fill="#0f172a" font-family="sans-serif">N</text>
-        <rect x="280" y="26" width="110" height="42" stroke="#0f172a" stroke-width="2" fill="white"/>
-        <text x="335" y="52" text-anchor="middle" font-size="17" fill="#0f172a" font-family="sans-serif" font-weight="600">Aluno</text>
-        <!-- Relacional -->
-        <text x="10" y="100" font-size="14" fill="#475569" font-family="sans-serif" font-weight="700">Relacional</text>
-        <text x="10" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">Turma(<span></span></text>
-        <text x="70" y="116" font-size="14" fill="#0369a1" font-family="sans-serif" text-decoration="underline" font-weight="700">codTurma</text>
-        <text x="145" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">, sala, horario)&nbsp;&nbsp;&nbsp;</text>
-        <text x="360" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">Aluno(<span></span></text>
-        <text x="415" y="116" font-size="14" fill="#0369a1" font-family="sans-serif" text-decoration="underline" font-weight="700">matricula</text>
-        <text x="490" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">, nome,&nbsp;</text>
-        <text x="556" y="116" font-size="14" fill="#92400e" font-family="sans-serif" font-style="italic">codTurma</text>
-        <text x="622" y="116" font-size="14" fill="#0f172a" font-family="sans-serif">)</text>
-      </svg>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Turma <span style="font-weight:400;font-size:1.1rem;color:var(--secondary)">(lado 1)</span></h3>
+        <table class="table-rel" style="font-size:1.2rem;margin-top:0.5rem">
+          <thead><tr><th class="pk">codTurma</th><th>sala</th><th>horario</th></tr></thead>
+          <tbody>
+            <tr><td>T01</td><td>Lab 2</td><td>Ter 7h30</td></tr>
+            <tr><td>T02</td><td>205</td><td>Qui 9h10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Aluno <span style="font-weight:400;font-size:1.1rem;color:var(--secondary)">(lado N)</span></h3>
+        <table class="table-rel" style="font-size:1.2rem;margin-top:0.5rem">
+          <thead><tr><th class="pk">matricula</th><th>nome</th><th class="fk">codTurma (FK)</th></tr></thead>
+          <tbody>
+            <tr><td>2024001</td><td>Ana</td><td>T01</td></tr>
+            <tr><td>2024002</td><td>Bia</td><td>T01</td></tr>
+            <tr><td>2024003</td><td>Carlos</td><td>T02</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <p style="margin-top:0.8rem; font-size:1.6rem"><span class="accent">codTurma</span> na tabela Aluno é a FK referenciando Turma.</p>
+    <p style="margin-top:1rem; font-size:1.6rem"><span class="accent">codTurma</span> na tabela Aluno é a FK — cada aluno pertence a <strong>uma</strong> turma, mas uma turma tem <strong>vários</strong> alunos.</p>
   </div>
 
   <!-- ══ 7. REGRA 3 — RELACIONAMENTO N:M ══ -->
@@ -335,24 +334,88 @@
     <p style="margin-top:1rem; font-size:1.6rem">Atributos do relacionamento (ex.: <em>nota</em>) ficam na tabela associativa.</p>
   </div>
 
-  <!-- ══ 8. REGRAS 4 e 5 ══ -->
+  <!-- ══ 7b. REGRA 3 — TABELAS ══ -->
   <div class="slide slide-content">
-    <h2>Regras 4 e 5</h2>
-    <div class="cards cards-2">
+    <h2>Regra 3 — As três tabelas</h2>
+    <div class="cards cards-3" style="margin-bottom:1rem">
       <div class="card">
-        <h3>Regra 4 — Relacionamento 1:1</h3>
-        <p>A FK migra para o lado com participação <strong>total</strong>. Se ambos têm participação total, pode-se fundir as duas tabelas em uma.</p>
-        <p class="note">Exemplo: Funcionário ←1:1→ Lotação. FK <em>codLotacao</em> em Funcionário.</p>
+        <h3>Aluno</h3>
+        <table class="table-rel" style="font-size:1.15rem;margin-top:0.4rem">
+          <thead><tr><th class="pk">matricula</th><th>nome</th></tr></thead>
+          <tbody>
+            <tr><td>2024001</td><td>Ana</td></tr>
+            <tr><td>2024002</td><td>Bia</td></tr>
+            <tr><td>2024003</td><td>Carlos</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="card">
-        <h3>Regra 5 — Entidade Fraca</h3>
-        <p>A tabela da entidade fraca recebe a PK da entidade forte como parte de sua <strong>chave primária composta</strong>.</p>
-        <p class="note">Exemplo: Dependente(<u>cpfFunc, nomeDep</u>, dataNasc). cpfFunc é FK para Funcionário.</p>
+        <h3>Disciplina</h3>
+        <table class="table-rel" style="font-size:1.15rem;margin-top:0.4rem">
+          <thead><tr><th class="pk">codDisc</th><th>nome</th><th>carga</th></tr></thead>
+          <tbody>
+            <tr><td>BD1</td><td>Banco de Dados I</td><td>60h</td></tr>
+            <tr><td>POO</td><td>Prog. Orientada a Obj.</td><td>60h</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Matricula <span style="font-weight:400;font-size:1rem;color:var(--secondary)">(associativa)</span></h3>
+        <table class="table-rel" style="font-size:1.15rem;margin-top:0.4rem">
+          <thead><tr><th class="pk fk">matricula</th><th class="pk fk">codDisc</th><th>nota</th></tr></thead>
+          <tbody>
+            <tr><td>2024001</td><td>BD1</td><td>8.5</td></tr>
+            <tr><td>2024001</td><td>POO</td><td>7.0</td></tr>
+            <tr><td>2024002</td><td>BD1</td><td>9.0</td></tr>
+            <tr><td>2024003</td><td>POO</td><td>6.5</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="card" style="margin-top:1.3rem">
-      <h3>Especialização / Generalização</h3>
-      <p>Opção 1: Uma tabela por subclasse + FK para a superclasse. &nbsp;|&nbsp; Opção 2: Uma única tabela com coluna tipo + NULLs. &nbsp;|&nbsp; Opção 3: Tabela única por subclasse replicando atributos da super.</p>
+    <p style="font-size:1.5rem">PK de <span class="accent">Matricula</span> é composta: <strong>matricula + codDisc</strong>. Ambas são também FKs. A nota (atributo do relacionamento) fica na tabela associativa.</p>
+  </div>
+
+  <!-- ══ 8. EXERCÍCIO — REGRAS 4 e 5 ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício em sala</span>
+    <h2>Regras 4 e 5 — Mapeie você mesmo</h2>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card">
+        <h3>Cenário A — Relacionamento 1:1</h3>
+        <p>Um <strong>Funcionário</strong> (CPF, nome) é alocado em exatamente uma <strong>Sala</strong> (número, andar). Cada sala pertence a no máximo um funcionário.</p>
+        <p class="note">Como ficam as tabelas? Onde vai a FK?</p>
+      </div>
+      <div class="card">
+        <h3>Cenário B — Entidade Fraca</h3>
+        <p>Um <strong>Funcionário</strong> (CPF, nome) pode ter vários <strong>Dependentes</strong> (nome, parentesco, dataNasc). Dependente não existe sem o funcionário.</p>
+        <p class="note">Qual é a PK da tabela Dependente?</p>
+      </div>
+    </div>
+    <div class="definition" style="margin-top:1rem">
+      <p>Escreva as tabelas no formato: <strong>NomeTabela(<u>PK</u>, col1, col2, <em>FK</em>)</strong></p>
+    </div>
+  </div>
+
+  <!-- ══ 8b. GABARITO — REGRAS 4 e 5 ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Gabarito</span>
+    <h2>Regras 4 e 5 — Resposta</h2>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card">
+        <h3>Cenário A — 1:1</h3>
+        <p>Funcionario(<u>CPF</u>, nome, <em>numSala</em>)</p>
+        <p>Sala(<u>numero</u>, andar)</p>
+        <p class="note">FK <em>numSala</em> em Funcionário (lado com participação total). Sala pode existir sem funcionário; funcionário sempre tem sala.</p>
+      </div>
+      <div class="card">
+        <h3>Cenário B — Entidade Fraca</h3>
+        <p>Funcionario(<u>CPF</u>, nome)</p>
+        <p>Dependente(<u><em>cpfFunc</em>, nome</u>, parentesco, dataNasc)</p>
+        <p class="note">PK composta: CPF do funcionário (FK) + nome do dependente. Sem o funcionário, o dependente não existe.</p>
+      </div>
+    </div>
+    <div class="definition" style="margin-top:1rem">
+      <p><strong>Regra geral:</strong> na entidade fraca, a PK = FK da entidade forte + chave parcial da entidade fraca.</p>
     </div>
   </div>
 
@@ -529,7 +592,30 @@
     </div>
   </div>
 
-  <!-- ══ 16. ENCERRAMENTO ══ -->
+  <!-- ══ 16. EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício</span>
+    <h2>Mapeamento &amp; Normalização</h2>
+    <div class="definition">
+      <p>Um hospital tem <strong>médicos</strong> (CRM, nome, especialidade) que atendem <strong>pacientes</strong> (CPF, nome, cidade). Cada atendimento tem uma <strong>data</strong> e <strong>diagnóstico</strong>. Um paciente pode ser atendido por vários médicos; um médico atende vários pacientes.</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>① Identifique</h3>
+        <p>Quais entidades? Qual cardinalidade do relacionamento? Há entidade fraca?</p>
+      </div>
+      <div class="card">
+        <h3>② Mapeie</h3>
+        <p>Converta para tabelas relacionais com PKs e FKs. Onde fica o atributo <em>diagnóstico</em>?</p>
+      </div>
+      <div class="card">
+        <h3>③ Normalize</h3>
+        <p>Suas tabelas estão em 3FN? Identifique e elimine dependências parciais ou transitivas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 17. ENCERRAMENTO ══ -->
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados I — 2026.2</span>
     <h1 style="font-size:3.2rem">Próxima aula: <span class="accent">Avaliação 1</span></h1>
