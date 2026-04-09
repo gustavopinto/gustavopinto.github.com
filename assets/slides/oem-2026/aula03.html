@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3 — Modelo Spotify, Lei de Conway e Evolução Estrutural</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    .contrast-box {
+      display: flex; gap: 2rem; width: 100%; margin-top: 1rem;
+    }
+    .contrast-side {
+      flex: 1; border-radius: var(--radius); padding: 1.6rem 2rem;
+      border: 2px solid;
+    }
+    .contrast-side h3 { font-size: 1.7rem; margin-bottom: 0.7rem; }
+    .contrast-side p  { font-size: 1.35rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .contrast-side.left  { border-color: rgba(3,105,161,0.4);  background: rgba(3,105,161,0.05); }
+    .contrast-side.right { border-color: rgba(146,64,14,0.4); background: rgba(146,64,14,0.05); }
+    .contrast-side.left  h3 { color: var(--accent); }
+    .contrast-side.right h3 { color: var(--highlight); }
+
+    .org-chart { width: 100%; display: flex; justify-content: center; margin: 1rem 0; }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; align-items: flex-start; gap: 0; width: 100%; margin-top: 1rem; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; top: 28px; left: 5%; right: 5%;
+      height: 4px; background: linear-gradient(90deg, var(--accent), var(--highlight), var(--success));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      flex: 1; text-align: center; position: relative; padding-top: 50px;
+    }
+    .timeline-item .dot-tl {
+      width: 18px; height: 18px; border-radius: 50%;
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      border: 3px solid white; box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-item h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .timeline-item p { font-size: 1.1rem; color: var(--secondary); padding: 0 0.5rem; }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 3<br><span class="accent">Spotify, Conway &amp; Evolução Estrutural</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>09 de abril de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. RECAP ══ -->
+  <div class="slide slide-content">
+    <h2>Relembrando a Aula 2</h2>
+    <ul>
+      <li><span class="accent">Funcional</span> — agrupa por especialidade (Eng, Design, QA)</li>
+      <li><span class="accent">Produto/Squad</span> — times multidisciplinares por produto</li>
+      <li><span class="accent">Matricial</span> — dois chefes (funcional + projeto)</li>
+      <li><span class="accent">Projetizada</span> — times temporários por projeto</li>
+    </ul>
+    <div class="question" style="margin-top:1.5rem">
+      <p>Hoje: Modelo Spotify, Lei de Conway, como estruturas evoluem e casos reais.</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O Modelo Spotify</li>
+      <li>Lei de Conway</li>
+      <li>Evolução estrutural: do startup ao scale-up</li>
+      <li>Estudos de caso: empresas reais</li>
+      <li>Tabela comparativa completa</li>
+      <li>Exercício</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. SPOTIFY INTRO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>O Modelo Spotify</h2>
+    <div class="question">
+      <p>Como escalar autonomia sem perder alinhamento?</p>
+    </div>
+    <div class="step" data-step="1">
+      <p style="margin-top:1.5rem; font-size:1.7rem">Em 2012, o Spotify compartilhou como organizava seus ~250 engenheiros. O modelo virou referência mundial.</p>
+      <p style="margin-top:1rem; font-size:1.7rem">Quatro conceitos-chave:</p>
+      <ul class="plain" style="margin-top:0.5rem">
+        <li><span class="accent">Squads</span> — times autônomos (6–12 pessoas) com missão própria</li>
+        <li><span class="highlight">Tribes</span> — agrupam squads relacionados (max ~100 pessoas)</li>
+        <li><span class="success">Chapters</span> — especialistas da mesma área entre squads</li>
+        <li><span class="accent">Guilds</span> — comunidades de interesse transversais</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 5. SPOTIFY DIAGRAMA ══ -->
+  <div class="slide slide-content" style="padding: 3rem 5rem">
+    <h2>Spotify — Visão geral</h2>
+    <div class="org-chart">
+      <svg width="700" height="340" viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tribe box -->
+        <rect x="20" y="20" width="660" height="180" rx="12" fill="none" stroke="#0369a1" stroke-width="2" stroke-dasharray="8"/>
+        <text x="40" y="50" fill="#0369a1" font-size="16" font-weight="bold">Tribe: Streaming</text>
+
+        <!-- Squad 1 -->
+        <rect x="40" y="65" width="140" height="120" rx="8" fill="rgba(3,105,161,0.08)" stroke="#0369a1" stroke-width="1.5"/>
+        <text x="110" y="88" text-anchor="middle" fill="#0369a1" font-size="13" font-weight="700">Squad 1</text>
+        <text x="110" y="106" text-anchor="middle" fill="#475569" font-size="10">Player</text>
+        <circle cx="65" cy="135" r="10" fill="#475569"/><text x="65" y="139" text-anchor="middle" fill="white" font-size="9">E</text>
+        <circle cx="90" cy="135" r="10" fill="#92400e"/><text x="90" y="139" text-anchor="middle" fill="white" font-size="9">P</text>
+        <circle cx="115" cy="135" r="10" fill="#166534"/><text x="115" y="139" text-anchor="middle" fill="white" font-size="9">D</text>
+        <circle cx="140" cy="135" r="10" fill="#7c3aed"/><text x="140" y="139" text-anchor="middle" fill="white" font-size="9">Q</text>
+        <circle cx="65" cy="162" r="10" fill="#475569"/><text x="65" y="166" text-anchor="middle" fill="white" font-size="9">E</text>
+        <circle cx="90" cy="162" r="10" fill="#475569"/><text x="90" y="166" text-anchor="middle" fill="white" font-size="9">E</text>
+
+        <!-- Squad 2 -->
+        <rect x="200" y="65" width="140" height="120" rx="8" fill="rgba(3,105,161,0.08)" stroke="#0369a1" stroke-width="1.5"/>
+        <text x="270" y="88" text-anchor="middle" fill="#0369a1" font-size="13" font-weight="700">Squad 2</text>
+        <text x="270" y="106" text-anchor="middle" fill="#475569" font-size="10">Busca</text>
+        <circle cx="225" cy="135" r="10" fill="#475569"/><text x="225" y="139" text-anchor="middle" fill="white" font-size="9">E</text>
+        <circle cx="250" cy="135" r="10" fill="#92400e"/><text x="250" y="139" text-anchor="middle" fill="white" font-size="9">P</text>
+        <circle cx="275" cy="135" r="10" fill="#166534"/><text x="275" y="139" text-anchor="middle" fill="white" font-size="9">D</text>
+        <circle cx="300" cy="135" r="10" fill="#7c3aed"/><text x="300" y="139" text-anchor="middle" fill="white" font-size="9">Q</text>
+        <circle cx="225" cy="162" r="10" fill="#475569"/><text x="225" y="166" text-anchor="middle" fill="white" font-size="9">E</text>
+
+        <!-- Squad 3 -->
+        <rect x="360" y="65" width="140" height="120" rx="8" fill="rgba(3,105,161,0.08)" stroke="#0369a1" stroke-width="1.5"/>
+        <text x="430" y="88" text-anchor="middle" fill="#0369a1" font-size="13" font-weight="700">Squad 3</text>
+        <text x="430" y="106" text-anchor="middle" fill="#475569" font-size="10">Recomendação</text>
+        <circle cx="385" cy="135" r="10" fill="#475569"/><text x="385" y="139" text-anchor="middle" fill="white" font-size="9">E</text>
+        <circle cx="410" cy="135" r="10" fill="#92400e"/><text x="410" y="139" text-anchor="middle" fill="white" font-size="9">P</text>
+        <circle cx="435" cy="135" r="10" fill="#166534"/><text x="435" y="139" text-anchor="middle" fill="white" font-size="9">D</text>
+        <circle cx="460" cy="135" r="10" fill="#475569"/><text x="460" y="139" text-anchor="middle" fill="white" font-size="9">E</text>
+        <circle cx="385" cy="162" r="10" fill="#7c3aed"/><text x="385" y="166" text-anchor="middle" fill="white" font-size="9">Q</text>
+
+        <!-- Chapter arrow -->
+        <line x1="65" y1="175" x2="65" y2="220" stroke="#475569" stroke-width="2" stroke-dasharray="5"/>
+        <line x1="225" y1="175" x2="225" y2="220" stroke="#475569" stroke-width="2" stroke-dasharray="5"/>
+        <line x1="385" y1="175" x2="385" y2="220" stroke="#475569" stroke-width="2" stroke-dasharray="5"/>
+        <line x1="65" y1="220" x2="385" y2="220" stroke="#475569" stroke-width="2" stroke-dasharray="5"/>
+        <rect x="150" y="230" width="160" height="30" rx="6" fill="#475569"/>
+        <text x="230" y="250" text-anchor="middle" fill="white" font-size="12" font-weight="600">Chapter: Backend Eng</text>
+
+        <!-- Guild -->
+        <rect x="480" y="230" width="180" height="30" rx="6" fill="rgba(124,58,237,0.15)" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5"/>
+        <text x="570" y="250" text-anchor="middle" fill="#7c3aed" font-size="12" font-weight="600">Guild: Web Performance</text>
+
+        <!-- Legend -->
+        <circle cx="40" cy="310" r="8" fill="#475569"/><text x="55" y="314" fill="#475569" font-size="11">Eng</text>
+        <circle cx="110" cy="310" r="8" fill="#92400e"/><text x="125" y="314" fill="#92400e" font-size="11">PM</text>
+        <circle cx="180" cy="310" r="8" fill="#166534"/><text x="195" y="314" fill="#166534" font-size="11">Design</text>
+        <circle cx="260" cy="310" r="8" fill="#7c3aed"/><text x="275" y="314" fill="#7c3aed" font-size="11">QA</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 6. SPOTIFY — PRÓS E CONTRAS ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Spotify — Vantagens e cuidados</h2>
+    <p style="margin-bottom:1.2rem">O modelo resolve problemas reais de escala, mas exige <span class="accent">maturidade cultural</span>.</p>
+    <div class="cards cards-2 step" data-step="1">
+      <div class="card">
+        <h3 style="color:var(--success)">Vantagens</h3>
+        <p>Autonomia com alinhamento</p>
+        <p>Chapters evitam silos técnicos</p>
+        <p>Guilds promovem inovação cruzada</p>
+        <p>Escala sem burocracia pesada</p>
+      </div>
+      <div class="card">
+        <h3 style="color:#b91c1c">Cuidados</h3>
+        <p>Não é receita pronta — cada empresa adapta</p>
+        <p>Exige confiança e cultura forte</p>
+        <p>Chapters fracos = perda de qualidade</p>
+        <p>O próprio Spotify já mudou o modelo</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. LEI DE CONWAY — INTRO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Lei de Conway</h2>
+    <div class="definition">
+      <p>"Organizações que projetam sistemas são limitadas a produzir designs que <strong>copiam as estruturas de comunicação</strong> dessas organizações."</p>
+    </div>
+    <p style="font-size:1.4rem; color:var(--secondary); margin-bottom:1.5rem">— Melvin Conway, 1967</p>
+    <div class="step" data-step="1">
+      <p style="font-size:1.8rem">Em outras palavras:</p>
+      <ul class="plain" style="margin-top:0.5rem">
+        <li>A <span class="accent">arquitetura do software</span> espelha a <span class="highlight">estrutura da organização</span></li>
+        <li>Times separados criam sistemas separados</li>
+        <li>Times que não se comunicam criam integrações ruins</li>
+        <li>Quer mudar a arquitetura? Mude a organização primeiro.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 8. CONWAY — EXEMPLOS ══ -->
+  <div class="slide slide-content">
+    <h2>Conway na prática</h2>
+    <div class="contrast-box">
+      <div class="contrast-side left">
+        <h3>3 times isolados</h3>
+        <p style="font-size:1.3rem">Time de frontend, time de backend, time de dados.</p>
+        <p style="font-size:1.3rem">Cada um tem seu deploy, seu banco, sua API.</p>
+        <p style="font-weight:700; margin-top:0.8rem; font-size:1.3rem">Resultado: 3 sistemas com integrações frágeis entre eles.</p>
+      </div>
+      <div class="contrast-side right">
+        <h3>1 squad multidisciplinar</h3>
+        <p style="font-size:1.3rem">Front, back e dados no mesmo time, mesma missão.</p>
+        <p style="font-size:1.3rem">Comunicação direta, decisões rápidas.</p>
+        <p style="font-weight:700; margin-top:0.8rem; font-size:1.3rem">Resultado: um produto coeso, deploy unificado.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.5rem; border-left:4px solid var(--accent)">
+      <p style="font-size:1.4rem">A Amazon usou essa ideia para criar as "Two-Pizza Teams": se o time precisa de mais de 2 pizzas para comer, é grande demais.</p>
+    </div>
+  </div>
+
+  <!-- ══ 9. CONWAY REVERSO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Manobra Reversa de Conway</h2>
+    <div class="question">
+      <p>E se, em vez de aceitar que a estrutura dita a arquitetura, você fizesse o contrário?</p>
+    </div>
+    <div class="step" data-step="1">
+      <p style="font-size:1.7rem; margin-top:1rem">A <span class="accent">Manobra Reversa de Conway</span> propõe: organize seus times de acordo com a arquitetura que você <strong>quer</strong> ter.</p>
+      <div class="cards cards-2" style="margin-top:1.2rem">
+        <div class="card">
+          <h3 style="color:var(--accent)">Quer microsserviços?</h3>
+          <p>Crie squads pequenos e autônomos, cada um dono de um serviço.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--highlight)">Quer um monolito coeso?</h3>
+          <p>Mantenha um time unificado com comunicação constante.</p>
+        </div>
+      </div>
+      <p style="margin-top:1.2rem; font-size:1.5rem; color:var(--secondary)">Empresas como Netflix e Amazon reorganizaram times antes de migrar para microsserviços.</p>
+    </div>
+  </div>
+
+  <!-- ══ 10. EVOLUÇÃO — VISÃO GERAL ══ -->
+  <div class="slide slide-content">
+    <h2>Evolução estrutural</h2>
+    <div class="question">
+      <p>A estrutura ideal para 5 pessoas não funciona para 50. E a de 50 não funciona para 500.</p>
+    </div>
+    <p style="margin-top:1.5rem; font-size:1.8rem">Empresas passam por <span class="accent">fases previsíveis</span> de crescimento organizacional. A estrutura precisa acompanhar.</p>
+    <p style="margin-top:1rem; font-size:1.6rem; color:var(--secondary)">Vamos ver as 4 fases típicas de uma empresa de tecnologia:</p>
+  </div>
+
+  <!-- ══ 11. EVOLUÇÃO — TIMELINE ══ -->
+  <div class="slide slide-content" style="padding: 3rem 5rem">
+    <h2>As 4 fases do crescimento</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="dot-tl" style="background:var(--accent)"></div>
+        <h3 style="color:var(--accent)">Garagem</h3>
+        <p><strong>2–10 pessoas</strong></p>
+        <p>Todo mundo faz tudo. Sem hierarquia. Comunicação direta.</p>
+        <p style="margin-top:0.4rem; font-style:italic; font-size:1rem">Estrutura: nenhuma formal</p>
+      </div>
+      <div class="timeline-item">
+        <div class="dot-tl" style="background:var(--highlight)"></div>
+        <h3 style="color:var(--highlight)">Startup</h3>
+        <p><strong>10–50 pessoas</strong></p>
+        <p>Primeiros gestores. Times por função. Processos mínimos.</p>
+        <p style="margin-top:0.4rem; font-style:italic; font-size:1rem">Estrutura: funcional simples</p>
+      </div>
+      <div class="timeline-item">
+        <div class="dot-tl" style="background:var(--success)"></div>
+        <h3 style="color:var(--success)">Scale-up</h3>
+        <p><strong>50–300 pessoas</strong></p>
+        <p>Squads por produto. Líderes técnicos. Cultura explícita.</p>
+        <p style="margin-top:0.4rem; font-style:italic; font-size:1rem">Estrutura: produto/squad</p>
+      </div>
+      <div class="timeline-item">
+        <div class="dot-tl" style="background:#7c3aed"></div>
+        <h3 style="color:#7c3aed">Enterprise</h3>
+        <p><strong>300+ pessoas</strong></p>
+        <p>Tribes, chapters. Governança. Múltiplas camadas.</p>
+        <p style="margin-top:0.4rem; font-style:italic; font-size:1rem">Estrutura: Spotify / matricial</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 12. SINAIS DE TRANSIÇÃO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Sinais de que a estrutura precisa mudar</h2>
+    <p style="font-size:1.7rem; margin-bottom:1rem">Quando a empresa cresce mas a estrutura não acompanha, aparecem <span class="highlight">sintomas</span>:</p>
+    <div class="step" data-step="1">
+      <div class="cards cards-2">
+        <div class="card">
+          <h3 style="color:#b91c1c">Sintomas organizacionais</h3>
+          <p>Decisões demoram cada vez mais</p>
+          <p>Reuniões com gente demais</p>
+          <p>Ninguém sabe quem decide o quê</p>
+          <p>"Não é minha responsabilidade"</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#b91c1c">Sintomas técnicos</h3>
+          <p>Deploys quebrando com frequência</p>
+          <p>Times bloqueando uns aos outros</p>
+          <p>Código monolítico que ninguém entende</p>
+          <p>Onboarding leva meses</p>
+        </div>
+      </div>
+      <p style="margin-top:1.2rem; font-size:1.5rem; color:var(--secondary)">Se 3+ sintomas são familiares, é hora de repensar a estrutura.</p>
+    </div>
+  </div>
+
+  <!-- ══ 13. CASO — AMAZON ══ -->
+  <div class="slide slide-split">
+    <h2>Caso: Amazon</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <p style="font-size:1.6rem; margin-bottom:1rem">De monolito para microsserviços — reorganizando <span class="accent">pessoas antes do código</span>.</p>
+        <ul class="plain">
+          <li><span class="highlight">Antes:</span> times grandes, monolito compartilhado, deploys semanais dolorosos</li>
+          <li><span class="accent">Decisão:</span> "Two-Pizza Teams" — cada time max 8 pessoas, dono de um serviço</li>
+          <li><span class="success">Depois:</span> centenas de serviços independentes, deploy contínuo, cada time autônomo</li>
+        </ul>
+        <div class="card" style="margin-top:1rem; border-left:4px solid var(--highlight)">
+          <p style="font-size:1.2rem">Estrutura: <strong>projetizada → por produto</strong>. A AWS nasceu como consequência dessa reorganização.</p>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Big circle = monolith -->
+          <circle cx="100" cy="60" r="40" fill="#b91c1c" opacity="0.15" stroke="#b91c1c" stroke-width="2"/>
+          <text x="100" y="55" text-anchor="middle" fill="#b91c1c" font-size="11" font-weight="700">Monolito</text>
+          <text x="100" y="70" text-anchor="middle" fill="#b91c1c" font-size="9">100+ devs</text>
+          <!-- Arrow -->
+          <text x="100" y="115" text-anchor="middle" fill="var(--secondary)" font-size="22">↓</text>
+          <!-- Small circles = microservices -->
+          <circle cx="40" cy="155" r="22" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="40" y="158" text-anchor="middle" fill="var(--accent)" font-size="8" font-weight="600">Squad A</text>
+          <circle cx="100" cy="155" r="22" fill="var(--highlight)" opacity="0.15" stroke="var(--highlight)" stroke-width="1.5"/>
+          <text x="100" y="158" text-anchor="middle" fill="var(--highlight)" font-size="8" font-weight="600">Squad B</text>
+          <circle cx="160" cy="155" r="22" fill="var(--success)" opacity="0.15" stroke="var(--success)" stroke-width="1.5"/>
+          <text x="160" y="158" text-anchor="middle" fill="var(--success)" font-size="8" font-weight="600">Squad C</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14. CASO — NETFLIX ══ -->
+  <div class="slide slide-content">
+    <h2>Caso: Netflix</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">Cultura de <span class="accent">"liberdade com responsabilidade"</span> — pouquíssimos processos formais, altíssima autonomia.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3 style="color:var(--accent)">Estrutura</h3>
+        <p>Times pequenos e autônomos</p>
+        <p>Sem aprovações para deploy</p>
+        <p>Cada time escolhe suas ferramentas</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Cultura</h3>
+        <p>"Context, not control"</p>
+        <p>Feedback radical e transparente</p>
+        <p>Paga os maiores salários do mercado</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Resultado</h3>
+        <p>200M+ de assinantes</p>
+        <p>Milhares de deploys por dia</p>
+        <p>Líder em confiabilidade (Chaos Engineering)</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1rem; border-left:4px solid var(--accent)">
+      <p style="font-size:1.25rem">A Netflix contrata os melhores e confia neles. Funciona para eles — mas exige um nível de maturidade que a maioria das empresas não tem.</p>
+    </div>
+  </div>
+
+  <!-- ══ 15. CASO — NUBANK ══ -->
+  <div class="slide slide-content">
+    <h2>Caso: Nubank</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">De startup brasileira a uma das maiores fintechs do mundo — <span class="accent">crescimento de 5 para 8.000+ pessoas</span> em 10 anos.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3 style="color:var(--accent)">Início (2013–2016)</h3>
+        <p>~50 pessoas, 1 produto (cartão de crédito)</p>
+        <p>Time único, funcional, comunicação direta</p>
+        <p>Monolito em Clojure</p>
+        <p class="note">Fase: Startup → funcional simples</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Crescimento (2017–2021)</h3>
+        <p>Múltiplos produtos (conta, investimentos, seguros)</p>
+        <p>Squads autônomos por domínio de negócio</p>
+        <p>Centenas de microsserviços</p>
+        <p class="note">Fase: Scale-up → squads por produto</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1rem; border-left:4px solid var(--success)">
+      <p style="font-size:1.25rem">O Nubank é um exemplo claro de <strong>Conway reverso</strong>: reorganizaram times para viabilizar a migração de monolito para microsserviços.</p>
+    </div>
+  </div>
+
+  <!-- ══ 16. CASO — GOOGLE ══ -->
+  <div class="slide slide-content">
+    <h2>Caso: Google</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">Estrutura <span class="accent">matricial</span> com forte influência de engenharia.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3 style="color:var(--accent)">Organização</h3>
+        <p>Áreas por produto (Search, Cloud, Ads, YouTube)</p>
+        <p>Dentro de cada área: times funcionais</p>
+        <p>Gestores técnicos + gestores de produto</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Particularidade</h3>
+        <p>Carreira dual: IC (Individual Contributor) e Manager</p>
+        <p>Engenheiro L7+ = poder de VP</p>
+        <p>Cultura de "design docs" e revisão por pares</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Lição</h3>
+        <p>Matricial funciona em escala gigante...</p>
+        <p>...se houver cultura técnica forte</p>
+        <p>...e processos claros de decisão</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 17. TABELA COMPARATIVA ══ -->
+  <div class="slide slide-content" style="padding: 2.5rem 5rem">
+    <h2>Comparativo completo</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:1.25rem; margin-top:0.5rem">
+      <thead>
+        <tr style="border-bottom:3px solid var(--accent)">
+          <th style="text-align:left; padding:0.7rem; color:var(--accent)">Critério</th>
+          <th style="text-align:center; padding:0.7rem">Funcional</th>
+          <th style="text-align:center; padding:0.7rem">Produto</th>
+          <th style="text-align:center; padding:0.7rem">Matricial</th>
+          <th style="text-align:center; padding:0.7rem">Projetizada</th>
+          <th style="text-align:center; padding:0.7rem">Spotify</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.6rem; font-weight:600">Autonomia dos times</td>
+          <td style="text-align:center; padding:0.6rem; color:#b91c1c; font-size:1.5rem">Baixa</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.6rem; font-weight:600">Especialização</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:#b91c1c; font-size:1.5rem">Baixa</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta*</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.6rem; font-weight:600">Velocidade de entrega</td>
+          <td style="text-align:center; padding:0.6rem; color:#b91c1c; font-size:1.5rem">Baixa</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Alta</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.6rem; font-weight:600">Complexidade de gestão</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--success); font-size:1.5rem">Baixa</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+          <td style="text-align:center; padding:0.6rem; color:#b91c1c; font-size:1.5rem">Alta</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+          <td style="text-align:center; padding:0.6rem; color:var(--highlight); font-size:1.5rem">Média</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.6rem; font-weight:600">Escala ideal</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.3rem">Pequenas</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.3rem">Médias</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.3rem">Grandes</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.3rem">Variável</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.3rem">Médias–Grandes</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem; font-weight:600">Exemplo real</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.2rem">Bancos tradicionais</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.2rem">Amazon</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.2rem">Google</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.2rem">Consultorias</td>
+          <td style="text-align:center; padding:0.6rem; font-size:1.2rem">Nubank</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.8rem; font-size:1.1rem; color:var(--secondary)">* Spotify mantém especialização via Chapters</p>
+  </div>
+
+  <!-- ══ 18. EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <h2>Exercício</h2>
+    <p style="margin-bottom:1.5rem; font-size:1.7rem">Em dupla ou trio. Tempo: <span class="accent">20 minutos</span>.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3 style="color:var(--accent)">Cenário</h3>
+        <p>Uma empresa de e-commerce com 120 pessoas está organizada de forma funcional (Engenharia, Produto, Design, Dados, Comercial). Eles têm 3 produtos: marketplace, app de delivery e programa de fidelidade.</p>
+        <p class="note" style="margin-top:0.8rem">
+          Problemas:<br>
+          - O app de delivery compete por devs com o marketplace<br>
+          - O time de dados é gargalo para todos<br>
+          - Features levam 2 meses do pedido ao deploy<br>
+          - O time de fidelidade tem 2 devs e nenhum designer
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Tarefas</h3>
+        <p>1. Identifique os <strong>problemas organizacionais</strong> usando a Lei de Conway como lente.</p>
+        <p style="margin-top:0.5rem">2. Proponha uma <strong>nova estrutura</strong> (pode ser Spotify, squads, matricial ou híbrida).</p>
+        <p style="margin-top:0.5rem">3. Desenhe o <strong>organograma</strong> da nova estrutura.</p>
+        <p style="margin-top:0.5rem">4. Explique: em qual <strong>fase de crescimento</strong> essa empresa está?</p>
+        <p class="note" style="margin-top:0.8rem">Use draw.io ou papel. Vamos discutir em sala.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 19. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 23/04 (Qui)</span>
+    <h1>Processos<br><span class="accent">Organizacionais</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Processos primários, de suporte e de gestão</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Como identificar processos em organizações de TI</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Introdução ao mapeamento de processos</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">
+      14/04, 16/04 e 21/04: sem aula (viagem + Tiradentes). Atividades assíncronas no Telegram.
+    </p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

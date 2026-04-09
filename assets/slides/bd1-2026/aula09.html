@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 9 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary); }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .step { opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none; }
+    .step.visible { opacity:1;transform:none;pointer-events:auto; }
+    #step-dots { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);display:none;gap:.4rem;z-index:200; }
+    #step-dots.visible { display:flex; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 9<br><span class="accent">SELECT: WHERE, ORDER BY &amp; LIMIT</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>19 de maio de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>SELECT básico: colunas, alias, DISTINCT</li>
+      <li>WHERE: operadores, BETWEEN, IN, LIKE, IS NULL</li>
+      <li>Operadores lógicos: AND, OR, NOT</li>
+      <li>ORDER BY e LIMIT / OFFSET</li>
+      <li>Funções escalares úteis</li>
+    </ul>
+  </div>
+
+  <!-- SELECT BÁSICO -->
+  <div class="slide slide-content">
+    <h2>SELECT Básico</h2>
+    <pre class="code-block"><span class="cm">-- Todas as colunas</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro;
+
+<span class="cm">-- Colunas específicas</span>
+<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro;
+
+<span class="cm">-- Alias (apelido)</span>
+<span class="kw">SELECT</span> titulo <span class="kw">AS</span> <span class="str">"Título do Livro"</span>, ano <span class="kw">AS</span> <span class="str">"Ano de Publicação"</span>
+<span class="kw">FROM</span> livro;
+
+<span class="cm">-- Valores únicos</span>
+<span class="kw">SELECT DISTINCT</span> editora_id <span class="kw">FROM</span> livro;</pre>
+  </div>
+
+  <!-- WHERE -->
+  <div class="slide slide-content">
+    <h2>WHERE — Filtrando Linhas</h2>
+    <pre class="code-block"><span class="cm">-- Comparação</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> ano >= <span class="str">2015</span>;
+
+<span class="cm">-- BETWEEN (intervalo inclusivo)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> ano <span class="kw">BETWEEN</span> <span class="str">2010</span> <span class="kw">AND</span> <span class="str">2020</span>;
+
+<span class="cm">-- IN (lista de valores)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> editora_id <span class="kw">IN</span> (<span class="str">1</span>, <span class="str">3</span>);
+
+<span class="cm">-- LIKE (padrão de texto)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> titulo <span class="kw">LIKE</span> <span class="str">'%Banco%'</span>;
+<span class="cm">-- % = qualquer sequência  |  _ = um caractere</span>
+
+<span class="cm">-- IS NULL / IS NOT NULL</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> emprestimo <span class="kw">WHERE</span> dt_devolucao <span class="kw">IS NULL</span>;</pre>
+  </div>
+
+  <!-- LÓGICOS -->
+  <div class="slide slide-content">
+    <h2>Operadores Lógicos</h2>
+    <pre class="code-block"><span class="cm">-- AND: ambas condições verdadeiras</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
+<span class="kw">WHERE</span> ano >= <span class="str">2015</span> <span class="kw">AND</span> editora_id = <span class="str">3</span>;
+
+<span class="cm">-- OR: pelo menos uma verdadeira</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> membro
+<span class="kw">WHERE</span> nome = <span class="str">'Ana'</span> <span class="kw">OR</span> nome = <span class="str">'Bia'</span>;
+
+<span class="cm">-- NOT: negação</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
+<span class="kw">WHERE NOT</span> editora_id = <span class="str">1</span>;
+
+<span class="cm">-- Combinando (use parênteses!)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
+<span class="kw">WHERE</span> (ano > <span class="str">2010</span> <span class="kw">OR</span> editora_id = <span class="str">1</span>)
+  <span class="kw">AND</span> titulo <span class="kw">LIKE</span> <span class="str">'%Data%'</span>;</pre>
+  </div>
+
+  <!-- ORDER BY / LIMIT -->
+  <div class="slide slide-content">
+    <h2>ORDER BY &amp; LIMIT</h2>
+    <pre class="code-block"><span class="cm">-- Ordenar por ano (crescente é o padrão)</span>
+<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano;
+
+<span class="cm">-- Decrescente</span>
+<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano <span class="kw">DESC</span>;
+
+<span class="cm">-- Múltiplas colunas</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> editora_id, ano <span class="kw">DESC</span>;
+
+<span class="cm">-- LIMIT: primeiros N resultados</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano <span class="kw">DESC LIMIT</span> <span class="str">5</span>;
+
+<span class="cm">-- OFFSET: pular N resultados (paginação)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> titulo <span class="kw">LIMIT</span> <span class="str">5</span> <span class="kw">OFFSET</span> <span class="str">10</span>;</pre>
+  </div>
+
+  <!-- FUNÇÕES ESCALARES -->
+  <div class="slide slide-content">
+    <h2>Funções Escalares Úteis</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Texto</h3>
+        <pre class="code-block" style="font-size:1.1rem"><span class="kw">SELECT UPPER</span>(nome) <span class="kw">FROM</span> membro;
+<span class="kw">SELECT LOWER</span>(titulo) <span class="kw">FROM</span> livro;
+<span class="kw">SELECT LENGTH</span>(titulo) <span class="kw">FROM</span> livro;
+<span class="kw">SELECT TRIM</span>(nome) <span class="kw">FROM</span> autor;</pre>
+      </div>
+      <div class="card">
+        <h3>Conversão e nulos</h3>
+        <pre class="code-block" style="font-size:1.1rem"><span class="cm">-- COALESCE: primeiro valor não-nulo</span>
+<span class="kw">SELECT COALESCE</span>(dt_devolucao, <span class="str">'pendente'</span>)
+<span class="kw">FROM</span> emprestimo;
+
+<span class="cm">-- CAST: conversão de tipo</span>
+<span class="kw">SELECT CAST</span>(ano <span class="kw">AS VARCHAR</span>)
+<span class="kw">FROM</span> livro;</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCÍCIO -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício</span>
+    <h2>Consultas no banco da Biblioteca</h2>
+    <div class="definition">
+      <p>Usando o banco criado na Aula 8, escreva as consultas abaixo no DB Fiddle.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:.8rem">
+      <div class="card">
+        <h3>Consultas</h3>
+        <p>1. Livros publicados após 2015, ordenados por ano DESC<br>
+        2. Membros cujo nome começa com 'A'<br>
+        3. Empréstimos ainda não devolvidos (dt_devolucao IS NULL)<br>
+        4. Os 3 livros mais recentes<br>
+        5. Livros da editora 'O Reilly' OU publicados antes de 2010</p>
+      </div>
+      <div class="card">
+        <h3>Desafio</h3>
+        <p>Combine WHERE + ORDER BY + LIMIT para responder: "Qual o livro mais antigo da editora 3?"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 21/05 (Qui)</span>
+    <h1>SELECT — Agregação<br><span class="accent">COUNT, SUM, AVG, GROUP BY &amp; HAVING</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Funções de agregação</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Agrupamento e filtragem de grupos</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>
