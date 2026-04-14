@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercício Assíncrono — Modelagem ER</title>
+  <title>Exercício Assíncrono — Mapeamento MER → Relacional</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
@@ -40,95 +40,134 @@
     .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
     .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
     .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .tbl { width:100%;border-collapse:collapse;font-size:1.2rem;margin:.6rem 0; }
+    .tbl th { background:var(--accent);color:#fff;padding:.5rem .8rem;text-align:left; }
+    .tbl td { padding:.4rem .8rem;border:1px solid rgba(0,0,0,.12); }
+    .tbl tr:nth-child(even) td { background:#f1f5f9; }
+    .tbl .pk { text-decoration:underline;font-weight:700; }
+    .diagram { background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:var(--radius);padding:1.5rem 2rem;font-family:'SF Mono','Fira Code',monospace;font-size:1.15rem;line-height:1.8;width:100%;margin:.6rem 0; }
+    .diagram .ent { color:var(--accent);font-weight:700; }
+    .diagram .rel { color:var(--highlight);font-weight:700; }
+    .diagram .attr { color:var(--secondary); }
+    .diagram .card-label { color:var(--success);font-weight:700; }
     #step-dots { display:none; }
   </style>
 </head>
 <body>
 <div id="progress"></div><div id="counter"></div>
-<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espa&ccedil;o para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
-<button class="nav-btn" id="btn-prev">‹</button>
-<button class="nav-btn" id="btn-next">›</button>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
 
   <!-- CAPA -->
   <div class="slide slide-cover">
-    <span class="tag">Banco de Dados I — 2026.2 · Atividade Assíncrona</span>
-    <h1>Exercício<br><span class="accent">Modelagem Entidade-Relacionamento</span></h1>
+    <span class="tag">Banco de Dados I &mdash; 2026.2 &middot; Atividade Ass&iacute;ncrona</span>
+    <h1>Exerc&iacute;cio<br><span class="accent">Mapeamento MER &rarr; Relacional</span></h1>
     <div class="cover-meta">
-      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
-      <span>🏛️ <strong>UFPA</strong></span>
-      <span>📅 <strong>14/04/2026 (Terça)</strong></span>
-      <span>📤 <strong>Entrega: 14/04</strong></span>
+      <span>&#x1F468;&#x200D;&#x1F3EB; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#x1F3DB;&#xFE0F; <strong>UFPA</strong></span>
+      <span>&#x1F4C5; <strong>16/04/2026 (Quinta)</strong></span>
+      <span>&#x1F4E4; <strong>Entrega: 16/04</strong></span>
     </div>
   </div>
 
-  <!-- REVISÃO -->
+  <!-- REVISAO REGRAS -->
   <div class="slide slide-content">
-    <h2>Revisão Rápida — MER</h2>
-    <div class="cards cards-3">
+    <h2>Revis&atilde;o &mdash; Regras de Mapeamento</h2>
+    <div class="cards cards-2">
       <div class="card">
-        <h3>Entidades</h3>
-        <p>Retângulo simples (forte) ou duplo (fraca). Atributos em elipses.</p>
+        <h3>Entidade forte</h3>
+        <p>Vira uma <strong>tabela</strong>. Atributos viram colunas. Chave do MER vira <strong>PK</strong>.</p>
       </div>
       <div class="card">
-        <h3>Relacionamentos</h3>
-        <p>Losango conectando entidades. Cardinalidade: 1:1, 1:N, N:M.</p>
+        <h3>Entidade fraca</h3>
+        <p>Vira uma tabela. PK = chave parcial + <strong>FK da entidade forte</strong>.</p>
       </div>
       <div class="card">
-        <h3>Generalização</h3>
-        <p>Triângulo com "d" (disjunção) ou "o" (sobreposição). Total ou parcial.</p>
+        <h3>Relacionamento 1:N</h3>
+        <p>A <strong>FK</strong> vai para o lado N (a entidade que tem muitos). Atributos do relacionamento tamb&eacute;m.</p>
+      </div>
+      <div class="card">
+        <h3>Relacionamento N:M</h3>
+        <p>Gera uma <strong>tabela associativa</strong> com as PKs das duas entidades como FK (PK composta).</p>
       </div>
     </div>
-    <p style="font-size:1.5rem;margin-top:1rem">Ferramenta: <span class="accent">BRModelo Web</span> (brmodeloweb.com) ou draw.io</p>
+    <p style="font-size:1.5rem;margin-top:1rem">Generaliza&ccedil;&atilde;o: tabela por hierarquia <em>ou</em> tabela por especializa&ccedil;&atilde;o (depende do caso).</p>
   </div>
 
-  <!-- EXERCÍCIO -->
+  <!-- CENARIO -->
   <div class="slide slide-content">
-    <span class="tag">Exercício</span>
-    <h2>Modele um Sistema do Cotidiano</h2>
+    <span class="tag">Cen&aacute;rio</span>
+    <h2>Sistema de Delivery (tipo iFood)</h2>
     <div class="definition">
-      <p>Escolha um domínio do seu dia-a-dia e construa o <strong>Diagrama Entidade-Relacionamento</strong> completo usando BRModelo Web ou draw.io.</p>
+      <p>Um aplicativo de delivery conecta <strong>clientes</strong>, <strong>restaurantes</strong> e <strong>entregadores</strong>. Considere o diagrama ER descrito abaixo.</p>
     </div>
-    <div class="cards cards-3">
+    <div class="diagram">
+      <span class="ent">USUARIO</span> <span class="attr">(</span><span class="pk">id</span><span class="attr">, nome, email, telefone, dt_cadastro)</span> &nbsp; <span class="rel">[generaliza&ccedil;&atilde;o total, disjunta]</span><br>
+      &nbsp;&nbsp;&boxur; <span class="ent">CLIENTE</span> <span class="attr">(cpf, endereco_entrega)</span><br>
+      &nbsp;&nbsp;&boxur; <span class="ent">ENTREGADOR</span> <span class="attr">(cnh, tipo_veiculo, placa)</span><br><br>
+      <span class="ent">RESTAURANTE</span> <span class="attr">(</span><span class="pk">id</span><span class="attr">, nome, endereco, categoria, nota_media)</span><br>
+      <span class="ent">ITEM_CARDAPIO</span> <span class="rel">[entidade fraca de RESTAURANTE]</span> <span class="attr">(</span><span class="pk">numero</span><span class="attr">, nome, descricao, preco)</span><br><br>
+      <span class="ent">PEDIDO</span> <span class="attr">(</span><span class="pk">id</span><span class="attr">, dt_hora, status, valor_total, taxa_entrega, forma_pagamento)</span><br><br>
+      CLIENTE <span class="rel">&mdash;faz&mdash;</span> PEDIDO<br>
+      RESTAURANTE <span class="rel">&mdash;recebe&mdash;</span> PEDIDO<br>
+      ENTREGADOR <span class="rel">&mdash;entrega&mdash;</span> PEDIDO<br>
+      PEDIDO <span class="rel">&mdash;cont&eacute;m&mdash;</span> ITEM_CARDAPIO <span class="attr">[atributos: quantidade, observacao]</span>
+    </div>
+  </div>
+
+  <!-- EXERCICIO -->
+  <div class="slide slide-content">
+    <span class="tag">Exerc&iacute;cio</span>
+    <h2>Fa&ccedil;a o Mapeamento para o Modelo Relacional</h2>
+    <div class="cards cards-2">
       <div class="card">
-        <h3>Sugestões de domínio</h3>
-        <p>Biblioteca, restaurante, oficina mecânica, academia, pet shop, clínica veterinária, escola de idiomas</p>
+        <h3>&#x2460; Mapeie as entidades</h3>
+        <p>Para cada entidade (forte, fraca e generaliza&ccedil;&atilde;o), crie a tabela correspondente. Identifique <strong>PK</strong> e <strong>FK</strong> de cada tabela.</p>
       </div>
       <div class="card">
-        <h3>Requisitos mínimos</h3>
-        <p>Mínimo <strong>5 entidades</strong>. Incluir pelo menos uma <strong>entidade fraca</strong> ou <strong>generalização</strong>. Definir todas as cardinalidades.</p>
+        <h3>&#x2461; Mapeie os relacionamentos</h3>
+        <p>Aplique as regras de 1:N. Onde fica a FK? Quais atributos do relacionamento migram?</p>
       </div>
       <div class="card">
-        <h3>Entrega</h3>
-        <p>Print ou link do diagrama no <strong>Telegram da turma</strong> até <span class="highlight">14/04</span>.</p>
+        <h3>&#x2462; Resolva a generaliza&ccedil;&atilde;o</h3>
+        <p>Escolha a estrat&eacute;gia (tabela &uacute;nica ou uma tabela por tipo). <strong>Justifique</strong> sua escolha.</p>
+      </div>
+      <div class="card">
+        <h3>&#x2463; Resultado final</h3>
+        <p>Escreva o esquema relacional no formato:<br><strong>TABELA(<u>pk</u>, atrib1, atrib2, fk_ref)</strong></p>
       </div>
     </div>
   </div>
 
-  <!-- DICAS -->
+  <!-- EXEMPLO -->
   <div class="slide slide-content">
-    <h2>Dicas para um bom DER</h2>
-    <ul>
-      <li>Comece listando as <span class="accent">entidades</span> e seus <span class="accent">atributos</span></li>
-      <li>Identifique a <span class="highlight">chave primária</span> de cada entidade</li>
-      <li>Conecte as entidades com <span class="accent">relacionamentos</span> e defina cardinalidades</li>
-      <li>Verifique: existe alguma entidade que <strong>não pode existir sozinha</strong>? → entidade fraca</li>
-      <li>Verifique: existem entidades <strong>semelhantes</strong> com atributos específicos? → generalização</li>
-      <li>Adicione atributos nos relacionamentos quando necessário (ex: data, quantidade)</li>
-    </ul>
+    <h2>Exemplo de Formato Esperado</h2>
+    <div class="diagram">
+      <span class="ent">EDITORA</span>(<span class="pk"><u>id_editora</u></span>, nome, cidade)<br><br>
+      <span class="ent">LIVRO</span>(<span class="pk"><u>id_livro</u></span>, titulo, ano, <span class="rel">editora_id</span>)<br>
+      &nbsp;&nbsp;FK: editora_id &rarr; EDITORA(id_editora)<br><br>
+      <span class="ent">AUTOR</span>(<span class="pk"><u>id_autor</u></span>, nome)<br><br>
+      <span class="ent">LIVRO_AUTOR</span>(<span class="pk"><u><span class="rel">id_livro</span></u></span>, <span class="pk"><u><span class="rel">id_autor</span></u></span>)<br>
+      &nbsp;&nbsp;FK: id_livro &rarr; LIVRO(id_livro)<br>
+      &nbsp;&nbsp;FK: id_autor &rarr; AUTOR(id_autor)
+    </div>
+    <p style="font-size:1.5rem;margin-top:1rem">PK <u>sublinhada</u>, FK em <span class="highlight">destaque</span>. Indique todas as refer&ecirc;ncias.</p>
   </div>
 
   <!-- ENCERRAMENTO -->
   <div class="slide slide-cover">
     <span class="tag">Lembrete</span>
-    <h1>Entrega: <span class="accent">14/04/2026</span></h1>
+    <h1>Entrega: <span class="accent">16/04/2026</span></h1>
     <ul style="text-align:left;margin-top:2rem">
-      <li style="font-size:1.9rem;color:#f1f5f9">Diagrama ER completo via Telegram da turma</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">Próxima aula presencial: 23/04 — Avaliação 1</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Esquema relacional completo no Telegram da turma</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Justificativa da estrat&eacute;gia de generaliza&ccedil;&atilde;o</li>
+
     </ul>
-    <p style="font-size:1.6rem;color:#94a3b8;margin-top:2.5rem">📖 Revisem: Heuser, caps. 2–3</p>
+    <p style="font-size:1.6rem;color:#94a3b8;margin-top:2.5rem">&#x1F4D6; Revisem: Heuser, cap. 4 (mapeamento)</p>
   </div>
 
 </div>
