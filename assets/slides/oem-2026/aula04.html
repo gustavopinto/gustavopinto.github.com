@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 4 — Processos Organizacionais</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    .process-row {
+      display: flex; align-items: center; gap: 0.5rem; width: 100%; margin: 0.5rem 0;
+    }
+    .process-box {
+      flex: 1; background: #fff; border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: var(--radius); padding: 0.9rem 1.2rem; text-align: center;
+      font-size: 1.2rem; font-weight: 600; color: var(--text);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .process-arrow {
+      font-size: 1.8rem; color: var(--accent); flex-shrink: 0;
+    }
+    .badge {
+      display: inline-block; font-size: 1rem; font-weight: 700;
+      padding: 0.25rem 0.9rem; border-radius: 999px; margin-right: 0.5rem;
+    }
+    .badge-primary  { background: rgba(3,105,161,0.12);  color: var(--accent); }
+    .badge-support  { background: rgba(146,64,14,0.12);  color: var(--highlight); }
+    .badge-mgmt     { background: rgba(22,101,52,0.12);  color: var(--success); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 4<br><span class="accent">Processos Organizacionais</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>23 de abril de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. RECAP ══ -->
+  <div class="slide slide-content">
+    <h2>Relembrando a Aula 3</h2>
+    <ul>
+      <li><span class="accent">Modelo Spotify</span> — Squads, Tribes, Chapters e Guilds</li>
+      <li><span class="accent">Lei de Conway</span> — arquitetura espelha a estrutura do time</li>
+      <li><span class="accent">Manobra reversa</span> — reorganize o time para obter a arquitetura desejada</li>
+      <li><span class="accent">Evolução estrutural</span> — garagem → startup → scale-up → enterprise</li>
+    </ul>
+    <div class="question" style="margin-top:1.5rem">
+      <p>Hoje: o que acontece <em>dentro</em> dessas estruturas — como o trabalho flui?</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O que é um processo organizacional?</li>
+      <li>Tipos: primários, de suporte e de gestão</li>
+      <li>Processos em organizações de TI</li>
+      <li>Como identificar e descrever um processo</li>
+      <li>Atividade prática</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. O QUE É UM PROCESSO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>O que é um processo?</h2>
+    <div class="definition">
+      <p>"Um conjunto de atividades inter-relacionadas que transformam <strong>entradas</strong> (inputs) em <strong>saídas</strong> (outputs) com valor para alguém."</p>
+    </div>
+    <div class="step" data-step="1">
+      <div class="process-row" style="margin-top:1rem">
+        <div class="process-box" style="border-color:var(--highlight); background:rgba(146,64,14,0.05)">
+          <span style="font-size:1rem; color:var(--secondary)">INPUT</span><br>
+          Requisito de feature
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-box" style="border-color:var(--accent); background:rgba(3,105,161,0.05)">
+          <span style="font-size:1rem; color:var(--secondary)">PROCESSO</span><br>
+          Desenvolvimento &amp; Review
+        </div>
+        <div class="process-arrow">→</div>
+        <div class="process-box" style="border-color:var(--success); background:rgba(22,101,52,0.05)">
+          <span style="font-size:1rem; color:var(--secondary)">OUTPUT</span><br>
+          Feature em produção
+        </div>
+      </div>
+      <ul class="plain" style="margin-top:1.5rem">
+        <li>Todo processo tem um <span class="accent">dono</span> (responsável)</li>
+        <li>Todo processo tem <span class="accent">clientes</span> (internos ou externos)</li>
+        <li>Todo processo pode ser <span class="highlight">medido</span> — tempo, custo, qualidade</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 5. TIPOS DE PROCESSOS ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Três tipos de processos</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.7rem">A classificação mais usada em O&amp;M divide os processos em três categorias:</p>
+    <div class="cards cards-3 step" data-step="1">
+      <div class="card" style="border-top: 4px solid var(--accent)">
+        <h3 style="color:var(--accent)">Primários</h3>
+        <p>Diretamente ligados ao produto ou serviço entregue ao cliente.</p>
+        <p style="margin-top:0.6rem">Geram valor percebido.</p>
+        <p class="note">Também chamados de processos de negócio ou finalísticos.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--highlight)">
+        <h3 style="color:var(--highlight)">De Suporte</h3>
+        <p>Viabilizam os processos primários, mas não chegam ao cliente diretamente.</p>
+        <p class="note">Infraestrutura, RH, jurídico, TI interna.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--success)">
+        <h3 style="color:var(--success)">De Gestão</h3>
+        <p>Coordenam, monitoram e melhoram os demais processos.</p>
+        <p class="note">Planejamento, OKRs, governança, auditoria.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 6. PRIMÁRIOS EM TI ══ -->
+  <div class="slide slide-content">
+    <h2>Processos primários em empresas de software</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">São os que entregam o produto ou serviço ao usuário final.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3 style="color:var(--accent)">Exemplos típicos</h3>
+        <p><span class="badge badge-primary">P</span> Desenvolvimento de features</p>
+        <p><span class="badge badge-primary">P</span> Deploy em produção</p>
+        <p><span class="badge badge-primary">P</span> Resolução de bugs críticos</p>
+        <p><span class="badge badge-primary">P</span> Atendimento ao cliente (suporte L1/L2)</p>
+        <p><span class="badge badge-primary">P</span> Onboarding de novos usuários</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Como reconhecer?</h3>
+        <p style="font-size:1.3rem">Pergunte: <strong>"se eu parar esse processo, o cliente sente imediatamente?"</strong></p>
+        <p style="font-size:1.3rem; margin-top:0.7rem">Se sim — é primário.</p>
+        <p style="font-size:1.3rem; margin-top:0.7rem">Se não — provavelmente é suporte ou gestão.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. SUPORTE EM TI ══ -->
+  <div class="slide slide-content">
+    <h2>Processos de suporte em empresas de software</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">Sem eles os primários travam — mas o cliente não os vê diretamente.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3 style="color:var(--highlight)">Exemplos técnicos</h3>
+        <p><span class="badge badge-support">S</span> Provisionamento de infraestrutura</p>
+        <p><span class="badge badge-support">S</span> Gestão de acessos e permissões</p>
+        <p><span class="badge badge-support">S</span> Monitoramento e alertas (SRE)</p>
+        <p><span class="badge badge-support">S</span> Backup e disaster recovery</p>
+        <p><span class="badge badge-support">S</span> CI/CD pipeline</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Exemplos organizacionais</h3>
+        <p><span class="badge badge-support">S</span> Recrutamento e seleção de devs</p>
+        <p><span class="badge badge-support">S</span> Onboarding de novos funcionários</p>
+        <p><span class="badge badge-support">S</span> Gestão de contratos com fornecedores</p>
+        <p><span class="badge badge-support">S</span> Financeiro e faturamento</p>
+        <p><span class="badge badge-support">S</span> Suporte jurídico e compliance</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. GESTÃO EM TI ══ -->
+  <div class="slide slide-content">
+    <h2>Processos de gestão em empresas de software</h2>
+    <p style="margin-bottom:1.2rem; font-size:1.6rem">Garantem que a organização evolua na direção certa e com qualidade.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3 style="color:var(--success)">Estratégia</h3>
+        <p><span class="badge badge-mgmt">G</span> Definição de OKRs</p>
+        <p><span class="badge badge-mgmt">G</span> Roadmap de produto</p>
+        <p><span class="badge badge-mgmt">G</span> Revisão trimestral de metas</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Operação</h3>
+        <p><span class="badge badge-mgmt">G</span> Sprint planning e retrospectiva</p>
+        <p><span class="badge badge-mgmt">G</span> Gestão de incidentes</p>
+        <p><span class="badge badge-mgmt">G</span> Revisão de desempenho de times</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Melhoria</h3>
+        <p><span class="badge badge-mgmt">G</span> Análise de débito técnico</p>
+        <p><span class="badge badge-mgmt">G</span> Auditoria de segurança</p>
+        <p><span class="badge badge-mgmt">G</span> Post-mortem de incidentes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. COMO DESCREVER UM PROCESSO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Como descrever um processo</h2>
+    <p style="font-size:1.7rem; margin-bottom:1.2rem">Para analisar qualquer processo, precisamos de pelo menos cinco elementos:</p>
+    <div class="step" data-step="1">
+      <div class="cards cards-2">
+        <div class="card">
+          <h3 style="color:var(--accent)">Elementos obrigatórios</h3>
+          <p><strong>Nome:</strong> identifica o processo</p>
+          <p><strong>Input:</strong> o que inicia ou alimenta</p>
+          <p><strong>Output:</strong> o que é entregue</p>
+          <p><strong>Atividades:</strong> os passos em ordem</p>
+          <p><strong>Responsáveis:</strong> quem faz o quê</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--highlight)">Elementos complementares</h3>
+          <p><strong>Clientes:</strong> quem recebe o output</p>
+          <p><strong>Ferramentas:</strong> sistemas/plataformas usados</p>
+          <p><strong>Métricas:</strong> como medir sucesso</p>
+          <p><strong>Gargalos:</strong> onde o processo trava</p>
+          <p><strong>Tipo:</strong> primário, suporte ou gestão</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. EXEMPLO — PULL REQUEST ══ -->
+  <div class="slide slide-split" style="padding: 2.5rem 5rem">
+    <h2>Exemplo: processo de Pull Request</h2>
+    <div class="split-body" style="align-items:flex-start; margin-top:0.8rem">
+      <div class="split-left">
+        <div class="process-row">
+          <div class="process-box" style="border-color:var(--highlight); background:rgba(146,64,14,0.05); font-size:1.1rem">
+            Código<br>desenvolvido
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-box" style="border-color:var(--accent); background:rgba(3,105,161,0.05); font-size:1.1rem">
+            PR aberto<br>no GitHub
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-box" style="font-size:1.1rem">
+            Code review<br>(1–2 revisores)
+          </div>
+        </div>
+        <div class="process-row" style="justify-content:flex-end">
+          <div class="process-arrow" style="transform:rotate(90deg)">→</div>
+        </div>
+        <div class="process-row" style="flex-direction:row-reverse">
+          <div class="process-box" style="border-color:var(--success); background:rgba(22,101,52,0.05); font-size:1.1rem">
+            Feature em<br>produção
+          </div>
+          <div class="process-arrow" style="transform:rotate(180deg)">→</div>
+          <div class="process-box" style="font-size:1.1rem">
+            CI/CD<br>executado
+          </div>
+          <div class="process-arrow" style="transform:rotate(180deg)">→</div>
+          <div class="process-box" style="font-size:1.1rem">
+            PR aprovado<br>&amp; mergeado
+          </div>
+        </div>
+      </div>
+      <div class="split-right" style="flex:0 0 240px">
+        <div class="card" style="width:100%">
+          <p style="font-size:1.1rem"><strong>Tipo:</strong> <span class="badge badge-primary">Primário</span></p>
+          <p style="font-size:1.1rem; margin-top:0.5rem"><strong>Input:</strong> código finalizado</p>
+          <p style="font-size:1.1rem; margin-top:0.4rem"><strong>Output:</strong> software em produção</p>
+          <p style="font-size:1.1rem; margin-top:0.4rem"><strong>Responsáveis:</strong> dev + reviewer + CI</p>
+          <p style="font-size:1.1rem; margin-top:0.4rem"><strong>Gargalo típico:</strong> fila de reviews / pipeline lento</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 11. ATIVIDADE ══ -->
+  <div class="slide slide-content" style="padding: 2rem 5rem">
+    <h2>Atividade — Mapeando um processo de engenharia</h2>
+    <p style="margin-bottom:0.8rem; font-size:1.5rem">Individual ou em dupla. Início hoje — <span class="accent">entrega na aula do dia 05/05</span>.</p>
+    <div class="cards cards-2" style="gap:1rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">Escolha UM processo</h3>
+        <p style="font-size:1.15rem">a) Registrar e resolver um bug reportado pelo usuário</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem">b) Fazer deploy de uma nova feature em produção</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem">c) Onboarding de um novo desenvolvedor no time</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem">d) Executar uma sprint (do planejamento à retrospectiva)</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem">e) Processo da sua experiência real (estágio, projeto, etc.)</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Para o processo escolhido, descreva:</h3>
+        <p style="font-size:1.15rem"><strong>1.</strong> Liste as etapas principais <em>(mínimo 5 passos)</em></p>
+        <p style="font-size:1.15rem; margin-top:0.35rem"><strong>2.</strong> Classifique: primário, suporte ou gestão? Por quê?</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem"><strong>3.</strong> Identifique: quem participa, qual o input e o output</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem"><strong>4.</strong> Aponte um <strong>gargalo ou ineficiência</strong> real nesse processo</p>
+        <p style="font-size:1.15rem; margin-top:0.35rem"><strong>5.</strong> Proponha como automatizar <strong>pelo menos uma etapa</strong> usando <span class="accent">n8n</span> — descreva o fluxo (gatilho, ações, integrações)</p>
+        <p class="note" style="margin-top:0.7rem">Entregável: documento (PDF ou link) com o mapa do processo + descrição da automação n8n. Entrega: 05/05 em sala.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 12. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 05/05 (Ter)</span>
+    <h1>Mapeamento<br><span class="accent">de Processos</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Técnicas: fluxograma, BPMN, swimlane</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Ferramentas: draw.io na prática</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Como identificar melhorias a partir do mapa</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">
+      28/04 e 30/04: sem aula (viagem). Atividade assíncrona no Telegram.
+    </p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
