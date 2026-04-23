@@ -148,247 +148,129 @@
     </div>
   </div>
 
-  <!-- CORRECAO MAPEAMENTO: estrategia generalizacao -->
-  <div class="slide slide-content">
-    <span class="tag">Correção — Mapeamento</span>
-    <h2>Estratégia de Generalização</h2>
-    <div class="cards cards-2">
-      <div class="card">
-        <h3>Tabela única (USUARIO)</h3>
-        <p>Uma só tabela com todos os atributos. Colunas específicas ficam NULL para quem não se aplica. Simples, mas menos limpo.</p>
-      </div>
-      <div class="card ok">
-        <h3>✔ Uma tabela por tipo (adotada)</h3>
-        <p>USUARIO com atributos comuns + CLIENTE e ENTREGADOR com atributos próprios e FK para USUARIO. Mais normalizado.</p>
-      </div>
-    </div>
-    <div class="definition" style="margin-top:1.2rem">
-      <p>Como a generalização é <strong>total e disjunta</strong>, toda linha de USUARIO tem exatamente uma linha filha — CLIENTE <em>ou</em> ENTREGADOR, nunca os dois.</p>
+  <!-- DDL/DML: transição -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2 · Prévia</span>
+    <h1>Do esquema ao código<br><span class="accent">DDL &amp; DML</span></h1>
+    <div class="cover-meta">
+      <span><strong>DDL</strong> — define a estrutura</span>
+      <span><strong>DML</strong> — manipula os dados</span>
     </div>
   </div>
 
-  <!-- REVISAO NORMALIZACAO: conceitos -->
+  <!-- DDL/DML: o que é -->
   <div class="slide slide-content">
-    <span class="tag">Revisão — Normalização</span>
-    <h2>As Três Formas Normais</h2>
-    <div class="cards cards-3">
-      <div class="card">
-        <h3>1FN</h3>
-        <p>Valores <strong>atômicos</strong>. Sem grupos repetitivos nem listas em uma célula. Toda relação deve ter PK definida.</p>
-      </div>
-      <div class="card">
-        <h3>2FN</h3>
-        <p>1FN + sem <strong>dependências parciais</strong>. Todo não-chave depende da <em>chave inteira</em>. Só faz sentido com PK composta.</p>
-      </div>
-      <div class="card">
-        <h3>3FN</h3>
-        <p>2FN + sem <strong>dependências transitivas</strong>. Nenhum atributo não-chave depende de outro atributo não-chave.</p>
-      </div>
-    </div>
-    <div class="definition" style="margin-top:1.2rem">
-      <p>"Cada atributo depende <strong>da chave</strong>, <strong>da chave inteira</strong>, e de <strong>nada além da chave</strong>."</p>
-    </div>
-  </div>
-
-  <!-- NORMALIZACAO: tabela desnormalizada iFood (sem destaque) -->
-  <div class="slide slide-content">
-    <span class="tag">Prática — Normalização</span>
-    <h2>Tabela Desnormalizada — iFood</h2>
-    <table class="tbl">
-      <tr>
-        <th class="pk-col">num_pedido</th>
-        <th class="pk-col">cod_item</th>
-        <th>data_pedido</th>
-        <th>cli_cpf</th>
-        <th>cli_nome</th>
-        <th>cli_cidade</th>
-        <th>rest_id</th>
-        <th>rest_nome</th>
-        <th>rest_bairro</th>
-        <th>item_nome</th>
-        <th>item_preco</th>
-        <th>qtd</th>
-      </tr>
-      <tr><td>P01</td><td>I1</td><td>10/04</td><td>111</td><td>Ana</td><td>Belém</td><td>R1</td><td>Saboroso</td><td>Umarizal</td><td>X-Burguer</td><td>25,00</td><td>1</td></tr>
-      <tr><td>P01</td><td>I2</td><td>10/04</td><td>111</td><td>Ana</td><td>Belém</td><td>R1</td><td>Saboroso</td><td>Umarizal</td><td>Fritas</td><td>10,00</td><td>2</td></tr>
-      <tr><td>P02</td><td>I1</td><td>11/04</td><td>222</td><td>Bia</td><td>Ananindeua</td><td>R1</td><td>Saboroso</td><td>Umarizal</td><td>X-Burguer</td><td>25,00</td><td>2</td></tr>
-      <tr><td>P02</td><td>I3</td><td>11/04</td><td>222</td><td>Bia</td><td>Ananindeua</td><td>R1</td><td>Saboroso</td><td>Umarizal</td><td>Refrigerante</td><td>8,00</td><td>1</td></tr>
-    </table>
-    <p style="font-size:1.35rem;margin-top:.8rem">PK composta: (<span class="highlight">num_pedido, cod_item</span>) &nbsp;·&nbsp; Tudo numa única tabela — o que pode estar errado aqui?</p>
-  </div>
-
-  <!-- NORMALIZACAO: tabela desnormalizada iFood (com destaque) -->
-  <div class="slide slide-content">
-    <span class="tag">Prática — Normalização</span>
-    <h2>Tabela Desnormalizada — iFood</h2>
-    <table class="tbl">
-      <tr>
-        <th class="pk-col">num_pedido</th>
-        <th class="pk-col">cod_item</th>
-        <th>data_pedido</th>
-        <th>cli_cpf</th>
-        <th>cli_nome</th>
-        <th>cli_cidade</th>
-        <th>rest_id</th>
-        <th>rest_nome</th>
-        <th>rest_bairro</th>
-        <th>item_nome</th>
-        <th>item_preco</th>
-        <th>qtd</th>
-      </tr>
-      <tr><td>P01</td><td>I1</td><td>10/04</td><td class="dup">111</td><td class="dup">Ana</td><td class="dup">Belém</td><td class="dup">R1</td><td class="dup">Saboroso</td><td class="dup">Umarizal</td><td>X-Burguer</td><td class="dup">25,00</td><td>1</td></tr>
-      <tr><td>P01</td><td>I2</td><td>10/04</td><td class="dup">111</td><td class="dup">Ana</td><td class="dup">Belém</td><td class="dup">R1</td><td class="dup">Saboroso</td><td class="dup">Umarizal</td><td>Fritas</td><td>10,00</td><td>2</td></tr>
-      <tr><td>P02</td><td>I1</td><td>11/04</td><td class="dup">222</td><td class="dup">Bia</td><td class="dup">Ananindeua</td><td class="dup">R1</td><td class="dup">Saboroso</td><td class="dup">Umarizal</td><td>X-Burguer</td><td class="dup">25,00</td><td>2</td></tr>
-      <tr><td>P02</td><td>I3</td><td>11/04</td><td class="dup">222</td><td class="dup">Bia</td><td class="dup">Ananindeua</td><td class="dup">R1</td><td class="dup">Saboroso</td><td class="dup">Umarizal</td><td>Refrigerante</td><td>8,00</td><td>1</td></tr>
-    </table>
-    <p style="font-size:1.35rem;margin-top:.8rem">PK composta: (<span class="highlight">num_pedido, cod_item</span>) &nbsp;·&nbsp; Células em <span style="background:#fef3c7;color:#92400e;padding:.1rem .4rem;border-radius:.3rem;font-weight:600">amarelo</span> = dado repetido desnecessariamente</p>
-  </div>
-
-  <!-- ANOMALIAS -->
-  <div class="slide slide-content">
-    <span class="tag">Por que normalizar?</span>
-    <h2>Anomalias da Desnormalização</h2>
-    <div class="cards cards-3">
-      <div class="card">
-        <h3>Anomalia de inserção</h3>
-        <p>Para cadastrar um novo item do cardápio é preciso ter um pedido — mas o item pode existir sem pedido.</p>
-      </div>
-      <div class="card">
-        <h3>Anomalia de atualização</h3>
-        <p>Se o Saboroso mudar de bairro, é preciso atualizar <em>todas</em> as linhas do R1. Esquecer uma cria inconsistência.</p>
-      </div>
-      <div class="card">
-        <h3>Anomalia de exclusão</h3>
-        <p>Se o único pedido do X-Burguer for excluído, perde-se o preço do item — informação que deveria persistir.</p>
-      </div>
-    </div>
-    <div class="definition" style="margin-top:1.2rem">
-      <p>A normalização elimina essas anomalias garantindo que <strong>cada fato seja armazenado uma única vez</strong>.</p>
-    </div>
-  </div>
-
-  <!-- DFs -->
-  <div class="slide slide-content" data-steps="4">
-    <span class="tag">Passo 1 — Identificar Dependências Funcionais</span>
-    <h2>Dependências Funcionais (DFs)</h2>
-    <ul>
-      <li class="step" data-step="1">
-        <span class="accent">num_pedido</span> → data_pedido, cli_cpf, rest_id
-        <span style="font-size:1.3rem;color:var(--secondary)"> &nbsp;(depende só de <em>parte</em> da PK → <strong class="highlight">parcial</strong>)</span>
-      </li>
-      <li class="step" data-step="2">
-        <span class="accent">cod_item</span> → item_nome, item_preco
-        <span style="font-size:1.3rem;color:var(--secondary)"> &nbsp;(depende só de <em>parte</em> da PK → <strong class="highlight">parcial</strong>)</span>
-      </li>
-      <li class="step" data-step="3">
-        <span class="accent">cli_cpf</span> → cli_nome, cli_cidade
-        <span style="font-size:1.3rem;color:var(--secondary)"> &nbsp;(não-chave → não-chave, via num_pedido → <strong class="highlight">transitiva</strong>)</span>
-      </li>
-      <li class="step" data-step="3">
-        <span class="accent">rest_id</span> → rest_nome, rest_bairro
-        <span style="font-size:1.3rem;color:var(--secondary)"> &nbsp;(não-chave → não-chave, via num_pedido → <strong class="highlight">transitiva</strong>)</span>
-      </li>
-      <li class="step" data-step="4">
-        <span class="accent">(num_pedido, cod_item)</span> → qtd
-        <span style="font-size:1.3rem;color:var(--secondary)"> &nbsp;(depende da chave inteira → <strong class="success">✔ correto</strong>)</span>
-      </li>
-    </ul>
-    <p style="font-size:1.3rem;margin-top:1rem;opacity:.7">Pressione → para revelar cada DF</p>
-  </div>
-
-  <!-- 1FN -->
-  <div class="slide slide-content">
-    <span class="tag">Passo 2 — 1FN</span>
-    <h2>A tabela já está em 1FN?</h2>
+    <span class="tag">SQL — Sublinguagens</span>
+    <h2>O que são DDL e DML?</h2>
     <div class="cards cards-2" style="margin-bottom:1.2rem">
-      <div class="card ok">
-        <h3>✔ Valores atômicos</h3>
-        <p>Cada célula tem um único valor — não há listas como "Belém, Ananindeua" nem grupos repetitivos.</p>
-      </div>
-      <div class="card ok">
-        <h3>✔ PK definida</h3>
-        <p>A chave composta (num_pedido, cod_item) identifica cada linha unicamente.</p>
-      </div>
-    </div>
-    <div class="warning">
-      <p>⚠ Está em 1FN, mas há <strong>dependências parciais</strong> — precisamos avançar para a 2FN.</p>
-    </div>
-    <p style="font-size:1.5rem;margin-top:1rem">Problema: <span class="highlight">item_nome, item_preco</span> dependem só de <strong>cod_item</strong>. E <span class="highlight">data_pedido, cli_cpf, rest_id</span> dependem só de <strong>num_pedido</strong>. Nenhum dos dois depende da chave <em>inteira</em>.</p>
-  </div>
-
-  <!-- 2FN -->
-  <div class="slide slide-content">
-    <span class="tag">Passo 3 — 2FN</span>
-    <h2>Eliminar Dependências Parciais</h2>
-    <p style="font-size:1.5rem;margin-bottom:1rem">Extraímos os atributos que dependem de <em>parte</em> da PK para tabelas próprias:</p>
-    <div class="diagram">
-      <span class="cm">-- depende só de num_pedido → vira PEDIDO</span><br>
-      <span class="ent">PEDIDO</span>(<span class="pk"><u>num_pedido</u></span>, data_pedido, cli_cpf, rest_id)<br><br>
-      <span class="cm">-- depende só de cod_item → vira ITEM</span><br>
-      <span class="ent">ITEM</span>(<span class="pk"><u>cod_item</u></span>, item_nome, item_preco)<br><br>
-      <span class="cm">-- depende da chave inteira → permanece</span><br>
-      <span class="ent">PEDIDO_ITEM</span>(<span class="pk"><u>num_pedido, cod_item</u></span>, qtd)<br>
-      &nbsp;&nbsp;<span class="fk">FK: num_pedido → PEDIDO &nbsp;·&nbsp; cod_item → ITEM</span>
-    </div>
-    <div class="warning" style="margin-top:.8rem">
-      <p>⚠ PEDIDO ainda tem problema: <span class="highlight">cli_cpf → cli_nome, cli_cidade</span> e <span class="highlight">rest_id → rest_nome, rest_bairro</span> — dependências <strong>transitivas</strong>.</p>
-    </div>
-  </div>
-
-  <!-- 3FN: análise -->
-  <div class="slide slide-content">
-    <span class="tag">Passo 4 — 3FN</span>
-    <h2>Eliminar Dependências Transitivas</h2>
-    <p style="font-size:1.5rem;margin-bottom:1rem">Em PEDIDO: <strong>cli_cpf</strong> e <strong>rest_id</strong> são não-chaves que determinam outros não-chaves. Isso viola a 3FN.</p>
-    <div class="cards cards-2" style="margin-bottom:1rem">
       <div class="card">
-        <h3>Cadeia transitiva #1</h3>
-        <p><strong>num_pedido → cli_cpf → cli_nome, cli_cidade</strong><br>Solução: extrair CLIENTE(cli_cpf, cli_nome, cli_cidade)</p>
+        <h3>DDL — Data Definition Language</h3>
+        <p>Define a <strong>estrutura</strong> do banco. Cria, altera e remove tabelas. Não toca nos dados.</p>
+        <p style="margin-top:.6rem;font-size:1.1rem"><code>CREATE TABLE &nbsp; ALTER TABLE &nbsp; DROP TABLE</code></p>
       </div>
       <div class="card">
-        <h3>Cadeia transitiva #2</h3>
-        <p><strong>num_pedido → rest_id → rest_nome, rest_bairro</strong><br>Solução: extrair RESTAURANTE(rest_id, rest_nome, rest_bairro)</p>
+        <h3>DML — Data Manipulation Language</h3>
+        <p>Manipula os <strong>dados</strong> dentro das tabelas já criadas. Insere, atualiza, remove e consulta.</p>
+        <p style="margin-top:.6rem;font-size:1.1rem"><code>INSERT &nbsp; UPDATE &nbsp; DELETE &nbsp; SELECT</code></p>
       </div>
     </div>
-    <p style="font-size:1.5rem">PEDIDO fica apenas com as chaves estrangeiras — <span class="success">sem dados redundantes de cliente ou restaurante</span>.</p>
-  </div>
-
-  <!-- 3FN: resultado final -->
-  <div class="slide slide-content">
-    <span class="tag">Resultado Final — 3FN</span>
-    <h2>Esquema Normalizado — iFood</h2>
-    <div class="diagram">
-      <span class="ent">CLIENTE</span>(<span class="pk"><u>cli_cpf</u></span>, cli_nome, cli_cidade)<br><br>
-      <span class="ent">RESTAURANTE</span>(<span class="pk"><u>rest_id</u></span>, rest_nome, rest_bairro)<br><br>
-      <span class="ent">PEDIDO</span>(<span class="pk"><u>num_pedido</u></span>, data_pedido, <span class="fk">cli_cpf, rest_id</span>)<br>
-      &nbsp;&nbsp;<span class="fk">FK: cli_cpf → CLIENTE &nbsp;·&nbsp; rest_id → RESTAURANTE</span><br><br>
-      <span class="ent">ITEM</span>(<span class="pk"><u>cod_item</u></span>, item_nome, item_preco)<br><br>
-      <span class="ent">PEDIDO_ITEM</span>(<span class="pk"><u>num_pedido, cod_item</u></span>, qtd)<br>
-      &nbsp;&nbsp;<span class="fk">FK: num_pedido → PEDIDO &nbsp;·&nbsp; cod_item → ITEM</span>
+    <div class="definition">
+      <p>Primeiro vem o DDL — sem a estrutura, não há onde guardar os dados. Depois o DML popula o banco.</p>
     </div>
-    <p style="font-size:1.4rem;margin-top:.8rem" class="success">✔ Cada fato em um único lugar. Sem redundância. Sem anomalias de inserção, atualização ou exclusão.</p>
   </div>
 
-  <!-- ANTECIPACAO DDL/DML -->
+  <!-- DDL/DML: um exemplo -->
   <div class="slide slide-content">
-    <span class="tag">Prévia — SQL</span>
-    <h2>Do Esquema ao Código: DDL e DML</h2>
-    <p style="font-size:1.45rem;margin-bottom:.8rem">O esquema normalizado vira código SQL diretamente. Na próxima aula (após a prova) veremos isso em detalhes:</p>
+    <span class="tag">DDL — iFood · Parte 1</span>
+    <h2>CREATE TABLE — Um exemplo</h2>
+    <p style="font-size:1.4rem;margin-bottom:.8rem">Cada tabela do esquema relacional vira um <code>CREATE TABLE</code>. Começando pela mais simples:</p>
     <div class="code">
-      <span class="cm">-- DDL: definir a estrutura (CREATE TABLE)</span><br>
       <span class="kw">CREATE TABLE</span> cliente (<br>
-      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11) PRIMARY KEY</span>,<br>
-      &nbsp;&nbsp;cli_nome &nbsp;&nbsp;<span class="type">VARCHAR(100) NOT NULL</span>,<br>
-      &nbsp;&nbsp;cli_cidade <span class="type">VARCHAR(80)</span><br>
+      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11)  PRIMARY KEY</span>, <span class="cm">-- chave primária</span><br>
+      &nbsp;&nbsp;cli_nome &nbsp;&nbsp;<span class="type">VARCHAR(100) NOT NULL</span>,&nbsp;&nbsp; <span class="cm">-- obrigatório</span><br>
+      &nbsp;&nbsp;cli_cidade <span class="type">VARCHAR(80)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">-- opcional (pode ser NULL)</span><br>
+      );
+    </div>
+    <div class="cards cards-3" style="margin-top:1.2rem">
+      <div class="card">
+        <h3>Tipo de dado</h3>
+        <p>Define o que a coluna aceita: <code>VARCHAR</code>, <code>INT</code>, <code>DATE</code>, <code>NUMERIC</code>…</p>
+      </div>
+      <div class="card">
+        <h3>PRIMARY KEY</h3>
+        <p>Identifica unicamente cada linha. Não pode ser NULL nem repetido.</p>
+      </div>
+      <div class="card">
+        <h3>NOT NULL</h3>
+        <p>Torna o campo obrigatório. Sem isso, a coluna aceita ausência de valor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DDL/DML: três tabelas -->
+  <div class="slide slide-content">
+    <span class="tag">DDL — iFood · Parte 2</span>
+    <h2>CREATE TABLE — As demais tabelas</h2>
+    <p style="font-size:1.35rem;margin-bottom:.7rem">Tabelas que referenciam outras precisam ser criadas <em>depois</em> das referenciadas:</p>
+    <div class="code">
+      <span class="kw">CREATE TABLE</span> restaurante (<br>
+      &nbsp;&nbsp;rest_id &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">SERIAL       PRIMARY KEY</span>, <span class="cm">-- gerado automaticamente</span><br>
+      &nbsp;&nbsp;rest_nome &nbsp;&nbsp;<span class="type">VARCHAR(100) NOT NULL</span>,<br>
+      &nbsp;&nbsp;rest_bairro <span class="type">VARCHAR(80)</span><br>
       );<br><br>
       <span class="kw">CREATE TABLE</span> pedido (<br>
-      &nbsp;&nbsp;num_pedido &nbsp;<span class="type">SERIAL PRIMARY KEY</span>,<br>
-      &nbsp;&nbsp;data_pedido <span class="type">DATE NOT NULL</span>,<br>
-      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11) REFERENCES</span> cliente(cli_cpf)<br>
+      &nbsp;&nbsp;num_pedido &nbsp;<span class="type">SERIAL      PRIMARY KEY</span>,<br>
+      &nbsp;&nbsp;data_pedido <span class="type">DATE        NOT NULL</span>,<br>
+      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11) REFERENCES</span> cliente(cli_cpf), <span class="cm">-- FK</span><br>
+      &nbsp;&nbsp;rest_id &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">INT         REFERENCES</span> restaurante(rest_id) <span class="cm">-- FK</span><br>
       );<br><br>
-      <span class="cm">-- DML: inserir dados (INSERT INTO)</span><br>
-      <span class="kw">INSERT INTO</span> cliente <span class="kw">VALUES</span> (<span class="str">'111'</span>, <span class="str">'Ana'</span>, <span class="str">'Belém'</span>);
+      <span class="kw">CREATE TABLE</span> pedido_item (<br>
+      &nbsp;&nbsp;num_pedido <span class="type">INT REFERENCES</span> pedido(num_pedido),<br>
+      &nbsp;&nbsp;cod_item &nbsp;&nbsp;<span class="type">INT REFERENCES</span> item(cod_item),<br>
+      &nbsp;&nbsp;qtd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">INT NOT NULL</span>,<br>
+      &nbsp;&nbsp;<span class="kw">PRIMARY KEY</span> (num_pedido, cod_item) <span class="cm">-- PK composta</span><br>
+      );
     </div>
+  </div>
+
+  <!-- DDL/DML: INSERT -->
+  <div class="slide slide-content">
+    <span class="tag">DML — iFood · INSERT</span>
+    <h2>INSERT INTO — Populando o banco</h2>
+    <p style="font-size:1.4rem;margin-bottom:.8rem">Seguimos a mesma ordem: primeiro os dados das tabelas sem FK, depois os que dependem delas:</p>
+    <div class="code">
+      <span class="cm">-- Clientes e restaurante</span><br>
+      <span class="kw">INSERT INTO</span> cliente <span class="kw">VALUES</span> (<span class="str">'111'</span>, <span class="str">'Ana'</span>, <span class="str">'Belém'</span>);<br>
+      <span class="kw">INSERT INTO</span> cliente <span class="kw">VALUES</span> (<span class="str">'222'</span>, <span class="str">'Bia'</span>, <span class="str">'Ananindeua'</span>);<br>
+      <span class="kw">INSERT INTO</span> restaurante (rest_nome, rest_bairro) <span class="kw">VALUES</span> (<span class="str">'Saboroso'</span>, <span class="str">'Umarizal'</span>);<br><br>
+      <span class="cm">-- Itens do cardápio</span><br>
+      <span class="kw">INSERT INTO</span> item (item_nome, item_preco) <span class="kw">VALUES</span> (<span class="str">'X-Burguer'</span>, <span class="type">25.00</span>);<br>
+      <span class="kw">INSERT INTO</span> item (item_nome, item_preco) <span class="kw">VALUES</span> (<span class="str">'Fritas'</span>, <span class="type">10.00</span>);<br><br>
+      <span class="cm">-- Pedido P01 da Ana no Saboroso</span><br>
+      <span class="kw">INSERT INTO</span> pedido <span class="kw">VALUES</span> (<span class="kw">DEFAULT</span>, <span class="str">'2026-04-10'</span>, <span class="str">'111'</span>, <span class="type">1</span>);<br>
+      <span class="kw">INSERT INTO</span> pedido_item <span class="kw">VALUES</span> (<span class="type">1</span>, <span class="type">1</span>, <span class="type">1</span>); <span class="cm">-- 1 X-Burguer</span><br>
+      <span class="kw">INSERT INTO</span> pedido_item <span class="kw">VALUES</span> (<span class="type">1</span>, <span class="type">2</span>, <span class="type">2</span>); <span class="cm">-- 2 Fritas</span>
+    </div>
+  </div>
+
+  <!-- ATIVIDADE DB FIDDLE -->
+  <div class="slide slide-content">
+    <span class="tag">Atividade em Sala</span>
+    <h2>Pratique agora — DB Fiddle</h2>
+    <div class="definition">
+      <p>Acesse <strong>db-fiddle.com</strong> no navegador. Selecione <strong>PostgreSQL</strong> no menu superior e execute os comandos que vimos.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:1.2rem">
+      <div class="card ok">
+        <h3>① Cole o DDL</h3>
+        <p>No painel esquerdo, cole os <code>CREATE TABLE</code> do iFood — <strong>cliente</strong>, <strong>restaurante</strong>, <strong>pedido</strong> e <strong>pedido_item</strong>.</p>
+      </div>
+      <div class="card ok">
+        <h3>② Cole o DML</h3>
+        <p>No painel direito, cole os <code>INSERT INTO</code> com os dados da Ana e da Bia. Clique em <strong>Run</strong>.</p>
+      </div>
+    </div>
+    <p style="font-size:1.5rem;margin-top:1.2rem">Deu erro? Leia a mensagem — ela quase sempre aponta a linha exata do problema. Erros de FK são os mais comuns: tente inserir fora de ordem.</p>
   </div>
 
   <!-- PROXIMOS PASSOS -->
