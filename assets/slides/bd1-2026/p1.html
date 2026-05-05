@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>P1 — Banco de Dados I — 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      font-size: 12pt;
+      line-height: 1.65;
+      color: #111;
+      background: #fff;
+      padding: 2.5rem 3rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .cabecalho {
+      border-top: 3px solid #111;
+      border-bottom: 2px solid #111;
+      padding: 0.6em 0;
+      margin-bottom: 1.4em;
+      text-align: center;
+    }
+    .cabecalho h1 { font-size: 14pt; letter-spacing: 0.04em; text-transform: uppercase; }
+    .cabecalho .meta {
+      display: flex; justify-content: space-between;
+      font-size: 10pt; margin-top: 0.4em;
+    }
+    .cabecalho .aviso {
+      font-size: 9.5pt; font-style: italic; margin-top: 0.5em; color: #333;
+    }
+
+    .contexto {
+      border: 1.5px solid #444;
+      padding: 1em 1.2em;
+      margin-bottom: 2em;
+    }
+    .contexto h2 {
+      font-size: 10pt; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 0.7em;
+      border-bottom: 1px solid #888; padding-bottom: 0.25em;
+    }
+    .contexto p { margin-bottom: 0.6em; text-align: justify; }
+    .contexto p:last-child { margin-bottom: 0; }
+
+    .questao { margin-bottom: 2.5em; }
+    .questao-titulo {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-bottom: 1.5px solid #333; padding-bottom: 0.3em; margin-bottom: 1em;
+    }
+    .questao-titulo h2 { font-size: 12pt; font-weight: bold; }
+    .questao-titulo .pts { font-size: 10.5pt; font-weight: bold; }
+
+    .alinea { margin-bottom: 1.4em; padding-left: 0.5em; }
+    .alinea > p { margin-bottom: 0.4em; }
+
+    .schema {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 10pt;
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      padding: 0.6em 1.1em;
+      margin: 0.6em 0;
+      white-space: pre;
+      line-height: 1.6;
+    }
+
+    hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+
+    .rodape {
+      text-align: center; font-size: 9.5pt; color: #555;
+      border-top: 1px solid #ccc; padding-top: 0.6em; margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cabecalho">
+  <h1>Banco de Dados I &mdash; Avaliação 1 (P1)</h1>
+  <div class="meta">
+    <span>Prof. Gustavo Pinto</span>
+    <span>05/05/2026</span>
+    <span>Duração: 2 horas</span>
+    <span>Valor: 25,0 pontos</span>
+  </div>
+  <div class="aviso">
+    Responda diretamente neste documento. Não é permitido consultar a internet ou usar ferramentas de IA.
+  </div>
+</div>
+
+<!-- ── contexto ── -->
+<div class="contexto">
+  <h2>Contexto — MesaPay — leia com atenção antes de começar</h2>
+
+  <p>O <strong>MesaPay</strong> é um banco digital voltado para restaurantes parceiros de plataformas de delivery.
+  Ao aderir ao serviço, cada restaurante recebe automaticamente uma <strong>conta digital</strong>,
+  identificada por um número único. A conta registra o saldo disponível e a data de criação.
+  Um restaurante é identificado pelo CNPJ e possui nome fantasia, segmento (ex.: pizzaria, japonês, hambúrguer)
+  e cidade.</p>
+
+  <p>A cada venda realizada pelo restaurante na plataforma MesaApp, é gerado um <strong>recebível</strong>:
+  um direito de recebimento identificado por um código único, com valor bruto, data da venda e forma de
+  pagamento utilizada pelo cliente (Pix, cartão de crédito ou Carteira MesaApp). Cada recebível pertence
+  a exatamente um restaurante, e um restaurante acumula vários recebíveis ao longo do tempo.</p>
+
+  <p>O MesaPay oferece um serviço de <strong>antecipação de recebíveis</strong>: o restaurante solicita
+  adiantar o valor de vendas que ainda não venceram, recebendo o dinheiro imediatamente com desconto de
+  uma taxa. Cada antecipação tem um código único, uma taxa aplicada (em&nbsp;%), a data de emissão e a
+  modalidade — <em>Padrão</em> (até 7 dias úteis, taxa menor) ou <em>Pontual</em> (no mesmo dia, taxa de 1,59%).
+  Uma antecipação pode cobrir <strong>vários recebíveis</strong>, e um mesmo recebível pode ser parcialmente
+  incluído em <strong>mais de uma</strong> antecipação. Quando um recebível é incluído numa antecipação,
+  o valor efetivamente antecipado daquele recebível naquele contrato deve ser registrado.</p>
+
+  <p>Cada antecipação é dividida em <strong>parcelas</strong> de pagamento.
+  As parcelas <strong>não possuem código globalmente único</strong>: são numeradas sequencialmente
+  dentro de cada antecipação — a parcela 1 da antecipação A é diferente da parcela 1 da antecipação B.
+  Cada parcela registra a data de vencimento, o valor e o status (<em>pendente</em>, <em>pago</em> ou
+  <em>atrasado</em>).</p>
+</div>
+
+<!-- ══ Q1 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Questão 1 &mdash; Modelagem e Mapeamento</h2>
+    <span class="pts">16,0 pontos</span>
+  </div>
+
+  <p style="margin-bottom:0.8em">
+    Com base no contexto do MesaPay, elabore o DER seguindo a notação de Heuser.
+    Se preferir descrever em vez de desenhar, use o formato:
+  </p>
+  <div class="schema">ENTIDADE { <u>atrib_id</u>, atrib2, atrib3 }
+ENTIDADE_A — (cardMin,cardMax)  NOME_REL  (cardMin,cardMax) — ENTIDADE_B</div>
+
+  <div class="alinea">
+    <p><strong>(a) [9,0 pts]</strong>&ensp;
+      Elabore o DER completo: identifique todas as entidades com seus atributos e identificadores,
+      todos os relacionamentos com cardinalidade mínima e máxima de cada lado, e o atributo
+      próprio do relacionamento N:M. Indique também qual entidade é <strong>fraca</strong>
+      e represente seu relacionamento identificador.
+    </p>
+  </div>
+
+  <div class="alinea">
+    <p><strong>(b) [7,0 pts]</strong>&ensp;
+      Escreva o <strong>esquema relacional completo</strong>, mapeando o DER para o modelo
+      relacional. Use a notação abaixo, onde o identificador é <strong>sublinhado</strong>
+      e a chave estrangeira é em <em>itálico</em>:
+    </p>
+    <div class="schema">TABELA(<u>identificador</u>, #chave_estrangeira, atrib1, atrib2)</div>
+    <p>Escreva todas as tabelas resultantes com identificadores e chaves estrangeiras corretamente indicados.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══ Q2 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Questão 2 &mdash; Normalização</h2>
+    <span class="pts">6,0 pontos</span>
+  </div>
+
+  <p style="margin-bottom:0.6em">
+    Considere o esquema abaixo, extraído de um sistema <em>legado</em> do MesaPay.
+    Neste esquema, cada recebível possui código globalmente único.
+  </p>
+  <div class="schema">EXTRATO(<u>codAntecipacao</u>, dataEmissao, taxa, modalidade,
+        cnpj, nomeRest, segmento,
+        <u>codRecebivel</u>, valorBruto, dataVenda, formaPagamento,
+        valorAntecipado)
+
+Chave primária: (codAntecipacao, codRecebivel)</div>
+
+  <div class="alinea">
+    <p><strong>[6,0 pts]</strong>&ensp;
+      Identifique <strong>todas</strong> as dependências funcionais parciais do esquema EXTRATO.
+      Ele está na <strong>2FN</strong>? Caso não esteja, normalize-o até a 2FN, apresentando
+      os esquemas resultantes com seus identificadores.
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══ Q3 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Questão 3 &mdash; DDL</h2>
+    <span class="pts">3,0 pontos</span>
+  </div>
+
+  <div class="alinea">
+    <p><strong>[3,0 pts]</strong>&ensp;
+      Com base no contexto do MesaPay, escreva o comando <code>CREATE TABLE</code>
+      para a tabela <code>ANTECIPACAO</code>.
+    </p>
+  </div>
+</div>
+
+<div class="rodape">Boa prova!</div>
+
+</body>
+</html>
