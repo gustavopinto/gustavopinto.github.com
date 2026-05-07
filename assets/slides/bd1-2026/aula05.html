@@ -256,29 +256,27 @@
   <!-- ══ POR QUE SEPARAR? ══ -->
   <div class="slide slide-content">
     <h2>Por que essa separação importa?</h2>
-    <div class="definition">
-      <p>Não é só rótulo didático. Equipes reais separam DDL, DML, DQL e DCL para <strong>controlar risco</strong>, <strong>permissão</strong> e <strong>velocidade de mudança</strong> no banco de produção.</p>
-    </div>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">Não é rótulo didático — equipes separam por <span class="accent">risco</span>, <span class="accent">permissão</span> e <span class="accent">velocidade de mudança</span>.</p>
     <div class="cards cards-2">
       <div class="card">
-        <h3>🔐 Permissões diferentes (DCL)</h3>
-        <p>O <em>princípio do menor privilégio</em>: a aplicação não precisa de <code>DROP TABLE</code>. Em produção, o usuário do app costuma ter só DML/DQL; DDL fica com um usuário separado, usado apenas em <em>migrations</em>.</p>
-        <p class="note">Exemplo real: SQL Server tem o role <code>db_ddladmin</code>, e a Microsoft recomenda que aplicações <strong>não</strong> sejam membros dele.</p>
+        <h3>🔐 Permissões (DCL)</h3>
+        <p>App em produção só tem DML/DQL. DDL fica com usuário separado, usado em <em>migrations</em>.</p>
+        <p class="note">Ex.: SQL Server tem o role <code>db_ddladmin</code> — apps não devem entrar nele.</p>
       </div>
       <div class="card">
-        <h3>🚀 Ciclos de vida diferentes</h3>
-        <p>DDL muda raramente e é revisada como código (migrations versionadas, code review). DML/DQL roda <em>milhões</em> de vezes ao dia, dentro do app.</p>
-        <p class="note">Misturar os dois (alterar schema dentro de um endpoint) é receita para outage.</p>
+        <h3>🚀 Ciclos de vida</h3>
+        <p>DDL muda raramente, via migrations versionadas. DML/DQL roda milhões de vezes ao dia.</p>
+        <p class="note">Alterar schema dentro de um endpoint = receita de outage.</p>
       </div>
       <div class="card">
-        <h3>⚠️ Comportamento transacional</h3>
-        <p>Em vários SGBDs (Oracle, MySQL clássico) DDL faz <strong>commit implícito</strong>: você não consegue dar <code>ROLLBACK</code> num <code>DROP TABLE</code>. DML é seguramente reversível dentro de uma transação.</p>
-        <p class="note">PostgreSQL é exceção: DDL é transacional, mas mesmo assim a separação ajuda na revisão.</p>
+        <h3>⚠️ Transações</h3>
+        <p>Em Oracle/MySQL, DDL faz commit implícito: <code>DROP TABLE</code> não tem <code>ROLLBACK</code>.</p>
+        <p class="note">PostgreSQL é exceção — DDL é transacional.</p>
       </div>
       <div class="card">
-        <h3>📋 Auditoria e rastreabilidade</h3>
-        <p>Mudanças de schema (DDL) são raras e críticas — vão para o histórico de migrations no Git. Consultas (DQL) ficam no código da aplicação. Permissões (DCL) entram em <em>security matrix</em>.</p>
-        <p class="note">Cada categoria tem seu fluxo de aprovação e seu histórico próprio.</p>
+        <h3>📋 Auditoria</h3>
+        <p>DDL vai para migrations no Git; DQL no código do app; DCL na <em>security matrix</em>.</p>
+        <p class="note">Cada categoria tem fluxo de aprovação próprio.</p>
       </div>
     </div>
   </div>
@@ -471,19 +469,11 @@
   <!-- ══ BOAS PRÁTICAS ══ -->
   <div class="slide slide-content">
     <h2>Boas práticas ao escrever SQL</h2>
-    <div class="cards cards-2">
+    <div class="cards cards-3">
       <div class="card">
         <h3>Liste as colunas — evite <code>SELECT *</code></h3>
         <p>Prefira <code>SELECT nome, email FROM cliente</code> em vez de <code>SELECT *</code>. Você documenta o que precisa, evita trazer colunas pesadas e quebra menos quando o esquema muda.</p>
-        <p class="note"><code>SELECT *</code> em produção é considerado <em>code smell</em> — útil só para exploração rápida.</p>
-      </div>
-      <div class="card">
-        <h3>Nomes — <code>snake_case</code> e singular</h3>
-        <p>Tabelas e colunas em <code>snake_case</code>, no <strong>singular</strong> (<code>cliente</code>, não <code>Clientes</code>). Seja descritivo: <code>data_emissao</code> &gt; <code>dt</code>.</p>
-      </div>
-      <div class="card">
-        <h3>Prefira PKs sintéticas</h3>
-        <p><code>SERIAL</code>/<code>BIGSERIAL</code> em vez de chaves naturais (CPF, e-mail). Chaves naturais mudam; sintéticas não. Mantenha a chave natural com <code>UNIQUE</code>.</p>
+        <p class="note"><code>SELECT *</code> em produção é <em>code smell</em> — útil só para exploração rápida.</p>
       </div>
       <div class="card">
         <h3>Ponha as regras no banco</h3>
@@ -493,19 +483,16 @@
         <h3>Ordem importa</h3>
         <p>Crie primeiro as tabelas <em>referenciadas</em> e só depois as <em>referenciadoras</em>. Caso contrário, a FK falha logo no <code>CREATE</code>.</p>
       </div>
-      <div class="card">
-        <h3>Palavras-chave em maiúsculo</h3>
-        <p>Convenção de legibilidade: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code> em maiúsculo; identificadores em minúsculo. Indente blocos longos.</p>
-      </div>
     </div>
   </div>
 
-  <!-- ══ 14. EXEMPLO COMPLETO ══ -->
+  <!-- ══ 14a. EXEMPLO COMPLETO — PARTE 1 ══ -->
   <div class="slide slide-content">
-    <h2>Exemplo completo — E-commerce</h2>
-    <pre class="code-block" style="font-size:1.15rem"><span class="kw">CREATE TABLE</span> cliente (
+    <h2>Exemplo completo — E-commerce <span style="font-size:1.4rem;color:var(--secondary);font-weight:400">(1/2)</span></h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> cliente (
     id      <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
-    cpf     <span class="kw">CHAR</span>(<span class="num">11</span>)     <span class="kw">UNIQUE NOT NULL</span> <span class="kw">CHECK</span> (<span class="kw">char_length</span>(cpf) = <span class="num">11</span>),
+    cpf     <span class="kw">CHAR</span>(<span class="num">11</span>)     <span class="kw">UNIQUE NOT NULL</span>
+                          <span class="kw">CHECK</span> (<span class="kw">char_length</span>(cpf) = <span class="num">11</span>),
     nome    <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
     email   <span class="kw">VARCHAR</span>(<span class="num">150</span>) <span class="kw">UNIQUE NOT NULL</span>
 );
@@ -514,10 +501,16 @@
     id      <span class="kw">SERIAL</span>        <span class="kw">PRIMARY KEY</span>,
     nome    <span class="kw">VARCHAR</span>(<span class="num">200</span>) <span class="kw">NOT NULL</span>,
     preco   <span class="kw">NUMERIC</span>(<span class="num">10</span>,<span class="num">2</span>) <span class="kw">NOT NULL CHECK</span> (preco &gt; <span class="num">0</span>),
-    estoque <span class="kw">INTEGER</span>      <span class="kw">NOT NULL DEFAULT</span> <span class="num">0</span> <span class="kw">CHECK</span> (estoque &gt;= <span class="num">0</span>)
-);
+    estoque <span class="kw">INTEGER</span>      <span class="kw">NOT NULL DEFAULT</span> <span class="num">0</span>
+                          <span class="kw">CHECK</span> (estoque &gt;= <span class="num">0</span>)
+);</pre>
+    <p style="margin-top:0.4rem; font-size:1.4rem">Entidades fortes — <code>cliente</code> e <code>produto</code> não dependem de ninguém. Vêm primeiro.</p>
+  </div>
 
-<span class="kw">CREATE TABLE</span> pedido (
+  <!-- ══ 14b. EXEMPLO COMPLETO — PARTE 2 ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo completo — E-commerce <span style="font-size:1.4rem;color:var(--secondary);font-weight:400">(2/2)</span></h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> pedido (
     id         <span class="kw">SERIAL</span>  <span class="kw">PRIMARY KEY</span>,
     data       <span class="kw">DATE</span>    <span class="kw">NOT NULL DEFAULT CURRENT_DATE</span>,
     cliente_id <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> cliente(id)
@@ -529,30 +522,7 @@
     qtd        <span class="kw">INTEGER</span> <span class="kw">NOT NULL CHECK</span> (qtd &gt; <span class="num">0</span>),
     <span class="kw">PRIMARY KEY</span> (pedido_id, produto_id)
 );</pre>
-  </div>
-
-  <!-- ══ 16. EXERCÍCIOS — ABERTURA ══ -->
-  <div class="slide slide-content">
-    <span class="tag">Mãos à obra</span>
-    <h2>Exercícios no DB Fiddle</h2>
-    <div class="definition">
-      <p>Acesse <strong>db-fiddle.com</strong>, selecione <strong>PostgreSQL</strong> no canto superior esquerdo e cole seus <code>CREATE TABLE</code> no painel da esquerda. Clique em <em>Run</em> para validar.</p>
-    </div>
-    <div class="cards cards-3" style="margin-top:1rem">
-      <div class="card">
-        <h3 class="success">① Fácil</h3>
-        <p>Uma única tabela, tipos básicos e <code>CHECK</code> simples.</p>
-      </div>
-      <div class="card">
-        <h3 class="accent">② Médio</h3>
-        <p>Duas tabelas com FK e regras de integridade.</p>
-      </div>
-      <div class="card">
-        <h3 class="highlight">③ Difícil</h3>
-        <p>Três tabelas, PK composta, <code>CHECK</code> de linha e <code>ON DELETE</code>.</p>
-      </div>
-    </div>
-    <p style="margin-top:1rem; font-size:1.5rem">Para cada exercício: leia o enunciado, modele as tabelas e teste no DB Fiddle até rodar sem erro.</p>
+    <p style="margin-top:0.4rem; font-size:1.4rem"><code>pedido</code> tem FK para <code>cliente</code>. <code>item_pedido</code> é a associativa N:M com PK composta — apaga em cascata se o pedido sumir.</p>
   </div>
 
   <!-- ══ 17. EXERCÍCIO 1 — FÁCIL ══ -->
