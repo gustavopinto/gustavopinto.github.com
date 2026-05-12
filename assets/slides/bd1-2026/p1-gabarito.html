@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>GABARITO P1 — Banco de Dados I — 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #111;
+      background: #fff;
+      padding: 2.5rem 3rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .cabecalho {
+      border-top: 3px solid #8b0000;
+      border-bottom: 2px solid #8b0000;
+      padding: 0.6em 0;
+      margin-bottom: 1.6em;
+      text-align: center;
+    }
+    .cabecalho h1 { font-size: 13pt; letter-spacing: 0.04em; text-transform: uppercase; color: #8b0000; }
+    .cabecalho .meta { display: flex; justify-content: space-between; font-size: 10pt; margin-top: 0.4em; }
+
+    .questao { margin-bottom: 2.4em; }
+    .questao-titulo {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-bottom: 1.5px solid #8b0000; padding-bottom: 0.3em; margin-bottom: 1em;
+    }
+    .questao-titulo h2 { font-size: 12pt; color: #8b0000; }
+    .questao-titulo .pts { font-size: 10.5pt; font-weight: bold; }
+
+    .alinea { margin-bottom: 1.6em; }
+
+    .resp {
+      background: #fffbf0;
+      border-left: 3px solid #c8a000;
+      padding: 0.7em 1.1em;
+      margin: 0.5em 0;
+      font-size: 10.5pt;
+    }
+    pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 9.5pt;
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      padding: 0.6em 1em;
+      margin: 0.4em 0;
+      white-space: pre;
+      line-height: 1.5;
+    }
+    .criterio {
+      font-size: 9.5pt; color: #444;
+      background: #f0f0f0; border: 1px dashed #bbb;
+      padding: 0.5em 0.9em; margin-top: 0.5em;
+    }
+    .criterio ul { margin-left: 1.5em; }
+    .criterio li { margin-bottom: 0.2em; }
+
+    table.rel {
+      border-collapse: collapse; font-size: 9.5pt;
+      font-family: 'Courier New', monospace; margin: 0.5em 0; width: 100%;
+    }
+    table.rel th, table.rel td { border: 1px solid #ccc; padding: 0.3em 0.7em; }
+    table.rel th { background: #eee; font-weight: bold; }
+
+    table.resumo { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-top: 0.7em; }
+    table.resumo th, table.resumo td { border: 1px solid #ccc; padding: 0.4em 0.8em; }
+    table.resumo th { background: #eee; }
+
+    hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+    .rodape { text-align: center; font-size: 9pt; color: #777; border-top: 1px solid #ccc; padding-top: 0.5em; margin-top: 2em; }
+  </style>
+</head>
+<body>
+
+<div class="cabecalho">
+  <h1>Gabarito — P1 — Banco de Dados I — MesaPay</h1>
+  <div class="meta">
+    <span>Prof. Gustavo Pinto</span>
+    <span>05/05/2026</span>
+    <span>USO EXCLUSIVO DO PROFESSOR</span>
+  </div>
+</div>
+
+<!-- ══ Q1 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Q1 — Modelagem e Mapeamento</h2>
+    <span class="pts">16,0 pts</span>
+  </div>
+
+  <div class="alinea">
+    <p><strong>(a) DER completo — 9,0 pts</strong></p>
+    <div class="resp">
+      <p><strong>Entidades:</strong></p>
+      <ol style="margin: 0.4em 0 0.8em 1.5em">
+        <li style="margin-bottom:0.35em"><strong>RESTAURANTE</strong> { <u>cnpj</u>, nomeFantasia, segmento, cidade }</li>
+        <li style="margin-bottom:0.35em"><strong>CONTA</strong> { <u>numConta</u>, saldo, dataCriacao }</li>
+        <li style="margin-bottom:0.35em"><strong>RECEBIVEL</strong> { <u>codRecebivel</u>, valorBruto, dataVenda, formaPagamento }</li>
+        <li style="margin-bottom:0.35em"><strong>ANTECIPACAO</strong> { <u>codAntecipacao</u>, taxa, dataEmissao, modalidade }</li>
+        <li style="margin-bottom:0.35em">
+          <strong>PARCELA</strong> { <u>numParcela</u>, dataVencimento, valorParcela, status } — <u>ENTIDADE FRACA</u> de ANTECIPACAO<br>
+          <em>Justificativa:</em> numParcela só identifica a parcela dentro de uma antecipação específica; sem ela a parcela não existe nem pode ser identificada unicamente.
+        </li>
+      </ol>
+
+      <p><strong>Relacionamentos:</strong></p>
+      <table class="rel" style="margin-top:0.4em">
+        <thead>
+          <tr><th>Relacionamento</th><th>Entidade A</th><th>Card. A</th><th>Card. B</th><th>Entidade B</th><th>Obs.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>POSSUI</td><td>RESTAURANTE</td><td>(1,1)</td><td>(1,1)</td><td>CONTA</td><td>1:1, total em ambos</td></tr>
+          <tr><td>GERA</td><td>RESTAURANTE</td><td>(0,N)</td><td>(1,1)</td><td>RECEBIVEL</td><td>1:N</td></tr>
+          <tr><td>SOLICITA</td><td>RESTAURANTE</td><td>(0,N)</td><td>(1,1)</td><td>ANTECIPACAO</td><td>1:N</td></tr>
+          <tr><td>INCLUI</td><td>ANTECIPACAO</td><td>(1,N)</td><td>(0,N)</td><td>RECEBIVEL</td><td>N:M — atrib: <strong>valorAntecipado</strong></td></tr>
+          <tr><td>COMPOSTA_DE ⬦⬦</td><td>ANTECIPACAO</td><td>(1,N)</td><td>(1,1)</td><td>PARCELA</td><td>rel. identificador (losango duplo)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="criterio">
+      <ul>
+        <li>0,5 pt por entidade com atributos e identificador corretos (5 × 0,5 = 2,5 pts)</li>
+        <li>+0,5 pt: PARCELA como fraca com justificativa válida</li>
+        <li>0,8 pt por relacionamento correto (nome + entidades + cardinalidades) — 5 × 0,8 = 4,0 pts</li>
+        <li>+0,5 pt: identificar <code>valorAntecipado</code> como atributo de INCLUI</li>
+        <li>+0,5 pt: COMPOSTA_DE como rel. identificador (losango duplo)</li>
+        <li>Aceitar nomes alternativos razoáveis para entidades e relacionamentos</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alinea">
+    <p><strong>(b) Esquema relacional completo — 7,0 pts</strong></p>
+    <div class="resp">
+<pre>RESTAURANTE(<u>cnpj</u>, nomeFantasia, segmento, cidade)
+
+CONTA(<u>numConta</u>, saldo, dataCriacao, #cnpj)
+  FK: cnpj → RESTAURANTE(cnpj)   [+ UNIQUE(cnpj) para garantir 1:1]
+
+RECEBIVEL(<u>codRecebivel</u>, valorBruto, dataVenda, formaPagamento, #cnpj)
+  FK: cnpj → RESTAURANTE(cnpj)
+
+ANTECIPACAO(<u>codAntecipacao</u>, taxa, dataEmissao, modalidade, #cnpj)
+  FK: cnpj → RESTAURANTE(cnpj)
+
+PARCELA(<u>#codAntecipacao</u>, <u>numParcela</u>, dataVencimento, valorParcela, status)
+  PK composta: (codAntecipacao + numParcela)
+  FK: codAntecipacao → ANTECIPACAO(codAntecipacao)
+
+INCLUI(<u>#codAntecipacao</u>, <u>#codRecebivel</u>, valorAntecipado)
+  PK composta: (codAntecipacao + codRecebivel)
+  FK: codAntecipacao → ANTECIPACAO
+  FK: codRecebivel   → RECEBIVEL</pre>
+    </div>
+    <div class="criterio">
+      <ul>
+        <li>1,0 pt por tabela com identificadores e FKs corretos (6 tabelas × ~1,0 ≈ 6,0 pts)</li>
+        <li>+0,5 pt: PARCELA com PK composta correta (codAntecipacao + numParcela)</li>
+        <li>+0,5 pt: mencionar UNIQUE(cnpj) em CONTA ou justificar a restrição 1:1</li>
+        <li>Aceitar merge CONTA↔RESTAURANTE desde que a restrição 1:1 seja mantida</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══ Q2 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Q2 — Normalização (2FN)</h2>
+    <span class="pts">6,0 pts</span>
+  </div>
+
+  <p style="margin-bottom:0.5em; font-size:10pt">
+    Esquema: <code>EXTRATO(<u>codAntecipacao</u>, dataEmissao, taxa, modalidade,
+    cnpj, nomeRest, segmento, <u>codRecebivel</u>, valorBruto, dataVenda, formaPagamento, valorAntecipado)</code><br>
+    <strong>PK: (codAntecipacao, codRecebivel)</strong>
+  </p>
+
+  <div class="alinea">
+    <div class="resp">
+      <p><strong>Não</strong> está na 2FN. Dependências funcionais parciais:</p>
+<pre>codAntecipacao → dataEmissao, taxa, modalidade,
+                 cnpj, nomeRest, segmento
+
+codRecebivel   → valorBruto, dataVenda, formaPagamento</pre>
+      <p>O único atributo que depende da PK <em>completa</em> é <code>valorAntecipado</code>.</p>
+      <p style="margin-top:0.5em"><strong>Esquemas após 2FN:</strong></p>
+<pre>ANTECIPACAO(<u>codAntecipacao</u>, dataEmissao, taxa, modalidade, cnpj, nomeRest, segmento)
+
+RECEBIVEL(<u>codRecebivel</u>, valorBruto, dataVenda, formaPagamento)
+
+INCLUI(<u>codAntecipacao</u>, <u>codRecebivel</u>, valorAntecipado)</pre>
+    </div>
+    <div class="criterio">
+      <ul>
+        <li>1,0 pt: deps. parciais de codAntecipacao (ao menos 4 atributos corretos)</li>
+        <li>0,5 pt: deps. parciais de codRecebivel</li>
+        <li>0,5 pt: concluir NÃO está na 2FN com justificativa</li>
+        <li>1,5 pt: esquemas ANTECIPACAO e RECEBIVEL corretos com identificadores</li>
+        <li>1,5 pt: esquema INCLUI correto com PK composta e valorAntecipado</li>
+        <li>Aceitar nomes alternativos para as tabelas</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══ Q3 ══ -->
+<div class="questao">
+  <div class="questao-titulo">
+    <h2>Q3 — DDL</h2>
+    <span class="pts">3,0 pts</span>
+  </div>
+
+  <div class="alinea">
+    <p><strong>CREATE TABLE — 3,0 pts</strong></p>
+    <div class="resp">
+<pre>CREATE TABLE ANTECIPACAO (
+    codAntecipacao  INT           PRIMARY KEY,
+    dataEmissao     DATE          NOT NULL DEFAULT CURRENT_DATE,
+    taxa            DECIMAL(5,2)  NOT NULL CHECK (taxa > 0),
+    modalidade      VARCHAR(10)   NOT NULL
+                                  CHECK (modalidade IN ('Padrao', 'Pontual')),
+    cnpj            VARCHAR(18)   NOT NULL REFERENCES RESTAURANTE(cnpj)
+);</pre>
+    </div>
+    <div class="criterio">
+      <ul>
+        <li>0,6 pt: PRIMARY KEY em codAntecipacao</li>
+        <li>0,6 pt: NOT NULL + DEFAULT CURRENT_DATE em dataEmissao</li>
+        <li>0,6 pt: CHECK (taxa &gt; 0)</li>
+        <li>0,6 pt: CHECK com os dois valores em modalidade</li>
+        <li>0,6 pt: REFERENCES RESTAURANTE(cnpj)</li>
+        <li>Aceitar CURRENT_DATE / NOW() / GETDATE()</li>
+        <li>Aceitar variações de tipo (CHAR, TEXT, NUMERIC)</li>
+        <li>Sintaxe levemente errada mas semanticamente correta: desconto máximo de 0,1 pt por item</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div>
+  <h2 style="font-size:11pt; margin-bottom:0.7em; border-bottom:1px solid #ccc; padding-bottom:0.2em">Resumo de Pontuação</h2>
+  <table class="resumo">
+    <thead>
+      <tr><th>Questão</th><th>Tema</th><th style="text-align:center">Valor</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Q1a</td><td>DER completo (entidades + fraca + relacionamentos + atrib N:M)</td><td style="text-align:center">9,0</td></tr>
+      <tr><td>Q1b</td><td>Mapeamento MER → Relacional</td><td style="text-align:center">7,0</td></tr>
+      <tr><td>Q2</td><td>Normalização — 2FN (deps. parciais + esquemas resultantes)</td><td style="text-align:center">6,0</td></tr>
+      <tr><td>Q3</td><td>DDL — CREATE TABLE ANTECIPACAO</td><td style="text-align:center">3,0</td></tr>
+      <tr style="font-weight:bold; background:#f9f9f9"><td colspan="2">TOTAL</td><td style="text-align:center">25,0</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="rodape" style="margin-top:1.5em">Gabarito — uso exclusivo do professor</div>
+
+</body>
+</html>
