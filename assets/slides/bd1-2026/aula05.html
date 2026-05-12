@@ -6,52 +6,179 @@
   <title>Aula 5 — Banco de Dados I</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
-    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
-    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
-    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
-    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
-    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
-    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
-    #btn-prev { left:1rem; } #btn-next { right:1rem; }
-    .slides { width:100vw;height:100vh;position:relative; }
-    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
-    .slide.active { opacity:1;pointer-events:all; }
-    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
-    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
-    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
-    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
-    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
-    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
-    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
-    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
-    .slide ul { list-style:none; }
-    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
-    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
-    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
-    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
-    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
-    .cover-meta span { font-size:1.4rem; }
-    .cards { display:grid;gap:1.3rem;width:100%; }
-    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; } .cards-4 { grid-template-columns:1fr 1fr 1fr 1fr; }
-    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
-    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
-    .card p { font-size:1.25rem;color:var(--secondary); }
-    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
-    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
-    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
-    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
-    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
-    .step { opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none; }
-    .step.visible { opacity:1;transform:none;pointer-events:auto; }
-    #step-dots { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);display:none;gap:.4rem;z-index:200; }
-    #step-dots.visible { display:flex; }
-    .dot { width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);transition:background .2s; }
-    .dot.active { background:var(--accent); }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .tag.easy   { background: var(--success); }
+    .tag.medium { background: var(--accent);  }
+    .tag.hard   { background: var(--highlight); }
+
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.45rem; color: var(--highlight); margin-bottom: 0.4rem; font-weight: 700; }
+    .card p   { font-size: 1.25rem; color: var(--secondary); }
+    .card .note { font-size: 1.05rem; color: var(--secondary); margin-top: 0.5rem; opacity: 0.8; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 2rem; margin: 0.6rem 0 1.2rem; max-width: 62rem;
+    }
+    .definition p { font-size: 1.7rem; color: var(--text); font-style: italic; }
+
+    .warning {
+      background: rgba(146,64,14,0.07); border-left: 5px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 2rem; margin: 0.6rem 0 1rem;
+    }
+    .warning p { font-size: 1.6rem; color: var(--text); }
+
+    .code-block {
+      background: #1e293b; color: #e2e8f0;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      padding: 1.2rem 1.5rem; border-radius: var(--radius);
+      font-size: 1.25rem; line-height: 1.55;
+      overflow-x: auto; width: 100%; margin: 0.5rem 0;
+      white-space: pre;
+    }
+    .code-block .kw { color: #7dd3fc; font-weight: 600; }
+    .code-block .str { color: #86efac; }
+    .code-block .cm  { color: #94a3b8; font-style: italic; }
+    .code-block .num { color: #fcd34d; }
+
+    code {
+      font-family: 'Fira Code', 'Courier New', monospace;
+      background: rgba(3,105,161,0.1); border-radius: 4px;
+      padding: 0.1em 0.4em; font-size: 0.9em; color: var(--accent);
+    }
+
+    .table-rel {
+      width: 100%; border-collapse: collapse; font-size: 1.4rem;
+    }
+    .table-rel th {
+      background: var(--accent); color: #fff; padding: 0.55rem 1rem;
+      text-align: left; font-weight: 700;
+    }
+    .table-rel td {
+      padding: 0.5rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.08);
+      color: var(--text);
+    }
+    .table-rel tr:nth-child(even) td { background: rgba(3,105,161,0.04); }
+
+    .fiddle-link {
+      display: inline-block; background: var(--accent); color: #fff !important;
+      padding: 0.45rem 1.1rem; border-radius: 999px; font-size: 1.15rem;
+      font-weight: 700; text-decoration: none; margin-top: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+    .fiddle-link:hover { background: #075985; }
+
+    .step { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+    #step-dots { position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%); display: none; gap: 0.4rem; z-index: 200; }
+    #step-dots.visible { display: flex; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: background 0.2s; }
+    .dot.active { background: var(--accent); }
   </style>
 </head>
 <body>
-<div id="progress"></div><div id="counter"></div>
+
+<div id="progress"></div>
+<div id="counter"></div>
 <div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">‹</button>
@@ -59,197 +186,503 @@
 
 <div class="slides" id="slides">
 
-  <!-- CAPA -->
+  <!-- ══ 1. CAPA ══ -->
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados I — 2026.2</span>
-    <h1>Aula 5<br><span class="accent">Introdução ao SQL &amp; DDL: CREATE TABLE</span></h1>
+    <h1>Aula 5<br><span class="accent">Introdução ao SQL &amp; DDL</span></h1>
     <div class="cover-meta">
       <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
       <span>🏛️ <strong>UFPA</strong></span>
-      <span>📅 <strong>05 de maio de 2026</strong></span>
+      <span>📅 <strong>07 de maio de 2026</strong></span>
       <span>🕣 <strong>7h30 – 9h10</strong></span>
     </div>
   </div>
 
-  <!-- AGENDA -->
+  <!-- ══ 2. AGENDA ══ -->
   <div class="slide slide-content">
     <h2>Agenda de hoje</h2>
     <ul>
-      <li>O que é SQL? Breve história</li>
+      <li>O que é SQL — breve história e padronização</li>
       <li>Subconjuntos: DDL, DML, DQL, DCL</li>
-      <li>CREATE TABLE: sintaxe completa</li>
+      <li><code>CREATE TABLE</code>: sintaxe e estrutura</li>
       <li>Tipos de dados no PostgreSQL</li>
-      <li>Constraints: PK, FK, NOT NULL, UNIQUE, CHECK</li>
-      <li>Exercício: criar tabelas a partir de uma descrição</li>
+      <li>Constraints: <span class="accent">PK</span>, <span class="accent">FK</span>, <span class="accent">NOT NULL</span>, <span class="accent">UNIQUE</span>, <span class="accent">CHECK</span></li>
+      <li>Exercícios no DB Fiddle (fácil → médio → difícil)</li>
     </ul>
   </div>
 
-  <!-- O QUE É SQL -->
+  <!-- ══ 4. O QUE É SQL ══ -->
   <div class="slide slide-content">
     <h2>O que é SQL?</h2>
     <div class="definition">
-      <p><strong>Structured Query Language</strong> — linguagem padrão para interagir com bancos de dados relacionais. Criada nos anos 70 na IBM, padronizada pela ANSI/ISO.</p>
+      <p><strong>Structured Query Language</strong> — linguagem padrão para definir, manipular e consultar dados em bancos relacionais. Criada na IBM nos anos 70 (System R) e padronizada pela ANSI (1986) e ISO (1987).</p>
     </div>
+    <ul>
+      <li>Linguagem <span class="accent">declarativa</span>: você diz <em>o que</em> quer, não <em>como</em> obter</li>
+      <li>Cada SGBD tem um <em>dialeto</em> (PostgreSQL, MySQL, Oracle, SQL Server…) com extensões próprias</li>
+      <li>Nesta disciplina usaremos o <span class="highlight">PostgreSQL</span> via <span class="highlight">DB Fiddle</span></li>
+      <li>Comandos não diferenciam maiúsculas/minúsculas, mas convencionamos <code>PALAVRAS-CHAVE</code> em maiúsculo</li>
+    </ul>
+  </div>
+
+  <!-- ══ 5. SUBCONJUNTOS DA SQL ══ -->
+  <div class="slide slide-content">
+    <h2>Subconjuntos da SQL</h2>
     <div class="cards cards-4">
       <div class="card">
         <h3>DDL</h3>
-        <p>Data Definition Language</p>
-        <p class="note">CREATE, ALTER, DROP</p>
+        <p><strong>Data Definition Language</strong></p>
+        <p class="note"><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code> — define a estrutura</p>
       </div>
       <div class="card">
         <h3>DML</h3>
-        <p>Data Manipulation Language</p>
-        <p class="note">INSERT, UPDATE, DELETE</p>
+        <p><strong>Data Manipulation Language</strong></p>
+        <p class="note"><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> — altera os dados</p>
       </div>
       <div class="card">
         <h3>DQL</h3>
-        <p>Data Query Language</p>
-        <p class="note">SELECT</p>
+        <p><strong>Data Query Language</strong></p>
+        <p class="note"><code>SELECT</code> — consulta os dados</p>
       </div>
       <div class="card">
         <h3>DCL</h3>
-        <p>Data Control Language</p>
-        <p class="note">GRANT, REVOKE</p>
+        <p><strong>Data Control Language</strong></p>
+        <p class="note"><code>GRANT</code>, <code>REVOKE</code> — permissões</p>
       </div>
     </div>
-    <p style="font-size:1.5rem;margin-top:1rem">Ferramenta: <span class="accent">DB Fiddle</span> (db-fiddle.com) — selecione <span class="highlight">PostgreSQL</span></p>
+    <p style="margin-top:1.2rem; font-size:1.7rem">Hoje focamos em <span class="accent">DDL</span> — em particular, <code>CREATE TABLE</code>.</p>
   </div>
 
-  <!-- TIPOS DE DADOS -->
+  <!-- ══ POR QUE SEPARAR? ══ -->
+  <div class="slide slide-content">
+    <h2>Por que essa separação importa?</h2>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">Não é rótulo didático — equipes separam por <span class="accent">risco</span>, <span class="accent">permissão</span> e <span class="accent">velocidade de mudança</span>.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>🔐 Permissões (DCL)</h3>
+        <p>App em produção só tem DML/DQL. DDL fica com usuário separado, usado em <em>migrations</em>.</p>
+        <p class="note">Ex.: SQL Server tem o role <code>db_ddladmin</code> — apps não devem entrar nele.</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Ciclos de vida</h3>
+        <p>DDL muda raramente, via migrations versionadas. DML/DQL roda milhões de vezes ao dia.</p>
+        <p class="note">Alterar schema dentro de um endpoint = receita de outage.</p>
+      </div>
+      <div class="card">
+        <h3>⚠️ Transações</h3>
+        <p>Em Oracle/MySQL, DDL faz commit implícito: <code>DROP TABLE</code> não tem <code>ROLLBACK</code>.</p>
+        <p class="note">PostgreSQL é exceção — DDL é transacional.</p>
+      </div>
+      <div class="card">
+        <h3>📋 Auditoria</h3>
+        <p>DDL vai para migrations no Git; DQL no código do app; DCL na <em>security matrix</em>.</p>
+        <p class="note">Cada categoria tem fluxo de aprovação próprio.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 6. CREATE TABLE — SINTAXE ══ -->
+  <div class="slide slide-content">
+    <h2><code>CREATE TABLE</code> — Sintaxe</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> nome_tabela (
+    coluna1  <span class="kw">TIPO</span>  [restrições_de_coluna],
+    coluna2  <span class="kw">TIPO</span>  [restrições_de_coluna],
+    ...,
+    [restrições_de_tabela]
+);</pre>
+    <ul style="margin-top:0.6rem">
+      <li><span class="accent">Restrições de coluna</span> aparecem ao lado da coluna (ex.: <code>NOT NULL</code>, <code>UNIQUE</code>)</li>
+      <li><span class="accent">Restrições de tabela</span> aparecem após as colunas — usadas quando envolvem múltiplas colunas (ex.: PK composta)</li>
+      <li>Ordem importa quando há FK: a tabela referenciada precisa existir antes</li>
+    </ul>
+  </div>
+
+  <!-- ══ 7. EXEMPLO BÁSICO ══ -->
+  <div class="slide slide-content">
+    <h2>Primeiro exemplo</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> aluno (
+    matricula  <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
+    nome       <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
+    email      <span class="kw">VARCHAR</span>(<span class="num">150</span>) <span class="kw">UNIQUE</span>,
+    dt_nasc    <span class="kw">DATE</span>,
+    ativo      <span class="kw">BOOLEAN</span>      <span class="kw">DEFAULT</span> <span class="kw">TRUE</span>
+);</pre>
+    <div class="cards cards-3" style="margin-top:0.8rem">
+      <div class="card">
+        <h3><code>SERIAL</code></h3>
+        <p>Inteiro com sequência automática (1, 2, 3…). Comum em PKs sintéticas.</p>
+      </div>
+      <div class="card">
+        <h3><code>PRIMARY KEY</code></h3>
+        <p>Implica <code>NOT NULL</code> + <code>UNIQUE</code> automaticamente.</p>
+      </div>
+      <div class="card">
+        <h3><code>DEFAULT</code></h3>
+        <p>Valor assumido quando o <code>INSERT</code> omite a coluna.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. TIPOS DE DADOS ══ -->
   <div class="slide slide-content">
     <h2>Tipos de Dados — PostgreSQL</h2>
     <div class="cards cards-2">
       <div class="card">
         <h3>Numéricos</h3>
-        <p><strong>INTEGER</strong> — inteiro (4 bytes)<br>
-        <strong>SERIAL</strong> — inteiro auto-incremento<br>
-        <strong>NUMERIC(p,s)</strong> — decimal exato<br>
-        <strong>REAL / FLOAT</strong> — ponto flutuante</p>
+        <p><strong><code>INTEGER</code></strong> — inteiro de 4 bytes<br>
+        <strong><code>BIGINT</code></strong> — inteiro de 8 bytes<br>
+        <strong><code>SERIAL</code></strong> — inteiro com auto-incremento<br>
+        <strong><code>NUMERIC(p,s)</code></strong> — decimal exato (p dígitos, s decimais)<br>
+        <strong><code>REAL</code></strong> / <strong><code>DOUBLE PRECISION</code></strong> — ponto flutuante</p>
       </div>
       <div class="card">
         <h3>Texto</h3>
-        <p><strong>VARCHAR(n)</strong> — texto com limite<br>
-        <strong>CHAR(n)</strong> — texto fixo<br>
-        <strong>TEXT</strong> — texto sem limite</p>
+        <p><strong><code>VARCHAR(n)</code></strong> — texto com tamanho máximo<br>
+        <strong><code>CHAR(n)</code></strong> — texto de tamanho fixo<br>
+        <strong><code>TEXT</code></strong> — texto sem limite</p>
       </div>
       <div class="card">
-        <h3>Data / Hora</h3>
-        <p><strong>DATE</strong> — data (YYYY-MM-DD)<br>
-        <strong>TIMESTAMP</strong> — data + hora<br>
-        <strong>TIME</strong> — apenas hora</p>
+        <h3>Data e Hora</h3>
+        <p><strong><code>DATE</code></strong> — data (YYYY-MM-DD)<br>
+        <strong><code>TIME</code></strong> — hora<br>
+        <strong><code>TIMESTAMP</code></strong> — data + hora<br>
+        <strong><code>INTERVAL</code></strong> — intervalo de tempo</p>
       </div>
       <div class="card">
         <h3>Outros</h3>
-        <p><strong>BOOLEAN</strong> — TRUE / FALSE<br>
-        <strong>UUID</strong> — identificador único<br>
-        <strong>JSON / JSONB</strong> — dados JSON</p>
+        <p><strong><code>BOOLEAN</code></strong> — <code>TRUE</code> / <code>FALSE</code> / <code>NULL</code><br>
+        <strong><code>UUID</code></strong> — identificador universal único<br>
+        <strong><code>JSON</code></strong> / <strong><code>JSONB</code></strong> — dados estruturados</p>
       </div>
     </div>
   </div>
 
-  <!-- CREATE TABLE -->
+  <!-- ══ 9. CONSTRAINTS — VISÃO GERAL ══ -->
   <div class="slide slide-content">
-    <h2>CREATE TABLE — Sintaxe</h2>
-    <pre class="code-block"><span class="kw">CREATE TABLE</span> aluno (
-    matricula  <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
-    nome       <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>,
-    email      <span class="kw">VARCHAR</span>(150) <span class="kw">UNIQUE</span>,
-    dt_nasc    <span class="kw">DATE</span>,
-    ativo      <span class="kw">BOOLEAN</span>      <span class="kw">DEFAULT</span> <span class="str">TRUE</span>
+    <h2>Constraints (Restrições)</h2>
+    <div class="definition">
+      <p>Constraints são <strong>regras</strong> que o SGBD garante automaticamente. Tudo que viola uma constraint é <strong>rejeitado</strong> — os dados nunca chegam ao estado inválido.</p>
+    </div>
+    <table class="table-rel" style="margin-top:0.5rem">
+      <thead>
+        <tr><th>Constraint</th><th>O que garante</th><th>Onde costuma aparecer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>PRIMARY KEY</strong></td><td>Identificador único, não-nulo</td><td>Toda tabela tem uma</td></tr>
+        <tr><td><strong>FOREIGN KEY</strong></td><td>Integridade referencial entre tabelas</td><td>Lados N de relacionamentos / tabelas associativas</td></tr>
+        <tr><td><strong>NOT NULL</strong></td><td>Coluna obrigatória (sempre preenchida)</td><td>Atributos essenciais (nome, e-mail…)</td></tr>
+        <tr><td><strong>UNIQUE</strong></td><td>Valores não se repetem na coluna</td><td>CPF, e-mail, slug, código natural</td></tr>
+        <tr><td><strong>CHECK</strong></td><td>Expressão booleana sobre o valor</td><td>Faixas, formatos, regras de negócio</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 10. PRIMARY KEY ══ -->
+  <div class="slide slide-content">
+    <h2><code>PRIMARY KEY</code></h2>
+    <pre class="code-block"><span class="cm">-- PK simples (na coluna)</span>
+<span class="kw">CREATE TABLE</span> produto (
+    codigo     <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
+    descricao  <span class="kw">VARCHAR</span>(<span class="num">200</span>) <span class="kw">NOT NULL</span>
+);
+
+<span class="cm">-- PK composta (restrição de tabela)</span>
+<span class="kw">CREATE TABLE</span> item_pedido (
+    pedido_id   <span class="kw">INTEGER</span>,
+    produto_id  <span class="kw">INTEGER</span>,
+    qtd         <span class="kw">INTEGER</span> <span class="kw">NOT NULL</span>,
+    <span class="kw">PRIMARY KEY</span> (pedido_id, produto_id)
 );</pre>
-    <ul>
-      <li><span class="accent">SERIAL</span> — cria sequência automática (1, 2, 3...)</li>
-      <li><span class="accent">PRIMARY KEY</span> — NOT NULL + UNIQUE automaticamente</li>
-      <li><span class="accent">DEFAULT</span> — valor padrão quando não informado no INSERT</li>
+    <ul style="margin-top:0.4rem">
+      <li>Toda PK é automaticamente <code>NOT NULL</code> e <code>UNIQUE</code></li>
+      <li>PK <span class="accent">composta</span> aparece como restrição de tabela — comum em tabelas associativas</li>
     </ul>
   </div>
 
-  <!-- CONSTRAINTS -->
-  <div class="slide slide-content" data-steps="3">
-    <h2>Constraints (Restrições)</h2>
-    <div class="cards cards-2">
-      <div class="card step" data-step="1">
-        <h3>PRIMARY KEY</h3>
-        <p>Identifica unicamente cada linha. Pode ser simples ou composta.</p>
-        <pre class="code-block" style="font-size:1.1rem"><span class="kw">PRIMARY KEY</span> (aluno_id, disc_id)</pre>
+  <!-- ══ 11. FOREIGN KEY ══ -->
+  <div class="slide slide-content">
+    <h2><code>FOREIGN KEY</code></h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> pedido (
+    id         <span class="kw">SERIAL</span>   <span class="kw">PRIMARY KEY</span>,
+    data       <span class="kw">DATE</span>     <span class="kw">NOT NULL DEFAULT CURRENT_DATE</span>,
+    cliente_id <span class="kw">INTEGER</span>  <span class="kw">NOT NULL</span>
+               <span class="kw">REFERENCES</span> cliente(id)
+               <span class="kw">ON DELETE RESTRICT</span>
+               <span class="kw">ON UPDATE CASCADE</span>
+);</pre>
+    <div class="cards cards-3" style="margin-top:0.6rem">
+      <div class="card">
+        <h3><code>RESTRICT</code> / <code>NO ACTION</code></h3>
+        <p>Bloqueia a operação se houver dependentes. Default seguro.</p>
       </div>
-      <div class="card step" data-step="1">
-        <h3>FOREIGN KEY</h3>
-        <p>Referencia a PK de outra tabela. Garante integridade referencial.</p>
-        <pre class="code-block" style="font-size:1.1rem">cod_depto <span class="kw">INTEGER REFERENCES</span> departamento(codigo)</pre>
+      <div class="card">
+        <h3><code>CASCADE</code></h3>
+        <p>Propaga a operação para os dependentes (deleta/atualiza junto).</p>
       </div>
-      <div class="card step" data-step="2">
-        <h3>NOT NULL &amp; UNIQUE</h3>
-        <p><strong>NOT NULL</strong> — campo obrigatório<br><strong>UNIQUE</strong> — valores não se repetem</p>
+      <div class="card">
+        <h3><code>SET NULL</code> / <code>SET DEFAULT</code></h3>
+        <p>Limpa a FK do dependente, mantendo a linha.</p>
       </div>
-      <div class="card step" data-step="2">
-        <h3>CHECK</h3>
-        <p>Validação customizada no valor da coluna.</p>
-        <pre class="code-block" style="font-size:1.1rem">nota <span class="kw">NUMERIC</span>(4,2) <span class="kw">CHECK</span> (nota >= 0 <span class="kw">AND</span> nota <= 10)</pre>
-      </div>
-    </div>
-    <div class="step" data-step="3">
-      <p style="font-size:1.5rem;margin-top:1rem"><span class="highlight">ON DELETE CASCADE</span> — ao deletar a linha referenciada, deleta as dependentes também.<br>
-      <span class="highlight">ON DELETE SET NULL</span> — seta a FK para NULL.</p>
     </div>
   </div>
 
-  <!-- EXEMPLO COMPLETO -->
+  <!-- ══ 12. NOT NULL & UNIQUE ══ -->
   <div class="slide slide-content">
-    <h2>Exemplo Completo — E-commerce</h2>
-    <pre class="code-block"><span class="kw">CREATE TABLE</span> cliente (
-    cpf        <span class="kw">CHAR</span>(11)     <span class="kw">PRIMARY KEY</span>,
-    nome       <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>,
-    email      <span class="kw">VARCHAR</span>(150) <span class="kw">UNIQUE NOT NULL</span>
-);
+    <h2><code>NOT NULL</code> &amp; <code>UNIQUE</code></h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3><code>NOT NULL</code></h3>
+        <p>A coluna nunca pode ficar vazia. Use para atributos que são <em>parte da identidade</em> da entidade.</p>
+        <pre class="code-block" style="font-size:1.1rem">nome <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span></pre>
+      </div>
+      <div class="card">
+        <h3><code>UNIQUE</code></h3>
+        <p>Não permite valores repetidos. Permite <strong>vários NULLs</strong> (NULL ≠ NULL no PostgreSQL).</p>
+        <pre class="code-block" style="font-size:1.1rem">email <span class="kw">VARCHAR</span>(<span class="num">150</span>) <span class="kw">UNIQUE</span></pre>
+      </div>
+    </div>
+    <div class="warning" style="margin-top:0.8rem">
+      <p>💡 <code>UNIQUE</code> sozinho não impede NULL. Quer e-mail único e obrigatório? <code>email VARCHAR(150) UNIQUE NOT NULL</code>.</p>
+    </div>
+    <p style="margin-top:0.6rem; font-size:1.5rem"><code>UNIQUE</code> também aceita múltiplas colunas: <code>UNIQUE (col_a, col_b)</code> — a combinação é única.</p>
+  </div>
 
-<span class="kw">CREATE TABLE</span> pedido (
-    id         <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
-    data       <span class="kw">DATE</span>         <span class="kw">NOT NULL DEFAULT CURRENT_DATE</span>,
-    cli_cpf    <span class="kw">CHAR</span>(11)     <span class="kw">NOT NULL REFERENCES</span> cliente(cpf)
+  <!-- ══ 13. CHECK ══ -->
+  <div class="slide slide-content">
+    <h2><code>CHECK</code></h2>
+    <div class="definition">
+      <p>Valida o valor da coluna (ou linha) com uma <strong>expressão booleana</strong>. Se a expressão é falsa, o <code>INSERT</code>/<code>UPDATE</code> é rejeitado.</p>
+    </div>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> funcionario (
+    id        <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
+    nome      <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
+    salario   <span class="kw">NUMERIC</span>(<span class="num">10</span>,<span class="num">2</span>) <span class="kw">CHECK</span> (salario &gt; <span class="num">0</span>),
+    cargo     <span class="kw">VARCHAR</span>(<span class="num">20</span>)
+              <span class="kw">CHECK</span> (cargo <span class="kw">IN</span> (<span class="str">'jr'</span>, <span class="str">'pl'</span>, <span class="str">'sr'</span>)),
+    admissao  <span class="kw">DATE</span>,
+    demissao  <span class="kw">DATE</span>,
+    <span class="kw">CHECK</span> (demissao <span class="kw">IS NULL</span> <span class="kw">OR</span> demissao &gt;= admissao)
+);</pre>
+    <p style="margin-top:0.4rem; font-size:1.5rem"><code>CHECK</code> de <span class="accent">linha</span> (último) consegue comparar duas colunas — restrição de tabela.</p>
+  </div>
+
+  <!-- ══ BOAS PRÁTICAS ══ -->
+  <div class="slide slide-content">
+    <h2>Boas práticas ao escrever SQL</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Liste as colunas — evite <code>SELECT *</code></h3>
+        <p>Prefira <code>SELECT nome, email FROM cliente</code> em vez de <code>SELECT *</code>. Você documenta o que precisa, evita trazer colunas pesadas e quebra menos quando o esquema muda.</p>
+        <p class="note"><code>SELECT *</code> em produção é <em>code smell</em> — útil só para exploração rápida.</p>
+      </div>
+      <div class="card">
+        <h3>Ponha as regras no banco</h3>
+        <p>Constraints (<code>NOT NULL</code>, <code>CHECK</code>, FK) valem para <em>todos</em> os clientes — app, scripts, console. Não confie só na validação da aplicação.</p>
+      </div>
+      <div class="card">
+        <h3>Ordem importa</h3>
+        <p>Crie primeiro as tabelas <em>referenciadas</em> e só depois as <em>referenciadoras</em>. Caso contrário, a FK falha logo no <code>CREATE</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14a. EXEMPLO COMPLETO — PARTE 1 ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo completo — E-commerce <span style="font-size:1.4rem;color:var(--secondary);font-weight:400">(1/2)</span></h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> cliente (
+    id      <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
+    cpf     <span class="kw">CHAR</span>(<span class="num">11</span>)     <span class="kw">UNIQUE NOT NULL</span>
+                          <span class="kw">CHECK</span> (<span class="kw">char_length</span>(cpf) = <span class="num">11</span>),
+    nome    <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
+    email   <span class="kw">VARCHAR</span>(<span class="num">150</span>) <span class="kw">UNIQUE NOT NULL</span>
 );
 
 <span class="kw">CREATE TABLE</span> produto (
-    codigo     <span class="kw">SERIAL</span>       <span class="kw">PRIMARY KEY</span>,
-    descricao  <span class="kw">VARCHAR</span>(200) <span class="kw">NOT NULL</span>,
-    preco      <span class="kw">NUMERIC</span>(10,2) <span class="kw">NOT NULL CHECK</span> (preco > 0)
+    id      <span class="kw">SERIAL</span>        <span class="kw">PRIMARY KEY</span>,
+    nome    <span class="kw">VARCHAR</span>(<span class="num">200</span>) <span class="kw">NOT NULL</span>,
+    preco   <span class="kw">NUMERIC</span>(<span class="num">10</span>,<span class="num">2</span>) <span class="kw">NOT NULL CHECK</span> (preco &gt; <span class="num">0</span>),
+    estoque <span class="kw">INTEGER</span>      <span class="kw">NOT NULL DEFAULT</span> <span class="num">0</span>
+                          <span class="kw">CHECK</span> (estoque &gt;= <span class="num">0</span>)
 );</pre>
+    <p style="margin-top:0.4rem; font-size:1.4rem">Entidades fortes — <code>cliente</code> e <code>produto</code> não dependem de ninguém. Vêm primeiro.</p>
   </div>
 
-  <!-- EXERCÍCIO -->
+  <!-- ══ 14b. EXEMPLO COMPLETO — PARTE 2 ══ -->
   <div class="slide slide-content">
-    <span class="tag">Exercício</span>
-    <h2>Crie as tabelas no DB Fiddle</h2>
+    <h2>Exemplo completo — E-commerce <span style="font-size:1.4rem;color:var(--secondary);font-weight:400">(2/2)</span></h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> pedido (
+    id         <span class="kw">SERIAL</span>  <span class="kw">PRIMARY KEY</span>,
+    data       <span class="kw">DATE</span>    <span class="kw">NOT NULL DEFAULT CURRENT_DATE</span>,
+    cliente_id <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> cliente(id)
+);
+
+<span class="kw">CREATE TABLE</span> item_pedido (
+    pedido_id  <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> pedido(id) <span class="kw">ON DELETE CASCADE</span>,
+    produto_id <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> produto(id),
+    qtd        <span class="kw">INTEGER</span> <span class="kw">NOT NULL CHECK</span> (qtd &gt; <span class="num">0</span>),
+    <span class="kw">PRIMARY KEY</span> (pedido_id, produto_id)
+);</pre>
+    <p style="margin-top:0.4rem; font-size:1.4rem"><code>pedido</code> tem FK para <code>cliente</code>. <code>item_pedido</code> é a associativa N:M com PK composta — apaga em cascata se o pedido sumir.</p>
+  </div>
+
+  <!-- ══ 17. EXERCÍCIO 1 — FÁCIL ══ -->
+  <div class="slide slide-content">
+    <span class="tag easy">Exercício 1 — Fácil</span>
+    <h2>Catálogo de Livros</h2>
     <div class="definition">
-      <p>Uma <strong>universidade</strong> tem <strong>departamentos</strong> (código, nome), <strong>professores</strong> (SIAPE, nome, departamento) e <strong>disciplinas</strong> (código, nome, créditos, professor responsável). Um professor pertence a um departamento e pode lecionar várias disciplinas.</p>
+      <p>Uma pequena biblioteca quer cadastrar seus <strong>livros</strong>. Cada livro tem um <strong>ISBN</strong> de 13 caracteres (identificador único e obrigatório), um <strong>título</strong> (até 200 caracteres, obrigatório), um <strong>autor</strong> (até 100 caracteres, obrigatório), um <strong>ano de publicação</strong> (entre 1900 e 2026) e um <strong>preço</strong> em reais (precisa ser maior que zero).</p>
     </div>
-    <div class="cards cards-2" style="margin-top:.8rem">
+    <div class="cards cards-2" style="margin-top:0.8rem">
       <div class="card">
-        <h3>① Escreva os CREATE TABLE</h3>
-        <p>Defina PKs, FKs, NOT NULL e CHECK onde apropriado. Crie as tabelas na ordem correta (dependências).</p>
+        <h3>Você precisa</h3>
+        <p>Escrever um único <code>CREATE TABLE livro (...)</code> com PK, tipos adequados, <code>NOT NULL</code> onde necessário e <code>CHECK</code> para ano e preço.</p>
       </div>
       <div class="card">
-        <h3>② Teste no DB Fiddle</h3>
-        <p>Execute no <span class="accent">db-fiddle.com</span> (PostgreSQL). Se der erro, leia a mensagem e corrija.</p>
+        <h3>Critério de aceite</h3>
+        <p>O DB Fiddle deve executar sem erro. Tente um <code>INSERT</code> com ano = 1800 e confirme que ele <em>falha</em>.</p>
       </div>
     </div>
+    <p style="margin-top:0.8rem; text-align:center">
+      <a class="fiddle-link" href="https://www.db-fiddle.com/" target="_blank" rel="noopener">▶ Abrir DB Fiddle (PostgreSQL)</a>
+    </p>
   </div>
 
-  <!-- PRÓXIMA -->
+  <!-- ══ 18. EXERCÍCIO 2 — MÉDIO ══ -->
+  <div class="slide slide-content">
+    <span class="tag medium">Exercício 2 — Médio</span>
+    <h2>Clínica Veterinária</h2>
+    <div class="definition">
+      <p>Uma clínica precisa cadastrar <strong>tutores</strong> (CPF de 11 caracteres único, nome obrigatório, telefone, e-mail único) e seus <strong>animais</strong> (id auto-gerado, nome obrigatório, espécie restrita a <em>cão</em>, <em>gato</em>, <em>ave</em>, <em>outro</em>, data de nascimento e o tutor responsável). Um animal sempre pertence a um tutor; se o tutor for removido, o cadastro do animal deve ser bloqueado.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>Você precisa</h3>
+        <p>Criar duas tabelas (<code>tutor</code> e <code>animal</code>), com a FK em <code>animal</code> apontando para <code>tutor</code>. Aplique <code>UNIQUE</code> no CPF e e-mail, <code>CHECK</code> na espécie e <code>ON DELETE RESTRICT</code> na FK.</p>
+      </div>
+      <div class="card">
+        <h3>Critério de aceite</h3>
+        <p>Insira um tutor e dois animais. Tente <code>DELETE FROM tutor</code> nesse tutor — deve falhar. Tente cadastrar espécie <em>"peixe"</em> — deve falhar.</p>
+      </div>
+    </div>
+    <p style="margin-top:0.8rem; text-align:center">
+      <a class="fiddle-link" href="https://www.db-fiddle.com/" target="_blank" rel="noopener">▶ Abrir DB Fiddle (PostgreSQL)</a>
+    </p>
+  </div>
+
+  <!-- ══ 19. EXERCÍCIO 3 — DIFÍCIL ══ -->
+  <div class="slide slide-content">
+    <span class="tag hard">Exercício 3 — Difícil</span>
+    <h2>Sistema de Reservas de Hotel</h2>
+    <div class="definition">
+      <p>Modele um pequeno sistema com três tabelas: <strong>hospede</strong> (id, nome, e-mail único), <strong>quarto</strong> (numero como PK, tipo restrito a <em>standard</em>, <em>luxo</em>, <em>suite</em>, diaria &gt; 0) e <strong>reserva</strong> (um hóspede reserva um quarto entre uma data de <em>check-in</em> e uma data de <em>check-out</em>). A PK da reserva é a combinação <strong>(quarto, data_checkin)</strong>. Regras: check-out posterior ao check-in; se um hóspede for removido, suas reservas devem ser apagadas em cascata; se um quarto for removido, suas reservas <strong>não</strong> podem ser apagadas (bloqueia).</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.6rem">
+      <div class="card">
+        <h3>Você precisa</h3>
+        <p>Definir três <code>CREATE TABLE</code> com PK simples e composta, <code>CHECK</code> de coluna e de linha (datas), e duas FKs com <code>ON DELETE</code> diferentes (<code>CASCADE</code> e <code>RESTRICT</code>).</p>
+      </div>
+      <div class="card">
+        <h3>Critério de aceite</h3>
+        <p>Insira hóspede, quarto e reserva. Tente reserva com check-out anterior ao check-in — deve falhar. Tente duas reservas no mesmo (quarto, data_checkin) — deve falhar pela PK composta.</p>
+      </div>
+    </div>
+    <p style="margin-top:0.6rem; text-align:center">
+      <a class="fiddle-link" href="https://www.db-fiddle.com/" target="_blank" rel="noopener">▶ Abrir DB Fiddle (PostgreSQL)</a>
+    </p>
+  </div>
+
+  <!-- ══ 20. ENCERRAMENTO ══ -->
   <div class="slide slide-cover">
-    <span class="tag">Próxima Aula — 07/05 (Qui)</span>
-    <h1>DDL — Continuação<br><span class="accent">ALTER TABLE &amp; DROP TABLE</span></h1>
-    <ul style="text-align:left;margin-top:2rem">
-      <li style="font-size:1.9rem;color:#f1f5f9">ALTER TABLE: adicionar, remover e modificar colunas</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">DROP TABLE: CASCADE vs RESTRICT</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">Laboratório prático</li>
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1 style="font-size:3.2rem">Próxima aula: <span class="accent">DDL — parte 2</span></h1>
+    <ul style="margin-top:2rem; text-align:left">
+      <li style="font-size:1.9rem; color:#f1f5f9">12/05 (Ter) — <code>ALTER TABLE</code>, <code>DROP TABLE</code>, laboratório</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Tragam os exercícios de hoje resolvidos no DB Fiddle</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Comecem a pensar no domínio do projeto da disciplina</li>
     </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">📖 Heuser, cap. 7 &nbsp;|&nbsp; Silberschatz, cap. 4 &nbsp;|&nbsp; Apostila Alura — SQL</p>
   </div>
 
-</div>
+</div><!-- /slides -->
 
 <script>
-  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
 </script>
 </body>
 </html>
