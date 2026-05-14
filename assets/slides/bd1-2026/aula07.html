@@ -29,6 +29,7 @@
     .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
     .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
     .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .tag-warning { background:#b45309; }
     .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
     .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
     .cover-meta span { font-size:1.4rem; }
@@ -36,13 +37,18 @@
     .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
     .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
     .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
-    .card p { font-size:1.25rem;color:var(--secondary); }
+    .card p { font-size:1.25rem;color:var(--secondary);line-height:1.5; }
     .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
     .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
     .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .warning { background:rgba(220,38,38,.08);border-left:5px solid #dc2626;border-radius:0 var(--radius) var(--radius) 0;padding:1rem 2rem;margin:.6rem 0; }
+    .warning p { font-size:1.6rem;color:#991b1b;font-style:normal; }
     .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
     .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
     .code-block .danger { color:#fca5a5; }
+    .question-card { background:#fff;border:1px solid rgba(3,105,161,.25);border-radius:var(--radius);padding:1.1rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .question-card p { font-size:1.2rem;color:var(--text);line-height:1.5; }
+    .question-card .q-label { font-size:1rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem; }
     #step-dots { display:none; }
   </style>
 </head>
@@ -55,42 +61,66 @@
 
 <div class="slides" id="slides">
 
+  <!-- CAPA -->
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados I — 2026.2</span>
     <h1>Aula 7<br><span class="accent">DML: INSERT, UPDATE &amp; DELETE</span></h1>
     <div class="cover-meta">
       <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
       <span>🏛️ <strong>UFPA</strong></span>
-      <span>📅 <strong>12 de maio de 2026</strong></span>
+      <span>📅 <strong>14 de maio de 2026</strong></span>
       <span>🕣 <strong>7h30 – 9h10</strong></span>
     </div>
   </div>
 
+  <!-- AGENDA -->
   <div class="slide slide-content">
     <h2>Agenda de hoje</h2>
     <ul>
+      <li>DML vs DDL: revisão rápida</li>
       <li>INSERT INTO: inserção simples e múltipla</li>
-      <li>UPDATE: atualizar registros</li>
+      <li>UPDATE: atualizar registros (com cuidado!)</li>
       <li>DELETE: remover registros</li>
       <li>Transações: BEGIN, COMMIT, ROLLBACK</li>
-      <li>Exercício prático</li>
+      <li>Exercício reflexivo</li>
+      <li>Laboratório prático</li>
     </ul>
+  </div>
+
+  <!-- DDL vs DML -->
+  <div class="slide slide-content">
+    <h2>DDL vs DML — Revisão</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>DDL — Data Definition Language</h3>
+        <p>Define a <strong>estrutura</strong> do banco.<br>Comandos: <span class="accent">CREATE, ALTER, DROP, TRUNCATE</span></p>
+        <p class="note">Opera sobre tabelas, colunas, índices, constraints.</p>
+      </div>
+      <div class="card">
+        <h3>DML — Data Manipulation Language</h3>
+        <p>Manipula os <strong>dados</strong> dentro das tabelas.<br>Comandos: <span class="accent">INSERT, UPDATE, DELETE</span></p>
+        <p class="note">Opera sobre linhas. Pode ser revertido com ROLLBACK.</p>
+      </div>
+    </div>
+    <div class="definition" style="margin-top:1.2rem">
+      <p>DDL muda o esquema; DML muda o conteúdo. Ambos precisam respeitar as constraints definidas.</p>
+    </div>
   </div>
 
   <!-- INSERT -->
   <div class="slide slide-content">
     <h2>INSERT INTO</h2>
-    <pre class="code-block"><span class="cm">-- Inserção simples</span>
+    <pre class="code-block"><span class="cm">-- Inserção simples (com nomes das colunas explícitos — boa prática)</span>
 <span class="kw">INSERT INTO</span> cliente (cpf, nome, email)
 <span class="kw">VALUES</span> (<span class="str">'11111111111'</span>, <span class="str">'Ana Silva'</span>, <span class="str">'ana@email.com'</span>);
 
-<span class="cm">-- Inserção múltipla (várias linhas de uma vez)</span>
+<span class="cm">-- Inserção múltipla (todas as linhas numa só instrução)</span>
 <span class="kw">INSERT INTO</span> produto (descricao, preco) <span class="kw">VALUES</span>
-    (<span class="str">'Notebook'</span>,   <span class="str">3500.00</span>),
-    (<span class="str">'Mouse'</span>,      <span class="str">80.00</span>),
-    (<span class="str">'Teclado'</span>,    <span class="str">150.00</span>);
+    (<span class="str">'Notebook'</span>,  <span class="str">3500.00</span>),
+    (<span class="str">'Mouse'</span>,     <span class="str">80.00</span>),
+    (<span class="str">'Teclado'</span>,   <span class="str">150.00</span>);
 
-<span class="cm">-- INSERT com SELECT (copiar dados de outra tabela)</span>
+<span class="cm">-- INSERT com SELECT (copiar linhas que atendem a um critério)</span>
 <span class="kw">INSERT INTO</span> clientes_vip (cpf, nome)
 <span class="kw">SELECT</span> cpf, nome <span class="kw">FROM</span> cliente
 <span class="kw">WHERE</span> total_compras > <span class="str">10000</span>;</pre>
@@ -112,8 +142,8 @@
 <span class="cm">-- Aumento de 10% em todos os produtos</span>
 <span class="kw">UPDATE</span> produto
 <span class="kw">SET</span> preco = preco * <span class="str">1.10</span>;</pre>
-    <div class="definition" style="margin-top:.8rem;background:rgba(220,38,38,.08);border-color:#dc2626">
-      <p style="color:#991b1b"><strong>CUIDADO:</strong> UPDATE sem WHERE atualiza <strong>todas</strong> as linhas da tabela!</p>
+    <div class="warning">
+      <p><strong>CUIDADO:</strong> UPDATE sem WHERE atualiza <strong>todas</strong> as linhas da tabela!</p>
     </div>
   </div>
 
@@ -124,17 +154,16 @@
 <span class="kw">DELETE FROM</span> cliente
 <span class="kw">WHERE</span> cpf = <span class="str">'11111111111'</span>;
 
-<span class="cm">-- Remover com condição</span>
+<span class="cm">-- Remover com condição composta</span>
 <span class="kw">DELETE FROM</span> pedido
-<span class="kw">WHERE</span> data &lt; <span class="str">'2025-01-01'</span>;
+<span class="kw">WHERE</span> data &lt; <span class="str">'2025-01-01'</span> <span class="kw">AND</span> status = <span class="str">'cancelado'</span>;
 
-<span class="cm"><span class="danger">-- SEM WHERE = apaga TUDO!</span></span>
-<span class="kw">DELETE FROM</span> produto; <span class="cm">-- todas as linhas!</span></pre>
+<span class="cm"><span class="danger">-- SEM WHERE = apaga TUDO. Não há desfazer fora de uma transação.</span></span>
+<span class="kw">DELETE FROM</span> produto;</pre>
     <div class="cards cards-2" style="margin-top:1rem">
       <div class="card">
         <h3>DELETE vs TRUNCATE</h3>
-        <p><strong>DELETE</strong>: linha a linha, pode usar WHERE, gera log, pode ser revertido com ROLLBACK</p>
-        <p><strong>TRUNCATE</strong>: remove tudo de uma vez, mais rápido, reseta sequências</p>
+        <p><strong>DELETE</strong>: linha a linha, suporta WHERE, pode ser revertido com ROLLBACK.<br><strong>TRUNCATE</strong>: remove tudo de uma vez, mais rápido, reseta sequências.</p>
       </div>
       <div class="card">
         <h3>Integridade referencial</h3>
@@ -147,46 +176,65 @@
   <div class="slide slide-content">
     <h2>Transações: BEGIN, COMMIT, ROLLBACK</h2>
     <div class="definition">
-      <p>Uma <strong>transação</strong> é um conjunto de operações que devem ser executadas como uma <strong>unidade indivisível</strong> — ou todas acontecem, ou nenhuma.</p>
+      <p>Uma <strong>transação</strong> é um conjunto de operações executadas como unidade indivisível — ou <strong>todas</strong> acontecem, ou <strong>nenhuma</strong>.</p>
     </div>
     <pre class="code-block"><span class="kw">BEGIN</span>;  <span class="cm">-- inicia a transação</span>
 
-<span class="kw">UPDATE</span> conta <span class="kw">SET</span> saldo = saldo - <span class="str">500</span>
-<span class="kw">WHERE</span> id = <span class="str">1</span>;  <span class="cm">-- débito</span>
+<span class="kw">UPDATE</span> conta <span class="kw">SET</span> saldo = saldo - <span class="str">500</span> <span class="kw">WHERE</span> id = <span class="str">1</span>;  <span class="cm">-- débito</span>
+<span class="kw">UPDATE</span> conta <span class="kw">SET</span> saldo = saldo + <span class="str">500</span> <span class="kw">WHERE</span> id = <span class="str">2</span>;  <span class="cm">-- crédito</span>
 
-<span class="kw">UPDATE</span> conta <span class="kw">SET</span> saldo = saldo + <span class="str">500</span>
-<span class="kw">WHERE</span> id = <span class="str">2</span>;  <span class="cm">-- crédito</span>
-
-<span class="kw">COMMIT</span>;  <span class="cm">-- confirma as duas operações</span>
-<span class="cm">-- ou ROLLBACK para desfazer tudo</span></pre>
-    <p style="font-size:1.5rem;margin-top:.6rem">Se qualquer operação falhar, use <span class="highlight">ROLLBACK</span> para desfazer todas.</p>
+<span class="kw">COMMIT</span>;   <span class="cm">-- confirma as duas operações juntas</span>
+<span class="cm">-- ROLLBACK desfaz tudo o que foi feito desde o BEGIN</span></pre>
+    <p style="font-size:1.5rem;margin-top:.6rem">No PostgreSQL, cada comando fora de um BEGIN já é auto-confirmado (<span class="highlight">auto-commit</span>). Para desfazer, você <em>precisa</em> usar BEGIN antes.</p>
   </div>
 
-  <!-- EXERCÍCIO -->
+  <!-- EXERCÍCIO REFLEXIVO -->
   <div class="slide slide-content">
-    <span class="tag">Exercício</span>
-    <h2>Populando o banco no DB Fiddle</h2>
-    <div class="definition">
-      <p>Usando as tabelas da universidade (departamento, professor, disciplina), popule o banco com dados e pratique UPDATE e DELETE.</p>
-    </div>
-    <div class="cards cards-2" style="margin-top:.8rem">
-      <div class="card">
-        <h3>① Insira dados</h3>
-        <p>3 departamentos, 5 professores e 8 disciplinas. Use INSERT múltiplo.</p>
+    <span class="tag tag-warning">Exercício Reflexivo</span>
+    <h2>Pensando criticamente sobre DML</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem;color:var(--text)">Discuta com um colega. Não existe resposta única — o objetivo é argumentar.</p>
+    <div class="cards cards-2">
+      <div class="question-card">
+        <div class="q-label">Questão 1</div>
+        <p>Uma empresa precisa remover dados de clientes inativos há 5 anos por obrigação legal (LGPD). Faz sentido usar DELETE ou há uma alternativa melhor? Como garantir que realmente foi removido?</p>
       </div>
-      <div class="card">
-        <h3>② Atualize e delete</h3>
-        <p>Transfira um professor de departamento. Aumente os créditos de uma disciplina. Delete um departamento e observe o que acontece com as FKs.</p>
+      <div class="question-card">
+        <div class="q-label">Questão 2</div>
+        <p>Toda operação DML deveria estar dentro de uma transação? Ou existe custo nisso? Em que situações o overhead de BEGIN/COMMIT não vale a pena?</p>
       </div>
     </div>
   </div>
 
+  <!-- LABORATÓRIO PRÁTICO -->
+  <div class="slide slide-content">
+    <span class="tag">Laboratório Prático</span>
+    <h2>Sistema de Biblioteca no DB Fiddle</h2>
+    <div class="definition">
+      <p>Cole o DDL da Aula 5 no DB Fiddle (PostgreSQL) e execute os passos abaixo em sequência.</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:.8rem">
+      <div class="card">
+        <h3>① Popular</h3>
+        <p>Insira com INSERT múltiplo: 3 editoras, 4 autores, 6 livros, 4 membros e 5 empréstimos (2 já devolvidos, 3 em aberto).</p>
+      </div>
+      <div class="card">
+        <h3>② Atualizar</h3>
+        <p>Registre a devolução dos 3 empréstimos em aberto (UPDATE dt_devolucao). Corrija o ano de um livro inserido errado. Atualize o e-mail de um membro.</p>
+      </div>
+      <div class="card">
+        <h3>③ Remover com segurança</h3>
+        <p>Tente deletar uma editora que possui livros — observe o erro de FK. Remova primeiro os livros dependentes e então delete a editora. Envolva tudo em BEGIN / COMMIT.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
   <div class="slide slide-cover">
-    <span class="tag">Próxima Aula — 14/05 (Qui)</span>
+    <span class="tag">Próxima Aula — 19/05 (Ter)</span>
     <h1>Laboratório<br><span class="accent">Criação Completa de um Banco</span></h1>
     <ul style="text-align:left;margin-top:2rem">
-      <li style="font-size:1.9rem;color:#f1f5f9">DDL + DML integrados: criar e popular um banco completo</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">Atividade guiada no DB Fiddle</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">DDL + DML integrados: criar e popular um banco do zero</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Domínio: Sistema de Biblioteca</li>
     </ul>
   </div>
 
