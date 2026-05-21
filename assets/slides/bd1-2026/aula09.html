@@ -39,15 +39,11 @@
     .card p { font-size:1.25rem;color:var(--secondary); }
     .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
     .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
-    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
-    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .definition p { font-size:1.7rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.2rem;line-height:1.55;overflow-x:auto;width:100%;margin:.6rem 0; }
     .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
-    .step { opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease;pointer-events:none; }
-    .step.visible { opacity:1;transform:none;pointer-events:auto; }
-    #step-dots { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);display:none;gap:.4rem;z-index:200; }
-    #step-dots.visible { display:flex; }
-    .dot { width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.2);transition:background .2s; }
-    .dot.active { background:var(--accent); }
+    .badge { display:inline-block;background:var(--highlight);color:#fff;font-size:1.1rem;font-weight:700;padding:.2rem .8rem;border-radius:6px;margin-right:.6rem; }
+    #step-dots { display:none; }
   </style>
 </head>
 <body>
@@ -59,158 +55,366 @@
 
 <div class="slides" id="slides">
 
+  <!-- CAPA -->
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados I — 2026.2</span>
     <h1>Aula 9<br><span class="accent">SELECT: WHERE, ORDER BY &amp; LIMIT</span></h1>
+    <p style="font-size:1.6rem;margin-top:1rem;color:#cbd5e1">Consultando o banco do Alumnus que criamos na aula passada</p>
     <div class="cover-meta">
       <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
       <span>🏛️ <strong>UFPA</strong></span>
-      <span>📅 <strong>19 de maio de 2026</strong></span>
+      <span>📅 <strong>21 de maio de 2026</strong></span>
       <span>🕣 <strong>7h30 – 9h10</strong></span>
     </div>
   </div>
 
+  <!-- AGENDA -->
   <div class="slide slide-content">
     <h2>Agenda de hoje</h2>
     <ul>
-      <li>SELECT básico: colunas, alias, DISTINCT</li>
-      <li>WHERE: operadores, BETWEEN, IN, LIKE, IS NULL</li>
-      <li>Operadores lógicos: AND, OR, NOT</li>
-      <li>ORDER BY e LIMIT / OFFSET</li>
-      <li>Funções escalares úteis</li>
+      <li>Recap: o banco do <strong>Alumnus</strong> está populado — e agora?</li>
+      <li>Anatomia do <code>SELECT</code>: projeção, <code>DISTINCT</code>, alias</li>
+      <li><code>WHERE</code>: comparações, <code>BETWEEN</code>, <code>IN</code>, <code>LIKE</code>, <code>IS NULL</code></li>
+      <li>Lógicos: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e por que parênteses importam)</li>
+      <li><code>ORDER BY</code>, <code>LIMIT</code>, <code>OFFSET</code></li>
+      <li>Funções escalares de texto, número, data e nulos</li>
+      <li>Laboratório guiado com 8 consultas no Alumnus</li>
     </ul>
   </div>
 
-  <!-- SELECT BÁSICO -->
+  <!-- RECAP -->
   <div class="slide slide-content">
-    <h2>SELECT Básico</h2>
-    <pre class="code-block"><span class="cm">-- Todas as colunas</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro;
+    <h2>De onde viemos</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Aulas 5–7</h3>
+        <p><strong>DDL</strong> (CREATE/ALTER/DROP) e <strong>DML</strong> (INSERT/UPDATE/DELETE) — estrutura e dados.</p>
+      </div>
+      <div class="card">
+        <h3>Aula 8 — Alumnus</h3>
+        <p>Modelamos e populamos o banco do <strong>Alumnus</strong>: grupos, pesquisadores, relacionamentos, notas, lembretes e deadlines.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem;font-size:1.6rem">Hoje a pergunta muda: <span class="accent">como extrair informação útil do banco?</span></p>
+  </div>
 
-<span class="cm">-- Colunas específicas</span>
-<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro;
+  <!-- POR QUE SELECT -->
+  <div class="slide slide-content">
+    <h2>Por que <code>SELECT</code> é o comando que mais importa</h2>
+    <div class="definition">
+      <p>Um banco só vale a pena se você consegue <strong>perguntar coisas a ele</strong> — e <code>SELECT</code> é a forma como se faz perguntas em SQL.</p>
+    </div>
+    <ul>
+      <li>"Quais pesquisadores estão atrasados em alguma deadline?"</li>
+      <li>"Quantas notas eu já escrevi sobre a Ana neste mês?"</li>
+      <li>"Quem são os 3 alunos que mais aparecem em co-orientações?"</li>
+      <li>Todas essas perguntas começam com <span class="accent">SELECT … FROM … WHERE …</span></li>
+    </ul>
+  </div>
 
-<span class="cm">-- Alias (apelido)</span>
-<span class="kw">SELECT</span> titulo <span class="kw">AS</span> <span class="str">"Título do Livro"</span>, ano <span class="kw">AS</span> <span class="str">"Ano de Publicação"</span>
-<span class="kw">FROM</span> livro;
+  <!-- ANATOMIA DO SELECT -->
+  <div class="slide slide-content">
+    <h2>Anatomia do <code>SELECT</code></h2>
+    <pre class="code-block"><span class="kw">SELECT</span>   &lt;colunas&gt;      <span class="cm">-- o que mostrar (projeção)</span>
+<span class="kw">FROM</span>     &lt;tabela&gt;       <span class="cm">-- de onde tirar</span>
+<span class="kw">WHERE</span>    &lt;condição&gt;     <span class="cm">-- quais linhas (filtro)</span>
+<span class="kw">ORDER BY</span> &lt;colunas&gt;      <span class="cm">-- em que ordem</span>
+<span class="kw">LIMIT</span>    &lt;n&gt;;           <span class="cm">-- quantas linhas trazer</span></pre>
+    <div class="definition" style="margin-top:.4rem">
+      <p>SQL é <strong>declarativo</strong>: você descreve <em>o que</em> quer, não <em>como</em> buscar. O SGBD decide o plano de execução.</p>
+    </div>
+  </div>
 
-<span class="cm">-- Valores únicos</span>
-<span class="kw">SELECT DISTINCT</span> editora_id <span class="kw">FROM</span> livro;</pre>
+  <!-- PROJEÇÃO -->
+  <div class="slide slide-content">
+    <h2>Projeção, alias e <code>DISTINCT</code></h2>
+    <pre class="code-block"><span class="cm">-- Todas as colunas (use com parcimônia)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Só o que interessa</span>
+<span class="kw">SELECT</span> nome, status <span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Alias: renomeia a coluna no resultado</span>
+<span class="kw">SELECT</span> nome <span class="kw">AS</span> <span class="str">"Pesquisador"</span>,
+       status <span class="kw">AS</span> <span class="str">"Nível"</span>
+<span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- DISTINCT: elimina duplicatas no resultado</span>
+<span class="kw">SELECT DISTINCT</span> status <span class="kw">FROM</span> pesquisador;
+<span class="cm">-- → graduacao, mestrado, doutorado, postdoc</span></pre>
   </div>
 
   <!-- WHERE -->
   <div class="slide slide-content">
-    <h2>WHERE — Filtrando Linhas</h2>
-    <pre class="code-block"><span class="cm">-- Comparação</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> ano >= <span class="str">2015</span>;
+    <h2><code>WHERE</code> — filtrando linhas</h2>
+    <pre class="code-block"><span class="cm">-- Igualdade e comparação</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador <span class="kw">WHERE</span> status = <span class="str">'doutorado'</span>;
+<span class="kw">SELECT</span> *    <span class="kw">FROM</span> lembrete    <span class="kw">WHERE</span> data_vencimento &lt; <span class="kw">CURRENT_DATE</span>;
 
-<span class="cm">-- BETWEEN (intervalo inclusivo)</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> ano <span class="kw">BETWEEN</span> <span class="str">2010</span> <span class="kw">AND</span> <span class="str">2020</span>;
+<span class="cm">-- BETWEEN: intervalo inclusivo nas duas pontas</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> nota
+<span class="kw">WHERE</span> data <span class="kw">BETWEEN</span> <span class="str">'2026-05-01'</span> <span class="kw">AND</span> <span class="str">'2026-05-31'</span>;
 
-<span class="cm">-- IN (lista de valores)</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> editora_id <span class="kw">IN</span> (<span class="str">1</span>, <span class="str">3</span>);
+<span class="cm">-- IN: pertence a uma lista</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador
+<span class="kw">WHERE</span> status <span class="kw">IN</span> (<span class="str">'mestrado'</span>, <span class="str">'doutorado'</span>);
 
-<span class="cm">-- LIKE (padrão de texto)</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">WHERE</span> titulo <span class="kw">LIKE</span> <span class="str">'%Banco%'</span>;
-<span class="cm">-- % = qualquer sequência  |  _ = um caractere</span>
+<span class="cm">-- LIKE: padrão de texto   (% = qualquer trecho   _ = um caractere)</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador <span class="kw">WHERE</span> email <span class="kw">LIKE</span> <span class="str">'%@ufpa.br'</span>;
 
-<span class="cm">-- IS NULL / IS NOT NULL</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> emprestimo <span class="kw">WHERE</span> dt_devolucao <span class="kw">IS NULL</span>;</pre>
+<span class="cm">-- IS NULL / IS NOT NULL  — nunca use "= NULL"</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> lembrete <span class="kw">WHERE</span> concluido_em <span class="kw">IS NULL</span>;</pre>
+  </div>
+
+  <!-- CUIDADO COM NULL -->
+  <div class="slide slide-content">
+    <h2>O cuidado com <code>NULL</code></h2>
+    <div class="definition">
+      <p><code>NULL</code> não é "vazio" nem "zero" — é <strong>desconhecido</strong>. Qualquer comparação com <code>NULL</code> dá <code>NULL</code>, que não é verdadeiro.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- ❌ não retorna nada, mesmo que existam nulos</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> lembrete <span class="kw">WHERE</span> concluido_em = <span class="kw">NULL</span>;
+
+<span class="cm">-- ✅ a forma correta</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> lembrete <span class="kw">WHERE</span> concluido_em <span class="kw">IS NULL</span>;
+
+<span class="cm">-- "diferente" também precisa cuidar do NULL</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> pesquisador
+<span class="kw">WHERE</span> orientador_id &lt;&gt; <span class="str">1</span> <span class="kw">OR</span> orientador_id <span class="kw">IS NULL</span>;</pre>
   </div>
 
   <!-- LÓGICOS -->
   <div class="slide slide-content">
-    <h2>Operadores Lógicos</h2>
-    <pre class="code-block"><span class="cm">-- AND: ambas condições verdadeiras</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
-<span class="kw">WHERE</span> ano >= <span class="str">2015</span> <span class="kw">AND</span> editora_id = <span class="str">3</span>;
+    <h2>Operadores lógicos — <code>AND</code>, <code>OR</code>, <code>NOT</code></h2>
+    <pre class="code-block"><span class="cm">-- AND: as duas condições precisam ser verdadeiras</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador
+<span class="kw">WHERE</span> status = <span class="str">'doutorado'</span> <span class="kw">AND</span> grupo_id = <span class="str">1</span>;
 
-<span class="cm">-- OR: pelo menos uma verdadeira</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> membro
-<span class="kw">WHERE</span> nome = <span class="str">'Ana'</span> <span class="kw">OR</span> nome = <span class="str">'Bia'</span>;
+<span class="cm">-- OR: pelo menos uma é verdadeira</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador
+<span class="kw">WHERE</span> status = <span class="str">'mestrado'</span> <span class="kw">OR</span> status = <span class="str">'doutorado'</span>;
 
-<span class="cm">-- NOT: negação</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
-<span class="kw">WHERE NOT</span> editora_id = <span class="str">1</span>;
+<span class="cm">-- NOT: nega a condição</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> lembrete <span class="kw">WHERE NOT</span> concluido_em <span class="kw">IS NULL</span>;
 
-<span class="cm">-- Combinando (use parênteses!)</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro
-<span class="kw">WHERE</span> (ano > <span class="str">2010</span> <span class="kw">OR</span> editora_id = <span class="str">1</span>)
-  <span class="kw">AND</span> titulo <span class="kw">LIKE</span> <span class="str">'%Data%'</span>;</pre>
+<span class="cm">-- Misturando — parênteses evitam ambiguidade</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador
+<span class="kw">WHERE</span> (status = <span class="str">'mestrado'</span> <span class="kw">OR</span> status = <span class="str">'doutorado'</span>)
+  <span class="kw">AND</span> email <span class="kw">LIKE</span> <span class="str">'%@ufpa.br'</span>;</pre>
+    <p style="font-size:1.4rem;margin-top:.4rem"><span class="highlight">AND</span> tem precedência sobre <span class="highlight">OR</span> — quando em dúvida, parentize.</p>
   </div>
 
-  <!-- ORDER BY / LIMIT -->
+  <!-- ORDER BY -->
   <div class="slide slide-content">
-    <h2>ORDER BY &amp; LIMIT</h2>
-    <pre class="code-block"><span class="cm">-- Ordenar por ano (crescente é o padrão)</span>
-<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano;
+    <h2><code>ORDER BY</code> — ordenando o resultado</h2>
+    <pre class="code-block"><span class="cm">-- Crescente é o padrão (ASC)</span>
+<span class="kw">SELECT</span> nome, status <span class="kw">FROM</span> pesquisador <span class="kw">ORDER BY</span> nome;
 
 <span class="cm">-- Decrescente</span>
-<span class="kw">SELECT</span> titulo, ano <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano <span class="kw">DESC</span>;
+<span class="kw">SELECT</span> texto, data <span class="kw">FROM</span> nota <span class="kw">ORDER BY</span> data <span class="kw">DESC</span>;
 
-<span class="cm">-- Múltiplas colunas</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> editora_id, ano <span class="kw">DESC</span>;
+<span class="cm">-- Múltiplas colunas: primeiro grupo, depois nome dentro do grupo</span>
+<span class="kw">SELECT</span> grupo_id, nome <span class="kw">FROM</span> pesquisador
+<span class="kw">ORDER BY</span> grupo_id <span class="kw">ASC</span>, nome <span class="kw">ASC</span>;
 
-<span class="cm">-- LIMIT: primeiros N resultados</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> ano <span class="kw">DESC LIMIT</span> <span class="str">5</span>;
-
-<span class="cm">-- OFFSET: pular N resultados (paginação)</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> livro <span class="kw">ORDER BY</span> titulo <span class="kw">LIMIT</span> <span class="str">5</span> <span class="kw">OFFSET</span> <span class="str">10</span>;</pre>
+<span class="cm">-- Por uma expressão / alias</span>
+<span class="kw">SELECT</span> nome, <span class="kw">LENGTH</span>(nome) <span class="kw">AS</span> tam
+<span class="kw">FROM</span> pesquisador <span class="kw">ORDER BY</span> tam <span class="kw">DESC</span>;</pre>
+    <p style="font-size:1.4rem;margin-top:.4rem">Sem <code>ORDER BY</code>, a ordem das linhas <span class="highlight">não é garantida</span> — mesmo que pareça consistente.</p>
   </div>
 
-  <!-- FUNÇÕES ESCALARES -->
+  <!-- LIMIT / OFFSET -->
   <div class="slide slide-content">
-    <h2>Funções Escalares Úteis</h2>
-    <div class="cards cards-2">
+    <h2><code>LIMIT</code> e <code>OFFSET</code> — só as N linhas que importam</h2>
+    <pre class="code-block"><span class="cm">-- As 5 notas mais recentes</span>
+<span class="kw">SELECT</span> texto, data <span class="kw">FROM</span> nota
+<span class="kw">ORDER BY</span> data <span class="kw">DESC LIMIT</span> <span class="str">5</span>;
+
+<span class="cm">-- A próxima deadline a vencer</span>
+<span class="kw">SELECT</span> nome, data_limite <span class="kw">FROM</span> deadline
+<span class="kw">WHERE</span> data_limite &gt;= <span class="kw">CURRENT_DATE</span>
+<span class="kw">ORDER BY</span> data_limite <span class="kw">ASC LIMIT</span> <span class="str">1</span>;
+
+<span class="cm">-- Paginação: pula 10 e pega as próximas 5</span>
+<span class="kw">SELECT</span> nome <span class="kw">FROM</span> pesquisador
+<span class="kw">ORDER BY</span> nome <span class="kw">LIMIT</span> <span class="str">5</span> <span class="kw">OFFSET</span> <span class="str">10</span>;</pre>
+    <div class="definition" style="margin-top:.4rem">
+      <p><code>LIMIT</code> sem <code>ORDER BY</code> traz "5 quaisquer" — pode mudar entre execuções. Sempre ordene antes de limitar.</p>
+    </div>
+  </div>
+
+  <!-- FUNÇÕES ESCALARES: PANORAMA -->
+  <div class="slide slide-content">
+    <h2>Funções escalares — o que são</h2>
+    <div class="definition">
+      <p>Recebem um valor por linha e devolvem um valor por linha. Diferente de <em>agregações</em> (próxima aula), que colapsam várias linhas em uma.</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:.4rem">
       <div class="card">
         <h3>Texto</h3>
-        <pre class="code-block" style="font-size:1.1rem"><span class="kw">SELECT UPPER</span>(nome) <span class="kw">FROM</span> membro;
-<span class="kw">SELECT LOWER</span>(titulo) <span class="kw">FROM</span> livro;
-<span class="kw">SELECT LENGTH</span>(titulo) <span class="kw">FROM</span> livro;
-<span class="kw">SELECT TRIM</span>(nome) <span class="kw">FROM</span> autor;</pre>
+        <p><code>UPPER</code>, <code>LOWER</code>, <code>LENGTH</code>, <code>TRIM</code>, <code>CONCAT</code>, <code>SUBSTRING</code></p>
       </div>
       <div class="card">
-        <h3>Conversão e nulos</h3>
-        <pre class="code-block" style="font-size:1.1rem"><span class="cm">-- COALESCE: primeiro valor não-nulo</span>
-<span class="kw">SELECT COALESCE</span>(dt_devolucao, <span class="str">'pendente'</span>)
-<span class="kw">FROM</span> emprestimo;
-
-<span class="cm">-- CAST: conversão de tipo</span>
-<span class="kw">SELECT CAST</span>(ano <span class="kw">AS VARCHAR</span>)
-<span class="kw">FROM</span> livro;</pre>
+        <h3>Número</h3>
+        <p><code>ABS</code>, <code>ROUND</code>, <code>CEIL</code>, <code>FLOOR</code>, <code>MOD</code></p>
+      </div>
+      <div class="card">
+        <h3>Data e nulo</h3>
+        <p><code>CURRENT_DATE</code>, <code>NOW()</code>, <code>EXTRACT</code>, <code>COALESCE</code>, <code>CAST</code></p>
       </div>
     </div>
   </div>
 
-  <!-- EXERCÍCIO -->
+  <!-- FUNÇÕES DE TEXTO -->
   <div class="slide slide-content">
-    <span class="tag">Exercício</span>
-    <h2>Consultas no banco da Biblioteca</h2>
-    <div class="definition">
-      <p>Usando o banco criado na Aula 8, escreva as consultas abaixo no DB Fiddle.</p>
-    </div>
-    <div class="cards cards-2" style="margin-top:.8rem">
+    <h2>Funções de texto</h2>
+    <pre class="code-block"><span class="cm">-- Padronizar caixa</span>
+<span class="kw">SELECT UPPER</span>(nome), <span class="kw">LOWER</span>(email) <span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Tamanho do texto</span>
+<span class="kw">SELECT</span> nome, <span class="kw">LENGTH</span>(nome) <span class="kw">AS</span> tam <span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Tirar espaços nas pontas (útil em dados sujos)</span>
+<span class="kw">SELECT TRIM</span>(nome) <span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Concatenar (PostgreSQL usa ||)</span>
+<span class="kw">SELECT</span> nome || <span class="str">' &lt;'</span> || email || <span class="str">'&gt;'</span> <span class="kw">AS</span> contato
+<span class="kw">FROM</span> pesquisador;
+
+<span class="cm">-- Pegar um pedaço do texto</span>
+<span class="kw">SELECT SUBSTRING</span>(email <span class="kw">FROM</span> <span class="str">'@(.*)$'</span>) <span class="kw">AS</span> dominio
+<span class="kw">FROM</span> pesquisador;</pre>
+  </div>
+
+  <!-- FUNÇÕES DE NÚMERO E DATA -->
+  <div class="slide slide-content">
+    <h2>Funções de número, data e nulos</h2>
+    <pre class="code-block"><span class="cm">-- Número</span>
+<span class="kw">SELECT</span> <span class="kw">ROUND</span>(<span class="str">3.567</span>, <span class="str">2</span>),  <span class="kw">CEIL</span>(<span class="str">3.2</span>),  <span class="kw">FLOOR</span>(<span class="str">3.8</span>);
+
+<span class="cm">-- Hoje e agora</span>
+<span class="kw">SELECT</span> <span class="kw">CURRENT_DATE</span>, <span class="kw">NOW</span>();
+
+<span class="cm">-- Dias até a deadline</span>
+<span class="kw">SELECT</span> nome, data_limite - <span class="kw">CURRENT_DATE</span> <span class="kw">AS</span> dias_restantes
+<span class="kw">FROM</span> deadline
+<span class="kw">WHERE</span> data_limite &gt;= <span class="kw">CURRENT_DATE</span>;
+
+<span class="cm">-- Extrair parte de uma data</span>
+<span class="kw">SELECT EXTRACT</span>(<span class="kw">YEAR FROM</span> data) <span class="kw">AS</span> ano,
+       <span class="kw">EXTRACT</span>(<span class="kw">MONTH FROM</span> data) <span class="kw">AS</span> mes
+<span class="kw">FROM</span> nota;
+
+<span class="cm">-- COALESCE: primeiro valor não-nulo (default na consulta)</span>
+<span class="kw">SELECT</span> texto, <span class="kw">COALESCE</span>(concluido_em::<span class="kw">text</span>, <span class="str">'pendente'</span>) <span class="kw">AS</span> situacao
+<span class="kw">FROM</span> lembrete;</pre>
+  </div>
+
+  <!-- ROTEIRO LAB -->
+  <div class="slide slide-content">
+    <h2>Roteiro do laboratório</h2>
+    <div class="cards cards-3">
       <div class="card">
-        <h3>Consultas</h3>
-        <p>1. Livros publicados após 2015, ordenados por ano DESC<br>
-        2. Membros cujo nome começa com 'A'<br>
-        3. Empréstimos ainda não devolvidos (dt_devolucao IS NULL)<br>
-        4. Os 3 livros mais recentes<br>
-        5. Livros da editora 'O Reilly' OU publicados antes de 2010</p>
+        <h3>① Reabrir</h3>
+        <p>Suba o banco do <strong>Alumnus</strong> da aula passada no DB Fiddle (PostgreSQL).</p>
+        <p class="note">~5 min</p>
       </div>
       <div class="card">
-        <h3>Desafio</h3>
-        <p>Combine WHERE + ORDER BY + LIMIT para responder: "Qual o livro mais antigo da editora 3?"</p>
+        <h3>② Consultar</h3>
+        <p>Resolva as <strong>8 consultas</strong> do próximo slide, do mais simples ao mais composto.</p>
+        <p class="note">~50 min, em dupla</p>
+      </div>
+      <div class="card">
+        <h3>③ Compartilhar</h3>
+        <p>Cada dupla apresenta <strong>uma</strong> consulta e explica o porquê de cada cláusula.</p>
+        <p class="note">~25 min</p>
       </div>
     </div>
   </div>
 
+  <!-- EXERCÍCIOS -->
+  <div class="slide slide-content">
+    <h2>8 consultas no Alumnus</h2>
+    <div class="cards cards-2" style="margin-top:.2rem">
+      <div class="card">
+        <h3>Básicas (WHERE + ORDER BY)</h3>
+        <p>1. Todos os pesquisadores de <em>doutorado</em>, ordenados por nome.<br>
+        2. Lembretes ainda <em>pendentes</em> (sem data de conclusão).<br>
+        3. Notas escritas em <em>maio de 2026</em>, da mais recente para a mais antiga.<br>
+        4. Pesquisadores cujo e-mail <em>não</em> é da UFPA.</p>
+      </div>
+      <div class="card">
+        <h3>Intermediárias (LIKE, IN, BETWEEN, LIMIT)</h3>
+        <p>5. Pesquisadores de mestrado <em>ou</em> doutorado cujo nome começa com "A".<br>
+        6. As <em>3 deadlines</em> mais próximas ainda por vencer.<br>
+        7. Lembretes que vencem na semana atual (use <code>BETWEEN</code>).<br>
+        8. Para cada pesquisador, mostre <code>nome</code>, <code>status</code> em caixa alta e o <em>domínio</em> do e-mail. Ordene por status.</p>
+      </div>
+    </div>
+    <p style="margin-top:.8rem;font-size:1.4rem">Desafio: a <em>nota mais recente</em> escrita sobre a pesquisadora "Ana Souza" — uma única linha como resposta.</p>
+  </div>
+
+  <!-- ARMADILHAS -->
+  <div class="slide slide-content">
+    <h2>Armadilhas comuns</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3><code>= NULL</code> em vez de <code>IS NULL</code></h3>
+        <p>Comparar com <code>NULL</code> sempre dá <code>NULL</code> (não verdadeiro). Resultado: a consulta "funciona" mas vem vazia.</p>
+      </div>
+      <div class="card">
+        <h3>Esquecer <code>ORDER BY</code> com <code>LIMIT</code></h3>
+        <p>"Os 5 mais recentes" sem <code>ORDER BY data DESC</code> traz 5 linhas <em>quaisquer</em>.</p>
+      </div>
+      <div class="card">
+        <h3><code>AND</code> e <code>OR</code> sem parênteses</h3>
+        <p><code>AND</code> tem precedência. <code>A OR B AND C</code> é <code>A OR (B AND C)</code> — quase nunca o que você quis.</p>
+      </div>
+      <div class="card">
+        <h3><code>SELECT *</code> em tudo</h3>
+        <p>Esconde colunas que você nem sabe que vieram e dificulta ler o resultado. Liste só o que precisa.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDEM LÓGICA -->
+  <div class="slide slide-content">
+    <h2>Ordem que <em>você escreve</em> ≠ ordem que o SGBD <em>executa</em></h2>
+    <pre class="code-block"><span class="cm">-- Você escreve:</span>
+<span class="kw">SELECT</span>   nome, <span class="kw">UPPER</span>(status)
+<span class="kw">FROM</span>     pesquisador
+<span class="kw">WHERE</span>    status <span class="kw">IN</span> (<span class="str">'mestrado'</span>, <span class="str">'doutorado'</span>)
+<span class="kw">ORDER BY</span> nome
+<span class="kw">LIMIT</span>    <span class="str">10</span>;
+
+<span class="cm">-- O SGBD executa (conceitualmente):</span>
+<span class="cm">-- 1. FROM     → lê a tabela</span>
+<span class="cm">-- 2. WHERE    → filtra linhas</span>
+<span class="cm">-- 3. SELECT   → projeta colunas</span>
+<span class="cm">-- 4. ORDER BY → ordena o resultado</span>
+<span class="cm">-- 5. LIMIT    → corta as N primeiras</span></pre>
+    <p style="font-size:1.5rem;margin-top:.4rem">Por isso o alias de <code>SELECT</code> funciona em <code>ORDER BY</code>, mas não em <code>WHERE</code>.</p>
+  </div>
+
+  <!-- RESUMO -->
+  <div class="slide slide-content">
+    <h2>Resumo da aula</h2>
+    <ul>
+      <li><code>SELECT … FROM … WHERE … ORDER BY … LIMIT</code> é o esqueleto de quase toda consulta</li>
+      <li><code>WHERE</code> filtra <em>linhas</em>; <code>SELECT</code> escolhe <em>colunas</em></li>
+      <li><code>NULL</code> precisa de <code>IS NULL</code> — nunca <code>= NULL</code></li>
+      <li><code>LIMIT</code> só faz sentido junto de <code>ORDER BY</code></li>
+      <li>Funções <strong>escalares</strong> transformam valor a valor; agregações (próxima aula) colapsam grupos</li>
+    </ul>
+  </div>
+
+  <!-- PRÓXIMA AULA -->
   <div class="slide slide-cover">
-    <span class="tag">Próxima Aula — 21/05 (Qui)</span>
+    <span class="tag">Próxima Aula — 26/05 (Ter)</span>
     <h1>SELECT — Agregação<br><span class="accent">COUNT, SUM, AVG, GROUP BY &amp; HAVING</span></h1>
     <ul style="text-align:left;margin-top:2rem">
-      <li style="font-size:1.9rem;color:#f1f5f9">Funções de agregação</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">Agrupamento e filtragem de grupos</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Do "quais linhas?" para o "quantas? qual a média?"</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Agrupar e filtrar grupos no banco do Alumnus</li>
     </ul>
   </div>
 

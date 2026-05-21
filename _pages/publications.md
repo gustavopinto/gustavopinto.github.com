@@ -167,9 +167,6 @@ classes: ["publications-page"]
 1. [Igor Wiese](http://igorwiese.com/), [Ivanilton Polato]((https://scholar.google.com.br/citations?user=3xOC8lIAAAAJ&hl=en)), **Gustavo Pinto**. "[Naming the Pain in Developing Scientific Software](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)". Accepted to the IEEE Software, 2020.<br>
 [<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/ieeesw2019.pdf)
 
-1. Ana Camila A. Araújo, Enzo Gabriel R. Santos, Karina S. Sá, Viviane Kharine T. Furtado, Felipe A. Santos, Lane V. Krejčová, Bruno Lopes Santos-Lobato, **Gustavo Henrique L. Pinto**, André S. Cabral, Anderson Belgamo, Bianca Callegari, Ana Francisca R. Kleiner, Anselmo A. Costa e Silva, Givago S. Souza. "[Hand Resting Tremor Assessment of Healthy and Patients with Parkinson's Disease: An Exploratory Machine Learning Study](http://gustavopinto.github.io/lost+found/frontiers2020.PDF)". Accepted to the Frontiers in Bioengineering and Biotechnology, 2020.<br>
-[<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/frontiers2020.PDF)
-
 1. Antônio Carvalho, [Welder Luz](https://github.com/wweellddeerr), [Diego Marcilio](https://dvmarcilio.github.io/), [Rodrigo Bonifácio](http://wp.rbonifacio.net/), **Gustavo Pinto**, [Edna Canedo](https://dblp.uni-trier.de/pers/hd/c/Canedo:Edna_Dias). "[C-3P0: A Bot for Fixing Static Analysis Violations via Pull Requests](http://gustavopinto.github.io/lost+found/saner2020.pdf)". Accepted to the 27th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), Ontario, Canada, 2020.<br>
 [<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner2020.pdf)
 
