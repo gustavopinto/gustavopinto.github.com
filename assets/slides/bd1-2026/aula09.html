@@ -75,10 +75,10 @@
       <li>Recap: o banco do <strong>Alumnus</strong> está populado — e agora?</li>
       <li>Anatomia do <code>SELECT</code>: projeção, <code>DISTINCT</code>, alias</li>
       <li><code>WHERE</code>: comparações, <code>BETWEEN</code>, <code>IN</code>, <code>LIKE</code>, <code>IS NULL</code></li>
-      <li>Lógicos: <code>AND</code>, <code>OR</code>, <code>NOT</code> (e por que parênteses importam)</li>
+      <li>Lógicos: <code>AND</code>, <code>OR</code>, <code>NOT</code></li>
       <li><code>ORDER BY</code>, <code>LIMIT</code>, <code>OFFSET</code></li>
-      <li>Funções escalares de texto, número, data e nulos</li>
-      <li>Laboratório guiado com 8 consultas no Alumnus</li>
+      <li>Laboratório: 8 consultas no Alumnus</li>
+      <li>Bônus — <em>para saber mais</em>: funções escalares, armadilhas, ordem lógica</li>
     </ul>
   </div>
 
@@ -243,6 +243,68 @@
     </div>
   </div>
 
+  <!-- DIVISOR: HORA DO LAB -->
+  <div class="slide slide-cover">
+    <span class="tag">Mão na massa</span>
+    <h1>Laboratório<br><span class="accent">consultas no Alumnus</span></h1>
+    <p style="font-size:1.6rem;margin-top:1.2rem;color:#cbd5e1">Suba o banco da aula passada no DB Fiddle (PostgreSQL) e resolva as consultas a seguir.</p>
+  </div>
+
+  <!-- ROTEIRO LAB -->
+  <div class="slide slide-content">
+    <h2>Roteiro do laboratório</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>① Reabrir</h3>
+        <p>Suba o banco do <strong>Alumnus</strong> da aula passada no DB Fiddle (PostgreSQL).</p>
+        <p class="note">~5 min</p>
+      </div>
+      <div class="card">
+        <h3>② Consultar</h3>
+        <p>Resolva as <strong>8 consultas</strong> do próximo slide, do mais simples ao mais composto.</p>
+        <p class="note">~50 min, em dupla</p>
+      </div>
+      <div class="card">
+        <h3>③ Compartilhar</h3>
+        <p>Cada dupla apresenta <strong>uma</strong> consulta e explica o porquê de cada cláusula.</p>
+        <p class="note">~25 min</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCÍCIOS -->
+  <div class="slide slide-content">
+    <h2>8 consultas no Alumnus</h2>
+    <div class="cards cards-2" style="margin-top:.2rem">
+      <div class="card">
+        <h3>Básicas (WHERE + ORDER BY)</h3>
+        <p>1. Todos os pesquisadores de <em>doutorado</em>, ordenados por nome.<br>
+        2. Lembretes ainda <em>pendentes</em> (sem data de conclusão).<br>
+        3. Notas escritas em <em>maio de 2026</em>, da mais recente para a mais antiga.<br>
+        4. Pesquisadores cujo e-mail <em>não</em> é da UFPA.</p>
+      </div>
+      <div class="card">
+        <h3>Intermediárias (LIKE, IN, BETWEEN, LIMIT)</h3>
+        <p>5. Pesquisadores de mestrado <em>ou</em> doutorado cujo nome começa com "A".<br>
+        6. As <em>3 deadlines</em> mais próximas ainda por vencer.<br>
+        7. Lembretes que vencem na semana atual (use <code>BETWEEN</code>).<br>
+        8. Para cada pesquisador, mostre <code>nome</code> e o <em>domínio</em> do e-mail.</p>
+      </div>
+    </div>
+    <p style="margin-top:.8rem;font-size:1.4rem">Desafio: a <em>nota mais recente</em> escrita sobre a pesquisadora "Ana Souza" — uma única linha como resposta.</p>
+  </div>
+
+  <!-- DIVISOR: PARA SABER MAIS -->
+  <div class="slide slide-cover">
+    <span class="tag">Bônus</span>
+    <h1>Para saber mais<br><span class="accent">funções escalares &amp; pegadinhas</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.7rem;color:#f1f5f9">Funções de texto, número e data</li>
+      <li style="font-size:1.7rem;color:#f1f5f9">Armadilhas que aparecem em prova</li>
+      <li style="font-size:1.7rem;color:#f1f5f9">A ordem lógica de execução do SELECT</li>
+    </ul>
+  </div>
+
   <!-- FUNÇÕES ESCALARES: PANORAMA -->
   <div class="slide slide-content">
     <h2>Funções escalares — o que são</h2>
@@ -308,50 +370,6 @@
 <span class="cm">-- COALESCE: primeiro valor não-nulo (default na consulta)</span>
 <span class="kw">SELECT</span> texto, <span class="kw">COALESCE</span>(concluido_em::<span class="kw">text</span>, <span class="str">'pendente'</span>) <span class="kw">AS</span> situacao
 <span class="kw">FROM</span> lembrete;</pre>
-  </div>
-
-  <!-- ROTEIRO LAB -->
-  <div class="slide slide-content">
-    <h2>Roteiro do laboratório</h2>
-    <div class="cards cards-3">
-      <div class="card">
-        <h3>① Reabrir</h3>
-        <p>Suba o banco do <strong>Alumnus</strong> da aula passada no DB Fiddle (PostgreSQL).</p>
-        <p class="note">~5 min</p>
-      </div>
-      <div class="card">
-        <h3>② Consultar</h3>
-        <p>Resolva as <strong>8 consultas</strong> do próximo slide, do mais simples ao mais composto.</p>
-        <p class="note">~50 min, em dupla</p>
-      </div>
-      <div class="card">
-        <h3>③ Compartilhar</h3>
-        <p>Cada dupla apresenta <strong>uma</strong> consulta e explica o porquê de cada cláusula.</p>
-        <p class="note">~25 min</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- EXERCÍCIOS -->
-  <div class="slide slide-content">
-    <h2>8 consultas no Alumnus</h2>
-    <div class="cards cards-2" style="margin-top:.2rem">
-      <div class="card">
-        <h3>Básicas (WHERE + ORDER BY)</h3>
-        <p>1. Todos os pesquisadores de <em>doutorado</em>, ordenados por nome.<br>
-        2. Lembretes ainda <em>pendentes</em> (sem data de conclusão).<br>
-        3. Notas escritas em <em>maio de 2026</em>, da mais recente para a mais antiga.<br>
-        4. Pesquisadores cujo e-mail <em>não</em> é da UFPA.</p>
-      </div>
-      <div class="card">
-        <h3>Intermediárias (LIKE, IN, BETWEEN, LIMIT)</h3>
-        <p>5. Pesquisadores de mestrado <em>ou</em> doutorado cujo nome começa com "A".<br>
-        6. As <em>3 deadlines</em> mais próximas ainda por vencer.<br>
-        7. Lembretes que vencem na semana atual (use <code>BETWEEN</code>).<br>
-        8. Para cada pesquisador, mostre <code>nome</code>, <code>status</code> em caixa alta e o <em>domínio</em> do e-mail. Ordene por status.</p>
-      </div>
-    </div>
-    <p style="margin-top:.8rem;font-size:1.4rem">Desafio: a <em>nota mais recente</em> escrita sobre a pesquisadora "Ana Souza" — uma única linha como resposta.</p>
   </div>
 
   <!-- ARMADILHAS -->
