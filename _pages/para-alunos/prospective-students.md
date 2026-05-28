@@ -37,3 +37,21 @@ There are some also additional important skills (in no priority order):
 If you still want to apply, **I strongly recommend you** to talk with some of my previous students (a list of former and current students is available [here](/students)).
 
 If you are already a master student, read [this](/instrucoes-alunos-msc) (pt-br).
+
+## Essential Skills for Any Student, at Any Level
+
+- **Know how to send an email.** Greet properly and sign off. Describe your question in a few words. If you have more than one question, use bullet points. Provide enough context so that anyone can understand your email.
+
+- **Know how to schedule a meeting.** Ask about the best times and mention when you are not available. If there are multiple people involved, consider using a Doodle poll. If people do not respond, follow up politely.
+
+- **Know how to participate in a meeting.** If it is your first meeting, take notes on everything — do not wait for someone to ask you to. If you have questions, ask them. Do not leave the meeting with unresolved doubts. Be present during the meeting; put your phone away. If the meeting is online, turn your camera on. If you cannot turn your camera on, mention it (and perhaps the reason). Before the meeting ends, revisit the main points of interest to you.
+
+- **Know how to be punctual.** Be present at the agreed time. If you realize you are going to be late, let people know in advance — the earlier, the better. Do not wait until you are already late to say you are running late.
+
+- **Know how to ask for help.** Do not stay stuck for days without saying anything. If you have tried to solve something on your own and could not, explain exactly what you tried and where you got stuck.
+
+- **Know how to receive feedback.** Criticism of your work is not criticism of you. Listen, take notes, and reflect before responding.
+
+- **Know how to search before asking.** Before sending a message with a question, try to solve it on your own first. A quick search often does the trick — and building this habit makes you more independent.
+
+- **Know how to say you do not know.** "I don't know, but I'll find out" is always better than making something up or staying silent out of fear of appearing ignorant.
