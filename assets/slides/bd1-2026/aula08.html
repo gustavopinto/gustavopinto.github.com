@@ -33,15 +33,16 @@
     .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
     .cover-meta span { font-size:1.4rem; }
     .cards { display:grid;gap:1.3rem;width:100%; }
-    .cards-2 { grid-template-columns:1fr 1fr; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
     .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
     .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
     .card p { font-size:1.25rem;color:var(--secondary); }
     .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
     .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
-    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
-    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.2rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .definition p { font-size:1.7rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.2rem;line-height:1.55;overflow-x:auto;width:100%;margin:.6rem 0; }
     .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .badge { display:inline-block;background:var(--highlight);color:#fff;font-size:1.1rem;font-weight:700;padding:.2rem .8rem;border-radius:6px;margin-right:.6rem; }
     #step-dots { display:none; }
   </style>
 </head>
@@ -54,120 +55,260 @@
 
 <div class="slides" id="slides">
 
+  <!-- CAPA -->
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados I — 2026.2</span>
-    <h1>Aula 8<br><span class="accent">Laboratório: Criação Completa de um Banco</span></h1>
+    <h1>Aula 8<br><span class="accent">Laboratório: DDL + DML</span></h1>
+    <p style="font-size:1.6rem;margin-top:1rem;color:#cbd5e1">Criação completa de um banco com dados reais</p>
     <div class="cover-meta">
       <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
       <span>🏛️ <strong>UFPA</strong></span>
-      <span>📅 <strong>14 de maio de 2026</strong></span>
+      <span>📅 <strong>19 de maio de 2026</strong></span>
       <span>🕣 <strong>7h30 – 9h10</strong></span>
     </div>
   </div>
 
+  <!-- AGENDA -->
   <div class="slide slide-content">
-    <h2>Objetivo do Lab</h2>
-    <div class="definition">
-      <p>Criar um banco de dados completo do zero: <strong>DDL</strong> (estrutura) + <strong>DML</strong> (dados). Domínio: <strong>Sistema de Biblioteca</strong>.</p>
-    </div>
+    <h2>Agenda de hoje</h2>
     <ul>
-      <li>Entidades: Editora, Autor, Livro, Membro, Empréstimo</li>
-      <li>Relacionamentos: Livro pertence a Editora (1:N), Livro tem Autores (N:M), Membro faz Empréstimos</li>
-      <li>Ferramenta: <span class="accent">DB Fiddle</span> (PostgreSQL)</li>
+      <li>Revisão rápida: DDL e DML</li>
+      <li>Apresentação do estudo de caso: <strong>Alumnus</strong></li>
+      <li>5 características do sistema → modelagem</li>
+      <li>Laboratório guiado: DDL + DML no DB Fiddle</li>
+      <li>Validação: o banco "conta a história" certa?</li>
     </ul>
   </div>
 
-  <!-- DDL -->
+  <!-- RECAP -->
   <div class="slide slide-content">
-    <h2>Passo 1 — CREATE TABLE</h2>
-    <pre class="code-block"><span class="kw">CREATE TABLE</span> editora (
-    id    <span class="kw">SERIAL PRIMARY KEY</span>,
-    nome  <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL UNIQUE</span>
-);
-<span class="kw">CREATE TABLE</span> autor (
-    id    <span class="kw">SERIAL PRIMARY KEY</span>,
-    nome  <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>
-);
-<span class="kw">CREATE TABLE</span> livro (
-    isbn       <span class="kw">CHAR</span>(13) <span class="kw">PRIMARY KEY</span>,
-    titulo     <span class="kw">VARCHAR</span>(200) <span class="kw">NOT NULL</span>,
-    ano        <span class="kw">INTEGER CHECK</span> (ano > 1900),
-    editora_id <span class="kw">INTEGER NOT NULL REFERENCES</span> editora(id)
-);
-<span class="kw">CREATE TABLE</span> livro_autor ( <span class="cm">-- tabela associativa N:M</span>
-    livro_isbn <span class="kw">CHAR</span>(13) <span class="kw">REFERENCES</span> livro(isbn),
-    autor_id   <span class="kw">INTEGER REFERENCES</span> autor(id),
-    <span class="kw">PRIMARY KEY</span> (livro_isbn, autor_id)
-);</pre>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Passo 1 — CREATE TABLE (cont.)</h2>
-    <pre class="code-block"><span class="kw">CREATE TABLE</span> membro (
-    id       <span class="kw">SERIAL PRIMARY KEY</span>,
-    nome     <span class="kw">VARCHAR</span>(100) <span class="kw">NOT NULL</span>,
-    email    <span class="kw">VARCHAR</span>(150) <span class="kw">UNIQUE</span>,
-    dt_cadastro <span class="kw">DATE DEFAULT CURRENT_DATE</span>
-);
-<span class="kw">CREATE TABLE</span> emprestimo (
-    id         <span class="kw">SERIAL PRIMARY KEY</span>,
-    membro_id  <span class="kw">INTEGER NOT NULL REFERENCES</span> membro(id),
-    livro_isbn <span class="kw">CHAR</span>(13) <span class="kw">NOT NULL REFERENCES</span> livro(isbn),
-    dt_retirada <span class="kw">DATE NOT NULL DEFAULT CURRENT_DATE</span>,
-    dt_devolucao <span class="kw">DATE</span>,
-    <span class="kw">CHECK</span> (dt_devolucao <span class="kw">IS NULL OR</span> dt_devolucao >= dt_retirada)
-);</pre>
-  </div>
-
-  <!-- DML -->
-  <div class="slide slide-content">
-    <h2>Passo 2 — INSERT (populando)</h2>
-    <pre class="code-block"><span class="kw">INSERT INTO</span> editora (nome) <span class="kw">VALUES</span>
-  (<span class="str">'Novatec'</span>), (<span class="str">'Casa do Código'</span>), (<span class="str">'O Reilly'</span>);
-
-<span class="kw">INSERT INTO</span> autor (nome) <span class="kw">VALUES</span>
-  (<span class="str">'Carlos Heuser'</span>), (<span class="str">'Abraham Silberschatz'</span>),
-  (<span class="str">'Thomas Connolly'</span>);
-
-<span class="kw">INSERT INTO</span> livro (isbn, titulo, ano, editora_id) <span class="kw">VALUES</span>
-  (<span class="str">'9788577807826'</span>, <span class="str">'Projeto de Banco de Dados'</span>, 2009, 1),
-  (<span class="str">'9780073523323'</span>, <span class="str">'Database System Concepts'</span>, 2019, 3),
-  (<span class="str">'9780132943727'</span>, <span class="str">'Database Systems'</span>, 2015, 3);
-
-<span class="kw">INSERT INTO</span> livro_autor <span class="kw">VALUES</span>
-  (<span class="str">'9788577807826'</span>, 1), (<span class="str">'9780073523323'</span>, 2),
-  (<span class="str">'9780132943727'</span>, 3);
-
-<span class="kw">INSERT INTO</span> membro (nome, email) <span class="kw">VALUES</span>
-  (<span class="str">'Ana'</span>, <span class="str">'ana@ufpa.br'</span>), (<span class="str">'Bia'</span>, <span class="str">'bia@ufpa.br'</span>);
-
-<span class="kw">INSERT INTO</span> emprestimo (membro_id, livro_isbn, dt_retirada) <span class="kw">VALUES</span>
-  (1, <span class="str">'9788577807826'</span>, <span class="str">'2026-05-01'</span>),
-  (2, <span class="str">'9780073523323'</span>, <span class="str">'2026-05-03'</span>);</pre>
-  </div>
-
-  <!-- EXERCÍCIO -->
-  <div class="slide slide-content">
-    <span class="tag">Exercício</span>
-    <h2>Estenda o banco da Biblioteca</h2>
-    <div class="cards cards-2" style="margin-top:.8rem">
+    <h2>De onde viemos</h2>
+    <div class="cards cards-2">
       <div class="card">
-        <h3>① Crie a tabela Reserva</h3>
-        <p>Um membro pode <strong>reservar</strong> um livro. Campos: id (PK), membro_id (FK), livro_isbn (FK), dt_reserva (NOT NULL), status (VARCHAR: 'ativa', 'cancelada', 'concluída').</p>
+        <h3>DDL (Aulas 5 e 6)</h3>
+        <p><strong>CREATE TABLE</strong>, tipos, constraints (PK, FK, NOT NULL, UNIQUE, CHECK), ALTER, DROP.</p>
+        <p class="note">Define a <em>estrutura</em> do banco.</p>
       </div>
       <div class="card">
-        <h3>② Popule com dados</h3>
-        <p>Insira mais 3 livros, 2 autores, 3 membros e 5 empréstimos. Registre 3 devoluções (UPDATE dt_devolucao). Insira 2 reservas.</p>
+        <h3>DML (Aula 7)</h3>
+        <p><strong>INSERT</strong>, <strong>UPDATE</strong>, <strong>DELETE</strong>, transações (BEGIN/COMMIT/ROLLBACK).</p>
+        <p class="note">Coloca e modifica os <em>dados</em>.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem;font-size:1.6rem">Hoje vamos juntar tudo: <span class="accent">do enunciado até um banco populado</span>.</p>
+  </div>
+
+  <!-- O QUE É O ALUMNUS -->
+  <div class="slide slide-content">
+    <h2>O que é o Alumnus?</h2>
+    <div class="definition">
+      <p>Uma plataforma web feita para <strong>professores acompanharem o próprio grupo de pesquisa</strong> — alunos de graduação, mestrado e doutorado — em um só lugar.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:.6rem">
+      <div class="card">
+        <h3>O problema</h3>
+        <p>Quem orienta vários alunos perde o fio das reuniões, dos prazos de conferência e de quem está trabalhando com quem. Tudo acaba espalhado em planilhas, e-mails e WhatsApp.</p>
+      </div>
+      <div class="card">
+        <h3>A ideia</h3>
+        <p>Um <strong>grafo interativo</strong> do grupo: cada aluno é um nó, e as ligações entre eles (co-orientação, colaboração) são as arestas. Clicar em um nó abre o perfil com notas e histórico.</p>
+      </div>
+      <div class="card">
+        <h3>O que dá pra fazer</h3>
+        <p>Anotar reuniões, criar lembretes com prazo, acompanhar deadlines de conferências, registrar publicações de cada aluno.</p>
+      </div>
+      <div class="card">
+        <h3>Onde rodar</h3>
+        <p>Sistema real, em produção em <span class="accent">alumnus.up.railway.app</span>. Código aberto no GitHub.</p>
       </div>
     </div>
   </div>
 
+  <!-- CARACTERÍSTICAS (CORE DA AULA) -->
+  <div class="slide slide-content">
+    <h2>O sistema em 5 características</h2>
+    <div class="cards cards-2" style="margin-top:.4rem">
+      <div class="card">
+        <h3><span class="badge">1</span>Pesquisadores em grupos</h3>
+        <p>Cada pesquisador tem <strong>nome</strong>, <strong>e-mail</strong> e um <strong>status</strong> (graduação, mestrado, doutorado, pós-doc). Pertence a um <strong>grupo de pesquisa</strong> e tem um <strong>professor orientador</strong>.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">2</span>Relacionamentos (o grafo)</h3>
+        <p>Um pesquisador pode estar ligado a <strong>outros pesquisadores</strong>, com um <strong>tipo</strong> de relação (co-orientação, colaboração, ex-aluno…). É o que vira aresta no grafo.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">3</span>Anotações de reunião</h3>
+        <p>O perfil de cada pesquisador tem <strong>notas</strong> (texto livre + arquivo opcional). Toda nota tem <strong>autor</strong> e <strong>data</strong> — e pertence a <strong>um</strong> pesquisador.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">4</span>Lembretes com prazo</h3>
+        <p>O grupo cria <strong>lembretes</strong> com texto, <strong>data de vencimento</strong> e marcador de <strong>concluído / pendente</strong>. Cada lembrete tem um criador.</p>
+      </div>
+    </div>
+    <div class="cards" style="margin-top:1rem">
+      <div class="card">
+        <h3><span class="badge">5</span>Deadlines de conferências</h3>
+        <p>Eventos externos com <strong>nome</strong>, <strong>URL</strong> e <strong>data limite</strong>. Cada usuário pode <strong>marcar interesse</strong> em uma deadline (e cada usuário marca interesse em um mesmo evento no máximo uma vez).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROTEIRO -->
+  <div class="slide slide-content">
+    <h2>Roteiro do laboratório</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>① Modelar</h3>
+        <p>Identificar entidades, atributos e relacionamentos. Definir chaves e cardinalidades.</p>
+        <p class="note">~15 min, em dupla</p>
+      </div>
+      <div class="card">
+        <h3>② DDL</h3>
+        <p>Escrever <strong>CREATE TABLE</strong> para cada entidade, com PKs, FKs e constraints.</p>
+        <p class="note">~25 min, DB Fiddle</p>
+      </div>
+      <div class="card">
+        <h3>③ DML</h3>
+        <p>Popular o banco com <strong>dados consistentes</strong> usando INSERTs em ordem correta.</p>
+        <p class="note">~25 min</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:1.5rem">No final, cada dupla mostra o banco populado e justifica <em>uma</em> decisão de modelagem.</p>
+  </div>
+
+  <!-- ETAPA 1: DICAS DE MODELAGEM -->
+  <div class="slide slide-content">
+    <h2>Etapa ① — Perguntas que ajudam a modelar</h2>
+    <ul>
+      <li>Quem é <strong>entidade</strong> e quem é <strong>atributo</strong>? (Ex.: status é atributo; pesquisador é entidade)</li>
+      <li>Qual a <strong>cardinalidade</strong>? Um grupo tem N pesquisadores; um pesquisador tem <em>um</em> orientador</li>
+      <li>O relacionamento é <strong>1:N</strong> (vira FK) ou <strong>N:N</strong> (vira tabela própria)?</li>
+      <li>"Cada usuário marca interesse no máximo uma vez" → restrição <strong>UNIQUE</strong> composta</li>
+      <li>Pesquisador ligado a pesquisador é um <strong>auto-relacionamento</strong> (duas FKs para a mesma tabela)</li>
+    </ul>
+  </div>
+
+  <!-- ETAPA 2: EXEMPLO DDL -->
+  <div class="slide slide-content">
+    <h2>Etapa ② — DDL: exemplo de ponto de partida</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> grupo_pesquisa (
+    id     <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome   <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>
+);
+
+<span class="kw">CREATE TABLE</span> professor (
+    id    <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome  <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>,
+    email <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">UNIQUE NOT NULL</span>
+);
+
+<span class="kw">CREATE TABLE</span> pesquisador (
+    id            <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome          <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>,
+    email         <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">UNIQUE</span>,
+    status        <span class="kw">VARCHAR</span>(<span class="str">20</span>) <span class="kw">NOT NULL</span>
+                  <span class="kw">CHECK</span> (status <span class="kw">IN</span> (<span class="str">'graduacao'</span>,<span class="str">'mestrado'</span>,<span class="str">'doutorado'</span>,<span class="str">'postdoc'</span>)),
+    grupo_id      <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> grupo_pesquisa(id),
+    orientador_id <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> professor(id)
+);</pre>
+    <p style="font-size:1.4rem;margin-top:.4rem">Faltam: <span class="highlight">relacionamento, nota, lembrete, deadline, interesse</span>.</p>
+  </div>
+
+  <!-- ETAPA 2: N:N E AUTO-REL -->
+  <div class="slide slide-content">
+    <h2>Etapa ② — Os casos "espinhosos"</h2>
+    <pre class="code-block"><span class="cm">-- Auto-relacionamento (pesquisador ↔ pesquisador)</span>
+<span class="kw">CREATE TABLE</span> relacionamento (
+    id          <span class="kw">SERIAL PRIMARY KEY</span>,
+    origem_id   <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> pesquisador(id),
+    destino_id  <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> pesquisador(id),
+    tipo        <span class="kw">VARCHAR</span>(<span class="str">50</span>) <span class="kw">NOT NULL</span>,
+    <span class="kw">CHECK</span> (origem_id &lt;&gt; destino_id)
+);
+
+<span class="cm">-- N:N com restrição de unicidade (interesse em deadline)</span>
+<span class="kw">CREATE TABLE</span> interesse_deadline (
+    deadline_id <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> deadline(id),
+    usuario_id  <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> usuario(id),
+    <span class="kw">PRIMARY KEY</span> (deadline_id, usuario_id)   <span class="cm">-- chave composta</span>
+);</pre>
+  </div>
+
+  <!-- ETAPA 3: DML -->
+  <div class="slide slide-content">
+    <h2>Etapa ③ — DML: a ordem importa</h2>
+    <div class="definition">
+      <p>Insira primeiro as tabelas <strong>sem FK</strong>, depois as que dependem delas. Caso contrário, o banco rejeita o INSERT.</p>
+    </div>
+    <pre class="code-block"><span class="kw">INSERT INTO</span> grupo_pesquisa (nome) <span class="kw">VALUES</span>
+    (<span class="str">'LABES'</span>), (<span class="str">'GenAI Lab'</span>);
+
+<span class="kw">INSERT INTO</span> professor (nome, email) <span class="kw">VALUES</span>
+    (<span class="str">'Gustavo Pinto'</span>, <span class="str">'gpinto@ufpa.br'</span>);
+
+<span class="kw">INSERT INTO</span> pesquisador (nome, email, status, grupo_id, orientador_id) <span class="kw">VALUES</span>
+    (<span class="str">'Ana Souza'</span>,    <span class="str">'ana@ufpa.br'</span>,    <span class="str">'doutorado'</span>,  <span class="str">1</span>, <span class="str">1</span>),
+    (<span class="str">'Bruno Lima'</span>,   <span class="str">'bruno@ufpa.br'</span>,  <span class="str">'mestrado'</span>,   <span class="str">1</span>, <span class="str">1</span>),
+    (<span class="str">'Carla Mota'</span>,   <span class="str">'carla@ufpa.br'</span>,  <span class="str">'graduacao'</span>,  <span class="str">2</span>, <span class="str">1</span>);
+
+<span class="kw">INSERT INTO</span> relacionamento (origem_id, destino_id, tipo) <span class="kw">VALUES</span>
+    (<span class="str">1</span>, <span class="str">2</span>, <span class="str">'co-orientacao'</span>),
+    (<span class="str">2</span>, <span class="str">3</span>, <span class="str">'colaboracao'</span>);</pre>
+  </div>
+
+  <!-- ETAPA 4: VALIDAÇÃO -->
+  <div class="slide slide-content">
+    <h2>Etapa ④ — Como saber se está certo?</h2>
+    <ul>
+      <li>Tente inserir um pesquisador com <strong>status inválido</strong> → o CHECK precisa barrar</li>
+      <li>Tente um <strong>relacionamento de A para A</strong> → deve ser rejeitado</li>
+      <li>Tente <strong>marcar interesse duas vezes</strong> no mesmo evento → a PK composta barra</li>
+      <li>Tente <strong>deletar um grupo</strong> com pesquisadores → a FK barra (ou faz SET NULL, conforme você definiu)</li>
+      <li>O banco está <strong>contando a história certa</strong>? Se faltar alguma das 5 características, falta tabela ou coluna.</li>
+    </ul>
+  </div>
+
+  <!-- ARMADILHAS -->
+  <div class="slide slide-content">
+    <h2>Armadilhas comuns</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Modelar como uma planilha</h3>
+        <p>Repetir nome do grupo em toda linha de pesquisador é <strong>desnormalizado</strong>. Use FK para o id do grupo.</p>
+      </div>
+      <div class="card">
+        <h3>Esquecer a ordem dos INSERTs</h3>
+        <p>Inserir pesquisador antes de criar o grupo quebra a FK. Pense no <strong>grafo de dependências</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Usar texto onde cabe FK</h3>
+        <p>Guardar <em>nome</em> do orientador no pesquisador, em vez de <em>id</em>, leva a inconsistência.</p>
+      </div>
+      <div class="card">
+        <h3>Confundir 1:N com N:N</h3>
+        <p>Pesquisador↔pesquisador é N:N → tabela própria. Pesquisador→orientador é N:1 → FK direta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div class="slide slide-content">
+    <h2>Resumo da aula</h2>
+    <ul>
+      <li>Modelagem nasce de um <strong>enunciado em linguagem natural</strong> — não cai pronta</li>
+      <li>DDL define a estrutura; DML coloca os dados; <strong>constraints</strong> impedem dados inconsistentes</li>
+      <li>A <strong>ordem dos INSERTs</strong> reflete o grafo de dependências entre tabelas</li>
+      <li>Um banco "bom" é aquele que <strong>rejeita</strong> dados que não fazem sentido no domínio</li>
+    </ul>
+  </div>
+
+  <!-- PRÓXIMA AULA -->
   <div class="slide slide-cover">
-    <span class="tag">Próxima Aula — 19/05 (Ter)</span>
+    <span class="tag">Próxima Aula — 21/05 (Qui)</span>
     <h1>SELECT<br><span class="accent">WHERE, ORDER BY &amp; LIMIT</span></h1>
     <ul style="text-align:left;margin-top:2rem">
-      <li style="font-size:1.9rem;color:#f1f5f9">Consultando dados com SELECT</li>
-      <li style="font-size:1.9rem;color:#f1f5f9">Filtros, ordenação e paginação</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Finalmente: <em>consultar</em> o banco que você criou hoje</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Filtros, ordenação e funções escalares</li>
     </ul>
   </div>
 
