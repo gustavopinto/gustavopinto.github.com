@@ -170,3 +170,176 @@
   });
 
   updateSlide();
+
+  // Journey map animation
+  (function() {
+    const canvas = document.getElementById('journey-map');
+    if (!canvas) return;
+
+    canvas.width = 800;
+    canvas.height = 500;
+
+    const ctx = canvas.getContext('2d');
+    const W = 800, H = 500;
+
+    // Projection: Americas + Atlantic view
+    const lonMin = -145, lonMax = 25;
+    const latMax = 80, latMin = -60;
+
+    function project(lon, lat) {
+      return [
+        (lon - lonMin) / (lonMax - lonMin) * W,
+        (latMax - lat) / (latMax - latMin) * H
+      ];
+    }
+
+    const cities = [
+      { name: 'Belém, BR',    lat: -1.46, lon: -48.50 },
+      { name: 'Bogotá, CO',   lat:  4.71, lon: -74.07 },
+      { name: 'Montréal, CA', lat: 45.50, lon: -73.57 }
+    ];
+
+    const pts = cities.map(c => project(c.lon, c.lat));
+
+    // Quadratic bezier control points for each leg
+    const ctrls = [
+      [(pts[0][0] + pts[1][0]) / 2 - 10, (pts[0][1] + pts[1][1]) / 2 - 55],
+      [(pts[1][0] + pts[2][0]) / 2 - 45, (pts[1][1] + pts[2][1]) / 2 - 55]
+    ];
+
+    // Label text offsets [dx, dy]
+    const labelOffsets = [[9, -11], [-78, -11], [9, -11]];
+
+    let geoData = null;
+
+    fetch('https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/DATA/world.geojson')
+      .then(r => r.json())
+      .then(data => { geoData = data; })
+      .catch(() => {});
+
+    function drawLand() {
+      if (!geoData) return;
+      ctx.fillStyle = '#3d1522';
+      ctx.strokeStyle = '#5c2535';
+      ctx.lineWidth = 0.5;
+
+      const drawRings = (rings) => {
+        ctx.beginPath();
+        rings[0].forEach(([lon, lat], i) => {
+          const [x, y] = project(lon, lat);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      };
+
+      geoData.features.forEach(f => {
+        if (!f.geometry) return;
+        const { type, coordinates } = f.geometry;
+        if (type === 'Polygon') drawRings(coordinates);
+        else if (type === 'MultiPolygon') coordinates.forEach(drawRings);
+      });
+    }
+
+    function drawPaths() {
+      ctx.save();
+      ctx.setLineDash([5, 6]);
+      ctx.strokeStyle = 'rgba(204,121,88,0.3)';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < 2; i++) {
+        ctx.beginPath();
+        ctx.moveTo(pts[i][0], pts[i][1]);
+        ctx.quadraticCurveTo(ctrls[i][0], ctrls[i][1], pts[i+1][0], pts[i+1][1]);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawCities() {
+      pts.forEach(([x, y], i) => {
+        // Glow
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, 16);
+        grd.addColorStop(0, 'rgba(204,121,88,0.5)');
+        grd.addColorStop(1, 'rgba(204,121,88,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(x, y, 16, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Dot
+        ctx.fillStyle = '#CC7958';
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Label
+        const [dx, dy] = labelOffsets[i];
+        ctx.font = '600 12px Inter, sans-serif';
+        const lw = ctx.measureText(cities[i].name).width;
+        ctx.fillStyle = 'rgba(22,6,16,0.75)';
+        ctx.fillRect(x + dx - 3, y + dy - 13, lw + 6, 17);
+        ctx.fillStyle = '#DED4D4';
+        ctx.fillText(cities[i].name, x + dx, y + dy);
+      });
+    }
+
+    function qbPoint(p0, cp, p1, t) {
+      const m = 1 - t;
+      return [m*m*p0[0] + 2*m*t*cp[0] + t*t*p1[0], m*m*p0[1] + 2*m*t*cp[1] + t*t*p1[1]];
+    }
+
+    function qbAngle(p0, cp, p1, t) {
+      const m = 1 - t;
+      return Math.atan2(2*m*(cp[1]-p0[1]) + 2*t*(p1[1]-cp[1]), 2*m*(cp[0]-p0[0]) + 2*t*(p1[0]-cp[0]));
+    }
+
+    function ease(t) { return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2; }
+
+    const legDuration = 3500, pauseDuration = 2000;
+    const totalCycle = legDuration * 2 + pauseDuration;
+    let startTime = null;
+
+    function frame(ts) {
+      const slide = canvas.closest('.slide');
+      if (!slide || !slide.classList.contains('active')) {
+        startTime = null;
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      if (!startTime) startTime = ts;
+      const elapsed = (ts - startTime) % totalCycle;
+
+      ctx.fillStyle = '#160610';
+      ctx.fillRect(0, 0, W, H);
+
+      drawLand();
+      drawPaths();
+      drawCities();
+
+      let leg, t;
+      if (elapsed < legDuration) {
+        leg = 0; t = ease(elapsed / legDuration);
+      } else if (elapsed < legDuration * 2) {
+        leg = 1; t = ease((elapsed - legDuration) / legDuration);
+      } else {
+        leg = 1; t = 1;
+      }
+
+      const et = Math.min(t, 0.999);
+      const [px, py] = qbPoint(pts[leg], ctrls[leg], pts[leg+1], et);
+      const angle = qbAngle(pts[leg], ctrls[leg], pts[leg+1], et);
+
+      ctx.save();
+      ctx.translate(px, py);
+      ctx.rotate(angle);
+      ctx.font = '20px serif';
+      ctx.fillText('✈', -10, 7);
+      ctx.restore();
+
+      requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+  })();
