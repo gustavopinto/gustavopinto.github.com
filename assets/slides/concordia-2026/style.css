@@ -673,6 +673,24 @@ body {
   border-radius: 50%;
 }
 
+/* --- Closing slide link --- */
+.closing-link {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.closing-link a {
+  font-size: 18px;
+  color: var(--copper);
+  text-decoration: none;
+  opacity: 0.75;
+  letter-spacing: 0.3px;
+}
+
+.closing-link a:hover {
+  opacity: 1;
+}
+
 /* --- Site footer (bottom-left on all slides) --- */
 .site-footer {
   position: fixed;
