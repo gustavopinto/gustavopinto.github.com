@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisão Geral — MER, Modelo Relacional, Normalização</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:1.9rem;line-height:1.5;padding:.5rem 0 .5rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary);line-height:1.5; }
+    .card.ok h3 { color:var(--success); }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .warning { background:rgba(146,64,14,.07);border-left:5px solid var(--highlight);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 2rem;margin:.5rem 0; }
+    .warning p { font-size:1.6rem;color:var(--text); }
+    .tbl { width:100%;border-collapse:collapse;font-size:1.05rem;margin:.6rem 0; }
+    .tbl th { background:var(--accent);color:#fff;padding:.5rem .8rem;text-align:left;font-size:1rem; }
+    .tbl td { padding:.4rem .8rem;border:1px solid rgba(0,0,0,.12); }
+    .tbl tr:nth-child(even) td { background:#f1f5f9; }
+    .tbl .dup { background:#fef3c7 !important;color:#92400e;font-weight:600; }
+    .tbl .pk-col { text-decoration:underline;font-weight:700; }
+    .diagram { background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:var(--radius);padding:1.1rem 1.6rem;font-family:'SF Mono','Fira Code',monospace;font-size:1.05rem;line-height:1.9;width:100%;margin:.5rem 0; }
+    .diagram .ent { color:var(--accent);font-weight:700; }
+    .diagram .rel { color:var(--highlight);font-weight:700; }
+    .diagram .pk { text-decoration:underline; }
+    .diagram .fk { color:var(--highlight); }
+    .code { background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:1.1rem 1.6rem;font-family:'SF Mono','Fira Code',monospace;font-size:1.05rem;line-height:1.8;width:100%;margin:.5rem 0; }
+    .code .kw { color:#7dd3fc; } .code .type { color:#86efac; } .code .cm { color:#64748b; } .code .str { color:#fde68a; }
+    .step { opacity:0;transition:opacity .3s; }
+    .step.visible { opacity:1; }
+    #step-dots { position:fixed;bottom:3.5rem;left:50%;transform:translateX(-50%);display:none;gap:.6rem;z-index:200; }
+    #step-dots.visible { display:flex; }
+    .dot { width:.7rem;height:.7rem;border-radius:50%;background:rgba(0,0,0,.2); }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- CAPA -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2 · Aula de Revisão</span>
+    <h1>Revisão Geral<br><span class="accent">MER · Modelo Relacional · Normalização</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>23/04/2026 (Quinta)</strong></span>
+    </div>
+  </div>
+
+  <!-- CORRECAO MER: critérios -->
+  <div class="slide slide-content">
+    <span class="tag">Correção — Atividade MER</span>
+    <h2>O que era esperado</h2>
+    <div class="cards cards-2">
+      <div class="card ok">
+        <h3>✔ Mínimo 5 entidades</h3>
+        <p>Cada entidade com seus atributos e chave primária claramente identificados.</p>
+      </div>
+      <div class="card ok">
+        <h3>✔ Entidade fraca ou generalização</h3>
+        <p>Ao menos uma das duas. Entidade fraca: retângulo duplo, relacionamento de identificação.</p>
+      </div>
+      <div class="card ok">
+        <h3>✔ Cardinalidades definidas</h3>
+        <p>1:1, 1:N ou N:M em todos os relacionamentos, com participação (total/parcial).</p>
+      </div>
+      <div class="card ok">
+        <h3>✔ Atributos nos relacionamentos</h3>
+        <p>Quando o relacionamento tem propriedades próprias (ex: quantidade em "contém").</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORRECAO MER: erros comuns -->
+  <div class="slide slide-content">
+    <span class="tag">Correção — Atividade MER</span>
+    <h2>Erros mais comuns</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Atributo virou entidade</h3>
+        <p>Ex: "Endereço" como entidade com um único atributo. Se não tem relacionamentos próprios, é atributo.</p>
+      </div>
+      <div class="card">
+        <h3>Cardinalidade invertida</h3>
+        <p>Um cliente faz <strong>muitos</strong> pedidos (1:N do cliente para pedido) — não N:1 nem N:M.</p>
+      </div>
+      <div class="card">
+        <h3>Chave primária ausente ou ambígua</h3>
+        <p>Todo atributo (ou conjunto) que identifica unicamente uma entidade deve ser sublinhado.</p>
+      </div>
+      <div class="card">
+        <h3>Entidade fraca sem identificação</h3>
+        <p>Entidade fraca precisa do losango duplo (relacionamento identificador) ligando-a à entidade forte.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORRECAO MAPEAMENTO: gabarito delivery -->
+  <div class="slide slide-content">
+    <span class="tag">Correção — Mapeamento MER → Relacional</span>
+    <h2>Gabarito — Sistema Delivery</h2>
+    <div class="diagram">
+      <span class="ent">USUARIO</span>(<span class="pk"><u>id</u></span>, nome, email, telefone, dt_cadastro)<br>
+      <span class="ent">CLIENTE</span>(<span class="pk"><u>id</u></span>, cpf, endereco_entrega) &nbsp;<span class="fk">FK: id → USUARIO(id)</span><br>
+      <span class="ent">ENTREGADOR</span>(<span class="pk"><u>id</u></span>, cnh, tipo_veiculo, placa) &nbsp;<span class="fk">FK: id → USUARIO(id)</span><br>
+      <span class="ent">RESTAURANTE</span>(<span class="pk"><u>id</u></span>, nome, endereco, categoria, nota_media)<br>
+      <span class="ent">ITEM_CARDAPIO</span>(<span class="pk"><u>numero, id_restaurante</u></span>, nome, descricao, preco)<br>
+      &nbsp;&nbsp;<span class="fk">FK: id_restaurante → RESTAURANTE(id)</span><br>
+      <span class="ent">PEDIDO</span>(<span class="pk"><u>id</u></span>, dt_hora, status, valor_total, taxa_entrega, forma_pagamento, id_cliente, id_restaurante, id_entregador)<br>
+      <span class="ent">PEDIDO_ITEM</span>(<span class="pk"><u>id_pedido, numero_item, id_restaurante</u></span>, quantidade, observacao)<br>
+      &nbsp;&nbsp;<span class="fk">FK: id_pedido → PEDIDO &nbsp;·&nbsp; (numero_item, id_restaurante) → ITEM_CARDAPIO</span>
+    </div>
+  </div>
+
+  <!-- DDL/DML: transição -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2 · Prévia</span>
+    <h1>Do esquema ao código<br><span class="accent">DDL &amp; DML</span></h1>
+    <div class="cover-meta">
+      <span><strong>DDL</strong> — define a estrutura</span>
+      <span><strong>DML</strong> — manipula os dados</span>
+    </div>
+  </div>
+
+  <!-- DDL/DML: o que é -->
+  <div class="slide slide-content">
+    <span class="tag">SQL — Sublinguagens</span>
+    <h2>O que são DDL e DML?</h2>
+    <div class="cards cards-2" style="margin-bottom:1.2rem">
+      <div class="card">
+        <h3>DDL — Data Definition Language</h3>
+        <p>Define a <strong>estrutura</strong> do banco. Cria, altera e remove tabelas. Não toca nos dados.</p>
+        <p style="margin-top:.6rem;font-size:1.1rem"><code>CREATE TABLE &nbsp; ALTER TABLE &nbsp; DROP TABLE</code></p>
+      </div>
+      <div class="card">
+        <h3>DML — Data Manipulation Language</h3>
+        <p>Manipula os <strong>dados</strong> dentro das tabelas já criadas. Insere, atualiza, remove e consulta.</p>
+        <p style="margin-top:.6rem;font-size:1.1rem"><code>INSERT &nbsp; UPDATE &nbsp; DELETE &nbsp; SELECT</code></p>
+      </div>
+    </div>
+    <div class="definition">
+      <p>Primeiro vem o DDL — sem a estrutura, não há onde guardar os dados. Depois o DML popula o banco.</p>
+    </div>
+  </div>
+
+  <!-- DDL/DML: um exemplo -->
+  <div class="slide slide-content">
+    <span class="tag">DDL — iFood · Parte 1</span>
+    <h2>CREATE TABLE — Um exemplo</h2>
+    <p style="font-size:1.4rem;margin-bottom:.8rem">Cada tabela do esquema relacional vira um <code>CREATE TABLE</code>. Começando pela mais simples:</p>
+    <div class="code">
+      <span class="kw">CREATE TABLE</span> cliente (<br>
+      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11)  PRIMARY KEY</span>, <span class="cm">-- chave primária</span><br>
+      &nbsp;&nbsp;cli_nome &nbsp;&nbsp;<span class="type">VARCHAR(100) NOT NULL</span>,&nbsp;&nbsp; <span class="cm">-- obrigatório</span><br>
+      &nbsp;&nbsp;cli_cidade <span class="type">VARCHAR(80)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">-- opcional (pode ser NULL)</span><br>
+      );
+    </div>
+    <div class="cards cards-3" style="margin-top:1.2rem">
+      <div class="card">
+        <h3>Tipo de dado</h3>
+        <p>Define o que a coluna aceita: <code>VARCHAR</code>, <code>INT</code>, <code>DATE</code>, <code>NUMERIC</code>…</p>
+      </div>
+      <div class="card">
+        <h3>PRIMARY KEY</h3>
+        <p>Identifica unicamente cada linha. Não pode ser NULL nem repetido.</p>
+      </div>
+      <div class="card">
+        <h3>NOT NULL</h3>
+        <p>Torna o campo obrigatório. Sem isso, a coluna aceita ausência de valor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DDL/DML: três tabelas -->
+  <div class="slide slide-content">
+    <span class="tag">DDL — iFood · Parte 2</span>
+    <h2>CREATE TABLE — As demais tabelas</h2>
+    <p style="font-size:1.35rem;margin-bottom:.7rem">Tabelas que referenciam outras precisam ser criadas <em>depois</em> das referenciadas:</p>
+    <div class="code">
+      <span class="kw">CREATE TABLE</span> restaurante (<br>
+      &nbsp;&nbsp;rest_id &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">SERIAL       PRIMARY KEY</span>, <span class="cm">-- gerado automaticamente</span><br>
+      &nbsp;&nbsp;rest_nome &nbsp;&nbsp;<span class="type">VARCHAR(100) NOT NULL</span>,<br>
+      &nbsp;&nbsp;rest_bairro <span class="type">VARCHAR(80)</span><br>
+      );<br><br>
+      <span class="kw">CREATE TABLE</span> pedido (<br>
+      &nbsp;&nbsp;num_pedido &nbsp;<span class="type">SERIAL      PRIMARY KEY</span>,<br>
+      &nbsp;&nbsp;data_pedido <span class="type">DATE        NOT NULL</span>,<br>
+      &nbsp;&nbsp;cli_cpf &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">VARCHAR(11) REFERENCES</span> cliente(cli_cpf), <span class="cm">-- FK</span><br>
+      &nbsp;&nbsp;rest_id &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">INT         REFERENCES</span> restaurante(rest_id) <span class="cm">-- FK</span><br>
+      );<br><br>
+      <span class="kw">CREATE TABLE</span> pedido_item (<br>
+      &nbsp;&nbsp;num_pedido <span class="type">INT REFERENCES</span> pedido(num_pedido),<br>
+      &nbsp;&nbsp;cod_item &nbsp;&nbsp;<span class="type">INT REFERENCES</span> item(cod_item),<br>
+      &nbsp;&nbsp;qtd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">INT NOT NULL</span>,<br>
+      &nbsp;&nbsp;<span class="kw">PRIMARY KEY</span> (num_pedido, cod_item) <span class="cm">-- PK composta</span><br>
+      );
+    </div>
+  </div>
+
+  <!-- DDL/DML: INSERT -->
+  <div class="slide slide-content">
+    <span class="tag">DML — iFood · INSERT</span>
+    <h2>INSERT INTO — Populando o banco</h2>
+    <p style="font-size:1.4rem;margin-bottom:.8rem">Seguimos a mesma ordem: primeiro os dados das tabelas sem FK, depois os que dependem delas:</p>
+    <div class="code">
+      <span class="cm">-- Clientes e restaurante</span><br>
+      <span class="kw">INSERT INTO</span> cliente <span class="kw">VALUES</span> (<span class="str">'111'</span>, <span class="str">'Ana'</span>, <span class="str">'Belém'</span>);<br>
+      <span class="kw">INSERT INTO</span> cliente <span class="kw">VALUES</span> (<span class="str">'222'</span>, <span class="str">'Bia'</span>, <span class="str">'Ananindeua'</span>);<br>
+      <span class="kw">INSERT INTO</span> restaurante (rest_nome, rest_bairro) <span class="kw">VALUES</span> (<span class="str">'Saboroso'</span>, <span class="str">'Umarizal'</span>);<br><br>
+      <span class="cm">-- Itens do cardápio</span><br>
+      <span class="kw">INSERT INTO</span> item (item_nome, item_preco) <span class="kw">VALUES</span> (<span class="str">'X-Burguer'</span>, <span class="type">25.00</span>);<br>
+      <span class="kw">INSERT INTO</span> item (item_nome, item_preco) <span class="kw">VALUES</span> (<span class="str">'Fritas'</span>, <span class="type">10.00</span>);<br><br>
+      <span class="cm">-- Pedido P01 da Ana no Saboroso</span><br>
+      <span class="kw">INSERT INTO</span> pedido <span class="kw">VALUES</span> (<span class="kw">DEFAULT</span>, <span class="str">'2026-04-10'</span>, <span class="str">'111'</span>, <span class="type">1</span>);<br>
+      <span class="kw">INSERT INTO</span> pedido_item <span class="kw">VALUES</span> (<span class="type">1</span>, <span class="type">1</span>, <span class="type">1</span>); <span class="cm">-- 1 X-Burguer</span><br>
+      <span class="kw">INSERT INTO</span> pedido_item <span class="kw">VALUES</span> (<span class="type">1</span>, <span class="type">2</span>, <span class="type">2</span>); <span class="cm">-- 2 Fritas</span>
+    </div>
+  </div>
+
+  <!-- ATIVIDADE DB FIDDLE -->
+  <div class="slide slide-content">
+    <span class="tag">Atividade em Sala</span>
+    <h2>Pratique agora — DB Fiddle</h2>
+    <div class="definition">
+      <p>Acesse <strong>db-fiddle.com</strong> no navegador. Selecione <strong>PostgreSQL</strong> no menu superior e execute os comandos que vimos.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:1.2rem">
+      <div class="card ok">
+        <h3>① Cole o DDL</h3>
+        <p>No painel esquerdo, cole os <code>CREATE TABLE</code> do iFood — <strong>cliente</strong>, <strong>restaurante</strong>, <strong>pedido</strong> e <strong>pedido_item</strong>.</p>
+      </div>
+      <div class="card ok">
+        <h3>② Cole o DML</h3>
+        <p>No painel direito, cole os <code>INSERT INTO</code> com os dados da Ana e da Bia. Clique em <strong>Run</strong>.</p>
+      </div>
+    </div>
+    <p style="font-size:1.5rem;margin-top:1.2rem">Deu erro? Leia a mensagem — ela quase sempre aponta a linha exata do problema. Erros de FK são os mais comuns: tente inserir fora de ordem.</p>
+  </div>
+
+  <!-- PROXIMOS PASSOS -->
+  <div class="slide slide-content">
+    <h2>Próximos Passos</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Semana de 28–30/04</h3>
+        <p><strong>Sem aula presencial.</strong> Atividade assíncrona de normalização — entrega até <span class="highlight">05/05</span>. Use o exemplo do iFood como referência.</p>
+      </div>
+      <div class="card" style="border-color:#dc2626;background:#fff5f5">
+        <h3 style="color:#dc2626">05/05 — Avaliação 1 (P1)</h3>
+        <p>Prova presencial cobrindo <strong>MER, Modelo Relacional e Normalização</strong>. Revise os slides e os exercícios assíncronos.</p>
+      </div>
+    </div>
+    <div class="definition" style="margin-top:1.2rem">
+      <p>Dica de estudo: releia Heuser caps. 2–5 e tente normalizar uma tabela do zero, como fizemos hoje com o iFood.</p>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Bom recesso!<br><span class="accent">Até 05/05</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Entregar atividade assíncrona de normalização até <strong>05/05</strong></li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Próxima aula: <strong>Avaliação 1 (P1)</strong> — 05/05</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Dúvidas? Telegram da turma</li>
+    </ul>
+    <p style="font-size:1.6rem;color:#94a3b8;margin-top:2.5rem">📖 Heuser, caps. 2–5 · Pratique normalizações antes da prova</p>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>

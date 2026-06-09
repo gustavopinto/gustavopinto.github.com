@@ -1,0 +1,24 @@
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260608-70221-ukv3my sitelibdir\=./.gem.20260608-70221-ukv3my clean
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260608-70221-ukv3my sitelibdir\=./.gem.20260608-70221-ukv3my
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+ruby_http_parser.c:373:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'long' [-Wsign-compare]
+  373 |     if (nparsed < len)
+      |         ~~~~~~~ ^ ~~~
+1 warning generated.
+linking shared-object ruby_http_parser.bundle
+ld: warning: -multiply_defined is obsolete
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260608-70221-ukv3my sitelibdir\=./.gem.20260608-70221-ukv3my install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20260608-70221-ukv3my
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/4.0.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260608-70221-ukv3my sitelibdir\=./.gem.20260608-70221-ukv3my clean

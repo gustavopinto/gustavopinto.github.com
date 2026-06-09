@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 9 — Tecnologia e processos: por que tecnologia não transforma sozinha</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --danger:    #991b1b;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide a  { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(3,105,161,0.3); text-underline-offset: 3px; }
+    .slide a:hover { text-decoration-color: var(--accent); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+    .danger    { color: var(--danger); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.3rem; color: var(--secondary); line-height: 1.5; }
+    .card a   { color: var(--accent); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 62rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    .quote {
+      background: #fff; border-left: 5px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; width: 100%;
+    }
+    .quote p { font-size: 1.6rem; color: var(--text); font-style: italic; line-height: 1.5; }
+    .quote .author { font-size: 1.15rem; color: var(--secondary); font-style: normal; margin-top: 0.6rem; }
+
+    .read-inline {
+      background: rgba(146,64,14,0.06); border-left: 4px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 0.9rem 1.4rem; margin-top: 1rem; width: 100%;
+    }
+    .read-inline p { font-size: 1.15rem; color: var(--text); }
+    .read-inline strong { color: var(--highlight); }
+
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    .badge {
+      display: inline-block; font-size: 1rem; font-weight: 700;
+      padding: 0.25rem 0.9rem; border-radius: 999px; margin-right: 0.5rem;
+    }
+    .badge-good { background: rgba(22,101,52,0.12);  color: var(--success); }
+    .badge-bad  { background: rgba(153,27,27,0.12);  color: var(--danger); }
+
+    .iceberg {
+      display: flex; flex-direction: column; align-items: center; width: 100%;
+      gap: 0.4rem; margin: 0.6rem 0 1rem;
+    }
+    .iceberg-tip {
+      background: #fff; border: 2px solid var(--accent); border-radius: var(--radius);
+      padding: 0.9rem 1.6rem; width: 38%;
+      text-align: center;
+    }
+    .iceberg-tip h3 { color: var(--accent); font-size: 1.5rem; margin: 0; }
+    .iceberg-tip p  { font-size: 1.1rem; color: var(--secondary); margin-top: 0.3rem; }
+    .water-line {
+      width: 100%; border-top: 2px dashed var(--secondary);
+      position: relative; margin: 0.4rem 0;
+    }
+    .water-line span {
+      position: absolute; right: 0; top: -1.4rem; font-size: 0.95rem;
+      color: var(--secondary); background: var(--slide-bg); padding: 0 0.5rem;
+    }
+    .iceberg-base {
+      background: rgba(146,64,14,0.08); border: 2px solid var(--highlight);
+      border-radius: var(--radius); padding: 1.1rem 1.6rem; width: 90%;
+    }
+    .iceberg-base h3 { color: var(--highlight); font-size: 1.5rem; margin-bottom: 0.4rem; text-align: center; }
+    .iceberg-base ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 1.5rem; }
+    .iceberg-base ul li {
+      font-size: 1.15rem; padding: 0.2rem 0 0.2rem 1.3rem; color: var(--text);
+    }
+    .iceberg-base ul li::before { color: var(--highlight); font-size: 1.3rem; }
+
+    .culture-row {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;
+      padding: 0.8rem 0; border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .culture-row:last-child { border-bottom: none; }
+    .culture-name {
+      font-size: 1.3rem; font-weight: 700;
+    }
+    .culture-name.path { color: var(--danger); }
+    .culture-name.bur  { color: var(--highlight); }
+    .culture-name.gen  { color: var(--success); }
+    .culture-desc { font-size: 1.15rem; color: var(--secondary); line-height: 1.45; }
+
+    .resist-row {
+      display: flex; align-items: flex-start; gap: 0.9rem;
+      padding: 0.6rem 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .resist-row:last-child { border-bottom: none; }
+    .resist-num {
+      flex-shrink: 0; width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      background: var(--accent); color: #fff; font-size: 1.2rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .resist-text { font-size: 1.25rem; color: var(--text); line-height: 1.45; }
+    .resist-text strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 9<br><span class="accent">Tecnologia &amp; Processos</span></h1>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:1rem">Por que tecnologia não transforma sozinha — e o papel da resistência cultural</p>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>19 de maio de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. ABERTURA ══ -->
+  <div class="slide slide-content">
+    <h2>Para abrir</h2>
+    <div class="question">
+      <p>Sua empresa compra um ERP novo, caríssimo. Seis meses depois, todo mundo continua mandando planilha por e-mail. Por quê?</p>
+    </div>
+    <p style="font-size:1.4rem; margin-top:0.4rem">Estudos consistentes mostram que entre <span class="accent"><strong>60% e 70% das iniciativas de transformação digital falham</strong></span> em entregar os benefícios prometidos. Não é por falta de tecnologia. É raramente por falta de orçamento.</p>
+    <div class="quote" style="margin-top:1rem">
+      <p>"If you automate a mess, you get an automated mess."</p>
+      <p class="author">— Michael Hammer, criador da Reengenharia de Processos</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O mito da tecnologia como solução</li>
+      <li>O iceberg da transformação: o que está acima e abaixo d'água</li>
+      <li>Resistência cultural: por que pessoas resistem (e nem sempre é irracional)</li>
+      <li>Tipologia de culturas organizacionais — Westrum</li>
+      <li>O que de fato faz a tecnologia "pegar"</li>
+      <li>Exercício prático</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. O MITO ══ -->
+  <div class="slide slide-content">
+    <h2>O mito da bala de prata tecnológica</h2>
+    <div class="definition">
+      <p>"Se comprarmos a ferramenta certa, o problema se resolve sozinho."</p>
+    </div>
+    <p style="font-size:1.4rem; margin-top:0.5rem">É a forma mais cara — e mais comum — de evitar uma conversa difícil sobre processo e pessoas.</p>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">Sintoma 1</h3>
+        <p>Comitê decide a ferramenta <em>antes</em> de mapear o processo. "Já que outras empresas usam X, a gente também usa."</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">Sintoma 2</h3>
+        <p>O sucesso é medido pela <em>entrega da ferramenta</em>, não por mudança no resultado do processo.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">Sintoma 3</h3>
+        <p>"Treinamento" vira sinônimo de "mostrar onde clica" — sem discutir <em>por que</em> o trabalho mudou.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 5. ICEBERG ══ -->
+  <div class="slide slide-content">
+    <h2>O iceberg da transformação</h2>
+    <div class="iceberg">
+      <div class="iceberg-tip">
+        <h3>Tecnologia</h3>
+        <p>Sistemas, ferramentas, infra — 10% do esforço, 90% do orçamento visível</p>
+      </div>
+      <div class="water-line"><span>linha d'água</span></div>
+      <div class="iceberg-base">
+        <h3>Onde a transformação realmente acontece</h3>
+        <ul>
+          <li>Processos redesenhados</li>
+          <li>Papéis e responsabilidades novos</li>
+          <li>Incentivos e métricas</li>
+          <li>Estrutura organizacional</li>
+          <li>Cultura e linguagem do dia a dia</li>
+          <li>Confiança entre áreas</li>
+          <li>Capacidade técnica das pessoas</li>
+          <li>Política e poder informal</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.15rem; color:var(--secondary); margin-top:0.4rem">A tecnologia é a ponta visível. O que sustenta — ou afunda — a transformação está embaixo.</p>
+  </div>
+
+  <!-- ══ 6. POR QUE PESSOAS RESISTEM ══ -->
+  <div class="slide slide-content">
+    <h2>Resistência: por que pessoas resistem</h2>
+    <p style="font-size:1.35rem; margin-bottom:0.6rem">Resistir a uma mudança quase nunca é irracional. Costuma ser <strong>perfeitamente racional</strong> — do ponto de vista de quem resiste.</p>
+    <div style="width:100%">
+      <div class="resist-row">
+        <div class="resist-num">1</div>
+        <p class="resist-text"><strong>Perda real de poder ou status.</strong> A nova ferramenta torna visível um trabalho que antes era "minha caixa-preta".</p>
+      </div>
+      <div class="resist-row">
+        <div class="resist-num">2</div>
+        <p class="resist-text"><strong>Medo de obsolescência.</strong> 20 anos investidos em dominar um sistema legado — e agora "todo mundo começa do zero".</p>
+      </div>
+      <div class="resist-row">
+        <div class="resist-num">3</div>
+        <p class="resist-text"><strong>Histórico de promessas vazias.</strong> "O último projeto também ia mudar tudo. Nada mudou. Por que confiar agora?"</p>
+      </div>
+      <div class="resist-row">
+        <div class="resist-num">4</div>
+        <p class="resist-text"><strong>Carga adicional sem reconhecimento.</strong> Continuar entregando o trabalho antigo <em>e</em> aprender o novo, sem alívio nem bônus.</p>
+      </div>
+      <div class="resist-row">
+        <div class="resist-num">5</div>
+        <p class="resist-text"><strong>Desconfiança da liderança.</strong> Quem anuncia a mudança não passou pela operação e não tem credibilidade técnica.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. WESTRUM ══ -->
+  <div class="slide slide-content">
+    <h2>Tipologia de culturas — Westrum (2004)</h2>
+    <p style="font-size:1.3rem; margin-bottom:0.4rem">Ron Westrum estudou indústrias de alto risco (aviação, saúde) e descreveu três posturas culturais diante da informação. <strong>Como a sua organização trata más notícias diz mais sobre ela do que qualquer missão impressa na parede.</strong></p>
+    <div style="width:100%; margin-top:0.5rem">
+      <div class="culture-row">
+        <div class="culture-name path">Patológica<br><span style="font-size:0.95rem; color:var(--secondary); font-weight:400">orientada a poder</span></div>
+        <p class="culture-desc">Quem traz problema é punido. Informação é guardada. Falhas são escondidas ou atribuídas a culpados. Inovação é desencorajada. <em>Tecnologia nova vira terreno político.</em></p>
+      </div>
+      <div class="culture-row">
+        <div class="culture-name bur">Burocrática<br><span style="font-size:0.95rem; color:var(--secondary); font-weight:400">orientada a regras</span></div>
+        <p class="culture-desc">Cada problema vira procedimento. Responsabilidade compartimentada. Falhas geram comissões e processos. <em>Tecnologia nova é implementada — mas ninguém usa fora da norma.</em></p>
+      </div>
+      <div class="culture-row">
+        <div class="culture-name gen">Generativa<br><span style="font-size:0.95rem; color:var(--secondary); font-weight:400">orientada a desempenho</span></div>
+        <p class="culture-desc">Informação flui ativamente. Mensageiros são treinados, não punidos. Falhas viram aprendizado. <em>Tecnologia nova é testada, adaptada e absorvida.</em></p>
+      </div>
+    </div>
+    <p style="font-size:1.1rem; color:var(--secondary); margin-top:0.6rem">A pesquisa <em>Accelerate</em> (Forsgren, Humble &amp; Kim, 2018) confirmou empiricamente: cultura generativa prevê desempenho de entrega de software melhor que qualquer ferramenta isolada.</p>
+  </div>
+
+  <!-- ══ 9. O QUE DE FATO FUNCIONA ══ -->
+  <div class="slide slide-content">
+    <h2>O que faz a tecnologia "pegar"</h2>
+    <div class="cards cards-2">
+      <div class="card" style="border-top: 4px solid var(--success)">
+        <h3 style="color:var(--success)">Funciona</h3>
+        <ul class="plain">
+          <li>Mapear o processo antes de escolher a ferramenta</li>
+          <li>Pilotar com um time pequeno</li>
+          <li>Medir resultado do processo, não adoção</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">Falha</h3>
+        <ul class="plain">
+          <li>Big-bang em toda a empresa de uma vez</li>
+          <li>Manter o sistema antigo rodando em paralelo</li>
+          <li>KPI = "% de funcionários cadastrados"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. EXERCÍCIO ══ -->
+  <div class="slide slide-content" style="padding: 2rem 5rem">
+    <span class="tag">Exercício em sala</span>
+    <h2>Diagnóstico: o SIG da UFPA</h2>
+    <p style="font-size:1.3rem; margin-bottom:0.7rem">Em trios. Discussão nos últimos 25 minutos da aula.</p>
+    <div class="definition" style="margin:0.4rem 0 1rem">
+      <p>A UFPA implanta um novo SIG para matrícula. Seis meses depois, alunos continuam coordenando vagas em grupos de WhatsApp e planilhas compartilhadas. O sistema é usado só para "oficializar" o que já foi combinado fora dele.</p>
+    </div>
+    <p style="font-size:1.25rem; margin-bottom:0.4rem"><strong>Explorem os seguintes tópicos:</strong></p>
+    <div class="cards cards-2" style="gap:1rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">Diagnóstico</h3>
+        <ul class="plain">
+          <li><strong>Stakeholders:</strong> quem ganha e quem perde com o SIG? (alunos, coordenadores, secretaria, DTI)</li>
+          <li><strong>Processo informal:</strong> por que WhatsApp e planilha resolvem melhor o problema real do aluno?</li>
+          <li><strong>Iceberg:</strong> 3 fatores abaixo da linha d'água que explicam a baixa adoção</li>
+          <li><strong>Cultura (Westrum):</strong> classifiquem e justifiquem com evidências do dia a dia</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Plano de 90 dias</h3>
+        <ul class="plain">
+          <li><strong>Processo:</strong> o que precisa ser redesenhado antes — e quem participa do redesenho?</li>
+          <li><strong>Incentivos:</strong> o que muda para que ignorar o SIG passe a custar algo a alguém?</li>
+          <li><strong>Métrica:</strong> qual KPI substitui "% de alunos cadastrados"?</li>
+          <li><strong>Conversa difícil:</strong> que verdade a liderança evita — e com quem precisa falar?</li>
+        </ul>
+        <p class="note">Restrição: o plano <em>não pode</em> comprar tecnologia nova.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 13. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 21/05 (Qui)</span>
+    <h1>Kickoff<br><span class="accent">Mini-Projeto</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Formação dos trios</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Entrega do roteiro do diagnóstico</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Escolha da organização a ser analisada</li>
+    </ul>
+    <p style="font-size:1.3rem; color:#94a3b8; margin-top:2rem">Tragam uma organização real em mente — onde alguém do trio trabalha, estagia ou tem acesso a quem pode responder perguntas.</p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      el.classList.toggle('visible', parseInt(el.dataset.step) <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

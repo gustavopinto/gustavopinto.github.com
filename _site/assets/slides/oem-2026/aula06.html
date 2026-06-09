@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 6 — OKRs: origem, estrutura e erros comuns</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --danger:    #991b1b;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide a  { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(3,105,161,0.3); text-underline-offset: 3px; }
+    .slide a:hover { text-decoration-color: var(--accent); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+    .danger    { color: var(--danger); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card a   { color: var(--accent); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    .quote {
+      background: #fff; border-left: 5px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; width: 100%;
+    }
+    .quote p { font-size: 1.6rem; color: var(--text); font-style: italic; line-height: 1.5; }
+    .quote .author { font-size: 1.15rem; color: var(--secondary); font-style: normal; margin-top: 0.6rem; }
+
+    .read-inline {
+      background: rgba(146,64,14,0.06); border-left: 4px solid var(--highlight);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 0.9rem 1.4rem; margin-top: 1rem; width: 100%;
+    }
+    .read-inline p { font-size: 1.15rem; color: var(--text); }
+    .read-inline strong { color: var(--highlight); }
+
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    .okr-block {
+      background: #fff; border: 1.5px solid rgba(0,0,0,0.12); border-radius: var(--radius);
+      padding: 1.4rem 1.8rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); width: 100%;
+    }
+    .okr-block .obj-label, .okr-block .kr-label {
+      display: inline-block; font-size: 0.9rem; font-weight: 700;
+      padding: 0.2rem 0.7rem; border-radius: 999px; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-right: 0.6rem;
+    }
+    .okr-block .obj-label { background: rgba(3,105,161,0.12); color: var(--accent); }
+    .okr-block .kr-label  { background: rgba(146,64,14,0.12); color: var(--highlight); }
+    .okr-block .objective { font-size: 1.45rem; color: var(--text); font-weight: 700; margin-bottom: 0.7rem; }
+    .okr-block .kr { font-size: 1.2rem; color: var(--text); padding: 0.35rem 0; }
+
+    .badge {
+      display: inline-block; font-size: 1rem; font-weight: 700;
+      padding: 0.25rem 0.9rem; border-radius: 999px; margin-right: 0.5rem;
+    }
+    .badge-good { background: rgba(22,101,52,0.12);  color: var(--success); }
+    .badge-bad  { background: rgba(153,27,27,0.12);  color: var(--danger); }
+    .badge-cat  {
+      display: inline-block; font-size: 0.9rem; font-weight: 700;
+      padding: 0.18rem 0.7rem; border-radius: 4px;
+      background: rgba(3,105,161,0.1); color: var(--accent);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .link-list { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .link-list a {
+      display: block; background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 0.75rem 1.1rem; text-decoration: none; color: var(--text);
+      font-size: 1.05rem; line-height: 1.4;
+      transition: all 0.15s;
+    }
+    .link-list a:hover { border-color: var(--accent); background: rgba(3,105,161,0.04); }
+    .link-list a strong { color: var(--accent); display: block; font-size: 1.15rem; margin-bottom: 0.15rem; }
+    .link-list a span   { color: var(--secondary); font-size: 0.95rem; }
+
+    .link-list-3 { grid-template-columns: 1fr 1fr 1fr; }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 6<br><span class="accent">OKRs</span></h1>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:1rem">Origem, estrutura e erros comuns</p>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>07 de maio de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. RECAP ══ -->
+  <div class="slide slide-content">
+    <h2>Relembrando</h2>
+    <ul>
+      <li>Organizações vivem por <span class="accent">processos</span> — primários, suporte e gestão</li>
+      <li>Mapeamos o fluxo: <span class="accent">input → atividades → output</span></li>
+      <li>Todo processo precisa ser <span class="highlight">medido</span> — tempo, custo, qualidade</li>
+    </ul>
+    <div class="question" style="margin-top:1.5rem">
+      <p>Mas medir o quê? E como saber se a empresa está indo na direção certa?</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Por que precisamos de OKRs?</li>
+      <li>Origem: Andy Grove na Intel → John Doerr no Google</li>
+      <li>Estrutura: Objetivo + Key Results</li>
+      <li>3 erros mais frequentes</li>
+      <li>Bibliografia comentada (livros, vídeos, blogs, podcasts)</li>
+      <li>Exercício prático</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. ORIGEM — INTEL ══ -->
+  <div class="slide slide-content">
+    <h2>1971 — Intel, Andy Grove</h2>
+    <p style="font-size:1.5rem; margin-bottom:0.8rem">Andy Grove (CEO da Intel) reformula o <em>Management by Objectives</em> (MBO) de Peter Drucker em algo mais simples e medível. Cria o que ele chamava de <span class="accent">iMBOs</span>.</p>
+    <div class="quote">
+      <p>"There are so many people working so hard and achieving so little."</p>
+      <p class="author">— Andy Grove, <em>High Output Management</em> (1983)</p>
+    </div>
+    <p style="font-size:1.3rem">Fórmula de Grove: <span class="accent"><strong>"I will __________ as measured by __________"</strong></span> — toda meta deveria ter um número associado.</p>
+  </div>
+
+  <!-- ══ 5. JOHN DOERR — GOOGLE ══ -->
+  <div class="slide slide-content">
+    <h2>1999 — Doerr leva ao Google</h2>
+    <p style="font-size:1.5rem; margin-bottom:0.8rem">John Doerr trabalhou na Intel sob Grove, virou investidor (Kleiner Perkins). Ao investir no Google em 1999, com ~40 funcionários, apresentou OKRs num slide deck para Larry Page e Sergey Brin.</p>
+    <div class="quote">
+      <p>"OKRs are not a silver bullet. They cannot substitute for sound judgement, strong leadership, or a creative workplace culture. But if those fundamentals are in place, OKRs can guide you to the mountaintop."</p>
+      <p class="author">— John Doerr, <em>Measure What Matters</em> (2018)</p>
+    </div>
+    <p style="font-size:1.3rem">O Google usa OKRs <strong>desde então</strong>, sem interrupção, e eles são <strong>públicos internamente</strong>: qualquer engenheiro vê os OKRs do CEO.</p>
+  </div>
+
+  <!-- ══ 6. ESTRUTURA — DEFINIÇÃO ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>A estrutura: Objetivo + Key Results</h2>
+    <div class="cards cards-2">
+      <div class="card" style="border-top: 4px solid var(--accent)">
+        <h3 style="color:var(--accent)">Objetivo (O)</h3>
+        <p>O <strong>quê</strong>: a direção, o destino.</p>
+        <p style="margin-top:0.5rem">Qualitativo, inspirador, memorável.</p>
+        <p style="margin-top:0.5rem">Responde: <em>"para onde vamos?"</em></p>
+        <p class="note">Pense em um título de filme, não num relatório.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--highlight)">
+        <h3 style="color:var(--highlight)">Key Results (KRs)</h3>
+        <p>O <strong>como saberemos</strong> que chegamos lá.</p>
+        <p style="margin-top:0.5rem">Quantitativos, mensuráveis, verificáveis.</p>
+        <p style="margin-top:0.5rem">Responde: <em>"como mediremos?"</em></p>
+        <p class="note">Geralmente 3 a 5 KRs por Objetivo.</p>
+      </div>
+    </div>
+    <div class="step" data-step="1" style="margin-top:1.2rem; width:100%">
+      <div class="definition">
+        <p>"Vou <strong>[Objetivo]</strong> — e saberei que consegui quando <strong>[KR1, KR2, KR3]</strong> forem verdade."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. ANATOMIA ══ -->
+  <div class="slide slide-content">
+    <h2>Anatomia de um OKR</h2>
+    <p style="font-size:1.4rem; margin-bottom:0.6rem">Exemplo (time de produto de um app de delivery):</p>
+    <div class="okr-block">
+      <p class="objective"><span class="obj-label">Objetivo</span> Tornar o pedido a experiência mais rápida do mercado brasileiro</p>
+      <p class="kr"><span class="kr-label">KR 1</span> Reduzir o tempo médio do checkout de 47s para 25s</p>
+      <p class="kr"><span class="kr-label">KR 2</span> Atingir NPS de 70 em pesquisas pós-pedido (atual: 52)</p>
+      <p class="kr"><span class="kr-label">KR 3</span> Aumentar a taxa de re-pedido em 30 dias de 38% para 50%</p>
+    </div>
+    <p style="font-size:1.2rem; margin-top:0.9rem; color:var(--secondary)">O é inspirador e qualitativo. Cada KR tem <strong>número, baseline e meta</strong>. Atividades como "lançar checkout one-click" são <em>iniciativas</em> — não são KRs.</p>
+  </div>
+
+  <!-- ══ 8. CASO REAL — GOOGLE ══ -->
+  <div class="slide slide-content">
+    <h2>Caso real: Google &amp; o Chrome</h2>
+    <p style="font-size:1.4rem; margin-bottom:0.7rem">Em 2008, Sundar Pichai (hoje CEO) era VP do Chrome. O OKR que ele assumiu publicamente:</p>
+    <div class="okr-block">
+      <p class="objective"><span class="obj-label">Objetivo</span> Construir o navegador de próxima geração para a web</p>
+      <p class="kr"><span class="kr-label">KR</span> Atingir 20 milhões de usuários ativos semanais em 7 dias até o fim do ano</p>
+    </div>
+    <p style="font-size:1.25rem; margin-top:0.7rem">Pichai <strong>não bateu</strong> o KR no primeiro ano (10M). Repetiu em 2009 com meta de 50M (ficou em 37M). Em 2010 estabeleceu 100M — e bateu com 111M. Hoje o Chrome tem &gt; 3 bilhões de usuários.</p>
+    <p style="font-size:1.2rem; margin-top:0.4rem; color:var(--secondary)">Lição: KRs ambiciosos são para mover a empresa, não para serem 100% atingidos.</p>
+  </div>
+
+  <!-- ══ 9. ERROS COMUNS — INTRO ══ -->
+  <div class="slide slide-content">
+    <h2>Os 3 erros mais frequentes</h2>
+    <p style="font-size:1.6rem; margin-bottom:1rem">Se alguém disser <em>"OKR não funcionou aqui"</em>, é quase certo que se trata de um destes três:</p>
+    <ul class="plain">
+      <li><strong>1.</strong> Confundir KR com tarefa</li>
+      <li><strong>2.</strong> Vincular OKR a bônus / avaliação</li>
+      <li><strong>3.</strong> <em>Sandbagging</em> — meta fácil para garantir 100%</li>
+    </ul>
+  </div>
+
+  <!-- ══ 10. ERRO 1 — TAREFA VS RESULTADO ══ -->
+  <div class="slide slide-content">
+    <h2>Erro #1: KR como tarefa</h2>
+    <p style="font-size:1.4rem; margin-bottom:0.7rem">O KR descreve um <strong>resultado mensurável</strong>, não uma entrega.</p>
+    <div class="cards cards-2">
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)"><span class="badge badge-bad">Errado</span> KR como tarefa</h3>
+        <p>"Lançar o novo app mobile no iOS"</p>
+        <p>"Contratar 3 engenheiros"</p>
+        <p>"Migrar para AWS"</p>
+        <p class="note">Você pode entregar tudo isso e ainda não mover o ponteiro do negócio.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--success)">
+        <h3 style="color:var(--success)"><span class="badge badge-good">Certo</span> KR como resultado</h3>
+        <p>"Atingir 50k downloads orgânicos no iOS"</p>
+        <p>"Reduzir o lead time de 14 para 7 dias"</p>
+        <p>"Reduzir custo de infra/usuário em 30%"</p>
+        <p class="note">Tarefas viram <em>iniciativas</em> que servem aos KRs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 11. ERROS 2 E 3 ══ -->
+  <div class="slide slide-content">
+    <h2>Erros #2 e #3: bônus e sandbagging</h2>
+    <div class="cards cards-2">
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">#2 OKR atrelado a bônus</h3>
+        <p>Ninguém propõe meta ousada se errar custa dinheiro.</p>
+        <p style="margin-top:0.5rem">Resultado: metas <em>conservadoras</em>, virou KPI maquiado.</p>
+        <p class="note">No Google, OKRs são intencionalmente desacoplados de avaliação. Doerr é categórico nesse ponto.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--danger)">
+        <h3 style="color:var(--danger)">#3 Sandbagging</h3>
+        <p>Stretch goal: meta em que <strong>70% é vitória</strong>.</p>
+        <p style="margin-top:0.5rem">Se todos os KRs deram 100%, eles eram fáceis demais.</p>
+        <p class="note">No Google, alvo histórico médio: 60–70%. Acertar tudo é red flag.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 12. BIBLIOGRAFIA ══ -->
+  <div class="slide slide-content" style="padding: 1.6rem 3.5rem; justify-content: flex-start">
+    <h2 style="margin-bottom: 0.6rem">Bibliografia</h2>
+
+    <h3 style="font-size:1.3rem; color:var(--secondary); margin: 0.3rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em">Livros</h3>
+    <div class="link-list">
+      <a href="https://www.whatmatters.com/the-book/" target="_blank" rel="noopener">
+        <strong>Measure What Matters — John Doerr (2018)</strong>
+        <span>Livro de referência sobre OKRs. Edição PT-BR pela Alta Books: "Avalie o que Importa".</span>
+      </a>
+      <a href="https://www.wiley.com/en-us/Objectives+and+Key+Results%3A+Driving+Focus%2C+Alignment%2C+and+Engagement+with+OKRs-p-9781119252399" target="_blank" rel="noopener">
+        <strong>Objectives and Key Results — Niven &amp; Lamorte (Wiley, 2016)</strong>
+        <span>Visão estruturada de implementação corporativa de OKRs, autores acadêmicos.</span>
+      </a>
+    </div>
+
+    <h3 style="font-size:1.3rem; color:var(--secondary); margin: 0.9rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em">Empresas e cases</h3>
+    <div class="link-list link-list-3">
+      <a href="https://rework.withgoogle.com/intl/en/guides/set-goals-with-okrs" target="_blank" rel="noopener">
+        <strong>Google re:Work</strong>
+        <span>Guia oficial — "Set goals with OKRs"</span>
+      </a>
+      <a href="https://www.whatmatters.com/resources/google-okr-playbook/" target="_blank" rel="noopener">
+        <strong>Google's OKR Playbook</strong>
+        <span>Manual interno do Google reproduzido com permissão.</span>
+      </a>
+      <a href="https://www.atlassian.com/agile/agile-at-scale/okr" target="_blank" rel="noopener">
+        <strong>Atlassian — OKRs Ultimate Guide</strong>
+        <span>Como a Atlassian usa OKRs em escala em times ágeis.</span>
+      </a>
+      <a href="https://review.firstround.com/the-management-framework-that-propelled-linkedin-to-a-20-billion-company/" target="_blank" rel="noopener">
+        <strong>LinkedIn — Jeff Weiner (First Round)</strong>
+        <span>Como Weiner instalou OKRs e levou o LinkedIn a US$ 20bi.</span>
+      </a>
+      <a href="https://hbr.org/2018/05/how-vc-john-doerr-sets-and-achieves-goals" target="_blank" rel="noopener">
+        <strong>HBR — Doerr sobre OKRs</strong>
+        <span>Entrevista da Harvard Business Review (mai/2018).</span>
+      </a>
+      <a href="https://www.inc.com/nicholas-sonnenberg/google-ceo-sundar-pichai-broke-rules-on-okrs-why-it-worked.html" target="_blank" rel="noopener">
+        <strong>Inc — Sundar Pichai &amp; Chrome OKRs</strong>
+        <span>Como o OKR público do Chrome "moveu o ponteiro" do Google.</span>
+      </a>
+    </div>
+
+    <h3 style="font-size:1.3rem; color:var(--secondary); margin: 0.9rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em">Artigos científicos</h3>
+    <div class="link-list link-list-3">
+      <a href="https://doi.org/10.1145/3529320.3529332" target="_blank" rel="noopener">
+        <strong>Stray, Gundelsby, Ulfsnes &amp; Moe (2022)</strong>
+        <span>"How agile teams make Objectives and Key Results (OKRs) work" — ICSSP'22 (ACM).</span>
+      </a>
+      <a href="https://arxiv.org/abs/2311.00236" target="_blank" rel="noopener">
+        <strong>Butler, Zimmermann &amp; Bird (ICSE'24)</strong>
+        <span>"OKRs in Software Teams: Challenges, Opportunities and Impact on Development" — Microsoft Research.</span>
+      </a>
+      <a href="https://scholarspace.manoa.hawaii.edu/items/6432413e-ae5a-4ca4-b3bb-6664fb2298a3" target="_blank" rel="noopener">
+        <strong>Stray, Moe, Vedal &amp; Berntzen (HICSS'22)</strong>
+        <span>"Using OKRs and Slack: Coordination in Large-Scale Distributed Agile."</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ 15. EXERCÍCIO ══ -->
+  <div class="slide slide-content" style="padding: 2rem 5rem">
+    <h2>Exercício</h2>
+    <p style="margin-bottom:0.8rem; font-size:1.4rem">Individual ou em dupla. <span class="accent">Entrega: aula de 12/05 (Ter)</span> — começo da aula sobre KPIs.</p>
+    <div class="cards cards-2" style="gap:1rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">Cenário — <a href="https://citiamazon.ufpa.br/" target="_blank" rel="noopener" style="color:var(--accent)">CITI Amazon</a></h3>
+        <p style="font-size:1.1rem">O CITI Amazon atua em desenvolvimento web e mobile, IoT, IA aplicada, UX e bioinformática, atendendo empresas do Pará no PCT Guamá.</p>
+        <p style="font-size:1.1rem; margin-top:0.4rem"><strong>Tensões reais do centro:</strong></p>
+        <p style="font-size:1.1rem">› Pesquisadores querem publicar; parceiros querem produto entregue</p>
+        <p style="font-size:1.1rem">› Poucos contratos novos com PMEs locais</p>
+        <p style="font-size:1.1rem">› Tecnologias desenvolvidas no laboratório raramente chegam ao mercado</p>
+        <p style="font-size:1.1rem">› Talento técnico formado em Belém migra para Sul/Sudeste</p>
+        <p class="note">Você é coordenador(a) do CITI Amazon e precisa propor os OKRs do próximo trimestre.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">O que entregar</h3>
+        <p style="font-size:1.15rem"><strong>1.</strong> <strong>1 Objetivo</strong> para o trimestre (qualitativo, ≤ 12 palavras)</p>
+        <p style="font-size:1.15rem; margin-top:0.4rem"><strong>2.</strong> <strong>3 a 4 Key Results</strong> com métrica, baseline e meta</p>
+        <p style="font-size:1.15rem; margin-top:0.4rem"><strong>3.</strong> <strong>2 iniciativas</strong> (tarefas) por KR — sem confundir com o KR</p>
+        <p style="font-size:1.15rem; margin-top:0.4rem"><strong>4.</strong> Identifique <strong>2 anti-padrões</strong> (dos 3 vistos hoje) que você teve que evitar — e justifique</p>
+        <p style="font-size:1.15rem; margin-top:0.4rem"><strong>5.</strong> Justifique em 3-5 linhas: por que esses KRs e não outros, considerando as tensões do centro?</p>
+        <p class="note">Entregável: PDF de 1 página (ou link Google Docs). Será discutido no início da aula 7.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 16. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 12/05 (Ter)</span>
+    <h1>KPIs<br><span class="accent">vs OKRs</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">O que é um KPI e quando usar</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">OKR e KPI: complementares, não concorrentes</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Como construir bons indicadores (SMART, leading vs lagging)</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Discussão dos OKRs do CITI Amazon</li>
+    </ul>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

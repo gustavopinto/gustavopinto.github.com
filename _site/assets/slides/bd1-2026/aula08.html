@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 8 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary); }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.7rem;color:var(--text);font-style:italic; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.2rem;line-height:1.55;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .badge { display:inline-block;background:var(--highlight);color:#fff;font-size:1.1rem;font-weight:700;padding:.2rem .8rem;border-radius:6px;margin-right:.6rem; }
+    #step-dots { display:none; }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- CAPA -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 8<br><span class="accent">Laboratório: DDL + DML</span></h1>
+    <p style="font-size:1.6rem;margin-top:1rem;color:#cbd5e1">Criação completa de um banco com dados reais</p>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>19 de maio de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Revisão rápida: DDL e DML</li>
+      <li>Apresentação do estudo de caso: <strong>Alumnus</strong></li>
+      <li>5 características do sistema → modelagem</li>
+      <li>Laboratório guiado: DDL + DML no DB Fiddle</li>
+      <li>Validação: o banco "conta a história" certa?</li>
+    </ul>
+  </div>
+
+  <!-- RECAP -->
+  <div class="slide slide-content">
+    <h2>De onde viemos</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>DDL (Aulas 5 e 6)</h3>
+        <p><strong>CREATE TABLE</strong>, tipos, constraints (PK, FK, NOT NULL, UNIQUE, CHECK), ALTER, DROP.</p>
+        <p class="note">Define a <em>estrutura</em> do banco.</p>
+      </div>
+      <div class="card">
+        <h3>DML (Aula 7)</h3>
+        <p><strong>INSERT</strong>, <strong>UPDATE</strong>, <strong>DELETE</strong>, transações (BEGIN/COMMIT/ROLLBACK).</p>
+        <p class="note">Coloca e modifica os <em>dados</em>.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem;font-size:1.6rem">Hoje vamos juntar tudo: <span class="accent">do enunciado até um banco populado</span>.</p>
+  </div>
+
+  <!-- O QUE É O ALUMNUS -->
+  <div class="slide slide-content">
+    <h2>O que é o Alumnus?</h2>
+    <div class="definition">
+      <p>Uma plataforma web feita para <strong>professores acompanharem o próprio grupo de pesquisa</strong> — alunos de graduação, mestrado e doutorado — em um só lugar.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:.6rem">
+      <div class="card">
+        <h3>O problema</h3>
+        <p>Quem orienta vários alunos perde o fio das reuniões, dos prazos de conferência e de quem está trabalhando com quem. Tudo acaba espalhado em planilhas, e-mails e WhatsApp.</p>
+      </div>
+      <div class="card">
+        <h3>A ideia</h3>
+        <p>Um <strong>grafo interativo</strong> do grupo: cada aluno é um nó, e as ligações entre eles (co-orientação, colaboração) são as arestas. Clicar em um nó abre o perfil com notas e histórico.</p>
+      </div>
+      <div class="card">
+        <h3>O que dá pra fazer</h3>
+        <p>Anotar reuniões, criar lembretes com prazo, acompanhar deadlines de conferências, registrar publicações de cada aluno.</p>
+      </div>
+      <div class="card">
+        <h3>Onde rodar</h3>
+        <p>Sistema real, em produção em <span class="accent">alumnus.up.railway.app</span>. Código aberto no GitHub.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARACTERÍSTICAS (CORE DA AULA) -->
+  <div class="slide slide-content">
+    <h2>O sistema em 5 características</h2>
+    <div class="cards cards-2" style="margin-top:.4rem">
+      <div class="card">
+        <h3><span class="badge">1</span>Pesquisadores em grupos</h3>
+        <p>Cada pesquisador tem <strong>nome</strong>, <strong>e-mail</strong> e um <strong>status</strong> (graduação, mestrado, doutorado, pós-doc). Pertence a um <strong>grupo de pesquisa</strong> e tem um <strong>professor orientador</strong>.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">2</span>Relacionamentos (o grafo)</h3>
+        <p>Um pesquisador pode estar ligado a <strong>outros pesquisadores</strong>, com um <strong>tipo</strong> de relação (co-orientação, colaboração, ex-aluno…). É o que vira aresta no grafo.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">3</span>Anotações de reunião</h3>
+        <p>O perfil de cada pesquisador tem <strong>notas</strong> (texto livre + arquivo opcional). Toda nota tem <strong>autor</strong> e <strong>data</strong> — e pertence a <strong>um</strong> pesquisador.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge">4</span>Lembretes com prazo</h3>
+        <p>O grupo cria <strong>lembretes</strong> com texto, <strong>data de vencimento</strong> e marcador de <strong>concluído / pendente</strong>. Cada lembrete tem um criador.</p>
+      </div>
+    </div>
+    <div class="cards" style="margin-top:1rem">
+      <div class="card">
+        <h3><span class="badge">5</span>Deadlines de conferências</h3>
+        <p>Eventos externos com <strong>nome</strong>, <strong>URL</strong> e <strong>data limite</strong>. Cada usuário pode <strong>marcar interesse</strong> em uma deadline (e cada usuário marca interesse em um mesmo evento no máximo uma vez).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROTEIRO -->
+  <div class="slide slide-content">
+    <h2>Roteiro do laboratório</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>① Modelar</h3>
+        <p>Identificar entidades, atributos e relacionamentos. Definir chaves e cardinalidades.</p>
+        <p class="note">~15 min, em dupla</p>
+      </div>
+      <div class="card">
+        <h3>② DDL</h3>
+        <p>Escrever <strong>CREATE TABLE</strong> para cada entidade, com PKs, FKs e constraints.</p>
+        <p class="note">~25 min, DB Fiddle</p>
+      </div>
+      <div class="card">
+        <h3>③ DML</h3>
+        <p>Popular o banco com <strong>dados consistentes</strong> usando INSERTs em ordem correta.</p>
+        <p class="note">~25 min</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:1.5rem">No final, cada dupla mostra o banco populado e justifica <em>uma</em> decisão de modelagem.</p>
+  </div>
+
+  <!-- ETAPA 1: DICAS DE MODELAGEM -->
+  <div class="slide slide-content">
+    <h2>Etapa ① — Perguntas que ajudam a modelar</h2>
+    <ul>
+      <li>Quem é <strong>entidade</strong> e quem é <strong>atributo</strong>? (Ex.: status é atributo; pesquisador é entidade)</li>
+      <li>Qual a <strong>cardinalidade</strong>? Um grupo tem N pesquisadores; um pesquisador tem <em>um</em> orientador</li>
+      <li>O relacionamento é <strong>1:N</strong> (vira FK) ou <strong>N:N</strong> (vira tabela própria)?</li>
+      <li>"Cada usuário marca interesse no máximo uma vez" → restrição <strong>UNIQUE</strong> composta</li>
+      <li>Pesquisador ligado a pesquisador é um <strong>auto-relacionamento</strong> (duas FKs para a mesma tabela)</li>
+    </ul>
+  </div>
+
+  <!-- ETAPA 2: EXEMPLO DDL -->
+  <div class="slide slide-content">
+    <h2>Etapa ② — DDL: exemplo de ponto de partida</h2>
+    <pre class="code-block"><span class="kw">CREATE TABLE</span> grupo_pesquisa (
+    id     <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome   <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>
+);
+
+<span class="kw">CREATE TABLE</span> professor (
+    id    <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome  <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>,
+    email <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">UNIQUE NOT NULL</span>
+);
+
+<span class="kw">CREATE TABLE</span> pesquisador (
+    id            <span class="kw">SERIAL PRIMARY KEY</span>,
+    nome          <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">NOT NULL</span>,
+    email         <span class="kw">VARCHAR</span>(<span class="str">255</span>) <span class="kw">UNIQUE</span>,
+    status        <span class="kw">VARCHAR</span>(<span class="str">20</span>) <span class="kw">NOT NULL</span>
+                  <span class="kw">CHECK</span> (status <span class="kw">IN</span> (<span class="str">'graduacao'</span>,<span class="str">'mestrado'</span>,<span class="str">'doutorado'</span>,<span class="str">'postdoc'</span>)),
+    grupo_id      <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> grupo_pesquisa(id),
+    orientador_id <span class="kw">INTEGER</span> <span class="kw">REFERENCES</span> professor(id)
+);</pre>
+    <p style="font-size:1.4rem;margin-top:.4rem">Faltam: <span class="highlight">relacionamento, nota, lembrete, deadline, interesse</span>.</p>
+  </div>
+
+  <!-- ETAPA 2: N:N E AUTO-REL -->
+  <div class="slide slide-content">
+    <h2>Etapa ② — Os casos "espinhosos"</h2>
+    <pre class="code-block"><span class="cm">-- Auto-relacionamento (pesquisador ↔ pesquisador)</span>
+<span class="kw">CREATE TABLE</span> relacionamento (
+    id          <span class="kw">SERIAL PRIMARY KEY</span>,
+    origem_id   <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> pesquisador(id),
+    destino_id  <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> pesquisador(id),
+    tipo        <span class="kw">VARCHAR</span>(<span class="str">50</span>) <span class="kw">NOT NULL</span>,
+    <span class="kw">CHECK</span> (origem_id &lt;&gt; destino_id)
+);
+
+<span class="cm">-- N:N com restrição de unicidade (interesse em deadline)</span>
+<span class="kw">CREATE TABLE</span> interesse_deadline (
+    deadline_id <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> deadline(id),
+    usuario_id  <span class="kw">INTEGER</span> <span class="kw">NOT NULL REFERENCES</span> usuario(id),
+    <span class="kw">PRIMARY KEY</span> (deadline_id, usuario_id)   <span class="cm">-- chave composta</span>
+);</pre>
+  </div>
+
+  <!-- ETAPA 3: DML -->
+  <div class="slide slide-content">
+    <h2>Etapa ③ — DML: a ordem importa</h2>
+    <div class="definition">
+      <p>Insira primeiro as tabelas <strong>sem FK</strong>, depois as que dependem delas. Caso contrário, o banco rejeita o INSERT.</p>
+    </div>
+    <pre class="code-block"><span class="kw">INSERT INTO</span> grupo_pesquisa (nome) <span class="kw">VALUES</span>
+    (<span class="str">'LABES'</span>), (<span class="str">'GenAI Lab'</span>);
+
+<span class="kw">INSERT INTO</span> professor (nome, email) <span class="kw">VALUES</span>
+    (<span class="str">'Gustavo Pinto'</span>, <span class="str">'gpinto@ufpa.br'</span>);
+
+<span class="kw">INSERT INTO</span> pesquisador (nome, email, status, grupo_id, orientador_id) <span class="kw">VALUES</span>
+    (<span class="str">'Ana Souza'</span>,    <span class="str">'ana@ufpa.br'</span>,    <span class="str">'doutorado'</span>,  <span class="str">1</span>, <span class="str">1</span>),
+    (<span class="str">'Bruno Lima'</span>,   <span class="str">'bruno@ufpa.br'</span>,  <span class="str">'mestrado'</span>,   <span class="str">1</span>, <span class="str">1</span>),
+    (<span class="str">'Carla Mota'</span>,   <span class="str">'carla@ufpa.br'</span>,  <span class="str">'graduacao'</span>,  <span class="str">2</span>, <span class="str">1</span>);
+
+<span class="kw">INSERT INTO</span> relacionamento (origem_id, destino_id, tipo) <span class="kw">VALUES</span>
+    (<span class="str">1</span>, <span class="str">2</span>, <span class="str">'co-orientacao'</span>),
+    (<span class="str">2</span>, <span class="str">3</span>, <span class="str">'colaboracao'</span>);</pre>
+  </div>
+
+  <!-- ETAPA 4: VALIDAÇÃO -->
+  <div class="slide slide-content">
+    <h2>Etapa ④ — Como saber se está certo?</h2>
+    <ul>
+      <li>Tente inserir um pesquisador com <strong>status inválido</strong> → o CHECK precisa barrar</li>
+      <li>Tente um <strong>relacionamento de A para A</strong> → deve ser rejeitado</li>
+      <li>Tente <strong>marcar interesse duas vezes</strong> no mesmo evento → a PK composta barra</li>
+      <li>Tente <strong>deletar um grupo</strong> com pesquisadores → a FK barra (ou faz SET NULL, conforme você definiu)</li>
+      <li>O banco está <strong>contando a história certa</strong>? Se faltar alguma das 5 características, falta tabela ou coluna.</li>
+    </ul>
+  </div>
+
+  <!-- ARMADILHAS -->
+  <div class="slide slide-content">
+    <h2>Armadilhas comuns</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Modelar como uma planilha</h3>
+        <p>Repetir nome do grupo em toda linha de pesquisador é <strong>desnormalizado</strong>. Use FK para o id do grupo.</p>
+      </div>
+      <div class="card">
+        <h3>Esquecer a ordem dos INSERTs</h3>
+        <p>Inserir pesquisador antes de criar o grupo quebra a FK. Pense no <strong>grafo de dependências</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Usar texto onde cabe FK</h3>
+        <p>Guardar <em>nome</em> do orientador no pesquisador, em vez de <em>id</em>, leva a inconsistência.</p>
+      </div>
+      <div class="card">
+        <h3>Confundir 1:N com N:N</h3>
+        <p>Pesquisador↔pesquisador é N:N → tabela própria. Pesquisador→orientador é N:1 → FK direta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div class="slide slide-content">
+    <h2>Resumo da aula</h2>
+    <ul>
+      <li>Modelagem nasce de um <strong>enunciado em linguagem natural</strong> — não cai pronta</li>
+      <li>DDL define a estrutura; DML coloca os dados; <strong>constraints</strong> impedem dados inconsistentes</li>
+      <li>A <strong>ordem dos INSERTs</strong> reflete o grafo de dependências entre tabelas</li>
+      <li>Um banco "bom" é aquele que <strong>rejeita</strong> dados que não fazem sentido no domínio</li>
+    </ul>
+  </div>
+
+  <!-- PRÓXIMA AULA -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 21/05 (Qui)</span>
+    <h1>SELECT<br><span class="accent">WHERE, ORDER BY &amp; LIMIT</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Finalmente: <em>consultar</em> o banco que você criou hoje</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Filtros, ordenação e funções escalares</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>

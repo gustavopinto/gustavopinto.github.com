@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 2 — Estruturas Organizacionais</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+
+    /* ── Contrast box ── */
+    .contrast-box {
+      display: flex; gap: 2rem; width: 100%; margin-top: 1rem;
+    }
+    .contrast-side {
+      flex: 1; border-radius: var(--radius); padding: 1.6rem 2rem;
+      border: 2px solid;
+    }
+    .contrast-side h3 { font-size: 1.7rem; margin-bottom: 0.7rem; }
+    .contrast-side p  { font-size: 1.35rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .contrast-side.left  { border-color: rgba(3,105,161,0.4);  background: rgba(3,105,161,0.05); }
+    .contrast-side.right { border-color: rgba(146,64,14,0.4); background: rgba(146,64,14,0.05); }
+    .contrast-side.left  h3 { color: var(--accent); }
+    .contrast-side.right h3 { color: var(--highlight); }
+
+    /* ── Org chart ── */
+    .org-chart { width: 100%; display: flex; justify-content: center; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Organização &amp; Métodos — 2026.1</span>
+    <h1>Aula 2<br><span class="accent">Estruturas Organizacionais</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>07 de abril de 2026</strong></span>
+      <span>🕣 <strong>20h10 – 22h00</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. RECAP ══ -->
+  <div class="slide slide-content">
+    <h2>Relembrando a Aula 1</h2>
+    <ul>
+      <li><span class="accent">O&amp;M</span> conecta pessoas, processos e tecnologia</li>
+      <li><span class="accent">Eficácia</span> = fazer a coisa certa</li>
+      <li><span class="accent">Eficiência</span> = fazer certo a coisa</li>
+      <li>O analista de O&amp;M atua como um <span class="highlight">médico organizacional</span></li>
+      <li>Tecnologia sozinha <strong>não resolve</strong> problemas organizacionais</li>
+    </ul>
+    <div class="question" style="margin-top:1.5rem">
+      <p>Hoje: como as empresas se organizam internamente?</p>
+    </div>
+  </div>
+
+  <!-- ══ 3. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O que é uma estrutura organizacional?</li>
+      <li>Estrutura Funcional</li>
+      <li>Estrutura por Produto / Squad</li>
+      <li>Estrutura Matricial</li>
+      <li>Estrutura Projetizada</li>
+      <li>Exercício</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. O QUE É ESTRUTURA ══ -->
+  <div class="slide slide-split">
+    <h2>O que é Estrutura Organizacional?</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <div class="definition">
+          <p>Define <strong>como as atividades são divididas, agrupadas e coordenadas</strong> dentro de uma organização.</p>
+        </div>
+        <ul class="plain" style="margin-top:1rem">
+          <li>Quem <span class="accent">responde</span> a quem?</li>
+          <li>Como os <span class="highlight">times</span> são formados?</li>
+          <li>Onde estão as <span class="success">decisões</span>?</li>
+          <li>Como a <span class="accent">comunicação</span> flui?</li>
+        </ul>
+      </div>
+      <div class="split-right">
+        <svg width="240" height="220" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- CEO -->
+          <rect x="80" y="10" width="80" height="40" rx="8" fill="#0369a1"/>
+          <text x="120" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold">CEO</text>
+          <!-- Lines -->
+          <line x1="120" y1="50" x2="120" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="40" y1="70" x2="200" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="40" y1="70" x2="40" y2="90" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="120" y1="70" x2="120" y2="90" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="70" x2="200" y2="90" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Departments -->
+          <rect x="5" y="90" width="70" height="35" rx="6" fill="#475569"/>
+          <text x="40" y="112" text-anchor="middle" fill="white" font-size="11" font-weight="600">Eng</text>
+          <rect x="85" y="90" width="70" height="35" rx="6" fill="#92400e"/>
+          <text x="120" y="112" text-anchor="middle" fill="white" font-size="11" font-weight="600">Produto</text>
+          <rect x="165" y="90" width="70" height="35" rx="6" fill="#166534"/>
+          <text x="200" y="112" text-anchor="middle" fill="white" font-size="11" font-weight="600">Vendas</text>
+          <!-- Sub levels -->
+          <line x1="40" y1="125" x2="40" y2="145" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="120" y1="125" x2="120" y2="145" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="200" y1="125" x2="200" y2="145" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="10" y="145" width="60" height="28" rx="5" fill="#475569" opacity="0.6"/>
+          <text x="40" y="163" text-anchor="middle" fill="white" font-size="9">Times</text>
+          <rect x="90" y="145" width="60" height="28" rx="5" fill="#92400e" opacity="0.6"/>
+          <text x="120" y="163" text-anchor="middle" fill="white" font-size="9">Times</text>
+          <rect x="170" y="145" width="60" height="28" rx="5" fill="#166534" opacity="0.6"/>
+          <text x="200" y="163" text-anchor="middle" fill="white" font-size="9">Times</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 5. PERGUNTA MOTIVADORA ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>Uma pergunta para refletir</h2>
+    <div class="question">
+      <p>Se você tivesse que montar uma empresa de software com 50 pessoas, como organizaria os times?</p>
+    </div>
+    <div class="step" data-step="1">
+      <p style="margin-top:2rem; font-size:1.8rem">Não existe resposta certa. A escolha depende de:</p>
+      <ul class="plain" style="margin-top:1rem">
+        <li>Tamanho e maturidade da empresa</li>
+        <li>Tipo de produto (único ou múltiplos)</li>
+        <li>Velocidade de mudança do mercado</li>
+        <li>Cultura e estilo de liderança</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 6. FUNCIONAL ══ -->
+  <div class="slide slide-split" data-steps="1">
+    <h2>1. Estrutura Funcional</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <p style="font-size:1.7rem; margin-bottom:1.2rem">Agrupa pessoas por <span class="accent">especialidade</span>: todos os engenheiros juntos, todos os designers juntos, etc.</p>
+        <div class="cards cards-2 step" data-step="1" style="margin-top:0.5rem">
+          <div class="card">
+            <h3 style="color:var(--success)">Vantagens</h3>
+            <p>Especialização profunda</p>
+            <p>Facilidade de treinamento</p>
+            <p>Carreira técnica clara</p>
+          </div>
+          <div class="card">
+            <h3 style="color:#b91c1c">Desvantagens</h3>
+            <p>Silos entre departamentos</p>
+            <p>Lentidão nas entregas</p>
+            <p>Conflito de prioridades</p>
+          </div>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="70" y="5" width="80" height="35" rx="7" fill="#0369a1"/>
+          <text x="110" y="27" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Diretor</text>
+          <line x1="110" y1="40" x2="110" y2="55" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="55" x2="185" y2="55" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="55" x2="35" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="110" y1="55" x2="110" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="185" y1="55" x2="185" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <rect x="5" y="70" width="60" height="30" rx="5" fill="#475569"/>
+          <text x="35" y="89" text-anchor="middle" fill="white" font-size="10" font-weight="600">Engenharia</text>
+          <rect x="80" y="70" width="60" height="30" rx="5" fill="#475569"/>
+          <text x="110" y="89" text-anchor="middle" fill="white" font-size="10" font-weight="600">Design</text>
+          <rect x="155" y="70" width="60" height="30" rx="5" fill="#475569"/>
+          <text x="185" y="89" text-anchor="middle" fill="white" font-size="10" font-weight="600">QA</text>
+          <!-- People icons -->
+          <circle cx="20" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="35" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="50" cy="125" r="8" fill="#475569" opacity="0.5"/>
+          <circle cx="95" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="110" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="125" cy="125" r="8" fill="#475569" opacity="0.5"/>
+          <circle cx="170" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="185" cy="125" r="8" fill="#475569" opacity="0.5"/><circle cx="200" cy="125" r="8" fill="#475569" opacity="0.5"/>
+          <text x="110" y="160" text-anchor="middle" fill="#94a3b8" font-size="11" font-style="italic">Cada pessoa pertence a um departamento</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. FUNCIONAL EXEMPLO ══ -->
+  <div class="slide slide-content">
+    <h2>Funcional na prática</h2>
+    <div class="question">
+      <p>Imagine: o time de Eng desenvolve, o time de QA testa, o time de Design desenha. Quem coordena a entrega?</p>
+    </div>
+    <div class="contrast-box" style="margin-top:1rem">
+      <div class="contrast-side left">
+        <h3>Cenário comum</h3>
+        <p>Design entrega mockup na segunda.</p>
+        <p>Eng descobre problemas na quarta.</p>
+        <p>QA recebe o build na sexta.</p>
+        <p style="font-weight:700; margin-top:0.5rem">Resultado: 3 semanas para 1 feature.</p>
+      </div>
+      <div class="contrast-side right">
+        <h3>O problema dos silos</h3>
+        <p>Cada departamento otimiza para si.</p>
+        <p>Comunicação por "tickets" e e-mails.</p>
+        <p>Ninguém tem visão do todo.</p>
+        <p style="font-weight:700; margin-top:0.5rem">Comum em empresas tradicionais.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. POR PRODUTO / SQUAD ══ -->
+  <div class="slide slide-split" data-steps="1">
+    <h2>2. Estrutura por Produto / Squad</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <p style="font-size:1.7rem; margin-bottom:1.2rem">Agrupa pessoas por <span class="accent">produto ou feature</span>: cada time tem engenheiro, designer, PM, etc.</p>
+        <div class="cards cards-2 step" data-step="1" style="margin-top:0.5rem">
+          <div class="card">
+            <h3 style="color:var(--success)">Vantagens</h3>
+            <p>Autonomia e velocidade</p>
+            <p>Foco no cliente/produto</p>
+            <p>Menos dependências</p>
+          </div>
+          <div class="card">
+            <h3 style="color:#b91c1c">Desvantagens</h3>
+            <p>Duplicação de papéis</p>
+            <p>Isolamento técnico</p>
+            <p>Difícil padronização</p>
+          </div>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="70" y="5" width="80" height="35" rx="7" fill="#0369a1"/>
+          <text x="110" y="27" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CEO</text>
+          <line x1="110" y1="40" x2="110" y2="55" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="55" x2="185" y2="55" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="35" y1="55" x2="35" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="185" y1="55" x2="185" y2="70" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Squad A -->
+          <rect x="5" y="70" width="60" height="30" rx="5" fill="#92400e"/>
+          <text x="35" y="89" text-anchor="middle" fill="white" font-size="10" font-weight="600">Produto A</text>
+          <circle cx="15" cy="120" r="7" fill="#475569" opacity="0.7"/>
+          <text x="15" y="137" text-anchor="middle" fill="#475569" font-size="8">Eng</text>
+          <circle cx="35" cy="120" r="7" fill="#92400e" opacity="0.7"/>
+          <text x="35" y="137" text-anchor="middle" fill="#92400e" font-size="8">PM</text>
+          <circle cx="55" cy="120" r="7" fill="#166534" opacity="0.7"/>
+          <text x="55" y="137" text-anchor="middle" fill="#166534" font-size="8">UX</text>
+          <!-- Squad B -->
+          <rect x="155" y="70" width="60" height="30" rx="5" fill="#166534"/>
+          <text x="185" y="89" text-anchor="middle" fill="white" font-size="10" font-weight="600">Produto B</text>
+          <circle cx="165" cy="120" r="7" fill="#475569" opacity="0.7"/>
+          <text x="165" y="137" text-anchor="middle" fill="#475569" font-size="8">Eng</text>
+          <circle cx="185" cy="120" r="7" fill="#92400e" opacity="0.7"/>
+          <text x="185" y="137" text-anchor="middle" fill="#92400e" font-size="8">PM</text>
+          <circle cx="205" cy="120" r="7" fill="#166534" opacity="0.7"/>
+          <text x="205" y="137" text-anchor="middle" fill="#166534" font-size="8">UX</text>
+          <text x="110" y="170" text-anchor="middle" fill="#94a3b8" font-size="11" font-style="italic">Cada squad: multidisciplinar e autônomo</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. MATRICIAL ══ -->
+  <div class="slide slide-split" data-steps="1">
+    <h2>3. Estrutura Matricial</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <p style="font-size:1.7rem; margin-bottom:1.2rem">Combina funcional + produto: cada pessoa tem <span class="accent">dois chefes</span> — o gestor funcional e o gestor de produto/projeto.</p>
+        <div class="cards cards-2 step" data-step="1" style="margin-top:0.5rem">
+          <div class="card">
+            <h3 style="color:var(--success)">Vantagens</h3>
+            <p>Flexibilidade de alocação</p>
+            <p>Mantém especialização</p>
+            <p>Compartilha recursos</p>
+          </div>
+          <div class="card">
+            <h3 style="color:#b91c1c">Desvantagens</h3>
+            <p>Dois chefes = conflito</p>
+            <p>Complexidade de gestão</p>
+            <p>Lentidão em decisões</p>
+          </div>
+        </div>
+      </div>
+      <div class="split-right">
+        <svg width="240" height="200" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Headers -->
+          <text x="120" y="18" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">Funcional →</text>
+          <text x="12" y="80" text-anchor="middle" fill="#92400e" font-size="11" font-weight="bold" transform="rotate(-90 12 80)">Projeto →</text>
+          <!-- Col headers -->
+          <rect x="60" y="25" width="55" height="25" rx="4" fill="#475569"/>
+          <text x="87" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="600">Eng</text>
+          <rect x="120" y="25" width="55" height="25" rx="4" fill="#475569"/>
+          <text x="147" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="600">Design</text>
+          <rect x="180" y="25" width="55" height="25" rx="4" fill="#475569"/>
+          <text x="207" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="600">QA</text>
+          <!-- Row headers -->
+          <rect x="5" y="60" width="50" height="25" rx="4" fill="#92400e"/>
+          <text x="30" y="77" text-anchor="middle" fill="white" font-size="9" font-weight="600">Proj. A</text>
+          <rect x="5" y="95" width="50" height="25" rx="4" fill="#92400e"/>
+          <text x="30" y="112" text-anchor="middle" fill="white" font-size="9" font-weight="600">Proj. B</text>
+          <!-- Grid cells -->
+          <circle cx="87" cy="72" r="10" fill="#0369a1" opacity="0.3"/><text x="87" y="76" text-anchor="middle" fill="#0369a1" font-size="10">2</text>
+          <circle cx="147" cy="72" r="10" fill="#0369a1" opacity="0.3"/><text x="147" y="76" text-anchor="middle" fill="#0369a1" font-size="10">1</text>
+          <circle cx="207" cy="72" r="10" fill="#0369a1" opacity="0.3"/><text x="207" y="76" text-anchor="middle" fill="#0369a1" font-size="10">1</text>
+          <circle cx="87" cy="107" r="10" fill="#0369a1" opacity="0.3"/><text x="87" y="111" text-anchor="middle" fill="#0369a1" font-size="10">3</text>
+          <circle cx="147" cy="107" r="10" fill="#0369a1" opacity="0.3"/><text x="147" y="111" text-anchor="middle" fill="#0369a1" font-size="10">1</text>
+          <circle cx="207" cy="107" r="10" fill="#0369a1" opacity="0.3"/><text x="207" y="111" text-anchor="middle" fill="#0369a1" font-size="10">2</text>
+          <text x="147" y="155" text-anchor="middle" fill="#94a3b8" font-size="11" font-style="italic">Cada pessoa responde a dois gestores</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. PROJETIZADA ══ -->
+  <div class="slide slide-content" data-steps="1">
+    <h2>4. Estrutura Projetizada</h2>
+    <p style="margin-bottom:1.2rem">Toda a organização gira em torno de <span class="accent">projetos com começo e fim</span>. O gerente de projeto tem autoridade total sobre o time.</p>
+    <div class="cards cards-3 step" data-step="1" style="margin-top:0.5rem">
+      <div class="card">
+        <h3 style="color:var(--accent)">Como funciona</h3>
+        <p>Time montado para o projeto</p>
+        <p>Dedicação exclusiva</p>
+        <p>Dissolve ao final</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--success)">Quando usar</h3>
+        <p>Consultorias</p>
+        <p>Desenvolvimento sob demanda</p>
+        <p>Construção civil, eventos</p>
+      </div>
+      <div class="card">
+        <h3 style="color:#b91c1c">Cuidados</h3>
+        <p>Insegurança dos membros</p>
+        <p>Perda de conhecimento</p>
+        <p>Ociosidade entre projetos</p>
+      </div>
+    </div>
+    <div class="card step" data-step="1" style="margin-top:1.2rem; border-left:4px solid var(--accent)">
+      <p style="font-size:1.35rem">Em TI: comum em fábricas de software, consultorias como ThoughtWorks, Accenture, e empresas de outsourcing.</p>
+    </div>
+  </div>
+
+  <!-- ══ 11. COMPARATIVO ══ -->
+  <div class="slide slide-content" style="padding: 2.5rem 5rem">
+    <h2>Comparativo</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:1.3rem; margin-top:0.5rem">
+      <thead>
+        <tr style="border-bottom:3px solid var(--accent)">
+          <th style="text-align:left; padding:0.8rem; color:var(--accent)">Critério</th>
+          <th style="text-align:center; padding:0.8rem">Funcional</th>
+          <th style="text-align:center; padding:0.8rem">Produto</th>
+          <th style="text-align:center; padding:0.8rem">Matricial</th>
+          <th style="text-align:center; padding:0.8rem">Projetizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.7rem; font-weight:600">Autonomia dos times</td>
+          <td style="text-align:center; padding:0.7rem; color:#b91c1c; font-size:1.6rem">Baixa</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--highlight); font-size:1.6rem">Média</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.7rem; font-weight:600">Especialização</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+          <td style="text-align:center; padding:0.7rem; color:#b91c1c; font-size:1.6rem">Baixa</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--highlight); font-size:1.6rem">Média</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.7rem; font-weight:600">Velocidade de entrega</td>
+          <td style="text-align:center; padding:0.7rem; color:#b91c1c; font-size:1.6rem">Baixa</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--highlight); font-size:1.6rem">Média</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Alta</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(0,0,0,0.08)">
+          <td style="padding:0.7rem; font-weight:600">Complexidade de gestão</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--success); font-size:1.6rem">Baixa</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--highlight); font-size:1.6rem">Média</td>
+          <td style="text-align:center; padding:0.7rem; color:#b91c1c; font-size:1.6rem">Alta</td>
+          <td style="text-align:center; padding:0.7rem; color:var(--highlight); font-size:1.6rem">Média</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ 14. QUAL ESCOLHER ══ -->
+  <div class="slide slide-content" data-steps="3">
+    <h2>Qual estrutura escolher?</h2>
+    <p style="font-size:1.8rem; margin-bottom:1.5rem">Depende do contexto. Pergunte-se:</p>
+    <div class="cards cards-3">
+      <div class="card step" data-step="1">
+        <h3 style="color:var(--accent)">Tamanho</h3>
+        <p>5 pessoas? Funcional basta.</p>
+        <p>50 pessoas? Squads fazem sentido.</p>
+        <p>500 pessoas? Matricial ou Spotify.</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3 style="color:var(--highlight)">Produto</h3>
+        <p>Produto único? Funcional ou matricial.</p>
+        <p>Múltiplos produtos? Por produto.</p>
+        <p>Projetos temporários? Projetizada.</p>
+      </div>
+      <div class="card step" data-step="3">
+        <h3 style="color:var(--success)">Cultura</h3>
+        <p>Comando e controle? Funcional.</p>
+        <p>Autonomia e confiança? Squads.</p>
+        <p>Hibrido? Matricial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 15. EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <h2>Exercício</h2>
+    <p style="margin-bottom:1.5rem; font-size:1.7rem">Individualmente ou em dupla. Tempo: <span class="accent">20 minutos</span>.</p>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3 style="color:var(--accent)">Cenário</h3>
+        <p>Uma startup de fintech com 40 pessoas cresceu de 10 para 40 em 1 ano. Atualmente usa estrutura funcional (Eng, Design, Produto, Comercial). Os problemas:</p>
+        <p class="note" style="margin-top:0.8rem">
+          - Features demoram 6 semanas para sair<br>
+          - Eng e Design não se falam direito<br>
+          - 3 produtos diferentes competem por prioridade
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--highlight)">Tarefa</h3>
+        <p>1. Identifique os <strong>problemas organizacionais</strong> (não técnicos).</p>
+        <p style="margin-top:0.5rem">2. Proponha uma <strong>nova estrutura</strong> para esta fintech. Justifique sua escolha.</p>
+        <p style="margin-top:0.5rem">3. Desenhe um <strong>organograma simplificado</strong> da nova estrutura.</p>
+        <p class="note" style="margin-top:0.8rem">Use draw.io ou papel. Vamos discutir em sala.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 16. PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 09/04 (Qui)</span>
+    <h1>Modelo Spotify &amp;<br><span class="accent">Processos Organizacionais</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">O Modelo Spotify: Squads, Tribes, Chapters e Guilds</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Processos primários, de suporte e de gestão</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Como identificar processos em organizações de TI</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">
+      Traga o exercício de hoje resolvido.
+    </p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

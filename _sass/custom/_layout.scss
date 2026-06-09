@@ -1,0 +1,15 @@
+// ==========================================================================
+// Global layout overrides
+// ==========================================================================
+
+// O tema reserva padding-right no .page para uma sidebar direita (TOC),
+// mas nenhuma página do site usa TOC. Remove esse espaço vazio.
+.page {
+  @include breakpoint($large) {
+    padding-right: 1em;
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: 1.5em;
+  }
+}

@@ -32,7 +32,7 @@ You can see my list of [publications here](/publications/), along with ***all***
 
 ### Minibio
 
-Gustavo is a Research Engineer at Zup Innovation and an Assistant Professor at the Federal University of Pará, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers. He also offers [consulting](/consulting/) programs for Brazilian companies. 
+Gustavo is an Assistant Professor at the Federal University of Pará and a Staff Engineer at iFood, in Brazil. He is currently focused on applying machine learning and LLMs to improve software engineering tasks. He is a well-published author, with over 100 research papers. He also offers training and consulting services for Brazilian companies. 
 
 ### Fun
 

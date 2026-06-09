@@ -256,4 +256,70 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/blog/how-to-find-a-good-venue-to-submit-your-research-paper",
         "teaser": null
+      },{
+        "title": "Explaining the MIT license",
+        "excerpt":"The MIT license is one of the shortest open source license available out there. It has only 167 words, grouped into four paragraphs. Nevertheless, the MIT license is one of the most used open source licenses. Perhaps the reason of its widely use is because it is easy to read...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/explaining-the-mit-license/",
+        "teaser": null
+      },{
+        "title": "What does it mean a license be OSI-approved?",
+        "excerpt":"The Open Source Initiative (or OSI for short), is a global, non-profit institution that promotes the adoption and awareness of open source software. Among other things, OSI curated the Open Source Definition (OSD) which describes the minimum standards that one software system needs to be “open source” (according to OSI...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/what-does-it-mean-a-license-be-osi-approved/",
+        "teaser": null
+      },{
+        "title": "HOWTO: Academic collaboration",
+        "excerpt":"The proverb “If You Want to Go Fast, Go Alone. If You Want to Go Far, Go Together” is also true for academic settings. No matter how good work you could do alone, chances are that you could achieve more if you find good colleagues to collaborate with. By collaborating,...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/howto-academic-collaboration/",
+        "teaser": null
+      },{
+        "title": "Extensão de deadlines é considerado prejudicial",
+        "excerpt":"This post was written in Portuguese because it was aimed to Brazilian scholars. Em 4 de Março de 2018, Shriram Krishnamurthi, um professor da universidade de Brown, nos EUA, escreveu uma thread no twitter desmistificando a fantasia que é estender um deadline, descrevendo o impacto que isso pode causar aos...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/extensao-de-deadlines-considerado-prejudicial/",
+        "teaser": null
+      },{
+        "title": "Rigor vs Value in Industrial Research",
+        "excerpt":"Today marks my first year working as a Researcher for Zup Innovation, a Brazilian tech company. When I joined Zup, I often told people that the last time I had a contract with a company was like ten years ago. But, of course, 10 years in the tech industry is...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/rigor-vs-value-in-industrial-research/",
+        "teaser": null
+      },{
+        "title": "Why is 42 the answer to the meaning of life, the universe, and everything?",
+        "excerpt":"During research studies, a vital part of the work is to think about the methodologies of the study. Although the method is perhaps an essential part of one research, the research question is an indispensable item for the method. I remember discussing our research questions with dozens of students at...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/why-is-42-the-answer-to-the-meaning-of-life-the-universe-and-everything/",
+        "teaser": null
+      },{
+        "title": "Studying: The Underrated Skill",
+        "excerpt":"After a bit more than one year working full time in the industry, I have come to realize the immense value of a particular skill that we, as academics, may unconsciously develop in our research programs. Undoubtedly, writing is a fundamental skill we acquire during our master’s and Ph.D., as...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/studying-the-underrated-skill/",
+        "teaser": null
+      },{
+        "title": "From Research to Pull-Requests",
+        "excerpt":"In the past, I wrote a blog post summarizing the first year of my transition to the software development industry. This October marks my second year working full-time in the industry, and it’s time to reflect a bit. Summary of the first year In my first year, I was working...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/from-research-to-pull-requests/",
+        "teaser": null
+      },{
+        "title": "10 Years in Academia: From Passion to Profession",
+        "excerpt":"February 24th marked the 10th anniversary of my PhD defense. YAY! 🥳 I just figured it out as I was driving back home after the Carnival break, while the kids were sleeping in the back seat, and the silence inside the car allowed my mind to wander far and wide....","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/10-years-in-academia-from-passion-to-profession/",
+        "teaser": null
+      },{
+        "title": "Got Another PhD",
+        "excerpt":"A few days ago, I tied a new belt around my waist — a black belt in Brazilian jiu-jitsu. I’ve been practicing jiu-jitsu for more than 10 years. One might beleive I’m a skilled athlete. However, I’m not the top black belt in my weight division, not in my neighborhood,...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/got-another-phd/",
+        "teaser": null
+      },{
+        "title": "From Academia to Industry: A Letter to My 2021 Self",
+        "excerpt":"In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when I worked with a few Brazilian companies doing consulting work, mostly around Java-based technologies. Back then, the tech environment was completely different. The way...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/from-academia-to-industry/",
+        "teaser": null
       }]

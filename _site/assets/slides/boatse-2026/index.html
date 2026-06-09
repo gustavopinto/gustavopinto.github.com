@@ -1,0 +1,2459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building an Internal Coding Agent at Zup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital@1&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --dark-bg: #260912;
+    --rose: #A54C5D;
+    --burgundy: #852838;
+    --copper: #CC7958;
+    --light-text: #DED4D4;
+    --muted-rose: #C38E98;
+    --neutral: #AD9797;
+    --blue: #4285F4;
+    --teal: #0097A7;
+    --white: #FFFFFF;
+    --light-bg: #F5F0F0;
+  }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--dark-bg);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 100px;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  /* --- Section header slides --- */
+  .slide.section-header {
+    background: var(--dark-bg);
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 120px;
+  }
+
+  .slide.section-header .section-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 24px;
+  }
+
+  .slide.section-header h1 {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    max-width: 900px;
+  }
+
+  .slide.section-header .accent-line {
+    width: 80px;
+    height: 4px;
+    background: var(--rose);
+    margin-top: 32px;
+    border-radius: 2px;
+  }
+
+  /* --- Title slide --- */
+  .slide.title-slide {
+    background: var(--dark-bg);
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 80px 120px;
+    position: relative;
+  }
+
+  .slide.title-slide::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(165,76,93,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .slide.title-slide::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(204,121,88,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .slide.title-slide .tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--copper);
+    background: rgba(204,121,88,0.12);
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.title-slide h1 {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 900px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.title-slide h1 span {
+    color: var(--copper);
+  }
+
+  .slide.title-slide .subtitle {
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--muted-rose);
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.title-slide .author-block {
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.title-slide .author-block .name {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--light-text);
+    margin-bottom: 6px;
+  }
+
+  .slide.title-slide .author-block .email {
+    font-size: 16px;
+    color: var(--copper);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  /* --- Content slides --- */
+  .slide.content {
+    background: var(--light-bg);
+    padding: 80px 120px;
+    justify-content: center;
+  }
+
+  .slide.content .slide-tag {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 20px;
+  }
+
+  .slide.content h2 {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    line-height: 1.2;
+    margin-bottom: 36px;
+    max-width: 950px;
+  }
+
+  .slide.content p {
+    font-size: 24px;
+    color: #3a2a2e;
+    line-height: 1.65;
+    max-width: 950px;
+    margin-bottom: 20px;
+  }
+
+  .slide.content .highlight-box {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 28px 36px;
+    border-radius: 12px;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-top: 28px;
+    max-width: 950px;
+    border-left: 4px solid var(--copper);
+  }
+
+  .slide.content ul {
+    list-style: none;
+    padding: 0;
+    max-width: 950px;
+  }
+
+  .slide.content ul li {
+    font-size: 23px;
+    color: #3a2a2e;
+    line-height: 1.55;
+    padding: 14px 0 14px 32px;
+    position: relative;
+  }
+
+  .slide.content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    background: var(--rose);
+    border-radius: 50%;
+  }
+
+  .slide.content ul li strong {
+    color: var(--dark-bg);
+  }
+
+  /* --- Cards layout --- */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(38,9,18,0.06);
+    border-top: 3px solid var(--rose);
+  }
+
+  .card.copper { border-top-color: var(--copper); }
+  .card.teal { border-top-color: var(--teal); }
+  .card.blue { border-top-color: var(--blue); }
+
+  .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 18px !important;
+    color: #5a4a4e !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .card code {
+    background: rgba(38,9,18,0.07);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--burgundy);
+  }
+
+  /* --- Two-column layout --- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 16px;
+  }
+
+  .two-col .col h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--rose);
+  }
+
+  .two-col .col p {
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+  }
+
+  .two-col .col ul li {
+    font-size: 20px;
+  }
+
+  /* --- Architecture diagram v2 --- */
+  .arch-full {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-top: 20px;
+  }
+
+  .arch-tier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 230px;
+  }
+
+  .arch-box-v {
+    background: var(--white);
+    border: 2px solid var(--rose);
+    border-radius: 14px;
+    padding: 24px 28px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 16px rgba(38,9,18,0.08);
+  }
+
+  .arch-box-v.primary {
+    background: var(--dark-bg);
+    color: var(--white);
+    border-color: var(--dark-bg);
+  }
+
+  .arch-box-v .arch-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .arch-box-v.primary .arch-icon {
+    color: var(--copper);
+    opacity: 1;
+  }
+
+  .arch-box-v h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--dark-bg);
+  }
+
+  .arch-box-v.primary h4 {
+    color: var(--white);
+  }
+
+  .arch-box-v .tech {
+    font-size: 14px;
+    color: var(--neutral);
+    font-weight: 400;
+  }
+
+  .arch-box-v.primary .tech {
+    color: var(--muted-rose);
+  }
+
+  .arch-details {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .arch-details li {
+    font-size: 15px;
+    color: #5a4a4e;
+    line-height: 1.45;
+    padding: 6px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .arch-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    background: var(--rose);
+    border-radius: 50%;
+  }
+
+  .arch-details.light li {
+    color: #5a4a4e;
+  }
+
+  .arch-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 36px;
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .arch-flow-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--neutral);
+    margin-bottom: 4px;
+  }
+
+  .arch-flow-line {
+    font-size: 28px;
+    color: var(--copper);
+    opacity: 0.7;
+  }
+
+  .arch-react-bar {
+    margin-top: 28px;
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-size: 17px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .arch-react-bar span {
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  .arch-react-bar strong {
+    color: var(--white);
+  }
+
+  /* --- Questions grid --- */
+  .questions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .question-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(38,9,18,0.06);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .question-card .q-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--rose);
+    line-height: 1;
+    min-width: 40px;
+  }
+
+  .question-card p {
+    font-size: 19px !important;
+    color: #3a2a2e !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .question-card.faded-card {
+    background: rgba(38,9,18,0.04);
+    box-shadow: none;
+    border: 1px dashed rgba(38,9,18,0.1);
+  }
+
+  .question-card p strong {
+    background: linear-gradient(180deg, transparent 62%, rgba(204,121,88,0.55) 62%);
+    color: var(--burgundy);
+    padding: 0 3px;
+    font-weight: 700;
+  }
+
+  /* --- Dark content slide --- */
+  .slide.content-dark {
+    background: var(--dark-bg);
+    padding: 80px 120px;
+    justify-content: center;
+  }
+
+  .slide.content-dark .slide-tag {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 20px;
+  }
+
+  .slide.content-dark h2 {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 36px;
+    max-width: 950px;
+  }
+
+  .slide.content-dark p {
+    font-size: 24px;
+    color: var(--light-text);
+    line-height: 1.65;
+    max-width: 950px;
+    margin-bottom: 20px;
+  }
+
+  .slide.content-dark ul {
+    list-style: none;
+    padding: 0;
+    max-width: 950px;
+  }
+
+  .slide.content-dark ul li {
+    font-size: 23px;
+    color: var(--light-text);
+    line-height: 1.55;
+    padding: 14px 0 14px 32px;
+    position: relative;
+  }
+
+  .slide.content-dark ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    background: var(--copper);
+    border-radius: 50%;
+  }
+
+  .slide.content-dark ul li strong {
+    color: var(--white);
+  }
+
+  /* --- Closing slide --- */
+  .slide.closing {
+    background: var(--dark-bg);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .slide.closing::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(165,76,93,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .slide.closing h2 {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.closing p {
+    font-size: 20px;
+    color: var(--muted-rose);
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.closing .emails {
+    margin-top: 40px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide.closing .emails a {
+    font-size: 14px;
+    color: var(--copper);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  /* --- Progress bar --- */
+  .progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--copper));
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* --- Slide counter --- */
+  .slide-counter {
+    position: fixed;
+    bottom: 16px;
+    right: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    font-family: 'Inter', Arial, sans-serif;
+    z-index: 100;
+  }
+
+  .slide.content .slide-counter,
+  .slide.content ~ .slide-counter {
+    color: rgba(38,9,18,0.3);
+  }
+
+  /* --- Findings list --- */
+  .findings-list {
+    counter-reset: finding;
+    list-style: none;
+    padding: 0;
+    max-width: 950px;
+  }
+
+  .findings-list li {
+    counter-increment: finding;
+    font-size: 21px;
+    color: #3a2a2e;
+    line-height: 1.55;
+    padding: 18px 0 18px 56px;
+    position: relative;
+    border-bottom: 1px solid rgba(38,9,18,0.08);
+  }
+
+  .findings-list li:last-child { border-bottom: none; }
+
+  .findings-list li::before {
+    content: counter(finding);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 36px;
+    height: 36px;
+    background: var(--rose);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* --- Lessons grid (dark) --- */
+  .slide.content-dark .lessons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .lesson-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 28px;
+    border-left: 3px solid var(--copper);
+  }
+
+  .lesson-card h4 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .lesson-card p {
+    font-size: 17px !important;
+    color: var(--muted-rose) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* --- Decisions overview --- */
+  .decisions-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin-top: 12px;
+  }
+
+  .decision-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(204,121,88,0.4);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .decision-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--copper);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .decision-box ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: decision;
+  }
+
+  .decision-box ol li {
+    counter-increment: decision;
+    font-size: 16px;
+    color: var(--light-text);
+    line-height: 1.45;
+    padding: 8px 0 8px 32px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .decision-box ol li:last-child { border-bottom: none; }
+
+  .decision-box ol li::before {
+    content: counter(decision) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--copper);
+  }
+
+  .decision-box.faded {
+    opacity: 0.2;
+  }
+
+  /* --- Tool manifest layout --- */
+  .tool-manifest-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .tool-manifest-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tool-manifest-cards .card {
+    padding: 20px 24px;
+  }
+
+  .reveal-card {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .tool-manifest-cards .card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .tool-manifest-cards .card p {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  .tool-manifest-code {
+    background: #1a0610;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border: 1px solid rgba(165,76,93,0.3);
+  }
+
+  .tool-manifest-code .code-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 16px;
+  }
+
+  .tool-manifest-code pre {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .tool-manifest-code code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--light-text);
+    white-space: pre;
+  }
+
+  /* --- Timeline --- */
+  .timeline {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 24px;
+    max-width: 100%;
+  }
+
+  .tl-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+  }
+
+  .tl-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--rose);
+    margin-bottom: 16px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .tl-dot.copper { background: var(--copper); }
+  .tl-dot.teal { background: var(--teal); }
+
+  .tl-dot.active-dot {
+    background: var(--dark-bg);
+    box-shadow: 0 0 0 4px var(--rose), 0 0 0 8px rgba(165,76,93,0.2);
+  }
+
+  .tl-arrow {
+    flex: 0.3;
+    font-size: 32px;
+    color: var(--copper);
+    margin-top: -2px;
+    text-align: center;
+    opacity: 0.6;
+  }
+
+  .tl-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 16px;
+    color: #5a4a4e;
+    line-height: 1.5;
+    max-width: 200px;
+  }
+
+  /* --- Split list + figure --- */
+  .split-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .split-list {
+    margin: 0;
+  }
+
+  .split-list li {
+    font-size: 21px;
+    padding: 12px 0 12px 30px;
+  }
+
+  .split-figure {
+    margin: 0;
+    text-align: center;
+  }
+
+  .split-figure img {
+    max-width: 100%;
+    max-height: 460px;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(38,9,18,0.25);
+    border: 1px solid rgba(38,9,18,0.1);
+  }
+
+  .split-figure figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #5a4a4e;
+    font-style: italic;
+  }
+
+  .split-figure figcaption a {
+    color: var(--burgundy);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* --- Journey words --- */
+  .journey-words {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+  }
+
+  .journey-group {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .journey-word {
+    font-size: 84px;
+    font-weight: 800;
+    color: var(--light-text);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .journey-word.strikethrough {
+    color: var(--neutral);
+    text-decoration: line-through;
+    text-decoration-thickness: 6px;
+    text-decoration-color: var(--burgundy);
+  }
+
+  .journey-word.emphasis {
+    color: var(--copper);
+    background: linear-gradient(180deg, transparent 65%, rgba(204,121,88,0.25) 65%);
+    padding: 0 12px;
+  }
+
+  .journey-sep {
+    font-size: 48px;
+    color: var(--rose);
+    font-weight: 300;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  /* --- Modes side-by-side --- */
+  .modes-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 24px;
+  }
+
+  .mode-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 16px rgba(38,9,18,0.08);
+    border-top: 4px solid var(--rose);
+  }
+
+  .mode-card.mode-safe {
+    border-top-color: var(--teal);
+  }
+  .mode-card.mode-bold {
+    border-top-color: #d4351a;
+  }
+
+  .mode-card .mode-badge {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--burgundy);
+    margin-bottom: 14px;
+  }
+
+  .mode-card.mode-safe .mode-badge {
+    color: var(--teal);
+  }
+
+  .mode-card.mode-bold .mode-badge {
+    color: #d4351a;
+  }
+
+  .mode-card p {
+    font-size: 22px !important;
+    color: #3a2a2e !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+  }
+
+  .mode-arrow {
+    align-self: center;
+    font-size: 40px;
+    color: var(--copper);
+    font-weight: 300;
+  }
+
+  /* --- Problem badge --- */
+  .problem-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #d4351a, #cc7958);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    box-shadow: 0 2px 10px rgba(212,53,26,0.3);
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  /* --- H2 sublabel --- */
+  .h2-sub {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin-left: 8px;
+  }
+
+  .h2-sub code {
+    background: rgba(38,9,18,0.07);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: var(--burgundy);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  /* --- Pyramid (defense in depth) --- */
+  .pyramid-wrap {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .pyramid-svg {
+    display: block;
+    width: 70%;
+    max-width: 720px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* --- Agentic flow diagram --- */
+  .agentic-flow {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  .agentic-flow .af-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* --- ReAct loop diagram (legacy) --- */
+  .react-loop {
+    position: relative;
+    width: 540px;
+    height: 380px;
+    margin: 12px auto 0;
+  }
+
+  .react-loop-svg {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 500px;
+    height: 320px;
+    z-index: 1;
+  }
+
+  .react-node {
+    position: absolute;
+    width: 170px;
+    background: var(--white);
+    border: 2px solid var(--rose);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(38,9,18,0.1);
+    z-index: 2;
+  }
+
+  .react-node.rc-top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .react-node.rc-right {
+    top: 200px;
+    right: 0;
+  }
+
+  .react-node.rc-left {
+    top: 200px;
+    left: 0;
+  }
+
+  .react-node .rc-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    background: var(--copper);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .react-node .rc-label {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--dark-bg);
+    line-height: 1.1;
+  }
+
+  .react-node .rc-sub {
+    font-size: 13px;
+    color: #5a4a4e;
+    margin-top: 4px;
+  }
+
+  .react-exit {
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--burgundy);
+    background: rgba(204,121,88,0.15);
+    padding: 6px 16px;
+    border-radius: 16px;
+  }
+
+  /* --- Chain example --- */
+  .chain-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px 0;
+    padding: 24px;
+    background: rgba(38,9,18,0.04);
+    border: 1px dashed rgba(38,9,18,0.2);
+    border-radius: 12px;
+  }
+
+  .chain-node {
+    background: var(--white);
+    border: 2px solid var(--rose);
+    color: var(--dark-bg);
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(38,9,18,0.06);
+  }
+
+  .chain-node.final {
+    background: var(--dark-bg);
+    color: var(--white);
+    border-color: var(--dark-bg);
+  }
+
+  .chain-arrow {
+    font-size: 24px;
+    color: var(--copper);
+    font-weight: 300;
+  }
+
+  /* --- Trade-offs grid --- */
+  .tradeoffs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .tradeoffs-grid.vertical {
+    grid-template-columns: 1fr;
+    max-width: 850px;
+    margin: 24px auto 0;
+  }
+
+  .tradeoff {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 36px;
+    box-shadow: 0 4px 14px rgba(38,9,18,0.08);
+  }
+
+  .tradeoff-pro {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--burgundy);
+    text-align: right;
+  }
+
+  .tradeoff-vs {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--neutral);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(38,9,18,0.06);
+    padding: 6px 14px;
+    border-radius: 14px;
+  }
+
+  .tradeoff-con {
+    font-size: 24px;
+    color: #5a4a4e;
+    font-weight: 500;
+  }
+
+  /* --- YOLO pill --- */
+  .yolo-pill {
+    display: inline-block;
+    background: linear-gradient(90deg, #d4351a, #cc7958);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 6px;
+    box-shadow: 0 2px 8px rgba(212,53,26,0.35);
+    transform: rotate(-2deg);
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Gap headline --- */
+  .gap-headline {
+    font-size: 30px !important;
+    color: var(--dark-bg) !important;
+    line-height: 1.4 !important;
+    margin-top: 28px !important;
+    margin-bottom: 24px !important;
+    max-width: 950px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+  }
+
+  .gap-headline .neq {
+    color: var(--copper);
+    font-weight: 700;
+    padding: 0 4px;
+  }
+
+  /* --- Pill row --- */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .pill {
+    display: inline-block;
+    background: rgba(204,121,88,0.18);
+    color: var(--copper);
+    border: 1px solid rgba(204,121,88,0.35);
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  /* --- Inline highlight --- */
+  mark.hl {
+    background: linear-gradient(180deg, transparent 60%, rgba(204,121,88,0.45) 60%);
+    color: var(--dark-bg);
+    padding: 0 2px;
+    font-weight: 600;
+  }
+
+  .highlight-box mark.hl,
+  .slide.content-dark mark.hl,
+  .slide.section-header mark.hl {
+    color: var(--white);
+    background: linear-gradient(180deg, transparent 60%, rgba(204,121,88,0.55) 60%);
+  }
+
+  .typewriter-caret {
+    display: none;
+    width: 2px;
+    height: 0.95em;
+    background: var(--copper);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  .typewriter-caret.journey-caret {
+    width: 6px;
+    height: 70px;
+    margin-left: -20px;
+    align-self: center;
+  }
+
+  .typewriter-caret.active {
+    display: inline-block;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* --- Tool pill --- */
+  .tool-pill {
+    display: inline-block;
+    background: rgba(38,9,18,0.07);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    color: var(--burgundy);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active" data-slide="0">
+  <div class="tag">Zup Innovation</div>
+  <h1>Building an Internal<br>Coding Agent at <span>Zup</span></h1>
+  <div class="subtitle">Lessons and Open Questions</div>
+  <div class="author-block">
+    <div class="name">Gustavo Pinto</div>
+    <a class="email" href="mailto:gustavo.pinto@zup.com.br">gustavo.pinto@zup.com.br</a>
+  </div>
+</div>
+
+<!-- SLIDE 2: The Problem -->
+<div class="slide content" data-slide="2">
+  <div class="slide-tag">Introduction</div>
+  <h2>The gap between prototype and production</h2>
+  <p>LLM-based coding agents can accelerate routine development tasks. But building one that <mark class="hl">performs well on benchmarks is fundamentally different from deploying one that developers actually use</mark>.</p>
+  <p id="gap-box" class="gap-headline" style="opacity: 0; transition: opacity 0.6s ease;">
+    Research agents <span class="neq">&ne;</span> production agents. <mark class="hl">Production demands engineering.</mark>
+  </p>
+</div>
+
+<!-- SLIDE 4: What goes wrong -->
+<div class="slide content" data-slide="3">
+  <div class="slide-tag">Introduction</div>
+  <h2>When engineering challenges go unaddressed</h2>
+  <div class="split-layout">
+    <ul class="split-list">
+      <li>Agents produce <strong>unreliable edits</strong> that developers must manually verify and correct</li>
+      <li><strong>Safety incidents</strong> erode trust and stall adoption&mdash;e.g., an agent running <span class="tool-pill">rm -rf</span> or unauthorized <span class="tool-pill">git push --force</span></li>
+      <li>Teams invest months building prototypes that <strong>never transition to production</strong></li>
+      <li>Absence of shared knowledge means teams <strong>rediscover the same failure modes</strong> independently</li>
+    </ul>
+    <figure class="split-figure">
+      <img src="codex-issue.png" alt="GitHub issue: Critical Bug — Agent executed destructive rm -rf command without safeguards">
+      <figcaption>Real incident: <a href="https://github.com/openai/codex/issues/3934" target="_blank">openai/codex#3934</a></figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- SLIDE 5: Section — Origins -->
+<div class="slide section-header" data-slide="5">
+  <div class="section-label">Section 02</div>
+  <h1>Origins of<br>CodeGen</h1>
+  <div class="accent-line"></div>
+</div>
+
+<!-- SLIDE 7a: Origin story timeline — StackSpot AI -->
+<div class="slide content" data-slide="6a">
+  <div class="slide-tag">Origins</div>
+  <h2>From conversational assistant to autonomous agent</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-label">StackSpot AI</div>
+      <div class="tl-desc">IDE conversational assistant&mdash;developers ask questions, but the tool cannot act on the environment</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot copper"></div>
+      <div class="tl-label">Agentic Gap</div>
+      <div class="tl-desc">Adding agent capabilities to the enterprise codebase would require changes the platform roadmap could not absorb</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot teal"></div>
+      <div class="tl-label">Independent POC</div>
+      <div class="tl-desc">Two team members build a CLI-based coding agent outside the main codebase</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot active-dot"></div>
+      <div class="tl-label">CodeGen</div>
+      <div class="tl-desc">Production-ready agentic system used daily by real developers at Zup</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7b: Origin story timeline — + Agentic Gap -->
+<div class="slide content" data-slide="6b">
+  <div class="slide-tag">Origins</div>
+  <h2>From conversational assistant to autonomous agent</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-label">StackSpot AI</div>
+      <div class="tl-desc">IDE conversational assistant&mdash;developers ask questions, but the tool cannot act on the environment</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot copper"></div>
+      <div class="tl-label">Agentic Gap</div>
+      <div class="tl-desc">Adding agent capabilities to the enterprise codebase would require changes the platform roadmap could not absorb</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot teal"></div>
+      <div class="tl-label">Independent POC</div>
+      <div class="tl-desc">Two team members build a CLI-based coding agent outside the main codebase</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot active-dot"></div>
+      <div class="tl-label">CodeGen</div>
+      <div class="tl-desc">Production-ready agentic system used daily by real developers at Zup</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7c: Origin story timeline — + Independent POC -->
+<div class="slide content" data-slide="6c">
+  <div class="slide-tag">Origins</div>
+  <h2>From conversational assistant to autonomous agent</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-label">StackSpot AI</div>
+      <div class="tl-desc">IDE conversational assistant&mdash;developers ask questions, but the tool cannot act on the environment</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot copper"></div>
+      <div class="tl-label">Agentic Gap</div>
+      <div class="tl-desc">Adding agent capabilities to the enterprise codebase would require changes the platform roadmap could not absorb</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot teal"></div>
+      <div class="tl-label">Independent POC</div>
+      <div class="tl-desc">Two team members build a CLI-based coding agent outside the main codebase</div>
+    </div>
+    <div class="tl-arrow" style="opacity: 0.35;">&rarr;</div>
+    <div class="tl-item" style="opacity: 0.35;">
+      <div class="tl-dot active-dot"></div>
+      <div class="tl-label">CodeGen</div>
+      <div class="tl-desc">Production-ready agentic system used daily by real developers at Zup</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7d: Origin story timeline — All + box on click -->
+<div class="slide content" data-slide="6d">
+  <div class="slide-tag">Origins</div>
+  <h2>From conversational assistant to autonomous agent</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-label">StackSpot AI</div>
+      <div class="tl-desc">IDE conversational assistant&mdash;developers ask questions, but the tool cannot act on the environment</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot copper"></div>
+      <div class="tl-label">Agentic Gap</div>
+      <div class="tl-desc">Adding agent capabilities to the enterprise codebase would require changes the platform roadmap could not absorb</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot teal"></div>
+      <div class="tl-label">Independent POC</div>
+      <div class="tl-desc">Two team members build a CLI-based coding agent outside the main codebase</div>
+    </div>
+    <div class="tl-arrow">&rarr;</div>
+    <div class="tl-item">
+      <div class="tl-dot active-dot"></div>
+      <div class="tl-label">CodeGen</div>
+      <div class="tl-desc">Production-ready agentic system used daily by real developers at Zup</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: Section — Internals -->
+<div class="slide section-header" data-slide="7">
+  <div class="section-label">Section 03</div>
+  <h1>CodeGen<br>Internals</h1>
+  <div class="accent-line"></div>
+</div>
+
+<!-- SLIDE 9a: Architecture — CLI only -->
+<div class="slide content" data-slide="8a">
+  <div class="slide-tag">Architecture</div>
+  <h2>Three-tier architecture</h2>
+  <div class="arch-full">
+    <div class="arch-tier">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9002;</div>
+        <h4>CLI</h4>
+        <div class="tech">Node.js client</div>
+      </div>
+      <ul class="arch-details">
+        <li>User interaction &amp; local tool execution</li>
+        <li>Executes tools on the developer's machine</li>
+        <li>Supports IDE plugins &amp; VM executors via same protocol</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">WebSocket</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9881;</div>
+        <h4>Backend API</h4>
+        <div class="tech">FastAPI</div>
+      </div>
+      <ul class="arch-details">
+        <li>Auth, routing &amp; task lifecycle (REST)</li>
+        <li>WebSocket for bidirectional tool dispatch</li>
+        <li>SSE for web portal read-only streams</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">Orchestration</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v primary">
+        <div class="arch-icon">&#9733;</div>
+        <h4>Maestro</h4>
+        <div class="tech">Orchestration engine</div>
+      </div>
+      <ul class="arch-details light">
+        <li>Bootstrap: collects OS, git history, project structure</li>
+        <li>Sends system prompt + tool manifest to LLM</li>
+        <li>Iterative loop: tool call &rarr; execute &rarr; feed back</li>
+      </ul>
+    </div>
+  </div>
+  <div class="arch-react-bar" style="visibility: hidden;">
+    <span>ReAct loop:</span> <strong>Reason</strong> &rarr; <strong>Act</strong> (tool call) &rarr; <strong>Observe</strong> (result) &rarr; <strong>Iterate</strong> until final response
+  </div>
+</div>
+
+<!-- SLIDE 9b: Architecture — Backend spotlight -->
+<div class="slide content" data-slide="8b">
+  <div class="slide-tag">Architecture</div>
+  <h2>Three-tier architecture</h2>
+  <div class="arch-full">
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9002;</div>
+        <h4>CLI</h4>
+        <div class="tech">Node.js client</div>
+      </div>
+      <ul class="arch-details">
+        <li>User interaction &amp; local tool execution</li>
+        <li>Executes tools on the developer's machine</li>
+        <li>Supports IDE plugins &amp; VM executors via same protocol</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">WebSocket</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9881;</div>
+        <h4>Backend API</h4>
+        <div class="tech">FastAPI</div>
+      </div>
+      <ul class="arch-details">
+        <li>Auth, routing &amp; task lifecycle (REST)</li>
+        <li>WebSocket for bidirectional tool dispatch</li>
+        <li>SSE for web portal read-only streams</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">Orchestration</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v primary">
+        <div class="arch-icon">&#9733;</div>
+        <h4>Maestro</h4>
+        <div class="tech">Orchestration engine</div>
+      </div>
+      <ul class="arch-details light">
+        <li>Bootstrap: collects OS, git history, project structure</li>
+        <li>Sends system prompt + tool manifest to LLM</li>
+        <li>Iterative loop: tool call &rarr; execute &rarr; feed back</li>
+      </ul>
+    </div>
+  </div>
+  <div class="arch-react-bar" style="visibility: hidden;">
+    <span>ReAct loop:</span> <strong>Reason</strong> &rarr; <strong>Act</strong> (tool call) &rarr; <strong>Observe</strong> (result) &rarr; <strong>Iterate</strong> until final response
+  </div>
+</div>
+
+<!-- SLIDE 9c: Architecture — Maestro spotlight -->
+<div class="slide content" data-slide="8c">
+  <div class="slide-tag">Architecture</div>
+  <h2>Three-tier architecture</h2>
+  <div class="arch-full">
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9002;</div>
+        <h4>CLI</h4>
+        <div class="tech">Node.js client</div>
+      </div>
+      <ul class="arch-details">
+        <li>User interaction &amp; local tool execution</li>
+        <li>Executes tools on the developer's machine</li>
+        <li>Supports IDE plugins &amp; VM executors via same protocol</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">WebSocket</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier" style="opacity: 0.35;">
+      <div class="arch-box-v">
+        <div class="arch-icon">&#9881;</div>
+        <h4>Backend API</h4>
+        <div class="tech">FastAPI</div>
+      </div>
+      <ul class="arch-details">
+        <li>Auth, routing &amp; task lifecycle (REST)</li>
+        <li>WebSocket for bidirectional tool dispatch</li>
+        <li>SSE for web portal read-only streams</li>
+      </ul>
+    </div>
+    <div class="arch-flow" style="opacity: 0.35;">
+      <div class="arch-flow-label">Orchestration</div>
+      <div class="arch-flow-line">&harr;</div>
+    </div>
+    <div class="arch-tier">
+      <div class="arch-box-v primary">
+        <div class="arch-icon">&#9733;</div>
+        <h4>Maestro</h4>
+        <div class="tech">Orchestration engine</div>
+      </div>
+      <ul class="arch-details light">
+        <li>Bootstrap: collects OS, git history, project structure</li>
+        <li>Sends system prompt + tool manifest to LLM</li>
+        <li>Iterative loop: tool call &rarr; execute &rarr; feed back</li>
+      </ul>
+    </div>
+  </div>
+  <div id="react-bar" class="arch-react-bar" style="opacity: 0; transition: opacity 0.6s ease;">
+    <span>ReAct loop:</span> <strong>Reason</strong> &rarr; <strong>Act</strong> (tool call) &rarr; <strong>Observe</strong> (result) &rarr; <strong>Iterate</strong> until final response
+  </div>
+</div>
+
+<!-- SLIDE 11: Tool Manifest -->
+<div class="slide content" data-slide="10">
+  <div class="slide-tag">Architecture</div>
+  <h2>Tool manifest</h2>
+  <p style="margin-bottom: 28px;">Tool design quality is a <strong>first-class citizen</strong> of agent effectiveness.</p>
+  <div class="tool-manifest-layout">
+    <div class="tool-manifest-cards">
+      <div id="tool-read" class="card reveal-card">
+        <h3><code>read</code></h3>
+        <p>Retrieves file contents. Enforces a <strong>read-before-edit policy</strong> to prevent stale-context errors and hallucinated edits.</p>
+      </div>
+      <div id="tool-edit" class="card copper reveal-card">
+        <h3><code>edit</code></h3>
+        <p><strong>Targeted string replacement</strong> rather than full-file rewriting&mdash;mitigates LLM truncation failures on large files.</p>
+      </div>
+      <div id="tool-shell" class="card teal reveal-card">
+        <h3><code>shell</code></h3>
+        <p>Executes terminal commands subject to <strong>multiple guardrail layers</strong>: command blocking, human approval mode, full audit logging.</p>
+      </div>
+    </div>
+    <div id="tool-schema" class="tool-manifest-code" style="opacity: 0; transition: opacity 0.6s ease;">
+      <div class="code-label">Example: tool specification</div>
+<pre><code>"WriteFile": {
+  "name": "WriteFile",
+  "description":
+    "Writes content to a specified
+     file, creating it if it doesn't
+     exist and overwriting if it does.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "file_path": {
+        "type": "string",
+        "description":
+          "The path to the file."
+      },
+      "content": {
+        "type": "string",
+        "description":
+          "The content to write."
+      }
+    },
+    "required":
+      ["file_path", "content"]
+  }
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12: Section — Design Decisions -->
+<div class="slide section-header" data-slide="11">
+  <div class="section-label">Section 04</div>
+  <h1>Design<br>Decisions</h1>
+  <div class="accent-line"></div>
+</div>
+
+<!-- SLIDE 12b: Design Decisions Overview -->
+<div class="slide content-dark" data-slide="12">
+  <div class="slide-tag">Design Decisions</div>
+  <h2>14 decisions across three dimensions</h2>
+  <div class="decisions-overview">
+    <div class="decision-box">
+      <h3>Architecture &amp; Framework</h3>
+      <ol>
+        <li>LangChain's chain model was inadequate for the agentic loop</li>
+        <li>Manual implementation gave more control than early framework adoption</li>
+        <li>Transitioning toward modern orchestration as frameworks converged</li>
+        <li>FastAPI chosen for native async support</li>
+        <li>Session-scoped memory already delivers substantial UX value</li>
+        <li>Reasoning delegated to the LLM, not hand-coded in the orchestrator</li>
+        <li>Strong model capabilities don't eliminate need for orchestration</li>
+      </ol>
+    </div>
+    <div class="decision-box">
+      <h3>Tool Design &amp; Safety</h3>
+      <ol>
+        <li>Tool design quality proved more impactful than prompt-only tuning</li>
+        <li>Edit tool uses targeted string replacement, not full-file rewrites</li>
+        <li>Read-before-edit policy prevents hallucinated edits</li>
+        <li>Shell tool requires multiple guardrail layers</li>
+        <li>Policy consistency across tools is required for effective safety</li>
+        <li>Strict code quality enforcement as additional safety net</li>
+      </ol>
+    </div>
+    <div class="decision-box">
+      <h3>Human Oversight &amp; Adoption</h3>
+      <ol>
+        <li>Approval mode serves as trust-calibration during onboarding</li>
+        <li>Separating planning from execution addresses single-pass limitations</li>
+        <li>Progressive deployment mirrors individual trust-building patterns</li>
+        <li>Most decisions involved balancing competing concerns</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12c: Highlight Architecture & Framework -->
+<div class="slide content-dark" data-slide="12c">
+  <div class="slide-tag">Design Decisions</div>
+  <h2>14 decisions across three dimensions</h2>
+  <div class="decisions-overview">
+    <div class="decision-box">
+      <h3>Architecture &amp; Framework</h3>
+      <ol>
+        <li>LangChain's chain model was inadequate for the agentic loop</li>
+        <li>Manual implementation gave more control than early framework adoption</li>
+        <li>Transitioning toward modern orchestration as frameworks converged</li>
+        <li>FastAPI chosen for native async support</li>
+        <li>Session-scoped memory already delivers substantial UX value</li>
+        <li>Reasoning delegated to the LLM, not hand-coded in the orchestrator</li>
+        <li>Strong model capabilities don't eliminate need for orchestration</li>
+      </ol>
+    </div>
+    <div class="decision-box faded">
+      <h3>Tool Design &amp; Safety</h3>
+      <ol>
+        <li>Tool design quality proved more impactful than prompt-only tuning</li>
+        <li>Edit tool uses targeted string replacement, not full-file rewrites</li>
+        <li>Read-before-edit policy prevents hallucinated edits</li>
+        <li>Shell tool requires multiple guardrail layers</li>
+        <li>Policy consistency across tools is required for effective safety</li>
+        <li>Strict code quality enforcement as additional safety net</li>
+      </ol>
+    </div>
+    <div class="decision-box faded">
+      <h3>Human Oversight &amp; Adoption</h3>
+      <ol>
+        <li>Approval mode serves as trust-calibration during onboarding</li>
+        <li>Separating planning from execution addresses single-pass limitations</li>
+        <li>Progressive deployment mirrors individual trust-building patterns</li>
+        <li>Most decisions involved balancing competing concerns</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13.0: LangChain mismatch -->
+<div class="slide content" data-slide="13.0">
+  <div class="slide-tag">Architecture &amp; Framework</div>
+  <h2>LangChain's chain model was inadequate for the agentic loop</h2>
+  <p>At project inception, the team experimented with <strong>LangChain</strong> as an orchestration framework. Its early abstractions were designed around <strong>linear chains</strong>&mdash;a unidirectional pipeline where each step feeds into the next.</p>
+
+  <div class="chain-example">
+    <div class="chain-node">Input</div>
+    <div class="chain-arrow">&rarr;</div>
+    <div class="chain-node">PromptTemplate</div>
+    <div class="chain-arrow">&rarr;</div>
+    <div class="chain-node">LLM</div>
+    <div class="chain-arrow">&rarr;</div>
+    <div class="chain-node">OutputParser</div>
+    <div class="chain-arrow">&rarr;</div>
+    <div class="chain-node final">Output</div>
+  </div>
+</div>
+
+<!-- SLIDE 13.5: Cyclical agentic loop -->
+<div class="slide content" data-slide="13.5">
+  <div class="slide-tag">Architecture &amp; Framework</div>
+  <h2>LangChain's chain model was inadequate for the agentic loop</h2>
+  <p>The agentic coding assistant required a <strong>cyclical interaction pattern</strong>: the model requests a tool, the client executes it, and the result is fed back into the model repeatedly until the task is complete.</p>
+
+  <div class="agentic-flow">
+    <svg class="af-svg" viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 10 3, 0 6" fill="#CC7958" />
+        </marker>
+        <marker id="ah-dark" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 10 3, 0 6" fill="#260912" />
+        </marker>
+      </defs>
+
+      <!-- Start node -->
+      <g>
+        <rect x="20" y="140" width="150" height="90" rx="12" fill="#260912" />
+        <text x="95" y="178" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" letter-spacing="1">START</text>
+        <text x="95" y="202" text-anchor="middle" fill="#DED4D4" font-size="15">User prompt</text>
+      </g>
+
+      <!-- Arrow: start -> Reason -->
+      <path d="M 170 185 L 250 185" stroke="#260912" stroke-width="2.5" fill="none" marker-end="url(#ah-dark)" />
+
+      <!-- Cycle region background -->
+      <rect x="260" y="120" width="480" height="150" rx="14" fill="rgba(204,121,88,0.06)" stroke="rgba(204,121,88,0.3)" stroke-width="1.5" stroke-dasharray="6 4" />
+      <text x="500" y="110" text-anchor="middle" fill="#CC7958" font-size="12" font-weight="600" letter-spacing="2">AGENTIC LOOP</text>
+
+      <!-- Reason node -->
+      <g>
+        <rect x="275" y="145" width="140" height="100" rx="12" fill="#fff" stroke="#A54C5D" stroke-width="2" />
+        <circle cx="345" cy="170" r="13" fill="#CC7958" />
+        <text x="345" y="175" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">1</text>
+        <text x="345" y="205" text-anchor="middle" fill="#260912" font-size="18" font-weight="700">Reason</text>
+        <text x="345" y="225" text-anchor="middle" fill="#5a4a4e" font-size="11">LLM thinks</text>
+      </g>
+
+      <!-- Reason -> Act -->
+      <path d="M 415 195 L 440 195" stroke="#CC7958" stroke-width="2.5" fill="none" marker-end="url(#ah)" />
+
+      <!-- Act node -->
+      <g>
+        <rect x="445" y="145" width="140" height="100" rx="12" fill="#fff" stroke="#A54C5D" stroke-width="2" />
+        <circle cx="515" cy="170" r="13" fill="#CC7958" />
+        <text x="515" y="175" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">2</text>
+        <text x="515" y="205" text-anchor="middle" fill="#260912" font-size="18" font-weight="700">Act</text>
+        <text x="515" y="225" text-anchor="middle" fill="#5a4a4e" font-size="11">Tool call</text>
+      </g>
+
+      <!-- Act -> Observe -->
+      <path d="M 585 195 L 610 195" stroke="#CC7958" stroke-width="2.5" fill="none" marker-end="url(#ah)" />
+
+      <!-- Observe node -->
+      <g>
+        <rect x="615" y="145" width="115" height="100" rx="12" fill="#fff" stroke="#A54C5D" stroke-width="2" />
+        <circle cx="672" cy="170" r="13" fill="#CC7958" />
+        <text x="672" y="175" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">3</text>
+        <text x="672" y="205" text-anchor="middle" fill="#260912" font-size="16" font-weight="700">Observe</text>
+        <text x="672" y="225" text-anchor="middle" fill="#5a4a4e" font-size="11">Tool result</text>
+      </g>
+
+      <!-- Loop back: Observe -> Reason (curved above) -->
+      <path d="M 672 145 Q 672 60, 345 60 Q 345 60, 345 145" stroke="#CC7958" stroke-width="2.5" fill="none" marker-end="url(#ah)" stroke-dasharray="0" />
+      <text x="500" y="50" text-anchor="middle" fill="#CC7958" font-size="12" font-style="italic">loop: feed result back</text>
+
+      <!-- Cycle exit -> End -->
+      <path d="M 740 195 L 820 195" stroke="#260912" stroke-width="2.5" fill="none" marker-end="url(#ah-dark)" />
+      <text x="780" y="184" text-anchor="middle" fill="#260912" font-size="11" font-style="italic" font-weight="600">when done</text>
+
+      <!-- End node -->
+      <g>
+        <rect x="825" y="140" width="155" height="90" rx="12" fill="#260912" />
+        <text x="902" y="178" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" letter-spacing="1">END</text>
+        <text x="902" y="202" text-anchor="middle" fill="#DED4D4" font-size="15">Final answer</text>
+      </g>
+    </svg>
+  </div>
+
+  <p id="cyclical-mismatch" style="margin-top: 28px; opacity: 0; transition: opacity 0.6s ease;">
+    <mark class="hl">This fundamental mismatch forced the team to work around the framework rather than with it.</mark>
+  </p>
+</div>
+
+<!-- SLIDE 13a: Manual implementation -->
+<div class="slide content" data-slide="13a">
+  <div class="slide-tag">Architecture &amp; Framework</div>
+  <h2>Manual implementation gave more control than early framework adoption</h2>
+  <p><mark class="hl">We adopted but later abandoned LangChain.</mark><br>The team implemented the agentic loop directly&mdash;the Maestro component. This gave explicit control over stop criteria, tool dispatch, WebSocket communication, and error propagation.</p>
+  <div id="manual-box" class="highlight-box" style="opacity: 0; transition: opacity 0.6s ease;">For novel or poorly understood interaction patterns, <mark class="hl">manual implementation accelerates learning and provides clearer ownership of execution semantics</mark>&mdash;advantages that outweigh framework convenience during early project phases.</div>
+</div>
+
+<!-- SLIDE 13b: Frameworks converged -->
+<div class="slide content" data-slide="13b">
+  <div class="slide-tag">Architecture &amp; Framework</div>
+  <h2>Transitioning toward modern orchestration as frameworks converged</h2>
+  <p>As the agentic pattern became widespread, <mark class="hl">frameworks evolved to support it natively</mark>. LangChain introduced LangGraph, offering first-class support for cyclical tool-calling loops.</p>
+  <p>When evaluated, the team found that the design closely resembled what had already been built by hand. This convergence validated the original choices and made transition cost low.</p>
+  <div id="transition-box" class="highlight-box" style="opacity: 0; transition: opacity 0.6s ease;"><mark class="hl">Building manually first and adopting frameworks later</mark>&mdash;once they mature to match actual requirements&mdash;avoids both premature abstraction and long-term maintenance burden.</div>
+</div>
+
+<!-- SLIDE 13b2: Journey recap -->
+<div class="slide content-dark" data-slide="13b2">
+  <div class="slide-tag">Architecture &amp; Framework</div>
+  <h2>Creating agentic apps in 2026</h2>
+  <div class="journey-words">
+    <div id="journey-1" class="journey-group">
+      <div class="journey-word typewriter" data-auto-type data-text="adopting"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+    <div id="journey-2" class="journey-group">
+      <div class="journey-sep">&rarr;</div>
+      <div class="journey-word strikethrough typewriter" data-auto-type data-text="abandoning"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+    <div id="journey-3" class="journey-group">
+      <div class="journey-sep">&rarr;</div>
+      <div class="journey-word emphasis typewriter" data-auto-type data-text="adopting again"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12d: Highlight Tool Design & Safety -->
+<div class="slide content-dark" data-slide="12d">
+  <div class="slide-tag">Design Decisions</div>
+  <h2>14 decisions across three dimensions</h2>
+  <div class="decisions-overview">
+    <div class="decision-box faded">
+      <h3>Architecture &amp; Framework</h3>
+      <ol>
+        <li>LangChain's chain model was inadequate for the agentic loop</li>
+        <li>Manual implementation gave more control than early framework adoption</li>
+        <li>Transitioning toward modern orchestration as frameworks converged</li>
+        <li>FastAPI chosen for native async support</li>
+        <li>Session-scoped memory already delivers substantial UX value</li>
+        <li>Reasoning delegated to the LLM, not hand-coded in the orchestrator</li>
+        <li>Strong model capabilities don't eliminate need for orchestration</li>
+      </ol>
+    </div>
+    <div class="decision-box">
+      <h3>Tool Design &amp; Safety</h3>
+      <ol>
+        <li>Tool design quality proved more impactful than prompt-only tuning</li>
+        <li>Edit tool uses targeted string replacement, not full-file rewrites</li>
+        <li>Read-before-edit policy prevents hallucinated edits</li>
+        <li>Shell tool requires multiple guardrail layers</li>
+        <li>Policy consistency across tools is required for effective safety</li>
+        <li>Strict code quality enforcement as additional safety net</li>
+      </ol>
+    </div>
+    <div class="decision-box faded">
+      <h3>Human Oversight &amp; Adoption</h3>
+      <ol>
+        <li>Approval mode serves as trust-calibration during onboarding</li>
+        <li>Separating planning from execution addresses single-pass limitations</li>
+        <li>Progressive deployment mirrors individual trust-building patterns</li>
+        <li>Most decisions involved balancing competing concerns</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: Tool Design & Safety -->
+<div class="slide content" data-slide="13">
+  <div class="slide-tag">Tool Design &amp; Safety</div>
+  <h2>Tool design &gt; prompt design</h2>
+  <ul>
+    <li><strong>Semantic quality of descriptions</strong> determines how well the LLM understands when and why to use a tool</li>
+    <li><strong>Parameter schemas</strong> determine whether the model can invoke the tool correctly</li>
+    <li><strong>Read-before-edit policy</strong> prevents hallucinated edits on files the model hasn't recently inspected</li>
+    <li><strong>Error signaling</strong> determines whether the model can recover from failed invocations</li>
+  </ul>
+  <p id="tool-spec-box" class="gap-headline" style="opacity: 0; transition: opacity 0.6s ease;">
+    Tool specification is a <mark class="hl">first-class engineering concern</mark>&mdash;not an afterthought.
+  </p>
+</div>
+
+<!-- SLIDE 15: Shell safety -->
+<div class="slide content" data-slide="14">
+  <div class="slide-tag">Tool Design &amp; Safety</div>
+  <h2>Shell safety &amp; cross-tool policy <span class="h2-sub">&middot; guardrails for <code>shell</code></span></h2>
+  <div class="pyramid-wrap">
+    <svg class="pyramid-svg" viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#260912"/>
+            <stop offset="100%" stop-color="#5a1a26"/>
+          </linearGradient>
+          <linearGradient id="grad-3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5a1a26"/>
+            <stop offset="100%" stop-color="#852838"/>
+          </linearGradient>
+          <linearGradient id="grad-2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#852838"/>
+            <stop offset="100%" stop-color="#a54c5d"/>
+          </linearGradient>
+          <linearGradient id="grad-base" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a54c5d"/>
+            <stop offset="100%" stop-color="#cc7958"/>
+          </linearGradient>
+          <filter id="pyr-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#260912" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+
+        <!-- Apex (top, narrowest) -->
+        <g id="pyramid-4" class="reveal-card">
+          <polygon points="250,0 310,0 358,60 202,60" fill="url(#grad-top)" filter="url(#pyr-shadow)"/>
+          <text x="280" y="40" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="Inter, sans-serif">Block tool</text>
+        </g>
+
+        <!-- Layer 3 -->
+        <g id="pyramid-3" class="reveal-card">
+          <polygon points="204,64 356,64 406,128 154,128" fill="url(#grad-3)" filter="url(#pyr-shadow)"/>
+          <text x="280" y="102" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Inter, sans-serif">Block specific commands</text>
+        </g>
+
+        <!-- Layer 2 -->
+        <g id="pyramid-2" class="reveal-card">
+          <polygon points="156,132 404,132 454,196 106,196" fill="url(#grad-2)" filter="url(#pyr-shadow)"/>
+          <text x="280" y="170" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter, sans-serif">Approval mode</text>
+        </g>
+
+        <!-- Base (widest) -->
+        <g id="pyramid-1" class="reveal-card">
+          <polygon points="108,200 452,200 502,264 58,264" fill="url(#grad-base)" filter="url(#pyr-shadow)"/>
+          <text x="280" y="238" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter, sans-serif">Log every command</text>
+        </g>
+    </svg>
+  </div>
+  <p id="policy-col" class="gap-headline" style="margin-top: 24px; opacity: 0; transition: opacity 0.6s ease; text-align: center;">
+    <span class="problem-badge">&#9888;&#65039; PROBLEM</span>
+    <mark class="hl">Blocking direct file deletion is useless</mark> if <span class="tool-pill">shell</span> remains unrestricted&mdash;a shell command achieves the same effect.
+  </p>
+</div>
+
+<!-- SLIDE 14b: Tool Safety journey recap -->
+<div class="slide content-dark" data-slide="14b">
+  <div class="slide-tag">Tool Design &amp; Safety</div>
+  <h2>The 3 layers of tool safety</h2>
+  <div class="journey-words">
+    <div id="safety-journey-1" class="journey-group">
+      <div class="journey-word typewriter" data-auto-type data-text="specifying"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+    <div id="safety-journey-2" class="journey-group">
+      <div class="journey-sep">&rarr;</div>
+      <div class="journey-word typewriter" data-auto-type data-text="restricting"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+    <div id="safety-journey-3" class="journey-group">
+      <div class="journey-sep">&rarr;</div>
+      <div class="journey-word emphasis typewriter" data-auto-type data-text="auditing"></div>
+      <span class="typewriter-caret journey-caret"></span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12e: Highlight Human Oversight & Adoption -->
+<div class="slide content-dark" data-slide="12e">
+  <div class="slide-tag">Design Decisions</div>
+  <h2>14 decisions across three dimensions</h2>
+  <div class="decisions-overview">
+    <div class="decision-box faded">
+      <h3>Architecture &amp; Framework</h3>
+      <ol>
+        <li>LangChain's chain model was inadequate for the agentic loop</li>
+        <li>Manual implementation gave more control than early framework adoption</li>
+        <li>Transitioning toward modern orchestration as frameworks converged</li>
+        <li>FastAPI chosen for native async support</li>
+        <li>Session-scoped memory already delivers substantial UX value</li>
+        <li>Reasoning delegated to the LLM, not hand-coded in the orchestrator</li>
+        <li>Strong model capabilities don't eliminate need for orchestration</li>
+      </ol>
+    </div>
+    <div class="decision-box faded">
+      <h3>Tool Design &amp; Safety</h3>
+      <ol>
+        <li>Tool design quality proved more impactful than prompt-only tuning</li>
+        <li>Edit tool uses targeted string replacement, not full-file rewrites</li>
+        <li>Read-before-edit policy prevents hallucinated edits</li>
+        <li>Shell tool requires multiple guardrail layers</li>
+        <li>Policy consistency across tools is required for effective safety</li>
+        <li>Strict code quality enforcement as additional safety net</li>
+      </ol>
+    </div>
+    <div class="decision-box">
+      <h3>Human Oversight &amp; Adoption</h3>
+      <ol>
+        <li>Approval mode serves as trust-calibration during onboarding</li>
+        <li>Separating planning from execution addresses single-pass limitations</li>
+        <li>Progressive deployment mirrors individual trust-building patterns</li>
+        <li>Most decisions involved balancing competing concerns</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+<!-- SLIDE 17: Trust calibration -->
+<div class="slide content" data-slide="16">
+  <div class="slide-tag">Human Oversight</div>
+  <h2>Trust is earned, not mandated</h2>
+  <div class="modes-grid">
+    <div class="mode-card mode-safe">
+      <div class="mode-badge">APPROVAL MODE</div>
+      <p>Every file edit and shell command requires <strong>explicit human confirmation</strong>.</p>
+    </div>
+    <div id="auto-mode-group" class="reveal-group" style="display: contents;">
+      <div class="mode-arrow reveal-part" style="opacity: 0; transition: opacity 0.6s ease;">&rarr;</div>
+      <div class="mode-card mode-bold reveal-part" style="opacity: 0; transition: opacity 0.6s ease;">
+        <div class="mode-badge">AUTONOMOUS MODE <span class="yolo-pill">--yolo</span></div>
+        <p>Agent operates with <strong>minimal interruption</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <p id="trust-box" class="gap-headline" style="margin-top: 36px; opacity: 0; transition: opacity 0.6s ease; text-align: center;">
+    Developers <mark class="hl">begin in approval mode</mark>, then organically migrate to autonomous mode as confidence grows.
+  </p>
+</div>
+
+<!-- SLIDE 17b: Trade-offs -->
+<div class="slide content" data-slide="16b">
+  <div class="slide-tag">Human Oversight</div>
+  <h2>Balancing competing concerns</h2>
+  <p>Throughout CodeGen's development, the team repeatedly faced decisions where improving one dimension came at the cost of another:</p>
+
+  <div class="tradeoffs-grid vertical">
+    <div id="tradeoff-1" class="tradeoff reveal-card">
+      <div class="tradeoff-pro">Safety via approval modes</div>
+      <div class="tradeoff-vs">vs.</div>
+      <div class="tradeoff-con">added latency &amp; friction</div>
+    </div>
+    <div id="tradeoff-2" class="tradeoff reveal-card">
+      <div class="tradeoff-pro">Session memory for UX</div>
+      <div class="tradeoff-vs">vs.</div>
+      <div class="tradeoff-con">infrastructure complexity</div>
+    </div>
+    <div id="tradeoff-3" class="tradeoff reveal-card">
+      <div class="tradeoff-pro">Reasoning delegated to LLM</div>
+      <div class="tradeoff-vs">vs.</div>
+      <div class="tradeoff-con">less deterministic control</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SLIDE 18: Section — Open Questions -->
+<div class="slide section-header" data-slide="17">
+  <div class="section-label">Section 06</div>
+  <h1>Open<br>Questions</h1>
+  <div class="accent-line"></div>
+</div>
+
+<!-- SLIDE 21: Conclusion -->
+<div class="slide content-dark" data-slide="20">
+  <div class="slide-tag">Open Questions</div>
+  <h2>For researchers and tool builders</h2>
+  <div class="questions-grid">
+    <div id="q-1" class="question-card reveal-card">
+      <div class="q-num">1</div>
+      <p>Is there a <strong>methodology</strong> for designing tools that LLMs invoke correctly?</p>
+    </div>
+    <div id="q-2" class="question-card reveal-card">
+      <div class="q-num">2</div>
+      <p>Where should <strong>reasoning</strong> live&mdash;in the model or in the orchestrator?</p>
+    </div>
+    <div id="q-3" class="question-card reveal-card">
+      <div class="q-num">3</div>
+      <p>How do we enforce <strong>safety</strong> when tools have overlapping capabilities?</p>
+    </div>
+    <div id="q-4" class="question-card reveal-card">
+      <div class="q-num">4</div>
+      <p>How do agents earn <strong>autonomy</strong> beyond a binary on/off switch?</p>
+    </div>
+    <div id="q-5" class="question-card reveal-card">
+      <div class="q-num">5</div>
+      <p>What should agents <strong>remember</strong>&mdash;and what should they forget?</p>
+    </div>
+    <div id="q-6" class="question-card reveal-card">
+      <div class="q-num">6</div>
+      <p>How do we <strong>QA code</strong> that agents wrote?</p>
+    </div>
+  </div>
+  <div id="thanks-g" style="position: absolute; bottom: 48px; right: 60px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 48px; color: var(--muted-rose); opacity: 0; transition: opacity 0.6s ease;">Thanks, G.</div>
+</div>
+
+<!-- SLIDE 22: Closing (copy of title slide) -->
+<div class="slide title-slide" data-slide="21">
+  <div class="tag">Zup Innovation</div>
+  <h1>Building an Internal<br>Coding Agent at <span>Zup</span></h1>
+  <div class="subtitle">Lessons and Open Questions</div>
+  <div class="author-block">
+    <div class="name">Gustavo Pinto</div>
+    <a class="email" href="mailto:gustavo.pinto@zup.com.br">gustavo.pinto@zup.com.br</a>
+  </div>
+</div>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  const total = slides.length;
+
+  function updateSlide() {
+    revealItems.forEach(r => {
+      if (r.slideIndex !== current) {
+        if (r.el.classList.contains('reveal-group')) {
+          r.el.querySelectorAll('.reveal-part').forEach(p => p.style.opacity = '0');
+        } else {
+          r.el.style.opacity = '0';
+        }
+        r.shown = false;
+        const tw = r.el.querySelector && r.el.querySelector('.typewriter');
+        if (tw) resetTypewriter(tw);
+      }
+    });
+    slides.forEach((s, i) => {
+      s.classList.remove('active');
+      if (i < current) {
+        s.style.transform = 'translateX(-40px)';
+      } else if (i > current) {
+        s.style.transform = 'translateX(40px)';
+      }
+    });
+    slides[current].classList.add('active');
+
+    // Reset auto-typewriters on non-active slides; trigger on active
+    slides.forEach((s, i) => {
+      if (i !== current) resetAutoTypewritersOnSlide(s);
+    });
+    setTimeout(() => autoTypewritersOnSlide(slides[current]), 400);
+
+    const pct = ((current + 1) / total) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+
+    // Adjust counter color based on slide type
+    const counter = document.getElementById('counter');
+    if (slides[current].classList.contains('content')) {
+      counter.style.color = 'rgba(38,9,18,0.3)';
+    } else {
+      counter.style.color = 'rgba(255,255,255,0.35)';
+    }
+  }
+
+  // Sub-step reveal elements: { element, slideIndex, shown }
+  const revealItems = ['tool-read', 'tool-edit', 'tool-shell', 'tool-schema', 'gap-box', 'react-bar', 'cyclical-mismatch', 'manual-box', 'transition-box', 'tool-spec-box', 'pyramid-1', 'pyramid-2', 'pyramid-3', 'pyramid-4', 'policy-col', 'auto-mode-group', 'trust-box', 'tradeoff-1', 'tradeoff-2', 'tradeoff-3', 'q-1', 'q-2', 'q-3', 'q-4', 'q-5', 'q-6', 'thanks-g'].map(id => {
+    const el = document.getElementById(id);
+    const slide = el ? el.closest('.slide') : null;
+    return { el, slideIndex: slide ? Array.from(slides).indexOf(slide) : -1, shown: false };
+  }).filter(r => r.el);
+
+  // Typewriter effect
+  let typewriterTimer = null;
+  function startTypewriter(el, onComplete) {
+    const text = el.dataset.text || '';
+    el.textContent = '';
+    const caret = el.parentNode.querySelector('.typewriter-caret');
+    if (caret) caret.classList.add('active');
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i >= text.length) {
+        clearInterval(timer);
+        el.dataset.typed = '1';
+        if (caret) setTimeout(() => caret.classList.remove('active'), 1200);
+        if (onComplete) setTimeout(onComplete, 350);
+        return;
+      }
+      el.textContent += text[i++];
+    }, 65);
+    el._typewriterTimer = timer;
+  }
+  function resetTypewriter(el) {
+    if (el._typewriterTimer) { clearInterval(el._typewriterTimer); el._typewriterTimer = null; }
+    el.textContent = '';
+    delete el.dataset.typed;
+    const caret = el.parentNode.querySelector('.typewriter-caret');
+    if (caret) caret.classList.remove('active');
+  }
+  function autoTypewritersOnSlide(slide) {
+    const tws = slide.querySelectorAll('.typewriter[data-auto-type]');
+    if (!tws.length) return;
+    // Reset first
+    tws.forEach(tw => {
+      resetTypewriter(tw);
+      const sep = tw.parentNode.querySelector('.journey-sep');
+      if (sep) sep.style.opacity = '0';
+    });
+    // Play sequentially
+    let idx = 0;
+    function playNext() {
+      if (idx >= tws.length) return;
+      const tw = tws[idx++];
+      const sep = tw.parentNode.querySelector('.journey-sep');
+      if (sep) sep.style.opacity = '1';
+      startTypewriter(tw, playNext);
+    }
+    playNext();
+  }
+  function resetAutoTypewritersOnSlide(slide) {
+    const tws = slide.querySelectorAll('.typewriter[data-auto-type]');
+    tws.forEach(tw => {
+      resetTypewriter(tw);
+      const sep = tw.parentNode.querySelector('.journey-sep');
+      if (sep) sep.style.opacity = '0';
+    });
+  }
+
+  function getNextReveal() { return revealItems.find(r => r.slideIndex === current && !r.shown); }
+  function getLastShownReveal() {
+    const onSlide = revealItems.filter(r => r.slideIndex === current && r.shown);
+    return onSlide[onSlide.length - 1];
+  }
+  // Legacy alias
+  const thanksEl = document.getElementById('thanks-g');
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      const r = getNextReveal();
+      if (r) {
+        if (r.el.classList.contains('reveal-group')) {
+          r.el.querySelectorAll('.reveal-part').forEach(p => p.style.opacity = '1');
+        } else {
+          r.el.style.opacity = '0.8';
+        }
+        r.shown = true;
+        // Trigger typewriter inside this revealed element, if any
+        const tw = r.el.querySelector('.typewriter');
+        if (tw && !tw.dataset.typed) startTypewriter(tw);
+        return;
+      }
+      if (current < total - 1) { current++; updateSlide(); }
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      const r = getLastShownReveal();
+      if (r) {
+        if (r.el.classList.contains('reveal-group')) {
+          r.el.querySelectorAll('.reveal-part').forEach(p => p.style.opacity = '0');
+        } else {
+          r.el.style.opacity = '0';
+        }
+        r.shown = false;
+        // Reset typewriter inside this hidden element
+        const tw = r.el.querySelector('.typewriter');
+        if (tw) resetTypewriter(tw);
+        return;
+      }
+      if (current > 0) { current--; updateSlide(); }
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      current = 0; updateSlide();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      current = total - 1; updateSlide();
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && current < total - 1) { current++; updateSlide(); }
+      else if (diff < 0 && current > 0) { current--; updateSlide(); }
+    }
+  });
+
+  updateSlide();
+</script>
+
+</body>
+</html>

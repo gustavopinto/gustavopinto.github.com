@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.45rem; color: var(--highlight); margin-bottom: 0.4rem; font-weight: 700; }
+    .card p   { font-size: 1.25rem; color: var(--secondary); }
+    .card .note { font-size: 1.05rem; color: var(--secondary); margin-top: 0.5rem; opacity: 0.8; }
+
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 2rem; margin: 0.6rem 0 1.2rem; max-width: 62rem;
+    }
+    .definition p { font-size: 1.8rem; color: var(--text); font-style: italic; }
+
+    .diagram-wrap {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1rem; width: 100%; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; }
+
+    .notation-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; width: 100%;
+    }
+    .notation-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 0.8rem 0.6rem 0.6rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .notation-card svg { width: 100%; max-height: 70px; }
+    .notation-card span {
+      font-size: 1.15rem; color: var(--secondary); text-align: center; font-weight: 600;
+    }
+
+    .step { opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+    #step-dots { position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%); display: none; gap: 0.4rem; z-index: 200; }
+    #step-dots.visible { display: flex; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.2); transition: background 0.2s; }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- ══ 1. CAPA ══ -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 3<br><span class="accent">Entidades Fracas &amp; Generalização/Especialização</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>07 de abril de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- ══ 2. AGENDA ══ -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Revisão rápida: MER — entidades, atributos, relacionamentos</li>
+      <li>Entidades fracas em profundidade</li>
+      <li>Generalização e especialização</li>
+      <li>Restrições: total vs parcial, disjunção vs sobreposição</li>
+      <li>Exercícios de modelagem</li>
+    </ul>
+  </div>
+
+  <!-- ══ 3. REVISÃO RÁPIDA ══ -->
+  <div class="slide slide-content">
+    <h2>Revisão — Aula 2</h2>
+    <div class="diagram-wrap" style="margin-bottom:1rem">
+      <svg viewBox="0 0 780 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Entidade -->
+        <rect x="20" y="30" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="80" y="57" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="600">Entidade</text>
+        <!-- Atributo -->
+        <line x1="80" y1="30" x2="80" y2="12" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="80" cy="8" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="80" y="12" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">atributo</text>
+        <!-- linha -->
+        <line x1="140" y1="52" x2="200" y2="52" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="170" y="46" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+        <!-- Relacionamento -->
+        <polygon points="250,30 300,52 250,74 200,52" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="250" y="56" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">rel</text>
+        <!-- linha -->
+        <line x1="300" y1="52" x2="360" y2="52" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="330" y="46" text-anchor="middle" font-size="12" fill="#92400e" font-family="sans-serif" font-weight="700">M</text>
+        <!-- Entidade 2 -->
+        <rect x="360" y="30" width="120" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="420" y="57" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="600">Entidade 2</text>
+
+        <!-- legenda -->
+        <text x="560" y="40" font-size="12" fill="#475569" font-family="sans-serif">Entidades, atributos,</text>
+        <text x="560" y="56" font-size="12" fill="#475569" font-family="sans-serif">relacionamentos e</text>
+        <text x="560" y="72" font-size="12" fill="#475569" font-family="sans-serif">cardinalidade (1:1, 1:N, N:M)</text>
+      </svg>
+    </div>
+    <ul>
+      <li><span class="accent">Entidade</span> = retângulo · <span class="accent">Atributo</span> = elipse · <span class="accent">Relacionamento</span> = losango</li>
+      <li>Cardinalidade: 1:1, 1:N, N:M</li>
+      <li>Participação: total (linha dupla) ou parcial (linha simples)</li>
+    </ul>
+  </div>
+
+  <!-- ══ 4. ENTIDADE FRACA — DEFINIÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Entidade Fraca</h2>
+    <div class="definition">
+      <p>Uma <strong>entidade fraca</strong> não possui um atributo identificador próprio suficiente. Ela depende de outra entidade (a <strong>entidade forte/proprietária</strong>) para ser identificada de forma única.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>Entidade Forte</h3>
+        <p>Possui <strong>chave própria</strong> (atributo sublinhado). Existe independentemente.</p>
+        <p class="note">Representação: retângulo simples</p>
+      </div>
+      <div class="card">
+        <h3>Entidade Fraca</h3>
+        <p>Possui apenas uma <strong>chave parcial</strong> (discriminador). Precisa da chave da entidade forte para identificação completa.</p>
+        <p class="note">Representação: retângulo duplo</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 5. NOTAÇÃO — ENTIDADE FRACA ══ -->
+  <div class="slide slide-content">
+    <h2>Notação — Entidade Fraca</h2>
+    <p style="font-size:1.6rem; margin-bottom:1rem">Três elementos visuais distinguem a entidade fraca no DER:</p>
+    <div class="notation-grid" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="notation-card">
+        <svg viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="10" width="144" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <rect x="14" y="16" width="132" height="32" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+          <text x="80" y="37" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">Ent. Fraca</text>
+        </svg>
+        <span>Retângulo duplo</span>
+      </div>
+      <div class="notation-card">
+        <svg viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="80,6 152,32 80,58 8,32" stroke="#0f172a" stroke-width="2" fill="white"/>
+          <polygon points="80,13 142,32 80,51 18,32" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+          <text x="80" y="37" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">Rel. Id.</text>
+        </svg>
+        <span>Losango duplo</span>
+      </div>
+      <div class="notation-card">
+        <svg viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="80" cy="32" rx="60" ry="24" stroke="#0f172a" stroke-width="1.5" fill="white"/>
+          <text x="80" y="29" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif" text-decoration="underline" stroke-dasharray="4 2">nome</text>
+          <text x="80" y="45" text-anchor="middle" font-size="10" fill="#92400e" font-family="sans-serif">(chave parcial)</text>
+        </svg>
+        <span>Chave parcial (tracejado)</span>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:1.5rem">A chave completa da entidade fraca = <span class="highlight">chave da entidade forte</span> + <span class="accent">chave parcial (discriminador)</span></p>
+  </div>
+
+  <!-- ══ 6. EXEMPLO 1 — FUNCIONÁRIO / DEPENDENTE ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Funcionário e Dependente</h2>
+    <div class="diagram-wrap" style="margin-bottom:1rem">
+      <svg viewBox="0 0 820 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Atributos Funcionário -->
+        <line x1="110" y1="70" x2="60" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="46" cy="20" rx="42" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="46" y="24" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif" text-decoration="underline">CPF</text>
+
+        <line x1="150" y1="70" x2="180" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="194" cy="20" rx="38" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="194" y="24" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">nome</text>
+
+        <!-- Funcionário -->
+        <rect x="50" y="70" width="160" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="130" y="100" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Funcionário</text>
+
+        <!-- linha dupla (participação total do lado fraco) -->
+        <line x1="210" y1="90" x2="280" y2="90" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="210" y1="100" x2="280" y2="100" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="245" y="82" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+
+        <!-- losango duplo -->
+        <polygon points="340,72 400,95 340,118 280,95" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <polygon points="340,80 388,95 340,110 292,95" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+        <text x="340" y="99" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif">tem</text>
+
+        <!-- linha dupla -->
+        <line x1="400" y1="90" x2="470" y2="90" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="400" y1="100" x2="470" y2="100" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="435" y="82" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+
+        <!-- Dependente (fraca) -->
+        <rect x="470" y="70" width="160" height="50" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <rect x="477" y="77" width="146" height="36" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+        <text x="550" y="100" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Dependente</text>
+
+        <!-- Atributos Dependente -->
+        <line x1="520" y1="70" x2="490" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="476" cy="20" rx="42" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="476" y="24" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif" text-decoration="underline" stroke-dasharray="4 2">nome</text>
+        <text x="530" y="14" font-size="9" fill="#92400e" font-family="sans-serif">(parcial)</text>
+
+        <line x1="580" y1="70" x2="610" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="624" cy="20" rx="50" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="624" y="24" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">dt_nascimento</text>
+
+        <line x1="550" y1="120" x2="550" y2="150" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="550" cy="162" rx="50" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="550" y="166" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">parentesco</text>
+
+        <!-- Legenda -->
+        <rect x="660" y="56" width="150" height="70" fill="#f0f4f8" stroke="#94a3b8" stroke-width="1" rx="4"/>
+        <text x="735" y="74" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif" font-weight="600">Chave completa:</text>
+        <text x="735" y="90" text-anchor="middle" font-size="11" fill="#0369a1" font-family="sans-serif">CPF (Funcionário)</text>
+        <text x="735" y="104" text-anchor="middle" font-size="11" fill="#92400e" font-family="sans-serif">+ nome (Dependente)</text>
+        <text x="735" y="118" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">= identificação única</text>
+      </svg>
+    </div>
+    <ul>
+      <li><span class="highlight">Dependente</span> não existe sem o Funcionário</li>
+      <li>"Maria" pode ser dependente de João <em>e</em> de Pedro — o nome sozinho não identifica</li>
+      <li>Chave completa: <span class="accent">CPF do Funcionário</span> + <span class="highlight">nome do Dependente</span></li>
+    </ul>
+  </div>
+
+  <!-- ══ 7. EXEMPLO 2 — PRÉDIO / APARTAMENTO ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Prédio e Apartamento</h2>
+    <div class="diagram-wrap" style="margin-bottom:1rem">
+      <svg viewBox="0 0 780 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Atributos Prédio -->
+        <line x1="100" y1="60" x2="60" y2="24" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="46" cy="16" rx="40" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="46" y="20" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">código</text>
+
+        <line x1="150" y1="60" x2="180" y2="24" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="196" cy="16" rx="44" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="196" y="20" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">endereço</text>
+
+        <!-- Prédio -->
+        <rect x="40" y="60" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="110" y="87" text-anchor="middle" font-size="19" fill="#0f172a" font-family="sans-serif" font-weight="700">Prédio</text>
+
+        <!-- linhas duplas -->
+        <line x1="180" y1="78" x2="250" y2="78" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="180" y1="86" x2="250" y2="86" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="215" y="72" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">1</text>
+
+        <!-- losango duplo -->
+        <polygon points="310,60 370,82 310,104 250,82" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <polygon points="310,68 358,82 310,96 262,82" stroke="#0f172a" stroke-width="1.5" fill="none"/>
+        <text x="310" y="86" text-anchor="middle" font-size="13" fill="#0f172a" font-family="sans-serif">possui</text>
+
+        <!-- linhas duplas -->
+        <line x1="370" y1="78" x2="440" y2="78" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="370" y1="86" x2="440" y2="86" stroke="#0f172a" stroke-width="1.5"/>
+        <text x="405" y="72" text-anchor="middle" font-size="13" fill="#92400e" font-family="sans-serif" font-weight="700">N</text>
+
+        <!-- Apartamento (fraca) -->
+        <rect x="440" y="60" width="170" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <rect x="447" y="67" width="156" height="30" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+        <text x="525" y="87" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Apartamento</text>
+
+        <!-- Atributos Apartamento -->
+        <line x1="490" y1="60" x2="460" y2="24" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="444" cy="16" rx="40" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="444" y="20" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline" stroke-dasharray="4 2">número</text>
+        <text x="496" y="12" font-size="9" fill="#92400e" font-family="sans-serif">(parcial)</text>
+
+        <line x1="560" y1="60" x2="590" y2="24" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="606" cy="16" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="606" y="20" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">área_m²</text>
+
+        <line x1="525" y1="104" x2="525" y2="136" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="525" cy="148" rx="44" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="525" y="152" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nº_quartos</text>
+      </svg>
+    </div>
+    <ul>
+      <li>Apartamento 101 existe em vários prédios — o número sozinho <span class="highlight">não identifica</span></li>
+      <li>Chave completa: <span class="accent">código do Prédio</span> + <span class="highlight">número do Apartamento</span></li>
+      <li>Se o prédio for demolido, os apartamentos deixam de existir</li>
+    </ul>
+  </div>
+
+  <!-- ══ 8. QUANDO USAR ENTIDADE FRACA? ══ -->
+  <div class="slide slide-content" data-steps="3">
+    <h2>Quando usar Entidade Fraca?</h2>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">Pergunte-se: a entidade pode existir e ser identificada <strong>sem</strong> a entidade proprietária?</p>
+    <div class="cards cards-3">
+      <div class="card step" data-step="1">
+        <h3>Dependente</h3>
+        <p>"Maria" é dependente <strong>de quem</strong>? Sem o funcionário, não há como identificá-la.</p>
+        <p class="note">→ Entidade fraca</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>Item de Pedido</h3>
+        <p>Item 1, Item 2... <strong>de qual pedido</strong>? O número do item só faz sentido no contexto do pedido.</p>
+        <p class="note">→ Entidade fraca</p>
+      </div>
+      <div class="card step" data-step="3">
+        <h3>Sala de Aula</h3>
+        <p>Sala 101 <strong>de qual prédio</strong>? Se a universidade tem vários prédios, o número da sala não basta.</p>
+        <p class="note">→ Entidade fraca</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. GENERALIZAÇÃO / ESPECIALIZAÇÃO — DEFINIÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Generalização e Especialização</h2>
+    <div class="definition">
+      <p><strong>Generalização</strong> e <strong>especialização</strong> permitem representar hierarquias de tipos no MER — entidades que compartilham atributos gerais mas possuem atributos específicos.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>Generalização (bottom-up)</h3>
+        <p>Percebemos que entidades <strong>semelhantes</strong> compartilham atributos → criamos uma <strong>superclasse</strong>.</p>
+        <p class="note">Ex: Aluno e Professor têm nome, CPF → generalizamos em Pessoa</p>
+      </div>
+      <div class="card">
+        <h3>Especialização (top-down)</h3>
+        <p>Uma entidade tem subgrupos com atributos ou relacionamentos <strong>próprios</strong> → criamos <strong>subclasses</strong>.</p>
+        <p class="note">Ex: Pessoa se especializa em Aluno (matrícula) e Professor (SIAPE)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 10. NOTAÇÃO — GENERALIZAÇÃO ══ -->
+  <div class="slide slide-content">
+    <h2>Notação no DER</h2>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">A hierarquia é representada por um <span class="accent">triângulo</span> (ou "d"/"o") ligando superclasse às subclasses.</p>
+    <div class="diagram-wrap" style="max-width:60%; margin: 0 auto;">
+      <svg viewBox="0 0 780 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Atributos Pessoa -->
+        <line x1="340" y1="50" x2="260" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="220" cy="24" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="220" y="28" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">CPF</text>
+
+        <line x1="420" y1="50" x2="500" y2="30" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="538" cy="24" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="538" y="28" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nome</text>
+
+        <!-- Superclasse: Pessoa -->
+        <rect x="310" y="50" width="140" height="56" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="380" y="84" text-anchor="middle" font-size="22" fill="#0f172a" font-family="sans-serif" font-weight="700">Pessoa</text>
+
+        <!-- Linha para triângulo -->
+        <line x1="380" y1="106" x2="380" y2="155" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Triângulo de generalização -->
+        <polygon points="380,155 330,210 430,210" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="380" y="196" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="600">d</text>
+
+        <!-- Linhas para subclasses -->
+        <line x1="350" y1="210" x2="170" y2="260" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="410" y1="210" x2="580" y2="260" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Subclasse: Aluno -->
+        <rect x="90" y="260" width="160" height="52" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="170" y="292" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Aluno</text>
+        <!-- atrib específico -->
+        <line x1="170" y1="312" x2="170" y2="345" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="170" cy="358" rx="50" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="170" y="362" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">matrícula</text>
+
+        <!-- Subclasse: Professor -->
+        <rect x="500" y="260" width="160" height="52" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="580" y="292" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Professor</text>
+        <!-- atrib específico -->
+        <line x1="580" y1="312" x2="580" y2="345" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="580" cy="358" rx="44" ry="16" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="580" y="362" text-anchor="middle" font-size="12" fill="#0f172a" font-family="sans-serif">SIAPE</text>
+
+        <!-- legenda -->
+        <text x="680" y="160" font-size="14" fill="#475569" font-family="sans-serif" font-weight="600">Triângulo:</text>
+        <text x="680" y="180" font-size="13" fill="#475569" font-family="sans-serif">"d" = disjunção</text>
+        <text x="680" y="200" font-size="13" fill="#475569" font-family="sans-serif">"o" = sobreposição</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 11. HERANÇA DE ATRIBUTOS ══ -->
+  <div class="slide slide-content">
+    <h2>Herança de Atributos</h2>
+    <div class="definition">
+      <p>As subclasses <strong>herdam</strong> todos os atributos e relacionamentos da superclasse, além de possuir os seus próprios.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>Pessoa (superclasse)</h3>
+        <p>CPF, nome, data_nascimento, endereço</p>
+        <p class="note">Atributos comuns a todos</p>
+      </div>
+      <div class="card">
+        <h3>Aluno (subclasse)</h3>
+        <p>Herda: CPF, nome, data_nascimento, endereço</p>
+        <p>Acrescenta: <span class="accent">matrícula</span>, <span class="accent">curso</span></p>
+        <p class="note">Aluno é uma Pessoa com atributos extras</p>
+      </div>
+    </div>
+    <ul style="margin-top:1rem">
+      <li>Cada instância da subclasse <span class="accent">também é</span> instância da superclasse</li>
+      <li>A chave da subclasse é a <span class="highlight">mesma chave da superclasse</span></li>
+      <li>Subclasses podem ter <span class="accent">relacionamentos próprios</span> que não se aplicam às outras</li>
+    </ul>
+  </div>
+
+  <!-- ══ 12. RESTRIÇÕES — DISJUNÇÃO vs SOBREPOSIÇÃO ══ -->
+  <div class="slide slide-content" data-steps="2">
+    <h2>Restrição de Disjunção</h2>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">Uma instância pode pertencer a <strong>quantas</strong> subclasses ao mesmo tempo?</p>
+    <div class="cards cards-2">
+      <div class="card step" data-step="1">
+        <h3>Disjunção (d)</h3>
+        <p>Uma instância pertence a <strong>no máximo uma</strong> subclasse.</p>
+        <p class="note">Ex: Uma conta bancária é Corrente OU Poupança — nunca ambas.</p>
+        <div class="diagram-wrap" style="margin-top:0.6rem">
+          <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="100,5 70,55 130,55" stroke="#0f172a" stroke-width="2" fill="white"/>
+            <text x="100" y="42" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">d</text>
+          </svg>
+        </div>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>Sobreposição (o)</h3>
+        <p>Uma instância pode pertencer a <strong>várias</strong> subclasses simultaneamente.</p>
+        <p class="note">Ex: Uma pessoa pode ser Aluno E Professor ao mesmo tempo.</p>
+        <div class="diagram-wrap" style="margin-top:0.6rem">
+          <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="100,5 70,55 130,55" stroke="#0f172a" stroke-width="2" fill="white"/>
+            <text x="100" y="42" text-anchor="middle" font-size="16" fill="#0f172a" font-family="sans-serif" font-weight="700">o</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 13. RESTRIÇÕES — TOTAL vs PARCIAL ══ -->
+  <div class="slide slide-content" data-steps="2">
+    <h2>Restrição de Completude</h2>
+    <p style="font-size:1.6rem; margin-bottom:0.8rem">Toda instância da superclasse <strong>precisa</strong> pertencer a alguma subclasse?</p>
+    <div class="cards cards-2">
+      <div class="card step" data-step="1">
+        <h3>Total (linha dupla)</h3>
+        <p>Toda instância da superclasse <strong>deve</strong> pertencer a pelo menos uma subclasse.</p>
+        <p class="note">Ex: Todo Veículo é Carro OU Moto — não existe veículo "genérico".</p>
+        <div class="diagram-wrap" style="margin-top:0.6rem">
+          <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="16" x2="180" y2="16" stroke="#0f172a" stroke-width="2"/>
+            <line x1="20" y1="24" x2="180" y2="24" stroke="#0f172a" stroke-width="2"/>
+            <text x="100" y="38" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">linha dupla = total</text>
+          </svg>
+        </div>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>Parcial (linha simples)</h3>
+        <p>Uma instância da superclasse pode <strong>não</strong> pertencer a nenhuma subclasse.</p>
+        <p class="note">Ex: Nem toda Pessoa é Aluno ou Professor — pode ser um visitante.</p>
+        <div class="diagram-wrap" style="margin-top:0.6rem">
+          <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="20" x2="180" y2="20" stroke="#0f172a" stroke-width="1.5"/>
+            <text x="100" y="38" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">linha simples = parcial</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 14. COMBINAÇÕES DE RESTRIÇÕES ══ -->
+  <div class="slide slide-content">
+    <h2>Combinações de Restrições</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Disjunção Total (d, total)</h3>
+        <p>Toda instância pertence a <strong>exatamente uma</strong> subclasse.</p>
+        <p class="note">Ex: Conta Bancária → Corrente ou Poupança (obrigatório, sem sobreposição)</p>
+      </div>
+      <div class="card">
+        <h3>Disjunção Parcial (d, parcial)</h3>
+        <p>Uma instância pertence a <strong>no máximo uma</strong> subclasse, mas pode não pertencer a nenhuma.</p>
+        <p class="note">Ex: Funcionário → Motorista ou Secretário (pode ser outro cargo)</p>
+      </div>
+      <div class="card">
+        <h3>Sobreposição Total (o, total)</h3>
+        <p>Toda instância pertence a <strong>pelo menos uma</strong> subclasse, podendo pertencer a várias.</p>
+        <p class="note">Ex: Peça → Fabricada ou Comprada (toda peça tem origem, pode ser ambas)</p>
+      </div>
+      <div class="card">
+        <h3>Sobreposição Parcial (o, parcial)</h3>
+        <p>Uma instância pode pertencer a <strong>zero ou mais</strong> subclasses.</p>
+        <p class="note">Ex: Pessoa → Aluno ou Professor (pode ser ambos ou nenhum)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 15. EXEMPLO COMPLETO — VEÍCULOS ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Sistema de Veículos</h2>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 800 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Atributos Veículo -->
+        <line x1="350" y1="20" x2="260" y2="8" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="218" cy="8" rx="42" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="218" y="12" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">placa</text>
+
+        <line x1="400" y1="20" x2="400" y2="8" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="400" cy="4" rx="34" ry="10" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="400" y="8" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">modelo</text>
+
+        <line x1="460" y1="20" x2="540" y2="8" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="576" cy="8" rx="34" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="576" y="12" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">ano</text>
+
+        <!-- Superclasse: Veículo -->
+        <rect x="320" y="20" width="160" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="400" y="49" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Veículo</text>
+
+        <!-- Linha dupla (total) -->
+        <line x1="396" y1="68" x2="396" y2="100" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="404" y1="68" x2="404" y2="100" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Triângulo -->
+        <polygon points="400,100 360,140 440,140" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="400" y="130" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="700">d</text>
+
+        <!-- Linhas para subclasses -->
+        <line x1="370" y1="140" x2="150" y2="170" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="400" y1="140" x2="400" y2="170" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="430" y1="140" x2="650" y2="170" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Subclasse: Carro -->
+        <rect x="70" y="170" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="140" y="197" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Carro</text>
+        <line x1="140" y1="214" x2="140" y2="240" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="140" cy="252" rx="44" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="140" y="256" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">nº_portas</text>
+
+        <!-- Subclasse: Moto -->
+        <rect x="330" y="170" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="400" y="197" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Moto</text>
+        <line x1="400" y1="214" x2="400" y2="240" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="400" cy="252" rx="46" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="400" y="256" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">cilindrada</text>
+
+        <!-- Subclasse: Caminhão -->
+        <rect x="580" y="170" width="150" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="655" y="197" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Caminhão</text>
+        <line x1="655" y1="214" x2="655" y2="240" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="655" cy="252" rx="52" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="655" y="256" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">carga_max</text>
+
+        <!-- Legenda -->
+        <rect x="620" y="90" width="170" height="60" fill="#f0f4f8" stroke="#94a3b8" stroke-width="1" rx="4"/>
+        <text x="705" y="108" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif" font-weight="600">Disjunção Total:</text>
+        <text x="705" y="124" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">todo veículo é exatamente</text>
+        <text x="705" y="140" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">um tipo (Carro, Moto ou Caminhão)</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══ 16. EXEMPLO — PESSOA (SOBREPOSIÇÃO PARCIAL) ══ -->
+  <div class="slide slide-content">
+    <h2>Exemplo — Sistema Universitário</h2>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 780 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Atributos Pessoa -->
+        <line x1="340" y1="30" x2="260" y2="14" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="220" cy="10" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="220" y="14" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif" text-decoration="underline">CPF</text>
+
+        <line x1="420" y1="30" x2="500" y2="14" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="538" cy="10" rx="38" ry="14" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="538" y="14" text-anchor="middle" font-size="11" fill="#0f172a" font-family="sans-serif">nome</text>
+
+        <!-- Superclasse: Pessoa -->
+        <rect x="310" y="30" width="140" height="48" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="380" y="59" text-anchor="middle" font-size="20" fill="#0f172a" font-family="sans-serif" font-weight="700">Pessoa</text>
+
+        <!-- Linha simples (parcial) -->
+        <line x1="380" y1="78" x2="380" y2="110" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Triângulo -->
+        <polygon points="380,110 340,150 420,150" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="380" y="140" text-anchor="middle" font-size="14" fill="#0f172a" font-family="sans-serif" font-weight="700">o</text>
+
+        <!-- Linhas para subclasses -->
+        <line x1="360" y1="150" x2="170" y2="180" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="400" y1="150" x2="580" y2="180" stroke="#0f172a" stroke-width="1.5"/>
+
+        <!-- Subclasse: Aluno -->
+        <rect x="90" y="180" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="160" y="207" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Aluno</text>
+        <line x1="160" y1="224" x2="160" y2="248" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="160" cy="256" rx="44" ry="12" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="160" y="260" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">matrícula</text>
+
+        <!-- Subclasse: Professor -->
+        <rect x="510" y="180" width="140" height="44" stroke="#0f172a" stroke-width="2" fill="white"/>
+        <text x="580" y="207" text-anchor="middle" font-size="18" fill="#0f172a" font-family="sans-serif" font-weight="700">Professor</text>
+        <line x1="580" y1="224" x2="580" y2="248" stroke="#0f172a" stroke-width="1.2"/>
+        <ellipse cx="580" cy="256" rx="38" ry="12" stroke="#0f172a" stroke-width="1.2" fill="white"/>
+        <text x="580" y="260" text-anchor="middle" font-size="10" fill="#0f172a" font-family="sans-serif">SIAPE</text>
+
+        <!-- Legenda -->
+        <rect x="610" y="100" width="160" height="68" fill="#f0f4f8" stroke="#94a3b8" stroke-width="1" rx="4"/>
+        <text x="690" y="118" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif" font-weight="600">Sobreposição Parcial:</text>
+        <text x="690" y="134" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">uma pessoa pode ser</text>
+        <text x="690" y="148" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Aluno E Professor, ou</text>
+        <text x="690" y="162" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">nenhum dos dois</text>
+      </svg>
+    </div>
+    <ul style="margin-top:0.6rem">
+      <li><span class="accent">"o"</span> no triângulo → sobreposição (pode ser Aluno e Professor ao mesmo tempo)</li>
+      <li>Linha simples → parcial (pode existir Pessoa que não é nem Aluno nem Professor)</li>
+    </ul>
+  </div>
+
+  <!-- ══ 17. EXERCÍCIO ══ -->
+  <div class="slide slide-content">
+    <span class="tag">Exercício</span>
+    <h2>Modelagem — Sistema Hospitalar</h2>
+    <div class="definition">
+      <p>Um hospital emprega <strong>funcionários</strong> (CPF, nome, salário) que são <strong>médicos</strong> (CRM, especialidade) ou <strong>enfermeiros</strong> (COREN, turno) — obrigatoriamente um dos dois, nunca ambos. Médicos atendem <strong>pacientes</strong> (CPF, nome). Cada paciente pode ter <strong>dependentes</strong> (nome, parentesco) no plano.</p>
+    </div>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Construa o DER</h3>
+        <p>Identifique entidades fortes/fracas, a generalização e seus tipos de restrição. Desenhe no <span class="accent">BRModelo Web</span>.</p>
+      </div>
+      <div class="card">
+        <h3>📤 Entrega</h3>
+        <p>Compartilhe o print do diagrama no <strong>Telegram da turma</strong> até o final da aula.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRÓXIMA AULA ══ -->
+  <div class="slide slide-cover" id="proxima-aula">
+    <span class="tag">Próxima Aula — 09/04 (Qui)</span>
+    <h1>Modelo Relacional<br><span class="accent">Mapeamento MER→Relacional &amp; Normalização</span></h1>
+    <ul style="text-align:left; margin-top:2rem">
+      <li style="font-size:1.9rem; color:#f1f5f9">Mapeamento do DER para tabelas relacionais</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Normalização: 1FN, 2FN, 3FN</li>
+      <li style="font-size:1.9rem; color:#f1f5f9">Dependências funcionais</li>
+    </ul>
+    <p style="font-size:1.6rem; color:#94a3b8; margin-top:2.5rem">📖 Leitura recomendada: Heuser, caps. 4–5</p>
+  </div>
+
+</div><!-- /slides -->
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 10 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .tag-warning { background:#b45309; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary);line-height:1.5; }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .warning { background:rgba(220,38,38,.08);border-left:5px solid #dc2626;border-radius:0 var(--radius) var(--radius) 0;padding:1rem 2rem;margin:.6rem 0; }
+    .warning p { font-size:1.6rem;color:#991b1b;font-style:normal; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .code-block .danger { color:#fca5a5; }
+    .question-card { background:#fff;border:1px solid rgba(3,105,161,.25);border-radius:var(--radius);padding:1.1rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .question-card p { font-size:1.2rem;color:var(--text);line-height:1.5; }
+    .question-card .q-label { font-size:1rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem; }
+    #step-dots { display:none; }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- CAPA -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 10<br><span class="accent">Funções de Agregação, GROUP BY e HAVING</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>28 de maio de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Revisão rápida: SELECT, WHERE, ORDER BY</li>
+      <li>O que são funções de agregação?</li>
+      <li>COUNT, SUM, AVG, MIN, MAX</li>
+      <li>GROUP BY: agrupando resultados</li>
+      <li>HAVING: filtrando grupos</li>
+      <li>WHERE vs HAVING: qual usar?</li>
+      <li>Exercício reflexivo</li>
+      <li>Laboratório prático</li>
+    </ul>
+  </div>
+
+  <!-- REVISÃO SELECT -->
+  <div class="slide slide-content">
+    <h2>Revisão: SELECT da Aula 9</h2>
+    <pre class="code-block"><span class="cm">-- Estrutura básica já conhecida</span>
+<span class="kw">SELECT</span> coluna1, coluna2
+<span class="kw">FROM</span>   tabela
+<span class="kw">WHERE</span>  condicao
+<span class="kw">ORDER BY</span> coluna <span class="kw">ASC</span> | <span class="kw">DESC</span>
+<span class="kw">LIMIT</span>  n;</pre>
+    <div class="definition">
+      <p>Até agora consultamos <strong>linhas individuais</strong>. Hoje vamos consultar <strong>resumos</strong>: quantos registros existem? qual a média? qual o total?</p>
+    </div>
+  </div>
+
+  <!-- O QUE SÃO FUNÇÕES DE AGREGAÇÃO -->
+  <div class="slide slide-content">
+    <h2>Funções de Agregação</h2>
+    <div class="definition">
+      <p>Funções que <strong>operam sobre um conjunto de linhas</strong> e retornam <strong>um único valor</strong> resumindo aquele conjunto.</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>COUNT</h3>
+        <p>Conta o número de linhas (ou valores não nulos).</p>
+      </div>
+      <div class="card">
+        <h3>SUM</h3>
+        <p>Soma todos os valores de uma coluna numérica.</p>
+      </div>
+      <div class="card">
+        <h3>AVG</h3>
+        <p>Calcula a média aritmética de uma coluna numérica.</p>
+      </div>
+    </div>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>MIN</h3>
+        <p>Retorna o menor valor de uma coluna.</p>
+      </div>
+      <div class="card">
+        <h3>MAX</h3>
+        <p>Retorna o maior valor de uma coluna.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNT -->
+  <div class="slide slide-content">
+    <h2>COUNT — Contando Registros</h2>
+    <pre class="code-block"><span class="cm">-- Conta todas as linhas da tabela</span>
+<span class="kw">SELECT COUNT</span>(*) <span class="kw">FROM</span> pedido;
+
+<span class="cm">-- Conta quantos pedidos têm status 'entregue'</span>
+<span class="kw">SELECT COUNT</span>(*) <span class="kw">FROM</span> pedido
+<span class="kw">WHERE</span> status = <span class="str">'entregue'</span>;
+
+<span class="cm">-- COUNT(coluna): conta apenas valores NÃO NULOS</span>
+<span class="kw">SELECT COUNT</span>(dt_devolucao) <span class="kw">FROM</span> emprestimo;
+<span class="cm">-- ^ retorna só os empréstimos que já foram devolvidos</span>
+
+<span class="cm">-- COUNT(DISTINCT): conta valores únicos</span>
+<span class="kw">SELECT COUNT</span>(<span class="kw">DISTINCT</span> id_cliente) <span class="kw">FROM</span> pedido;
+<span class="cm">-- ^ quantos clientes distintos fizeram ao menos 1 pedido</span></pre>
+    <div class="warning">
+      <p><strong>Atenção:</strong> <code>COUNT(*)</code> conta <em>todas</em> as linhas, incluindo NULLs. <code>COUNT(coluna)</code> ignora NULLs naquela coluna.</p>
+    </div>
+  </div>
+
+  <!-- SUM e AVG -->
+  <div class="slide slide-content">
+    <h2>SUM e AVG</h2>
+    <pre class="code-block"><span class="cm">-- Valor total de todos os pedidos</span>
+<span class="kw">SELECT SUM</span>(valor_total) <span class="kw">AS</span> receita_total
+<span class="kw">FROM</span> pedido;
+
+<span class="cm">-- Ticket médio dos pedidos</span>
+<span class="kw">SELECT AVG</span>(valor_total) <span class="kw">AS</span> ticket_medio
+<span class="kw">FROM</span> pedido;
+
+<span class="cm">-- Combinar: total e média de pedidos entregues</span>
+<span class="kw">SELECT</span>
+    <span class="kw">SUM</span>(valor_total) <span class="kw">AS</span> total_entregue,
+    <span class="kw">AVG</span>(valor_total) <span class="kw">AS</span> media_entregue,
+    <span class="kw">COUNT</span>(*) <span class="kw">AS</span> qtd_entregue
+<span class="kw">FROM</span> pedido
+<span class="kw">WHERE</span> status = <span class="str">'entregue'</span>;</pre>
+    <p style="font-size:1.5rem;margin-top:.6rem">O alias <code class="accent">AS</code> renomeia a coluna no resultado — boa prática para colunas calculadas.</p>
+  </div>
+
+  <!-- MIN e MAX -->
+  <div class="slide slide-content">
+    <h2>MIN e MAX</h2>
+    <pre class="code-block"><span class="cm">-- Produto mais barato e mais caro</span>
+<span class="kw">SELECT</span>
+    <span class="kw">MIN</span>(preco) <span class="kw">AS</span> menor_preco,
+    <span class="kw">MAX</span>(preco) <span class="kw">AS</span> maior_preco
+<span class="kw">FROM</span> produto;
+
+<span class="cm">-- Data do primeiro e último empréstimo registrado</span>
+<span class="kw">SELECT</span>
+    <span class="kw">MIN</span>(dt_emprestimo) <span class="kw">AS</span> primeiro,
+    <span class="kw">MAX</span>(dt_emprestimo) <span class="kw">AS</span> ultimo
+<span class="kw">FROM</span> emprestimo;</pre>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Funcionam com texto e datas</h3>
+        <p>MIN e MAX comparam qualquer tipo ordenável: texto (alfabético), data (cronológico), número (numérico).</p>
+      </div>
+      <div class="card">
+        <h3>NULL é ignorado</h3>
+        <p>Todas as funções de agregação ignoram NULL — exceto COUNT(*), que conta linhas independentemente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP BY CONCEITO -->
+  <div class="slide slide-content">
+    <h2>GROUP BY — Agrupando Resultados</h2>
+    <div class="definition">
+      <p><strong>GROUP BY</strong> divide as linhas em grupos com o mesmo valor na(s) coluna(s) indicada(s). A função de agregação é aplicada <em>a cada grupo separadamente</em>.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- Quantos pedidos por status?</span>
+<span class="kw">SELECT</span>   status, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> total
+<span class="kw">FROM</span>     pedido
+<span class="kw">GROUP BY</span> status;
+
+<span class="cm">-- Resultado:
+--  status     | total
+-- ------------+-------
+--  entregue   |  142
+--  pendente   |   38
+--  cancelado  |   17</span></pre>
+    <p style="font-size:1.5rem;margin-top:.6rem">Sem GROUP BY, COUNT(*) retornaria um único número: o total de pedidos.</p>
+  </div>
+
+  <!-- GROUP BY EXEMPLOS -->
+  <div class="slide slide-content">
+    <h2>GROUP BY — Mais Exemplos</h2>
+    <pre class="code-block"><span class="cm">-- Total de vendas por categoria de produto</span>
+<span class="kw">SELECT</span>   categoria,
+         <span class="kw">COUNT</span>(*) <span class="kw">AS</span> qtd_produtos,
+         <span class="kw">AVG</span>(preco) <span class="kw">AS</span> preco_medio
+<span class="kw">FROM</span>     produto
+<span class="kw">GROUP BY</span> categoria
+<span class="kw">ORDER BY</span> preco_medio <span class="kw">DESC</span>;
+
+<span class="cm">-- Faturamento total por cliente</span>
+<span class="kw">SELECT</span>   id_cliente,
+         <span class="kw">COUNT</span>(*) <span class="kw">AS</span> num_pedidos,
+         <span class="kw">SUM</span>(valor_total) <span class="kw">AS</span> faturamento
+<span class="kw">FROM</span>     pedido
+<span class="kw">GROUP BY</span> id_cliente
+<span class="kw">ORDER BY</span> faturamento <span class="kw">DESC</span>
+<span class="kw">LIMIT</span>    5;</pre>
+    <div class="warning">
+      <p><strong>Regra do GROUP BY:</strong> toda coluna no SELECT que <em>não</em> seja uma agregação <em>deve</em> aparecer no GROUP BY.</p>
+    </div>
+  </div>
+
+  <!-- HAVING -->
+  <div class="slide slide-content">
+    <h2>HAVING — Filtrando Grupos</h2>
+    <div class="definition">
+      <p><strong>HAVING</strong> filtra grupos <em>após</em> a agregação — o equivalente do WHERE aplicado ao resultado do GROUP BY.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- Clientes que fizeram mais de 5 pedidos</span>
+<span class="kw">SELECT</span>   id_cliente, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> total_pedidos
+<span class="kw">FROM</span>     pedido
+<span class="kw">GROUP BY</span> id_cliente
+<span class="kw">HAVING</span>   <span class="kw">COUNT</span>(*) > <span class="str">5</span>;
+
+<span class="cm">-- Categorias com preço médio acima de 200</span>
+<span class="kw">SELECT</span>   categoria, <span class="kw">AVG</span>(preco) <span class="kw">AS</span> preco_medio
+<span class="kw">FROM</span>     produto
+<span class="kw">GROUP BY</span> categoria
+<span class="kw">HAVING</span>   <span class="kw">AVG</span>(preco) > <span class="str">200</span>
+<span class="kw">ORDER BY</span> preco_medio <span class="kw">DESC</span>;</pre>
+  </div>
+
+  <!-- WHERE vs HAVING -->
+  <div class="slide slide-content">
+    <h2>WHERE vs HAVING</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>WHERE</h3>
+        <p>Filtra <strong>linhas individuais antes</strong> do agrupamento. Não pode referenciar funções de agregação.</p>
+        <p class="note">→ "Quero apenas pedidos de 2026."</p>
+      </div>
+      <div class="card">
+        <h3>HAVING</h3>
+        <p>Filtra <strong>grupos depois</strong> da agregação. Pode (e deve) referenciar funções de agregação.</p>
+        <p class="note">→ "Quero grupos com mais de 10 pedidos."</p>
+      </div>
+    </div>
+    <pre class="code-block" style="margin-top:1rem"><span class="cm">-- Usando WHERE e HAVING juntos</span>
+<span class="kw">SELECT</span>   id_cliente, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> pedidos_2026
+<span class="kw">FROM</span>     pedido
+<span class="kw">WHERE</span>    EXTRACT(<span class="kw">YEAR FROM</span> dt_pedido) = <span class="str">2026</span>   <span class="cm">-- filtra linhas antes</span>
+<span class="kw">GROUP BY</span> id_cliente
+<span class="kw">HAVING</span>   <span class="kw">COUNT</span>(*) >= <span class="str">3</span>                         <span class="cm">-- filtra grupos depois</span>
+<span class="kw">ORDER BY</span> pedidos_2026 <span class="kw">DESC</span>;</pre>
+  </div>
+
+  <!-- ORDEM DE EXECUÇÃO -->
+  <div class="slide slide-content">
+    <h2>Ordem de Execução do SELECT</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>① FROM</h3>
+        <p>Identifica a(s) tabela(s) de origem dos dados.</p>
+      </div>
+      <div class="card">
+        <h3>② WHERE</h3>
+        <p>Filtra as linhas antes do agrupamento.</p>
+      </div>
+      <div class="card">
+        <h3>③ GROUP BY</h3>
+        <p>Agrupa as linhas restantes.</p>
+      </div>
+    </div>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>④ HAVING</h3>
+        <p>Filtra os grupos formados.</p>
+      </div>
+      <div class="card">
+        <h3>⑤ SELECT</h3>
+        <p>Projeta as colunas e aplica as funções de agregação.</p>
+      </div>
+      <div class="card">
+        <h3>⑥ ORDER BY / LIMIT</h3>
+        <p>Ordena e limita o resultado final.</p>
+      </div>
+    </div>
+    <div class="definition" style="margin-top:1rem">
+      <p>Entender essa ordem explica <em>por que</em> WHERE não pode usar agregações — elas ainda não foram calculadas nesse momento.</p>
+    </div>
+  </div>
+
+  <!-- EXERCÍCIO REFLEXIVO -->
+  <div class="slide slide-content">
+    <span class="tag tag-warning">Exercício Reflexivo</span>
+    <h2>Pensando criticamente sobre agregação</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem;color:var(--text)">Discuta com um colega. O objetivo é argumentar, não apenas responder.</p>
+    <div class="cards cards-2">
+      <div class="question-card">
+        <div class="q-label">Questão 1</div>
+        <p>Uma query retorna a média de salários por departamento. Um analista quer excluir departamentos com menos de 3 funcionários, pois a média seria "pouco representativa". Como você faria isso? Por que usar HAVING e não WHERE?</p>
+      </div>
+      <div class="question-card">
+        <div class="q-label">Questão 2</div>
+        <p>COUNT(*) e COUNT(coluna) podem retornar valores diferentes para a mesma tabela. Em que situação isso acontece? Isso é um bug ou comportamento esperado? Quando cada um é o correto a usar?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LABORATÓRIO PRÁTICO -->
+  <div class="slide slide-content">
+    <span class="tag">Laboratório Prático</span>
+    <h2>Sistema de Biblioteca — Consultas Analíticas</h2>
+    <div class="definition">
+      <p>Use o banco da Aula 7 (biblioteca com livros, membros e empréstimos) no DB Fiddle (PostgreSQL).</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:.8rem">
+      <div class="card">
+        <h3>① Contagens</h3>
+        <p>Quantos livros há por editora? Quantos membros cadastrados? Quantos empréstimos ainda estão em aberto (dt_devolucao IS NULL)?</p>
+      </div>
+      <div class="card">
+        <h3>② Agrupamentos</h3>
+        <p>Quantos empréstimos cada membro já fez? Liste por nome (ORDER BY total DESC). Qual a média de dias de empréstimo por livro devolvido?</p>
+      </div>
+      <div class="card">
+        <h3>③ Filtrando grupos</h3>
+        <p>Liste apenas os membros que têm mais de 2 empréstimos. Liste as editoras que publicaram mais de 1 livro no banco. Use HAVING em ambos os casos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 09/06 (Ter)</span>
+    <h1>JOINs<br><span class="accent">INNER JOIN, LEFT JOIN, RIGHT JOIN</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Consultar dados de múltiplas tabelas relacionadas</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Entender quando cada tipo de JOIN se aplica</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Combinar JOINs com GROUP BY e HAVING</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>
