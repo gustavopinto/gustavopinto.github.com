@@ -17,6 +17,10 @@ classes: ["publications-page"]
 1. [Luís Amaral](https://twitter.com/AmaralhLuis), [Michael Schlichtig](https://scholar.google.com/citations?user=Bp8wDfcAAAAJ&hl=en), Wagner Emanuel, Joilton Almeida de Jesus, Carine Ferreira, [Jérôme Kempf](https://www.linkedin.com/in/j%C3%A9r%C3%B4mekempf?originalSubdomain=at), [Rodrigo Bonifacio](http://wp.rbonifacio.net/), [Eric Bodden](https://scholar.google.com/citations?user=Kr7kPfAAAAAJ&hl=en), [Laerte Peotta](https://scholar.google.com/citations?user=-6hFEmYAAAAJ&hl=en), **Gustavo Pinto**, and [Márcio Ribeiro](https://sites.google.com/a/ic.ufal.br/marcio/). "[From Legacy Designs to Vulnerability Fixes: Understanding SAST Adoption in Non-Technological Companies](http://gustavopinto.github.io/lost+found/saner-industry2026.pdf)". Accepted to the 33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER Industry track), Limassol, Cyprus, 2020.<br>
 [<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](http://gustavopinto.github.io/lost+found/saner-industry2026.pdf)
 
+1. Dannilo Rabelo, Deisy Peres, Emmanuel Dias, [Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), Enne Rebeca de Freitas, [Kiev Gama](https://www.cin.ufpe.br/~kiev/), **Gustavo Pinto**. "Communication Skills in Software Engineering: A Multivocal Review". Accepted to the 11º Workshop sobre Aspectos Sociais, Humanos e Econômicos de Software (WASHES'2026). Brazil, 2026.
+
+1. [Thayssa Rocha](https://scholar.google.com/citations?user=q2s8PjkAAAAJ&hl=en), Luciane Silva, Ana Duarte, [Marcelle Mota](https://scholar.google.com.br/citations?user=jHPSIzwAAAAJ&hl=pt-BR), **Gustavo Pinto**. "From Awareness to Action: How Developers Engage with Accessibility Innovation in LLM-Assisted Development". Accepted to the 11º Workshop sobre Aspectos Sociais, Humanos e Econômicos de Software (WASHES'2026). Brazil, 2026.
+
 
 ## 2025
 

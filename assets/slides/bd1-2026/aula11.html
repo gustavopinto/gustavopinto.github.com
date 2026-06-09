@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 11 — Banco de Dados I</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#e2e8f0;--slide-bg:#f8fafc;--text:#0f172a;--accent:#0369a1;--secondary:#475569;--highlight:#92400e;--success:#166534;--radius:0.75rem; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow:hidden; }
+    #progress { position:fixed;top:0;left:0;height:5px;background:var(--accent);transition:width .3s ease;z-index:200; }
+    #counter { position:fixed;bottom:1.4rem;right:2rem;font-size:1.1rem;color:var(--secondary);z-index:200; }
+    #nav-hint { position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:1rem;color:var(--secondary);opacity:.5;z-index:200;white-space:nowrap; }
+    .nav-btn { position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.12);color:var(--secondary);width:3.4rem;height:3.4rem;border-radius:50%;cursor:pointer;font-size:1.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:200; }
+    .nav-btn:hover { background:rgba(3,105,161,.12);color:var(--accent);border-color:var(--accent); }
+    #btn-prev { left:1rem; } #btn-next { right:1rem; }
+    .slides { width:100vw;height:100vh;position:relative; }
+    .slide { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem 7rem;opacity:0;pointer-events:none;transition:opacity .3s ease; }
+    .slide.active { opacity:1;pointer-events:all; }
+    .slide-cover { background:linear-gradient(140deg,#0f172a 0%,#0c2340 60%,#0f172a 100%);text-align:center;align-items:center; }
+    .slide-cover h1,.slide-cover p,.slide-cover li { color:#f1f5f9; }
+    .slide-cover .cover-meta span { color:#94a3b8; } .slide-cover .cover-meta span strong { color:#f1f5f9; }
+    .slide-content { background:var(--slide-bg);text-align:left;align-items:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06); }
+    .slide h1 { font-size:4.2rem;font-weight:800;line-height:1.15; }
+    .slide h2 { font-size:2.8rem;font-weight:700;color:var(--accent);margin-bottom:1.5rem; }
+    .slide h3 { font-size:2rem;font-weight:700;color:var(--highlight);margin-bottom:.8rem; }
+    .slide p { font-size:1.9rem;line-height:1.6;color:var(--secondary); }
+    .slide ul { list-style:none; }
+    .slide ul li { font-size:2rem;line-height:1.5;padding:.6rem 0 .6rem 2.4rem;position:relative;color:var(--text); }
+    .slide ul li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:2.1rem;line-height:1.3; }
+    .tag { display:inline-block;background:var(--accent);color:#fff;font-size:1rem;font-weight:700;padding:.35rem 1.2rem;border-radius:999px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase; }
+    .tag-warning { background:#b45309; }
+    .accent { color:var(--accent); } .highlight { color:var(--highlight); } .success { color:var(--success); }
+    .cover-meta { display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center; }
+    .cover-meta span { font-size:1.4rem; }
+    .cards { display:grid;gap:1.3rem;width:100%; }
+    .cards-2 { grid-template-columns:1fr 1fr; } .cards-3 { grid-template-columns:1fr 1fr 1fr; }
+    .card { background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:var(--radius);padding:1.2rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .card h3 { font-size:1.45rem;color:var(--highlight);margin-bottom:.4rem;font-weight:700; }
+    .card p { font-size:1.25rem;color:var(--secondary);line-height:1.5; }
+    .card .note { font-size:1.05rem;color:var(--secondary);margin-top:.5rem;opacity:.8; }
+    .definition { background:rgba(3,105,161,.07);border-left:5px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 2rem;margin:.6rem 0 1.2rem;max-width:62rem; }
+    .definition p { font-size:1.8rem;color:var(--text);font-style:italic; }
+    .warning { background:rgba(220,38,38,.08);border-left:5px solid #dc2626;border-radius:0 var(--radius) var(--radius) 0;padding:1rem 2rem;margin:.6rem 0; }
+    .warning p { font-size:1.6rem;color:#991b1b;font-style:normal; }
+    .code-block { background:#1e293b;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;padding:1.5rem;border-radius:var(--radius);font-size:1.3rem;line-height:1.6;overflow-x:auto;width:100%;margin:.6rem 0; }
+    .code-block .kw { color:#7dd3fc; } .code-block .str { color:#86efac; } .code-block .cm { color:#94a3b8;font-style:italic; }
+    .code-block .danger { color:#fca5a5; }
+    .question-card { background:#fff;border:1px solid rgba(3,105,161,.25);border-radius:var(--radius);padding:1.1rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .question-card p { font-size:1.2rem;color:var(--text);line-height:1.5; }
+    .question-card .q-label { font-size:1rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem; }
+    .venn { display:flex;align-items:center;justify-content:center;gap:2rem;margin:1rem 0; }
+    .venn-circle { width:9rem;height:9rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;text-align:center;line-height:1.3; }
+    .venn-left { background:rgba(3,105,161,.25);border:3px solid var(--accent);color:var(--accent);margin-right:-2.5rem;z-index:1; }
+    .venn-right { background:rgba(146,64,14,.25);border:3px solid var(--highlight);color:var(--highlight);margin-left:-2.5rem; }
+    .venn-center { background:rgba(22,101,52,.35);border:3px solid var(--success);color:var(--success);z-index:2;width:6rem;height:6rem;font-size:1rem; }
+    #step-dots { display:none; }
+  </style>
+</head>
+<body>
+<div id="progress"></div><div id="counter"></div>
+<div id="nav-hint">← → ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<div class="slides" id="slides">
+
+  <!-- CAPA -->
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados I — 2026.2</span>
+    <h1>Aula 11<br><span class="accent">JOINs: Consultando Múltiplas Tabelas</span></h1>
+    <div class="cover-meta">
+      <span>👨‍🏫 <strong>Prof. Gustavo Pinto</strong></span>
+      <span>🏛️ <strong>UFPA</strong></span>
+      <span>📅 <strong>09 de junho de 2026</strong></span>
+      <span>🕣 <strong>7h30 – 9h10</strong></span>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Por que precisamos de JOIN?</li>
+      <li>Produto cartesiano: o ponto de partida</li>
+      <li>INNER JOIN — apenas as correspondências</li>
+      <li>LEFT JOIN — todos da tabela esquerda</li>
+      <li>RIGHT JOIN — todos da tabela direita</li>
+      <li>Combinando JOINs com WHERE, GROUP BY e ORDER BY</li>
+      <li>JOINs encadeados (mais de duas tabelas)</li>
+      <li>Exercício reflexivo</li>
+    </ul>
+  </div>
+
+  <!-- MOTIVAÇÃO -->
+  <div class="slide slide-content">
+    <h2>Por Que Precisamos de JOIN?</h2>
+    <div class="definition">
+      <p>Bancos de dados relacionais organizam dados em <strong>múltiplas tabelas</strong> para evitar redundância. JOIN é o mecanismo para <strong>reunir essas tabelas</strong> no momento da consulta.</p>
+    </div>
+    <div class="cards cards-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>Tabela: cliente</h3>
+        <p>id_cliente, nome, email</p>
+        <p class="note">Dados do comprador</p>
+      </div>
+      <div class="card">
+        <h3>Tabela: pedido</h3>
+        <p>id_pedido, id_cliente, valor, data</p>
+        <p class="note">id_cliente é FK → cliente</p>
+      </div>
+      <div class="card">
+        <h3>Pergunta</h3>
+        <p>"Qual o nome do cliente que fez o pedido #42?"</p>
+        <p class="note">A resposta está nas duas tabelas — precisamos de JOIN.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUTO CARTESIANO -->
+  <div class="slide slide-content">
+    <h2>Produto Cartesiano — O Que Evitar</h2>
+    <pre class="code-block"><span class="cm">-- Sem JOIN: produto cartesiano (todas as combinações)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> cliente, pedido;
+<span class="cm">-- Se cliente tem 100 linhas e pedido tem 500 → 50.000 linhas!</span>
+
+<span class="cm">-- Mesmo resultado, sintaxe explícita</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> cliente <span class="kw">CROSS JOIN</span> pedido;</pre>
+    <div class="warning">
+      <p><strong>Produto cartesiano sem filtro é quase sempre um erro.</strong> Cada linha de uma tabela é combinada com cada linha da outra, gerando resultados sem sentido e potencialmente lentos.</p>
+    </div>
+    <p style="font-size:1.5rem;margin-top:.8rem">A solução é sempre especificar <strong>a condição de junção</strong> — a coluna que relaciona as duas tabelas.</p>
+  </div>
+
+  <!-- INNER JOIN CONCEITO -->
+  <div class="slide slide-content">
+    <h2>INNER JOIN — Apenas as Correspondências</h2>
+    <div class="definition">
+      <p><strong>INNER JOIN</strong> retorna apenas as linhas que têm <strong>correspondência em ambas as tabelas</strong> segundo a condição ON.</p>
+    </div>
+    <div class="venn">
+      <div class="venn-circle venn-left">cliente</div>
+      <div class="venn-circle venn-center">✓</div>
+      <div class="venn-circle venn-right">pedido</div>
+    </div>
+    <pre class="code-block"><span class="kw">SELECT</span> c.nome, p.id_pedido, p.valor
+<span class="kw">FROM</span>   cliente c
+<span class="kw">INNER JOIN</span> pedido p <span class="kw">ON</span> c.id_cliente = p.id_cliente;
+<span class="cm">-- Clientes sem nenhum pedido NÃO aparecem no resultado</span>
+<span class="cm">-- Pedidos sem cliente válido também NÃO aparecem (quebra de FK)</span></pre>
+    <p style="font-size:1.5rem;margin-top:.6rem">A palavra <code class="accent">INNER</code> é opcional — <code class="accent">JOIN</code> sozinho já é INNER JOIN.</p>
+  </div>
+
+  <!-- INNER JOIN EXEMPLO COMPLETO -->
+  <div class="slide slide-content">
+    <h2>INNER JOIN — Exemplo com Alias e Filtro</h2>
+    <pre class="code-block"><span class="cm">-- Alias de tabela (c, p) deixa o código mais limpo</span>
+<span class="kw">SELECT</span>
+    c.nome          <span class="kw">AS</span> cliente,
+    p.id_pedido,
+    p.valor_total,
+    p.status
+<span class="kw">FROM</span>   cliente c
+<span class="kw">JOIN</span>   pedido  p <span class="kw">ON</span> c.id_cliente = p.id_cliente
+<span class="kw">WHERE</span>  p.status = <span class="str">'entregue'</span>
+<span class="kw">ORDER BY</span> p.valor_total <span class="kw">DESC</span>
+<span class="kw">LIMIT</span>  10;</pre>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Alias de tabela</h3>
+        <p>Use letras curtas (c, p) para evitar repetir o nome completo. Prefixe colunas ambíguas com o alias.</p>
+      </div>
+      <div class="card">
+        <h3>WHERE após JOIN</h3>
+        <p>Filtre normalmente com WHERE depois do JOIN. A condição ON é apenas para definir a junção.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEFT JOIN CONCEITO -->
+  <div class="slide slide-content">
+    <h2>LEFT JOIN — Todos da Tabela Esquerda</h2>
+    <div class="definition">
+      <p><strong>LEFT JOIN</strong> retorna <strong>todas as linhas da tabela à esquerda</strong>, mais as correspondências da direita. Onde não há correspondência, os campos da direita aparecem como NULL.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- Todos os clientes, com ou sem pedido</span>
+<span class="kw">SELECT</span>
+    c.nome,
+    p.id_pedido,
+    p.valor_total
+<span class="kw">FROM</span>      cliente c
+<span class="kw">LEFT JOIN</span> pedido  p <span class="kw">ON</span> c.id_cliente = p.id_cliente;
+<span class="cm">-- Clientes sem pedido aparecem com id_pedido = NULL e valor_total = NULL</span></pre>
+    <div class="warning">
+      <p><strong>Caso de uso típico:</strong> "Quero ver todos os clientes — incluindo os que ainda não compraram nada."</p>
+    </div>
+  </div>
+
+  <!-- LEFT JOIN FILTRO NULL -->
+  <div class="slide slide-content">
+    <h2>LEFT JOIN — Encontrando Ausências</h2>
+    <div class="definition">
+      <p>Filtrar por <code>IS NULL</code> na coluna da tabela direita revela registros <strong>sem correspondência</strong> — um padrão muito útil.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- Clientes que NUNCA fizeram um pedido</span>
+<span class="kw">SELECT</span>    c.nome, c.email
+<span class="kw">FROM</span>      cliente c
+<span class="kw">LEFT JOIN</span> pedido  p <span class="kw">ON</span> c.id_cliente = p.id_cliente
+<span class="kw">WHERE</span>     p.id_pedido <span class="kw">IS NULL</span>;
+
+<span class="cm">-- Livros que nunca foram emprestados</span>
+<span class="kw">SELECT</span>    l.titulo, l.autor
+<span class="kw">FROM</span>      livro l
+<span class="kw">LEFT JOIN</span> emprestimo e <span class="kw">ON</span> l.id_livro = e.id_livro
+<span class="kw">WHERE</span>     e.id_emprestimo <span class="kw">IS NULL</span>;</pre>
+    <p style="font-size:1.5rem;margin-top:.6rem">Esse padrão substitui com elegância uma subquery com NOT IN.</p>
+  </div>
+
+  <!-- RIGHT JOIN -->
+  <div class="slide slide-content">
+    <h2>RIGHT JOIN — Todos da Tabela Direita</h2>
+    <div class="definition">
+      <p><strong>RIGHT JOIN</strong> é o espelho do LEFT JOIN: retorna <strong>todas as linhas da tabela à direita</strong>, mais as correspondências da esquerda.</p>
+    </div>
+    <pre class="code-block"><span class="cm">-- Todos os pedidos, mesmo sem cliente cadastrado</span>
+<span class="kw">SELECT</span>
+    c.nome,
+    p.id_pedido,
+    p.valor_total
+<span class="kw">FROM</span>       cliente c
+<span class="kw">RIGHT JOIN</span> pedido  p <span class="kw">ON</span> c.id_cliente = p.id_cliente;
+<span class="cm">-- Pedidos com cliente removido aparecem com c.nome = NULL</span></pre>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Na prática</h3>
+        <p>RIGHT JOIN é raro: qualquer RIGHT JOIN pode ser reescrito como LEFT JOIN trocando a ordem das tabelas.</p>
+      </div>
+      <div class="card">
+        <h3>Equivalência</h3>
+        <p><code>A RIGHT JOIN B</code> é idêntico a <code>B LEFT JOIN A</code>. Use LEFT JOIN por consistência.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARATIVO -->
+  <div class="slide slide-content">
+    <h2>Comparativo: INNER × LEFT × RIGHT</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>INNER JOIN</h3>
+        <p>Retorna somente as linhas com correspondência em <strong>ambas</strong> as tabelas.</p>
+        <p class="note">Use quando quer apenas dados completos.</p>
+      </div>
+      <div class="card">
+        <h3>LEFT JOIN</h3>
+        <p>Retorna <strong>todas da esquerda</strong> + correspondências da direita (NULL onde não há).</p>
+        <p class="note">Use quando a tabela esquerda é a "principal".</p>
+      </div>
+      <div class="card">
+        <h3>RIGHT JOIN</h3>
+        <p>Retorna <strong>todas da direita</strong> + correspondências da esquerda (NULL onde não há).</p>
+        <p class="note">Equivalente a LEFT JOIN com tabelas invertidas.</p>
+      </div>
+    </div>
+    <pre class="code-block" style="margin-top:1rem"><span class="cm">-- Resumo rápido com a mesma base</span>
+<span class="kw">SELECT</span> c.nome, p.id_pedido <span class="kw">FROM</span> cliente c  <span class="kw">JOIN</span>       pedido p <span class="kw">ON</span> c.id = p.id_cliente; <span class="cm">-- INNER</span>
+<span class="kw">SELECT</span> c.nome, p.id_pedido <span class="kw">FROM</span> cliente c  <span class="kw">LEFT JOIN</span>  pedido p <span class="kw">ON</span> c.id = p.id_cliente; <span class="cm">-- LEFT</span>
+<span class="kw">SELECT</span> c.nome, p.id_pedido <span class="kw">FROM</span> cliente c  <span class="kw">RIGHT JOIN</span> pedido p <span class="kw">ON</span> c.id = p.id_cliente; <span class="cm">-- RIGHT</span></pre>
+  </div>
+
+  <!-- JOIN + GROUP BY -->
+  <div class="slide slide-content">
+    <h2>JOIN com GROUP BY e Agregação</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem;color:var(--text)">JOINs se combinam naturalmente com tudo que aprendemos nas aulas anteriores.</p>
+    <pre class="code-block"><span class="cm">-- Total de pedidos e receita por cliente (nome, não só id)</span>
+<span class="kw">SELECT</span>
+    c.nome,
+    <span class="kw">COUNT</span>(p.id_pedido)  <span class="kw">AS</span> total_pedidos,
+    <span class="kw">SUM</span>(p.valor_total)  <span class="kw">AS</span> receita_total
+<span class="kw">FROM</span>   cliente c
+<span class="kw">JOIN</span>   pedido  p <span class="kw">ON</span> c.id_cliente = p.id_cliente
+<span class="kw">GROUP BY</span> c.id_cliente, c.nome
+<span class="kw">HAVING</span>   <span class="kw">COUNT</span>(p.id_pedido) >= <span class="str">3</span>
+<span class="kw">ORDER BY</span> receita_total <span class="kw">DESC</span>;</pre>
+    <div class="warning">
+      <p><strong>Atenção:</strong> inclua no GROUP BY todas as colunas não-agregadas do SELECT — aqui, <code>c.id_cliente</code> e <code>c.nome</code>.</p>
+    </div>
+  </div>
+
+  <!-- JOIN ENCADEADO -->
+  <div class="slide slide-content">
+    <h2>JOINs Encadeados — Mais de Duas Tabelas</h2>
+    <pre class="code-block"><span class="cm">-- Esquema: cliente → pedido → item_pedido → produto</span>
+<span class="kw">SELECT</span>
+    c.nome          <span class="kw">AS</span> cliente,
+    pr.nome         <span class="kw">AS</span> produto,
+    ip.quantidade,
+    ip.preco_unit
+<span class="kw">FROM</span>   cliente     c
+<span class="kw">JOIN</span>   pedido      p  <span class="kw">ON</span> c.id_cliente  = p.id_cliente
+<span class="kw">JOIN</span>   item_pedido ip <span class="kw">ON</span> p.id_pedido   = ip.id_pedido
+<span class="kw">JOIN</span>   produto     pr <span class="kw">ON</span> ip.id_produto = pr.id_produto
+<span class="kw">WHERE</span>  c.nome = <span class="str">'Ana Lima'</span>;</pre>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Leitura</h3>
+        <p>Cada JOIN adiciona uma tabela. Siga as FKs do modelo ER para saber qual coluna ligar a qual.</p>
+      </div>
+      <div class="card">
+        <h3>Misturando tipos</h3>
+        <p>É válido misturar INNER e LEFT JOIN numa mesma query — cada JOIN tem seu próprio comportamento.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DICAS DE LEGIBILIDADE -->
+  <div class="slide slide-content">
+    <h2>Boas Práticas com JOIN</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Sempre use alias</h3>
+        <p>Prefixe colunas com o alias da tabela (<code>c.nome</code>, <code>p.valor</code>) para evitar ambiguidade e facilitar a leitura.</p>
+      </div>
+      <div class="card">
+        <h3>Prefira LEFT JOIN a NOT IN</h3>
+        <p>Para buscar ausências, <code>LEFT JOIN … WHERE x IS NULL</code> é geralmente mais legível e eficiente que subqueries com NOT IN.</p>
+      </div>
+    </div>
+    <div class="cards cards-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Condição ON vs WHERE</h3>
+        <p>Coloque a condição de junção no ON, filtros de negócio no WHERE. Misturá-los no WHERE pode mudar a semântica de LEFT JOINs.</p>
+      </div>
+      <div class="card">
+        <h3>Verifique NULLs</h3>
+        <p>Depois de um LEFT/RIGHT JOIN, colunas da tabela opcional podem ser NULL — trate isso nas queries e na aplicação.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCÍCIO REFLEXIVO -->
+  <div class="slide slide-content">
+    <span class="tag tag-warning">Exercício Reflexivo</span>
+    <h2>Pensando criticamente sobre JOINs</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem;color:var(--text)">Discuta com um colega. O objetivo é argumentar, não apenas responder.</p>
+    <div class="cards cards-2">
+      <div class="question-card">
+        <div class="q-label">Questão 1</div>
+        <p>Um sistema de biblioteca tem tabelas <strong>livro</strong> e <strong>emprestimo</strong>. Você quer listar todos os livros e, para cada um, mostrar quantas vezes foi emprestado (incluindo os nunca emprestados, com 0). Qual tipo de JOIN usar? Como a contagem deve ser feita para que livros nunca emprestados apareçam como 0 e não sejam excluídos?</p>
+      </div>
+      <div class="question-card">
+        <div class="q-label">Questão 2</div>
+        <p>Um colega escreveu: <code>FROM pedido p LEFT JOIN cliente c ON …</code> e outro escreveu <code>FROM cliente c RIGHT JOIN pedido p ON …</code>. As queries retornam o mesmo resultado? Em que situação uma pode ser preferível à outra?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCERRAMENTO -->
+  <div class="slide slide-cover">
+    <span class="tag">Próxima Aula — 11/06 (Qui)</span>
+    <h1>Laboratório de Consultas<br><span class="accent">Exercícios progressivos</span></h1>
+    <ul style="text-align:left;margin-top:2rem">
+      <li style="font-size:1.9rem;color:#f1f5f9">Exercícios cobrindo SELECT, GROUP BY, HAVING e JOINs</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Queries de complexidade crescente no DB Fiddle</li>
+      <li style="font-size:1.9rem;color:#f1f5f9">Preparação para as entregas do projeto</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide')),progress=document.getElementById('progress'),counter=document.getElementById('counter'),stepDots=document.getElementById('step-dots');let cur=0,curStep=0;function totalSteps(s){return parseInt(s.dataset.steps||0)}function applyStep(s,step){s.querySelectorAll('.step').forEach(el=>{el.classList.toggle('visible',parseInt(el.dataset.step)<=step)})}function updateDots(s){const t=totalSteps(s);if(!t){stepDots.classList.remove('visible');return}stepDots.classList.add('visible');stepDots.innerHTML='';for(let i=0;i<=t;i++){const d=document.createElement('div');d.className='dot'+(i===curStep?' active':'');stepDots.appendChild(d)}}function updateUI(){progress.style.width=((cur+1)/slides.length*100)+'%';counter.textContent=(cur+1)+' / '+slides.length;updateDots(slides[cur])}function goTo(n){if(n<0||n>=slides.length)return;slides[cur].classList.remove('active');cur=n;curStep=0;slides[cur].classList.add('active');applyStep(slides[cur],0);updateUI()}function next(){const t=totalSteps(slides[cur]);if(curStep<t){curStep++;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur+1)}function prev(){if(curStep>0){curStep--;applyStep(slides[cur],curStep);updateDots(slides[cur])}else goTo(cur-1)}document.getElementById('btn-next').addEventListener('click',next);document.getElementById('btn-prev').addEventListener('click',prev);document.addEventListener('keydown',e=>{if(['ArrowRight',' ','Enter'].includes(e.key)){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='Home')goTo(0);if(e.key==='End')goTo(slides.length-1);if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}});let touchX=null;document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50)dx<0?next():prev();touchX=null});goTo(0);
+</script>
+</body>
+</html>
