@@ -87,6 +87,7 @@
   <!-- SCHEMA: TABELAS PRINCIPAIS -->
   <div class="slide slide-content">
     <h2>Tabelas que vamos usar</h2>
+    <p style="font-size:1.3rem;margin-bottom:.8rem">Atenção: <code>nome</code>, <code>email</code> e <code>ativo</code> vivem em <strong>users</strong> — não em <code>researchers</code>/<code>professors</code>. Quase toda consulta passa por <code>users</code>.</p>
     <div class="cards cards-3" style="margin-top:.2rem">
       <div class="card schema">
         <h3>institutions</h3>
@@ -94,7 +95,7 @@
       </div>
       <div class="card schema">
         <h3>professors</h3>
-        <p><span class="pk">id</span>, nome, ativo</p>
+        <p><span class="pk">id</span><br><em>(só id — nome vem de users)</em></p>
       </div>
       <div class="card schema">
         <h3>research_groups</h3>
@@ -102,15 +103,15 @@
       </div>
       <div class="card schema">
         <h3>researchers</h3>
-        <p><span class="pk">id</span>, nome, status, email, curso, enrollment_date, ativo,<br><span class="fk">group_id</span>, <span class="fk">orientador_id</span></p>
+        <p><span class="pk">id</span>, status, matricula, curso, enrollment_date,<br><span class="fk">group_id</span>, <span class="fk">orientador_id</span></p>
+      </div>
+      <div class="card schema">
+        <h3>users <span style="color:var(--highlight)">★</span></h3>
+        <p><span class="pk">id</span>, <strong>nome</strong>, <strong>email</strong>, role, <strong>ativo</strong>,<br><span class="fk">researcher_id</span>, <span class="fk">professor_id</span><br><em>CHECK: só um dos dois FKs</em></p>
       </div>
       <div class="card schema">
         <h3>relationships</h3>
         <p><span class="pk">id</span>, relation_type,<br><span class="fk">source_researcher_id</span>,<br><span class="fk">target_researcher_id</span></p>
-      </div>
-      <div class="card schema">
-        <h3>users</h3>
-        <p><span class="pk">id</span>, nome, email, role,<br><span class="fk">researcher_id</span>, <span class="fk">professor_id</span></p>
       </div>
       <div class="card schema">
         <h3>notes</h3>
@@ -118,15 +119,15 @@
       </div>
       <div class="card schema">
         <h3>reminders</h3>
-        <p><span class="pk">id</span>, text, due_date, done,<br><span class="fk">created_by_id</span></p>
+        <p><span class="pk">id</span>, text, due_date, done,<br><span class="fk">created_by_id</span>, <span class="fk">institution_id</span></p>
       </div>
       <div class="card schema">
         <h3>deadlines</h3>
-        <p><span class="pk">id</span>, label, date,<br>abstract_date,<br><span class="fk">institution_id</span></p>
+        <p><span class="pk">id</span>, label, date,<br>abstract_date,<br><span class="fk">institution_id</span>, <span class="fk">created_by_id</span></p>
       </div>
       <div class="card schema">
         <h3>deadline_interests</h3>
-        <p><span class="pk fk">deadline_id</span>, <span class="pk fk">user_id</span></p>
+        <p><span class="pk">id</span>,<br><span class="fk">deadline_id</span>, <span class="fk">user_id</span><br><em>UNIQUE (deadline_id, user_id)</em></p>
       </div>
       <div class="card schema">
         <h3>milestones</h3>
@@ -162,14 +163,14 @@
   <!-- 10 CONSULTAS -->
   <div class="slide slide-content">
     <h2>10 consultas no Alumnus</h2>
-    <p class="ex"><strong class="num">1.</strong> Liste <code>nome</code> e <code>email</code> de todos os pesquisadores com <code>status = 'doutorado'</code>, ordenados por nome.</p>
+    <p class="ex"><strong class="num">1.</strong> Liste <code>nome</code> e <code>email</code> de todos os pesquisadores com <code>status = 'doutorado'</code>, ordenados por nome. <em>(dica: o nome está em <code>users</code>, ligado por <code>users.researcher_id</code>)</em></p>
     <p class="ex"><strong class="num">2.</strong> Todos os <code>reminders</code> ainda pendentes (<code>done = FALSE</code>), ordenados pela <code>due_date</code> crescente.</p>
     <p class="ex"><strong class="num">3.</strong> As <strong>5 deadlines</strong> mais próximas que ainda não venceram (use <code>CURRENT_DATE</code>).</p>
-    <p class="ex"><strong class="num">4.</strong> Para cada pesquisador ativo: <code>nome</code> em caixa alta, o <strong>ano</strong> da <code>enrollment_date</code> e o <strong>domínio</strong> do e-mail.</p>
+    <p class="ex"><strong class="num">4.</strong> Para cada pesquisador <strong>ativo</strong> (<code>users.ativo = TRUE</code>): <code>nome</code> em caixa alta, o <strong>ano</strong> da <code>enrollment_date</code> e o <strong>domínio</strong> do e-mail.</p>
     <p class="ex"><strong class="num">5.</strong> Quantos pesquisadores existem <strong>por status</strong>?</p>
     <p class="ex"><strong class="num">6.</strong> Quais <code>group_id</code> têm <strong>mais de 1</strong> pesquisador? (use <code>HAVING</code>)</p>
-    <p class="ex"><strong class="num">7.</strong> Nome do pesquisador + nome do <strong>grupo de pesquisa</strong> a que pertence (<code>INNER JOIN</code>).</p>
-    <p class="ex"><strong class="num">8.</strong> <strong>Todos</strong> os pesquisadores + nome do orientador — incluindo os sem orientador (<code>LEFT JOIN</code> + <code>COALESCE</code>).</p>
+    <p class="ex"><strong class="num">7.</strong> Nome do pesquisador + nome do <strong>grupo de pesquisa</strong> a que pertence. <em>(duplo JOIN: <code>researchers</code> → <code>users</code> e <code>researchers</code> → <code>research_groups</code>)</em></p>
+    <p class="ex"><strong class="num">8.</strong> <strong>Todos</strong> os pesquisadores + nome do orientador — incluindo os sem orientador. <em>(o orientador também vem de <code>users</code>, mas via <code>users.professor_id = researchers.orientador_id</code>)</em></p>
     <p class="ex"><strong class="num">9.</strong> Para cada <code>deadline</code>: <code>label</code> e <strong>quantos usuários</strong> marcaram interesse.</p>
     <p class="ex"><strong class="num">10.</strong> <strong>Top 3 professores</strong> com mais pesquisadores ativos sob sua orientação.</p>
   </div>
