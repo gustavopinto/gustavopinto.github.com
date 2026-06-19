@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-09T16:05:32-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Soft Eng Professor and Researcher</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><entry><title type="html">From Academia to Industry: A Letter to My 2021 Self</title><link href="http://localhost:4000/blog/from-academia-to-industry/" rel="alternate" type="text/html" title="From Academia to Industry: A Letter to My 2021 Self" /><published>2026-04-19T00:00:00-03:00</published><updated>2026-04-19T00:00:00-03:00</updated><id>http://localhost:4000/blog/from-academia-to-industry</id><content type="html" xml:base="http://localhost:4000/blog/from-academia-to-industry/"><![CDATA[<p>In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when I worked with a few Brazilian companies doing consulting work, mostly around Java-based technologies.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-18T21:24:27-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Soft Eng Professor and Researcher</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><entry><title type="html"></title><link href="http://localhost:4000/2026-06-10-tips-for-being-a-good-student/" rel="alternate" type="text/html" title="" /><published>2026-06-18T21:24:27-03:00</published><updated>2026-06-18T21:24:27-03:00</updated><id>http://localhost:4000/2026-06-10-tips-for-being-a-good-student</id><content type="html" xml:base="http://localhost:4000/2026-06-10-tips-for-being-a-good-student/"><![CDATA[<p>None of this is an argument against LLMs. I use them every day. They’re genuinely useful, and refusing to engage with them is, at this point, a form of self-sabotage.</p>
+
+<p>But the students who will thrive are not the ones who use LLMs the most. They’re the ones who acknowledge their limitations and know when <em>not</em> to use them. They will be the ones who still spend a good amount of time reading a paper, writing a paragraph from scratch, sitting with confusion until it resolves, and admitting they don’t know something.</p>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author></entry><entry><title type="html">From Academia to Industry: A Letter to My 2021 Self</title><link href="http://localhost:4000/blog/from-academia-to-industry/" rel="alternate" type="text/html" title="From Academia to Industry: A Letter to My 2021 Self" /><published>2026-04-19T00:00:00-03:00</published><updated>2026-04-19T00:00:00-03:00</updated><id>http://localhost:4000/blog/from-academia-to-industry</id><content type="html" xml:base="http://localhost:4000/blog/from-academia-to-industry/"><![CDATA[<p>In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when I worked with a few Brazilian companies doing consulting work, mostly around Java-based technologies.</p>
 
 <p>Back then, the tech environment was completely different. The way you applied for jobs, the onboarding process (or the absence thereof), the work environment, the benefits, the compensation, the cloud infrastructure — everything was different. AWS wasn’t really a thing yet, so it was common to deploy services in-house, and continuous integration and delivery were far from being standard practices. People were selling agile left and right, but waterfall was still alive and well. Ruby on Rails — and other frameworks that inherited its architectural and design choices — were mostly discussed in startups, while mature companies still leaned on JEE technologies. That was the scenario I left behind when I transitioned into academia full-time. Thinking and writing about it today, it feels like a lifetime ago. And it really is.</p>
 
@@ -499,56 +501,4 @@
   <li>creating a Google Scholar profile,</li>
   <li>putting all your publications available to the general public (through arXiv, for instance), or</li>
   <li>creating a Twitter account to share your latest.</li>
-</ol>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html"><![CDATA[The proverb “If You Want to Go Fast, Go Alone. If You Want to Go Far, Go Together” is also true for academic settings. No matter how good work you could do alone, chances are that you could achieve more if you find good colleagues to collaborate with.]]></summary></entry><entry><title type="html">What does it mean a license be OSI-approved?</title><link href="http://localhost:4000/blog/what-does-it-mean-a-license-be-osi-approved/" rel="alternate" type="text/html" title="What does it mean a license be OSI-approved?" /><published>2021-03-02T00:00:00-03:00</published><updated>2021-03-02T00:00:00-03:00</updated><id>http://localhost:4000/blog/what-does-it-mean-a-license-be-osi-approved</id><content type="html" xml:base="http://localhost:4000/blog/what-does-it-mean-a-license-be-osi-approved/"><![CDATA[<p>The <a href="https://opensource.org/">Open Source Initiative</a> (or OSI for short), is a global, non-profit institution that promotes the adoption and awareness of open source software.</p>
-
-<p>Among other things, OSI curated the <a href="https://opensource.org/osd">Open Source Definition (OSD)</a> which describes the minimum standards that one software system needs to be “open source” (according to OSI views of open source).</p>
-
-<p>Therefore, any license that rigorously follow the open source definition could be named as an open source license. The “could” is emphasized because OSI, the institution, also has a <a href="https://opensource.org/approval">license review process</a>.</p>
-
-<p>Since anyone could create a new “open source” license, the goal of the license review process is to make sure that every open source license available out there (if submitted for review) is aligned with the community expectations, in general, and the OSD, in particular.</p>
-
-<h2 id="should-i-create-my-own-license">Should I create my own license?</h2>
-
-<p>At first thought, it may sound like a good idea to can create your own license. Therefore you could fix that small corner case that is not covered by your loved license, which is also crucial for your project and business.</p>
-
-<p>Unfortunately, licenses with very specific purposes do not fit well in the open source landscape. In fact, as Bruce Perens noted back in 1999: “do not write a new license if it is possible to use one of the ones listed here. The propagation of many different and incompatible licenses works to the detriment of Open Source software because fragments of one program cannot be used in another program with an incompatible license”</p>
-
-<p>Following Perens suggestion, we also strongly suggest you resist the temptation and do not to create a new license.</p>
-
-<p>But OSI also has additional goals. Another goal is to prevent license duplication and proliferation.</p>
-
-<p><strong>License duplication</strong> happens when one license is a (near-) verbatim copy of another license.</p>
-
-<p><strong>License proliferation</strong> happens when there are too many different (and sometimes conflicting) licenses, which hinder the build process of a software system that needs to combine several licenses.</p>
-
-<center>
-***
-</center>
-
-<p>A license that is not approved by OSI (or not submitted to the license review process) cannot be called as an open source license. An OSI-approved license is then any license that successfully passed through the OSI license review process.</p>
-
-<p>Interesting things can happen when one claims a non-approved license as an open source one. Unlike what one would think, the decision of whether a license is open source or not is not always a binary one. This happens because there is more than one licensing regulator. For instance, as discussed in Chapter 2, the FSF and the OSI have complementary but also diverging views about what constitutes a free/open source program. […] Therefore, one license can be approved (and then claimed to be open source) in one of these regulators, but not in another one.</p>
-
-<p>Nevertheless, even if a license is approved by OSI, it may not be a good choice for your next open source projects. The OSI-approved licenses also encompass the following categories of licenses: <em>special-purpose licenses</em>, <em>superseded licenses</em>, <em>redundant licenses</em>, <em>non-reusable licenses</em>, or <em>retired licenses</em>.</p>
-
-<p><strong>Special-purpose licenses</strong>: This category groups licenses that have a rather special need. These licenses are tailored for, for instance, schools or governments with particular concerns with copyright. Examples of “special-purpose licenses” include the <a href="https://opensource.org/licenses/OFL-1.1">SIL Open Font License 1.1</a> (OFL-1.1), <a href="https://opensource.org/licenses/unlicense">The Unlicense</a> (Unlicense), and the <a href="https://opensource.org/licenses/NASA-1.3">NASA Open Source Agreement 1.3</a> (NASA-1.3).</p>
-
-<p><strong>Superseded licenses</strong>: This category groups licenses that have been superseded by newer versions. Examples include: <a href="https://opensource.org/licenses/MPL-1.1">Mozilla Public License 1.1</a> (superseded by MPL 2.0), the <a href="https://opensource.org/licenses/EPL-1.0">Eclipse Public License 1.0</a> (superseded by EPL 2.0), and the <a href="https://opensource.org/licenses/Apache-1.1">Apache Software License 1.1</a> (superseded by ASL 2.0).</p>
-
-<p><strong>Redundant licenses</strong>: This category groups licenses that were perceived as redundant with existing licenses, contributing to the problem of license proliferations. Examples include: the <a href="https://opensource.org/licenses/Xnet">X.Net License</a>, the <a href="https://opensource.org/licenses/AFL-3.0">Academic Free License 3,0</a>, the <a href="https://opensource.org/licenses/PostgreSQL">The PostgreSQL License</a>.</p>
-
-<p><strong>Non-reusable licenses</strong>: This category groups licenses that are rather specific and thus could be hardly reused. These licenses are also referred as vanity licenses (ie, a license that only fits one own needs). Examples include: the <a href="https://opensource.org/licenses/APSL-2.0">Apple Public Source License</a>, the <a href="https://opensource.org/licenses/IPL-1.0">IBM Public License 1.0</a>, and the <a href="https://opensource.org/licenses/SPL-1.0">Sun Public License 1.0</a>.</p>
-
-<p><strong>Retired licenses</strong>: This category groups licenses that were voluntarily retired. Examples include: the <a href="https://opensource.org/licenses/Intel">Intel Open Source License</a>, the <a href="https://opensource.org/licenses/jabberpl">Jabber Open Source License</a>, and the <a href="https://opensource.org/licenses/SISSL">Sun Industry Standards Source License</a>.</p>
-
-<center>
-***
-</center>
-
-<p>Iif you have to choose an open source license for your code, it is better to use a regular license.</p>
-
-<center>
-***
-</center>
-
-<p>If you want to know more about open source licensing and some hidden problems behind it, consider buying a copy of my ebook: <a href="https://gustavopinto.gumroad.com/l/open-source-licensing-101">Open Source Licensing 101</a>.</p>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html"><![CDATA[The Open Source Initiative (or OSI for short), is a global, non-profit institution that promotes the adoption and awareness of open source software.]]></summary></entry></feed>
+</ol>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html"><![CDATA[The proverb “If You Want to Go Fast, Go Alone. If You Want to Go Far, Go Together” is also true for academic settings. No matter how good work you could do alone, chances are that you could achieve more if you find good colleagues to collaborate with.]]></summary></entry></feed>
