@@ -1,6 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-18T21:24:27-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Soft Eng Professor and Researcher</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><entry><title type="html"></title><link href="http://localhost:4000/2026-06-10-tips-for-being-a-good-student/" rel="alternate" type="text/html" title="" /><published>2026-06-18T21:24:27-03:00</published><updated>2026-06-18T21:24:27-03:00</updated><id>http://localhost:4000/2026-06-10-tips-for-being-a-good-student</id><content type="html" xml:base="http://localhost:4000/2026-06-10-tips-for-being-a-good-student/"><![CDATA[<p>None of this is an argument against LLMs. I use them every day. They’re genuinely useful, and refusing to engage with them is, at this point, a form of self-sabotage.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-18T21:35:47-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Gustavo Pinto</title><subtitle>Soft Eng Professor and Researcher</subtitle><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><entry><title type="html">Tips and Tricks for Being a Good Student in the LLM Era</title><link href="http://localhost:4000/blog/tips-for-being-a-good-student/" rel="alternate" type="text/html" title="Tips and Tricks for Being a Good Student in the LLM Era" /><published>2026-06-10T00:00:00-03:00</published><updated>2026-06-10T00:00:00-03:00</updated><id>http://localhost:4000/blog/tips-for-being-a-good-student</id><content type="html" xml:base="http://localhost:4000/blog/tips-for-being-a-good-student/"><![CDATA[<p>In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at <em>looking</em> like they are doing research.</p>
 
-<p>But the students who will thrive are not the ones who use LLMs the most. They’re the ones who acknowledge their limitations and know when <em>not</em> to use them. They will be the ones who still spend a good amount of time reading a paper, writing a paragraph from scratch, sitting with confusion until it resolves, and admitting they don’t know something.</p>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author></entry><entry><title type="html">From Academia to Industry: A Letter to My 2021 Self</title><link href="http://localhost:4000/blog/from-academia-to-industry/" rel="alternate" type="text/html" title="From Academia to Industry: A Letter to My 2021 Self" /><published>2026-04-19T00:00:00-03:00</published><updated>2026-04-19T00:00:00-03:00</updated><id>http://localhost:4000/blog/from-academia-to-industry</id><content type="html" xml:base="http://localhost:4000/blog/from-academia-to-industry/"><![CDATA[<p>In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when I worked with a few Brazilian companies doing consulting work, mostly around Java-based technologies.</p>
+<p>The debate around the use of LLMs in research is loud, and it is getting louder. Accountability. Hallucinations. Made-up references. Confident, unsupported claims. You name it. None of these issues are new. They are just amplified now that the bar for producing text has dropped to near zero.</p>
+
+<p>So the question I’m asking myself is: how do we take advantage of LLMs without compromising our learning? Yes, we are writing papers faster than ever. But are we learning something during this shorter process? Yes, we can speed up PDF creation by 100x, but can we speed up our learning by, say, 1.5x? I dunno.</p>
+
+<p>I also understand that LLMs are useful tools, and students should understand how to use them better. Here, I provide a few tips to help students use them while avoiding missing the learning part.</p>
+
+<h2 id="1-learn-how-to-learn">1. Learn how to learn</h2>
+
+<p>LLMs can accelerate your output by 10x. Maybe 100x. However, they can hardly accelerate your <em>learning</em> at all. Maybe they even decrease your learning pace. <a href="https://arxiv.org/abs/2506.08872">Cognitive debt</a> is a real thing. Learning is still slow, still painful, still made of confusion and wrong turns and <a href="/blog/got-another-phd/">the occasional moment when something clicks</a>.</p>
+
+<p>The shortcut is right there. You can paste a paper into a chat window and get a summary in three seconds. You can ask for an explanation of a concept and get something that sounds right. You will save hours. You will also learn nothing.</p>
+
+<p>I’m not exaggerating. There is no version of “I read the LLM summary” that gives you what reading the paper gives you. As we found in a Reddit post: <em>“You can’t outsource the struggle and still get the skill”</em>.</p>
+
+<p>The rule I’d give every student: <strong>don’t outsource anything you need to learn</strong>. Use the LLM after you understand something, not before. Use it to check your work, not to replace it.</p>
+
+<h2 id="2-read-a-lot">2. Read a lot</h2>
+
+<p>LLMs are trained on text. They produce text. But they are not the best source of text. Although LLMs can follow strict grammar rules, their vocabulary mimics the average one. And as we all know, averages aren’t that good.</p>
+
+<p>Since you are using an LLM, you must always read its output. However, do not restrict your literature to the LLM’s output. People out there are already talking like an LLM. Don’t be an LLM. Improve your vocabulary.</p>
+
+<p>Read good research papers. Read good blogs. Read good novels. Read things outside your research topic. Get used to reading long documents. Get used to reading every day. Read about topics that you love until you love to read.</p>
+
+<p>Research is, at the end of the day, a deeply human activity. You’re trying to understand and explain something that nobody else has understood. This requires enormous effort. The more you read about how humans think, fail, and rationalize, the better you’ll get at it.</p>
+
+<p>In the same vein, talk to real people. I know it is easier to ask questions to an LLM, but do not forget to ask questions to real people. Express your half-baked ideas. Half-baked ideas are how baked ideas start. Since we are very connected with these tools, we may miss how to connect and express ourselves with real people.</p>
+
+<h2 id="3-evaluate-the-llm-output">3. Evaluate the LLM output</h2>
+
+<p>Using an LLM is fine. I use LLMs all the time. However, read and question every word they write.</p>
+
+<p>A common misuse of LLMs these days is to let them create non-existing references. The LLM cites a paper with complete confidence: author, year, journal, title. And the paper doesn’t exist. Or the opposite: the paper does exist, but the LLM says something different from what the paper claims.</p>
+
+<p>Please, please check the references. Every one of them.</p>
+
+<p>And don’t stop there. Read every word the LLM produced before you put your name on it. Not because the LLM is malicious. It isn’t. But because it is a very confident guesser. A confident guess can be helpful. An unchecked confident guess in a paper with your name on it is something else entirely.</p>
+
+<p><strong>You are the author, not the LLM</strong>. The LLM is a tool. Tools don’t have reputations to protect. You do.</p>
+
+<h2 id="4-automate-everything-non-critical">4. Automate everything non-critical</h2>
+
+<p>Here is where LLMs genuinely shine, and where I think students underuse them.</p>
+
+<ul>
+  <li>Writing boilerplate code? Let the LLM do it.</li>
+  <li>Drafting an initial query for IEEE Xplore to find papers worth reading? Done.</li>
+  <li>Designing a rough slide deck to share an early idea with your advisor? Sure, why not.</li>
+</ul>
+
+<p>These tasks have low stakes. They consume real time and mostly create boilerplate work. Offloading them is a big win. But there is a catch. You have to know how to do these things without the LLM. One Reddit user put it nicely:</p>
+
+<blockquote>
+  <p><em>“If you don’t fundamentally understand what you’re programming at a basic level, and the code itself, to verify if it’s doing what the method should do, you’ll almost certainly make mistakes.”</em></p>
+</blockquote>
+
+<p>This applies far beyond code. Automate the routine, but keep the reasoning to yourself. The moment you start automating the reasoning, you’re no longer doing creative work.</p>
+
+<h2 id="5-be-yourself-dont-be-an-llm">5. Be yourself. Don’t be an LLM</h2>
+
+<p>I’ve seen students reading LLM-generated answers out loud in meetings, almost word for word, without processing them in the first place. I’ve seen classwork that sounds like nobody wrote it: fluent, confident, yet shallow. I’ve seen people in conversations type a question into a chat window and read the answer back as if it were their own thought.</p>
+
+<p>Think for yourself. Speak for yourself. Please.</p>
+
+<p>Given the whole body of knowledge in the universe, it is obvious that we are far from knowing a good chunk of it. Actually, what we know is that we don’t know. Saying “I don’t know” is not a weakness. It is fine. It is expected. Indeed, this is where every real investigation starts.</p>
+
+<p>Don’t use an LLM to cover what you don’t know. When you repeat an answer you cannot explain, you are not really hiding the gap. You are making it visible.</p>
+
+<p>A better move is to acknowledge what you don’t know and use that as the starting point for learning. Ask the LLM to help you map the gap, suggest readings, test your understanding, or challenge your reasoning. But don’t present its output as if it were your own knowledge. Only you can be you. Don’t try to be an LLM.</p>
+
+<hr />
+
+<p>None of this is an argument against LLMs. I use them every day. They’re genuinely useful, and refusing to engage with them is, at this point, a form of self-sabotage.</p>
+
+<p>But the students who will thrive are not the ones who use LLMs the most. They’re the ones who acknowledge their limitations and know when <em>not</em> to use them. They will be the ones who still spend a good amount of time reading a paper, writing a paragraph from scratch, sitting with confusion until it resolves, and admitting they don’t know something.</p>]]></content><author><name>Gustavo Pinto</name><email>gpinto@ufpa.br</email></author><summary type="html"><![CDATA[In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they are doing research.]]></summary></entry><entry><title type="html">From Academia to Industry: A Letter to My 2021 Self</title><link href="http://localhost:4000/blog/from-academia-to-industry/" rel="alternate" type="text/html" title="From Academia to Industry: A Letter to My 2021 Self" /><published>2026-04-19T00:00:00-03:00</published><updated>2026-04-19T00:00:00-03:00</updated><id>http://localhost:4000/blog/from-academia-to-industry</id><content type="html" xml:base="http://localhost:4000/blog/from-academia-to-industry/"><![CDATA[<p>In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when I worked with a few Brazilian companies doing consulting work, mostly around Java-based technologies.</p>
 
 <p>Back then, the tech environment was completely different. The way you applied for jobs, the onboarding process (or the absence thereof), the work environment, the benefits, the compensation, the cloud infrastructure — everything was different. AWS wasn’t really a thing yet, so it was common to deploy services in-house, and continuous integration and delivery were far from being standard practices. People were selling agile left and right, but waterfall was still alive and well. Ruby on Rails — and other frameworks that inherited its architectural and design choices — were mostly discussed in startups, while mature companies still leaned on JEE technologies. That was the scenario I left behind when I transitioned into academia full-time. Thinking and writing about it today, it feels like a lifetime ago. And it really is.</p>
 

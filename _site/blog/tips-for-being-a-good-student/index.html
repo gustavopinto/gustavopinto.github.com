@@ -1,0 +1,656 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tips and Tricks for Being a Good Student in the LLM Era - Gustavo Pinto</title>
+<meta name="description" content="In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they are doing research. ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Tips and Tricks for Being a Good Student in the LLM Era">
+<meta property="og:url" content="http://localhost:4000/blog/tips-for-being-a-good-student/">
+
+
+  <meta property="og:description" content="In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they are doing research. ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Tips and Tricks for Being a Good Student in the LLM Era">
+  <meta name="twitter:description" content="In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they are doing research. ">
+  <meta name="twitter:url" content="http://localhost:4000/blog/tips-for-being-a-good-student/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2026-06-10T00:00:00-03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/blog/tips-for-being-a-good-student/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/misc/">Misc</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Professor &amp; Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tips and Tricks for Being a Good Student in the LLM Era">
+    <meta itemprop="description" content="In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they are doing research.">
+    <meta itemprop="datePublished" content="2026-06-10T00:00:00-03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Tips and Tricks for Being a Good Student in the LLM Era
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at <em>looking</em> like they are doing research.</p>
+
+<p>The debate around the use of LLMs in research is loud, and it is getting louder. Accountability. Hallucinations. Made-up references. Confident, unsupported claims. You name it. None of these issues are new. They are just amplified now that the bar for producing text has dropped to near zero.</p>
+
+<p>So the question I’m asking myself is: how do we take advantage of LLMs without compromising our learning? Yes, we are writing papers faster than ever. But are we learning something during this shorter process? Yes, we can speed up PDF creation by 100x, but can we speed up our learning by, say, 1.5x? I dunno.</p>
+
+<p>I also understand that LLMs are useful tools, and students should understand how to use them better. Here, I provide a few tips to help students use them while avoiding missing the learning part.</p>
+
+<h2 id="1-learn-how-to-learn">1. Learn how to learn</h2>
+
+<p>LLMs can accelerate your output by 10x. Maybe 100x. However, they can hardly accelerate your <em>learning</em> at all. Maybe they even decrease your learning pace. <a href="https://arxiv.org/abs/2506.08872">Cognitive debt</a> is a real thing. Learning is still slow, still painful, still made of confusion and wrong turns and <a href="/blog/got-another-phd/">the occasional moment when something clicks</a>.</p>
+
+<p>The shortcut is right there. You can paste a paper into a chat window and get a summary in three seconds. You can ask for an explanation of a concept and get something that sounds right. You will save hours. You will also learn nothing.</p>
+
+<p>I’m not exaggerating. There is no version of “I read the LLM summary” that gives you what reading the paper gives you. As we found in a Reddit post: <em>“You can’t outsource the struggle and still get the skill”</em>.</p>
+
+<p>The rule I’d give every student: <strong>don’t outsource anything you need to learn</strong>. Use the LLM after you understand something, not before. Use it to check your work, not to replace it.</p>
+
+<h2 id="2-read-a-lot">2. Read a lot</h2>
+
+<p>LLMs are trained on text. They produce text. But they are not the best source of text. Although LLMs can follow strict grammar rules, their vocabulary mimics the average one. And as we all know, averages aren’t that good.</p>
+
+<p>Since you are using an LLM, you must always read its output. However, do not restrict your literature to the LLM’s output. People out there are already talking like an LLM. Don’t be an LLM. Improve your vocabulary.</p>
+
+<p>Read good research papers. Read good blogs. Read good novels. Read things outside your research topic. Get used to reading long documents. Get used to reading every day. Read about topics that you love until you love to read.</p>
+
+<p>Research is, at the end of the day, a deeply human activity. You’re trying to understand and explain something that nobody else has understood. This requires enormous effort. The more you read about how humans think, fail, and rationalize, the better you’ll get at it.</p>
+
+<p>In the same vein, talk to real people. I know it is easier to ask questions to an LLM, but do not forget to ask questions to real people. Express your half-baked ideas. Half-baked ideas are how baked ideas start. Since we are very connected with these tools, we may miss how to connect and express ourselves with real people.</p>
+
+<h2 id="3-evaluate-the-llm-output">3. Evaluate the LLM output</h2>
+
+<p>Using an LLM is fine. I use LLMs all the time. However, read and question every word they write.</p>
+
+<p>A common misuse of LLMs these days is to let them create non-existing references. The LLM cites a paper with complete confidence: author, year, journal, title. And the paper doesn’t exist. Or the opposite: the paper does exist, but the LLM says something different from what the paper claims.</p>
+
+<p>Please, please check the references. Every one of them.</p>
+
+<p>And don’t stop there. Read every word the LLM produced before you put your name on it. Not because the LLM is malicious. It isn’t. But because it is a very confident guesser. A confident guess can be helpful. An unchecked confident guess in a paper with your name on it is something else entirely.</p>
+
+<p><strong>You are the author, not the LLM</strong>. The LLM is a tool. Tools don’t have reputations to protect. You do.</p>
+
+<h2 id="4-automate-everything-non-critical">4. Automate everything non-critical</h2>
+
+<p>Here is where LLMs genuinely shine, and where I think students underuse them.</p>
+
+<ul>
+  <li>Writing boilerplate code? Let the LLM do it.</li>
+  <li>Drafting an initial query for IEEE Xplore to find papers worth reading? Done.</li>
+  <li>Designing a rough slide deck to share an early idea with your advisor? Sure, why not.</li>
+</ul>
+
+<p>These tasks have low stakes. They consume real time and mostly create boilerplate work. Offloading them is a big win. But there is a catch. You have to know how to do these things without the LLM. One Reddit user put it nicely:</p>
+
+<blockquote>
+  <p><em>“If you don’t fundamentally understand what you’re programming at a basic level, and the code itself, to verify if it’s doing what the method should do, you’ll almost certainly make mistakes.”</em></p>
+</blockquote>
+
+<p>This applies far beyond code. Automate the routine, but keep the reasoning to yourself. The moment you start automating the reasoning, you’re no longer doing creative work.</p>
+
+<h2 id="5-be-yourself-dont-be-an-llm">5. Be yourself. Don’t be an LLM</h2>
+
+<p>I’ve seen students reading LLM-generated answers out loud in meetings, almost word for word, without processing them in the first place. I’ve seen classwork that sounds like nobody wrote it: fluent, confident, yet shallow. I’ve seen people in conversations type a question into a chat window and read the answer back as if it were their own thought.</p>
+
+<p>Think for yourself. Speak for yourself. Please.</p>
+
+<p>Given the whole body of knowledge in the universe, it is obvious that we are far from knowing a good chunk of it. Actually, what we know is that we don’t know. Saying “I don’t know” is not a weakness. It is fine. It is expected. Indeed, this is where every real investigation starts.</p>
+
+<p>Don’t use an LLM to cover what you don’t know. When you repeat an answer you cannot explain, you are not really hiding the gap. You are making it visible.</p>
+
+<p>A better move is to acknowledge what you don’t know and use that as the starting point for learning. Ask the LLM to help you map the gap, suggest readings, test your understanding, or challenge your reasoning. But don’t present its output as if it were your own knowledge. Only you can be you. Don’t try to be an LLM.</p>
+
+<hr />
+
+<p>None of this is an argument against LLMs. I use them every day. They’re genuinely useful, and refusing to engage with them is, at this point, a form of self-sabotage.</p>
+
+<p>But the students who will thrive are not the ones who use LLMs the most. They’re the ones who acknowledge their limitations and know when <em>not</em> to use them. They will be the ones who still spend a good amount of time reading a paper, writing a paragraph from scratch, sitting with confusion until it resolves, and admitting they don’t know something.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2026-06-10T00:00:00-03:00">June 10, 2026</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gustavopinto&text=Tips+and+Tricks+for+Being+a+Good+Student+in+the+LLM+Era%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftips-for-being-a-good-student%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftips-for-being-a-good-student%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftips-for-being-a-good-student%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/from-academia-to-industry/" class="pagination--pager" title="From Academia to Industry: A Letter to My 2021 Self
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/from-academia-to-industry/" rel="permalink">From Academia to Industry: A Letter to My 2021 Self
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In 2021, I joined Zup Innovation and became a part-time professor. Before Zup, my last full-time industry experience was right before I started my PhD, when ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/got-another-phd/" rel="permalink">Got Another PhD
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">A few days ago, I tied a new belt around my waist — a black belt in Brazilian jiu-jitsu.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/10-years-in-academia-from-passion-to-profession/" rel="permalink">10 Years in Academia: From Passion to Profession
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">February 24th marked the 10th anniversary of my PhD defense. YAY! 🥳
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/from-research-to-pull-requests/" rel="permalink">From Research to Pull-Requests
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In the past, I wrote a blog post summarizing the first year of my transition to the software development industry. This October marks my second year working ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

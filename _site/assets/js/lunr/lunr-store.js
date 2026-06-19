@@ -323,9 +323,9 @@ var store = [{
         "url": "http://localhost:4000/blog/from-academia-to-industry/",
         "teaser": null
       },{
-        "title": null,
-        "excerpt":"None of this is an argument against LLMs. I use them every day. They’re genuinely useful, and refusing to engage with them is, at this point, a form of self-sabotage. But the students who will thrive are not the ones who use LLMs the most. They’re the ones who acknowledge...","categories": [],
-        "tags": null,
-        "url": "http://localhost:4000/2026-06-10-tips-for-being-a-good-student/",
+        "title": "Tips and Tricks for Being a Good Student in the LLM Era",
+        "excerpt":"In the last few years, I’ve watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at looking like they...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/blog/tips-for-being-a-good-student/",
         "teaser": null
       }]

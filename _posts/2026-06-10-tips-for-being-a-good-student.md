@@ -1,5 +1,4 @@
 ---
-
 layout: single
 title: "Tips and Tricks for Being a Good Student in the LLM Era"
 year: 2026
@@ -7,7 +6,7 @@ month: 06
 day: 10
 published: true
 permalink: /blog/tips-for-being-a-good-student/
------------------------------------------------
+---
 
 In the last few years, I've watched students use LLMs for nearly everything: brainstorming research questions, writing code, searching the literature, summarizing what they were supposed to read, and, obviously, drafting papers. Although some of these students are indeed getting better, others are just getting better at *looking* like they are doing research.
 

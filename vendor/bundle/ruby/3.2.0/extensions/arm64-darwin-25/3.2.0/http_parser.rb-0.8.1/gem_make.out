@@ -1,0 +1,24 @@
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+/opt/homebrew/opt/ruby@3.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260618-24881-93e5ct sitelibdir\=./.gem.20260618-24881-93e5ct clean
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260618-24881-93e5ct sitelibdir\=./.gem.20260618-24881-93e5ct
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+ruby_http_parser.c:373:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'long' [-Wsign-compare]
+  373 |     if (nparsed < len)
+      |         ~~~~~~~ ^ ~~~
+1 warning generated.
+linking shared-object ruby_http_parser.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260618-24881-93e5ct sitelibdir\=./.gem.20260618-24881-93e5ct install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20260618-24881-93e5ct
+
+current directory: /Users/ghlp/workspace/gustavopinto.github.com/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260618-24881-93e5ct sitelibdir\=./.gem.20260618-24881-93e5ct clean
