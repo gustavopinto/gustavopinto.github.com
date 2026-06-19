@@ -370,24 +370,34 @@
 <ol>
   <li>Prova (P1): 25 pontos</li>
   <li>Atividade Prática (AP): 25 pontos</li>
-  <li>Projeto de Disciplina (PD): 50 pontos
-    <ul>
-      <li>Entrega Parcial 1 (EP1): 10 pontos</li>
-      <li>Entrega Parcial 2 (EP2): 15 pontos</li>
-      <li>Apresentação Final: 25 pontos</li>
-    </ul>
-  </li>
+  <li>Projeto de Disciplina (PD): 50 pontos</li>
 </ol>
 
 <h2 id="projeto-de-disciplina-pd">Projeto de Disciplina (PD)</h2>
 
-<p>Grupos de 3–4 pessoas. Cada grupo escolhe um domínio de aplicação (sistema hospitalar, escola, e-commerce, delivery, etc.) e desenvolve um banco de dados completo ao longo do semestre.</p>
+<p><strong>Formato.</strong> Grupos de 2 ou 3 pessoas.</p>
 
-<p><strong>Entregas:</strong></p>
+<p><strong>Tema.</strong> Cada grupo deve escolher um aplicativo, site ou sistema que use com regularidade (ex.: iFood, Spotify, Letterboxd, Strava, GitHub) e modelar o banco de dados que sustentaria esse sistema. A pergunta-guia: <em>como ele foi (ou seria) desenvolvido por baixo do capô?</em></p>
+
+<p><strong>O que estudar.</strong></p>
 <ul>
-  <li><strong>EP1 (02/07):</strong> Diagrama ER + scripts DDL funcionando no SGBD</li>
-  <li><strong>EP2 (14/07):</strong> Banco populado com dados consistentes + conjunto de consultas SQL (mínimo 10 queries cobrindo SELECT, JOIN, GROUP BY e subquery)</li>
-  <li><strong>Apresentação Final (16–23/07):</strong> Demonstração ao vivo do banco, explicação das decisões de modelagem e consultas desenvolvidas</li>
+  <li>Quais são as <strong>entidades</strong> principais?</li>
+  <li>Como elas se <strong>relacionam</strong> (1:1, 1:N, N:N)?</li>
+  <li>Quais <strong>restrições</strong> básicas o domínio impõe (unicidade, obrigatoriedade, integridade referencial)?</li>
+</ul>
+
+<p><strong>Entregas por etapa.</strong></p>
+<ul>
+  <li><strong>Aula 2:</strong> definição do sistema escolhido + schema inicial (mínimo de 5 entidades com relacionamentos).</li>
+  <li><strong>Aulas seguintes:</strong> evolução incremental do schema (novas entidades, normalização, índices, constraints) — uma migração por mudança.</li>
+  <li><strong>Aula final (09/07/2026):</strong> apresentação de 10 min mostrando o sistema, o schema final e as decisões de modelagem.</li>
+</ul>
+
+<p><strong>Repositório.</strong></p>
+<ul>
+  <li>Criem uma conta no GitHub e um repositório público para o grupo.</li>
+  <li>Cada mudança de schema deve ser uma <strong>migração versionada</strong> (<code class="language-plaintext highlighter-rouge">001_init.sql</code>, <code class="language-plaintext highlighter-rouge">002_add_reviews.sql</code>, …) com commits descritivos.</li>
+  <li>README com: sistema escolhido, integrantes, diagrama ER e como rodar as migrações.</li>
 </ul>
 
 <h2 id="atividades-assíncronas">Atividades Assíncronas</h2>
@@ -544,79 +554,67 @@
       <td>12</td>
       <td>11/06</td>
       <td>Qui</td>
-      <td>Laboratório de consultas: exercícios progressivos cobrindo tudo até aqui</td>
+      <td><a href="/assets/slides/bd1-2026/aula12.html">Laboratório de consultas: exercícios progressivos cobrindo tudo até aqui</a></td>
     </tr>
     <tr>
-      <td>13</td>
+      <td>—</td>
       <td>16/06</td>
       <td>Ter</td>
-      <td>Subqueries (<code class="language-plaintext highlighter-rouge">IN</code>, <code class="language-plaintext highlighter-rouge">EXISTS</code>). Views. CTEs básicas</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>14</td>
+      <td>—</td>
       <td>18/06</td>
       <td>Qui</td>
-      <td>Índices: conceito e criação. Transações: ACID em profundidade</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>15</td>
+      <td>—</td>
       <td>23/06</td>
       <td>Ter</td>
-      <td>Revisão geral + tirar dúvidas antes do projeto</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>16</td>
+      <td>—</td>
       <td>25/06</td>
       <td>Qui</td>
-      <td><strong>Kickoff do Projeto:</strong> formação de grupos, escolha de tema, entrega de proposta</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>17</td>
+      <td>—</td>
       <td>30/06</td>
       <td>Ter</td>
-      <td>Orientação: modelagem ER + modelo relacional + DDL (criação das tabelas no SGBD)</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>EP1</td>
+      <td>—</td>
       <td>02/07</td>
       <td>Qui</td>
-      <td><strong>Entrega Parcial 1:</strong> diagrama ER + scripts DDL funcionando</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>18</td>
+      <td>—</td>
       <td>07/07</td>
       <td>Ter</td>
-      <td>Orientação: DML — população do banco com dados consistentes</td>
+      <td>Acompanhamento dos projetos</td>
     </tr>
     <tr>
-      <td>19</td>
+      <td>PF</td>
       <td>09/07</td>
       <td>Qui</td>
-      <td>Orientação: consultas SQL (relatórios, filtros, JOINs)</td>
+      <td><strong>Apresentação Final do Projeto</strong> (10 min por grupo)</td>
     </tr>
     <tr>
-      <td>EP2</td>
+      <td>—</td>
       <td>14/07</td>
       <td>Ter</td>
-      <td><strong>Entrega Parcial 2:</strong> banco com dados + conjunto de consultas funcionando</td>
+      <td>Buffer</td>
     </tr>
     <tr>
-      <td>20</td>
+      <td>—</td>
       <td>16/07</td>
       <td>Qui</td>
-      <td>Apresentações — Grupos 1 e 2</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>21/07</td>
-      <td>Ter</td>
-      <td>Apresentações — Grupos 3 e 4</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>23/07</td>
-      <td>Qui</td>
-      <td>Apresentações — Grupos 5 e 6 + encerramento</td>
+      <td>Buffer</td>
     </tr>
   </tbody>
 </table>
