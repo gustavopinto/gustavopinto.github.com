@@ -9,7 +9,7 @@ Hi, I'm **Gustavo Pinto**.
 
 I'm an **Assistant Professor** at the [Faculty of Computing](http://www.computacao.ufpa.br/) of the [Federal University of Pará](http://www.ufpa.br/), Brazil, and a **Staff Engineer** at [iFood Tech](https://tech.ifood.com.br/). 
 
-I am a [well-published author](/publications/) with over 100 papers published in venues like [CACM](/publications/cacm2017), [TSE](http://gustavopinto.github.io/lost+found/tse2019.pdf), and [ICSE](http://gustavopinto.github.io/lost+found/icse2018.pdf). I also give [talks](https://speakerdeck.com/gustavopinto) at conferences and write on my [blog](/blog/).
+I'm a [well-published author](/publications/) with over 100 papers published in venues like [CACM](/publications/cacm2017), [TSE](http://gustavopinto.github.io/lost+found/tse2019.pdf), and [ICSE](http://gustavopinto.github.io/lost+found/icse2018.pdf). I also give [talks](https://speakerdeck.com/gustavopinto) at conferences and write on my [blog](/blog/).
 
 If you are a student looking to work with me, [read this first](https://gustavopinto.org/students/).
 
