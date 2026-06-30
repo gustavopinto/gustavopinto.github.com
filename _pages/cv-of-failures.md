@@ -26,10 +26,11 @@ My list of rejections is in the following (this list is incomplete; some are so 
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018, 2024
 
-## Conference papers rejected (61)
+## Conference papers rejected (63)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
+- BRACIS: 2026
 - SBLP: 2013, 2015
 - CAIN: 2026
 - CHASE: 2019, 2023, 2024, 2026 (2x)
@@ -42,7 +43,7 @@ My list of rejections is in the following (this list is incomplete; some are so 
 - GPCE: 2015
 - ICPC: 2019, 2025
 - ICSE: 2017 (2x), 2019 (2x), 2020 (2x), 2022 (2x), 2023 (2x), 2024, 2025
-- ICSME: 2012, 2016 (2x), 2017, 2018, 2022
+- ICSME: 2012, 2016 (2x), 2017, 2018, 2022, 2026
 - MSR: 2020 (2x), 2022, 2023 (2x)
 - OOPSLA: 2021
 - SANER: 2015, 2018, 2019, 2020 (2x)
