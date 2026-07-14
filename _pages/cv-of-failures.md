@@ -14,7 +14,7 @@ Like most researchers, I don't like rejections, but I try to see them as an oppo
 
 My list of rejections is in the following (this list is incomplete; some are so old that I cannot recall them).
 
-## Journal papers rejected (28)
+## Journal papers rejected (31)
 
 - IEEE Computer: 2018
 - IEEE Software: 2015 (2x), 2017, 2018 (2x), 2019, 2020, 2023 (2x)
@@ -26,7 +26,7 @@ My list of rejections is in the following (this list is incomplete; some are so 
 - PlosONE Computer Software: 2018
 - Software: Practice and Experience: 2014, 2018, 2024
 
-## Conference papers rejected (63)
+## Conference papers rejected (74)
 
 - ASE: 2014, 2019
 - ASPLOS: 2015
@@ -50,12 +50,13 @@ My list of rejections is in the following (this list is incomplete; some are so 
 - SCAM: 2019, 2020, 2022
 - SBES: 2020, 2021 (2x), 2024
 - SBSI: 2025
+- SBIE: 2026
 - SBQS: 2025
 - SIGCSE: 2019, 2020
 - XP: 2017
 - WTDSoft: 2018
 
-## Grant proposals rejected (21)
+## Grant proposals rejected (26)
 
 - CNPq Universal 2021, 2024
 - Serrapilheira, 2020, 2021

@@ -16,7 +16,6 @@ I am continuously looking for good people to join my research group, at all leve
 - Carlos Hesketh (MS)
 - Ronivaldo Ferreira Silva Junior (MS)
 - Pedro Lucas Almeida Andre (Capstone)
-- Christian de Jesus da Costa Marinho (Capstone)
 - Daniel Naiff Da Costa (UROP)
 - You?
 
