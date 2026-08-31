@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 3 &mdash; Banco de Dados II</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados II &mdash; 2026.2</span>
+    <h1>Aula 3<br><span class="accent">Cache de páginas</span></h1>
+    <div class="cover-meta">
+      <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#127963;&#65039; <strong>UFPA</strong></span>
+      <span>&#128197; <strong>22 de setembro de 2026</strong></span>
+      <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>Por que não basta o cache do sistema operacional</li>
+      <li>Frame, tabela de páginas e página fixada</li>
+      <li>Página suja e o momento da escrita</li>
+      <li>Políticas de substituição</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O problema</h2>
+    <div class="question"><p>Sua consulta lê a mesma página quarenta vezes. Quantos acessos a disco isso deveria custar?</p></div>
+    <ul>
+      <li>Sem cache, quarenta</li>
+      <li>Com cache, um</li>
+      <li>O cache de páginas é a diferença entre um banco usável e um inutilizável</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Por que não deixar para o sistema operacional?</h2>
+    <ul>
+      <li>O sistema operacional decide sozinho quando gravar uma página modificada</li>
+      <li>Durabilidade exige que <span class='highlight'>nós</span> decidamos essa ordem, e não ele</li>
+      <li>É esse controle que vai tornar a recuperação possível no M7</li>
+      <li>O SGBD também conhece o padrão de acesso da consulta, e o sistema operacional não</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>As três estruturas</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>Frames</h3><p>Um vetor de posições em memória, cada uma do tamanho de uma página.</p></div>
+      <div class="card"><h3>Tabela de páginas</h3><p>Mapeia número da página para o frame em que ela está.</p></div>
+      <div class="card"><h3>Contador de fixação</h3><p>Quantos operadores estão usando aquela página agora. Página fixada não pode sair.</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Página suja</h2>
+    <div class="definition"><p>Página suja é a que foi alterada em memória e ainda não foi gravada no disco.</p></div>
+    <ul>
+      <li>Escrever a cada alteração é lento</li>
+      <li>Não escrever nunca perde dados</li>
+      <li>A solução é escrever quando a página sai do cache, ou quando o log manda</li>
+      <li><span class='accent'>Guardem esta ideia:</span> é a página suja que torna o <code>kill -9</code> interessante</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Substituição</h2>
+    <ul>
+      <li>Quando o cache enche, alguém precisa sair</li>
+      <li><span class='accent'>LRU:</span> sai quem foi usado há mais tempo</li>
+      <li>Problema conhecido: uma varredura sequencial passa por todas as páginas uma vez e expulsa tudo que era útil</li>
+      <li>Bancos reais usam CLOCK ou LRU-K por causa disso. No minidb, LRU basta</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-cover">
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M2, o cache de páginas</p>
+    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+</div>
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

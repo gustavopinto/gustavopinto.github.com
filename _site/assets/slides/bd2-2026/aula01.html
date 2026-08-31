@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 1 &mdash; Banco de Dados II</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados II &mdash; 2026.2</span>
+    <h1>Aula 1<br><span class="accent">Apresentação da Disciplina</span></h1>
+    <div class="cover-meta">
+      <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#127963;&#65039; <strong>UFPA</strong></span>
+      <span>&#128197; <strong>1 de setembro de 2026</strong></span>
+      <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O critério de pronto do semestre</li>
+      <li>A anatomia de um SGBD</li>
+      <li>Os sete módulos que vamos construir</li>
+      <li>O que não vamos construir</li>
+      <li>Como funciona: linguagem, protocolo e repositório</li>
+      <li>Avaliação e cronograma</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Em Banco de Dados I, escrevemos SQL</h2>
+    <div class="question"><p>Aqui, escrevemos o programa que executa o SQL.</p></div>
+    <ul>
+      <li>Por que a mesma consulta roda em 3 ms e em 40 s</li>
+      <li>O que o SGBD faz entre o <code>SELECT</code> e o resultado</li>
+      <li>Por que um banco não perde dados quando a máquina cai</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O critério de pronto</h2>
+    <div class="definition"><p>Devemos construir um <strong>minidb</strong>, em que podemos executar um <code>SELECT</code> com <code>WHERE</code>, dentro de uma transação que volta ao ar consistente depois de levar um <code>kill -9</code> no meio do commit.</p></div>
+    <p style="font-size:1.6rem;margin-top:0.8rem">Sacou? O conteúdo do semestre foi escolhido de trás para frente, a partir dessa frase.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A anatomia de um SGBD</h2>
+    <div class="levels">
+      <div class="level level-v"><div class="level-icon">&#128221;</div><div class="level-text"><h4>Parser e catálogo</h4><p>Do texto SQL a uma árvore que o programa entende</p></div></div>
+      <div class="level level-c"><div class="level-icon">&#9881;&#65039;</div><div class="level-text"><h4>Executor</h4><p>Operadores que produzem linhas, um de cada vez</p></div></div>
+      <div class="level level-c"><div class="level-icon">&#127793;</div><div class="level-text"><h4>Índice e métodos de acesso</h4><p>Achar a linha sem varrer a tabela inteira</p></div></div>
+      <div class="level level-f"><div class="level-icon">&#128190;</div><div class="level-text"><h4>Buffer e armazenamento</h4><p>Páginas em memória, páginas em disco, e o log</p></div></div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:1rem">Vamos construir de baixo para cima, porque cada camada depende da anterior.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Por que o SGBD gerencia as próprias páginas?</h2>
+    <div class="question"><p>O sistema operacional já tem cache de arquivo. Por que não usar só ele?</p></div>
+    <ul>
+      <li>O SGBD sabe <span class='accent'>quando</span> uma página pode ir para o disco, e o sistema operacional não</li>
+      <li>Durabilidade exige controlar a ordem das escritas</li>
+      <li>O SGBD conhece o padrão de acesso da consulta e pode antecipar leituras</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Os sete módulos</h2>
+    <ul>
+      <li><span class='accent'>M1</span> Página e arquivo de dados</li>
+      <li><span class='accent'>M2</span> Cache de páginas</li>
+      <li><span class='accent'>M3</span> Árvore B+, busca e inserção</li>
+      <li><span class='accent'>M4</span> Parser e catálogo</li>
+      <li><span class='accent'>M5</span> Executor: varredura sequencial e por índice</li>
+      <li><span class='accent'>M6</span> Transações: <code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code></li>
+      <li><span class='accent'>M7</span> Recuperação: log de escrita antecipada</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Uma aula teórica e duas de laboratório por módulo.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que <span class="highlight">não</span> vamos construir</h2>
+    <ul>
+      <li>Remoção na árvore B+, com fusão e redistribuição de nós</li>
+      <li>Registros de tamanho variável, <code>VARCHAR</code> livre, mapa de nulos</li>
+      <li>Junções, <code>ORDER BY</code> e agregação</li>
+      <li>Otimizador com modelo de custo</li>
+      <li>Concorrência: bloqueios, isolamento, deadlock</li>
+      <li>Checkpoint, número de sequência de log e ARIES completo</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>E como esses temas entram?</h2>
+    <ul>
+      <li>Viram <span class='accent'>seminários</span> em 24/11 e 26/11, apresentados por vocês</li>
+      <li>Cada dupla recebe um tema por sorteio em 10/11</li>
+      <li>Dez minutos, três de perguntas, sem relatório escrito</li>
+    </ul>
+    <div class="question"><p>Toda apresentação responde à mesma pergunta: o que precisaria mudar no minidb para ter isso?</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A linguagem é escolha de vocês</h2>
+    <ul>
+      <li>C, Python, Go, Rust, Java, o que preferirem</li>
+      <li><span class='highlight'>C</span> ensina mais sobre memória e disco, e custa perto do dobro do tempo</li>
+      <li><span class='accent'>Python</span> some do caminho e deixa vocês pensarem em estrutura</li>
+      <li>Escolham na primeira semana, e não mudem depois</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Não estamos competindo em desempenho com o PostgreSQL. A escolha é sobre o que vocês querem aprender.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que eu forneço não é código, é o contrato</h2>
+    <p style="font-size:1.5rem;margin-top:0.8rem">O minidb lê comandos da entrada padrão e escreve o resultado na saída padrão, em formato definido. Assim os mesmos testes valem para qualquer linguagem.</p>
+    <pre><span class="cmt">$ ./minidb dados.db &lt; consultas.sql</span>
+<span class="cmd">CREATE TABLE</span> aluno (id INT, matricula INT);
+OK
+<span class="cmd">INSERT INTO</span> aluno VALUES (1, 20260001);
+OK 1
+<span class="cmd">SELECT</span> * FROM aluno WHERE id = 1;
+1|20260001
+(1 linha)</pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Ninguém fica para trás</h2>
+    <ul>
+      <li>Depois do prazo de cada módulo, publico a <span class='accent'>implementação de referência</span></li>
+      <li>Quem não terminou o M3 estuda a referência, adapta e segue para o M4</li>
+      <li>Você perde os pontos daquele módulo, não o semestre</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">O prazo de cada módulo é a data de publicação da referência. Depois dela, não há pontos.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Repositório e registro de avanços</h2>
+    <ul>
+      <li>Repositório público no <span class="accent">GitHub</span>, criado na primeira semana</li>
+      <li>Commits pequenos e frequentes, feitos enquanto vocês trabalham</li>
+      <li>Cada módulo entra por <span class='accent'>pull request</span>, com um <code>NOTES.md</code></li>
+      <li>No <code>NOTES.md</code>, um parágrafo sobre a decisão de projeto mais difícil daquele módulo</li>
+    </ul>
+    <div class="definition"><p>Sete commits gigantes, um por módulo, na véspera de cada prazo, contam a história de <strong>um trabalho que não aconteceu</strong>.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Avaliação</h2>
+    <table class="eval-table">
+      <tr><td>&#129513; Módulos M1 a M7</td><td>M3 e M7 valem 10, os outros cinco valem 8</td><td>60 pts</td></tr>
+      <tr><td>&#127908; Defesa oral</td><td>Individual, em 01/12 e 03/12</td><td>20 pts</td></tr>
+      <tr><td>&#128218; Seminário</td><td>Em dupla, em 24/11 ou 26/11</td><td>10 pts</td></tr>
+      <tr><td>&#128202; Relatório e apresentação</td><td>Demonstração ao vivo em 10/12</td><td>10 pts</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Como cada módulo é avaliado</h2>
+    <ul>
+      <li>Metade pelos <span class='accent'>testes de aceitação</span> que passam</li>
+      <li>Um terço pela qualidade do código e do histórico de commits</li>
+      <li>O restante pelo <code>NOTES.md</code></li>
+    </ul>
+    <div class="question"><p>Em dupla de implementação é comum um escrever e o outro assistir. Na defesa oral, cada um por si.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cronograma &middot; setembro e outubro</h2>
+    <table class="sched-table">
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr>
+      <tr><td>T0</td><td>01/09</td><td>Ter</td><td>Apresentação. Anatomia de um SGBD</td></tr>
+      <tr><td>T1</td><td>03/09</td><td>Qui</td><td>Armazenamento</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>08 e 10/09</td><td></td><td>CBSoft 2026, sem aula</td></tr>
+      <tr><td>I1</td><td>15 e 17/09</td><td></td><td>Laboratório M1. Entrega em 17/09</td></tr>
+      <tr><td>T2</td><td>22/09</td><td>Ter</td><td>Cache de páginas</td></tr>
+      <tr><td>I2</td><td>24 e 29/09</td><td></td><td>Laboratório M2. Entrega em 29/09</td></tr>
+      <tr><td>T3</td><td>01/10</td><td>Qui</td><td>Árvore B+</td></tr>
+      <tr class="row-eval"><td>I3</td><td>06 e 08/10</td><td></td><td>Laboratório M3. Entrega em 08/10</td></tr>
+      <tr><td>T4</td><td>13/10</td><td>Ter</td><td>Parser e catálogo</td></tr>
+      <tr><td>I4</td><td>15 e 20/10</td><td></td><td>Laboratório M4. Entrega em 20/10</td></tr>
+      <tr><td>T5</td><td>22/10</td><td>Qui</td><td>Executor</td></tr>
+      <tr><td>I5</td><td>27 e 29/10</td><td></td><td>Laboratório M5. Entrega em 29/10</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cronograma &middot; novembro e dezembro</h2>
+    <table class="sched-table">
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr>
+      <tr><td>T6</td><td>03/11</td><td>Ter</td><td>Transações</td></tr>
+      <tr><td>I6</td><td>05 e 10/11</td><td></td><td>Laboratório M6. Entrega e sorteio dos seminários em 10/11</td></tr>
+      <tr><td>T7</td><td>12/11</td><td>Qui</td><td>Recuperação</td></tr>
+      <tr class="row-eval"><td>I7</td><td>17 e 19/11</td><td></td><td>Laboratório M7. Entrega em 19/11</td></tr>
+      <tr class="row-project"><td>S1</td><td>24/11</td><td>Ter</td><td>Seminários, primeira metade</td></tr>
+      <tr class="row-project"><td>S2</td><td>26/11</td><td>Qui</td><td>Seminários, segunda metade</td></tr>
+      <tr class="row-eval"><td>DO</td><td>01 e 03/12</td><td></td><td>Defesa oral individual</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>08/12</td><td>Ter</td><td>Nossa Senhora da Conceição, sem aula</td></tr>
+      <tr class="row-eval"><td>PF</td><td>10/12</td><td>Qui</td><td>Apresentações finais</td></tr>
+      <tr><td>&mdash;</td><td>15, 17 e 22/12</td><td></td><td>Buffer, fechamento e notas</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Sobre ferramentas de LLM</h2>
+    <div class="question"><p>Um agente escreve uma árvore B+ em trinta segundos, e ela até passa nos testes.</p></div>
+    <ul>
+      <li>Se vocês fizerem isso, terão um repositório bonito e nenhum aprendizado</li>
+      <li>A defesa oral vale 20 pontos exatamente por esse motivo</li>
+      <li>Use para <span class='accent'>explicar</span>, não para produzir: peça o desenho da divisão de nó, peça outro exemplo, peça revisão do que <strong>vocês</strong> escreveram</li>
+      <li>O <code>NOTES.md</code> não sai de código que vocês não entenderam</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Um banco de dados em 50 linhas</h2>
+    <p style="font-size:1.5rem;margin-bottom:0.6rem">O <code>SELECT</code> inteiro do <code>minidb 0.0</code>. Guardem esta função: vamos passar o semestre consertando ela.</p>
+    <pre><span class="cmt"># le_tudo() abre o arquivo e devolve TODAS as linhas</span>
+<span class="cmd">if</span> verbo == <span class="cmd">"SELECT"</span>:
+    tabela  = p[p.index(<span class="cmd">"FROM"</span>) + 1]
+    colunas = esquema.get(tabela, [])
+    linhas  = le_tudo()                      <span class="cmt"># o arquivo inteiro, sempre</span>
+
+    <span class="cmd">if</span> <span class="cmd">"WHERE"</span> <span class="cmd">in</span> p:
+        coluna, _, valor = p[p.index(<span class="cmd">"WHERE"</span>) + 1 : ... ]
+        indice = colunas.index(coluna)
+        linhas = [l <span class="cmd">for</span> l <span class="cmd">in</span> linhas <span class="cmd">if</span> l[indice] == valor]
+
+    <span class="cmt"># imprime linha a linha, separado por |</span></pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>E ele funciona</h2>
+    <pre><span class="cmt">$ python3 hello.py dados.db &lt; demo.sql</span>
+CREATE TABLE aluno (id, matricula, nome);
+OK
+INSERT INTO aluno VALUES (1, 20260001, Ana);
+OK 1
+SELECT * FROM aluno WHERE id = 2;
+2|20260002|Bruno
+(1 linha)</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Cria tabela, insere, filtra e persiste em disco. É um banco de dados.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agora com 5 milhões de linhas</h2>
+    <pre><span class="cmt">$ ls -lh big.db</span>
+-rw-r--r--  136M  big.db
+
+<span class="cmt">$ time python3 hello.py big.db &lt; consulta.sql</span>
+4999999|25259999|nome4999999
+(1 linha)
+
+real    <span class="cmd">0m3,79s</span></pre>
+    <div class="definition"><p>Quase quatro segundos para achar <strong>uma</strong> linha. O PostgreSQL responde a mesma consulta em fração de milissegundo.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cada defeito dele é um módulo nosso</h2>
+    <table class="eval-table">
+      <tr><td>Lê o arquivo inteiro a cada consulta</td><td>página e cache de páginas</td><td>M1 M2</td></tr>
+      <tr><td>Percorre todas as linhas para achar uma</td><td>árvore B+ e varredura por índice</td><td>M3 M5</td></tr>
+      <tr><td>O catálogo mora na memória e morre junto</td><td>catálogo em disco</td><td>M4</td></tr>
+      <tr><td>O parser é um <code>split()</code> e um pouco de fé</td><td>tokenizador e gramática</td><td>M4</td></tr>
+      <tr><td>Escreve direto no arquivo, sem registro</td><td>log, <code>COMMIT</code> e <code>ROLLBACK</code></td><td>M6</td></tr>
+      <tr><td>Uma queda deixa metade do trabalho feito</td><td>log de escrita antecipada</td><td>M7</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Até a próxima aula</h2>
+    <ul>
+      <li>Formar as duplas e criar o repositório público</li>
+      <li>Escolher a linguagem, e assumir a escolha</li>
+      <li>Rodar o script de testes: todos devem falhar</li>
+      <li>Responder: por que o SGBD gerencia as próprias páginas em vez de deixar isso para o sistema operacional?</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Na semana de 08 a 11/09 não haverá aula, por conta do <strong>CBSoft 2026</strong>. As entregas assíncronas vencem em 15/09.</p>
+  </div>
+
+  <div class="slide slide-cover">
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima aula: armazenamento, a página e o arquivo de dados</p>
+    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+</div>
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
