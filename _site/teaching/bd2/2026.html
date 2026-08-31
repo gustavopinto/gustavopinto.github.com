@@ -1,0 +1,798 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Banco de Dados II - Gustavo Pinto</title>
+<meta name="description" content="Soft Eng Professor and Researcher ">
+
+
+  <meta name="author" content="Gustavo Pinto">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gustavo Pinto">
+<meta property="og:title" content="Banco de Dados II">
+<meta property="og:url" content="http://localhost:4000/teaching/bd2/2026">
+
+
+  <meta property="og:description" content="Soft Eng Professor and Researcher ">
+
+
+
+
+
+  <meta name="twitter:site" content="@gustavopinto">
+  <meta name="twitter:title" content="Banco de Dados II">
+  <meta name="twitter:description" content="Soft Eng Professor and Researcher ">
+  <meta name="twitter:url" content="http://localhost:4000/teaching/bd2/2026">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/teaching/bd2/2026">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gustavo Pinto",
+      "url": "http://localhost:4000/",
+      "sameAs": "https://twitter.com/gustavopinto/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gustavo Pinto Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Gustavo Pinto
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/students/">Students</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/reading/">Reading</a>
+            </li><li class="masthead__menu-item">
+              <a href="/misc/">Misc</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/lost+found/ghlp4.png" alt="Gustavo Pinto" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gustavo Pinto</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Professor &amp; Researcher</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Belém, Brazil</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://gustavopinto.org" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gpinto@ufpa.br">
+            <meta itemprop="email" content="gpinto@ufpa.br" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Banco de Dados II">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Banco de Dados II
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="horário">Horário</h2>
+
+<p>Terça e Quinta, 7h30 às 9h. De 01/09/2026 a 22/12/2026.</p>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Construir um sistema gerenciador de banco de dados do zero, pequeno mas funcional, para entender por dentro o que acontece entre o momento em que você escreve uma consulta e o momento em que o resultado volta.</p>
+
+<p>Em Banco de Dados I aprendemos a escrever SQL. Aqui escrevemos o programa que executa o SQL.</p>
+
+<h2 id="ementa">Ementa</h2>
+
+<p>Revisão dos conceitos básicos de bancos de dados. Aspectos operacionais em sistemas de banco de dados: armazenamento e indexação, processamento e otimização de consultas, controle de concorrência, recuperação de falhas, segurança e integridade. Bancos de dados não convencionais.</p>
+
+<h2 id="o-critério-de-pronto">O critério de pronto</h2>
+
+<p>Devemos construir um  <code class="language-plaintext highlighter-rouge">minidb</code>, em que podemos executar um <code class="language-plaintext highlighter-rouge">SELECT</code> com <code class="language-plaintext highlighter-rouge">WHERE</code>, dentro de uma transação que volta ao ar consistente depois de levar um <code class="language-plaintext highlighter-rouge">kill -9</code> no meio do commit. Sacou? :)</p>
+
+<h2 id="os-sete-módulos">Os sete módulos</h2>
+
+<p>Cada módulo tem uma aula teórica e duas aulas de laboratório. São sete módulos, e cada um adiciona uma peça ao <code class="language-plaintext highlighter-rouge">minidb</code>:</p>
+
+<ol>
+  <li><strong>Página e arquivo de dados.</strong> Registros de tamanho fixo em páginas de tamanho fixo.</li>
+  <li><strong>Cache de páginas.</strong> Páginas em memória, marcação de página suja, escrita no disco.</li>
+  <li><strong>Árvore B+.</strong> Busca e inserção com divisão de nó.</li>
+  <li><strong>Parser e catálogo.</strong> <code class="language-plaintext highlighter-rouge">CREATE TABLE</code>, <code class="language-plaintext highlighter-rouge">INSERT</code> e <code class="language-plaintext highlighter-rouge">SELECT</code> com <code class="language-plaintext highlighter-rouge">WHERE</code> de igualdade.</li>
+  <li><strong>Executor.</strong> Modelo iterador, varredura sequencial, varredura por índice e filtro.</li>
+  <li><strong>Transações.</strong> <code class="language-plaintext highlighter-rouge">BEGIN</code>, <code class="language-plaintext highlighter-rouge">COMMIT</code>, <code class="language-plaintext highlighter-rouge">ROLLBACK</code> e log com valor antes e depois.</li>
+  <li><strong>Recuperação.</strong> Log de escrita antecipada, e refazer e desfazer na partida.</li>
+</ol>
+
+<h2 id="o-que-não-implementamos">O que não implementamos</h2>
+
+<ul>
+  <li><strong>Remoção na árvore B+.</strong> Fusão e redistribuição de nós é a parte mais difícil da estrutura, e o critério de pronto só precisa de busca e inserção.</li>
+  <li><strong>Registros de tamanho variável.</strong> Nada de página com diretório de slots, campo <code class="language-plaintext highlighter-rouge">VARCHAR</code> de tamanho livre ou mapa de nulos. Tudo tem tamanho fixo.</li>
+  <li><strong>Junções e ordenação.</strong> Sem <code class="language-plaintext highlighter-rouge">JOIN</code>, sem <code class="language-plaintext highlighter-rouge">ORDER BY</code>, sem agregação. Uma tabela por consulta.</li>
+  <li><strong>Otimizador.</strong> A escolha entre índice e varredura é uma regra de três linhas, não um modelo de custo.</li>
+  <li><strong>Concorrência.</strong> O <code class="language-plaintext highlighter-rouge">minidb</code> atende uma sessão por vez. Sem bloqueios, sem níveis de isolamento, sem deadlock.</li>
+  <li><strong>Checkpoint e ARIES completo.</strong> A recuperação lê o log inteiro desde o começo, sem número de sequência nem registro de compensação.</li>
+</ul>
+
+<p>Nada disso vira aula minha. Concorrência, segurança e bancos não convencionais são exigências da ementa, e são cobertos pelos seminários de novembro, em que cada dupla estuda um desses temas e apresenta para a turma.</p>
+
+<h2 id="como-a-disciplina-funciona">Como a disciplina funciona</h2>
+
+<p><strong>A linguagem é escolha de vocês.</strong> C, Python, Go, Rust, Java, o que preferirem. Eu forneço o contrato, e não é código. Qualquer linguagem que leia da entrada padrão e escreva na saída padrão passa nos mesmos testes.</p>
+
+<p>O protocolo é o mais simples possível. O <code class="language-plaintext highlighter-rouge">minidb</code> recebe comandos SQL, um por linha, e imprime o resultado em formato definido:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./minidb dados.db &lt; consultas.sql
+CREATE TABLE aluno (id INT, matricula INT);
+OK
+INSERT INTO aluno VALUES (1, 20260001);
+OK 1
+SELECT * FROM aluno WHERE id = 1;
+1|20260001
+(1 linha)
+</code></pre></div></div>
+
+<p><strong>Escolham a linguagem na primeira semana, e não mudem depois.</strong> C ensina mais sobre memória e disco, e custa perto do dobro do tempo. Python some do caminho e deixa vocês pensarem em estrutura. Não estamos competindo em desempenho com o PostgreSQL, então a escolha é sobre o que vocês querem aprender, não sobre velocidade.</p>
+
+<h2 id="repositório-e-registro-de-avanços">Repositório e registro de avanços</h2>
+
+<p>Cada dupla deve manter um repositório público, no <a href="https://github.com">GitHub</a> criado na primeira semana e usado do começo ao fim.</p>
+
+<p>O repositório precisa mostrar o processo. Commits pequenos e frequentes. Um repositório com sete commits gigantes, um por módulo, na véspera de cada prazo, conta a história de <strong>um trabalho que não aconteceu</strong>.</p>
+
+<p>Cada módulo entra por pull request e traz um <code class="language-plaintext highlighter-rouge">NOTES.md</code> com um parágrafo sobre a decisão de projeto mais difícil daquele módulo. É esse parágrafo, somado ao histórico, que eu leio antes da defesa oral.</p>
+
+<p>Nenhuma biblioteca de banco de dados é permitida dentro do <code class="language-plaintext highlighter-rouge">minidb</code>, pelo motivo óbvio.</p>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>SCIORE, E. <em>Database Design and Implementation: Second Edition</em>. Springer, 2020. Referência principal, porque constrói um SGBD inteiro.</li>
+  <li>ELMASRI, R.; NAVATHE, S. B. <em>Sistemas de Banco de Dados</em>. 7ª edição. Pearson, 2018.</li>
+  <li>PETROV, A. <em>Database Internals</em>. O’Reilly, 2019.</li>
+</ul>
+
+<h3 id="material-extra">Material extra</h3>
+
+<ul>
+  <li><a href="https://15445.courses.cs.cmu.edu/">CMU 15-445, Intro to Database Systems</a>, aulas em vídeo abertas</li>
+  <li><a href="https://cstack.github.io/db_tutorial/"><em>Let’s Build a Simple Database</em></a>, um clone do SQLite construído em C, passo a passo</li>
+  <li><a href="https://cacm.acm.org/magazines/2018/8/229762-algorithms-behind-modern-storage-systems/fulltext"><em>Algorithms Behind Modern Storage Systems</em></a>, CACM</li>
+  <li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf"><em>A Critique of ANSI SQL Isolation Levels</em></a>, para a aula de concorrência</li>
+</ul>
+
+<h2 id="avaliação">Avaliação</h2>
+
+<ol>
+  <li>Módulos M1 a M7: 60 pontos</li>
+  <li>Defesa oral individual do código: 20 pontos</li>
+  <li>Seminário: 10 pontos</li>
+  <li>Relatório final e apresentação: 10 pontos</li>
+</ol>
+
+<h2 id="módulos-60-pontos">Módulos (60 pontos)</h2>
+
+<p>Entrega por pull request no fork da dupla, até as 23h59 da data indicada. M3 e M7 valem 10 pontos cada, por serem os dois mais difíceis; os outros cinco valem 8.</p>
+
+<p>A nota de cada módulo se divide em: metade pelos testes de aceitação que passam, um terço pela qualidade do código e do histórico de commits, e o restante pelo <code class="language-plaintext highlighter-rouge">NOTES.md</code>.</p>
+
+<p>Módulo entregue depois da publicação da implementação de referência não recebe pontos, porque a referência já está pública.</p>
+
+<h2 id="defesa-oral-individual-20-pontos">Defesa oral individual (20 pontos)</h2>
+
+<p>Em 01/12 e 03/12, cada aluno explica sozinho um trecho do <code class="language-plaintext highlighter-rouge">minidb</code> da própria dupla, escolhido por mim na hora. Em dupla de implementação é comum um escrever e o outro assistir. Aqui é cada um por sí :)</p>
+
+<h2 id="seminário-10-pontos">Seminário (10 pontos)</h2>
+
+<p>Nos dias 24/11 e 26/11, cada dupla apresenta um dos temas que o <code class="language-plaintext highlighter-rouge">minidb</code> não implementa. São dez minutos de apresentação e três de perguntas, sem relatório escrito. A entrega é a apresentação mais uma página de referências consultadas.</p>
+
+<p>Os temas são sorteados em 10/11, um por dupla:</p>
+
+<ul>
+  <li>Controle de concorrência e bloqueio em duas fases</li>
+  <li>Níveis de isolamento e as anomalias que cada um permite</li>
+  <li>Algoritmos de junção: laço aninhado, ordenação e fusão, hash</li>
+  <li>Otimização baseada em custo: estatísticas e estimativa de cardinalidade</li>
+  <li>Segurança: injeção de SQL, privilégios e segurança em nível de linha</li>
+  <li>Armazenamento colunar e por que ele domina análise de dados</li>
+  <li>LSM-trees e os bancos chave-valor</li>
+  <li>Bancos distribuídos: replicação e particionamento</li>
+</ul>
+
+<p>A pergunta que toda apresentação precisa responder é a mesma: <strong>o que precisaria mudar no <code class="language-plaintext highlighter-rouge">minidb</code> para ter isso?</strong> Não quero um resumo de capítulo de livro. Quero que vocês liguem o tema ao código que escreveram.</p>
+
+<p>Quem apresenta lendo material de consulta recebe zero.</p>
+
+<h2 id="relatório-final-e-apresentação-10-pontos">Relatório final e apresentação (10 pontos)</h2>
+
+<p>Relatório de 3 a 4 páginas respondendo a três perguntas: como o <code class="language-plaintext highlighter-rouge">minidb</code> de vocês está organizado, qual decisão de projeto vocês tomaram diferente do que o livro sugere e por quê, e o que fariam diferente recomeçando.</p>
+
+<p>A apresentação é de 10 minutos em 10/12, e o centro dela é a demonstração ao vivo do critério de pronto: a consulta com índice, dentro da transação, e o <code class="language-plaintext highlighter-rouge">kill -9</code>. Ensaiem.</p>
+
+<h2 id="cronograma">Cronograma</h2>
+
+<p>Passível de alterações. Verificar o calendário acadêmico oficial da UFPA para feriados estaduais e municipais.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Data</th>
+      <th>Dia</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T0</td>
+      <td>01/09</td>
+      <td>Ter</td>
+      <td>Apresentação. A anatomia de um SGBD, o critério de pronto e o que não vamos construir</td>
+    </tr>
+    <tr>
+      <td>T1</td>
+      <td>03/09</td>
+      <td>Qui</td>
+      <td><strong>Armazenamento:</strong> por que a página é a unidade, registro de tamanho fixo, heap file</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>08/09</td>
+      <td>Ter</td>
+      <td><strong>CBSoft 2026, sem aula</strong> (atividade assíncrona)</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>10/09</td>
+      <td>Qui</td>
+      <td><strong>CBSoft 2026, sem aula</strong> (atividade assíncrona)</td>
+    </tr>
+    <tr>
+      <td>I1</td>
+      <td>15/09</td>
+      <td>Ter</td>
+      <td>Laboratório: leitura e escrita de páginas</td>
+    </tr>
+    <tr>
+      <td>I1</td>
+      <td>17/09</td>
+      <td>Qui</td>
+      <td>Laboratório: serialização de registros. <strong>Entrega M1</strong></td>
+    </tr>
+    <tr>
+      <td>T2</td>
+      <td>22/09</td>
+      <td>Ter</td>
+      <td><strong>Cache de páginas:</strong> por que existe, página suja, política de substituição</td>
+    </tr>
+    <tr>
+      <td>I2</td>
+      <td>24/09</td>
+      <td>Qui</td>
+      <td>Laboratório: cache de páginas</td>
+    </tr>
+    <tr>
+      <td>I2</td>
+      <td>29/09</td>
+      <td>Ter</td>
+      <td>Laboratório: escrita no disco e integração com M1. <strong>Entrega M2</strong></td>
+    </tr>
+    <tr>
+      <td>T3</td>
+      <td>01/10</td>
+      <td>Qui</td>
+      <td><strong>Árvore B+:</strong> nós internos e folhas, busca, inserção com divisão, altura e I/O</td>
+    </tr>
+    <tr>
+      <td>I3</td>
+      <td>06/10</td>
+      <td>Ter</td>
+      <td>Laboratório: busca e inserção sem divisão</td>
+    </tr>
+    <tr>
+      <td>I3</td>
+      <td>08/10</td>
+      <td>Qui</td>
+      <td>Laboratório: divisão de nó. <strong>Entrega M3</strong></td>
+    </tr>
+    <tr>
+      <td>T4</td>
+      <td>13/10</td>
+      <td>Ter</td>
+      <td><strong>Parser e catálogo:</strong> do texto à árvore sintática. Injeção de SQL</td>
+    </tr>
+    <tr>
+      <td>I4</td>
+      <td>15/10</td>
+      <td>Qui</td>
+      <td>Laboratório: tokenizador e parser (<em>confirmar Dia do Professor</em>)</td>
+    </tr>
+    <tr>
+      <td>I4</td>
+      <td>20/10</td>
+      <td>Ter</td>
+      <td>Laboratório: catálogo de tabelas. <strong>Entrega M4</strong></td>
+    </tr>
+    <tr>
+      <td>T5</td>
+      <td>22/10</td>
+      <td>Qui</td>
+      <td><strong>Executor:</strong> modelo iterador, varredura sequencial, varredura por índice, seletividade</td>
+    </tr>
+    <tr>
+      <td>I5</td>
+      <td>27/10</td>
+      <td>Ter</td>
+      <td>Laboratório: varredura sequencial e filtro</td>
+    </tr>
+    <tr>
+      <td>I5</td>
+      <td>29/10</td>
+      <td>Qui</td>
+      <td>Laboratório: varredura por índice e a regra de escolha. <strong>Entrega M5</strong></td>
+    </tr>
+    <tr>
+      <td>T6</td>
+      <td>03/11</td>
+      <td>Ter</td>
+      <td><strong>Transações:</strong> ACID, log com valor antes e depois, atomicidade por desfazer</td>
+    </tr>
+    <tr>
+      <td>I6</td>
+      <td>05/11</td>
+      <td>Qui</td>
+      <td>Laboratório: <code class="language-plaintext highlighter-rouge">BEGIN</code>, <code class="language-plaintext highlighter-rouge">COMMIT</code> e o log</td>
+    </tr>
+    <tr>
+      <td>I6</td>
+      <td>10/11</td>
+      <td>Ter</td>
+      <td>Laboratório: <code class="language-plaintext highlighter-rouge">ROLLBACK</code>. <strong>Entrega M6</strong> e sorteio dos temas de seminário</td>
+    </tr>
+    <tr>
+      <td>T7</td>
+      <td>12/11</td>
+      <td>Qui</td>
+      <td><strong>Recuperação:</strong> escrever o log antes do dado, <code class="language-plaintext highlighter-rouge">fsync</code> no commit, refazer e desfazer</td>
+    </tr>
+    <tr>
+      <td>I7</td>
+      <td>17/11</td>
+      <td>Ter</td>
+      <td>Laboratório: log de escrita antecipada</td>
+    </tr>
+    <tr>
+      <td>I7</td>
+      <td>19/11</td>
+      <td>Qui</td>
+      <td>Laboratório: recuperação após o <code class="language-plaintext highlighter-rouge">kill -9</code>. <strong>Entrega M7</strong></td>
+    </tr>
+    <tr>
+      <td>S1</td>
+      <td>24/11</td>
+      <td>Ter</td>
+      <td><strong>Seminários</strong>, primeira metade das duplas</td>
+    </tr>
+    <tr>
+      <td>S2</td>
+      <td>26/11</td>
+      <td>Qui</td>
+      <td><strong>Seminários</strong>, segunda metade das duplas</td>
+    </tr>
+    <tr>
+      <td>DO</td>
+      <td>01/12</td>
+      <td>Ter</td>
+      <td><strong>Defesa oral individual</strong>, parte 1</td>
+    </tr>
+    <tr>
+      <td>DO</td>
+      <td>03/12</td>
+      <td>Qui</td>
+      <td><strong>Defesa oral individual</strong>, parte 2</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>08/12</td>
+      <td>Ter</td>
+      <td><strong>Nossa Senhora da Conceição, sem aula</strong> (feriado municipal em Belém)</td>
+    </tr>
+    <tr>
+      <td>PF</td>
+      <td>10/12</td>
+      <td>Qui</td>
+      <td><strong>Apresentações finais</strong>, 15 minutos por dupla</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>15/12</td>
+      <td>Ter</td>
+      <td>Buffer</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>17/12</td>
+      <td>Qui</td>
+      <td>Buffer</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>22/12</td>
+      <td>Ter</td>
+      <td>Buffer, fechamento e notas</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="atividades-assíncronas">Atividades Assíncronas</h2>
+
+<p>Na semana de 08 a 11/09 estarei no <a href="https://cbsoft.sbc.org.br/2026/">CBSoft 2026</a>, no IME-USP, e não haverá aula em 08/09 e 10/09. Entregas para 15/09:</p>
+
+<ul>
+  <li>Criar o repositório da dupla, escolher a linguagem, rodar o script de testes e enviar a saída, que deve mostrar todos os testes falhando.</li>
+  <li>Responder em um parágrafo: por que o SGBD gerencia as próprias páginas em vez de deixar isso para o sistema operacional?</li>
+</ul>
+
+<h2 id="sobre-o-uso-de-ferramentas-de-llm">Sobre o uso de ferramentas de LLM</h2>
+
+<p>Um agente escreve uma árvore B+ inteira em trinta segundos, e ela até passa nos testes. Se vocês fizerem isso, terão um repositório bonito e nenhum aprendizado, e a defesa oral de dezembro vai deixar isso evidente para todo mundo, inclusive para vocês. Ela vale 20 pontos por esse motivo.</p>
+
+<p>A regra prática: use a ferramenta para explicar, não para produzir. Peça para ela desenhar o que acontece quando um nó divide, peça outro exemplo, peça para revisar o código que <strong>vocês</strong> escreveram. O <code class="language-plaintext highlighter-rouge">NOTES.md</code> de cada módulo existe para registrar a decisão que vocês tomaram, e não sai de código que vocês não entenderam.</p>
+
+<h2 id="entrega-atrasada">Entrega atrasada</h2>
+
+<p>Entregas após o prazo serão aceitas, mas os pontos referentes não serão contabilizados. No caso dos módulos, o prazo é a publicação da implementação de referência.</p>
+
+<h2 id="política-de-plágio">Política de plágio</h2>
+
+<p>Os módulos devem ser implementados pela dupla. Duplas são encorajadas a discutir ideias entre si, mas copiar código de outra dupla, ou do fork de outra dupla, configura plágio, e nesse caso as duplas envolvidas não receberão os pontos do módulo.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="gustavopinto" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 Gustavo Pinto. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

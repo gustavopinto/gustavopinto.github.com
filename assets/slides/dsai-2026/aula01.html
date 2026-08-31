@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 1 &mdash; Desenvolvimento de Software Apoiado por IA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
+
+<div class="slides" id="slides">
+
+  <div class="slide slide-cover">
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
+    <h1>Aula 1<br><span class="accent">Apresentacao da Disciplina</span></h1>
+    <div class="cover-meta">
+      <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#127963;&#65039; <strong>UFPA</strong></span>
+      <span>&#128197; <strong>1 de setembro de 2026</strong></span>
+      <span>&#128336; <strong>20h</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agenda de hoje</h2>
+    <ul>
+      <li>O que esta disciplina e, e o que ela nao e</li>
+      <li>Tres estudos que se contradizem</li>
+      <li>Quem decide o que: humano e agente</li>
+      <li>Um papel novo: Forward Deployed Engineer</li>
+      <li>Estrutura, cronograma e avaliacao</li>
+      <li>Diario de uso e regras de convivencia</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A tese da disciplina</h2>
+    <div class="question"><p>Se o agente escreve o codigo, o que sobra para o engenheiro de software?</p></div>
+    <ul>
+      <li>Sobra decidir <span class='accent'>o que</span> construir</li>
+      <li>Sobra <span class='accent'>especificar</span> de forma que outra entidade consiga executar</li>
+      <li>Sobra <span class='accent'>revisar</span> o que voltou</li>
+      <li>Sobra <span class='accent'>responder</span> pelo que foi entregue</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que esta disciplina NAO e</h2>
+    <ul>
+      <li>Nao e sobre <span class='highlight'>construir</span> agentes: nao vamos implementar um harness, nem treinar modelo</li>
+      <li>Nao e sobre teoria de LLMs: vamos ver o minimo para prever onde a ferramenta falha</li>
+      <li>Nao e um curso de prompt: prompt e meio, nao fim</li>
+    </ul>
+    <div class="definition"><p>O agente e o instrumento. O produto e o sistema de software que voce entrega.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Tres estudos, tres respostas diferentes</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>Peng et al. 2023</h3><p>Copilot acelerou uma tarefa controlada de forma significativa.</p><p class=note>arXiv:2302.06590</p></div>
+      <div class="card"><h3>METR 2025</h3><p>Devs experientes ficaram 19% mais lentos em bases que conheciam bem.</p><p class=note>metr.org</p></div>
+      <div class="card"><h3>Anthropic 2026</h3><p>400 mil sessoes reais de Claude Code, com taxas de sucesso que variam com a expertise.</p><p class=note>anthropic.com/research</p></div>
+    </div>
+    <div class="definition"><p>Sua primeira tarefa da disciplina e explicar por que os tres podem estar certos ao mesmo tempo.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Quem decide o que</h2>
+    <ul>
+      <li>Pessoas tomam cerca de <span class='accent'>70%</span> das decisoes de planejamento</li>
+      <li>Pessoas tomam cerca de <span class='accent'>20%</span> das decisoes de execucao</li>
+      <li>A cada instrucao, o agente executa em media <span class='accent'>10 acoes</span></li>
+      <li>Sessoes de iniciantes: <span class='highlight'>15%</span> de sucesso verificado. De especialistas: <span class='success'>28% a 33%</span></li>
+    </ul>
+    <div class="definition"><p>Compreensao do dominio pesa mais que anos de codigo. O agente trabalha melhor quando bem dirigido.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Um papel que nasceu disso: Forward Deployed Engineer</h2>
+    <div class="definition"><p>Engenheiro que se instala dentro do time do cliente: participa da daily, commita no repositorio dele, e responde pela solucao ate ela estar em producao.</p></div>
+    <ul>
+      <li>Nasceu na <span class='accent'>Palantir</span>, para fechar a distancia entre contrato assinado e codigo rodando</li>
+      <li>Hoje <span class='accent'>OpenAI</span>, <span class='accent'>Anthropic</span> e <span class='accent'>Google</span> contratam para o mesmo perfil</li>
+      <li>Autonomia de fundador, rigor tecnico de staff engineer, e contato direto com o problema real</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Por que o FDE importa para voces</h2>
+    <ul>
+      <li>O gargalo deixou de ser <span class='highlight'>escrever codigo</span> e passou a ser <span class='accent'>entender o problema</span></li>
+      <li>Quem entende o dominio dirige melhor a ferramenta, e entrega mais rapido</li>
+      <li>E um perfil que combina engenharia, contato com usuario e entrega em producao</li>
+    </ul>
+    <div class="definition"><p>O projeto desta disciplina e um exercicio de FDE: achar um usuario real, entender o problema dele, e publicar algo que funcione.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O criterio que organiza o semestre</h2>
+    <div class="question"><p>Toda dupla termina com um sistema funcionando, publicado, em uma URL que qualquer pessoa abre.</p></div>
+    <ul>
+      <li>Escopo pequeno e terminado vale mais que escopo grande e inacabado</li>
+      <li>A aplicacao vai ao ar no Portao 1, ainda incompleta, e evolui publicada</li>
+      <li>Quem deixa a publicacao para o fim costuma nao publicar</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Estrutura da disciplina</h2>
+    <div class="phases">
+      <div class="phase phase-1">
+        <h3>Parte I &middot; Fundamentos</h3>
+        <div class="dates">01/09 a 15/10</div>
+        <ul><li>10 aulas e 2 laboratorios</li><li>Especificar, dirigir, revisar</li><li>Testar e publicar</li></ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Parte II &middot; Projeto</h3>
+        <div class="dates">20/10 a 10/12</div>
+        <ul><li>3 portoes de entrega</li><li>Clinicas e seminarios</li><li>Aplicacao no ar</li></ul>
+      </div>
+      <div class="phase phase-3">
+        <h3>Fechamento</h3>
+        <div class="dates">10/12 a 22/12</div>
+        <ul><li>Demo Day</li><li>Defesa oral</li><li>Buffer</li></ul>
+      </div>
+    </div>
+    <p style="font-size:1.5rem">Revisao e teste vem <strong>antes</strong> de o projeto comecar. Quem so aprende a gerar codigo, e nao a julgar o codigo gerado, acumula divida sem perceber.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cronograma &middot; Parte I</h2>
+    <table class="sched-table">
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteudo</th></tr>
+      <tr><td>1</td><td>01/09</td><td>Ter</td><td>Apresentacao. Quem decide o que</td></tr>
+      <tr><td>2</td><td>03/09</td><td>Qui</td><td>Como um assistente de codigo funciona por dentro</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>08/09</td><td>Ter</td><td>CBSoft 2026, sem aula</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>10/09</td><td>Qui</td><td>CBSoft 2026, sem aula</td></tr>
+      <tr><td>L1</td><td>15/09</td><td>Ter</td><td>Lab: dirigindo o agente numa funcionalidade real</td></tr>
+      <tr><td>3</td><td>17/09</td><td>Qui</td><td>Decomposicao de tarefas e engenharia de contexto</td></tr>
+      <tr class="row-eval"><td>L2</td><td>22/09</td><td>Ter</td><td>Lab: AGENTS.md e smells de configuracao. Entrega AP1</td></tr>
+      <tr><td>4</td><td>24/09</td><td>Qui</td><td>Spec-Driven Development, e a evidencia contraria</td></tr>
+      <tr><td>5</td><td>29/09</td><td>Ter</td><td>Testes como contrato</td></tr>
+      <tr><td>6</td><td>01/10</td><td>Qui</td><td>Revisao de codigo gerado</td></tr>
+      <tr><td>7</td><td>06/10</td><td>Ter</td><td>Codigo legado</td></tr>
+      <tr><td>8</td><td>08/10</td><td>Qui</td><td>Qualidade e seguranca do codigo gerado</td></tr>
+      <tr class="row-eval"><td>9</td><td>13/10</td><td>Ter</td><td>Medicao e entrega. Entrega AP2</td></tr>
+      <tr><td>10</td><td>15/10</td><td>Qui</td><td>Custo, limites e o que continua humano</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cronograma &middot; Parte II</h2>
+    <table class="sched-table">
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteudo</th></tr>
+      <tr class="row-project"><td>KO</td><td>20/10</td><td>Ter</td><td>Kickoff do projeto: duplas e escolha do problema</td></tr>
+      <tr class="row-project"><td>&mdash;</td><td>22/10</td><td>Qui</td><td>Oficina: SPEC.md e primeira publicacao</td></tr>
+      <tr class="row-eval"><td>G1</td><td>27/10</td><td>Ter</td><td>Portao 1: SPEC.md, testes em CI e aplicacao no ar</td></tr>
+      <tr><td>&mdash;</td><td>29/10</td><td>Qui</td><td>Clinica de codigo: revisao coletiva de PRs</td></tr>
+      <tr><td>S1</td><td>03/11</td><td>Ter</td><td>Seminario critico de artigos</td></tr>
+      <tr><td>S2</td><td>05/11</td><td>Qui</td><td>Seminario critico de artigos</td></tr>
+      <tr><td>&mdash;</td><td>10/11 e 12/11</td><td></td><td>Acompanhamento dos projetos</td></tr>
+      <tr class="row-eval"><td>G2</td><td>17/11</td><td>Ter</td><td>Portao 2: sistema completo, legado e revisao</td></tr>
+      <tr><td>&mdash;</td><td>19/11</td><td>Qui</td><td>Acompanhamento dos projetos</td></tr>
+      <tr><td>&mdash;</td><td>24/11</td><td>Ter</td><td>Clinica de seguranca: auditoria cruzada</td></tr>
+      <tr><td>&mdash;</td><td>26/11</td><td>Qui</td><td>Acompanhamento dos projetos</td></tr>
+      <tr class="row-eval"><td>DO</td><td>01/12 e 03/12</td><td></td><td>Defesa oral individual</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>08/12</td><td>Ter</td><td>Nossa Senhora da Conceicao, sem aula</td></tr>
+      <tr class="row-eval"><td>G3</td><td>10/12</td><td>Qui</td><td>Portao 3: Demo Day</td></tr>
+      <tr><td>&mdash;</td><td>15, 17 e 22/12</td><td></td><td>Buffer, fechamento e notas</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Avaliacao</h2>
+    <table class="eval-table">
+      <tr><td>&#128187; Atividades Praticas</td><td>AP1 em 22/09, AP2 em 13/10</td><td>30 pts</td></tr>
+      <tr><td>&#127959;&#65039; Projeto</td><td>Tres portoes: 27/10, 17/11, 10/12</td><td>50 pts</td></tr>
+      <tr><td>&#128221; Diario de uso</td><td>Uma entrada por aula, no repositorio</td><td>10 pts</td></tr>
+      <tr><td>&#127908; Defesa oral</td><td>Individual, em 01/12 e 03/12</td><td>10 pts</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>As duas atividades praticas</h2>
+    <div class="cards cards-2" style="margin-top:0.5rem">
+      <div class="card"><h3>AP1 &middot; do spec ao deploy</h3><p>Escrever o SPEC.md antes do codigo, conduzir o agente ate funcionar, e publicar.</p><p class=note>Entrega em 22/09</p></div>
+      <div class="card"><h3>AP2 &middot; brownfield e revisao</h3><p>Receber o repositorio de outra dupla, adicionar funcionalidade e entregar uma revisao critica.</p><p class=note>Entrega em 13/10</p></div>
+    </div>
+<p style='font-size:1.5rem;margin-top:1rem'>Na AP2, a nota vem do <strong>rigor da revisao</strong>, nao do tamanho da funcionalidade.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O projeto e os tres portoes</h2>
+    <div class="phases">
+      <div class="phase phase-1">
+        <h3>Portao 1 &middot; 27/10</h3>
+        <div class="dates">10 pontos</div>
+        <ul><li>SPEC.md versionado</li><li>Testes em CI</li><li>Aplicacao no ar</li><li>Sem URL, nao passa</li></ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Portao 2 &middot; 17/11</h3>
+        <div class="dates">15 pontos</div>
+        <ul><li>Sistema completo</li><li>Marco em codigo legado</li><li>Relatorio de revisao</li><li>Custo medido</li></ul>
+      </div>
+      <div class="phase phase-3">
+        <h3>Portao 3 &middot; 10/12</h3>
+        <div class="dates">25 pontos</div>
+        <ul><li>Demo ao vivo, 12 min</li><li>Na URL publica</li><li>Relatorio final</li><li>Defesa das decisoes</li></ul>
+      </div>
+    </div>
+    <p style="font-size:1.5rem">Tema livre, desde que exista um <strong>usuario identificavel que nao seja a propria dupla</strong>.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Diario de uso</h2>
+<p style='font-size:1.6rem;margin-bottom:1rem'>Uma entrada por aula, em <code>diario/AAAA-MM-DD.md</code>, enviada por commit no dia. O historico do git carimba a data de cada entrada.</p>
+    <pre><span class="cmt"># Aula 07 (06/10)</span>
+<span class="cmd">Objetivo.</span> Adicionar filtro por data na listagem de eventos.
+<span class="cmd">Ferramenta.</span> Claude Code, ~40 min, 3 iteracoes.
+<span class="cmd">O que o agente entregou.</span> Filtro funcionando, mas consultando o
+   banco a cada tecla.
+<span class="cmd">O que mudamos a mao.</span> Debounce de 300ms e indice em evento(data).
+<span class="cmd">O que aprendemos.</span> Ele nao considera custo de consulta se a
+   spec nao menciona.</pre>
+    <p style="font-size:1.5rem">Registro honesto de falha vale mais nota do que registro que so relata sucesso.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Ferramentas</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>Agente</h3><p>Claude Code como referencia nas aulas. Cursor, Copilot, Codex e Gemini CLI sao aceitos no projeto.</p><p class=note>documente a escolha</p></div>
+      <div class="card"><h3>Repositorio</h3><p>GitHub publico, com codigo, SPEC.md, AGENTS.md, testes e diario.</p><p class=note>um por dupla</p></div>
+      <div class="card"><h3>Hospedagem</h3><p>Vercel, Render, Fly.io, Supabase ou GitHub Pages.</p><p class=note>livre, desde que gratuita</p></div>
+    </div>
+<p style='font-size:1.5rem;margin-top:1rem'>A stack e escolha da dupla. Nao ha linguagem obrigatoria.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Regras de convivencia com a ferramenta</h2>
+    <ul>
+      <li>O uso de agentes nao e permitido, e <span class='accent'>obrigatorio</span>. E o objeto de estudo</li>
+      <li>Se o agente sugere X, entenda por que X e nao Y, e saiba defender</li>
+      <li>Se ele escreveu 800 linhas e voce nao explica 20, essas 20 nao deveriam ter entrado</li>
+      <li>Documente o processo no diario. Ocultar o uso e que e desonestidade academica</li>
+    </ul>
+    <div class="definition"><p>Na apresentacao final: se voce vier apenas para ler o que o agente escreveu, por favor, nem venha.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Ate a proxima aula</h2>
+    <ul>
+      <li>Formar as <span class='accent'>duplas</span> e criar o repositorio no GitHub</li>
+      <li>Criar a pasta <code>diario/</code> e escrever a primeira entrada</li>
+      <li>Instalar e autenticar um agente de codigo</li>
+      <li>Ler os tres estudos da Aula 1 e preparar a explicacao da contradicao</li>
+    </ul>
+<p style='font-size:1.5rem;margin-top:1rem'>Na semana de 08 a 11/09 nao havera aula, por conta do <strong>CBSoft 2026</strong>. As atividades assincronas vencem em 15/09.</p>
+  </div>
+
+  <div class="slide slide-cover">
+    <h1>Duvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Proxima aula: como um assistente de codigo funciona por dentro</p>
+    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+</div>
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
