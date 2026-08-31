@@ -5,11 +5,13 @@ title: Teaching
 permalink: /teaching/
 ---
 
+## 2026.4
+1. [AI-Assisted Software Development](/teaching/dsai/2026)
+1. [Advanced Databases](/teaching/bd2/2026)
+
 ## 2026.2
 1. [Databases 101](/teaching/bd1/2026)
 1. [Object and Method for Systems Analysis](/teaching/oem/2026)
-1. [AI-Assisted Software Development](/teaching/dsai/2026)
-1. [Advanced Databases](/teaching/bd2/2026)
 
 ## 2025.4
 1. Advanced Databases
