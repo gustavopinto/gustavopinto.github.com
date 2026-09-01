@@ -249,13 +249,18 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    /* correção: o bullet do .phase herdava o tamanho do bullet grande */
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+    .frase h1 { font-size: 3.1rem; line-height: 1.3; max-width: 46rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,8 +268,8 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 1<br><span class="accent">Apresentacao da Disciplina</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 1<br><span class="accent">Apresentação da Disciplina</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -273,87 +278,90 @@
     </div>
   </div>
 
-  <div class="slide slide-content">
-    <h2>Agenda de hoje</h2>
-    <ul>
-      <li>O que esta disciplina e, e o que ela nao e</li>
-      <li>Tres estudos que se contradizem</li>
-      <li>Quem decide o que: humano e agente</li>
-      <li>Um papel novo: Forward Deployed Engineer</li>
-      <li>Estrutura, cronograma e avaliacao</li>
-      <li>Diario de uso e regras de convivencia</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
+  <div class="slide slide-content" data-steps="4">
     <h2>A tese da disciplina</h2>
-    <div class="question"><p>Se o agente escreve o codigo, o que sobra para o engenheiro de software?</p></div>
+    <div class="question"><p>Se o agente escreve o código, o que sobra para o engenheiro de software?</p></div>
     <ul>
-      <li>Sobra decidir <span class='accent'>o que</span> construir</li>
-      <li>Sobra <span class='accent'>especificar</span> de forma que outra entidade consiga executar</li>
-      <li>Sobra <span class='accent'>revisar</span> o que voltou</li>
-      <li>Sobra <span class='accent'>responder</span> pelo que foi entregue</li>
+      <li class="step" data-step="1">Sobra decidir <span class="accent">o que</span> construir</li>
+      <li class="step" data-step="2">Sobra <span class="accent">especificar</span> de forma que outra entidade consiga executar</li>
+      <li class="step" data-step="3">Sobra <span class="accent">revisar</span> o que voltou</li>
+      <li class="step" data-step="4">Sobra <span class="accent">responder</span> pelo que foi entregue</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que esta disciplina NAO e</h2>
+    <h2>O que esta disciplina não é</h2>
     <ul>
-      <li>Nao e sobre <span class='highlight'>construir</span> agentes: nao vamos implementar um harness, nem treinar modelo</li>
-      <li>Nao e sobre teoria de LLMs: vamos ver o minimo para prever onde a ferramenta falha</li>
-      <li>Nao e um curso de prompt: prompt e meio, nao fim</li>
+      <li>Não é sobre <span class="highlight">construir</span> agentes: não vamos implementar um harness nem treinar modelo</li>
+      <li>Não é sobre teoria de LLMs: vamos ver o mínimo para prever onde a ferramenta falha</li>
+      <li>Não é um curso de prompt: prompt é meio, não fim</li>
     </ul>
-    <div class="definition"><p>O agente e o instrumento. O produto e o sistema de software que voce entrega.</p></div>
+    <div class="definition"><p>O agente é o instrumento. O produto é o sistema de software que você entrega.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Tres estudos, tres respostas diferentes</h2>
+    <h2>Três estudos, três respostas diferentes</h2>
     <div class="cards cards-3" style="margin-top:0.5rem">
-      <div class="card"><h3>Peng et al. 2023</h3><p>Copilot acelerou uma tarefa controlada de forma significativa.</p><p class=note>arXiv:2302.06590</p></div>
-      <div class="card"><h3>METR 2025</h3><p>Devs experientes ficaram 19% mais lentos em bases que conheciam bem.</p><p class=note>metr.org</p></div>
-      <div class="card"><h3>Anthropic 2026</h3><p>400 mil sessoes reais de Claude Code, com taxas de sucesso que variam com a expertise.</p><p class=note>anthropic.com/research</p></div>
+      <div class="card">
+        <h3>Peng et al. 2023</h3>
+        <p>Copilot acelerou uma tarefa controlada de forma significativa.</p>
+        <p class="note"><a href="https://arxiv.org/abs/2302.06590" target="_blank" style="color:var(--accent)">arxiv.org/abs/2302.06590</a></p>
+      </div>
+      <div class="card">
+        <h3>METR 2025</h3>
+        <p>Devs experientes ficaram 19% mais lentos em bases que conheciam bem.</p>
+        <p class="note"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" style="color:var(--accent)">metr.org</a></p>
+      </div>
+      <div class="card">
+        <h3>Anthropic 2026</h3>
+        <p>400 mil sessões reais de Claude Code, com taxas de sucesso que variam com a expertise.</p>
+        <p class="note"><a href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" style="color:var(--accent)">anthropic.com/research</a></p>
+      </div>
     </div>
-    <div class="definition"><p>Sua primeira tarefa da disciplina e explicar por que os tres podem estar certos ao mesmo tempo.</p></div>
+    <div class="definition" style="margin-top:1.2rem"><p>Por que os três podem estar certos ao mesmo tempo?</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Quem decide o que</h2>
+    <h2>Quem decide o quê</h2>
     <ul>
-      <li>Pessoas tomam cerca de <span class='accent'>70%</span> das decisoes de planejamento</li>
-      <li>Pessoas tomam cerca de <span class='accent'>20%</span> das decisoes de execucao</li>
-      <li>A cada instrucao, o agente executa em media <span class='accent'>10 acoes</span></li>
-      <li>Sessoes de iniciantes: <span class='highlight'>15%</span> de sucesso verificado. De especialistas: <span class='success'>28% a 33%</span></li>
+      <li>Pessoas tomam cerca de <span class="accent">70%</span> das decisões de planejamento</li>
+      <li>Pessoas tomam cerca de <span class="accent">20%</span> das decisões de execução</li>
+      <li>A cada instrução, o agente executa em média <span class="accent">10 ações</span></li>
+      <li>Sessões de iniciantes: <span class="highlight">15%</span> de sucesso verificado. De especialistas: <span class="success">28% a 33%</span></li>
     </ul>
-    <div class="definition"><p>Compreensao do dominio pesa mais que anos de codigo. O agente trabalha melhor quando bem dirigido.</p></div>
+    <div class="definition"><p>Compreensão do domínio pesa mais que anos de código. O agente trabalha melhor quando bem dirigido.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Um papel que nasceu disso: Forward Deployed Engineer</h2>
-    <div class="definition"><p>Engenheiro que se instala dentro do time do cliente: participa da daily, commita no repositorio dele, e responde pela solucao ate ela estar em producao.</p></div>
+    <h2>O que é Forward Deployed Engineer?</h2>
+    <div class="definition"><p>Engenheiro que se instala dentro do time do cliente: participa da daily, commita no repositório dele, e responde pela solução até ela estar em produção.</p></div>
     <ul>
-      <li>Nasceu na <span class='accent'>Palantir</span>, para fechar a distancia entre contrato assinado e codigo rodando</li>
-      <li>Hoje <span class='accent'>OpenAI</span>, <span class='accent'>Anthropic</span> e <span class='accent'>Google</span> contratam para o mesmo perfil</li>
-      <li>Autonomia de fundador, rigor tecnico de staff engineer, e contato direto com o problema real</li>
+      <li>Nasceu na <span class="accent">Palantir</span>, para fechar a distância entre contrato assinado e código rodando</li>
+      <li>Hoje <span class="accent">OpenAI</span>, <span class="accent">Anthropic</span> e <span class="accent">Google</span> contratam para o mesmo perfil</li>
+      <li>Autonomia de fundador, rigor técnico de staff engineer, e contato direto com o problema real</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que o FDE importa para voces</h2>
+    <h2>Por que o FDE importa para vocês</h2>
     <ul>
-      <li>O gargalo deixou de ser <span class='highlight'>escrever codigo</span> e passou a ser <span class='accent'>entender o problema</span></li>
-      <li>Quem entende o dominio dirige melhor a ferramenta, e entrega mais rapido</li>
-      <li>E um perfil que combina engenharia, contato com usuario e entrega em producao</li>
+      <li>O gargalo deixou de ser <span class="highlight">escrever código</span> e passou a ser <span class="accent">entender o problema</span></li>
+      <li>Quem entende o domínio dirige melhor a ferramenta, e entrega mais rápido</li>
+      <li>É um perfil que combina engenharia, contato com usuário e entrega em produção</li>
     </ul>
-    <div class="definition"><p>O projeto desta disciplina e um exercicio de FDE: achar um usuario real, entender o problema dele, e publicar algo que funcione.</p></div>
+  </div>
+
+  <div class="slide slide-cover frase">
+    <h1>O projeto desta disciplina é um exercício de FDE: achar um <span class="accent">usuário real</span>, entender o problema dele, e <span class="accent">publicar algo que funcione</span>.</h1>
   </div>
 
   <div class="slide slide-content">
-    <h2>O criterio que organiza o semestre</h2>
+    <h2>O critério que organiza o semestre</h2>
     <div class="question"><p>Toda dupla termina com um sistema funcionando, publicado, em uma URL que qualquer pessoa abre.</p></div>
     <ul>
       <li>Escopo pequeno e terminado vale mais que escopo grande e inacabado</li>
-      <li>A aplicacao vai ao ar no Portao 1, ainda incompleta, e evolui publicada</li>
-      <li>Quem deixa a publicacao para o fim costuma nao publicar</li>
+      <li>A aplicação vai ao ar no Portão 1, ainda incompleta, e evolui publicada</li>
+      <li>Quem deixa a publicação para o fim costuma não publicar</li>
     </ul>
   </div>
 
@@ -363,39 +371,51 @@
       <div class="phase phase-1">
         <h3>Parte I &middot; Fundamentos</h3>
         <div class="dates">01/09 a 15/10</div>
-        <ul><li>10 aulas e 2 laboratorios</li><li>Especificar, dirigir, revisar</li><li>Testar e publicar</li></ul>
+        <ul>
+          <li>10 aulas e 2 laboratórios</li>
+          <li>Especificar, dirigir, revisar</li>
+          <li>Testar e publicar</li>
+        </ul>
       </div>
       <div class="phase phase-2">
         <h3>Parte II &middot; Projeto</h3>
         <div class="dates">20/10 a 10/12</div>
-        <ul><li>3 portoes de entrega</li><li>Clinicas e seminarios</li><li>Aplicacao no ar</li></ul>
+        <ul>
+          <li>3 portões de entrega</li>
+          <li>Clínicas e seminários</li>
+          <li>Aplicação no ar</li>
+        </ul>
       </div>
       <div class="phase phase-3">
         <h3>Fechamento</h3>
         <div class="dates">10/12 a 22/12</div>
-        <ul><li>Demo Day</li><li>Defesa oral</li><li>Buffer</li></ul>
+        <ul>
+          <li>Demo Day</li>
+          <li>Defesa oral</li>
+          <li>Buffer</li>
+        </ul>
       </div>
     </div>
-    <p style="font-size:1.5rem">Revisao e teste vem <strong>antes</strong> de o projeto comecar. Quem so aprende a gerar codigo, e nao a julgar o codigo gerado, acumula divida sem perceber.</p>
+    <p style="font-size:1.5rem">Revisão e teste vêm <strong>antes</strong> de o projeto começar. Quem só aprende a gerar código, e não a julgar o código gerado, acumula dívida sem perceber.</p>
   </div>
 
   <div class="slide slide-content">
     <h2>Cronograma &middot; Parte I</h2>
     <table class="sched-table">
-      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteudo</th></tr>
-      <tr><td>1</td><td>01/09</td><td>Ter</td><td>Apresentacao. Quem decide o que</td></tr>
-      <tr><td>2</td><td>03/09</td><td>Qui</td><td>Como um assistente de codigo funciona por dentro</td></tr>
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr>
+      <tr><td>1</td><td>01/09</td><td>Ter</td><td>Apresentação. Quem decide o quê</td></tr>
+      <tr><td>2</td><td>03/09</td><td>Qui</td><td>Como um assistente de código funciona por dentro</td></tr>
       <tr class="row-holiday"><td>&mdash;</td><td>08/09</td><td>Ter</td><td>CBSoft 2026, sem aula</td></tr>
       <tr class="row-holiday"><td>&mdash;</td><td>10/09</td><td>Qui</td><td>CBSoft 2026, sem aula</td></tr>
       <tr><td>L1</td><td>15/09</td><td>Ter</td><td>Lab: dirigindo o agente numa funcionalidade real</td></tr>
-      <tr><td>3</td><td>17/09</td><td>Qui</td><td>Decomposicao de tarefas e engenharia de contexto</td></tr>
-      <tr class="row-eval"><td>L2</td><td>22/09</td><td>Ter</td><td>Lab: AGENTS.md e smells de configuracao. Entrega AP1</td></tr>
-      <tr><td>4</td><td>24/09</td><td>Qui</td><td>Spec-Driven Development, e a evidencia contraria</td></tr>
+      <tr><td>3</td><td>17/09</td><td>Qui</td><td>Decomposição de tarefas e engenharia de contexto</td></tr>
+      <tr class="row-eval"><td>L2</td><td>22/09</td><td>Ter</td><td>Lab: AGENTS.md e smells de configuração. Entrega AP1</td></tr>
+      <tr><td>4</td><td>24/09</td><td>Qui</td><td>Spec-Driven Development, e a evidência contrária</td></tr>
       <tr><td>5</td><td>29/09</td><td>Ter</td><td>Testes como contrato</td></tr>
-      <tr><td>6</td><td>01/10</td><td>Qui</td><td>Revisao de codigo gerado</td></tr>
-      <tr><td>7</td><td>06/10</td><td>Ter</td><td>Codigo legado</td></tr>
-      <tr><td>8</td><td>08/10</td><td>Qui</td><td>Qualidade e seguranca do codigo gerado</td></tr>
-      <tr class="row-eval"><td>9</td><td>13/10</td><td>Ter</td><td>Medicao e entrega. Entrega AP2</td></tr>
+      <tr><td>6</td><td>01/10</td><td>Qui</td><td>Revisão de código gerado</td></tr>
+      <tr><td>7</td><td>06/10</td><td>Ter</td><td>Código legado</td></tr>
+      <tr><td>8</td><td>08/10</td><td>Qui</td><td>Qualidade e segurança do código gerado</td></tr>
+      <tr class="row-eval"><td>9</td><td>13/10</td><td>Ter</td><td>Medição e entrega. Entrega AP2</td></tr>
       <tr><td>10</td><td>15/10</td><td>Qui</td><td>Custo, limites e o que continua humano</td></tr>
     </table>
   </div>
@@ -403,115 +423,150 @@
   <div class="slide slide-content">
     <h2>Cronograma &middot; Parte II</h2>
     <table class="sched-table">
-      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteudo</th></tr>
+      <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr>
       <tr class="row-project"><td>KO</td><td>20/10</td><td>Ter</td><td>Kickoff do projeto: duplas e escolha do problema</td></tr>
-      <tr class="row-project"><td>&mdash;</td><td>22/10</td><td>Qui</td><td>Oficina: SPEC.md e primeira publicacao</td></tr>
-      <tr class="row-eval"><td>G1</td><td>27/10</td><td>Ter</td><td>Portao 1: SPEC.md, testes em CI e aplicacao no ar</td></tr>
-      <tr><td>&mdash;</td><td>29/10</td><td>Qui</td><td>Clinica de codigo: revisao coletiva de PRs</td></tr>
-      <tr><td>S1</td><td>03/11</td><td>Ter</td><td>Seminario critico de artigos</td></tr>
-      <tr><td>S2</td><td>05/11</td><td>Qui</td><td>Seminario critico de artigos</td></tr>
-      <tr><td>&mdash;</td><td>10/11 e 12/11</td><td></td><td>Acompanhamento dos projetos</td></tr>
-      <tr class="row-eval"><td>G2</td><td>17/11</td><td>Ter</td><td>Portao 2: sistema completo, legado e revisao</td></tr>
+      <tr class="row-project"><td>&mdash;</td><td>22/10</td><td>Qui</td><td>Oficina: SPEC.md e primeira publicação</td></tr>
+      <tr class="row-eval"><td>G1</td><td>27/10</td><td>Ter</td><td>Portão 1: SPEC.md, testes em CI e aplicação no ar</td></tr>
+      <tr><td>&mdash;</td><td>29/10</td><td>Qui</td><td>Clínica de código: revisão coletiva de PRs</td></tr>
+      <tr><td>S1</td><td>03/11</td><td>Ter</td><td>Seminário crítico de artigos</td></tr>
+      <tr><td>S2</td><td>05/11</td><td>Qui</td><td>Seminário crítico de artigos</td></tr>
+      <tr><td>&mdash;</td><td>10 e 12/11</td><td></td><td>Acompanhamento dos projetos</td></tr>
+      <tr class="row-eval"><td>G2</td><td>17/11</td><td>Ter</td><td>Portão 2: sistema completo, legado e revisão</td></tr>
       <tr><td>&mdash;</td><td>19/11</td><td>Qui</td><td>Acompanhamento dos projetos</td></tr>
-      <tr><td>&mdash;</td><td>24/11</td><td>Ter</td><td>Clinica de seguranca: auditoria cruzada</td></tr>
+      <tr><td>&mdash;</td><td>24/11</td><td>Ter</td><td>Clínica de segurança: auditoria cruzada</td></tr>
       <tr><td>&mdash;</td><td>26/11</td><td>Qui</td><td>Acompanhamento dos projetos</td></tr>
-      <tr class="row-eval"><td>DO</td><td>01/12 e 03/12</td><td></td><td>Defesa oral individual</td></tr>
-      <tr class="row-holiday"><td>&mdash;</td><td>08/12</td><td>Ter</td><td>Nossa Senhora da Conceicao, sem aula</td></tr>
-      <tr class="row-eval"><td>G3</td><td>10/12</td><td>Qui</td><td>Portao 3: Demo Day</td></tr>
+      <tr class="row-eval"><td>DO</td><td>01 e 03/12</td><td></td><td>Defesa oral individual</td></tr>
+      <tr class="row-holiday"><td>&mdash;</td><td>08/12</td><td>Ter</td><td>Nossa Senhora da Conceição, sem aula</td></tr>
+      <tr class="row-eval"><td>G3</td><td>10/12</td><td>Qui</td><td>Portão 3: Demo Day</td></tr>
       <tr><td>&mdash;</td><td>15, 17 e 22/12</td><td></td><td>Buffer, fechamento e notas</td></tr>
     </table>
   </div>
 
   <div class="slide slide-content">
-    <h2>Avaliacao</h2>
+    <h2>Avaliação</h2>
     <table class="eval-table">
-      <tr><td>&#128187; Atividades Praticas</td><td>AP1 em 22/09, AP2 em 13/10</td><td>30 pts</td></tr>
-      <tr><td>&#127959;&#65039; Projeto</td><td>Tres portoes: 27/10, 17/11, 10/12</td><td>50 pts</td></tr>
-      <tr><td>&#128221; Diario de uso</td><td>Uma entrada por aula, no repositorio</td><td>10 pts</td></tr>
+      <tr><td>&#128187; Atividades Práticas</td><td>AP1 em 22/09, AP2 em 13/10</td><td>30 pts</td></tr>
+      <tr><td>&#127959;&#65039; Projeto</td><td>Três portões: 27/10, 17/11, 10/12</td><td>50 pts</td></tr>
+      <tr><td>&#128221; Diário de uso</td><td>Uma entrada por aula, no repositório</td><td>10 pts</td></tr>
       <tr><td>&#127908; Defesa oral</td><td>Individual, em 01/12 e 03/12</td><td>10 pts</td></tr>
     </table>
   </div>
 
   <div class="slide slide-content">
-    <h2>As duas atividades praticas</h2>
+    <h2>As duas atividades práticas</h2>
     <div class="cards cards-2" style="margin-top:0.5rem">
-      <div class="card"><h3>AP1 &middot; do spec ao deploy</h3><p>Escrever o SPEC.md antes do codigo, conduzir o agente ate funcionar, e publicar.</p><p class=note>Entrega em 22/09</p></div>
-      <div class="card"><h3>AP2 &middot; brownfield e revisao</h3><p>Receber o repositorio de outra dupla, adicionar funcionalidade e entregar uma revisao critica.</p><p class=note>Entrega em 13/10</p></div>
+      <div class="card">
+        <h3>AP1 &middot; do spec ao deploy</h3>
+        <p>Escrever o SPEC.md antes do código, conduzir o agente até funcionar, e publicar.</p>
+        <p class="note">Entrega em 22/09</p>
+      </div>
+      <div class="card">
+        <h3>AP2 &middot; brownfield e revisão</h3>
+        <p>Receber o repositório de outra dupla, adicionar funcionalidade e entregar uma revisão crítica.</p>
+        <p class="note">Entrega em 13/10</p>
+      </div>
     </div>
-<p style='font-size:1.5rem;margin-top:1rem'>Na AP2, a nota vem do <strong>rigor da revisao</strong>, nao do tamanho da funcionalidade.</p>
+    <p style="font-size:1.5rem;margin-top:1rem">Na AP2, a nota vem do <strong>rigor da revisão</strong>, não do tamanho da funcionalidade.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>O projeto e os tres portoes</h2>
+    <h2>O projeto e os três portões</h2>
     <div class="phases">
       <div class="phase phase-1">
-        <h3>Portao 1 &middot; 27/10</h3>
+        <h3>Portão 1 &middot; 27/10</h3>
         <div class="dates">10 pontos</div>
-        <ul><li>SPEC.md versionado</li><li>Testes em CI</li><li>Aplicacao no ar</li><li>Sem URL, nao passa</li></ul>
+        <ul><li>SPEC.md versionado</li><li>Testes em CI</li><li>Aplicação no ar</li><li>Sem URL, não passa</li></ul>
       </div>
       <div class="phase phase-2">
-        <h3>Portao 2 &middot; 17/11</h3>
+        <h3>Portão 2 &middot; 17/11</h3>
         <div class="dates">15 pontos</div>
-        <ul><li>Sistema completo</li><li>Marco em codigo legado</li><li>Relatorio de revisao</li><li>Custo medido</li></ul>
+        <ul><li>Sistema completo</li><li>Marco em código legado</li><li>Relatório de revisão</li><li>Custo medido</li></ul>
       </div>
       <div class="phase phase-3">
-        <h3>Portao 3 &middot; 10/12</h3>
+        <h3>Portão 3 &middot; 10/12</h3>
         <div class="dates">25 pontos</div>
-        <ul><li>Demo ao vivo, 12 min</li><li>Na URL publica</li><li>Relatorio final</li><li>Defesa das decisoes</li></ul>
+        <ul><li>Demo ao vivo, 12 min</li><li>Na URL pública</li><li>Relatório final</li><li>Defesa das decisões</li></ul>
       </div>
     </div>
-    <p style="font-size:1.5rem">Tema livre, desde que exista um <strong>usuario identificavel que nao seja a propria dupla</strong>.</p>
+    <p style="font-size:1.5rem">Tema livre, desde que exista um <strong>usuário identificável que não seja a própria dupla</strong>.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Diario de uso</h2>
-<p style='font-size:1.6rem;margin-bottom:1rem'>Uma entrada por aula, em <code>diario/AAAA-MM-DD.md</code>, enviada por commit no dia. O historico do git carimba a data de cada entrada.</p>
+    <h2>Diário de uso</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">Uma entrada por aula, em <code>diario/AAAA-MM-DD.md</code>, enviada por commit no dia. O histórico do git carimba a data de cada entrada.</p>
     <pre><span class="cmt"># Aula 07 (06/10)</span>
 <span class="cmd">Objetivo.</span> Adicionar filtro por data na listagem de eventos.
-<span class="cmd">Ferramenta.</span> Claude Code, ~40 min, 3 iteracoes.
+<span class="cmd">Ferramenta.</span> Claude Code, ~40 min, 3 iterações.
 <span class="cmd">O que o agente entregou.</span> Filtro funcionando, mas consultando o
    banco a cada tecla.
-<span class="cmd">O que mudamos a mao.</span> Debounce de 300ms e indice em evento(data).
-<span class="cmd">O que aprendemos.</span> Ele nao considera custo de consulta se a
-   spec nao menciona.</pre>
-    <p style="font-size:1.5rem">Registro honesto de falha vale mais nota do que registro que so relata sucesso.</p>
+<span class="cmd">O que mudamos à mão.</span> Debounce de 300ms e índice em evento(data).
+<span class="cmd">O que aprendemos.</span> Ele não considera custo de consulta se a
+   spec não menciona.</pre>
+    <p style="font-size:1.5rem">Registro honesto de falha vale mais nota do que registro que só relata sucesso.</p>
   </div>
 
   <div class="slide slide-content">
     <h2>Ferramentas</h2>
     <div class="cards cards-3" style="margin-top:0.5rem">
-      <div class="card"><h3>Agente</h3><p>Claude Code como referencia nas aulas. Cursor, Copilot, Codex e Gemini CLI sao aceitos no projeto.</p><p class=note>documente a escolha</p></div>
-      <div class="card"><h3>Repositorio</h3><p>GitHub publico, com codigo, SPEC.md, AGENTS.md, testes e diario.</p><p class=note>um por dupla</p></div>
-      <div class="card"><h3>Hospedagem</h3><p>Vercel, Render, Fly.io, Supabase ou GitHub Pages.</p><p class=note>livre, desde que gratuita</p></div>
+      <div class="card">
+        <h3>Agente</h3>
+        <p>Claude Code como referência nas aulas. Cursor, Copilot, Codex e Gemini CLI são aceitos no projeto.</p>
+        <p class="note">documente a escolha</p>
+      </div>
+      <div class="card">
+        <h3>Repositório</h3>
+        <p>GitHub público, com código, SPEC.md, AGENTS.md, testes e diário.</p>
+        <p class="note">um por dupla</p>
+      </div>
+      <div class="card">
+        <h3>Hospedagem</h3>
+        <p>Vercel, Render, Fly.io, Supabase ou GitHub Pages.</p>
+        <p class="note">livre, desde que gratuita</p>
+      </div>
     </div>
-<p style='font-size:1.5rem;margin-top:1rem'>A stack e escolha da dupla. Nao ha linguagem obrigatoria.</p>
+    <p style="font-size:1.5rem;margin-top:1rem">A stack é escolha da dupla. Não há linguagem obrigatória.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Regras de convivencia com a ferramenta</h2>
+    <h2>Regras de convivência com a ferramenta</h2>
     <ul>
-      <li>O uso de agentes nao e permitido, e <span class='accent'>obrigatorio</span>. E o objeto de estudo</li>
-      <li>Se o agente sugere X, entenda por que X e nao Y, e saiba defender</li>
-      <li>Se ele escreveu 800 linhas e voce nao explica 20, essas 20 nao deveriam ter entrado</li>
-      <li>Documente o processo no diario. Ocultar o uso e que e desonestidade academica</li>
+      <li>O uso de agentes não é permitido, é <span class="accent">obrigatório</span>. É o objeto de estudo</li>
+      <li>Se o agente sugere X, entenda por que X e não Y, e saiba defender</li>
+      <li>Se ele escreveu 800 linhas e você não explica 20, essas 20 não deveriam ter entrado</li>
+      <li>Documente o processo no diário. Ocultar o uso é que é desonestidade acadêmica</li>
     </ul>
-    <div class="definition"><p>Na apresentacao final: se voce vier apenas para ler o que o agente escreveu, por favor, nem venha.</p></div>
+  </div>
+
+  <div class="slide slide-cover frase">
+    <h1>Na apresentação final: se você vier apenas para ler o que o agente escreveu, <span class="accent">por favor, nem venha</span>.</h1>
   </div>
 
   <div class="slide slide-content">
-    <h2>Ate a proxima aula</h2>
+    <h2>Exercício: refazer um PR que já existe</h2>
+    <div class="question"><p>Comecem agora, aqui. Terminem no computador, até a próxima aula.</p></div>
     <ul>
-      <li>Formar as <span class='accent'>duplas</span> e criar o repositorio no GitHub</li>
-      <li>Criar a pasta <code>diario/</code> e escrever a primeira entrada</li>
-      <li>Instalar e autenticar um agente de codigo</li>
-      <li>Ler os tres estudos da Aula 1 e preparar a explicacao da contradicao</li>
+      <li>Escolham um projeto de código aberto que vocês <span class="accent">usam</span></li>
+      <li>Achem um pull request pequeno, já fechado e mergeado, que corrija um bug</li>
+      <li>Peçam ao agente a mesma correção, <span class="highlight">sem mostrar o patch</span></li>
+      <li>Comparem o que o agente fez com o que o projeto realmente mergeou</li>
     </ul>
-<p style='font-size:1.5rem;margin-top:1rem'>Na semana de 08 a 11/09 nao havera aula, por conta do <strong>CBSoft 2026</strong>. As atividades assincronas vencem em 15/09.</p>
+    <div class="definition"><p>Entrega: essa comparação, como primeira entrada do diário de uso.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Até a próxima aula</h2>
+    <ul>
+      <li>Formar as <span class="accent">duplas</span> e criar o repositório no GitHub</li>
+      <li>Criar a pasta <code>diario/</code> e registrar ali o exercício</li>
+      <li>Instalar e autenticar um agente de código</li>
+      <li>Ler os três estudos e preparar a explicação da contradição</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:1rem">Na semana de 08 a 11/09 não haverá aula, por conta do <strong>CBSoft 2026</strong>. As atividades assíncronas vencem em 15/09.</p>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Proxima aula: como um assistente de codigo funciona por dentro</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima aula: como um assistente de código funciona por dentro</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>
