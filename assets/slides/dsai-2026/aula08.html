@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,47 +266,53 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 8<br><span class="accent">Qualidade e seguranca do codigo gerado</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 8<br><span class="accent">Testes como contrato e revisão de código gerado</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>8 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O tamanho do problema</h2>
+    <h2>O que acontece hoje, nos repositórios reais</h2>
     <ul>
-      <li>Em testes com mais de 100 modelos, <span class='highlight'>45%</span> das amostras geradas introduziram vulnerabilidade do OWASP Top 10</li>
-      <li>86% falharam em defesa contra XSS, 88% contra injecao em log</li>
-      <li>Em ambiente corporativo, commits crescem de 3 a 4 vezes, e achados de seguranca crescem 10 vezes</li>
+      <li><span class='highlight'>61,4%</span> dos PRs de agente não recebem nenhuma revisão</li>
+      <li><span class='highlight'>69,9%</span> não têm envolvimento humano: ou ninguém revisa, ou outro agente revisa</li>
+      <li>Entre os que passam, 83,8% são aceitos, e 54,9% sem qualquer modificação</li>
+    </ul>
+    <div class="definition"><p>O gargalo deixou de ser produzir código. Passou a ser revisar código produzido.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O agente testa bem, mas não como você imagina</h2>
+    <ul>
+      <li>Cobertura de casos de borda: cerca do <span class='success'>dobro</span> da variedade de checagens de limite</li>
+      <li>Mas adiciona <span class='highlight'>mock</span> com muito mais frequência que humanos</li>
+      <li>E inclui mudança de teste em apenas <span class='highlight'>49,6%</span> dos PRs que mexem em código</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Alucinacao de pacotes</h2>
-    <div class="definition"><p>O agente sugere uma dependencia que nao existe. Um atacante registra aquele nome. Sua build passa a instalar codigo dele.</p></div>
-    <ul>
-      <li>Cerca de <span class='highlight'>19,7%</span> das dependencias sugeridas em Python e JavaScript nao existem</li>
-      <li>Verifique todo import novo antes de instalar</li>
-    </ul>
+    <h2>A regra da disciplina</h2>
+    <div class="definition"><p>Se o teste não falha quando você quebra o código de propósito, ele não é um teste.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>No projeto de voces</h2>
+    <h2>Como ler um PR de 800 linhas</h2>
     <ul>
-      <li>Nenhum segredo no repositorio: use variavel de ambiente</li>
-      <li>Toda dependencia nova entra com justificativa no PR</li>
-      <li>Rodar analise estatica no CI desde o Portao 1</li>
-      <li>Auditoria cruzada entre duplas em 24/11</li>
+      <li>Comece pelo <span class='accent'>teste</span>, não pelo código</li>
+      <li>Procure o que foi <span class='accent'>removido</span>, não só o que foi adicionado</li>
+      <li>Verifique dependências novas uma a uma</li>
+      <li>Peça ao agente para explicar a decisão, em contexto limpo</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: código legado</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

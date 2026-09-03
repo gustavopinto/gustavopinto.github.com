@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,47 +266,55 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 3<br><span class="accent">Decomposicao de tarefas e engenharia de contexto</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 3<br><span class="accent">Engenharia de contexto e decomposição de tarefas</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>17 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>15 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Tarefa grande nao e uma tarefa</h2>
-    <div class="question"><p>Por que 'construa o sistema de reservas' falha e 'adicione o endpoint POST /reservas com validacao de conflito' funciona?</p></div>
+    <h2>Tarefa grande não é uma tarefa</h2>
+    <div class="question"><p>Por que 'construa o sistema de reservas' falha e 'adicione o endpoint POST /reservas com validação de conflito' funciona?</p></div>
     <ul>
-      <li>Tarefa grande tem criterio de sucesso ambiguo</li>
-      <li>Sem criterio, o agente escolhe um por voce</li>
-      <li>Fatie ate cada pedaco ter um teste que diz se acabou</li>
+      <li>Tarefa grande tem critério de sucesso ambíguo</li>
+      <li>Sem critério, o agente escolhe um por você</li>
+      <li>Fatie até cada pedaço ter um teste que diz se acabou</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Contexto é recurso finito</h2>
+    <ul>
+      <li>O desempenho cai conforme a janela enche</li>
+      <li>Histórico antigo compete com a instrução atual</li>
+      <li>Recomeçar do zero com um resumo costuma custar menos que insistir</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
     <h2>Dois modos de trabalhar com o agente</h2>
     <div class="cards cards-2" style="margin-top:0.5rem">
-      <div class="card"><h3>Aceleracao</h3><p>Voce sabe o que quer, e o agente digita mais rapido que voce. Revisao superficial basta.</p><p class=note>Barke et al., OOPSLA 2023</p></div>
-      <div class="card"><h3>Exploracao</h3><p>Voce nao sabe a solucao, e usa o agente para descobrir. Aqui a revisao precisa ser lenta.</p><p class=note>risco de aceitar sem entender</p></div>
+      <div class="card"><h3>Aceleração</h3><p>Você sabe o que quer, e o agente digita mais rápido. Revisão superficial basta.</p><p class="note">Barke et al., OOPSLA 2023</p></div>
+      <div class="card"><h3>Exploração</h3><p>Você não sabe a solução, e usa o agente para descobrir. Aqui a revisão precisa ser lenta.</p><p class="note">risco de aceitar sem entender</p></div>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que dar de contexto</h2>
+    <h2>O que dar e o que omitir</h2>
     <ul>
-      <li>O arquivo que sera alterado, e so ele</li>
-      <li>As convencoes do projeto, uma vez, no <code>AGENTS.md</code></li>
-      <li>O teste que deve passar</li>
-      <li>Nao dar: a base inteira, historico de conversa irrelevante, tres tentativas fracassadas</li>
+      <li>Dar: o arquivo que será alterado, as convenções do projeto, o teste que deve passar</li>
+      <li>Omitir: a base inteira, histórico irrelevante, três tentativas fracassadas</li>
+      <li>As convenções entram uma vez, no <code>AGENTS.md</code>, e não a cada pedido</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: skills</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

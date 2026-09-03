@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,58 +266,65 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 4<br><span class="accent">Spec-Driven Development, e a evidencia contraria</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 4<br><span class="accent">Skills: conhecimento procedural versionado</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>24 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>17 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O ciclo</h2>
+    <h2>O problema</h2>
+    <div class="question"><p>Como você ensina ao agente algo que só a sua equipe sabe?</p></div>
     <ul>
-      <li><span class='accent'>Spec</span>: o que construir e por que, em linguagem de usuario</li>
-      <li><span class='accent'>Plan</span>: como, em termos tecnicos</li>
-      <li><span class='accent'>Tasks</span>: pedacos executaveis e verificaveis</li>
-      <li><span class='accent'>Implement</span>: o agente executa a lista</li>
+      <li>Repetir no prompt toda vez: caro e esquecível</li>
+      <li>Colocar tudo no <code>AGENTS.md</code>: o arquivo incha e o agente para de ler</li>
+      <li>A resposta é carregar sob demanda</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>A promessa dos fornecedores</h2>
-    <div class="definition"><p>Escrever a especificacao antes reduz defeitos, evita retrabalho e melhora a qualidade do codigo.</p></div>
+    <h2>O que é uma skill</h2>
+    <div class="definition"><p>Uma pasta com um <code>SKILL.md</code> na raiz, com instruções e opcionalmente scripts, que o agente carrega quando julga relevante.</p></div>
     <ul>
-      <li>Spec Kit, da GitHub, e Kiro, da Amazon, partem dessa premissa</li>
-      <li>O argumento e plausivel: menos ambiguidade, menos erro</li>
+      <li><span class='accent'>Nível 1:</span> só nome e descrição ficam sempre no contexto</li>
+      <li><span class='accent'>Nível 2:</span> o corpo do <code>SKILL.md</code> entra se for relevante</li>
+      <li><span class='accent'>Nível 3:</span> arquivos referenciados são abertos se precisar</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que o dado mostra</h2>
+    <h2>A anatomia real de uma skill</h2>
     <ul>
-      <li>Hill, 2026: 100.247 PRs em 119 repositorios de codigo aberto</li>
-      <li><span class='highlight'>Nenhuma</span> das cinco hipoteses derivadas das alegacoes se sustentou</li>
-      <li>Especificacoes ficaram associadas a mais defeitos e mais retrabalho</li>
-      <li>Qualidade da spec nao teve efeito sobre retrabalho</li>
+      <li>Estudo de <span class='accent'>238</span> skills reais, com taxonomia de 13 componentes principais</li>
+      <li>O <code>SKILL.md</code> tem metadados obrigatórios e um corpo livre, a cargo do autor</li>
+      <li>Liberdade total no corpo significa qualidade muito desigual</li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">From Anatomy to Smells, 2026, arXiv:2607.01456</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Quando usar o quê</h2>
+    <ul>
+      <li><span class='accent'>Prompt:</span> vale para uma tarefa só</li>
+      <li><span class='accent'>AGENTS.md:</span> convenção que vale para o repositório inteiro</li>
+      <li><span class='accent'>Skill:</span> procedimento com passos, que se repete</li>
+      <li><span class='accent'>Servidor MCP:</span> quando o agente precisa <em>agir</em> sobre um sistema externo</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Entao por que exigimos SPEC.md?</h2>
-    <div class="question"><p>Uma pratica pode ser util por motivos diferentes dos anunciados.</p></div>
-    <ul>
-      <li>A spec forca a dupla a concordar sobre o que esta construindo</li>
-      <li>Ela e o artefato que o agente le, e o contrato que voce revisa contra</li>
-      <li>Voces terao dados proprios no fim do semestre, e podem discordar de mim</li>
-    </ul>
+    <h2>Skill é código de terceiros</h2>
+    <div class="definition"><p>Instalar uma skill de fonte desconhecida é executar instruções que alguém escreveu, no seu repositório, com as suas credenciais.</p></div>
+    <p style="font-size:1.5rem;margin-top:0.8rem">26,1% de 31 mil skills públicas analisadas têm ao menos uma vulnerabilidade. Voltamos a isso na aula 10.</p>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: Specification-Driven Development</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

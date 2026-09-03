@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,8 +266,8 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 2<br><span class="accent">Como um assistente de codigo funciona por dentro</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 2<br><span class="accent">Como funciona por dentro</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -274,58 +277,67 @@
   </div>
 
   <div class="slide slide-content">
-    <h2>O loop, em uma frase</h2>
-    <div class="definition"><p>Um agente de codigo e um laco: ele recebe um pedido, escolhe uma ferramenta, executa, le o resultado, e decide se continua ou para.</p></div>
+    <h2>O modelo escreve texto. Tudo o mais é o harness</h2>
+    <div class="definition"><p>Harness é a camada de software em volta do modelo: escolhe as ferramentas, monta o prompt, gerencia o contexto, guarda o estado e decide quando parar.</p></div>
     <ul>
-      <li>O modelo nao 've' seu projeto: ele le o que a ferramenta devolve</li>
-      <li>Cada leitura de arquivo ocupa espaco na <span class='accent'>janela de contexto</span></li>
-      <li>O criterio de parada e uma decisao de projeto, nao magica</li>
+      <li>Claude Code, Cursor, Codex e OpenHands usam modelos parecidos e harnesses diferentes</li>
+      <li>Quando a ferramenta erra, muitas vezes o modelo não teve culpa</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Janela de contexto</h2>
-    <div class="question"><p>Por que ele funcionava bem e depois de meia hora comecou a errar?</p></div>
+    <h2>As quatro camadas do harness</h2>
     <ul>
-      <li>A janela e finita, e o desempenho cai conforme ela enche</li>
-      <li>Historico antigo compete com a instrucao atual</li>
-      <li>Recomecar do zero costuma custar menos que insistir</li>
+      <li><span class='accent'>Execução e orquestração:</span> o laço que decide a próxima ação</li>
+      <li><span class='accent'>Contexto e trajetória:</span> o que entra no prompt, o que é resumido, o que é descartado</li>
+      <li><span class='accent'>Interface de execução:</span> quais ferramentas existem e o que elas devolvem</li>
+      <li><span class='accent'>Guardrails:</span> o que exige aprovação e o que é proibido</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Alucinacao, no caso especifico de codigo</h2>
+    <h2>O laço, em uma frase</h2>
+    <div class="definition"><p>O agente recebe um pedido, escolhe uma ferramenta, executa, lê o resultado, e decide se continua ou para.</p></div>
     <ul>
-      <li>Ele completa o padrao mais provavel, nao o correto</li>
-      <li>APIs inventadas aparecem quando a biblioteca e pouco comum</li>
-      <li>Cerca de <span class='highlight'>1 em cada 5</span> dependencias sugeridas em Python e JavaScript nao existe</li>
-      <li>Pacote inexistente e vetor de ataque: alguem pode registrar o nome</li>
+      <li>Ele não enxerga seu projeto: lê o que a ferramenta devolve</li>
+      <li>Cada leitura de arquivo ocupa espaço na janela de contexto</li>
+      <li>O critério de parada é decisão de projeto, não mágica</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Custo</h2>
+    <h2>As capacidades, e onde elas acabam</h2>
     <ul>
-      <li>Voce paga por token de entrada e de saida</li>
-      <li>Contexto grande repetido a cada turno multiplica a conta</li>
-      <li>Cache de prompt reduz o custo de contexto estavel</li>
-      <li>No projeto, voces vao <span class='accent'>medir custo por tarefa</span></li>
+      <li>Consegue: ler, editar, rodar comando, buscar, abrir a web</li>
+      <li><span class='highlight'>Erra</span> quando a biblioteca é pouco comum: inventa API que não existe</li>
+      <li><span class='highlight'>Piora</span> conforme a janela enche, e não de forma linear</li>
+      <li><span class='highlight'>Não sabe</span> o que a sua equipe combinou e não escreveu em lugar nenhum</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que levar para a pratica</h2>
+    <h2>O achado que justifica a aula</h2>
+    <div class="question"><p>Trocando só o harness, mantendo o mesmo modelo, o que muda?</p></div>
     <ul>
-      <li>Contexto e recurso finito: de o que importa, omita o resto</li>
-      <li>Desconfie de import que voce nunca viu</li>
-      <li>Sessao longa que comeca a errar: reinicie com um resumo</li>
-      <li>Meca o custo desde a primeira semana</li>
+      <li>Até <span class='highlight'>40 vezes</span> de diferença em tokens gastos por tarefa resolvida</li>
+      <li>E a taxa de acerto varia só de 0 a 8 pontos percentuais</li>
+      <li>O harness quase não muda <em>se</em> resolve, e muda muito <em>quanto custa</em> resolver</li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Vats e Golev, 2026, arXiv:2607.22585</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Para levar</h2>
+    <ul>
+      <li>Escolher ferramenta é escolher harness, e o projeto vai pedir essa justificativa</li>
+      <li>Meçam tokens por tarefa desde já</li>
+      <li>Quando algo der errado, perguntem antes: foi o modelo ou foi o harness?</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: engenharia de contexto e decomposição de tarefas</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laboratorio 2 &mdash; Desenvolvimento de Software Apoiado por IA</title>
+  <title>Prática 1 &mdash; Desenvolvimento de Software Apoiado por IA</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,49 +266,46 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Laboratorio 2<br><span class="accent">Preparando o repositorio para agentes</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Prática 1<br><span class="accent">Dirigindo o agente numa funcionalidade real</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>22 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>13 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>AGENTS.md</h2>
-    <div class="definition"><p>Arquivo Markdown na raiz do repositorio que diz ao agente como construir, testar e alterar o projeto.</p></div>
+    <h2>Hoje, em sala, com o notebook</h2>
     <ul>
-      <li>Especificacao aberta desde agosto de 2025, hoje mantida na Linux Foundation</li>
-      <li>Mais de 60 mil projetos de codigo aberto adotaram</li>
-      <li>Secoes comuns: visao geral, comandos de build e teste, estilo, regras de PR</li>
+      <li>Repositório base fornecido no começo da aula</li>
+      <li>Cada dupla implementa a mesma funcionalidade com apoio do agente</li>
+      <li>Registro obrigatório: pedido usado, iterações, o que foi corrigido à mão</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Os seis smells de configuracao</h2>
-    <ul>
-      <li><span class='highlight'>Lint Leakage</span>: repetir no arquivo o que o linter ja garante &middot; 62% dos casos</li>
-      <li><span class='highlight'>Context Bloat</span>: arquivo longo demais para ser lido &middot; 42%</li>
-      <li><span class='highlight'>Skill Leakage</span>: ensinar ao agente o que ele ja sabe &middot; 35%</li>
-      <li>Em 91 de 100 repositorios analisados havia ao menos um</li>
-    </ul>
-<p style='font-size:1.4rem;margin-top:0.8rem'>Santos et al., 2026, arXiv:2606.15828</p>
+    <h2>Três formas de pedir a mesma coisa</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>Pedido vago</h3><p>"melhora essa tela"</p><p class="note">resultado imprevisível</p></div>
+      <div class="card"><h3>Com contexto</h3><p>"adicione paginação na listagem, 20 itens por página"</p><p class="note">resultado útil</p></div>
+      <div class="card"><h3>Com critério</h3><p>o anterior mais "sem quebrar os testes existentes, e com teste novo"</p><p class="note">resultado verificável</p></div>
+    </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Entrega da AP1, hoje</h2>
+    <h2>Ao fim da aula</h2>
     <ul>
-      <li>Repositorio publico com <code>SPEC.md</code> escrito antes do codigo</li>
-      <li>URL da aplicacao no ar</li>
-      <li>Relatorio curto: o que acertou de primeira, onde travou, o que foi reescrito</li>
+      <li>Um commit com a funcionalidade e o teste</li>
+      <li>Uma entrada de diário comparando as três formas de pedido</li>
+      <li>Uma frase sobre onde o agente errou</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: AGENTS.md, uma skill e um servidor MCP</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,31 +266,40 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 10<br><span class="accent">Custo, limites e o que continua humano</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 10<br><span class="accent">Qualidade, segurança e custo</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>15 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>8 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Custo</h2>
+    <h2>O tamanho do problema</h2>
     <ul>
-      <li>Conta por token, e nao por assinatura, e o que revela o custo real da tarefa</li>
-      <li>Contexto grande repetido e o principal desperdicio</li>
-      <li>Meca custo por funcionalidade entregue, nao por mes</li>
+      <li>Em testes com mais de 100 modelos, <span class='highlight'>45%</span> das amostras geradas introduziram vulnerabilidade do OWASP Top 10</li>
+      <li>86% falharam em defesa contra XSS, 88% contra injeção em log</li>
+      <li>Em ambiente corporativo, commits crescem de 3 a 4 vezes, e achados de segurança crescem 10 vezes</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Escolher a ferramenta</h2>
+    <h2>Duas superfícies novas</h2>
     <ul>
-      <li>Integracao com o seu fluxo pesa mais que benchmark publico</li>
-      <li>Benchmark publico sofre contaminacao: a tarefa pode estar no treino</li>
-      <li>Teste com uma tarefa sua, real, antes de adotar</li>
+      <li><span class='highlight'>Alucinação de pacotes:</span> cerca de 19,7% das dependências sugeridas em Python e JavaScript não existem, e alguém pode registrar o nome</li>
+      <li><span class='highlight'>Skills públicas:</span> 26,1% de 31 mil skills analisadas têm ao menos uma vulnerabilidade</li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Cloud Security Alliance, 2026; Agent Skills in the Wild, arXiv:2601.10338</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Custo</h2>
+    <ul>
+      <li>Conta por token revela o custo real da tarefa, e a assinatura esconde</li>
+      <li>Contexto grande repetido é o principal desperdício</li>
+      <li>Meçam custo por funcionalidade entregue, não por mês</li>
     </ul>
   </div>
 
@@ -295,25 +307,16 @@
     <h2>O que continua humano</h2>
     <ul>
       <li>Decidir o que construir, e para quem</li>
-      <li>Definir o criterio de aceite</li>
+      <li>Definir o critério de aceite</li>
       <li>Julgar o que voltou</li>
       <li>Responder pelo resultado</li>
     </ul>
-    <div class="definition"><p>A pesquisa em engenharia de software agentica descreve o humano migrando de autor para supervisor ativo. Supervisionar exige mais julgamento, nao menos.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A partir da proxima aula</h2>
-    <ul>
-      <li>20/10: formacao das duplas e escolha do problema</li>
-      <li>22/10: oficina de SPEC.md e primeira publicacao</li>
-      <li>27/10: Portao 1, com aplicacao no ar</li>
-    </ul>
+    <div class="definition"><p>A pesquisa descreve o humano migrando de autor para supervisor ativo. Supervisionar exige mais julgamento, não menos.</p></div>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próximas: duas aulas práticas, tragam o notebook</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

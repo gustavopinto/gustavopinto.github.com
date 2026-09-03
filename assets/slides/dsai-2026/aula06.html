@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,49 +266,68 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 6<br><span class="accent">Revisao de codigo gerado</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 6<br><span class="accent">Model Context Protocol</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>24 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que acontece hoje, nos repositorios reais</h2>
+    <h2>O problema que o MCP resolve</h2>
     <ul>
-      <li><span class='highlight'>61,4%</span> dos PRs de agente nao recebem nenhuma revisao</li>
-      <li><span class='highlight'>69,9%</span> nao tem envolvimento humano algum: ou ninguem revisa, ou outro agente revisa</li>
-      <li>Entre os que passam, 83,8% sao aceitos, e 54,9% sem qualquer modificacao</li>
+      <li>Cada ferramenta de IA tinha o seu jeito de se conectar a sistemas externos</li>
+      <li>Cada integração precisava ser reescrita para cada cliente</li>
+      <li>O MCP é um protocolo comum entre o agente e a fonte de dados ou ação</li>
     </ul>
-    <div class="definition"><p>O gargalo deixou de ser produzir codigo. Passou a ser revisar codigo produzido.</p></div>
+    <div class="definition"><p>Skill ensina o agente a <em>fazer</em>. Servidor MCP dá ao agente o que <em>usar</em>.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Como ler um PR de 800 linhas</h2>
+    <h2>A arquitetura</h2>
     <ul>
-      <li>Comece pelo <span class='accent'>teste</span>, nao pelo codigo</li>
-      <li>Procure o que foi <span class='accent'>removido</span>, nao so o que foi adicionado</li>
-      <li>Verifique dependencias novas uma a uma</li>
-      <li>Peca ao agente para explicar a decisao, em contexto limpo</li>
+      <li><span class='accent'>Host:</span> a aplicação com o agente dentro</li>
+      <li><span class='accent'>Cliente:</span> a parte do host que fala o protocolo</li>
+      <li><span class='accent'>Servidor:</span> expõe ferramentas, recursos e prompts</li>
+      <li>Vocês vão escrever um servidor na Prática 2</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Sinais de alerta</h2>
+    <h2>O estado do ecossistema</h2>
     <ul>
-      <li>Funcao longa que faz tudo, sem motivo aparente</li>
-      <li>Tratamento de erro generico que engole a excecao</li>
-      <li>Codigo morto e comentario descrevendo o obvio</li>
-      <li>Configuracao alterada sem mencao na descricao do PR</li>
+      <li>Estudo de <span class='accent'>1.899</span> servidores MCP de código aberto</li>
+      <li>Avaliação de saúde, segurança e manutenibilidade do que está publicado</li>
+      <li>O protocolo pegou rápido, e a qualidade média não acompanhou</li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">MCP at First Glance, arXiv:2506.13538</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A superfície de risco</h2>
+    <ul>
+      <li><span class='highlight'>Tool poisoning:</span> instrução maliciosa escondida na descrição da ferramenta</li>
+      <li>Confiança implícita: o agente acredita no que o servidor devolve</li>
+      <li>Um servidor MCP com credencial sua é um caminho de saída para dados seus</li>
+    </ul>
+    <div class="definition"><p>A descrição de uma ferramenta entra direto no prompt. Trate como código de terceiros.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A regra do projeto</h2>
+    <ul>
+      <li>Todo servidor MCP usado entra documentado no repositório</li>
+      <li>Servidor de terceiros: leiam a descrição das ferramentas antes de instalar</li>
+      <li>Menor privilégio: token com o mínimo de permissão que resolve</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: loop engineering</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

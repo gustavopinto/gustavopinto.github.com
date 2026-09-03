@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,56 +266,65 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 7<br><span class="accent">Codigo legado</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 7<br><span class="accent">Loop engineering</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>6 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>29 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O cenario real</h2>
-    <div class="definition"><p>Brownfield, do ingles, e o desenvolvimento sobre uma base existente, com historico, dependencias e decisoes que voce nao tomou.</p></div>
+    <h2>A terceira camada de abstração</h2>
     <ul>
-      <li>Quase todo curso da area trabalha so com projeto novo</li>
-      <li>O egresso encontra o oposto na primeira semana de trabalho</li>
+      <li>Primeiro veio o <span class='accent'>prompt</span>: você escreve, o modelo responde</li>
+      <li>Depois a <span class='accent'>engenharia de contexto</span>: você cura o que entra na janela</li>
+      <li>Agora o <span class='accent'>loop engineering</span>: você constrói o sistema que prompta o agente por você</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Um caso documentado</h2>
-    <ul>
-      <li>Um engenheiro senior, apoiado por quatro agentes, entregou uma iniciativa dimensionada para quatro pessoas</li>
-      <li>Metade do tempo planejado, com 90% do codigo gerado aceito na primeira revisao</li>
-      <li>O gargalo nao foi a capacidade do modelo: foi <span class='accent'>qualidade da especificacao e conhecimento do dominio</span></li>
-    </ul>
-<p style='font-size:1.4rem;margin-top:0.8rem'>Vilas Boas, Pinto, Monteiro, Carida e Ribeiro, 2026, arXiv:2605.18461</p>
+    <h2>A definição</h2>
+    <div class="definition"><p>Em vez de conversar com o agente, o desenvolvedor projeta sistemas que disparam execuções por agenda ou por evento do repositório, e as encerram quando uma condição verificável por computador é atendida.</p></div>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Lulla, Nersesyan, Mohsenimofidi, Treude e Baltes, 2026, arXiv:2608.21884</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Onde a autorrevisao falha</h2>
+    <h2>Os blocos de construção</h2>
     <ul>
-      <li>O agente que escreveu a modernizacao e mau juiz da propria modernizacao</li>
-      <li>Ele descreve o que fez de forma convincente, inclusive quando errou</li>
-      <li>Use contexto limpo, ou outro agente, para revisar</li>
+      <li><span class='accent'>Gatilho:</span> agenda, push, issue aberta, teste que quebrou</li>
+      <li><span class='accent'>Condição de parada:</span> verificável por máquina, não por opinião</li>
+      <li><span class='accent'>Arquivo de estado:</span> o que o loop já fez, entre execuções</li>
+      <li><span class='accent'>Subagente verificador:</span> alguém que confere o trabalho do primeiro</li>
+      <li><span class='accent'>Limite de tokens</span> e <span class='accent'>ponto de escalação</span> para o humano</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Estrategia pratica</h2>
+    <h2>O que o estudo encontrou</h2>
     <ul>
-      <li>Primeiro mapeie: peca um resumo da arquitetura e verifique contra o codigo</li>
-      <li>Depois cubra com teste o que voce vai mudar</li>
-      <li>So entao mude, em pedacos pequenos, um commit por mudanca</li>
+      <li>Varredura de <span class='accent'>36.710</span> repositórios</li>
+      <li>Loops autônomos operando em <span class='accent'>217</span> deles</li>
+      <li>Os repositórios versionam a configuração, mas <span class='highlight'>quase nenhum versiona o arquivo de estado</span></li>
+    </ul>
+    <div class="definition"><p>Estado fora do controle de versão significa que ninguém reproduz o que o loop fez, nem audita.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A ponte com a aula passada</h2>
+    <div class="question"><p>A condição de parada do loop é o critério de aceite do seu SPEC.md.</p></div>
+    <ul>
+      <li>Sem condição verificável, o loop roda para sempre ou para cedo demais</li>
+      <li>É por isso que SDD vem antes desta aula</li>
+      <li>Se usarem loop no projeto, versionem o estado. É requisito</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: testes como contrato e revisão de código gerado</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

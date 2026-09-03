@@ -335,7 +335,7 @@
 
 <h2 id="ementa">Ementa</h2>
 
-<p>Funcionamento de assistentes de código: o suficiente para prever onde falham. Decomposição de tarefas e engenharia de contexto. Preparação do repositório para agentes. Specification-Driven Development (SDD, desenvolvimento guiado por especificação). Testes como contrato. Revisão de código gerado. Evolução de código legado. Qualidade, segurança e custo do código gerado. Medição, integração contínua e entrega em produção.</p>
+<p>Agentes de código: harness, laço de execução, ferramentas e capacidades. Engenharia de contexto e decomposição de tarefas. Skills e conhecimento procedural versionado. Specification-Driven Development (SDD, desenvolvimento guiado por especificação). Model Context Protocol. Loop engineering. Testes como contrato e revisão de código gerado. Evolução de código legado. Qualidade, segurança e custo do código gerado.</p>
 
 <h2 id="o-que-se-espera">O que se espera</h2>
 
@@ -372,8 +372,8 @@
 <h2 id="atividades-práticas">Atividades Práticas</h2>
 
 <ul>
-  <li><strong>AP1, do spec ao deploy. Entrega em 22/09.</strong> Escolher uma aplicação pequena, escrever o <code class="language-plaintext highlighter-rouge">SPEC.md</code> antes de qualquer código, conduzir o agente até funcionar e publicá-la. Entregar o repositório, a URL no ar e um relatório curto: o que o agente acertou de primeira, onde travou, o que vocês reescreveram à mão.</li>
-  <li><strong>AP2, brownfield e revisão. Entrega em 13/10.</strong> Receber o repositório de outra dupla, adicionar uma funcionalidade com apoio do agente e entregar os testes que provam que nada quebrou, mais uma revisão crítica dizendo o que foi aceito, o que foi rejeitado e por quê. A nota vem do rigor da revisão, não do tamanho da funcionalidade.</li>
+  <li><strong>AP1, do spec ao deploy. Entrega em 06/10.</strong> Escolher uma aplicação pequena, escrever o <code class="language-plaintext highlighter-rouge">SPEC.md</code> antes de qualquer código, conduzir o agente até funcionar e publicá-la. Entregar o repositório, a URL no ar e um relatório curto: o que o agente acertou de primeira, onde travou, o que vocês reescreveram à mão.</li>
+  <li><strong>AP2, brownfield e revisão. Entrega em 15/10.</strong> Receber o repositório de outra dupla, adicionar uma funcionalidade com apoio do agente e entregar os testes que provam que nada quebrou, mais uma revisão crítica dizendo o que foi aceito, o que foi rejeitado e por quê. A nota vem do rigor da revisão, não do tamanho da funcionalidade.</li>
 </ul>
 
 <h2 id="diário-de-uso">Diário de uso</h2>
@@ -450,13 +450,13 @@
       <td>1</td>
       <td>01/09</td>
       <td>Ter</td>
-      <td><a href="/assets/slides/dsai-2026/aula01.html">Apresentação da disciplina. Quem decide o quê: 70% do planejamento é humano, 80% da execução é do agente</a></td>
+      <td><a href="/assets/slides/dsai-2026/aula01.html">O que é um agente. Quem decide o quê: 70% do planejamento é humano, 80% da execução é do agente</a></td>
     </tr>
     <tr>
       <td>2</td>
       <td>03/09</td>
       <td>Qui</td>
-      <td>Como um assistente de código funciona por dentro. Contexto, janela, alucinação, custo</td>
+      <td><strong>Como funciona por dentro:</strong> o harness, o laço de execução, as ferramentas e as capacidades</td>
     </tr>
     <tr>
       <td>—</td>
@@ -471,64 +471,64 @@
       <td><strong>CBSoft 2026, sem aula</strong> (atividade assíncrona)</td>
     </tr>
     <tr>
-      <td>L1</td>
+      <td>3</td>
       <td>15/09</td>
       <td>Ter</td>
-      <td><strong>Laboratório:</strong> dirigindo o agente numa funcionalidade real, do pedido ao commit</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>17/09</td>
-      <td>Qui</td>
-      <td>Decomposição de tarefas e engenharia de contexto</td>
-    </tr>
-    <tr>
-      <td>L2</td>
-      <td>22/09</td>
-      <td>Ter</td>
-      <td><strong>Laboratório:</strong> <code class="language-plaintext highlighter-rouge">AGENTS.md</code> e os seis <em>smells</em> de configuração. <strong>Entrega AP1</strong></td>
+      <td><strong>Engenharia de contexto</strong> e decomposição de tarefas</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>24/09</td>
+      <td>17/09</td>
       <td>Qui</td>
-      <td>Specification-Driven Development, e a evidência que contraria a promessa</td>
+      <td><strong>Skills:</strong> conhecimento procedural versionado, <code class="language-plaintext highlighter-rouge">SKILL.md</code>, divulgação progressiva</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>29/09</td>
+      <td>22/09</td>
       <td>Ter</td>
-      <td>Testes como contrato: cobertura contra qualidade de asserção, e o excesso de <em>mock</em></td>
+      <td><strong>Specification-Driven Development</strong>, e a evidência que contraria a promessa</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>01/10</td>
+      <td>24/09</td>
       <td>Qui</td>
-      <td>Revisão de código gerado, e o que acontece quando 6 em cada 10 PRs não são revisados</td>
+      <td><strong>Model Context Protocol:</strong> dando ferramentas ao agente, e a superfície de risco que vem junto</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>06/10</td>
+      <td>29/09</td>
       <td>Ter</td>
-      <td>Código legado: exploração, mapeamento, refatoração incremental</td>
+      <td><strong>Loop engineering:</strong> agentes disparados por evento, critério de parada, ponto de escalação</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>08/10</td>
+      <td>01/10</td>
       <td>Qui</td>
-      <td>Qualidade e segurança: vulnerabilidades recorrentes, segredos, alucinação de pacotes</td>
+      <td><strong>Testes como contrato</strong> e revisão de código gerado</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>13/10</td>
+      <td>06/10</td>
       <td>Ter</td>
-      <td>Medição e entrega: testes, CI, observabilidade, deploy. <strong>Entrega AP2</strong></td>
+      <td><strong>Código legado:</strong> exploração, mapeamento, refatoração incremental. <strong>Entrega AP1</strong></td>
     </tr>
     <tr>
       <td>10</td>
+      <td>08/10</td>
+      <td>Qui</td>
+      <td><strong>Qualidade, segurança e custo</strong> do código gerado. O que continua humano</td>
+    </tr>
+    <tr>
+      <td>P1</td>
+      <td>13/10</td>
+      <td>Ter</td>
+      <td><strong>Prática em sala:</strong> dirigindo o agente numa funcionalidade real, do pedido ao commit</td>
+    </tr>
+    <tr>
+      <td>P2</td>
       <td>15/10</td>
       <td>Qui</td>
-      <td>Custo, limites e o que continua humano (<em>confirmar Dia do Professor no calendário da UFPA</em>)</td>
+      <td><strong>Prática em sala:</strong> <code class="language-plaintext highlighter-rouge">AGENTS.md</code>, uma skill e um servidor MCP. <strong>Entrega AP2</strong> (<em>confirmar Dia do Professor</em>)</td>
     </tr>
     <tr>
       <td>KO</td>
@@ -540,7 +540,7 @@
       <td>—</td>
       <td>22/10</td>
       <td>Qui</td>
-      <td>Oficina: escrevendo o <code class="language-plaintext highlighter-rouge">SPEC.md</code> e publicando pela primeira vez</td>
+      <td>Oficina: <code class="language-plaintext highlighter-rouge">SPEC.md</code>, integração contínua e a primeira publicação</td>
     </tr>
     <tr>
       <td>G1</td>
@@ -649,31 +649,37 @@
 
 <h2 id="leituras">Leituras</h2>
 
-<p>Uma leitura obrigatória por aula, marcada em negrito. As demais são complementares.</p>
+<p>Uma leitura de referência por aula, marcada em negrito. As demais são complementares.</p>
 
-<p><strong>Aula 1.</strong> <strong><a href="https://www.anthropic.com/research/claude-code-expertise"><em>How Claude Code is used in practice</em></a></strong>, Anthropic, 2026, com cerca de 400 mil sessões. Complementares: <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR, 2025</a> e <a href="https://arxiv.org/abs/2302.06590">Peng et al., 2023</a>. Os três se contradizem, e explicar isso é a atividade da semana.</p>
+<p><strong>Aula 1, o que é um agente.</strong> <strong>Anthropic (2026), <a href="https://www.anthropic.com/research/claude-code-expertise"><em>How Claude Code is used in practice</em></a></strong>, com cerca de 400 mil sessões. Complementares: <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR, 2025</a> e <a href="https://arxiv.org/abs/2302.06590">Peng et al., 2023</a>. Os três se contradizem, e explicar isso é a atividade da semana.</p>
 
-<p><strong>Aula 2.</strong> <strong><a href="https://www.anthropic.com/engineering/building-effective-agents"><em>Building Effective AI Agents</em></a></strong>. Complementar: <a href="https://www.anthropic.com/engineering/claude-code-best-practices"><em>Best practices for Claude Code</em></a>.</p>
+<p><strong>Aula 2, harness e capacidades.</strong> <strong>Vats e Golev (2026), <a href="https://arxiv.org/abs/2607.22585"><em>The Scaffold Effect in Coding Agents: Harness Choice as a Hidden Variable</em></a></strong>, que mediu até 40 vezes de diferença em tokens por tarefa resolvida trocando só o harness, com a taxa de acerto variando de 0 a 8 pontos. Complementar: <a href="https://arxiv.org/abs/2602.14690"><em>Harness Engineering for Agentic AI Coding Tools</em></a>.</p>
 
-<p><strong>Aula 3.</strong> <strong><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"><em>Effective context engineering for AI agents</em></a></strong>. Complementar: Barke et al., <a href="https://arxiv.org/abs/2206.15000"><em>Grounded Copilot</em></a>, OOPSLA 2023.</p>
+<p><strong>Aula 3, contexto.</strong> <strong>Anthropic, <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"><em>Effective context engineering for AI agents</em></a></strong>. Complementar: Barke, James e Polikarpova, <a href="https://arxiv.org/abs/2206.15000"><em>Grounded Copilot</em></a>, OOPSLA 2023.</p>
 
-<p><strong>Laboratório 2.</strong> <strong><a href="https://agents.md/">Especificação AGENTS.md</a></strong>. Complementar: Santos et al., <a href="https://arxiv.org/abs/2606.15828"><em>Configuration Smells in AGENTS.md Files</em></a>, que achou ao menos um problema em 91 de 100 repositórios.</p>
+<p><strong>Aula 4, skills.</strong> <strong><a href="https://arxiv.org/abs/2607.01456"><em>From Anatomy to Smells: An Empirical Study of SKILL.md</em></a></strong>, que analisou 238 skills reais e derivou uma taxonomia dos seus componentes. Complementares: Anthropic, <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"><em>Agent Skills</em></a>, e <a href="https://arxiv.org/abs/2601.10338"><em>Agent Skills in the Wild</em></a>, que encontrou vulnerabilidade em 26,1% de 31 mil skills.</p>
 
-<p><strong>Aula 4.</strong> <strong>Hill, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6515898"><em>Does Spec-Driven Development Reduce Defects?</em></a></strong>, 2026, que testou a promessa em 100.247 PRs e não encontrou a redução anunciada. Complementares: <a href="https://github.com/github/spec-kit">Spec Kit</a> e <a href="https://arxiv.org/abs/2602.00180">Piskala, 2026</a>.</p>
+<p><strong>Aula 5, SDD.</strong> <strong>Hill (2026), <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6515898"><em>Does Spec-Driven Development Reduce Defects?</em></a></strong>, que testou a promessa em 100.247 PRs e não encontrou a redução anunciada. Complementares: <a href="https://github.com/github/spec-kit">Spec Kit</a> e <a href="https://arxiv.org/abs/2602.00180">Piskala, 2026</a>.</p>
 
-<p><strong>Aula 5.</strong> <strong><a href="https://arxiv.org/abs/2602.00409"><em>Are Coding Agents Generating Over-Mocked Tests?</em></a></strong>, MSR 2026. Complementar: <a href="https://arxiv.org/abs/2607.18057"><em>Test Coverage Analysis of Agentic Pull Requests</em></a>.</p>
+<p><strong>Aula 6, MCP.</strong> <strong><a href="https://arxiv.org/abs/2506.13538"><em>Model Context Protocol at First Glance: Studying the Security and Maintainability of MCP Servers</em></a></strong>, sobre 1.899 servidores de código aberto. Complementar: <a href="https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices">MCP, <em>Security Best Practices</em></a>.</p>
 
-<p><strong>Aula 6.</strong> <strong><a href="https://arxiv.org/abs/2605.02273"><em>These Aren’t the Reviews You’re Looking For</em></a></strong>. Complementar: Watanabe et al., <a href="https://arxiv.org/abs/2509.14745"><em>On the Use of Agentic Coding</em></a>, TOSEM 2026.</p>
+<p><strong>Aula 7, loop engineering.</strong> <strong>Lulla, Nersesyan, Mohsenimofidi, Treude e Baltes (2026), <a href="https://arxiv.org/abs/2608.21884"><em>Loop Engineering: Building Blocks, Adoption, and Impact</em></a></strong>, que varreu 36.710 repositórios e encontrou loops autônomos operando em 217 deles, com quase nenhum versionando os arquivos de estado do loop.</p>
 
-<p><strong>Aula 7.</strong> <strong>Vilas Boas, Pinto, Monteiro, Carida e Ribeiro, <a href="https://arxiv.org/abs/2605.18461"><em>One Developer Is All You Need</em></a></strong>, 2026. Complementar: <a href="https://arxiv.org/abs/2605.21537"><em>Articulate but Wrong</em></a>.</p>
+<p><strong>Aula 8, testes e revisão.</strong> <strong><a href="https://arxiv.org/abs/2605.02273"><em>These Aren’t the Reviews You’re Looking For</em></a></strong>. Complementares: <a href="https://arxiv.org/abs/2602.00409"><em>Are Coding Agents Generating Over-Mocked Tests?</em></a>, MSR 2026, e Watanabe et al., <a href="https://arxiv.org/abs/2509.14745"><em>On the Use of Agentic Coding</em></a>, TOSEM.</p>
 
-<p><strong>Aula 8.</strong> <strong>Cloud Security Alliance, <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/"><em>Vibe Coding Security Debt</em></a></strong>, 2026. Complementares: Pearce et al., <em>Asleep at the Keyboard?</em>, IEEE S&amp;P 2022, e Perry et al., CHI 2023.</p>
+<p><strong>Aula 9, código legado.</strong> <strong>Vilas Boas, Pinto, Monteiro, Carida e Ribeiro (2026), <a href="https://arxiv.org/abs/2605.18461"><em>One Developer Is All You Need</em></a></strong>. Complementar: <a href="https://arxiv.org/abs/2605.21537"><em>Articulate but Wrong</em></a>.</p>
 
-<p><strong>Aula 9.</strong> <strong><a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices"><em>Evaluation best practices</em></a></strong>, OpenAI. Complementar: Liang, Yang e Myers, ICSE 2023.</p>
+<p><strong>Aula 10, qualidade e custo.</strong> <strong>Cloud Security Alliance (2026), <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/"><em>Vibe Coding Security Debt</em></a></strong>. Complementares: Pearce et al., IEEE S&amp;P 2022, e Hassan et al., <a href="https://arxiv.org/abs/2509.06216"><em>Agentic Software Engineering</em></a>.</p>
 
-<p><strong>Aula 10.</strong> <strong>Hassan et al., <a href="https://arxiv.org/abs/2509.06216"><em>Agentic Software Engineering</em></a></strong>, 2025.</p>
+<p><strong>Prática 2.</strong> <a href="https://agents.md/">Especificação AGENTS.md</a> e Santos et al., <a href="https://arxiv.org/abs/2606.15828"><em>Configuration Smells in AGENTS.md Files</em></a>, que achou ao menos um problema em 91 de 100 repositórios.</p>
 
-<p>Para os seminários, o ponto de partida é Hou et al., <em>Large Language Models for Software Engineering: A Systematic Literature Review</em>, ACM TOSEM, 2024.</p>
+<h3 id="material-de-apoio">Material de apoio</h3>
+
+<ul>
+  <li>ANTHROPIC. <a href="https://docs.claude.com/en/docs/claude-code/"><em>Claude Code — documentação</em></a> e <a href="https://www.anthropic.com/engineering/claude-code-best-practices"><em>Best practices for Claude Code</em></a>. <strong>Apoio para a AP1 e o L2.</strong></li>
+  <li>GITHUB. <a href="https://github.com/github/spec-kit"><em>Spec Kit</em></a>.</li>
+  <li>HOU, X. et al. (2024). <em>Large Language Models for Software Engineering: A Systematic Literature Review</em>. ACM TOSEM. (ponto de partida para os seminários)</li>
+</ul>
 
 <h2 id="entrega-atrasada">Entrega atrasada</h2>
 

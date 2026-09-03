@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,58 +266,65 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Aula 9<br><span class="accent">Medicao e entrega</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Aula 9<br><span class="accent">Código legado</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>13 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>6 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que medir</h2>
+    <h2>O cenário real</h2>
+    <div class="definition"><p>Brownfield é o desenvolvimento sobre uma base existente, com histórico, dependências e decisões que você não tomou.</p></div>
     <ul>
-      <li>Testes que falham quando devem falhar</li>
-      <li>Tempo entre commit e producao</li>
-      <li>Custo por tarefa da ferramenta</li>
-      <li>Erros em producao, por categoria</li>
+      <li>Quase todo curso da área trabalha só com projeto novo</li>
+      <li>O egresso encontra o oposto na primeira semana de trabalho</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>CI desde o primeiro dia</h2>
+    <h2>Um caso documentado</h2>
     <ul>
-      <li>Rodar testes a cada push, sem excecao</li>
-      <li>Bloquear merge com teste vermelho</li>
-      <li>Publicar automaticamente a partir da branch principal</li>
-      <li>Isso e requisito do Portao 1</li>
+      <li>Um engenheiro sênior, apoiado por quatro agentes, entregou uma iniciativa dimensionada para quatro pessoas</li>
+      <li>Metade do tempo planejado, com 90% do código gerado aceito na primeira revisão</li>
+      <li>O gargalo não foi o modelo: foi <span class='accent'>qualidade da especificação e conhecimento do domínio</span></li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Vilas Boas, Pinto, Monteiro, Carida e Ribeiro, 2026, arXiv:2605.18461</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Onde a autorrevisão falha</h2>
+    <ul>
+      <li>O agente que escreveu a modernização é mau juiz da própria modernização</li>
+      <li>Ele descreve o que fez de forma convincente, inclusive quando errou</li>
+      <li>Use contexto limpo, ou outro agente, para revisar</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Evals, se o produto tem IA</h2>
-    <div class="definition"><p>Eval, ou avaliacao automatizada, e um teste cuja resposta correta nao e unica. Ele pontua a saida em vez de compara-la byte a byte.</p></div>
+    <h2>Estratégia prática</h2>
     <ul>
-      <li>Comece por verificacao deterministica: formato, presenca de campo, ausencia de erro</li>
-      <li>So depois use um modelo como juiz, e valide o juiz contra rotulo humano</li>
-      <li>Se o produto nao tem IA dentro, testes automatizados bastam</li>
+      <li>Primeiro mapeie: peça um resumo da arquitetura e verifique contra o código</li>
+      <li>Depois cubra com teste o que você vai mudar</li>
+      <li>Só então mude, em pedaços pequenos, um commit por mudança</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Entrega da AP2, hoje</h2>
+    <h2>Entrega da AP1, hoje</h2>
     <ul>
-      <li>Funcionalidade adicionada ao repositorio da outra dupla</li>
-      <li>Testes que provam que nada quebrou</li>
-      <li>Revisao critica: o que foi aceito, o que foi rejeitado, por que</li>
+      <li>Repositório com <code>SPEC.md</code> escrito antes do código</li>
+      <li>URL da aplicação no ar</li>
+      <li>Relatório curto: o que acertou de primeira, onde travou, o que foi reescrito à mão</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: qualidade, segurança e custo</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

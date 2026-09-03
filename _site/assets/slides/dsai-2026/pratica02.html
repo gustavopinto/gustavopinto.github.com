@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laboratorio 1 &mdash; Desenvolvimento de Software Apoiado por IA</title>
+  <title>Prática 2 &mdash; Desenvolvimento de Software Apoiado por IA</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -249,13 +249,16 @@
       background: rgba(0,0,0,0.2); transition: background 0.2s;
     }
     .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
   </style>
 </head>
 <body>
 
 <div id="progress"></div>
 <div id="counter"></div>
-<div id="nav-hint">&larr; &rarr; ou Espaco para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
 <div id="step-dots"></div>
 <button class="nav-btn" id="btn-prev">&lsaquo;</button>
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
@@ -263,46 +266,65 @@
 <div class="slides" id="slides">
 
   <div class="slide slide-cover">
-    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.2</span>
-    <h1>Laboratorio 1<br><span class="accent">Dirigindo o agente numa funcionalidade real</span></h1>
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Prática 2<br><span class="accent">AGENTS.md, uma skill e um servidor MCP</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>15 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>15 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O exercicio de hoje</h2>
+    <h2>Os três artefatos de hoje</h2>
     <ul>
-      <li>Repositorio base fornecido em aula</li>
-      <li>Cada dupla implementa a mesma funcionalidade com apoio do agente</li>
-      <li>Registro obrigatorio: prompt usado, iteracoes, o que foi corrigido a mao</li>
+      <li>Um <code>AGENTS.md</code> para o repositório do projeto de vocês</li>
+      <li>Uma skill que capture um procedimento repetitivo da dupla</li>
+      <li>Um servidor MCP mínimo, expondo uma ferramenta só</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Tres formas de pedir</h2>
-    <div class="cards cards-3" style="margin-top:0.5rem">
-      <div class="card"><h3>Pedido vago</h3><p>'melhora essa tela'</p><p class=note>resultado imprevisivel</p></div>
-      <div class="card"><h3>Pedido com contexto</h3><p>'adicione paginacao na listagem, 20 itens por pagina'</p><p class=note>resultado util</p></div>
-      <div class="card"><h3>Pedido com criterio</h3><p>o anterior mais 'sem quebrar os testes existentes, e com teste novo'</p><p class=note>resultado verificavel</p></div>
-    </div>
+    <h2>AGENTS.md, e os seis smells</h2>
+    <ul>
+      <li><span class='highlight'>Lint Leakage:</span> repetir o que o linter já garante &middot; 62% dos casos</li>
+      <li><span class='highlight'>Context Bloat:</span> arquivo longo demais para ser lido &middot; 42%</li>
+      <li><span class='highlight'>Skill Leakage:</span> ensinar ao agente o que ele já sabe &middot; 35%</li>
+      <li>Em 91 de 100 repositórios analisados havia ao menos um</li>
+    </ul>
+    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Santos et al., 2026, arXiv:2606.15828</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A skill de vocês</h2>
+    <ul>
+      <li>Escolham um procedimento que a dupla repete: revisar PR, subir versão, escrever migração</li>
+      <li>Nome e descrição importam mais que o corpo, porque é o que o agente lê primeiro</li>
+      <li>Testem: o agente carrega a skill sozinho quando deveria?</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O servidor MCP</h2>
+    <ul>
+      <li>Uma ferramenta só, que resolva algo do domínio do projeto de vocês</li>
+      <li>Retorno de alto sinal: nomes legíveis, não identificadores opacos</li>
+      <li>Descrição escrita como se fosse para alguém que entrou na equipe hoje</li>
+    </ul>
   </div>
 
   <div class="slide slide-content">
     <h2>Ao fim da aula</h2>
     <ul>
-      <li>Um commit com a funcionalidade e o teste</li>
-      <li>Uma entrada de diario com as tres formas de pedido comparadas</li>
-      <li>Uma frase sobre onde o agente errou</li>
+      <li>Os três artefatos versionados no repositório</li>
+      <li><strong>Entrega da AP2:</strong> funcionalidade no repositório da outra dupla, testes e revisão crítica</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Duvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Nao esqueca a entrada do diario de hoje</p>
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: kickoff do projeto</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>
