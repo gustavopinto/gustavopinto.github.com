@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 5 &mdash; Banco de Dados II</title>
+  <title>Aula 6 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,64 +264,69 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 5<br><span class="accent">Parser e catálogo</span></h1>
+    <h1>Aula 6<br><span class="accent">Executor</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>13 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>22 de outubro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O caminho de uma consulta</h2>
-    <div class="levels">
-      <div class="level level-v"><div class="level-icon">1</div><div class="level-text"><h4>Tokenizador</h4><p>Quebra o texto em palavras com significado: SELECT, identificador, número</p></div></div>
-      <div class="level level-c"><div class="level-icon">2</div><div class="level-text"><h4>Analisador sintático</h4><p>Monta a árvore, verificando se a ordem das palavras faz sentido</p></div></div>
-      <div class="level level-f"><div class="level-icon">3</div><div class="level-text"><h4>Análise semântica</h4><p>A tabela existe? A coluna existe? O tipo bate? Isso vem do catálogo</p></div></div>
-    </div>
+    <h2>O modelo iterador</h2>
+    <div class="definition"><p>Cada operador é um objeto com três métodos: abrir, próxima linha, fechar. Um operador puxa linhas do operador abaixo dele.</p></div>
+    <pre>Filtro(id = 42)
+   &uarr; next()
+VarreduraSequencial(aluno)
+   &uarr; next()
+ArquivoDeDados</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">A consulta inteira é uma pilha de operadores, e o resultado sai de linha em linha, sem materializar tudo na memória.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>A gramática do minidb</h2>
-    <pre>comando  := create | insert | select
-create   := CREATE TABLE nome ( coluna+ )
-insert   := INSERT INTO nome VALUES ( valor+ )
-select   := SELECT lista FROM nome [ WHERE coluna = valor ]</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Só isso. Sem junção, sem <code>ORDER BY</code>, sem agregação, sem subconsulta. É o suficiente para o critério de pronto.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O catálogo</h2>
-    <div class="definition"><p>Catálogo é o conjunto de tabelas em que o banco guarda a descrição das outras tabelas.</p></div>
+    <h2>Varredura sequencial</h2>
     <ul>
-      <li>Quais tabelas existem, com quais colunas, de quais tipos</li>
-      <li>Em que página começa cada tabela, e quais índices existem</li>
-      <li>Um banco de verdade guarda isso em tabelas comuns, consultáveis com SQL</li>
-      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code></li>
+      <li>Percorre todas as páginas do arquivo, e todas as linhas de cada página</li>
+      <li>Custo proporcional ao tamanho da tabela, sempre, independente do filtro</li>
+      <li>É o plano de último recurso, e também o mais rápido quando o filtro devolve quase tudo</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Injeção de SQL</h2>
-    <div class="question"><p>Por que concatenar string quebra, e parâmetro não?</p></div>
-    <pre><span class="cmt"># concatenação: o texto do usuário vira gramática</span>
-sql = "SELECT * FROM aluno WHERE nome = '" + nome + "'"
-<span class="cmt"># nome = "x' OR '1'='1"  &rarr;  a condição sempre é verdadeira</span>
-
-<span class="cmt"># parâmetro: o texto do usuário nunca passa pelo parser</span>
-cursor.execute("SELECT * FROM aluno WHERE nome = %s", (nome,))</pre>
+    <h2>Varredura por índice</h2>
+    <ul>
+      <li>Desce a árvore B+ até a folha, e lê o RID</li>
+      <li>Com o RID, vai direto à página e ao slot</li>
+      <li>Custo proporcional à altura da árvore mais o número de linhas encontradas</li>
+      <li>É a junção dos módulos M1, M2, M3 e M5 funcionando ao mesmo tempo</li>
+    </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>A lição do módulo</h2>
-    <div class="definition"><p>O parser decide o que é comando e o que é dado. Concatenar string apaga essa fronteira, e é por isso que a injeção existe.</p></div>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Quem implementou um parser não esquece mais essa distinção. É o motivo de segurança ser ensinada aqui, e não numa aula separada.</p>
+    <h2>Seletividade</h2>
+    <div class="question"><p>Índice sempre ajuda?</p></div>
+    <ul>
+      <li><span class='accent'>Alta seletividade</span>, poucas linhas devolvidas: o índice ganha com folga</li>
+      <li><span class='highlight'>Baixa seletividade</span>, metade da tabela devolvida: o índice perde</li>
+      <li>Motivo: cada linha achada pelo índice é um salto para uma página aleatória</li>
+      <li>Varrer em ordem é mais barato que saltar mil vezes</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A regra do minidb</h2>
+    <pre>se existe índice na coluna do WHERE
+   e o operador é igualdade:
+       usar varredura por índice
+senão:
+       usar varredura sequencial</pre>
+    <div class="definition"><p>Um otimizador de verdade estima quantas linhas voltam e compara custos. Isso é tema de seminário, não de módulo.</p></div>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M4, tokenizador e parser</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M5, os operadores</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

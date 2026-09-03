@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 2 &mdash; Banco de Dados II</title>
+  <title>Aula 3 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,71 +264,68 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 2<br><span class="accent">Armazenamento</span></h1>
+    <h1>Aula 3<br><span class="accent">Cache de páginas</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>3 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>22 de setembro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que página, e não linha?</h2>
-    <div class="question"><p>Ler 8 bytes do disco custa quase o mesmo que ler 8 kilobytes. Por quê?</p></div>
+    <h2>O problema</h2>
+    <div class="question"><p>Sua consulta lê a mesma página quarenta vezes. Quantos acessos a disco isso deveria custar?</p></div>
     <ul>
-      <li>O custo de um acesso a disco é dominado por localizar o dado, não por transferi-lo</li>
-      <li>Então o SGBD transfere sempre um bloco, chamado <span class='accent'>página</span></li>
-      <li>Página pequena demais: muitos acessos. Grande demais: memória desperdiçada</li>
-      <li>No minidb, 4096 bytes, fixo</li>
+      <li>Sem cache, quarenta</li>
+      <li>Com cache, um</li>
+      <li>O cache de páginas é a diferença entre um banco usável e um inutilizável</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Arquivo de dados em heap</h2>
-    <div class="definition"><p>Heap file, do inglês, é um arquivo em que as linhas ficam sem ordem definida, na primeira posição livre.</p></div>
+    <h2>Por que não deixar para o sistema operacional?</h2>
     <ul>
-      <li>O arquivo é uma sequência de páginas de tamanho fixo</li>
-      <li>Página zero guarda metadados: quantas páginas existem, quais têm espaço</li>
-      <li>Inserir é achar uma página com espaço e escrever lá</li>
-      <li>Sem ordem significa que buscar sem índice custa varrer tudo</li>
+      <li>O sistema operacional decide sozinho quando gravar uma página modificada</li>
+      <li>Durabilidade exige que <span class='highlight'>nós</span> decidamos essa ordem, e não ele</li>
+      <li>É esse controle que vai tornar a recuperação possível no M7</li>
+      <li>O SGBD também conhece o padrão de acesso da consulta, e o sistema operacional não</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Registro de tamanho fixo</h2>
-    <p style="font-size:1.6rem;margin-top:0.8rem">Cada coluna ocupa um número fixo de bytes, e cada linha ocupa a soma. Assim a posição de qualquer linha é uma conta, não uma busca.</p>
-    <pre>página 4096 bytes,  registro de 8 bytes  &rarr;  512 registros por página
-
-deslocamento(slot) = cabeçalho + slot * 8
-
-<span class="cmt">linha 3 da página 7 começa no byte:</span>
-<span class="cmt">   7 * 4096 + cabeçalho + 3 * 8</span></pre>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Identificador de linha</h2>
-    <div class="definition"><p>O RID, do inglês <em>record identifier</em>, é o par (número da página, número do slot). É o endereço permanente de uma linha.</p></div>
-    <ul>
-      <li>É o que o índice vai guardar, no módulo M3</li>
-      <li>Enquanto a linha não for removida nem movida, o RID não muda</li>
-      <li>É por isso que atualizar uma linha para um tamanho maior é um problema em bancos reais</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O que os bancos de verdade fazem</h2>
+    <h2>As três estruturas</h2>
     <div class="cards cards-3" style="margin-top:0.5rem">
-      <div class="card"><h3>Página com diretório de slots</h3><p>Slots crescem de uma ponta, dados da outra. Permite linha de tamanho variável.</p><p class="note">não faremos</p></div>
-      <div class="card"><h3>Mapa de bits de nulos</h3><p>Um bit por coluna diz se o valor está ausente, sem gastar o espaço do campo.</p><p class="note">não faremos</p></div>
-      <div class="card"><h3>Layout por coluna</h3><p>Guarda cada coluna junta, em vez de cada linha junta. Domina análise de dados.</p><p class="note">vira seminário</p></div>
+      <div class="card"><h3>Frames</h3><p>Um vetor de posições em memória, cada uma do tamanho de uma página.</p></div>
+      <div class="card"><h3>Tabela de páginas</h3><p>Mapeia número da página para o frame em que ela está.</p></div>
+      <div class="card"><h3>Contador de fixação</h3><p>Quantos operadores estão usando aquela página agora. Página fixada não pode sair.</p></div>
     </div>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Tamanho fixo custa espaço e proíbe <code>VARCHAR</code> livre. Ganhamos o semestre inteiro em troca.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Página suja</h2>
+    <div class="definition"><p>Página suja é a que foi alterada em memória e ainda não foi gravada no disco.</p></div>
+    <ul>
+      <li>Escrever a cada alteração é lento</li>
+      <li>Não escrever nunca perde dados</li>
+      <li>A solução é escrever quando a página sai do cache, ou quando o log manda</li>
+      <li><span class='accent'>Guardem esta ideia:</span> é a página suja que torna o <code>kill -9</code> interessante</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Substituição</h2>
+    <ul>
+      <li>Quando o cache enche, alguém precisa sair</li>
+      <li><span class='accent'>LRU:</span> sai quem foi usado há mais tempo</li>
+      <li>Problema conhecido: uma varredura sequencial passa por todas as páginas uma vez e expulsa tudo que era útil</li>
+      <li>Bancos reais usam CLOCK ou LRU-K por causa disso. No minidb, LRU basta</li>
+    </ul>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M1, leitura e escrita de páginas</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M2, o cache de páginas</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

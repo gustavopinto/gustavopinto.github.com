@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 6 &mdash; Banco de Dados II</title>
+  <title>Aula 7 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,69 +264,68 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 6<br><span class="accent">Executor</span></h1>
+    <h1>Aula 7<br><span class="accent">Transações</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>22 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>3 de novembro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O modelo iterador</h2>
-    <div class="definition"><p>Cada operador é um objeto com três métodos: abrir, próxima linha, fechar. Um operador puxa linhas do operador abaixo dele.</p></div>
-    <pre>Filtro(id = 42)
-   &uarr; next()
-VarreduraSequencial(aluno)
-   &uarr; next()
-ArquivoDeDados</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">A consulta inteira é uma pilha de operadores, e o resultado sai de linha em linha, sem materializar tudo na memória.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Varredura sequencial</h2>
+    <h2>O problema</h2>
+    <div class="question"><p>Transferência entre duas contas: debita uma, credita a outra. A máquina cai no meio. E agora?</p></div>
     <ul>
-      <li>Percorre todas as páginas do arquivo, e todas as linhas de cada página</li>
-      <li>Custo proporcional ao tamanho da tabela, sempre, independente do filtro</li>
-      <li>É o plano de último recurso, e também o mais rápido quando o filtro devolve quase tudo</li>
+      <li>Sem transação, o dinheiro desaparece</li>
+      <li>A transação é a promessa de que as duas operações valem juntas, ou nenhuma vale</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Varredura por índice</h2>
+    <h2>ACID</h2>
+    <div class="cards cards-4" style="margin-top:0.5rem">
+      <div class="card"><h3>Atomicidade</h3><p>Tudo ou nada. É o módulo M6.</p><p class="note">log e desfazer</p></div>
+      <div class="card"><h3>Consistência</h3><p>As restrições continuam válidas depois.</p><p class="note">restrições e aplicação</p></div>
+      <div class="card"><h3>Isolamento</h3><p>Transações simultâneas não se atrapalham.</p><p class="note">não implementamos, vira seminário</p></div>
+      <div class="card"><h3>Durabilidade</h3><p>O que foi confirmado sobrevive à queda.</p><p class="note">é o módulo M7</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O log</h2>
+    <div class="definition"><p>Antes de alterar qualquer dado, o minidb escreve no log um registro dizendo o que vai mudar, com o valor antes e o valor depois.</p></div>
+    <pre>&lt;T1, INICIO&gt;
+&lt;T1, aluno, pagina 3, slot 7, antes=100, depois=250&gt;
+&lt;T1, aluno, pagina 9, slot 2, antes=500, depois=350&gt;
+&lt;T1, COMMIT&gt;</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">O valor antes serve para desfazer. O valor depois serve para refazer, no módulo M7.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>ROLLBACK</h2>
     <ul>
-      <li>Desce a árvore B+ até a folha, e lê o RID</li>
-      <li>Com o RID, vai direto à página e ao slot</li>
-      <li>Custo proporcional à altura da árvore mais o número de linhas encontradas</li>
-      <li>É a junção dos módulos M1, M2, M3 e M5 funcionando ao mesmo tempo</li>
+      <li>Percorre o log da transação de trás para frente</li>
+      <li>Para cada registro, restaura o valor antes</li>
+      <li>Escreve <code>&lt;T1, ABORTADA&gt;</code> no fim</li>
+      <li>É barato porque os dados provavelmente ainda estão no cache de páginas</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Seletividade</h2>
-    <div class="question"><p>Índice sempre ajuda?</p></div>
+    <h2>COMMIT</h2>
     <ul>
-      <li><span class='accent'>Alta seletividade</span>, poucas linhas devolvidas: o índice ganha com folga</li>
-      <li><span class='highlight'>Baixa seletividade</span>, metade da tabela devolvida: o índice perde</li>
-      <li>Motivo: cada linha achada pelo índice é um salto para uma página aleatória</li>
-      <li>Varrer em ordem é mais barato que saltar mil vezes</li>
+      <li>Escreve <code>&lt;T1, COMMIT&gt;</code> no log</li>
+      <li>E <span class='highlight'>força o log para o disco</span>, com <code>fsync</code></li>
+      <li>É o <code>fsync</code> que custa caro, porque espera o disco de verdade confirmar</li>
+      <li>Sem ele, a transação está confirmada só na memória, e a queda leva tudo</li>
     </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A regra do minidb</h2>
-    <pre>se existe índice na coluna do WHERE
-   e o operador é igualdade:
-       usar varredura por índice
-senão:
-       usar varredura sequencial</pre>
-    <div class="definition"><p>Um otimizador de verdade estima quantas linhas voltam e compara custos. Isso é tema de seminário, não de módulo.</p></div>
+    <div class="definition"><p>Este é o ponto exato em que o commit passa a valer. Antes do fsync, não aconteceu.</p></div>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M5, os operadores</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M6, o log e o rollback</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>
