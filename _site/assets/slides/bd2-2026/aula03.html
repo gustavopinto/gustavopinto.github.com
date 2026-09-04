@@ -264,69 +264,93 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 3<br><span class="accent">Cache de páginas</span></h1>
+    <h1>Aula 3<br><span class="accent">Árvore B+</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>22 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
     <h2>O problema</h2>
-    <div class="question"><p>Sua consulta lê a mesma página quarenta vezes. Quantos acessos a disco isso deveria custar?</p></div>
+    <div class="question"><p>Tabela com 10 milhões de linhas. <code>SELECT * FROM aluno WHERE id = 42</code>. Quantas páginas você lê?</p></div>
     <ul>
-      <li>Sem cache, quarenta</li>
-      <li>Com cache, um</li>
-      <li>O cache de páginas é a diferença entre um banco usável e um inutilizável</li>
+      <li>Sem índice, todas. É a varredura sequencial do M5</li>
+      <li>Com índice, três ou quatro</li>
+      <li>Essa diferença é o motivo de o módulo M3 existir</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que não deixar para o sistema operacional?</h2>
+    <h2>Por que não uma tabela hash?</h2>
     <ul>
-      <li>O sistema operacional decide sozinho quando gravar uma página modificada</li>
-      <li>Durabilidade exige que <span class='highlight'>nós</span> decidamos essa ordem, e não ele</li>
-      <li>É esse controle que vai tornar a recuperação possível no M7</li>
-      <li>O SGBD também conhece o padrão de acesso da consulta, e o sistema operacional não</li>
+      <li>Hash responde igualdade em tempo constante, e é ótimo nisso</li>
+      <li>Mas não responde <code>WHERE id BETWEEN 10 AND 90</code></li>
+      <li>Também não entrega os dados em ordem</li>
+      <li>Árvore mantém ordem, e por isso é a estrutura padrão de índice</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>As três estruturas</h2>
-    <div class="cards cards-3" style="margin-top:0.5rem">
-      <div class="card"><h3>Frames</h3><p>Um vetor de posições em memória, cada uma do tamanho de uma página.</p></div>
-      <div class="card"><h3>Tabela de páginas</h3><p>Mapeia número da página para o frame em que ela está.</p></div>
-      <div class="card"><h3>Contador de fixação</h3><p>Quantos operadores estão usando aquela página agora. Página fixada não pode sair.</p></div>
-    </div>
+    <h2>A estrutura</h2>
+    <ul>
+      <li><span class='accent'>Nós internos</span> guardam apenas chaves e ponteiros, para guiar a descida</li>
+      <li><span class='accent'>Folhas</span> guardam as chaves e os RIDs, e são encadeadas entre si</li>
+      <li>Todas as folhas ficam na mesma profundidade, sempre</li>
+      <li>Cada nó ocupa exatamente uma página</li>
+    </ul>
+    <div class="definition"><p>O encadeamento das folhas é o que permite consulta por faixa lendo folha a folha.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Página suja</h2>
-    <div class="definition"><p>Página suja é a que foi alterada em memória e ainda não foi gravada no disco.</p></div>
+    <h2>A conta que justifica tudo</h2>
+    <pre>página de 4096 bytes, chave de 8, ponteiro de 8
+&rarr; cerca de 250 filhos por nó
+
+altura 1:        250 linhas
+altura 2:     62.500 linhas
+altura 3: 15.625.000 linhas</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Quinze milhões de linhas, três leituras de página. É por isso que a árvore é rasa e larga, e não profunda.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Inserção e divisão</h2>
     <ul>
-      <li>Escrever a cada alteração é lento</li>
-      <li>Não escrever nunca perde dados</li>
-      <li>A solução é escrever quando a página sai do cache, ou quando o log manda</li>
-      <li><span class='accent'>Guardem esta ideia:</span> é a página suja que torna o <code>kill -9</code> interessante</li>
+      <li>Desça até a folha correta, e insira em ordem</li>
+      <li>Se a folha tem espaço, acabou</li>
+      <li>Se não tem, <span class='highlight'>divida</span>: metade das chaves fica, metade vai para uma folha nova</li>
+      <li>A chave do meio sobe para o pai. Se o pai encher, ele também divide</li>
+      <li>Se a raiz dividir, a árvore ganha um nível</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Substituição</h2>
+    <h2>O que não vamos implementar</h2>
+    <div class="definition"><p>Remoção, com fusão e redistribuição de nós.</p></div>
     <ul>
-      <li>Quando o cache enche, alguém precisa sair</li>
-      <li><span class='accent'>LRU:</span> sai quem foi usado há mais tempo</li>
-      <li>Problema conhecido: uma varredura sequencial passa por todas as páginas uma vez e expulsa tudo que era útil</li>
-      <li>Bancos reais usam CLOCK ou LRU-K por causa disso. No minidb, LRU basta</li>
+      <li>É a parte mais difícil da estrutura, e a que mais gera casos de borda</li>
+      <li>O critério de pronto do semestre só faz <code>INSERT</code> e <code>SELECT</code></li>
+      <li>Nos testes de aceitação não há <code>DELETE</code></li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M2, o cache de páginas</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M3, busca e inserção na árvore. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Árvore B+ com no máximo 3 chaves por nó. Insira, nesta ordem: 10, 20, 5, 30, 25, 40, 15.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Desenhe a árvore depois de <strong>cada</strong> divisão de nó, e não apenas o resultado final</li>
+      <li><span class='accent'>2.</span> Qual a altura ao fim, e quantas páginas uma busca por 25 precisa ler?</li>
+      <li><span class='accent'>3.</span> Qual chave ficou na raiz, e por que foi ela e não outra?</li>
+      <li><span class='accent'>4.</span> Com cerca de 250 filhos por nó, quantas linhas cabem em uma árvore de altura 4?</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 1 é o que importa: quem desenha as divisões uma vez erra menos no código do M3, que é o módulo mais caro do semestre.</p>
   </div>
 </div>
 

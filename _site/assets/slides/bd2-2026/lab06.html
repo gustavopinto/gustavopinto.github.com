@@ -313,8 +313,18 @@
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Entreguem, e sigam para o próximo módulo</p>
+    <p style="font-size:2rem;margin-top:1.5rem">E, antes de sair, o exercício desta aula</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de saída</h2>
+    <div class="question"><p>Antes de sair, verifiquem o rollback fora dos testes.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Abra uma transação e altere duas linhas em páginas diferentes</li>
+      <li><span class='accent'>2.</span> Dê <code>ROLLBACK</code> e feche o banco</li>
+      <li><span class='accent'>3.</span> Compare o arquivo com uma cópia feita antes da transação, byte a byte, com <code>cmp</code> ou <code>diff</code></li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Os testes de aceitação olham o resultado do <code>SELECT</code>. A comparação byte a byte olha o arquivo, e pega o caso em que o dado voltou mas o cabeçalho da página não.</p>
   </div>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 5 &mdash; Banco de Dados II</title>
+  <title>Aula 4 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,7 +264,7 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 5<br><span class="accent">Parser e catálogo</span></h1>
+    <h1>Aula 4<br><span class="accent">Parser e catálogo</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -321,8 +321,19 @@ cursor.execute("SELECT * FROM aluno WHERE nome = %s", (nome,))</pre>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M4, tokenizador e parser</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M4, tokenizador e parser. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Considere a consulta <code>SELECT nome FROM aluno WHERE id = 42</code>.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Liste os tokens que o tokenizador produz, com o tipo de cada um</li>
+      <li><span class='accent'>2.</span> Desenhe a árvore sintática que a gramática do minidb monta para ela</li>
+      <li><span class='accent'>3.</span> Diga em qual etapa cada erro aparece, entre tokenizador, análise sintática e análise semântica: <code>WHERE id == 42</code>, <code>SELECT * FROM WHERE id = 42</code>, e <code>SELECT idade FROM aluno</code></li>
+      <li><span class='accent'>4.</span> Escreva a entrada de catálogo da tabela <code>aluno</code>, com o que o executor vai precisar consultar</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 3 é a aula de segurança em forma de exercício: separar as três etapas é o que distingue comando de dado.</p>
   </div>
 </div>
 

@@ -264,69 +264,85 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 7<br><span class="accent">Transações</span></h1>
+    <h1>Aula 7<br><span class="accent">Recuperação</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>3 de novembro de 2026</strong></span>
+      <span>&#128197; <strong>12 de novembro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O problema</h2>
-    <div class="question"><p>Transferência entre duas contas: debita uma, credita a outra. A máquina cai no meio. E agora?</p></div>
-    <ul>
-      <li>Sem transação, o dinheiro desaparece</li>
-      <li>A transação é a promessa de que as duas operações valem juntas, ou nenhuma vale</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>ACID</h2>
-    <div class="cards cards-4" style="margin-top:0.5rem">
-      <div class="card"><h3>Atomicidade</h3><p>Tudo ou nada. É o módulo M6.</p><p class="note">log e desfazer</p></div>
-      <div class="card"><h3>Consistência</h3><p>As restrições continuam válidas depois.</p><p class="note">restrições e aplicação</p></div>
-      <div class="card"><h3>Isolamento</h3><p>Transações simultâneas não se atrapalham.</p><p class="note">não implementamos, vira seminário</p></div>
-      <div class="card"><h3>Durabilidade</h3><p>O que foi confirmado sobrevive à queda.</p><p class="note">é o módulo M7</p></div>
+    <h2>Três tipos de falha</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>De transação</h3><p>O comando falha, ou o usuário pede rollback. Resolvido no M6.</p></div>
+      <div class="card"><h3>De sistema</h3><p>A máquina cai. A memória some, o disco fica. É o M7.</p><p class="note">kill -9</p></div>
+      <div class="card"><h3>De mídia</h3><p>O disco morre. Só backup e replicação resolvem.</p><p class="note">fora do escopo</p></div>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O log</h2>
-    <div class="definition"><p>Antes de alterar qualquer dado, o minidb escreve no log um registro dizendo o que vai mudar, com o valor antes e o valor depois.</p></div>
-    <pre>&lt;T1, INICIO&gt;
-&lt;T1, aluno, pagina 3, slot 7, antes=100, depois=250&gt;
-&lt;T1, aluno, pagina 9, slot 2, antes=500, depois=350&gt;
-&lt;T1, COMMIT&gt;</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">O valor antes serve para desfazer. O valor depois serve para refazer, no módulo M7.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>ROLLBACK</h2>
+    <h2>A regra</h2>
+    <div class="definition"><p>Escreva no log, e force o log para o disco, <strong>antes</strong> de escrever a página de dados. Em inglês, <em>write-ahead logging</em>.</p></div>
     <ul>
-      <li>Percorre o log da transação de trás para frente</li>
-      <li>Para cada registro, restaura o valor antes</li>
-      <li>Escreve <code>&lt;T1, ABORTADA&gt;</code> no fim</li>
-      <li>É barato porque os dados provavelmente ainda estão no cache de páginas</li>
+      <li>Se a página foi gravada e o log não, não há como saber o que desfazer</li>
+      <li>Se o log foi gravado e a página não, dá para refazer</li>
+      <li>A ordem é a única coisa que separa um banco confiável de um arquivo</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>COMMIT</h2>
+    <h2>O que acontece na partida</h2>
     <ul>
-      <li>Escreve <code>&lt;T1, COMMIT&gt;</code> no log</li>
-      <li>E <span class='highlight'>força o log para o disco</span>, com <code>fsync</code></li>
-      <li>É o <code>fsync</code> que custa caro, porque espera o disco de verdade confirmar</li>
-      <li>Sem ele, a transação está confirmada só na memória, e a queda leva tudo</li>
+      <li><span class='accent'>Passagem 1, refazer.</span> Lê o log do começo ao fim e reaplica tudo, inclusive o que já estava no disco</li>
+      <li><span class='accent'>Passagem 2, desfazer.</span> Volta pelo log desfazendo as transações que não têm <code>COMMIT</code></li>
+      <li>Ao fim, o banco contém exatamente as transações confirmadas</li>
     </ul>
-    <div class="definition"><p>Este é o ponto exato em que o commit passa a valer. Antes do fsync, não aconteceu.</p></div>
+    <div class="definition"><p>Refazer precisa ser idempotente: aplicar duas vezes tem que dar o mesmo resultado que aplicar uma.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Por que refazer o que já está no disco?</h2>
+    <div class="question"><p>Não seria mais rápido refazer só o necessário?</p></div>
+    <ul>
+      <li>Seria, e é o que os bancos reais fazem</li>
+      <li>Para isso é preciso saber qual versão do log cada página já reflete</li>
+      <li>Isso é o número de sequência de log, a tabela de páginas sujas e o checkpoint</li>
+      <li>Nós lemos o log inteiro. Mais lento, e muito mais fácil de entender</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O critério de pronto, enfim</h2>
+    <div class="definition"><p>Um <code>SELECT</code> com <code>WHERE</code>, dentro de uma transação, e o banco volta consistente depois do <code>kill -9</code> no meio do commit.</p></div>
+    <ul>
+      <li>Se o <code>kill</code> vier antes do <code>fsync</code> do commit: a transação não aconteceu</li>
+      <li>Se vier depois: a transação aconteceu, e o refazer a reconstrói</li>
+      <li>Não existe meio termo. É isso que os testes de aceitação verificam</li>
+    </ul>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M6, o log e o rollback</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M7, e o kill -9. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <pre>&lt;T1, INICIO&gt;
+&lt;T1, conta, pagina 3, slot 7, antes=100, depois=250&gt;
+&lt;T2, INICIO&gt;
+&lt;T2, conta, pagina 3, slot 2, antes=500, depois=350&gt;
+&lt;T1, COMMIT&gt;
+&lt;T2, conta, pagina 9, slot 1, antes=0, depois=80&gt;</pre>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Quais registros a passagem de refazer aplica?</li>
+      <li><span class='accent'>2.</span> Quais a passagem de desfazer reverte, e nessa ordem?</li>
+      <li><span class='accent'>3.</span> Qual o valor final de cada slot depois da recuperação?</li>
+      <li><span class='accent'>4.</span> Mostre, registro a registro, por que rodar o refazer duas vezes dá o mesmo resultado que rodar uma</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 4 é a idempotência do refazer. É a propriedade que permite ler o log inteiro na partida sem precisar de checkpoint.</p>
   </div>
 </div>
 

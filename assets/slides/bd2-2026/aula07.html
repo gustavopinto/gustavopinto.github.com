@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 8 &mdash; Banco de Dados II</title>
+  <title>Aula 7 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,7 +264,7 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 8<br><span class="accent">Recuperação</span></h1>
+    <h1>Aula 7<br><span class="accent">Recuperação</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -325,8 +325,24 @@
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M7, e o kill -9</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M7, e o kill -9. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <pre>&lt;T1, INICIO&gt;
+&lt;T1, conta, pagina 3, slot 7, antes=100, depois=250&gt;
+&lt;T2, INICIO&gt;
+&lt;T2, conta, pagina 3, slot 2, antes=500, depois=350&gt;
+&lt;T1, COMMIT&gt;
+&lt;T2, conta, pagina 9, slot 1, antes=0, depois=80&gt;</pre>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Quais registros a passagem de refazer aplica?</li>
+      <li><span class='accent'>2.</span> Quais a passagem de desfazer reverte, e nessa ordem?</li>
+      <li><span class='accent'>3.</span> Qual o valor final de cada slot depois da recuperação?</li>
+      <li><span class='accent'>4.</span> Mostre, registro a registro, por que rodar o refazer duas vezes dá o mesmo resultado que rodar uma</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 4 é a idempotência do refazer. É a propriedade que permite ler o log inteiro na partida sem precisar de checkpoint.</p>
   </div>
 </div>
 

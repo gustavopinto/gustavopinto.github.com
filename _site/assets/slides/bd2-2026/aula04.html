@@ -264,82 +264,76 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 4<br><span class="accent">Árvore B+</span></h1>
+    <h1>Aula 4<br><span class="accent">Parser e catálogo</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>13 de outubro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O problema</h2>
-    <div class="question"><p>Tabela com 10 milhões de linhas. <code>SELECT * FROM aluno WHERE id = 42</code>. Quantas páginas você lê?</p></div>
+    <h2>O caminho de uma consulta</h2>
+    <div class="levels">
+      <div class="level level-v"><div class="level-icon">1</div><div class="level-text"><h4>Tokenizador</h4><p>Quebra o texto em palavras com significado: SELECT, identificador, número</p></div></div>
+      <div class="level level-c"><div class="level-icon">2</div><div class="level-text"><h4>Analisador sintático</h4><p>Monta a árvore, verificando se a ordem das palavras faz sentido</p></div></div>
+      <div class="level level-f"><div class="level-icon">3</div><div class="level-text"><h4>Análise semântica</h4><p>A tabela existe? A coluna existe? O tipo bate? Isso vem do catálogo</p></div></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A gramática do minidb</h2>
+    <pre>comando  := create | insert | select
+create   := CREATE TABLE nome ( coluna+ )
+insert   := INSERT INTO nome VALUES ( valor+ )
+select   := SELECT lista FROM nome [ WHERE coluna = valor ]</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Só isso. Sem junção, sem <code>ORDER BY</code>, sem agregação, sem subconsulta. É o suficiente para o critério de pronto.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O catálogo</h2>
+    <div class="definition"><p>Catálogo é o conjunto de tabelas em que o banco guarda a descrição das outras tabelas.</p></div>
     <ul>
-      <li>Sem índice, todas. É a varredura sequencial do M5</li>
-      <li>Com índice, três ou quatro</li>
-      <li>Essa diferença é o motivo de o módulo M3 existir</li>
+      <li>Quais tabelas existem, com quais colunas, de quais tipos</li>
+      <li>Em que página começa cada tabela, e quais índices existem</li>
+      <li>Um banco de verdade guarda isso em tabelas comuns, consultáveis com SQL</li>
+      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code></li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que não uma tabela hash?</h2>
-    <ul>
-      <li>Hash responde igualdade em tempo constante, e é ótimo nisso</li>
-      <li>Mas não responde <code>WHERE id BETWEEN 10 AND 90</code></li>
-      <li>Também não entrega os dados em ordem</li>
-      <li>Árvore mantém ordem, e por isso é a estrutura padrão de índice</li>
-    </ul>
+    <h2>Injeção de SQL</h2>
+    <div class="question"><p>Por que concatenar string quebra, e parâmetro não?</p></div>
+    <pre><span class="cmt"># concatenação: o texto do usuário vira gramática</span>
+sql = "SELECT * FROM aluno WHERE nome = '" + nome + "'"
+<span class="cmt"># nome = "x' OR '1'='1"  &rarr;  a condição sempre é verdadeira</span>
+
+<span class="cmt"># parâmetro: o texto do usuário nunca passa pelo parser</span>
+cursor.execute("SELECT * FROM aluno WHERE nome = %s", (nome,))</pre>
   </div>
 
   <div class="slide slide-content">
-    <h2>A estrutura</h2>
-    <ul>
-      <li><span class='accent'>Nós internos</span> guardam apenas chaves e ponteiros, para guiar a descida</li>
-      <li><span class='accent'>Folhas</span> guardam as chaves e os RIDs, e são encadeadas entre si</li>
-      <li>Todas as folhas ficam na mesma profundidade, sempre</li>
-      <li>Cada nó ocupa exatamente uma página</li>
-    </ul>
-    <div class="definition"><p>O encadeamento das folhas é o que permite consulta por faixa lendo folha a folha.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A conta que justifica tudo</h2>
-    <pre>página de 4096 bytes, chave de 8, ponteiro de 8
-&rarr; cerca de 250 filhos por nó
-
-altura 1:        250 linhas
-altura 2:     62.500 linhas
-altura 3: 15.625.000 linhas</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Quinze milhões de linhas, três leituras de página. É por isso que a árvore é rasa e larga, e não profunda.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Inserção e divisão</h2>
-    <ul>
-      <li>Desça até a folha correta, e insira em ordem</li>
-      <li>Se a folha tem espaço, acabou</li>
-      <li>Se não tem, <span class='highlight'>divida</span>: metade das chaves fica, metade vai para uma folha nova</li>
-      <li>A chave do meio sobe para o pai. Se o pai encher, ele também divide</li>
-      <li>Se a raiz dividir, a árvore ganha um nível</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O que não vamos implementar</h2>
-    <div class="definition"><p>Remoção, com fusão e redistribuição de nós.</p></div>
-    <ul>
-      <li>É a parte mais difícil da estrutura, e a que mais gera casos de borda</li>
-      <li>O critério de pronto do semestre só faz <code>INSERT</code> e <code>SELECT</code></li>
-      <li>Nos testes de aceitação não há <code>DELETE</code></li>
-    </ul>
+    <h2>A lição do módulo</h2>
+    <div class="definition"><p>O parser decide o que é comando e o que é dado. Concatenar string apaga essa fronteira, e é por isso que a injeção existe.</p></div>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Quem implementou um parser não esquece mais essa distinção. É o motivo de segurança ser ensinada aqui, e não numa aula separada.</p>
   </div>
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M3, busca e inserção na árvore</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M4, tokenizador e parser. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Considere a consulta <code>SELECT nome FROM aluno WHERE id = 42</code>.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Liste os tokens que o tokenizador produz, com o tipo de cada um</li>
+      <li><span class='accent'>2.</span> Desenhe a árvore sintática que a gramática do minidb monta para ela</li>
+      <li><span class='accent'>3.</span> Diga em qual etapa cada erro aparece, entre tokenizador, análise sintática e análise semântica: <code>WHERE id == 42</code>, <code>SELECT * FROM WHERE id = 42</code>, e <code>SELECT idade FROM aluno</code></li>
+      <li><span class='accent'>4.</span> Escreva a entrada de catálogo da tabela <code>aluno</code>, com o que o executor vai precisar consultar</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 3 é a aula de segurança em forma de exercício: separar as três etapas é o que distingue comando de dado.</p>
   </div>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 6 &mdash; Banco de Dados II</title>
+  <title>Aula 5 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,7 +264,7 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 6<br><span class="accent">Executor</span></h1>
+    <h1>Aula 5<br><span class="accent">Executor</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -326,8 +326,19 @@ senão:
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M5, os operadores</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M5, os operadores. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Tabela com 100.000 linhas, 50 linhas por página, índice na coluna <code>id</code> com árvore de altura 3. Cada linha achada pelo índice custa a leitura de uma página de dados.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Quantas páginas a varredura sequencial lê, e por que esse número não depende do filtro?</li>
+      <li><span class='accent'>2.</span> Quantas páginas a varredura por índice lê para um <code>WHERE</code> que devolve 10 linhas?</li>
+      <li><span class='accent'>3.</span> A partir de quantas linhas devolvidas a varredura sequencial passa a custar menos?</li>
+      <li><span class='accent'>4.</span> A regra do minidb acerta ou erra nesse ponto de virada? Diga o que ela deixa de considerar</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 4 é o que separa a nossa regra de três linhas de um otimizador. Vale como preparo para o seminário de otimização baseada em custo.</p>
   </div>
 </div>
 

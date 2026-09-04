@@ -416,15 +416,14 @@ SELECT * FROM aluno WHERE id = 1;
 <h2 id="avaliação">Avaliação</h2>
 
 <ol>
-  <li>Módulos M1 a M7: 60 pontos</li>
+  <li>Módulos M1 a M7: 70 pontos</li>
   <li>Defesa oral individual do código: 20 pontos</li>
   <li>Seminário: 10 pontos</li>
-  <li>Relatório final e apresentação: 10 pontos</li>
 </ol>
 
-<h2 id="módulos-60-pontos">Módulos (60 pontos)</h2>
+<h2 id="módulos-70-pontos">Módulos (70 pontos)</h2>
 
-<p>Entrega por pull request no fork da dupla, até as 23h59 da data indicada. M3 e M7 valem 10 pontos cada, por serem os dois mais difíceis; os outros cinco valem 8.</p>
+<p>Entrega por pull request no fork da dupla, até as 23h59 da data indicada. Cada um dos sete módulos vale 10 pontos.</p>
 
 <p>A nota de cada módulo se divide em: metade pelos testes de aceitação que passam, um terço pela qualidade do código e do histórico de commits, e o restante pelo <code class="language-plaintext highlighter-rouge">NOTES.md</code>.</p>
 
@@ -455,12 +454,6 @@ SELECT * FROM aluno WHERE id = 1;
 
 <p>Quem apresenta lendo material de consulta recebe zero.</p>
 
-<h2 id="relatório-final-e-apresentação-10-pontos">Relatório final e apresentação (10 pontos)</h2>
-
-<p>Relatório de 3 a 4 páginas respondendo a três perguntas: como o <code class="language-plaintext highlighter-rouge">minidb</code> de vocês está organizado, qual decisão de projeto vocês tomaram diferente do que o livro sugere e por quê, e o que fariam diferente recomeçando.</p>
-
-<p>A apresentação é de 10 minutos em 10/12, e o centro dela é a demonstração ao vivo do critério de pronto: a consulta com índice, dentro da transação, e o <code class="language-plaintext highlighter-rouge">kill -9</code>. Ensaiem.</p>
-
 <h2 id="cronograma">Cronograma</h2>
 
 <p>Passível de alterações. Verificar o calendário acadêmico oficial da UFPA para feriados estaduais e municipais.</p>
@@ -476,16 +469,16 @@ SELECT * FROM aluno WHERE id = 1;
   </thead>
   <tbody>
     <tr>
-      <td>T0</td>
+      <td>—</td>
       <td>01/09</td>
       <td>Ter</td>
-      <td><a href="/assets/slides/bd2-2026/aula01.html">Apresentação. A anatomia de um SGBD, o critério de pronto e o que não vamos construir</a></td>
+      <td><strong>Sem aula</strong></td>
     </tr>
     <tr>
       <td>T1</td>
       <td>03/09</td>
       <td>Qui</td>
-      <td><strong>Armazenamento:</strong> por que a página é a unidade, registro de tamanho fixo, heap file</td>
+      <td><a href="/assets/slides/bd2-2026/aula01.html">Apresentação e <strong>armazenamento:</strong> o critério de pronto, o que não vamos construir, e por que a página é a unidade</a></td>
     </tr>
     <tr>
       <td>—</td>
@@ -682,6 +675,7 @@ SELECT * FROM aluno WHERE id = 1;
 
 <ul>
   <li>Criar o repositório da dupla, escolher a linguagem, rodar o script de testes e enviar a saída, que deve mostrar todos os testes falhando.</li>
+  <li>O exercício da aula de 03/09: <code class="language-plaintext highlighter-rouge">le_pagina</code> e <code class="language-plaintext highlighter-rouge">escreve_pagina</code> funcionando, um registro gravado no slot 0 da página 2 e lido de volta depois de reabrir o arquivo, com o deslocamento em bytes anotado no <code class="language-plaintext highlighter-rouge">NOTES.md</code>.</li>
   <li>Responder em um parágrafo: por que o SGBD gerencia as próprias páginas em vez de deixar isso para o sistema operacional?</li>
 </ul>
 

@@ -252,6 +252,21 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 78vh; }
   </style>
 </head>
 <body>
@@ -267,7 +282,7 @@
 
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
-    <h1>Aula 2<br><span class="accent">Como funciona por dentro</span></h1>
+    <h1>Aula 2<br><span class="accent">Agentes</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -277,71 +292,259 @@
   </div>
 
   <div class="slide slide-content">
-    <h2>O modelo escreve texto. Tudo o mais é o harness</h2>
-    <div class="definition"><p>Harness é a camada de software em volta do modelo: escolhe as ferramentas, monta o prompt, gerencia o contexto, guarda o estado e decide quando parar.</p></div>
-    <ul>
-      <li>Claude Code, Cursor, Codex e OpenHands usam modelos parecidos e harnesses diferentes</li>
-      <li>Quando a ferramenta erra, muitas vezes o modelo não teve culpa</li>
-    </ul>
+    <h2>O que é um agente</h2>
+    <div class="definition"><p>Um agente recebe um objetivo, decide sozinho quais ações tomar, executa essas ações com ferramentas, e repete até concluir.</p></div>
+    <div class="fig-grid">
+      <img src="/assets/slides/dsai-2026/img/agente-1.jpg" alt="O mordomo Alfred se apresenta no portao da mansao">
+      <img src="/assets/slides/dsai-2026/img/agente-2.jpg" alt="Alguem pede um cafe a Alfred">
+      <img src="/assets/slides/dsai-2026/img/agente-3.jpg" alt="Alfred raciocina e planeja diante da caixa de ferramentas">
+      <img src="/assets/slides/dsai-2026/img/agente-4.jpg" alt="Alfred executa o plano na cozinha">
+    </div>
+    <p class="fonte">Ninguém disse a ele qual botão apertar. O pedido é o objetivo, e não a instrução. huggingface.co/learn/agents-course</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>As quatro camadas do harness</h2>
-    <ul>
-      <li><span class='accent'>Execução e orquestração:</span> o laço que decide a próxima ação</li>
-      <li><span class='accent'>Contexto e trajetória:</span> o que entra no prompt, o que é resumido, o que é descartado</li>
-      <li><span class='accent'>Interface de execução:</span> quais ferramentas existem e o que elas devolvem</li>
-      <li><span class='accent'>Guardrails:</span> o que exige aprovação e o que é proibido</li>
-    </ul>
+    <h2>LLMs e agentes</h2>
+    <svg viewBox="0 0 980 490" style="width:100%;max-height:60vh" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Comparacao entre o fluxo de um LLM puro e o fluxo de um agente">
+      <defs>
+        <marker id="s1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+        </marker>
+      </defs>
+      <line x1="490" y1="20" x2="490" y2="470" stroke="#cbd5e1" stroke-width="2"/>
+      <text x="230" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0369a1">LLM puro</text>
+      <text x="740" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#92400e">Agente</text>
+
+      <rect x="60" y="80" width="340" height="60" rx="6" fill="#f1f5f9"/>
+      <rect x="60" y="80" width="12" height="60" fill="#0369a1"/>
+      <text x="240" y="117" text-anchor="middle" font-size="17" fill="#0f172a">Recebe o prompt do usuário</text>
+      <rect x="60" y="180" width="340" height="60" rx="6" fill="#f1f5f9"/>
+      <rect x="60" y="180" width="12" height="60" fill="#0369a1"/>
+      <text x="240" y="217" text-anchor="middle" font-size="17" fill="#0f172a">Processa e gera o texto</text>
+      <rect x="60" y="280" width="340" height="60" rx="6" fill="#f1f5f9"/>
+      <rect x="60" y="280" width="12" height="60" fill="#0369a1"/>
+      <text x="240" y="317" text-anchor="middle" font-size="17" fill="#0f172a">Entrega a resposta final</text>
+      <rect x="60" y="380" width="340" height="50" rx="6" fill="#e2e8f0"/>
+      <rect x="60" y="380" width="12" height="50" fill="#94a3b8"/>
+      <text x="240" y="411" text-anchor="middle" font-size="17" fill="#64748b">Fim</text>
+      <line x1="230" y1="142" x2="230" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <line x1="230" y1="242" x2="230" y2="276" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <line x1="230" y1="342" x2="230" y2="376" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+
+      <rect x="580" y="70" width="340" height="56" rx="6" fill="#f1f5f9"/>
+      <rect x="580" y="70" width="12" height="56" fill="#92400e"/>
+      <text x="760" y="104" text-anchor="middle" font-size="17" fill="#0f172a">Recebe o <tspan fill="#92400e" font-weight="700">objetivo</tspan></text>
+      <rect x="580" y="154" width="340" height="56" rx="6" fill="#f1f5f9"/>
+      <rect x="580" y="154" width="12" height="56" fill="#92400e"/>
+      <text x="760" y="188" text-anchor="middle" font-size="17" fill="#0f172a">Planeja a próxima ação</text>
+      <rect x="580" y="238" width="340" height="56" rx="6" fill="#f1f5f9"/>
+      <rect x="580" y="238" width="12" height="56" fill="#92400e"/>
+      <text x="760" y="272" text-anchor="middle" font-size="17" fill="#0f172a">Usa as ferramentas</text>
+      <rect x="580" y="322" width="340" height="56" rx="6" fill="#f1f5f9"/>
+      <rect x="580" y="322" width="12" height="56" fill="#92400e"/>
+      <text x="760" y="356" text-anchor="middle" font-size="17" fill="#0f172a">Observa o resultado</text>
+      <rect x="580" y="420" width="340" height="50" rx="6" fill="#e2e8f0"/>
+      <rect x="580" y="420" width="12" height="50" fill="#94a3b8"/>
+      <text x="760" y="451" text-anchor="middle" font-size="17" fill="#64748b">Fim</text>
+      <line x1="750" y1="128" x2="750" y2="150" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <line x1="750" y1="212" x2="750" y2="234" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <line x1="750" y1="296" x2="750" y2="318" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <line x1="750" y1="380" x2="750" y2="416" stroke="#475569" stroke-width="2" marker-end="url(#s1)"/>
+      <text x="766" y="404" font-size="14" fill="#92400e" font-weight="700">itera até concluir</text>
+    </svg>
   </div>
 
   <div class="slide slide-content">
-    <h2>O laço, em uma frase</h2>
-    <div class="definition"><p>O agente recebe um pedido, escolhe uma ferramenta, executa, lê o resultado, e decide se continua ou para.</p></div>
-    <ul>
-      <li>Ele não enxerga seu projeto: lê o que a ferramenta devolve</li>
-      <li>Cada leitura de arquivo ocupa espaço na janela de contexto</li>
-      <li>O critério de parada é decisão de projeto, não mágica</li>
-    </ul>
+    <h2>Os componentes de um agente</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/componentes.jpg" alt="Diagrama do agente ligado a memoria, ferramentas, planejamento e acao"></figure>
+    <p style="font-size:1.35rem;margin-top:0.7rem">Memória, tools e planning. Três peças, e é a combinação delas que separa um agente de uma chamada de API.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>As capacidades, e onde elas acabam</h2>
-    <ul>
-      <li>Consegue: ler, editar, rodar comando, buscar, abrir a web</li>
-      <li><span class='highlight'>Erra</span> quando a biblioteca é pouco comum: inventa API que não existe</li>
-      <li><span class='highlight'>Piora</span> conforme a janela enche, e não de forma linear</li>
-      <li><span class='highlight'>Não sabe</span> o que a sua equipe combinou e não escreveu em lugar nenhum</li>
-    </ul>
+    <h2>Memória</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>In context, curto prazo</h3><p>Informação no prompt atual. Rápida e temporária, desaparece ao fim da requisição.</p></div>
+      <div class="card"><h3>Episódica</h3><p>Histórico de conversas e interações anteriores. Permite lembrar de usuários e preferências.</p></div>
+      <div class="card"><h3>Externa, longo prazo</h3><p>Banco vetorial ou SQL. Persistente entre sessões, recuperada por busca semântica.</p></div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.9rem">Quando o agente esquece o que combinaram há dez minutos, o problema quase sempre está aqui.</p>
+    <p style="font-size:1.3rem;margin-top:0.5rem;opacity:0.75">growthjockey.com/blogs/agentic-ai-memory</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>O achado que justifica a aula</h2>
-    <div class="question"><p>Trocando só o harness, mantendo o mesmo modelo, o que muda?</p></div>
-    <ul>
-      <li>Até <span class='highlight'>40 vezes</span> de diferença em tokens gastos por tarefa resolvida</li>
-      <li>E a taxa de acerto varia só de 0 a 8 pontos percentuais</li>
-      <li>O harness quase não muda <em>se</em> resolve, e muda muito <em>quanto custa</em> resolver</li>
+    <h2>Tools</h2>
+    <ul class="plain">
+      <li><span class='accent'>Extensão de capacidades.</span> As tools executam tarefas como busca na web, consulta ao banco de dados e execução de código</li>
+      <li><span class='accent'>Execução dinâmica.</span> O agente decide quando e como usar cada ferramenta</li>
     </ul>
-    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Vats e Golev, 2026, arXiv:2607.22585</p>
+    <figure><img src="/assets/slides/dsai-2026/img/tools-fluxo.jpg" alt="Fluxo: pedido do usuario, pensar e planejar, agir usando as tools" style="max-height:34vh"></figure>
+    <div class="definition" style="margin-top:0.9rem"><p>Sem tools, o LLM apenas <strong>fala sobre</strong> o mundo. Com tools, o LLM <strong>age no</strong> mundo.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Para levar</h2>
+    <h2>Planning</h2>
     <ul>
-      <li>Escolher ferramenta é escolher harness, e o projeto vai pedir essa justificativa</li>
-      <li>Meçam tokens por tarefa desde já</li>
-      <li>Quando algo der errado, perguntem antes: foi o modelo ou foi o harness?</li>
+      <li><span class='accent'>Decomposição em submetas.</span> Quebrar o objetivo em passos que cabem em uma ação</li>
+      <li><span class='accent'>Raciocínio em cadeia.</span> Escrever o raciocínio antes de agir, e usar esse texto como parte do contexto</li>
+      <li><span class='accent'>Reflexão e autocrítica.</span> Olhar o resultado da própria ação e decidir se refaz</li>
     </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O planejamento não é um módulo separado. Ele acontece dentro do mesmo texto que o modelo gera.</p>
   </div>
 
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: engenharia de contexto e decomposição de tarefas</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  <div class="slide slide-content">
+    <h2>O laço agêntico</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/laco-agentico.png" alt="START, laco agentico com Reason, Act e Observe, e END"></figure>
+    <p class="fonte">developers.openai.com/api/docs/guides/function-calling</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Duas regras que valem para qualquer agente</h2>
+    <div class="definition"><p>O modelo pede a chamada, e quem executa é você. O modelo nunca roda código.</p></div>
+    <div class="definition"><p>A tool é escolhida pela descrição. Descrição ruim significa tool ignorada.</p></div>
+    <p style="font-size:1.4rem;margin-top:0.8rem">A segunda regra é a que mais custa caro na prática, e é a que vocês vão testar no exercício de hoje.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>O laço em código: a configuração</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-config.jpg" alt="Configuracao do agente: MODEL, PERGUNTA, MAX_PASSOS, SYSTEM e as funcoes"></figure>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Por que um limite de passos?</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-maxpassos.jpg" alt="A linha MAX_PASSOS = 6 destacada no codigo de configuracao"></figure>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>A declaração das tools</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-tools.jpg" alt="Lista TOOLS no formato de function calling, com name, description e parameters"></figure>
+    <p class="fonte">O <code>description</code> não é comentário. É a única coisa que o modelo lê para decidir se chama essa função.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>O laço: reason</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-reason.jpg" alt="Laco com ollama.chat recebendo messages e tools, marcado como REASON"></figure>
+    <p class="fonte">Uma chamada ao modelo, com o histórico inteiro e a lista de tools. A resposta entra no histórico.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>O laço: a saída</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-saida.jpg" alt="Condicao de parada: se nao ha tool_calls, imprime e retorna"></figure>
+    <p class="fonte">O critério de parada: o modelo respondeu sem pedir nenhuma ferramenta. Foi ele que decidiu que terminou.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>O laço: act</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-act.jpg" alt="Execucao das tool_calls com FUNCS[nome](**args), marcado como ACT"></figure>
+    <p class="fonte">O modelo devolveu o nome e os argumentos, em texto. Quem chama a função de verdade é o nosso código, na linha do <code>FUNCS[nome]</code>.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A qualidade da tool é parte do agente</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/tool-manifest.jpg" alt="Manifesto de tools: read, edit e shell, com um exemplo de especificacao"></figure>
+    <p style="font-size:1.35rem;margin-top:0.7rem">Ler antes de editar, substituir trecho em vez do arquivo inteiro, e camadas de proteção no shell. Nenhuma dessas decisões é sobre o modelo.</p>
+    <p class="fonte">arxiv.org/abs/2604.09805 &middot; gustavopinto.org/assets/slides/semla-2026/</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Escrever o JSON na mão cansa</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-decorador.jpg" alt="Decorador @tool usando inspect para gerar o esquema a partir da assinatura e da docstring"></figure>
+    <p class="fonte">A assinatura vira o esquema, e a docstring vira a descrição. É esse truque que os frameworks empacotam.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Frameworks agênticos</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/frameworks.jpg" alt="Logos de LangChain, LangGraph, LlamaIndex, Agno, CrewAI, AutoGen e smolagents"></figure>
+    <p style="font-size:1.35rem;margin-top:0.7rem">Todos empacotam o mesmo laço. O <span class='accent'>smolagents</span>, da Hugging Face, é o menor deles, e por isso é o que deixa o laço mais visível.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>smolagents: declarar a tool</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-smol-tool.jpg" alt="Decorador @tool do smolagents com docstring e secao Args"></figure>
+    <p class="fonte">A docstring com a seção <code>Args</code> é o que vira o esquema. huggingface.co/docs/smolagents/en/guided_tour</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>smolagents: rodar o agente</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-smol-agent.jpg" alt="CodeAgent recebendo tools e model, e agent.run com a pergunta"></figure>
+    <p class="fonte">Três linhas escondem o laço inteiro que escrevemos à mão. huggingface.co/docs/smolagents/en/guided_tour</p>
+  </div>
+
+  <div class="slide slide-cover frase">
+    <h1>Qual o problema<br>das tools?</h1>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Cada modelo, cada ferramenta, uma integração</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/mcp-mxn.jpg" alt="M vezes N integracoes personalizadas, e o MCP como protocolo unico"></figure>
+    <p style="font-size:1.35rem;margin-top:0.6rem">Com MCP, cada lado implementa uma vez. Passa de M &times; N para M + N.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>MCP, as três capacidades</h2>
+    <ul class="plain">
+      <li><span class='accent'>Tools.</span> Funções que realizam ações ou obtêm dados</li>
+      <li><span class='accent'>Resources.</span> Fontes de dados para fornecer contexto, como documentação</li>
+      <li><span class='accent'>Prompts.</span> Fluxos de trabalho pré-definidos, oferecidos pelo servidor</li>
+    </ul>
+    <div class="fig-2" style="margin-top:0.8rem">
+      <img src="/assets/slides/dsai-2026/img/mcp-capacidades.png" alt="MCP ligando o LLM a tool, resource e prompt">
+      <img src="/assets/slides/dsai-2026/img/mcp-cliente-servidor.png" alt="Cliente e servidor trocando request, response e notification">
+    </div>
+    <p class="fonte">Cliente e servidor conversam por JSON-RPC 2.0. É protocolo, e não biblioteca.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A arquitetura</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/mcp-arquitetura.jpg" alt="Aplicacao de IA falando com um registro de servidores MCP" style="max-height:50vh"></figure>
+    <p style="font-size:1.3rem;margin-top:0.6rem">A aplicação hospeda o LLM, o <span class='accent'>MCP Client</span> traduz os pedidos, e os <span class='accent'>MCP Servers</span> expõem as ferramentas por stdio, HTTP ou SSE. Trocar de host não obriga a reescrever os servidores.</p>
+    <p class="fonte">arxiv.org/abs/2506.13538</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O ciclo de vida da requisição</h2>
+    <ul>
+      <li><span class='accent'>Inicialização.</span> <code>initialize</code>, resposta, <code>initialized</code>. Cliente e servidor negociam o que cada um suporta</li>
+      <li><span class='accent'>Discovery.</span> <code>tools/list</code>. O cliente descobre em tempo de execução o que existe</li>
+      <li><span class='accent'>Execution.</span> <code>tools/call</code>, notificações opcionais de progresso, resposta</li>
+      <li><span class='accent'>Termination.</span> <code>shutdown</code> e <code>exit</code></li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O <code>tools/list</code> é o que permite acrescentar uma ferramenta sem tocar no código do agente.</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Um servidor MCP: o setup</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-mcp-setup.jpg" alt="Import do FastMCP, criacao do servidor e o dicionario de dados"></figure>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Um servidor MCP: as tools</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-mcp-server.jpg" alt="Duas funcoes decoradas com mcp.tool e a chamada mcp.run por http"></figure>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Um cliente MCP</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/cod-mcp-client.jpg" alt="Cliente fastmcp listando tools e chamando call_tool"></figure>
+    <p class="fonte">O <code>list_tools()</code> descobre em tempo de execução o que o servidor oferece.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Onde encontrar MCPs prontos</h2>
+    <figure><img src="/assets/slides/dsai-2026/img/mcp-ecossistema.jpg" alt="Panorama de clientes MCP, servidores MCP e marketplaces"></figure>
+    <div class="definition" style="margin-top:0.7rem"><p>Instalar um servidor MCP é dar acesso ao seu ambiente. Voltamos a esse risco em 24/09.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício: construam o laço</h2>
+    <div class="question"><p>Um agente de verdade, em menos de cem linhas, e um experimento sobre a descrição da tool.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Escrevam duas tools em Python, uma sem parâmetro e outra com um parâmetro, cada uma com uma docstring que diga o que ela faz</li>
+      <li><span class='accent'>2.</span> Declarem as duas no formato de function calling e rodem o laço com <code>MAX_PASSOS</code>, usando Ollama local ou a API que a dupla já tem</li>
+      <li><span class='accent'>3.</span> Piorem de propósito a descrição de uma das tools, deixando algo vago como <code>"faz uma consulta"</code>, e rodem a mesma pergunta de novo</li>
+      <li><span class='accent'>4.</span> Registrem em <code>diario/2026-09-03.md</code> quantos passos o laço levou nos dois casos, e se o modelo ainda escolheu a ferramenta certa</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Commit no dia. Em 08 e 10/09 não há aula, por conta do <strong>CBSoft 2026</strong>.</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');

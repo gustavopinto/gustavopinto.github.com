@@ -314,8 +314,18 @@
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Entreguem, e sigam para o próximo módulo</p>
+    <p style="font-size:2rem;margin-top:1.5rem">E, antes de sair, o exercício desta aula</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de saída</h2>
+    <div class="question"><p>Antes de sair, o <code>kill -9</code> em três instantes diferentes.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Mate o processo antes do <code>fsync</code> do log, e registre o estado do banco na partida seguinte</li>
+      <li><span class='accent'>2.</span> Mate depois do <code>fsync</code> do log, mas antes de a página de dados ir para o disco</li>
+      <li><span class='accent'>3.</span> Mate depois de a página ir para o disco, e confira que o refazer não corrompe nada</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Os três casos são o critério de pronto do semestre. Se algum deles deixa o banco em um estado que não é nem antes nem depois da transação, o M7 ainda não terminou.</p>
   </div>
 </div>
 

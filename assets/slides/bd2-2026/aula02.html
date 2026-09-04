@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 3 &mdash; Banco de Dados II</title>
+  <title>Aula 2 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -264,7 +264,7 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 3<br><span class="accent">Cache de páginas</span></h1>
+    <h1>Aula 2<br><span class="accent">Cache de páginas</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -325,8 +325,19 @@
 
   <div class="slide slide-cover">
     <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M2, o cache de páginas</p>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M2, o cache de páginas. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Cache com 3 frames e política LRU. A sequência de acessos é 1, 2, 3, 1, 4, 2, 5, 1, 2, 3.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Marque cada acesso como acerto ou falta, e diga quantas faltas a sequência produz</li>
+      <li><span class='accent'>2.</span> Qual página está em cada frame ao fim da sequência?</li>
+      <li><span class='accent'>3.</span> As páginas 2 e 5 foram alteradas em memória. Quantas escritas em disco a sequência provoca, e em que momento cada uma acontece?</li>
+      <li><span class='accent'>4.</span> Refaça o item 1 com 4 frames. Quantas faltas a mais o terceiro frame estava custando?</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Tragam a conta resolvida para o laboratório de 24/09. O código do M2 fica bem mais curto depois que essa sequência estiver clara no papel.</p>
   </div>
 </div>
 

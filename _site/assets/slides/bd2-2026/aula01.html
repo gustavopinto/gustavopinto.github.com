@@ -264,13 +264,23 @@
 
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 1<br><span class="accent">Apresentação da Disciplina</span></h1>
+    <h1>Aula 1<br><span class="accent">Apresentação e Armazenamento</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>1 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>3 de setembro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Bem-vindos!</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">Não tivemos aula em 01/09, então hoje abrimos a disciplina e já entramos no primeiro tema.</p>
+    <ul>
+      <li><span class='accent'>Parte 1.</span> O que é a disciplina, o que vamos construir e como vocês são avaliados</li>
+      <li><span class='accent'>Parte 2.</span> Armazenamento: a página, o arquivo de dados e o registro</li>
+      <li>Fechamos escrevendo o primeiro código do minidb, que vocês levam para a semana do CBSoft</li>
+    </ul>
   </div>
 
   <div class="slide slide-content">
@@ -297,17 +307,21 @@
       <div class="level level-c"><div class="level-icon">&#127793;</div><div class="level-text"><h4>Índice e métodos de acesso</h4><p>Achar a linha sem varrer a tabela inteira</p></div></div>
       <div class="level level-f"><div class="level-icon">&#128190;</div><div class="level-text"><h4>Buffer e armazenamento</h4><p>Páginas em memória, páginas em disco, e o log</p></div></div>
     </div>
-    <p style="font-size:1.4rem;margin-top:1rem">Vamos construir de baixo para cima, porque cada camada depende da anterior.</p>
+    <p style="font-size:1.4rem;margin-top:1rem">Vamos construir de baixo para cima, porque cada camada depende da anterior. A camada de baixo começa hoje.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que o SGBD gerencia as próprias páginas?</h2>
-    <div class="question"><p>O sistema operacional já tem cache de arquivo. Por que não usar só ele?</p></div>
-    <ul>
-      <li>O SGBD sabe <span class='accent'>quando</span> uma página pode ir para o disco, e o sistema operacional não</li>
-      <li>Durabilidade exige controlar a ordem das escritas</li>
-      <li>O SGBD conhece o padrão de acesso da consulta e pode antecipar leituras</li>
-    </ul>
+    <h2>O minidb 0.0</h2>
+    <p style="font-size:1.5rem;margin-bottom:0.6rem">Cinquenta linhas de Python.</p>
+    <pre><span class="cmt">$ python3 hello.py dados.db &lt; demo.sql</span>
+CREATE TABLE aluno (id, matricula, nome);
+OK
+INSERT INTO aluno VALUES (1, 20260001, Ana);
+OK 1
+SELECT * FROM aluno WHERE id = 2;
+2|20260002|Bruno
+(1 linha)</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Cria tabela, insere, filtra e guarda em disco. É um banco de dados, e é também lento, esquecido e frágil. Consertar cada um desses defeitos é um módulo do semestre.</p>
   </div>
 
   <div class="slide slide-content">
@@ -334,16 +348,7 @@
       <li>Concorrência: bloqueios, isolamento, deadlock</li>
       <li>Checkpoint, número de sequência de log e ARIES completo</li>
     </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>E como esses temas entram?</h2>
-    <ul>
-      <li>Viram <span class='accent'>seminários</span> em 24/11 e 26/11, apresentados por vocês</li>
-      <li>Cada dupla recebe um tema por sorteio em 10/11</li>
-      <li>Dez minutos, três de perguntas, sem relatório escrito</li>
-    </ul>
-    <div class="question"><p>Toda apresentação responde à mesma pergunta: o que precisaria mudar no minidb para ter isso?</p></div>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Esses temas viram <span class='accent'>seminários</span> em 24/11 e 26/11, sorteados em 10/11, respondendo sempre à mesma pergunta: o que precisaria mudar no minidb para ter isso?</p>
   </div>
 
   <div class="slide slide-content">
@@ -358,7 +363,7 @@
   </div>
 
   <div class="slide slide-content">
-    <h2>O que eu forneço não é código, é o contrato</h2>
+    <h2>O que eu forneço é o contrato</h2>
     <p style="font-size:1.5rem;margin-top:0.8rem">O minidb lê comandos da entrada padrão e escreve o resultado na saída padrão, em formato definido. Assim os mesmos testes valem para qualquer linguagem.</p>
     <pre><span class="cmt">$ ./minidb dados.db &lt; consultas.sql</span>
 <span class="cmd">CREATE TABLE</span> aluno (id INT, matricula INT);
@@ -371,22 +376,11 @@ OK 1
   </div>
 
   <div class="slide slide-content">
-    <h2>Ninguém fica para trás</h2>
-    <ul>
-      <li>Depois do prazo de cada módulo, publico a <span class='accent'>implementação de referência</span></li>
-      <li>Quem não terminou o M3 estuda a referência, adapta e segue para o M4</li>
-      <li>Você perde os pontos daquele módulo, não o semestre</li>
-    </ul>
-    <p style="font-size:1.5rem;margin-top:0.8rem">O prazo de cada módulo é a data de publicação da referência. Depois dela, não há pontos.</p>
-  </div>
-
-  <div class="slide slide-content">
     <h2>Repositório e registro de avanços</h2>
     <ul>
-      <li>Repositório público no <span class="accent">GitHub</span>, criado na primeira semana</li>
+      <li>Repositório público no <span class="accent">GitHub</span>, criado nesta semana</li>
       <li>Commits pequenos e frequentes, feitos enquanto vocês trabalham</li>
-      <li>Cada módulo entra por <span class='accent'>pull request</span>, com um <code>NOTES.md</code></li>
-      <li>No <code>NOTES.md</code>, um parágrafo sobre a decisão de projeto mais difícil daquele módulo</li>
+      <li>Um <code>NOTES.md</code> por módulo, com um parágrafo sobre a decisão de projeto mais difícil dele</li>
     </ul>
     <div class="definition"><p>Sete commits gigantes, um por módulo, na véspera de cada prazo, contam a história de <strong>um trabalho que não aconteceu</strong>.</p></div>
   </div>
@@ -394,29 +388,29 @@ OK 1
   <div class="slide slide-content">
     <h2>Avaliação</h2>
     <table class="eval-table">
-      <tr><td>&#129513; Módulos M1 a M7</td><td>M3 e M7 valem 10, os outros cinco valem 8</td><td>60 pts</td></tr>
+      <tr><td>&#129513; Módulos M1 a M7</td><td>Dez pontos cada, do M1 ao M7</td><td>70 pts</td></tr>
       <tr><td>&#127908; Defesa oral</td><td>Individual, em 01/12 e 03/12</td><td>20 pts</td></tr>
       <tr><td>&#128218; Seminário</td><td>Em dupla, em 24/11 ou 26/11</td><td>10 pts</td></tr>
-      <tr><td>&#128202; Relatório e apresentação</td><td>Demonstração ao vivo em 10/12</td><td>10 pts</td></tr>
     </table>
+    <p style="font-size:1.45rem;margin-top:0.8rem">Cada módulo: metade pelos testes de aceitação, um terço pela qualidade do código e do histórico, o restante pelo <code>NOTES.md</code>.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Como cada módulo é avaliado</h2>
+    <h2>Sobre ferramentas de LLM</h2>
+    <div class="question"><p>Um agente escreve uma árvore B+ em trinta segundos, e ela até passa nos testes.</p></div>
     <ul>
-      <li>Metade pelos <span class='accent'>testes de aceitação</span> que passam</li>
-      <li>Um terço pela qualidade do código e do histórico de commits</li>
-      <li>O restante pelo <code>NOTES.md</code></li>
+      <li>Se vocês fizerem isso, terão um repositório bonito e nenhum aprendizado</li>
+      <li>A defesa oral vale 20 pontos exatamente por esse motivo</li>
+      <li>Use para <span class='accent'>explicar</span>, não para produzir: peça o desenho da divisão de nó, peça outro exemplo, peça revisão do que <strong>vocês</strong> escreveram</li>
+      <li>O <code>NOTES.md</code> não sai de código que vocês não entenderam</li>
     </ul>
-    <div class="question"><p>Em dupla de implementação é comum um escrever e o outro assistir. Na defesa oral, cada um por si.</p></div>
   </div>
 
   <div class="slide slide-content">
     <h2>Cronograma &middot; setembro e outubro</h2>
     <table class="sched-table">
       <tr><th>#</th><th>Data</th><th>Dia</th><th>Conteúdo</th></tr>
-      <tr><td>T0</td><td>01/09</td><td>Ter</td><td>Apresentação. Anatomia de um SGBD</td></tr>
-      <tr><td>T1</td><td>03/09</td><td>Qui</td><td>Armazenamento</td></tr>
+      <tr><td>T1</td><td>03/09</td><td>Qui</td><td>Apresentação e armazenamento</td></tr>
       <tr class="row-holiday"><td>&mdash;</td><td>08 e 10/09</td><td></td><td>CBSoft 2026, sem aula</td></tr>
       <tr><td>I1</td><td>15 e 17/09</td><td></td><td>Laboratório M1. Entrega em 17/09</td></tr>
       <tr><td>T2</td><td>22/09</td><td>Ter</td><td>Cache de páginas</td></tr>
@@ -447,90 +441,133 @@ OK 1
     </table>
   </div>
 
-  <div class="slide slide-content">
-    <h2>Sobre ferramentas de LLM</h2>
-    <div class="question"><p>Um agente escreve uma árvore B+ em trinta segundos, e ela até passa nos testes.</p></div>
-    <ul>
-      <li>Se vocês fizerem isso, terão um repositório bonito e nenhum aprendizado</li>
-      <li>A defesa oral vale 20 pontos exatamente por esse motivo</li>
-      <li>Use para <span class='accent'>explicar</span>, não para produzir: peça o desenho da divisão de nó, peça outro exemplo, peça revisão do que <strong>vocês</strong> escreveram</li>
-      <li>O <code>NOTES.md</code> não sai de código que vocês não entenderam</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Um banco de dados em 50 linhas</h2>
-    <p style="font-size:1.5rem;margin-bottom:0.6rem">O <code>SELECT</code> inteiro do <code>minidb 0.0</code>. Guardem esta função: vamos passar o semestre consertando ela.</p>
-    <pre><span class="cmt"># le_tudo() abre o arquivo e devolve TODAS as linhas</span>
-<span class="cmd">if</span> verbo == <span class="cmd">"SELECT"</span>:
-    tabela  = p[p.index(<span class="cmd">"FROM"</span>) + 1]
-    colunas = esquema.get(tabela, [])
-    linhas  = le_tudo()                      <span class="cmt"># o arquivo inteiro, sempre</span>
-
-    <span class="cmd">if</span> <span class="cmd">"WHERE"</span> <span class="cmd">in</span> p:
-        coluna, _, valor = p[p.index(<span class="cmd">"WHERE"</span>) + 1 : ... ]
-        indice = colunas.index(coluna)
-        linhas = [l <span class="cmd">for</span> l <span class="cmd">in</span> linhas <span class="cmd">if</span> l[indice] == valor]
-
-    <span class="cmt"># imprime linha a linha, separado por |</span></pre>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>E ele funciona</h2>
-    <pre><span class="cmt">$ python3 hello.py dados.db &lt; demo.sql</span>
-CREATE TABLE aluno (id, matricula, nome);
-OK
-INSERT INTO aluno VALUES (1, 20260001, Ana);
-OK 1
-SELECT * FROM aluno WHERE id = 2;
-2|20260002|Bruno
-(1 linha)</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Cria tabela, insere, filtra e persiste em disco. É um banco de dados.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Agora com 5 milhões de linhas</h2>
-    <pre><span class="cmt">$ ls -lh big.db</span>
--rw-r--r--  136M  big.db
-
-<span class="cmt">$ time python3 hello.py big.db &lt; consulta.sql</span>
-4999999|25259999|nome4999999
-(1 linha)
-
-real    <span class="cmd">0m3,79s</span></pre>
-    <div class="definition"><p>Quase quatro segundos para achar <strong>uma</strong> linha. O PostgreSQL responde a mesma consulta em fração de milissegundo.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Cada defeito dele é um módulo nosso</h2>
-    <table class="eval-table">
-      <tr><td>Lê o arquivo inteiro a cada consulta</td><td>página e cache de páginas</td><td>M1 M2</td></tr>
-      <tr><td>Percorre todas as linhas para achar uma</td><td>árvore B+ e varredura por índice</td><td>M3 M5</td></tr>
-      <tr><td>O catálogo mora na memória e morre junto</td><td>catálogo em disco</td><td>M4</td></tr>
-      <tr><td>O parser é um <code>split()</code> e um pouco de fé</td><td>tokenizador e gramática</td><td>M4</td></tr>
-      <tr><td>Escreve direto no arquivo, sem registro</td><td>log, <code>COMMIT</code> e <code>ROLLBACK</code></td><td>M6</td></tr>
-      <tr><td>Uma queda deixa metade do trabalho feito</td><td>log de escrita antecipada</td><td>M7</td></tr>
-    </table>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Até a próxima aula</h2>
-    <ul>
-      <li>Formar as duplas e criar o repositório público</li>
-      <li>Escolher a linguagem, e assumir a escolha</li>
-      <li>Rodar o script de testes: todos devem falhar</li>
-      <li>Responder: por que o SGBD gerencia as próprias páginas em vez de deixar isso para o sistema operacional?</li>
-    </ul>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Na semana de 08 a 11/09 não haverá aula, por conta do <strong>CBSoft 2026</strong>. As entregas assíncronas vencem em 15/09.</p>
-  </div>
-
   <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima aula: armazenamento, a página e o arquivo de dados</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+    <h1>Parte 2<br><span class="accent">Armazenamento</span></h1>
+    <p style="font-size:1.8rem;margin-top:1.5rem">A camada de baixo. É por onde a gente começa a construir</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>O disco não sabe o que é uma linha</h2>
+    <div class="question"><p>Você pede 8 bytes ao disco. Quanto ele te entrega?</p></div>
+    <ul>
+      <li class="step" data-step="1">Um bloco inteiro, porque é assim que o hardware trabalha</li>
+      <li class="step" data-step="2">Pedir 8 bytes ou pedir 4096 leva quase o mesmo tempo</li>
+      <li class="step" data-step="3">Para o disco não existe linha, nem coluna, nem tabela. Existe bloco</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Quem transforma bloco em linha é o programa que vocês vão escrever.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="4">
+    <h2>Por que página, e não linha?</h2>
+    <div class="question"><p>Ler 8 bytes do disco custa quase o mesmo que ler 8 kilobytes. Por quê?</p></div>
+    <ul>
+      <li class="step" data-step="1">O tempo se vai quase todo em <span class='accent'>localizar</span> o dado, e quase nada em transferir</li>
+      <li class="step" data-step="2">Então o SGBD lê e escreve sempre um bloco, que a gente chama de <span class='accent'>página</span></li>
+      <li class="step" data-step="3">Página pequena demais: muita ida ao disco. Grande demais: memória jogada fora</li>
+      <li class="step" data-step="4">No minidb: 4096 bytes, sempre</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A página por dentro</h2>
+    <p style="font-size:1.5rem;margin-bottom:0.6rem">Uma página é um vetor de bytes, e nada além disso. O que dá sentido a ela é saber onde cada coisa começa.</p>
+    <pre><span class="cmt">página de 4096 bytes</span>
++-----------+-------+-------+-------+------------------+
+| cabeçalho | reg 0 | reg 1 | reg 2 |   espaço livre   |
++-----------+-------+-------+-------+------------------+
+   16 bytes   8 b     8 b     8 b</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">O cabeçalho diz quantos slots estão ocupados. O resto são registros, um atrás do outro.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Registro de tamanho fixo</h2>
+    <div class="definition"><p>Todo registro da tabela ocupa exatamente o mesmo número de bytes.</p></div>
+    <pre><span class="cmd">CREATE TABLE</span> aluno (id INT, matricula INT);
+
+  id           4 bytes
+  matricula    4 bytes
+  registro     8 bytes,  sempre o mesmo</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Custa espaço, e proíbe texto de tamanho livre. Em troca, achar uma linha vira uma conta.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>E o arquivo, como fica?</h2>
+    <pre><span class="cmt">dados.db</span>
++-----------+-----------+-----------+-----------+
+| página 0  | página 1  | página 2  | página 3  |  ...
+| metadados |  registros, registros, registros  |
++-----------+-----------+-----------+-----------+
+   4096 b      4096 b      4096 b      4096 b</pre>
+    <ul class="plain">
+      <li>A página 0 guarda os metadados: quantas páginas existem e quais ainda têm espaço</li>
+      <li>Da página 1 em diante, são os dados</li>
+      <li>O arquivo cresce de 4096 em 4096 bytes, nunca de byte em byte</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Sem ordem nenhuma</h2>
+    <div class="definition"><p>Heap file, do inglês, é o arquivo em que a linha nova vai para a primeira posição livre que aparecer.</p></div>
+    <ul>
+      <li>Inserir é achar uma página com espaço e escrever lá</li>
+      <li>Ninguém garante que a linha inserida antes venha antes no arquivo</li>
+      <li>O preço disso: procurar alguém sem índice custa ler o arquivo inteiro</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Esse preço é exatamente o que a árvore B+ vai resolver, lá no M3.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O endereço de uma linha</h2>
+    <div class="definition"><p>Cada linha tem um endereço dentro do arquivo: o par (página, slot). É ele que o índice vai guardar, lá no M3.</p></div>
+    <div class="question"><p>Esse par tem nome. Procurem por <strong>RID</strong>, do inglês <em>record identifier</em>.</p></div>
+    <ul class="plain">
+      <li>Vejam de quebra como o PostgreSQL chama o dele, e rodem <code>SELECT ctid, * FROM alguma_tabela;</code></li>
+      <li>A pergunta para trazer respondida: o que acontece com esse endereço quando a linha é atualizada?</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Glossário de hoje</h2>
+    <ul class="plain">
+      <li><span class='accent'>Arquivo.</span> A sequência de páginas gravada em disco. No minidb, uma tabela é um arquivo</li>
+      <li><span class='accent'>Página.</span> Um pedaço de 4096 bytes do arquivo. É o que o SGBD lê e escreve, sempre inteira</li>
+      <li><span class='accent'>Slot.</span> Uma posição numerada dentro da página, a partir do zero. Cada slot guarda um registro</li>
+      <li><span class='accent'>Endereço.</span> O par (página, slot), que diz onde uma linha mora. É o RID</li>
+      <li><span class='accent'>Bloco.</span> A mesma ideia da página, mas do lado do hardware. Quem escolhe o tamanho aqui é o disco, e não nós</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:1rem">Arquivo contém páginas, página contém slots, e o slot guarda um registro. Escolhemos 4096 bytes para uma página cair em cima de um bloco, e não em cima de dois.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que os bancos de verdade fazem</h2>
+    <div class="cards cards-3" style="margin-top:0.5rem">
+      <div class="card"><h3>Página com diretório de slots</h3><p>Slots crescem de uma ponta, dados da outra. Permite linha de tamanho variável.</p><p class="note">não faremos</p></div>
+      <div class="card"><h3>Mapa de bits de nulos</h3><p>Um bit por coluna diz se o valor está ausente, sem gastar o espaço do campo.</p><p class="note">não faremos</p></div>
+      <div class="card"><h3>Layout por coluna</h3><p>Guarda cada coluna junta, em vez de cada linha junta. Domina análise de dados.</p><p class="note">vira seminário</p></div>
+    </div>
+    <p style="font-size:1.5rem;margin-top:0.8rem">Tamanho fixo custa espaço e proíbe <code>VARCHAR</code> livre. Ganhamos o semestre inteiro em troca.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O M1 cabe em três funções</h2>
+    <p style="font-size:1.5rem;margin-bottom:0.6rem">No fim das contas, o módulo inteiro é isto:</p>
+    <pre>le_pagina(n)               &rarr;  devolve os 4096 bytes da página n
+escreve_pagina(n, bytes)   &rarr;  grava os 4096 bytes na página n
+insere(registro)           &rarr;  acha espaço, grava, devolve o RID</pre>
+    <p style="font-size:1.5rem;margin-top:0.8rem">O resto do semestre é construído em cima dessas três. Se elas estiverem certas, o M2 e o M3 vêm bem mais tranquilos.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício: comecem o minidb</h2>
+    <div class="question"><p>Hoje vocês escrevem as duas primeiras funções do M1. Página de 4096 bytes, cabeçalho de 16, registro de 8.</p></div>
+    <ul class="plain">
+      <li><span class='accent'>1.</span> Implementem <code>escreve_pagina(n, bytes)</code> e <code>le_pagina(n)</code> sobre um arquivo comum, na linguagem que a dupla escolheu</li>
+      <li><span class='accent'>2.</span> Gravem um registro no slot 0 da página 2, encerrem o processo, abram de novo e leiam o registro de volta</li>
+      <li><span class='accent'>3.</span> Commit no repositório da dupla, com um <code>NOTES.md</code> dizendo em que byte do arquivo o registro foi parar</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Entrega até <strong>15/09</strong>, junto com a escolha da linguagem e a saída do script de testes falhando por inteiro. Em 08 e 10/09 não há aula, por conta do <strong>CBSoft 2026</strong>.</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');
