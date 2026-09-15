@@ -12,11 +12,13 @@ I am continuously looking for good people to join my research group, at all leve
 ## Current students
 
 - Emmanuel Dias Pereira (PhD)
+- Enne Rebeca Silva de Freitas (PhD)
 - Leandro Veloso Dos Santos (MS)
 - Carlos Hesketh (MS)
 - Ronivaldo Ferreira Silva Junior (MS)
-- Pedro Lucas Almeida Andre (Capstone)
+- Artur Gomes Cordeiro (Capstone)
 - Daniel Naiff Da Costa (UROP)
+- Kael da Rocha Carvalho (UROP)
 - You?
 
 ## Alumni (sorted by graduation year)
@@ -45,3 +47,4 @@ I am continuously looking for good people to join my research group, at all leve
 - Marcos Felipe Carvalho Nazário (PhD), March 2025
 - Josiane de Oliveira Coelho (Capstone), March 2025
 - Dannilo Cabral Rabelo (MS), Feb. 2026
+- Pedro Lucas Almeida Andre (Capstone), September 2026
