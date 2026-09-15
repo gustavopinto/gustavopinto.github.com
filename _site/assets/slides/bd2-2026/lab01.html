@@ -297,6 +297,15 @@ registro  &rarr;  bytes 8208 a 8215     <span class="cmt">// 8 bytes, id e matr�
   </div>
 
   <div class="slide slide-content">
+    <h2>Onde cada página começa</h2>
+    <pre style="font-size:1.35rem; line-height:1.5">página 2  (bytes 8192 a 12287)
++------------+--------+--------+--------+-----+--------+-----------+
+| cabeçalho  | slot 0 | slot 1 | slot 2 | ... | slot n | livre     |
++------------+--------+--------+--------+-----+--------+-----------+
+  8192         8208     8216     8224                    até 12287
+   16 B         8 B      8 B      8 B         8 B</pre>
+  </div>
+  <div class="slide slide-content">
     <h2>A fórmula, uma vez só</h2>
     <pre>deslocamento(pagina, slot) = pagina &times; TAM_PAGINA
                            + TAM_CABECALHO
@@ -305,21 +314,6 @@ registro  &rarr;  bytes 8208 a 8215     <span class="cmt">// 8 bytes, id e matr�
       <li>Escrevam isso como <span class="accent">uma função</span>, e chamem ela de todo lugar</li>
       <li>Toda vez que essa conta aparecer repetida no código, ela vai divergir em um dos lugares</li>
       <li>O par <code>(pagina, slot)</code> é o RID. É o que o índice vai guardar no M3</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Estudem o <code>hexdump</code></h2>
-    <p style="font-size:1.5rem">É assim que vocês olham o arquivo <span class="highlight">sem passar pelo próprio código</span>. Um exemplo mínimo, depois de gravar o registro <code>(1, 20260001)</code>:</p>
-    <pre>$ hexdump -C -s 8192 -n 32 dados.db
-             <span class="cmt">pula 8192 bytes   mostra 32</span>
-00002000  01 00 08 00 02 00 00 00  00 00 00 00 00 00 00 00
-00002010  01 00 00 00 a1 24 35 01  00 00 00 00 00 00 00 00</pre>
-    <ul class="plain">
-      <li><code>00002000</code> é 8192 em hexadecimal: o começo da página 2</li>
-      <li>O cabeçalho diz 1 slot ocupado, registro de 8 bytes, página número 2</li>
-      <li><code>00002010</code> é 8208: <code>01 00 00 00</code> é o id, e <code>a1 24 35 01</code> é a matrícula, de trás para frente porque a máquina é <span class="accent">little-endian</span></li>
-      <li>Quando a conta não sair de cabeça: <code>printf '%d\n' 0x2010</code></li>
     </ul>
   </div>
 
@@ -373,6 +367,21 @@ b'B'
 True</span></pre>
     <p style="font-size:1.4rem">Deu isso nas três linhas? Então a mínima está de pé. <span class="highlight">Agora reparem no que esse teste não perguntou.</span></p>
   </div>
+  <div class="slide slide-content">
+    <h2>Estudem o <code>hexdump</code></h2>
+    <p style="font-size:1.5rem">É assim que vocês olham o arquivo <span class="highlight">sem passar pelo próprio código</span>. Um exemplo mínimo, depois de gravar o registro <code>(1, 20260001)</code>:</p>
+    <pre>$ hexdump -C -s 8192 -n 32 dados.db
+             <span class="cmt">pula 8192 bytes   mostra 32</span>
+00002000  01 00 08 00 02 00 00 00  00 00 00 00 00 00 00 00
+00002010  01 00 00 00 a1 24 35 01  00 00 00 00 00 00 00 00</pre>
+    <ul class="plain">
+      <li><code>00002000</code> é 8192 em hexadecimal: o começo da página 2</li>
+      <li>O cabeçalho diz 1 slot ocupado, registro de 8 bytes, página número 2</li>
+      <li><code>00002010</code> é 8208: <code>01 00 00 00</code> é o id, e <code>a1 24 35 01</code> é a matrícula, de trás para frente porque a máquina é <span class="accent">little-endian</span></li>
+      <li>Quando a conta não sair de cabeça: <code>printf '%d\n' 0x2010</code></li>
+    </ul>
+  </div>
+
   <div class="slide slide-content" data-steps="4">
     <h2>O que a mínima assume calada</h2>
     <ul class="plain">
