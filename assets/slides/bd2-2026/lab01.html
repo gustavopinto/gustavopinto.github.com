@@ -355,6 +355,24 @@ def escreve_pagina(f, n, buf):
     <p style="font-size:1.5rem;margin-top:0.6rem"><span class="highlight">É um bom lugar para começar, e um lugar ruim para parar.</span></p>
   </div>
 
+  <div class="slide slide-content">
+    <h2>Isso funciona mesmo?</h2>
+    <p style="font-size:1.4rem">Antes de seguir, rodem esses dez segundos de teste na implementação que vocês acabaram de ver.</p>
+    <pre style="font-size:1.15rem">f = open("teste.db", "w+b")
+escreve_pagina(f, 2, b"A" * 4096)
+escreve_pagina(f, 3, b"B" * 4096)
+f.close()                              <span class="cmt"># fecha de verdade</span>
+
+f = open("teste.db", "r+b")            <span class="cmt"># reabre: o disco é a prova</span>
+p2 = le_pagina(f, 2)
+print(len(p2), p2 == b"A" * 4096)      <span class="cmt"># ida e volta</span>
+print(le_pagina(f, 3)[:1])             <span class="cmt"># a vizinha continua intacta</span>
+print(os.path.getsize("teste.db") % 4096 == 0)</pre>
+    <pre style="font-size:1.15rem"><span class="cmt">4096 True
+b'B'
+True</span></pre>
+    <p style="font-size:1.4rem">Deu isso nas três linhas? Então a mínima está de pé. <span class="highlight">Agora reparem no que esse teste não perguntou.</span></p>
+  </div>
   <div class="slide slide-content" data-steps="4">
     <h2>O que a mínima assume calada</h2>
     <ul class="plain">
