@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laboratório M1 &mdash; Banco de Dados II</title>
+  <title>Laboratório M1 &middot; parte 1 &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -261,54 +261,256 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Laboratório M1<br><span class="accent">Página e arquivo de dados</span></h1>
+    <h1>Laboratório M1 &middot; parte 1<br><span class="accent">Leitura e escrita de páginas</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>15 e 17 de setembro</strong></span>
+      <span>&#128197; <strong>15 de setembro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que precisa funcionar ao fim</h2>
-    <ul>
-      <li>Ler e escrever uma página no arquivo</li>
-      <li>Serializar e desserializar um registro</li>
-      <li>Inserir e percorrer todos os registros</li>
+    <h2>De onde a gente parou</h2>
+    <div class="question"><p>Em 03/09 vocês saíram com três tarefas.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Implementar <code>escreve_pagina(n, bytes)</code> e <code>le_pagina(n)</code></li>
+      <li><span class="accent">2.</span> Gravar um registro no slot 0 da página 2, fechar o processo, reabrir e ler de volta</li>
+      <li><span class="accent">3.</span> Anotar no <code>NOTES.md</code> em que byte do arquivo o registro foi parar</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:1rem">Hoje a gente confere esse número, conserta o que estiver torto e sobe o nível da implementação. Abram o código agora.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>A conta que todo mundo tinha que fazer</h2>
+    <div class="question"><p>Página de 4096 bytes, cabeçalho de 16, registro de 8. O registro no slot 0 da página 2 começa em que byte?</p></div>
+    <div class="step" data-step="1">
+      <pre>página 2  &rarr;  2 &times; 4096            = 8192   <span class="cmt">// início da página</span></pre>
+    </div>
+    <div class="step" data-step="2">
+      <pre>cabeçalho &rarr;  8192 + 16            = 8208   <span class="cmt">// início do slot 0</span>
+slot 0    &rarr;  8208 + 0 &times; 8        = 8208
+registro  &rarr;  bytes 8208 a 8215     <span class="cmt">// 8 bytes, id e matrícula</span></pre>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A fórmula, uma vez só</h2>
+    <pre>deslocamento(pagina, slot) = pagina &times; TAM_PAGINA
+                           + TAM_CABECALHO
+                           + slot &times; TAM_REGISTRO</pre>
+    <ul class="plain">
+      <li>Escrevam isso como <span class="accent">uma função</span>, e chamem ela de todo lugar</li>
+      <li>Toda vez que essa conta aparecer repetida no código, ela vai divergir em um dos lugares</li>
+      <li>O par <code>(pagina, slot)</code> é o RID. É o que o índice vai guardar no M3</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por onde começar</h2>
-    <ul>
-      <li>A página é um vetor de bytes de tamanho fixo, e nada mais</li>
-      <li>Comecem pelo teste que grava e lê a página zero</li>
-      <li>O cabeçalho da página guarda quantos slots estão ocupados</li>
+    <h2>Estudem o <code>hexdump</code></h2>
+    <p style="font-size:1.5rem">É assim que vocês olham o arquivo <span class="highlight">sem passar pelo próprio código</span>. Um exemplo mínimo, depois de gravar o registro <code>(1, 20260001)</code>:</p>
+    <pre>$ hexdump -C -s 8192 -n 32 dados.db
+             <span class="cmt">pula 8192 bytes   mostra 32</span>
+00002000  01 00 08 00 02 00 00 00  00 00 00 00 00 00 00 00
+00002010  01 00 00 00 a1 24 35 01  00 00 00 00 00 00 00 00</pre>
+    <ul class="plain">
+      <li><code>00002000</code> é 8192 em hexadecimal: o começo da página 2</li>
+      <li>O cabeçalho diz 1 slot ocupado, registro de 8 bytes, página número 2</li>
+      <li><code>00002010</code> é 8208: <code>01 00 00 00</code> é o id, e <code>a1 24 35 01</code> é a matrícula, de trás para frente porque a máquina é <span class="accent">little-endian</span></li>
+      <li>Quando a conta não sair de cabeça: <code>printf '%d\n' 0x2010</code></li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Armadilhas conhecidas</h2>
-    <ul>
-      <li>Confundir número de página com deslocamento em bytes</li>
-      <li>Esquecer de gravar o arquivo antes de fechar</li>
-      <li>Assumir que o arquivo já existe</li>
-    </ul>
-    <div class="definition"><p>Nenhuma dessas quebra o teste de forma óbvia. Todas quebram o módulo seguinte.</p></div>
+    <h2>O contrato das duas funções</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>le_pagina(n)</h3>
+        <p>Devolve <strong>exatamente</strong> 4096 bytes da página <code>n</code>, ou falha com erro claro.</p>
+        <p class="note">Nunca devolve 3000 bytes. Nunca devolve vazio. Nunca devolve um pedaço da página vizinha.</p>
+      </div>
+      <div class="card">
+        <h3>escreve_pagina(n, buf)</h3>
+        <p>Grava <strong>exatamente</strong> 4096 bytes na página <code>n</code>, ou falha com erro claro.</p>
+        <p class="note">Recebeu buffer de outro tamanho, é erro de programação. Falhe alto, e não ajuste em silêncio.</p>
+      </div>
+    </div>
+    <div class="definition"><p>O resto do semestre chama essas duas funções. Implemente com cuidado!</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>A entrega</h2>
-    <ul>
-      <li>Pull request no repositório da dupla, com os testes de aceitação passando</li>
-      <li><code>NOTES.md</code> com um parágrafo sobre a decisão mais difícil deste módulo</li>
-      <li>Histórico de commits que mostre o trabalho acontecendo, não um despejo final</li>
+    <h2>A implementação mínima</h2>
+    <p style="font-size:1.4rem">Em Python, com o arquivo já aberto em <code>r+b</code>.</p>
+    <pre>TAM_PAGINA = 4096
+
+def le_pagina(f, n):
+    f.seek(n * TAM_PAGINA)
+    return f.read(TAM_PAGINA)
+
+def escreve_pagina(f, n, buf):
+    f.seek(n * TAM_PAGINA)
+    f.write(buf)</pre>
+    <p style="font-size:1.5rem;margin-top:0.6rem"><span class="highlight">É um bom lugar para começar, e um lugar ruim para parar.</span></p>
+  </div>
+
+  <div class="slide slide-content" data-steps="4">
+    <h2>O que a mínima assume calada</h2>
+    <ul class="plain">
+      <li class="step" data-step="1"><span class="accent">1.</span> Que o arquivo <span class="highlight">já existe</span></li>
+      <li class="step" data-step="2"><span class="accent">2.</span> Que a página <code>n</code> <span class="highlight">já foi alocada</span></li>
+      <li class="step" data-step="3"><span class="accent">3.</span> Que <code>buf</code> tem <span class="highlight">exatamente</span> 4096 bytes</li>
+      <li class="step" data-step="4"><span class="accent">4.</span> Que, depois do <code>write</code>, o dado <span class="highlight">está no disco</span></li>
     </ul>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Depois do prazo publico a implementação de referência, e a partir daí este módulo não vale mais pontos.</p>
+    <div class="step" data-step="4">
+      <div class="definition"><p>Nenhuma das quatro é verdade. Vamos uma por uma.</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A implementação adequada</h2>
+    <p style="font-size:1.4rem">Um objeto que guarda o arquivo aberto e o número de páginas. Metade das linhas é validação, e é de propósito.</p>
+    <pre style="font-size:1.15rem">class Pager:
+    def __init__(self, caminho):
+        novo = not os.path.exists(caminho)
+        self.f = open(caminho, "w+b" if novo else "r+b")
+        self.f.seek(0, os.SEEK_END)
+        self.n_paginas = self.f.tell() // TAM_PAGINA
+
+    def le(self, n):
+        self._valida(n)
+        self.f.seek(n * TAM_PAGINA)
+        buf = self.f.read(TAM_PAGINA)
+        if len(buf) != TAM_PAGINA:
+            raise IOError(f"página {n} truncada: {len(buf)} bytes")
+        return bytearray(buf)</pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A implementação adequada</h2>
+    <pre style="font-size:1.15rem">    def escreve(self, n, buf):
+        self._valida(n)
+        if len(buf) != TAM_PAGINA:
+            raise ValueError(f"página com {len(buf)} bytes")
+        self.f.seek(n * TAM_PAGINA)
+        self.f.write(buf)
+
+    def aloca(self):
+        n = self.n_paginas
+        self.f.seek(n * TAM_PAGINA)
+        self.f.write(bytes(TAM_PAGINA))   <span class="cmt"># 4096 zeros</span>
+        self.n_paginas += 1
+        return n
+
+    def sync(self):
+        self.f.flush()
+        os.fsync(self.f.fileno())</pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Um cabeçalho que não trava vocês no M7</h2>
+    <p style="font-size:1.5rem">São 16 bytes. Usem 8 agora e deixem 8 reservados, porque mudar o formato no meio do semestre custa remontar todos os arquivos de teste.</p>
+    <pre>byte 0-1    n_slots ocupados        <span class="cmt">// o que o M1 precisa</span>
+byte 2-3    tamanho do registro     <span class="cmt">// valida o arquivo na abertura</span>
+byte 4-7    número desta página     <span class="cmt">// detecta página trocada de lugar</span>
+byte 8-15   reservado               <span class="cmt">// o LSN do M7 mora aqui</span></pre>
+    <ul class="plain">
+      <li>Gravar o próprio número da página parece redundante, e é o teste mais barato de que o <code>seek</code> foi para o lugar certo</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Página 0: os metadados</h2>
+    <pre>byte 0-7    "MINIDB\0"              <span class="cmt">// número mágico</span>
+byte 8-9    versão do formato       <span class="cmt">// 1</span>
+byte 10-13  tamanho da página       <span class="cmt">// 4096</span>
+byte 14-17  total de páginas
+byte 18-21  primeira página com espaço livre</pre>
+    <ul class="plain">
+      <li>O número mágico custa 8 bytes e evita a tarde perdida em que vocês abrem o arquivo errado</li>
+      <li>Gravar o tamanho da página deixa o programa <span class="accent">recusar</span> um arquivo criado com outro tamanho, em vez de ler lixo</li>
+      <li>Um arquivo cujo tamanho não é múltiplo de 4096 está corrompido. Verifiquem isso na abertura</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Se vocês quiserem ir além</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>pread e pwrite</h3>
+        <p>Leem e escrevem em um deslocamento sem mexer na posição do arquivo. Some o <code>seek</code>, some a classe inteira de bugs em que duas chamadas se atrapalham.</p>
+        <p class="note"><code>os.pread(fd, n, off)</code> em Python, <code>pread(2)</code> em C</p>
+      </div>
+      <div class="card">
+        <h3>Endianness explícito</h3>
+        <p>Gravem com <code>struct.pack("&lt;II", ...)</code>, e não com o que a máquina achar. O arquivo precisa ser lido na máquina do colega.</p>
+        <p class="note">Bancos de verdade fixam isso no formato, e o seu deve fixar também</p>
+      </div>
+      <div class="card">
+        <h3>bytearray e memoryview</h3>
+        <p>Trabalhem a página como buffer mutável em vez de recortar e concatenar bytes. No M2 a mesma página vai ser alterada muitas vezes antes de descer para o disco.</p>
+      </div>
+      <div class="card">
+        <h3>Soma de verificação</h3>
+        <p>Quatro bytes de <code>crc32</code> no cabeçalho detectam página escrita pela metade. É como o PostgreSQL percebe corrupção.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Como saber que está certo</h2>
+    <ul class="plain">
+      <li><span class="accent">1.</span> <strong>Ida e volta.</strong> <code>escreve(n, b)</code> e depois <code>le(n) == b</code>, para <code>n</code> em 0, 1 e 17</li>
+      <li><span class="accent">2.</span> <strong>Entre processos.</strong> Grave, <span class="highlight">encerre o programa</span>, abra de novo e leia. Sem isso, você testou só a memória</li>
+      <li><span class="accent">3.</span> <strong>Vizinhança.</strong> Escrever na página 3 não pode alterar um único byte da 2 nem da 4</li>
+      <li><span class="accent">4.</span> <strong>Tamanho.</strong> Depois de qualquer sequência de operações, o arquivo é múltiplo de 4096</li>
+      <li><span class="accent">5.</span> <strong>Olho nu.</strong> <code>hexdump -C dados.db | head</code>, e os bytes estão onde a fórmula disse</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.6rem">O teste 3 é o que pega erro de <code>seek</code>. Escrevam ele hoje.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Agora, mão na massa</h2>
+    <div class="phases">
+      <div class="phase phase-1">
+        <h3>Primeiros 30 minutos</h3>
+        <div class="dates">conferir</div>
+        <ul>
+          <li>Rodar o hexdump e achar o byte 8208</li>
+          <li>Corrigir a fórmula, se for o caso</li>
+          <li>Extrair o deslocamento para uma função</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>30 minutos seguintes</h3>
+        <div class="dates">subir o nível</div>
+        <ul>
+          <li>Criar o arquivo quando não existir</li>
+          <li><code>aloca()</code> e contagem de páginas</li>
+          <li>Validar tamanho do buffer e número da página</li>
+        </ul>
+      </div>
+      <div class="phase phase-3">
+        <h3>Últimos 30 minutos</h3>
+        <div class="dates">provar</div>
+        <ul>
+          <li>Os cinco testes do slide anterior</li>
+          <li>Cabeçalho de 16 bytes escrito e lido</li>
+          <li>Commit, com mensagem que diz o que mudou</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Quinta, 17/09</h2>
+    <ul>
+      <li>Laboratório de <span class="accent">serialização de registros</span>: transformar <code>(1, 20260001)</code> em 8 bytes e voltar</li>
+      <li><code>insere(registro)</code>, que acha espaço, grava e devolve o RID</li>
+      <li>Percorrer todos os registros de uma tabela</li>
+    </ul>
+    <div class="definition"><p><strong>Entrega do M1 em 17/09, às 23h59.</strong> Pull request, testes de aceitação passando, <code>NOTES.md</code> com a decisão mais difícil do módulo, e histórico de commits que mostre o trabalho acontecendo.</p></div>
   </div>
 
   <div class="slide slide-cover">
@@ -316,15 +518,16 @@
     <p style="font-size:2rem;margin-top:1.5rem">E, antes de sair, o exercício desta aula</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
+
   <div class="slide slide-content">
     <h2>Exercício de saída</h2>
     <div class="question"><p>Antes de sair, um teste que o script de aceitação não faz por vocês.</p></div>
     <ul class="plain">
-      <li><span class='accent'>1.</span> Grave dois registros na página zero e feche o arquivo</li>
-      <li><span class='accent'>2.</span> Abra o arquivo com <code>xxd</code> ou <code>hexdump -C</code> e localize a olho o cabeçalho e cada campo</li>
-      <li><span class='accent'>3.</span> Anote no <code>NOTES.md</code> o deslocamento real de cada campo, em bytes</li>
+      <li><span class="accent">1.</span> Grave duas páginas, encerre o programa com <code>kill -9</code> <span class="highlight">sem fechar o arquivo</span>, e veja o que sobrou no disco</li>
+      <li><span class="accent">2.</span> Repita, chamando <code>sync()</code> antes do <code>kill -9</code>, e compare</li>
+      <li><span class="accent">3.</span> Anote no <code>NOTES.md</code> o que mudou entre os dois casos, e por quê</li>
     </ul>
-    <p style="font-size:1.4rem;margin-top:0.8rem">Se vocês não conseguirem achar os campos no despejo, o layout não está onde vocês pensam que está. O M2 vai cobrar isso.</p>
+    <p style="font-size:1.4rem;margin-top:0.8rem">Esse parágrafo é o começo do M7. Quem entende isso hoje economiza uma semana em novembro.</p>
   </div>
 </div>
 

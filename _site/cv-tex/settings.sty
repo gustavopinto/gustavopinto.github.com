@@ -1,0 +1,104 @@
+%% settings.sty -- style settings for the CurVe-based CV
+%% Adapted from LianTze Lim's CV template (Overleaf).
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{settings}[2026/09/14 CV settings]
+
+%% ---------------------------------------------------------------
+%% Engine detection
+%% ---------------------------------------------------------------
+\RequirePackage{iftex}
+\newif\ifxetexorluatex
+\ifXeTeX \xetexorluatextrue \else
+  \ifLuaTeX \xetexorluatextrue \else \xetexorluatexfalse \fi
+\fi
+
+%% ---------------------------------------------------------------
+%% Basic packages
+%% ---------------------------------------------------------------
+\RequirePackage[margin=1.3cm,top=1.0cm,bottom=1.0cm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{calc}
+\RequirePackage{comment}
+\RequirePackage{microtype}
+\RequirePackage{etoolbox}
+%% curve.cls does not load article.cls, so `description' is undefined;
+%% enumitem needs it to exist before it can patch it.
+\makeatletter
+\@ifundefined{description}{%
+  \newcommand\descriptionlabel[1]{\hspace\labelsep\normalfont\bfseries #1}%
+  \newenvironment{description}%
+    {\list{}{\labelwidth\z@ \itemindent-\leftmargin
+             \let\makelabel\descriptionlabel}}%
+    {\endlist}%
+}{}
+\makeatother
+
+\RequirePackage{enumitem}
+\RequirePackage{amssymb}
+\RequirePackage{fontawesome5}
+\RequirePackage{simpleicons}
+
+%% ---------------------------------------------------------------
+%% Colours
+%% ---------------------------------------------------------------
+\definecolor{SwishLineColour}{HTML}{4F7396}
+\definecolor{MarkerColour}{HTML}{2B4C6F}
+\definecolor{LinkColour}{HTML}{1F4E79}
+
+%% ---------------------------------------------------------------
+%% Hyperlinks
+%% ---------------------------------------------------------------
+\RequirePackage[breaklinks]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=LinkColour,
+  urlcolor=LinkColour,
+  citecolor=LinkColour,
+  pdfborder={0 0 0}
+}
+\RequirePackage{url}
+\urlstyle{tt}
+
+%% ---------------------------------------------------------------
+%% CurVe appearance
+%% ---------------------------------------------------------------
+\rubricfont{\color{SwishLineColour}\large\bfseries\sffamily}
+\subrubricfont{\normalsize\itshape}
+\keyfont{\small\bfseries\sffamily\color{MarkerColour}}
+\keyalignment{r}
+\rubricalignment{l}
+
+%% Draw a horizontal rule to the right of every rubric title
+\makeatletter
+\def\@@rubrichead#1{%
+  \@rubricfont #1%
+  \hspace{0.6em}%
+  \raisebox{0.35ex}{\color{SwishLineColour}\leaders\hrule height 1pt\hfill\kern0pt}%
+}
+\makeatother
+
+%% Vertical rhythm: tighter than the CurVe defaults so the CV stays compact
+\setlength\subrubricbeforespace{12pt}
+\setlength\rubricafterspace{2pt}
+\AtBeginDocument{\setlength\LTpre{8pt}\setlength\LTpost{2pt}}
+
+%% Item prefix marker
+\newcommand*{\prefixmarker}[1]{\prefix{\textcolor{MarkerColour}{#1}}}
+\prefixmarker{\footnotesize$\blacktriangleright$}
+
+%% Contact fields in the header
+\newcommand*{\makefield}[2]{%
+  \mbox{\textcolor{MarkerColour}{#1}~#2}\hspace{1.1em}%
+}
+
+%% Handy inline helpers used in the rubrics
+\newcommand*{\role}[1]{\textbf{#1}}
+\newcommand*{\tech}[1]{\texttt{#1}}
+\newcommand*{\award}[1]{\textcolor{MarkerColour}{\textbf{#1}}}
+\newcommand*{\me}{\textbf{G. Pinto}}
+
+%% Tighter lists inside entries
+\setlist[itemize]{leftmargin=1.1em,topsep=1pt,itemsep=0.6pt,parsep=0pt,label={\textcolor{SwishLineColour}{\tiny$\bullet$}}}
+
+\endinput

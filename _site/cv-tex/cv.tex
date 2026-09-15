@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Curriculum Vitae -- Gustavo Pinto
+% Based on the CurVe CV template by LianTze Lim (liantze@gmail.com)
+% Tailored for the Research Engineer position at Kunumi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,skipsamekey,10pt,english]{curve}
+
+% Most commands and style definitions are in settings.sty.
+\usepackage{settings}
+
+% Change the fonts if you want
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage[medium,bold]{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\else % If you're using pdfLaTeX or latex
+  \usepackage[T1]{fontenc}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+%% Photo is only shown if "fullonly" is included
+\includecomment{fullonly}
+% \excludecomment{fullonly}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Gustavo Pinto, Ph.D.}
+
+  {\color{MarkerColour}\sffamily AI Engineer \textbullet{} Applied AI Research \textbullet{} LLM Systems}
+
+  \smallskip
+
+  \makefield{\faEnvelope[regular]}{\href{mailto:mail@gustavopinto.org}{\texttt{mail@gustavopinto.org}}}
+  \makefield{\faLinkedin}{\href{https://www.linkedin.com/in/ghlp/}{\texttt{in/ghlp}}}
+  \makefield{\faGithub}{\href{https://github.com/gustavopinto}{\texttt{gustavopinto}}}
+
+  %% Next line
+  \makefield{\faGlobe}{\url{https://gustavopinto.org}}
+  \makefield{\faGraduationCap}{\href{https://scholar.google.com/citations?user=dOeggYMAAAAJ}{\texttt{Scholar: 5{,}200+ cites, h-index 40}}}
+
+  \makefield{\faMapMarker*}{Belém, Pará, Brazil \textbullet{} available for remote work}
+}
+
+\rightheader{~}
+\begin{fullonly}
+\photo[r]{photo}
+\photoscale{0.13}
+\end{fullonly}
+
+\title{Curriculum Vitae}
+
+\begin{document}
+\makeheaders[c]
+
+\makerubric{profile}
+\makerubric{employment}
+\makerubric{skills}
+\makerubric{publications}
+\makerubric{education}
+\makerubric{misc}
+% \makerubric{referee}
+
+\end{document}
