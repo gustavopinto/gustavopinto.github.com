@@ -285,7 +285,6 @@
         <ul class="plain checklist">
           <li><code>le_pagina</code> e <code>escreve_pagina</code>, exatamente 4096 bytes</li>
           <li>O deslocamento em uma função só</li>
-          <li><code>aloca()</code> e a contagem de páginas</li>
           <li>Cabeçalho de 16 bytes escrito e lido</li>
           <li>Página 0 com número mágico e tamanho da página</li>
         </ul>
@@ -296,6 +295,7 @@
         <ul class="plain checklist">
           <li><code>serializa</code> e <code>desserializa</code>: 8 bytes, little-endian</li>
           <li>Esquema como objeto, formato derivado das colunas</li>
+          <li><code>aloca()</code> e a contagem de páginas</li>
           <li><code>sync()</code>, e o que sobrevive ao <code>kill -9</code></li>
         </ul>
       </div>
