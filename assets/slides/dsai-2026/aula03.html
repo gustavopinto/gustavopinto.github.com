@@ -395,51 +395,12 @@ volta 3:  raciocínio         +  chamada de tool  +  resultado da tool   <span c
   </div>
 
   <div class="slide slide-content">
-    <h2>A mesma instrução, em três altitudes</h2>
-    <pre style="font-size:1.15rem"><span class="cmt"># baixa demais: vira manutenção e quebra no caso 4</span>
-Se o arquivo terminar em .test.ts, rode `npm test -- <arquivo>`.
-Se terminar em .spec.ts, rode `npx vitest <arquivo>`.
-Se estiver em src/api, rode também `npm run lint:api`.
-
-<span class="cmt"># alta demais: não diz nada que o modelo já não presuma</span>
-Escreva código de qualidade e rode os testes.
-
-<span class="cmt"># altitude certa</span>
-Antes de abrir PR, rode a suíte de testes do pacote que você alterou
-e o lint do repositório. Os comandos estão em package.json:scripts.
-Se um teste falhar por motivo alheio à sua mudança, registre no PR
-em vez de ajustar o teste.</pre>
-  </div>
-
-  <div class="slide slide-content">
     <h2>O que dar e o que omitir</h2>
     <ul>
       <li>Dar: o arquivo que será alterado, as convenções do projeto, o teste que deve passar</li>
       <li>Omitir: a base inteira, histórico irrelevante, três tentativas fracassadas</li>
       <li>As convenções entram uma vez, no <code>AGENTS.md</code>, e não a cada pedido</li>
     </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Duas formas de trazer informação</h2>
-    <div class="cards cards-2">
-      <div class="card">
-        <h3>Antes da execução</h3>
-        <p>Indexar o repositório e carregar os trechos relevantes antes de o agente começar. Rápido, e sujeito a índice desatualizado.</p>
-      </div>
-      <div class="card">
-        <h3>Sob demanda</h3>
-        <p>O agente guarda identificadores leves, como caminho de arquivo, consulta ou link, e carrega o conteúdo na hora em que precisa.</p>
-        <p class="note">Em inglês, <em>just-in-time</em></p>
-      </div>
-    </div>
-    <ul class="plain">
-      <li>Os metadados já carregam sinal: nome de pasta, convenção de nomes, data de modificação, tamanho do arquivo</li>
-      <li>Isso permite <span class="accent">divulgação progressiva</span>: o agente descobre o que precisa explorando, em camadas</li>
-      <li>O custo é tempo de execução e o risco de o agente se perder em caminhos sem saída</li>
-    </ul>
-    <pre style="font-size:1.15rem">CLAUDE.md          <span class="cmt">// adiantado: pequeno e vale para toda tarefa</span>
-glob, grep, read   <span class="cmt">// sob demanda: o agente decide o que ler</span></pre>
   </div>
 
   <div class="slide slide-content">
@@ -474,26 +435,13 @@ glob, grep, read   <span class="cmt">// sob demanda: o agente decide o que ler</
   </div>
 
   <div class="slide slide-content">
-    <h2>O mesmo pedido, decomposto</h2>
-    <pre style="font-size:1.2rem"><span class="cmt"># uma janela só, e ao fim dela o agente esqueceu o começo</span>
-"Adicione autenticação com JWT, proteja as rotas de admin,
- escreva os testes, atualize o README e publique."
-
-<span class="cmt"># três janelas limpas, com um arquivo carregando o que atravessa</span>
-1. "Leia src/ e escreva em NOTES.md como as rotas são registradas hoje."
-2. "Com base em NOTES.md, implemente o middleware de JWT e os testes."
-3. "Com base em NOTES.md e no diff, atualize o README e abra o PR."</pre>
-    <p style="font-size:1.5rem">Entre um passo e outro, <code>/clear</code>. O que precisa sobreviver está no arquivo, e não na memória da conversa.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Exercício: meçam o próprio contexto</h2>
-    <div class="question"><p>Uma tarefa real do repositório de vocês, feita de duas maneiras.</p></div>
+    <h2>Exercício: um PR que leva horas</h2>
+    <div class="question"><p>O mesmo exercício da aula passada, agora mirando um PR maior, mais robusto, mais difícil: algo que o agente leve minutos ou horas para executar.</p></div>
     <ul class="plain">
-      <li><span class="accent">1.</span> Peçam a tarefa inteira em uma sessão só. Anotem quantas voltas o agente levou e o que ele esqueceu no caminho</li>
-      <li><span class="accent">2.</span> Rodem <code>/clear</code>, decomponham a mesma tarefa em três pedidos, com um <code>NOTES.md</code> carregando o que precisa atravessar</li>
-      <li><span class="accent">3.</span> Escrevam um <code>AGENTS.md</code> na altitude certa para esse repositório, com no máximo vinte linhas</li>
-      <li><span class="accent">4.</span> Registrem em <code>diario/2026-09-15.md</code> as duas contagens de voltas, o que precisou de correção à mão em cada caso, e qual das vinte linhas do <code>AGENTS.md</code> vocês cortariam primeiro</li>
+      <li><span class="accent">1.</span> Escolham no repositório de vocês uma tarefa que não caiba em um pedido: uma refatoração que atravessa vários arquivos, uma migração, uma funcionalidade com testes e documentação</li>
+      <li><span class="accent">2.</span> Antes de pedir qualquer coisa, montem o contexto: um <code>AGENTS.md</code> na altitude certa, um <code>NOTES.md</code> com o que o agente descobriu lendo o código, e o critério de pronto, isto é, o teste que diz se acabou</li>
+      <li><span class="accent">3.</span> Decomponham em passos, com <code>/clear</code> entre eles, e deixem o agente rodar até o PR ficar de pé</li>
+      <li><span class="accent">4.</span> Registrem em <code>diario/2026-09-15.md</code>: <span class="accent">qual contexto vocês forneceram</span>, o que o agente esqueceu no caminho, quantas voltas foram necessárias e o que precisou de correção à mão</li>
     </ul>
     <p style="font-size:1.4rem">Commit no dia. <strong>Leitura da semana:</strong> Anthropic, <em>Effective context engineering for AI agents</em>. Complementar: Barke, James e Polikarpova, <em>Grounded Copilot</em>, OOPSLA 2023 (arxiv.org/abs/2206.15000).</p>
   </div>
