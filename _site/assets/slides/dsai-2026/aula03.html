@@ -252,6 +252,21 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 78vh; }
   </style>
 </head>
 <body>
@@ -264,7 +279,6 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
     <h1>Aula 3<br><span class="accent">Engenharia de contexto e decomposição de tarefas</span></h1>
@@ -274,6 +288,158 @@
       <span>&#128197; <strong>15 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O exercício da aula 2</h2>
+    <ul class="plain">
+      <li>Quantos passos o laço levou com a descrição boa, e quantos com <code>"faz uma consulta"</code></li>
+      <li>O modelo continuou escolhendo a ferramenta certa, ou chamou a outra</li>
+      <li>Em algum caso ele bateu no <code>MAX_PASSOS</code> sem concluir</li>
+    </ul>
+    <div class="definition"><p>A descrição da tool não é documentação para humano. Ela é contexto, e o modelo relê esse texto a cada volta do laço.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O laço tem um efeito colateral</h2>
+    <p style="font-size:1.6rem">A cada volta, três coisas entram no histórico e nenhuma sai sozinha:</p>
+    <pre>volta 1:  pedido do usuário  +  chamada de tool  +  resultado da tool
+volta 2:  raciocínio         +  chamada de tool  +  resultado da tool
+volta 3:  raciocínio         +  chamada de tool  +  resultado da tool   <span class="cmt">(80 mil tokens de log)</span>
+...</pre>
+    <ul class="plain">
+      <li>O agente da aula 2 parava no <code>MAX_PASSOS</code>. O contexto, não: ele cresce em toda iteração</li>
+      <li>A pergunta desta aula é quem decide o que continua ali dentro, e com base em quê</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Engenharia de contexto</h2>
+    <div class="definition"><p>O conjunto de estratégias para curar e manter os tokens úteis durante a inferência do modelo.</p></div>
+    <ul class="plain">
+      <li>Contexto é tudo que entra na janela: instruções do sistema, tools, dados externos, histórico de mensagens, arquivos lidos</li>
+      <li>O termo em inglês é <span class="accent">context engineering</span>, e a Anthropic o trata como a evolução natural da engenharia de prompt</li>
+      <li>Engenharia de prompt escreve bem uma vez. Engenharia de contexto decide, <span class="highlight">a cada volta do laço</span>, o que continua na janela</li>
+    </ul>
+    <p class="fonte">anthropic.com/engineering/effective-context-engineering-for-ai-agents</p>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>Prompt engineering e context engineering</h2>
+    <figure>
+      <img src="img/prompt-vs-contexto.png" alt="Diagrama comparando engenharia de prompt em consulta de turno unico com engenharia de contexto para agentes, com curadoria do que entra na janela de contexto">
+      <p class="fonte">Fonte: Anthropic, <em>Effective context engineering for AI agents</em> (2025). anthropic.com/engineering/effective-context-engineering-for-ai-agents</p>
+    </figure>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>Por que não colocar tudo dentro</h2>
+    <div class="levels">
+      <div class="level level-v step" data-step="1">
+        <div class="level-icon">&#128201;</div>
+        <div class="level-text"><h4>Context rot</h4><p>Quanto mais tokens na janela, menor a precisão do modelo para recuperar uma informação específica. A queda é gradual, e varia de modelo para modelo</p></div>
+      </div>
+      <div class="level level-c step" data-step="2">
+        <div class="level-icon">&#129504;</div>
+        <div class="level-text"><h4>Orçamento de atenção</h4><p>O modelo tem algo parecido com memória de trabalho. Cada token novo consome parte desse orçamento</p></div>
+      </div>
+    </div>
+    <div class="step" data-step="3" style="width:100%">
+      <div class="definition" style="max-width:none;margin-top:1.6rem">
+        <p style="font-size:2.1rem;font-style:normal;font-weight:600">Não existe um ponto onde o modelo quebra. Existe <span class="highlight">perda de precisão que cresce com o tamanho da janela</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A anatomia do contexto</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>System prompt</h3>
+        <p>Organizado em seções, com marcação em XML ou Markdown: informação de fundo, instruções, orientação sobre tools.</p>
+      </div>
+      <div class="card">
+        <h3>Tools</h3>
+        <p>O contrato entre o agente e o ambiente. Autocontidas, com pouca sobreposição entre si e parâmetros sem ambiguidade.</p>
+      </div>
+      <div class="card">
+        <h3>Exemplos</h3>
+        <p>Poucos casos canônicos e diversos, no lugar de um catálogo de casos de borda.</p>
+        <p class="note">Para o modelo, exemplo vale como imagem</p>
+      </div>
+      <div class="card">
+        <h3>Histórico</h3>
+        <p>O que já foi dito e feito. É a parte que cresce sem pedir licença, e a primeira que precisa de poda.</p>
+      </div>
+    </div>
+    <p style="font-size:1.5rem;margin-top:0.5rem">A recomendação da Anthropic para o conjunto: informativo, e ao mesmo tempo enxuto.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A altitude certa</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Baixa demais</h3>
+        <p>Lógica de <code>if</code> e <code>else</code> escrita à mão para cada caso. Frágil, cara de manter, e quebra no primeiro cenário não previsto.</p>
+      </div>
+      <div class="card">
+        <h3>Alta demais</h3>
+        <p>Orientação vaga, sem sinal concreto. Presume um entendimento compartilhado que não existe.</p>
+      </div>
+      <div class="card">
+        <h3>A altitude certa</h3>
+        <p>Específica o bastante para guiar o comportamento, flexível o bastante para servir de heurística em situação nova.</p>
+      </div>
+    </div>
+    <div class="definition"><p>Esse é o mesmo problema que vocês vão enfrentar no <code>AGENTS.md</code> do projeto, e na semana que vem nas skills.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A mesma instrução, em três altitudes</h2>
+    <pre style="font-size:1.15rem"><span class="cmt"># baixa demais: vira manutenção e quebra no caso 4</span>
+Se o arquivo terminar em .test.ts, rode `npm test -- <arquivo>`.
+Se terminar em .spec.ts, rode `npx vitest <arquivo>`.
+Se estiver em src/api, rode também `npm run lint:api`.
+
+<span class="cmt"># alta demais: não diz nada que o modelo já não presuma</span>
+Escreva código de qualidade e rode os testes.
+
+<span class="cmt"># altitude certa</span>
+Antes de abrir PR, rode a suíte de testes do pacote que você alterou
+e o lint do repositório. Os comandos estão em package.json:scripts.
+Se um teste falhar por motivo alheio à sua mudança, registre no PR
+em vez de ajustar o teste.</pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que dar e o que omitir</h2>
+    <ul>
+      <li>Dar: o arquivo que será alterado, as convenções do projeto, o teste que deve passar</li>
+      <li>Omitir: a base inteira, histórico irrelevante, três tentativas fracassadas</li>
+      <li>As convenções entram uma vez, no <code>AGENTS.md</code>, e não a cada pedido</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Duas formas de trazer informação</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Antes da execução</h3>
+        <p>Indexar o repositório e carregar os trechos relevantes antes de o agente começar. Rápido, e sujeito a índice desatualizado.</p>
+      </div>
+      <div class="card">
+        <h3>Sob demanda</h3>
+        <p>O agente guarda identificadores leves, como caminho de arquivo, consulta ou link, e carrega o conteúdo na hora em que precisa.</p>
+        <p class="note">Em inglês, <em>just-in-time</em></p>
+      </div>
+    </div>
+    <ul class="plain">
+      <li>Os metadados já carregam sinal: nome de pasta, convenção de nomes, data de modificação, tamanho do arquivo</li>
+      <li>Isso permite <span class="accent">divulgação progressiva</span>: o agente descobre o que precisa explorando, em camadas</li>
+      <li>O custo é tempo de execução e o risco de o agente se perder em caminhos sem saída</li>
+    </ul>
+    <pre style="font-size:1.15rem">CLAUDE.md          <span class="cmt">// adiantado: pequeno e vale para toda tarefa</span>
+glob, grep, read   <span class="cmt">// sob demanda: o agente decide o que ler</span></pre>
   </div>
 
   <div class="slide slide-content">
@@ -287,38 +453,51 @@
   </div>
 
   <div class="slide slide-content">
-    <h2>Contexto é recurso finito</h2>
-    <ul>
-      <li>O desempenho cai conforme a janela enche</li>
-      <li>Histórico antigo compete com a instrução atual</li>
-      <li>Recomeçar do zero com um resumo costuma custar menos que insistir</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Dois modos de trabalhar com o agente</h2>
-    <div class="cards cards-2" style="margin-top:0.5rem">
-      <div class="card"><h3>Aceleração</h3><p>Você sabe o que quer, e o agente digita mais rápido. Revisão superficial basta.</p><p class="note">Barke et al., OOPSLA 2023</p></div>
-      <div class="card"><h3>Exploração</h3><p>Você não sabe a solução, e usa o agente para descobrir. Aqui a revisão precisa ser lenta.</p><p class="note">risco de aceitar sem entender</p></div>
+    <h2>Três técnicas para tarefa longa</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Compactação</h3>
+        <p>Resumir a conversa perto do limite da janela e recomeçar com o resumo no lugar do histórico.</p>
+        <p class="note"><em>compaction</em>, o <code>/compact</code> do Claude Code. Preserva decisão de arquitetura e bug aberto, descarta saída bruta de ferramenta</p>
+      </div>
+      <div class="card">
+        <h3>Anotação estruturada</h3>
+        <p>O agente escreve notas em arquivo, fora da janela, e relê quando precisa.</p>
+        <p class="note">memória agêntica: <code>NOTES.md</code>, lista de tarefas. No exemplo da Anthropic com Pokémon, o agente atravessou 1.234 passos de treino sem perder a conta</p>
+      </div>
+      <div class="card">
+        <h3>Sub-agentes</h3>
+        <p>Cada subtarefa roda em uma janela limpa e devolve só o resumo: dezenas de milhares de tokens de exploração viram de mil a dois mil de resposta.</p>
+      </div>
     </div>
+    <p style="font-size:1.5rem;margin-top:0.6rem">Compactação para tarefa com muita ida e volta, anotação para trabalho que atravessa sessões, sub-agentes para exploração em paralelo.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que dar e o que omitir</h2>
-    <ul>
-      <li>Dar: o arquivo que será alterado, as convenções do projeto, o teste que deve passar</li>
-      <li>Omitir: a base inteira, histórico irrelevante, três tentativas fracassadas</li>
-      <li>As convenções entram uma vez, no <code>AGENTS.md</code>, e não a cada pedido</li>
-    </ul>
+    <h2>O mesmo pedido, decomposto</h2>
+    <pre style="font-size:1.2rem"><span class="cmt"># uma janela só, e ao fim dela o agente esqueceu o começo</span>
+"Adicione autenticação com JWT, proteja as rotas de admin,
+ escreva os testes, atualize o README e publique."
+
+<span class="cmt"># três janelas limpas, com um arquivo carregando o que atravessa</span>
+1. "Leia src/ e escreva em NOTES.md como as rotas são registradas hoje."
+2. "Com base em NOTES.md, implemente o middleware de JWT e os testes."
+3. "Com base em NOTES.md e no diff, atualize o README e abra o PR."</pre>
+    <p style="font-size:1.5rem">Entre um passo e outro, <code>/clear</code>. O que precisa sobreviver está no arquivo, e não na memória da conversa.</p>
   </div>
 
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: skills</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  <div class="slide slide-content">
+    <h2>Exercício: meçam o próprio contexto</h2>
+    <div class="question"><p>Uma tarefa real do repositório de vocês, feita de duas maneiras.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Peçam a tarefa inteira em uma sessão só. Anotem quantas voltas o agente levou e o que ele esqueceu no caminho</li>
+      <li><span class="accent">2.</span> Rodem <code>/clear</code>, decomponham a mesma tarefa em três pedidos, com um <code>NOTES.md</code> carregando o que precisa atravessar</li>
+      <li><span class="accent">3.</span> Escrevam um <code>AGENTS.md</code> na altitude certa para esse repositório, com no máximo vinte linhas</li>
+      <li><span class="accent">4.</span> Registrem em <code>diario/2026-09-15.md</code> as duas contagens de voltas, o que precisou de correção à mão em cada caso, e qual das vinte linhas do <code>AGENTS.md</code> vocês cortariam primeiro</li>
+    </ul>
+    <p style="font-size:1.4rem">Commit no dia. <strong>Leitura da semana:</strong> Anthropic, <em>Effective context engineering for AI agents</em>. Complementar: Barke, James e Polikarpova, <em>Grounded Copilot</em>, OOPSLA 2023 (arxiv.org/abs/2206.15000).</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');
