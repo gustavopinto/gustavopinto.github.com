@@ -273,16 +273,14 @@
   </div>
 
   <div class="slide slide-content" data-steps="2">
-    <h2>Os dois números que vocês trouxeram</h2>
-    <div class="question"><p>Dez mil registros, varredura completa. Quantas páginas tem o arquivo, e quantas leituras a varredura fez?</p></div>
+    <h2 style="font-size:2.3rem">Dez mil registros, guardados em 20 páginas.<br>A varredura faz quantas leituras de disco?</h2>
     <div class="step" data-step="1">
-      <pre>páginas do arquivo                  21   <span class="cmt">// 1 de metadados, 20 de dados</span>
-leituras, versão com iterador       20
-leituras, versão que relê a página  10000</pre>
+      <pre>lê a página uma vez, e percorre os 510 registros dela       20
+lê a página de novo a cada registro                      10000</pre>
+      <p style="font-size:1.5rem">Mesma resposta, 500 vezes mais leitura.</p>
     </div>
     <div class="step" data-step="2">
-      <div class="definition"><p>E na segunda varredura, dentro do mesmo processo, os dois números se repetem inteiros. O programa já tinha lido tudo, e leu tudo de novo.</p></div>
-      <p style="font-size:1.45rem">É esse desperdício que o M2 apaga. Hoje a gente entende o mecanismo, e quinta vocês implementam.</p>
+      <div class="definition"><p>A segunda varredura, no mesmo processo, repete os dois números. Nada continuou em memória.</p></div>
     </div>
   </div>
 
@@ -295,167 +293,218 @@ leituras, versão que relê a página  10000</pre>
       <tr><td>SSD NVMe</td><td>100 &micro;s</td><td style="white-space:nowrap">27 h</td></tr>
       <tr><td>Disco magnético</td><td>10 ms</td><td style="white-space:nowrap">116 dias</td></tr>
     </table>
-    <p style="font-size:1.45rem;margin-top:0.8rem">A coluna da direita é a mesma escala, esticada como se o acesso a L1 levasse um segundo. Buscar uma página no SSD é um dia inteiro de espera, e no disco magnético são quatro meses.</p>
-    <div class="definition"><p>O trabalho de um SGBD é, quase todo, evitar a terceira e a quarta linha desta tabela.</p></div>
+    <p style="font-size:1.5rem;margin-top:1rem">A coluna da direita estica a escala como se L1 levasse um segundo.</p>
+    <div class="definition"><p>O trabalho de um SGBD é, quase todo, evitar as duas últimas linhas.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que é o cache de páginas</h2>
-    <div class="definition"><p>Uma região de memória que guarda cópias de páginas do arquivo, e um conjunto de regras para decidir quem entra, quem fica e quem sai.</p></div>
-    <ul>
-      <li>Toda leitura passa a pedir a página ao cache, e não ao Pager</li>
-      <li>Se a página já está lá, ninguém toca no disco</li>
-      <li>Se não está, o cache lê do disco, guarda, e devolve</li>
-      <li>Quando a memória enche, alguém precisa sair, e essa escolha tem consequência</li>
+    <h2>Onde o cache entra</h2>
+    <pre style="font-size:1.2rem">tabela     10000 registros, 510 por página
+
+arquivo    [ p0 ][ p1 ][ p2 ][ p3 ][ p4 ]  ...  [ p19 ]      <span class="cmt">4096 bytes cada</span>
+                    |            |
+                    v            v
+cache      [ frame 0 ][ frame 1 ][ frame 2 ]                 <span class="cmt">cópias em memória</span>
+               p1         p3        livre
+
+tabela de páginas    { 1: 0,  3: 1 }                         <span class="cmt">pagina -&gt; frame</span></pre>
+    <ul class="plain" style="font-size:1.5rem">
+      <li>Toda leitura pede a página ao cache, e não ao arquivo</li>
+      <li>Página em memória, nenhum acesso a disco. Página ausente, o cache lê, guarda e devolve</li>
     </ul>
-    <p style="font-size:1.45rem">O nome que aparece na literatura é <span class="accent">buffer pool</span>. É a estrutura mais quente de qualquer banco de dados.</p>
+    <p style="font-size:1.4rem">Na literatura, <span class="accent">buffer pool</span>.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Glossário da aula</h2>
+    <ul class="plain" style="font-size:1.5rem">
+      <li><strong>Arquivo.</strong> O banco em disco, uma sequência de páginas de 4096 bytes. A página 0 guarda os metadados</li>
+      <li><strong>Página.</strong> Pedaço de 4096 bytes do arquivo. O disco lê e escreve sempre uma página inteira</li>
+      <li><strong>Frame.</strong> Posição de memória do tamanho de uma página, onde a cópia fica</li>
+      <li><strong>Cache de páginas.</strong> Os frames, mais as regras de quem entra e quem sai. Na literatura, <em>buffer pool</em></li>
+      <li><strong>Tabela de páginas.</strong> Dicionário que leva do número da página ao frame onde ela está</li>
+      <li><strong>Acerto e falta.</strong> A página pedida estava, ou não estava, em memória. Em inglês, <em>hit</em> e <em>miss</em></li>
+      <li><strong>Fixar e soltar.</strong> Marcar a página como em uso, e liberar. Em inglês, <em>pin</em> e <em>unpin</em></li>
+      <li><strong>Página suja.</strong> Alterada em memória, ainda não gravada no disco. Em inglês, <em>dirty</em></li>
+      <li><strong>Expulsão.</strong> Tirar uma página do cache para abrir espaço. Em inglês, <em>eviction</em></li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Fixar e soltar <span style="font-size:1.9rem;color:var(--secondary);font-weight:600">(do inglês, <em>pin</em> e <em>unpin</em>)</span></h2>
+    <p style="font-size:1.5rem;margin-bottom:0.6rem">A varredura do slide 2: lê os 510 registros de uma página antes de passar para a próxima.</p>
+    <pre style="font-size:1.15rem">def varre(cache, tabela):
+    for n in range(tabela.n_paginas):
+        buf = cache.fixa(n)                 <span class="cmt">&#9488;  estou usando a página n</span>
+        for slot in range(510):             <span class="cmt">&#9474;</span>
+            yield le_registro(buf, slot)    <span class="cmt">&#9474;  o cache não pode expulsar a n</span>
+        cache.solta(n)                      <span class="cmt">&#9496;  terminei, pode expulsar</span></pre>
+    <p style="font-size:1.4rem">Solta em todo caminho de saída, inclusive no de erro. Em Python, <code>try/finally</code>.</p>
+    <div class="step" data-step="1">
+      <div class="question"><p>O iterador acima está parado na página 7, entre o <code>fixa</code> e o <code>solta</code>. Outra consulta pede a página 12, e o cache está cheio. Quem sai?</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Quando o cache enche</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>FIFO</h3>
+        <p>Sai a página que <strong>entrou</strong> há mais tempo. O acerto não mexe na fila.</p>
+      </div>
+      <div class="card">
+        <h3>LRU</h3>
+        <p>Sai a página <strong>lida</strong> há mais tempo. Cada acerto devolve a página para o fim da fila. É o que o M2 pede.</p>
+      </div>
+    </div>
+    <div class="step" data-step="1">
+      <pre style="font-size:1.1rem">3 frames, acessos 1, 2, 3, 1, 4
+<span class="cmt">à esquerda fica a página lida há mais tempo, a próxima a sair</span>
+
+acesso   frames      o cache fez
+   1     [1]         falta, leu do disco
+   2     [1 2]       falta, leu do disco
+   3     [1 2 3]     falta, e o cache encheu
+   1     [2 3 1]     <span class="success">acerto</span>, sem tocar no disco   <span class="cmt">&lt;- a 1 foi para o fim da fila</span>
+   4     [3 1 4]     falta, expulsou a 2</pre>
+      <p style="font-size:1.35rem">Com FIFO, o acesso 4 teria expulsado a página 1, que tinha acabado de ser lida.</p>
+      <p style="font-size:1.25rem;margin-top:0.6rem">Onde o LRU não acerta nenhuma vez, e o que os bancos usam no lugar: O'Neil, O'Neil e Weikum, <em>The LRU-K Page Replacement Algorithm for Database Disk Buffering</em>, SIGMOD 1993. <a href="https://dl.acm.org/doi/10.1145/170035.170081" style="color:var(--accent)">dl.acm.org/doi/10.1145/170035.170081</a></p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Página suja, steal e no-force</h2>
+    <div class="definition"><p>Página suja é a que foi alterada em memória e ainda não foi gravada no disco.</p></div>
+    <ul class="plain">
+      <li>Gravar a cada alteração: correto, e dez mil escritas</li>
+      <li>Não gravar nunca: rápido, e perde tudo no primeiro <code>kill -9</code></li>
+      <li>Gravar na expulsão, e quando alguém mandar</li>
+    </ul>
+    <div class="cards cards-2" style="margin-top:0.8rem">
+      <div class="card">
+        <h3>Steal</h3>
+        <p>O cache pode gravar no disco uma página suja de transação que ainda não fez <code>COMMIT</code>.</p>
+        <p class="note">Exige saber desfazer</p>
+      </div>
+      <div class="card">
+        <h3>No-force</h3>
+        <p>O <code>COMMIT</code> não obriga a gravar as páginas alteradas pela transação.</p>
+        <p class="note">Exige saber refazer</p>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O <code>minidb</code> é steal e no-force. É por isso que o log precisa existir, no M6.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>Steal e no-force, na prática</h2>
+    <div class="step" data-step="1">
+      <pre style="font-size:1.15rem"><span class="accent">steal</span>      T1 altera a página 5, e ainda não fez COMMIT
+           o cache enche, expulsa a 5 e grava no disco
+           T1 falha          <span class="cmt">o disco guarda dado de uma transação que não existiu</span>
+           o log precisa saber <span class="highlight">DESFAZER</span></pre>
+    </div>
+    <div class="step" data-step="2">
+      <pre style="font-size:1.15rem"><span class="accent">no-force</span>   T1 altera a página 5 e faz COMMIT
+           a página 5 continua só em memória
+           kill -9           <span class="cmt">o disco não tem o dado de um COMMIT já confirmado</span>
+           o log precisa saber <span class="highlight">REFAZER</span></pre>
+      <div class="definition"><p>Sem steal, a memória fica presa. Sem no-force, todo COMMIT grava. Com os dois, é o log que paga a conta.</p></div>
+    </div>
   </div>
 
   <div class="slide slide-content">
     <h2>Por que não deixar isso para o sistema operacional</h2>
-    <p style="font-size:1.45rem">O sistema operacional já tem um cache de páginas. Bastaria usar <code>mmap</code> e deixar ele resolver. Nenhum banco sério faz isso, por quatro motivos.</p>
+    <p style="font-size:1.5rem">O sistema operacional já tem um cache de páginas, e daria para usar <code>mmap</code>. Os bancos em produção não fazem isso.</p>
     <ul class="plain">
-      <li><span class="accent">1.</span> Ele decide sozinho <span class="highlight">quando</span> gravar uma página modificada. A durabilidade do M7 exige que essa ordem seja nossa</li>
+      <li><span class="accent">1.</span> Ele decide sozinho quando gravar uma página modificada</li>
       <li><span class="accent">2.</span> Ele não sabe que a consulta é uma varredura, e nós sabemos</li>
-      <li><span class="accent">3.</span> Uma falha de página trava a thread inteira, e o banco não tem como reagir</li>
-      <li><span class="accent">4.</span> Ele não conhece a noção de página fixada, então não há como garantir que a página em uso permaneça</li>
+      <li><span class="accent">3.</span> Uma falha de página trava a thread inteira</li>
+      <li><span class="accent">4.</span> Ele não conhece a noção de página fixada</li>
     </ul>
-    <p style="font-size:1.35rem;margin-top:0.6rem">Leitura curta e direta sobre isso: <span class="accent">Crotty, Leis e Pavlo, <em>Are You Sure You Want to Use MMAP in Your DBMS?</em></span>, CIDR 2022.</p>
+    <p style="font-size:1.35rem;margin-top:0.8rem"><span class="accent">Crotty, Leis e Pavlo, <em>Are You Sure You Want to Use MMAP in Your DBMS?</em></span>, CIDR 2022.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>As quatro estruturas</h2>
-    <div class="cards cards-4">
-      <div class="card">
-        <h3>Frames</h3>
-        <p>Posições de memória do tamanho de uma página. A capacidade do cache é o número de frames.</p>
-      </div>
-      <div class="card">
-        <h3>Tabela de páginas</h3>
-        <p>Mapeia número da página para o frame em que ela está. É por aqui que o cache responde se acertou.</p>
-        <p class="note">Indexada pela página, nunca pelo frame</p>
-      </div>
-      <div class="card">
-        <h3>Bit de sujeira</h3>
-        <p>Diz se a cópia em memória difere da cópia no disco. Página limpa pode sair sem custo.</p>
-      </div>
-      <div class="card">
-        <h3>Contador de fixação</h3>
-        <p>Quantos usuários estão com a página aberta neste instante. Página fixada não pode ser expulsa.</p>
-      </div>
-    </div>
-    <p style="font-size:1.4rem;margin-top:0.8rem">Três dicionários e um contador. O M2 é o módulo mais curto do semestre, e o que mais quebra os outros quando sai errado.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O ciclo de vida de uma página</h2>
-    <pre style="font-size:1.25rem">buf = cache.fixa(7)        <span class="cmt">// achou no cache, ou leu do disco e fixou</span>
-   ... usa o buffer ...     <span class="cmt">// enquanto está fixada, ninguém a expulsa</span>
-cache.solta(7, sujou=True)  <span class="cmt">// devolve, e avisa se alterou</span></pre>
-    <ul class="plain">
-      <li>Fixar e soltar andam sempre em par, como abrir e fechar arquivo</li>
-      <li>Quem esquece de soltar entrega um cache que enche e nunca mais expulsa nada</li>
-      <li>Em Python, <code>try/finally</code>. Em C, o <code>unpin</code> em todos os caminhos de saída, inclusive no de erro</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Para que serve a fixação</h2>
-    <div class="question"><p>O iterador do M5 está no meio da página 7. O cache enche e escolhe expulsar a 7. O que acontece?</p></div>
-    <ul>
-      <li>Sem contador de fixação, o frame é reutilizado e o iterador passa a ler outra página, achando que é a mesma</li>
-      <li>O resultado da consulta sai errado, sem erro nenhum na tela</li>
-      <li>No M5 vocês vão ter dois iteradores vivos ao mesmo tempo, um do índice e um da tabela</li>
-    </ul>
-    <div class="definition"><p>Página fixada é página intocável. Se todas estiverem fixadas e o cache encher, a resposta certa é falhar alto, e não expulsar assim mesmo.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Página suja</h2>
-    <div class="definition"><p>Página suja é a que foi alterada em memória e ainda não foi gravada no disco.</p></div>
-    <ul>
-      <li>Gravar a cada alteração é correto e lento: volta ao custo de dez mil escritas</li>
-      <li>Não gravar nunca é rápido e perde dados no primeiro <code>kill -9</code></li>
-      <li>O meio termo: gravar quando a página for expulsa, e quando alguém mandar</li>
-      <li><span class="accent">Esse "alguém" tem nome,</span> e chega no M6: o log</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Dois nomes que voltam em novembro</h2>
+    <h2>Armadilhas conhecidas</h2>
     <div class="cards cards-2">
       <div class="card">
-        <h3>Steal</h3>
-        <p>O cache pode expulsar, e gravar no disco, uma página suja de uma transação que ainda não fez <code>COMMIT</code>.</p>
-        <p class="note">Ganha memória, e exige saber desfazer</p>
+        <h3>Expulsar suja sem gravar</h3>
+        <p>O dado não chega ao disco, e a perda aparece numa consulta muito depois.</p>
       </div>
       <div class="card">
-        <h3>No-force</h3>
-        <p>O <code>COMMIT</code> não obriga a gravar todas as páginas alteradas pela transação.</p>
-        <p class="note">Ganha tempo, e exige saber refazer</p>
-      </div>
-    </div>
-    <p style="font-size:1.45rem;margin-top:0.8rem">O <code>minidb</code> vai ser steal e no-force, como quase todo banco real. As duas escolhas são feitas aqui, no M2, e a conta chega no M7: é exatamente por causa delas que o log precisa existir.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Quando o cache enche</h2>
-    <div class="cards cards-3">
-      <div class="card">
-        <h3>FIFO</h3>
-        <p>Sai quem entrou primeiro. Simples, e ignora completamente o uso.</p>
+        <h3>Devolver uma cópia</h3>
+        <p>A alteração morre ali, e o bit de sujeira não significa nada. Devolva a mesma referência.</p>
       </div>
       <div class="card">
-        <h3>LRU</h3>
-        <p>Sai quem foi usado há mais tempo. Aposta que o passado recente prevê o futuro próximo.</p>
-        <p class="note">É o que o M2 pede</p>
+        <h3>Esquecer o <code>solta</code></h3>
+        <p>O cache enche de páginas fixadas, e a primeira expulsão falha.</p>
       </div>
       <div class="card">
-        <h3>CLOCK</h3>
-        <p>Aproximação barata do LRU: um bit de referência por frame e um ponteiro que gira. Sem lista para reordenar a cada acesso.</p>
+        <h3>Ler o arquivo sem passar pelo cache</h3>
+        <p>Duas cópias da mesma página, com valores diferentes.</p>
       </div>
-    </div>
-    <pre style="font-size:1.2rem">CLOCK:  ponteiro passa pelo frame
-        bit de referência 1  &rarr;  zera o bit e segue  <span class="cmt">// ganhou uma segunda chance</span>
-        bit de referência 0  &rarr;  expulsa este        <span class="cmt">// e o ponteiro para aqui</span></pre>
-  </div>
-
-  <div class="slide slide-content" data-steps="3">
-    <h2>Onde o LRU erra feio</h2>
-    <div class="question"><p>Cache de 3 frames. A tabela tem 4 páginas, e a consulta varre a tabela inteira, duas vezes.</p></div>
-    <div class="step" data-step="1">
-      <pre style="font-size:1.25rem">acessos   1  2  3  4  1  2  3  4
-LRU       F  F  F  F  F  F  F  F      <span class="cmt">// oito faltas em oito acessos</span></pre>
-    </div>
-    <div class="step" data-step="2">
-      <ul class="plain">
-        <li>Cada página é expulsa <span class="highlight">exatamente antes</span> de ser pedida de novo</li>
-        <li>Um frame a mais, e a taxa de acerto salta de 0 para 50 por cento</li>
-      </ul>
-    </div>
-    <div class="step" data-step="3">
-      <div class="definition"><p>O nome disso é inundação por varredura. É o motivo de bancos reais usarem LRU-K, 2Q ou CLOCK com proteção de varredura.</p></div>
-      <p style="font-size:1.4rem">No <code>minidb</code>, LRU basta. Mas eu quero que vocês saibam onde ele quebra, porque isso vai aparecer na medição de vocês.</p>
-    </div>
-  </div>
-
-  <div class="slide slide-content" data-steps="2">
-    <h2>E vai aparecer nos números de vocês</h2>
-    <div class="question"><p>Vinte páginas de dados, varredura completa rodada duas vezes no mesmo processo. Qual a taxa de acerto da segunda varredura?</p></div>
-    <div class="step" data-step="1">
-      <pre>cache com 16 frames   &rarr;   0 acertos,  20 faltas     <span class="cmt">// 0 por cento</span>
-cache com 20 frames   &rarr;  20 acertos,   0 faltas     <span class="cmt">// 100 por cento</span></pre>
-    </div>
-    <div class="step" data-step="2">
-      <ul class="plain">
-        <li>Quatro frames de diferença, e o resultado vai de nada a tudo</li>
-        <li>Com 16 frames, o LRU expulsa a página 1 para ler a 17, e a varredura seguinte começa pedindo a página 1</li>
-        <li><span class="highlight">Um cache menor que a tabela, com LRU e varredura, pode não acertar nenhuma vez</span></li>
-      </ul>
     </div>
   </div>
 
   <div class="slide slide-content">
+    <h2>Como saber que está certo</h2>
+    <ul class="plain">
+      <li><span class="accent">1.</span> <strong>Acerto.</strong> Ler a mesma página duas vezes faz uma leitura de disco só</li>
+      <li><span class="accent">2.</span> <strong>Expulsão.</strong> Com 3 frames, tocar 4 páginas expulsa a menos usada</li>
+      <li><span class="accent">3.</span> <strong>Suja.</strong> Alterar, expulsar, reabrir em outro processo: a alteração está lá</li>
+    </ul>
+    <p style="font-size:1.45rem;margin-top:1rem">Testem com três ou quatro frames. Com capacidade grande, a expulsão nunca acontece.</p>
+    <p style="font-size:1.3rem;margin-top:1rem"><strong class="highlight">Para saber mais.</strong> Com todas as páginas fixadas, a próxima falta deve levantar erro em vez de expulsar. E o cache conta acertos e faltas, cuja soma é igual ao número de chamadas a <code>fixa</code>. Os dois estão no esqueleto do apêndice.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O M2 e as próximas duas aulas</h2>
+    <div class="phases">
+      <div class="phase phase-1">
+        <h3>Quinta, 24/09</h3>
+        <div class="dates">laboratório</div>
+        <ul>
+          <li>Tabela de páginas, frames e o par fixa e solta</li>
+          <li>LRU e a expulsão</li>
+          <li>Contadores de acerto e falta</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Terça, 29/09</h3>
+        <div class="dates">laboratório</div>
+        <ul>
+          <li>Bit de sujeira e escrita na expulsão</li>
+          <li>Integração com o M1</li>
+          <li>Medição antes e depois</li>
+        </ul>
+      </div>
+      <div class="phase phase-3">
+        <h3>29/09, 23h59</h3>
+        <div class="dates">entrega do M2</div>
+        <ul>
+          <li>Pull request com os testes passando</li>
+          <li><code>NOTES.md</code> com a decisão mais difícil</li>
+          <li>Commits que mostrem o caminho</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.8rem">No <code>NOTES.md</code>, digam qual capacidade vocês escolheram e por quê.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Cache com 3 frames e política LRU. Acessos: 1, 2, 3, 1, 4, 2, 5, 1, 2, 3.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Marque cada acesso como acerto ou falta, e some as faltas</li>
+      <li><span class="accent">2.</span> Qual página está em cada frame ao fim da sequência?</li>
+      <li><span class="accent">3.</span> As páginas 2 e 5 foram alteradas. Quantas escritas em disco, e em que momento?</li>
+      <li><span class="accent">4.</span> Refaça o item 1 com 4 frames. Quantas faltas a mais o terceiro frame custava?</li>
+    </ul>
+    <p style="font-size:1.45rem;margin-top:1rem">Tragam resolvido no papel para quinta. Dúvidas, <span class="accent">gpinto@ufpa.br</span>.</p>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
     <h2>O esqueleto do M2</h2>
     <pre style="font-size:1.15rem">class Cache:
     def __init__(self, pager, capacidade=16):
@@ -480,7 +529,8 @@ cache com 20 frames   &rarr;  20 acertos,   0 faltas     <span class="cmt">// 10
         return self.frames[n]</pre>
   </div>
 
-  <div class="slide slide-content">
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
     <h2>O esqueleto do M2</h2>
     <pre style="font-size:1.15rem">    def solta(self, n, sujou=False):
         if sujou:
@@ -502,105 +552,6 @@ cache com 20 frames   &rarr;  20 acertos,   0 faltas     <span class="cmt">// 10
             self.pager.escreve(n, self.frames[n])
         self.suja.clear()
         self.pager.sync()</pre>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O que muda no código que já existe</h2>
-    <pre style="font-size:1.25rem">antes    Tabela  &rarr;  Pagina  &rarr;  Pager  &rarr;  disco
-depois   Tabela  &rarr;  Pagina  &rarr;  <span class="cmd">Cache</span>  &rarr;  Pager  &rarr;  disco</pre>
-    <ul class="plain">
-      <li>O Pager passa a ser <span class="highlight">privado do cache</span>. Nenhuma outra classe chama <code>le</code> ou <code>escreve</code> direto</li>
-      <li>A Tabela troca <code>pager.le(n)</code> por <code>cache.fixa(n)</code>, e ganha o <code>solta</code> no fim</li>
-      <li>Se as camadas de quinta estiverem no lugar, isso é meia hora. Se não estiverem, é o dia inteiro</li>
-    </ul>
-    <div class="definition"><p>Esse é o primeiro módulo que mexe em código já entregue. Todo módulo daqui para frente vai ser assim.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Armadilhas conhecidas</h2>
-    <div class="cards cards-2">
-      <div class="card">
-        <h3>Expulsar suja sem gravar</h3>
-        <p>O dado some em silêncio, e só aparece em uma consulta muito depois. Grave antes de tirar o frame.</p>
-      </div>
-      <div class="card">
-        <h3>Devolver uma cópia</h3>
-        <p>Se <code>fixa</code> devolve cópia do buffer, a alteração morre ali e o bit de sujeira não significa nada. Devolva a mesma referência.</p>
-      </div>
-      <div class="card">
-        <h3>Esquecer o <code>solta</code></h3>
-        <p>O cache enche de páginas fixadas, e a primeira expulsão falha. Pares de fixa e solta, sempre.</p>
-      </div>
-      <div class="card">
-        <h3>Deixar o Pager acessível</h3>
-        <p>Uma única chamada direta ao Pager, e existem duas cópias da mesma página em memória, com valores diferentes.</p>
-      </div>
-    </div>
-    <div class="definition"><p>Nenhuma dessas quebra os testes de aceitação de forma óbvia. Todas quebram o módulo seguinte.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Como saber que está certo</h2>
-    <ul class="plain">
-      <li><span class="accent">1.</span> <strong>Acerto.</strong> Ler a mesma página duas vezes faz uma leitura de disco só</li>
-      <li><span class="accent">2.</span> <strong>Expulsão.</strong> Com 3 frames, tocar 4 páginas força uma expulsão, e a expulsa é a menos usada</li>
-      <li><span class="accent">3.</span> <strong>Suja.</strong> Alterar, expulsar, reabrir o arquivo em outro processo: a alteração está lá</li>
-      <li><span class="accent">4.</span> <strong>Fixação.</strong> Com todas as páginas fixadas, a próxima falta levanta erro, e não expulsa nada</li>
-      <li><span class="accent">5.</span> <strong>Contador.</strong> Acertos mais faltas é igual ao número de chamadas a <code>fixa</code></li>
-    </ul>
-    <p style="font-size:1.4rem;margin-top:0.6rem">Usem capacidade pequena nos testes, três ou quatro frames. Com capacidade grande, a expulsão nunca acontece e o teste não prova nada.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O M2 e as próximas duas aulas</h2>
-    <div class="phases">
-      <div class="phase phase-1">
-        <h3>Quinta, 24/09</h3>
-        <div class="dates">laboratório</div>
-        <ul>
-          <li>Tabela de páginas, frames e o par fixa e solta</li>
-          <li>LRU e a expulsão</li>
-          <li>Contadores de acerto e falta</li>
-        </ul>
-      </div>
-      <div class="phase phase-2">
-        <h3>Terça, 29/09</h3>
-        <div class="dates">laboratório</div>
-        <ul>
-          <li>Bit de sujeira e escrita na expulsão</li>
-          <li>Integração com o M1, e o Pager fechado</li>
-          <li>Medição antes e depois</li>
-        </ul>
-      </div>
-      <div class="phase phase-3">
-        <h3>29/09, 23h59</h3>
-        <div class="dates">entrega do M2</div>
-        <ul>
-          <li>Pull request com os testes passando</li>
-          <li><code>NOTES.md</code> com a decisão mais difícil</li>
-          <li>Commits que mostrem o caminho</li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:1.35rem;margin-top:0.6rem">No <code>NOTES.md</code> deste módulo, digam qual capacidade vocês escolheram e por quê.</p>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Antes de sair, o exercício de hoje</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Exercício de hoje</h2>
-    <div class="question"><p>Cache com 3 frames e política LRU. A sequência de acessos é 1, 2, 3, 1, 4, 2, 5, 1, 2, 3.</p></div>
-    <ul class="plain">
-      <li><span class="accent">1.</span> Marque cada acesso como acerto ou falta, e diga quantas faltas a sequência produz</li>
-      <li><span class="accent">2.</span> Qual página está em cada frame ao fim da sequência?</li>
-      <li><span class="accent">3.</span> As páginas 2 e 5 foram alteradas em memória. Quantas escritas em disco a sequência provoca, e em que momento cada uma acontece?</li>
-      <li><span class="accent">4.</span> Refaça o item 1 com 4 frames. Quantas faltas a mais o terceiro frame estava custando?</li>
-    </ul>
-    <p style="font-size:1.4rem;margin-top:0.8rem">Tragam a conta resolvida no papel para quinta. O código do M2 fica bem mais curto depois que essa sequência estiver clara.</p>
   </div>
 </div>
 
