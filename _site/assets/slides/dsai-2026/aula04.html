@@ -252,6 +252,24 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 70vh; }
+
+    .cards-big .card h3 { font-size: 2rem; }
+    .cards-big .card p  { font-size: 1.65rem; }
   </style>
 </head>
 <body>
@@ -264,71 +282,200 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
     <h1>Aula 4<br><span class="accent">Skills: conhecimento procedural versionado</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>17 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>22 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O problema</h2>
-    <div class="question"><p>Como você ensina ao agente algo que só a sua equipe sabe?</p></div>
-    <ul>
-      <li>Repetir no prompt toda vez: caro e esquecível</li>
-      <li>Colocar tudo no <code>AGENTS.md</code>: o arquivo incha e o agente para de ler</li>
-      <li>A resposta é carregar sob demanda</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
     <h2>O que é uma skill</h2>
-    <div class="definition"><p>Uma pasta com um <code>SKILL.md</code> na raiz, com instruções e opcionalmente scripts, que o agente carrega quando julga relevante.</p></div>
-    <ul>
-      <li><span class='accent'>Nível 1:</span> só nome e descrição ficam sempre no contexto</li>
-      <li><span class='accent'>Nível 2:</span> o corpo do <code>SKILL.md</code> entra se for relevante</li>
-      <li><span class='accent'>Nível 3:</span> arquivos referenciados são abertos se precisar</li>
+    <div class="definition"><p>Uma pasta com um <code>SKILL.md</code>, versionada no repositório, que ensina o agente a executar uma tarefa.</p></div>
+<pre style="font-size:1.7rem">.claude/skills/nova-migracao/
+├── SKILL.md       <span class="cmt"># name, description e os passos</span>
+├── scripts/       <span class="cmt"># executados, não lidos</span>
+├── references/    <span class="cmt"># lidos se precisar</span>
+└── assets/        <span class="cmt"># templates, exemplos</span></pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Um exemplo: <code>SKILL.md</code></h2>
+<pre style="font-size:1.35rem;width:100%">---
+name: nova-migracao
+description: Cria uma migração SQL seguindo as convenções do projeto.
+  Use ao adicionar ou alterar tabela, coluna ou índice.
+metadata:
+  intencao: executiva
+  interacao: interativa
+---
+<span class="cmd"># Nova migração</span>
+
+1. Rode scripts/checar.sh para ver a última migração aplicada.
+2. Copie assets/template.sql para db/migrations/AAAAMMDD_&lt;nome&gt;.sql.
+3. Siga os nomes de tabela e índice de references/convencoes.md.
+4. Mostre o SQL ao usuário e peça confirmação antes de aplicar.
+5. Rode npm test. Se falhar, desfaça a migração e explique o erro.</pre>
+    <p style="font-size:1.5rem">O frontmatter é o que o agente vê sempre. O corpo só entra quando a <code>description</code> casa com o pedido.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>Divulgação progressiva</h2>
+    <div class="levels">
+      <div class="level level-c step" data-step="1">
+        <div class="level-icon">1</div>
+        <div class="level-text"><h4>Metadados, sempre no contexto</h4><p><code>name</code> e <code>description</code>, cerca de 100 tokens</p></div>
+      </div>
+      <div class="level level-v step" data-step="2">
+        <div class="level-icon">2</div>
+        <div class="level-text"><h4>Corpo, quando a skill é relevante</h4><p>O <code>SKILL.md</code> inteiro entra na janela</p></div>
+      </div>
+      <div class="level level-f step" data-step="3">
+        <div class="level-icon">3</div>
+        <div class="level-text"><h4>Arquivos, sob demanda</h4><p>Referências abertas e scripts executados só se o passo exigir</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Skill é uma decisão de delegação</h2>
+    <p style="font-size:1.7rem">Toda skill declara quanto o agente pode fazer sozinho.</p>
+    <div class="cards cards-2 cards-big" style="margin-top:1rem">
+      <div class="card">
+        <h3>Assistiva</h3>
+        <p>Orienta ou analisa, sem ação irreversível.</p>
+      </div>
+      <div class="card">
+        <h3>Executiva</h3>
+        <p>Produz efeito real: escreve arquivo, abre merge request, faz deploy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Modos de interação</h2>
+    <div class="cards cards-3 cards-big">
+      <div class="card">
+        <h3>Interativa</h3>
+        <p>Pede entrada do usuário antes ou durante a execução.</p>
+      </div>
+      <div class="card">
+        <h3>Reativa</h3>
+        <p>Disparada pelo usuário, vai até o fim sem perguntar mais nada.</p>
+      </div>
+      <div class="card">
+        <h3>Autônoma</h3>
+        <p>Dispara sozinha, por agenda ou evento, sem ninguém pedir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Risco</h2>
+    <p style="font-size:1.7rem">O pior que acontece se a skill rodar até o fim sem humano no laço.</p>
+    <div class="cards cards-4 cards-big" style="margin-top:1rem">
+      <div class="card">
+        <h3>Nenhum</h3>
+        <p class="step" data-step="1">Só leitura e análise.</p>
+      </div>
+      <div class="card">
+        <h3>Baixo</h3>
+        <p class="step" data-step="1">Arquivo local ou artefato reversível.</p>
+      </div>
+      <div class="card">
+        <h3>Médio</h3>
+        <p class="step" data-step="1">Abre MR ou ticket, manda mensagem, altera estado de um serviço.</p>
+      </div>
+      <div class="card">
+        <h3>Alto</h3>
+        <p class="step" data-step="1">Mudança em produção ou em sistema regulado da organização.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>502 skills de um catálogo corporativo</h2>
+    <p style="font-size:1.6rem;margin-bottom:0.6rem">O tamanho de cada skill: número de palavras no corpo do <code>SKILL.md</code>.</p>
+    <figure>
+      <img src="img/skills-palavras.png" alt="Histograma do número de palavras no corpo do SKILL.md das 502 skills, com mediana perto de 734 palavras e cauda longa até 12 mil">
+      <p class="fonte">Uma empresa com cerca de 8 mil engenheiros. Mediana de 734 palavras por skill. Fonte: Pinto, <em>One in Three Enterprise Agent Skills Misrepresent Their Own Autonomy</em>, preprint, 2026.</p>
+    </figure>
+  </div>
+
+  <div class="slide slide-content slide-fig">
+    <h2>O que se delega</h2>
+    <figure>
+      <img src="img/skills-dominios.png" alt="Barras com o número de skills por domínio: Data/ML 117, Documentation 81, Process/Planning 58, Communication 57, Code Quality 53, Infrastructure 52, Observability 44, Business 16, Version Control 15, Meta/Agent 9">
+      <p class="fonte">Nenhum domínio tem maioria. Dados e ML lideram com 23%.</p>
+    </figure>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>Quanto humano fica no laço</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">As 502 skills, por modo de interação.</p>
+    <table class="rel-table" style="font-size:1.6rem">
+      <tr><th>Modo</th><th>O humano...</th><th>Total</th></tr>
+      <tr><td><strong>Interativa</strong></td><td>responde durante a execução</td><td><strong>59%</strong></td></tr>
+      <tr><td><strong>Reativa</strong></td><td>só dispara, e espera o fim</td><td><strong>31%</strong></td></tr>
+      <tr><td><strong>Autônoma</strong></td><td>nem dispara</td><td><strong>11%</strong></td></tr>
+    </table>
+    <ul class="plain" style="margin-top:1.2rem">
+      <li class="step" data-step="1">Na maioria, ainda tem alguém no laço. O caso mais comum é a skill que conduz o processo, pergunta, e não faz nada irreversível</li>
+      <li class="step" data-step="2">Mas 11% das skills, 53 no total, <span class="highlight">disparam sozinhas, sem ninguém pedir</span>: monitoramento, alertas, relatórios agendados</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>A anatomia real de uma skill</h2>
-    <ul>
-      <li>Estudo de <span class='accent'>238</span> skills reais, com taxonomia de 13 componentes principais</li>
-      <li>O <code>SKILL.md</code> tem metadados obrigatórios e um corpo livre, a cargo do autor</li>
-      <li>Liberdade total no corpo significa qualidade muito desigual</li>
+    <h2>Declarado e executado</h2>
+    <div class="question"><p>A skill faz o que o rótulo diz?</p></div>
+    <div class="cards cards-2 cards-big">
+      <div class="card">
+        <h3>Declarado</h3>
+        <p>O que a skill diz de si mesma: assistiva ou executiva.</p>
+      </div>
+      <div class="card">
+        <h3>Executado</h3>
+        <p>O que o corpo permite: tem bloco de shell? Para e pergunta ao usuário?</p>
+      </div>
+    </div>
+    <ul class="plain" style="margin-top:1rem">
+      <li><span class="accent">Sub-declarada:</span> diz que só orienta, mas roda shell</li>
+      <li><span class="accent">Super-declarada:</span> diz que age, mas para e pede confirmação</li>
     </ul>
-    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">From Anatomy to Smells, 2026, arXiv:2607.01456</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>Uma em cada três skills não bate com o rótulo</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">As 502 skills, comparando o que dizem de si mesmas com o que o corpo permite.</p>
+    <table class="rel-table" style="font-size:1.6rem">
+      <tr><th>Célula</th><th>Diz que...</th><th>Na prática...</th><th>Total</th></tr>
+      <tr><td><strong>Alinhada assistiva</strong></td><td>só orienta</td><td>só orienta</td><td><strong>52%</strong></td></tr>
+      <tr><td><strong>Alinhada executiva</strong></td><td>age</td><td>age, sem parar</td><td><strong>15%</strong></td></tr>
+      <tr><td><strong class="highlight">Super-declarada</strong></td><td>age</td><td>para e pede confirmação</td><td><strong>20%</strong></td></tr>
+      <tr><td><strong class="highlight">Sub-declarada</strong></td><td>só orienta</td><td>roda shell em sistema real</td><td><strong>13%</strong></td></tr>
+    </table>
+    <ul class="plain" style="margin-top:1.2rem">
+      <li class="step" data-step="1">Somando as duas últimas linhas, 33% das skills não fazem o que o rótulo diz. E todas passaram pela revisão do catálogo</li>
+      <li class="step" data-step="2">A sub-declarada é a mais perigosa: quem revisa pelo rótulo a trata como baixo risco</li>
+    </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Quando usar o quê</h2>
-    <ul>
-      <li><span class='accent'>Prompt:</span> vale para uma tarefa só</li>
-      <li><span class='accent'>AGENTS.md:</span> convenção que vale para o repositório inteiro</li>
-      <li><span class='accent'>Skill:</span> procedimento com passos, que se repete</li>
-      <li><span class='accent'>Servidor MCP:</span> quando o agente precisa <em>agir</em> sobre um sistema externo</li>
+    <h2>Exercício: três skills para o PR da aula 3</h2>
+    <div class="question"><p>Uma skill de cada modo, cada uma cobrindo um momento diferente daquele PR.</p></div>
+    <ul class="plain">
+      <li><span class="accent">Interativa:</span> planejar o PR. A skill pergunta escopo, arquivos afetados e critério de pronto antes de qualquer código</li>
+      <li><span class="accent">Reativa:</span> fechar o PR. Disparada por vocês, roda os testes, atualiza a documentação e abre o PR, sem perguntar nada</li>
+      <li><span class="accent">Autônoma:</span> vigiar o PR. Dispara sozinha quando o CI falha, por hook ou GitHub Action, e comenta a causa provável</li>
     </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Skill é código de terceiros</h2>
-    <div class="definition"><p>Instalar uma skill de fonte desconhecida é executar instruções que alguém escreveu, no seu repositório, com as suas credenciais.</p></div>
-    <p style="font-size:1.5rem;margin-top:0.8rem">26,1% de 31 mil skills públicas analisadas têm ao menos uma vulnerabilidade. Voltamos a isso na aula 10.</p>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: Specification-Driven Development</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+    <p style="font-size:1.5rem;margin-top:0.6rem">Declarem em <code>metadata</code> a intenção e o modo de cada uma. Registrem em <code>diario/2026-09-22.md</code> se cada skill fez o que declarava, e em qual célula da matriz caiu.</p>
+    <p style="font-size:1.4rem">Commit no dia. <strong>Leitura da semana:</strong> <em>From Anatomy to Smells: An Empirical Study of SKILL.md</em> (arxiv.org/abs/2607.01456).</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');
