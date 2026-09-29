@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 9 &mdash; Desenvolvimento de Software Apoiado por IA</title>
+  <title>AP1 &mdash; Desenvolvimento de Software Apoiado por IA</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -267,55 +267,163 @@
 
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
-    <h1>Aula 9<br><span class="accent">Código legado</span></h1>
+    <h1>Atividade Prática 1<br><span class="accent">Uma aplicação de verdade com SDD</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>6 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>29 de setembro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O cenário real</h2>
-    <div class="definition"><p>Brownfield é o desenvolvimento sobre uma base existente, com histórico, dependências e decisões que você não tomou.</p></div>
+    <h2>A atividade</h2>
     <ul>
-      <li>Quase todo curso da área trabalha só com projeto novo</li>
-      <li>O egresso encontra o oposto na primeira semana de trabalho</li>
+      <li>Cada dupla escolhe e constrói uma aplicação <span class="highlight">não trivial</span></li>
+      <li>Exemplos: pedido de comida, carona e divisão de viagens, avaliação de lugares</li>
+      <li>Construída com o agente, seguindo o fluxo <em>spec, plan, tasks</em> da Aula 5</li>
+      <li>Vale <span class="accent">30 pontos</span>, e é a única atividade prática do semestre</li>
+    </ul>
+    <div class="definition"><p>Apresentação em 01/10. O último commit que conta é o de 01/10 às 18h.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Requisitos</h2>
+    <div class="cards cards-2">
+      <div class="card"><h3>Publicada</h3><p>Abre com um clique, em uma URL pública, no dia da apresentação.</p></div>
+      <div class="card"><h3>100 mil linhas</h3><p>No mínimo, contadas com <code>cloc</code>. Dependências, locks, build e dados não contam.</p></div>
+      <div class="card"><h3>SDD</h3><p><code>SPEC.md</code>, <code>PLAN.md</code> e <code>TASKS.md</code> versionados, escritos antes do código que implementam.</p></div>
+      <div class="card"><h3>Registro completo</h3><p>Todos os prompts, do primeiro ao último, com ferramenta, modelo, data e custo.</p></div>
+    </div>
+    <p style="font-size:1.5rem;margin-top:1.2rem">Uma aplicação no ar sem os prompts não será avaliada.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O repositório</h2>
+    <ul>
+      <li>Um repositório <span class="accent">novo e público</span> no GitHub, separado do diário</li>
+      <li>Nome sugerido: <code>dsai-ap1-&lt;nome-da-app&gt;</code></li>
+      <li>Os dois integrantes fazem commit <span class="highlight">com a própria conta</span>: é pelo autor do commit que se sabe quem conduziu cada sessão</li>
+      <li>Nada de upload pela interface web do GitHub. Tudo entra por <code>git commit</code> e <code>git push</code></li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Um caso documentado</h2>
-    <ul>
-      <li>Um engenheiro sênior, apoiado por quatro agentes, entregou uma iniciativa dimensionada para quatro pessoas</li>
-      <li>Metade do tempo planejado, com 90% do código gerado aceito na primeira revisão</li>
-      <li>O gargalo não foi o modelo: foi <span class='accent'>qualidade da especificação e conhecimento do domínio</span></li>
-    </ul>
-    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Vilas Boas, Pinto, Monteiro, Carida e Ribeiro, 2026, arXiv:2605.18461</p>
+    <h2>Estrutura de pastas</h2>
+<pre style="font-size:1.2rem">.
+├── README.md     <span class="cmt"># URL, dupla, stack, como rodar, ferramentas, modelos, saída do cloc</span>
+├── SPEC.md       <span class="cmt"># o quê e por quê</span>
+├── PLAN.md       <span class="cmt"># como: arquitetura, stack, modelo de dados</span>
+├── TASKS.md      <span class="cmt"># tarefas numeradas: T001, T002, ...</span>
+├── AGENTS.md     <span class="cmt"># instruções para o agente (ou CLAUDE.md)</span>
+├── src/          <span class="cmt"># organização interna livre</span>
+├── tests/
+└── prompts/
+    ├── LOG.md    <span class="cmt"># todos os prompts, em ordem</span>
+    ├── custo.md  <span class="cmt"># tokens e custo por sessão</span>
+    └── sessoes/  <span class="cmt"># exportações brutas das ferramentas</span></pre>
+    <p style="font-size:1.4rem">Quem usar o Spec Kit pode manter a estrutura dele em <code>specs/</code>.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>Onde a autorrevisão falha</h2>
+    <h2>Todo prompt conta</h2>
     <ul>
-      <li>O agente que escreveu a modernização é mau juiz da própria modernização</li>
-      <li>Ele descreve o que fez de forma convincente, inclusive quando errou</li>
-      <li>Use contexto limpo, ou outro agente, para revisar</li>
+      <li>Do primeiro ao último, incluindo os que falharam e os que foram refeitos</li>
+      <li>Incluindo os de uma palavra: &ldquo;continue&rdquo;, &ldquo;corrija&rdquo;</li>
+      <li>Incluindo os feitos em outra ferramenta, como um chat no navegador usado para rascunhar a spec</li>
+      <li>Copiados <span class="highlight">como foram escritos</span>, com erros de digitação. Nunca reescritos depois</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Estratégia prática</h2>
+    <h2><code>prompts/sessoes/</code>: a fonte de verdade</h2>
+    <ul class="plain">
+      <li>Ao fim de cada sessão, a exportação bruta vai para a pasta, com o nome <code>AAAA-MM-DD-HHMM-&lt;ferramenta&gt;.&lt;ext&gt;</code></li>
+      <li><span class="accent">Claude Code:</span> o <code>.jsonl</code> da sessão, em <code>~/.claude/projects/&lt;pasta-do-projeto&gt;/</code>. O <code>/export</code> gera uma versão legível</li>
+      <li><span class="accent">Codex CLI:</span> os arquivos em <code>~/.codex/sessions/</code></li>
+      <li><span class="accent">Outras ferramentas:</span> a exportação de conversa da ferramenta. Se não houver, copie a conversa inteira para um <code>.md</code></li>
+      <li>Arquivos acima de 50 MB vão compactados com <code>gzip</code></li>
+    </ul>
+    <div class="definition"><p>Antes de cada commit, procure segredos na exportação: chaves de API, senhas, <code>.env</code>. Chave exposta precisa ser revogada, não apenas apagada.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2><code>prompts/LOG.md</code>: o índice</h2>
+<pre style="font-size:1.2rem">### P042
+- <span class="cmd">Data e hora:</span> 2026-09-30 21:14
+- <span class="cmd">Quem digitou:</span> Maria
+- <span class="cmd">Ferramenta e modelo:</span> Claude Code 2.x, claude-sonnet-5-5
+- <span class="cmd">Sessão:</span> sessoes/2026-09-30-2105-claude.jsonl
+- <span class="cmd">Tarefa:</span> T017
+- <span class="cmd">Prompt:</span> implementa o carrinho seguindo a T017 do TASKS.md, sem mexer no checkout
+- <span class="cmd">Resultado:</span> funcionou, mas duplicou a validação de estoque. Refeito em P043.
+- <span class="cmd">Commits:</span> a1b2c3d</pre>
+    <p style="font-size:1.4rem">O LOG pode ser gerado por script a partir de <code>sessoes/</code>. <em>Quem digitou</em> e <em>Resultado</em> são preenchidos por vocês.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2><code>prompts/custo.md</code></h2>
     <ul>
-      <li>Primeiro mapeie: peça um resumo da arquitetura e verifique contra o código</li>
-      <li>Depois cubra com teste o que você vai mudar</li>
-      <li>Só então mude, em pedaços pequenos, um commit por mudança</li>
+      <li>Uma linha por sessão: data, ferramenta, modelo, tokens de entrada e de saída, custo em dólar</li>
+      <li>E o plano usado: gratuito, assinatura ou API</li>
+      <li>No Claude Code, rode <code>/cost</code> ou <code>/usage</code> antes de fechar a sessão</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Commits</h2>
+    <ul class="plain">
+      <li><span class="accent">Pequenos e frequentes,</span> pelo menos um por tarefa. A mensagem começa pelo número dela</li>
+      <li><span class="accent">Origem declarada</span> em dois trailers no fim da mensagem</li>
+    </ul>
+<pre style="font-size:1.2rem">T017: carrinho de compras
+
+Agent: claude-code/claude-sonnet-5-5
+Prompts: P042-P043</pre>
+    <ul class="plain">
+      <li>Escrito à mão: <code>Agent: none</code>. Gerado e editado à mão: <code>Agent: claude-code/claude-sonnet-5-5 + manual</code></li>
+      <li><span class="highlight">O histórico não se reescreve:</span> sem squash, sem rebase do que já foi enviado, sem <code>push --force</code></li>
+      <li>A spec entra em commits anteriores ao código que ela descreve</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Contagem de linhas</h2>
+    <p>Apenas arquivos versionados, sem documentação nem dados:</p>
+<pre style="font-size:1.3rem"><span class="cmd">cloc</span> . --vcs=git \
+  --exclude-dir=node_modules,vendor,dist,build,prompts \
+  --exclude-lang=Markdown,JSON,YAML,CSV,Text,SVG \
+  --not-match-f='(lock|\.min\.)'</pre>
+    <p>A saída vai no <code>README.md</code>, com as linhas de teste separadas das demais.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Apresentação em 01/10</h2>
+    <ul>
+      <li><span class="accent">1.</span> Abrir a URL, ao vivo, e mostrar o fluxo principal</li>
+      <li><span class="accent">2.</span> A spec em um minuto: o que a aplicação faz e o que ficou de fora</li>
+      <li><span class="accent">3.</span> Três prompts: o que melhor funcionou, o que pior funcionou e o que mudou o rumo do projeto, e por quê</li>
+      <li><span class="accent">4.</span> Os números: linhas, prompts, sessões, horas e custo</li>
+    </ul>
+    <p style="font-size:1.5rem;margin-top:1rem">Sem slides. O repositório e a aplicação bastam.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Checklist de entrega</h2>
+    <ul class="plain">
+      <li>URL pública no <code>README.md</code>, abrindo com um clique</li>
+      <li><code>SPEC.md</code>, <code>PLAN.md</code> e <code>TASKS.md</code> commitados antes do código</li>
+      <li><code>prompts/LOG.md</code> completo e <code>prompts/sessoes/</code> com as exportações brutas</li>
+      <li><code>prompts/custo.md</code> preenchido</li>
+      <li>Commits com <code>Tnnn:</code> na mensagem e os trailers <code>Agent:</code> e <code>Prompts:</code></li>
+      <li>Saída do <code>cloc</code> no <code>README.md</code>, com pelo menos 100 mil linhas</li>
+      <li>Nenhum segredo no repositório</li>
     </ul>
   </div>
 
   <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: qualidade, segurança e custo</p>
+    <h1>Mãos à obra</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próxima: apresentação da AP1, em 01/10</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>

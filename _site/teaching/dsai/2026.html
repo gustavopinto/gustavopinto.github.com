@@ -352,7 +352,7 @@
 
 <p>Não se espera que vocês implementem agentes do zero nem escrevam código melhor que o agente. Espera-se que saibam especificar, dirigir, revisar e entregar.</p>
 
-<p>A Parte I, de 01/09 a 20/10, tem dez aulas e dois laboratórios. A Parte II, de 22/10 a 15/12, é o projeto. Revisão e teste vêm antes de o projeto começar, porque quem só aprende a gerar código, e não a julgar o código gerado, acumula dívida técnica sem perceber.</p>
+<p>A Parte I, de 01/09 a 20/10, tem dez aulas e uma atividade prática. A Parte II, de 22/10 a 15/12, é o projeto. Revisão e teste vêm antes de o projeto começar, porque quem só aprende a gerar código, e não a julgar o código gerado, acumula dívida técnica sem perceber.</p>
 
 <h2 id="ferramentas">Ferramentas</h2>
 
@@ -363,18 +363,21 @@
 <h2 id="avaliação">Avaliação</h2>
 
 <ol>
-  <li>Atividades Práticas, AP1 e AP2 (15 pontos cada): 30 pontos</li>
+  <li>Atividade Prática (AP1): 30 pontos</li>
   <li>Projeto de Disciplina: 50 pontos</li>
   <li>Diário de uso: 10 pontos</li>
   <li>Defesa Oral individual: 10 pontos</li>
 </ol>
 
-<h2 id="atividades-práticas">Atividades Práticas</h2>
+<h2 id="atividade-prática">Atividade Prática</h2>
 
-<ul>
-  <li><strong>AP1, do spec ao deploy. Entrega em 08/10.</strong> Escolher uma aplicação pequena, escrever o <code class="language-plaintext highlighter-rouge">SPEC.md</code> antes de qualquer código, conduzir o agente até funcionar e publicá-la. Entregar o repositório, a URL no ar e um relatório curto: o que o agente acertou de primeira, onde travou, o que vocês reescreveram à mão.</li>
-  <li><strong>AP2, brownfield e revisão. Entrega em 20/10.</strong> Receber o repositório de outra dupla, adicionar uma funcionalidade com apoio do agente e entregar os testes que provam que nada quebrou, mais uma revisão crítica dizendo o que foi aceito, o que foi rejeitado e por quê. A nota vem do rigor da revisão, não do tamanho da funcionalidade.</li>
-</ul>
+<p><strong>AP1, uma aplicação de verdade com SDD. Lançada em 29/09, apresentada em 01/10. 30 pontos.</strong></p>
+
+<p>Cada dupla escolhe e constrói uma aplicação não trivial, conduzindo o agente pelo fluxo <em>spec, plan, tasks</em> visto na Aula 5. Exemplos: pedido de comida, carona e divisão de viagens, avaliação de lugares. A escolha é da dupla.</p>
+
+<p>Requisitos: aplicação publicada em URL pública, pelo menos 100 mil linhas de código, <code class="language-plaintext highlighter-rouge">SPEC.md</code>, plano e tarefas escritos antes do código, e o registro de todos os prompts, do primeiro ao último, com a ferramenta, o modelo e o custo de cada sessão. Na apresentação de 01/10, cada dupla mostra a aplicação no ar e percorre os prompts.</p>
+
+<p>As <a href="/assets/slides/dsai-2026/ap1.html">diretrizes da AP1</a> trazem a estrutura de pastas, o formato do registro de prompts, o padrão de commits, a contagem de linhas e o roteiro da apresentação.</p>
 
 <h2 id="diário-de-uso">Diário de uso</h2>
 
@@ -495,46 +498,46 @@
       <td><a href="/assets/slides/dsai-2026/aula05.pdf"><strong>Specification-Driven Development</strong>, e a evidência que contraria a promessa</a></td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>AP1</td>
       <td>29/09</td>
+      <td>Ter</td>
+      <td><a href="/assets/slides/dsai-2026/ap1.html"><strong>Lançamento da AP1:</strong> escolha da aplicação e início da construção com SDD</a></td>
+    </tr>
+    <tr>
+      <td>AP1</td>
+      <td>01/10</td>
+      <td>Qui</td>
+      <td><strong>Apresentação da AP1:</strong> aplicação no ar e percurso dos prompts</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>06/10</td>
       <td>Ter</td>
       <td><strong>Model Context Protocol:</strong> dando ferramentas ao agente, e a superfície de risco que vem junto</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>01/10</td>
+      <td>08/10</td>
       <td>Qui</td>
       <td><strong>Loop engineering:</strong> agentes disparados por evento, critério de parada, ponto de escalação</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>06/10</td>
+      <td>13/10</td>
       <td>Ter</td>
       <td><strong>Testes como contrato</strong> e revisão de código gerado</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>08/10</td>
+      <td>15/10</td>
       <td>Qui</td>
-      <td><strong>Código legado:</strong> exploração, mapeamento, refatoração incremental. <strong>Entrega AP1</strong></td>
+      <td><strong>Código legado:</strong> exploração, mapeamento, refatoração incremental (<em>confirmar Dia do Professor</em>)</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>13/10</td>
-      <td>Ter</td>
-      <td><strong>Qualidade, segurança e custo</strong> do código gerado. O que continua humano</td>
-    </tr>
-    <tr>
-      <td>P1</td>
-      <td>15/10</td>
-      <td>Qui</td>
-      <td><strong>Prática em sala:</strong> dirigindo o agente numa funcionalidade real, do pedido ao commit (<em>confirmar Dia do Professor</em>)</td>
-    </tr>
-    <tr>
-      <td>P2</td>
       <td>20/10</td>
       <td>Ter</td>
-      <td><strong>Prática em sala:</strong> <code class="language-plaintext highlighter-rouge">AGENTS.md</code>, uma skill e um servidor MCP. <strong>Entrega AP2</strong></td>
+      <td><strong>Qualidade, segurança e custo</strong> do código gerado. O que continua humano</td>
     </tr>
     <tr>
       <td>KO</td>
@@ -657,7 +660,7 @@
 
 <p><strong>Aula 3, contexto.</strong> <strong>Anthropic, <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"><em>Effective context engineering for AI agents</em></a></strong>. Complementar: Barke, James e Polikarpova, <a href="https://arxiv.org/abs/2206.15000"><em>Grounded Copilot</em></a>, OOPSLA 2023.</p>
 
-<p><strong>Aula 4, skills.</strong> <strong><a href="https://arxiv.org/abs/2607.01456"><em>From Anatomy to Smells: An Empirical Study of SKILL.md</em></a></strong>, que analisou 238 skills reais e derivou uma taxonomia dos seus componentes. Complementares: Anthropic, <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"><em>Agent Skills</em></a>, e <a href="https://arxiv.org/abs/2601.10338"><em>Agent Skills in the Wild</em></a>, que encontrou vulnerabilidade em 26,1% de 31 mil skills.</p>
+<p><strong>Aula 4, skills.</strong> <strong><a href="https://arxiv.org/abs/2607.01456"><em>From Anatomy to Smells: An Empirical Study of SKILL.md</em></a></strong>, que analisou 238 skills reais e derivou uma taxonomia dos seus componentes. Complementares: Anthropic, <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"><em>Agent Skills</em></a>, e <a href="https://arxiv.org/abs/2601.10338"><em>Agent Skills in the Wild</em></a>, que encontrou vulnerabilidade em 26,1% de 31 mil skills. Sobre <code class="language-plaintext highlighter-rouge">AGENTS.md</code>: a <a href="https://agents.md/">especificação</a> e Santos et al., <a href="https://arxiv.org/abs/2606.15828"><em>Configuration Smells in AGENTS.md Files</em></a>, que achou ao menos um problema em 91 de 100 repositórios.</p>
 
 <p><strong>Aula 5, SDD.</strong> <strong>Hill (2026), <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6515898"><em>Does Spec-Driven Development Reduce Defects?</em></a></strong>, que testou a promessa em 100.247 PRs e não encontrou a redução anunciada. Complementares: <a href="https://github.com/github/spec-kit">Spec Kit</a> e <a href="https://arxiv.org/abs/2602.00180">Piskala, 2026</a>.</p>
 
@@ -671,12 +674,10 @@
 
 <p><strong>Aula 10, qualidade e custo.</strong> <strong>Cloud Security Alliance (2026), <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/"><em>Vibe Coding Security Debt</em></a></strong>. Complementares: Pearce et al., IEEE S&amp;P 2022, e Hassan et al., <a href="https://arxiv.org/abs/2509.06216"><em>Agentic Software Engineering</em></a>.</p>
 
-<p><strong>Prática 2.</strong> <a href="https://agents.md/">Especificação AGENTS.md</a> e Santos et al., <a href="https://arxiv.org/abs/2606.15828"><em>Configuration Smells in AGENTS.md Files</em></a>, que achou ao menos um problema em 91 de 100 repositórios.</p>
-
 <h3 id="material-de-apoio">Material de apoio</h3>
 
 <ul>
-  <li>ANTHROPIC. <a href="https://docs.claude.com/en/docs/claude-code/"><em>Claude Code — documentação</em></a> e <a href="https://www.anthropic.com/engineering/claude-code-best-practices"><em>Best practices for Claude Code</em></a>. <strong>Apoio para a AP1 e o L2.</strong></li>
+  <li>ANTHROPIC. <a href="https://docs.claude.com/en/docs/claude-code/"><em>Claude Code — documentação</em></a> e <a href="https://www.anthropic.com/engineering/claude-code-best-practices"><em>Best practices for Claude Code</em></a>. <strong>Apoio para a AP1.</strong></li>
   <li>GITHUB. <a href="https://github.com/github/spec-kit"><em>Spec Kit</em></a>.</li>
   <li>HOU, X. et al. (2024). <em>Large Language Models for Software Engineering: A Systematic Literature Review</em>. ACM TOSEM. (ponto de partida para os seminários)</li>
 </ul>
