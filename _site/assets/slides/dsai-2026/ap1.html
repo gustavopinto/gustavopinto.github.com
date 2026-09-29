@@ -292,8 +292,8 @@
     <div class="cards cards-2">
       <div class="card"><h3>Publicada</h3><p>Abre com um clique, em uma URL pública, no dia da apresentação.</p></div>
       <div class="card"><h3>100 mil linhas</h3><p>No mínimo, contadas com <code>cloc</code>. Dependências, locks, build e dados não contam.</p></div>
-      <div class="card"><h3>SDD</h3><p><code>SPEC.md</code>, <code>PLAN.md</code> e <code>TASKS.md</code> versionados, escritos antes do código que implementam.</p></div>
-      <div class="card"><h3>Registro completo</h3><p>Todos os prompts, do primeiro ao último, com ferramenta, modelo, data e custo.</p></div>
+      <div class="card"><h3>SDD</h3><p>Uma spec para cada parte do sistema, datada, na pasta <code>SPEC/</code>, escrita antes do código que ela descreve.</p></div>
+      <div class="card"><h3>Registro completo</h3><p>Todos os prompts, do primeiro ao último, com a ferramenta e o modelo usados.</p></div>
     </div>
     <p style="font-size:1.5rem;margin-top:1.2rem">Uma aplicação no ar sem os prompts não será avaliada.</p>
   </div>
@@ -310,19 +310,46 @@
 
   <div class="slide slide-content">
     <h2>Estrutura de pastas</h2>
-<pre style="font-size:1.2rem">.
-├── README.md     <span class="cmt"># URL, dupla, stack, como rodar, ferramentas, modelos, saída do cloc</span>
-├── SPEC.md       <span class="cmt"># o quê e por quê</span>
-├── PLAN.md       <span class="cmt"># como: arquitetura, stack, modelo de dados</span>
-├── TASKS.md      <span class="cmt"># tarefas numeradas: T001, T002, ...</span>
-├── AGENTS.md     <span class="cmt"># instruções para o agente (ou CLAUDE.md)</span>
-├── src/          <span class="cmt"># organização interna livre</span>
+<pre style="font-size:1.3rem">.
+├── README.md      <span class="cmt"># URL, dupla, stack, como rodar, ferramentas, modelos, saída do cloc</span>
+├── SPEC/          <span class="cmt"># uma spec por parte do sistema, datada</span>
+├── src/           <span class="cmt"># organização interna livre</span>
 ├── tests/
 └── prompts/
-    ├── LOG.md    <span class="cmt"># todos os prompts, em ordem</span>
-    ├── custo.md  <span class="cmt"># tokens e custo por sessão</span>
-    └── sessoes/  <span class="cmt"># exportações brutas das ferramentas</span></pre>
-    <p style="font-size:1.4rem">Quem usar o Spec Kit pode manter a estrutura dele em <code>specs/</code>.</p>
+    └── sessoes/   <span class="cmt"># exportações brutas das ferramentas</span></pre>
+    <p style="font-size:1.5rem">Opcionais: <code>PLAN.md</code>, <code>TASKS.md</code>, <code>AGENTS.md</code>, um índice dos prompts, o registro de custo. Usem se ajudar.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A pasta <code>SPEC/</code></h2>
+    <ul class="plain">
+      <li>Um arquivo por parte do sistema, com a data em que foi escrito: <code>AAAA-MM-DD-&lt;parte&gt;.md</code></li>
+      <li>Cada spec entra em um commit <span class="highlight">anterior</span> ao código que ela descreve. O histórico do git mostra a ordem</li>
+      <li>Ajuste pequeno: edite e faça commit. Mudança de rumo: um arquivo novo, datado, dizendo qual spec substitui</li>
+    </ul>
+<pre style="font-size:1.2rem">SPEC/
+├── 2026-09-29-visao-geral.md
+├── 2026-09-29-cadastro-e-login.md
+├── 2026-09-30-cardapio.md
+├── 2026-09-30-carrinho.md
+└── 2026-10-01-pagamento.md   <span class="cmt"># substitui a parte de checkout de carrinho.md</span></pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que vai em cada spec</h2>
+<pre style="font-size:1.3rem"># Carrinho <span class="cmt">(2026-09-30)</span>
+
+## O quê e por quê
+O cliente junta itens de um restaurante antes de pagar.
+
+## Critérios de aceitação
+- itens de restaurantes diferentes não se misturam
+- item sem estoque não entra no carrinho
+- o total inclui a taxa de entrega
+
+## Fora do escopo
+Cupons de desconto.</pre>
+    <p style="font-size:1.4rem">Critérios de aceitação verificáveis são o que o agente usa para saber quando parar, e o que vocês usam para revisar.</p>
   </div>
 
   <div class="slide slide-content">
@@ -348,38 +375,15 @@
   </div>
 
   <div class="slide slide-content">
-    <h2><code>prompts/LOG.md</code>: o índice</h2>
-<pre style="font-size:1.2rem">### P042
-- <span class="cmd">Data e hora:</span> 2026-09-30 21:14
-- <span class="cmd">Quem digitou:</span> Maria
-- <span class="cmd">Ferramenta e modelo:</span> Claude Code 2.x, claude-sonnet-5-5
-- <span class="cmd">Sessão:</span> sessoes/2026-09-30-2105-claude.jsonl
-- <span class="cmd">Tarefa:</span> T017
-- <span class="cmd">Prompt:</span> implementa o carrinho seguindo a T017 do TASKS.md, sem mexer no checkout
-- <span class="cmd">Resultado:</span> funcionou, mas duplicou a validação de estoque. Refeito em P043.
-- <span class="cmd">Commits:</span> a1b2c3d</pre>
-    <p style="font-size:1.4rem">O LOG pode ser gerado por script a partir de <code>sessoes/</code>. <em>Quem digitou</em> e <em>Resultado</em> são preenchidos por vocês.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2><code>prompts/custo.md</code></h2>
-    <ul>
-      <li>Uma linha por sessão: data, ferramenta, modelo, tokens de entrada e de saída, custo em dólar</li>
-      <li>E o plano usado: gratuito, assinatura ou API</li>
-      <li>No Claude Code, rode <code>/cost</code> ou <code>/usage</code> antes de fechar a sessão</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
     <h2>Commits</h2>
     <ul class="plain">
-      <li><span class="accent">Pequenos e frequentes,</span> pelo menos um por tarefa. A mensagem começa pelo número dela</li>
-      <li><span class="accent">Origem declarada</span> em dois trailers no fim da mensagem</li>
+      <li><span class="accent">Pequenos e frequentes,</span> pelo menos um por parte do sistema</li>
+      <li><span class="accent">Origem declarada</span> em dois trailers no fim da mensagem: o agente e a spec que o commit implementa</li>
     </ul>
-<pre style="font-size:1.2rem">T017: carrinho de compras
+<pre style="font-size:1.2rem">carrinho: bloqueia item sem estoque
 
 Agent: claude-code/claude-sonnet-5-5
-Prompts: P042-P043</pre>
+Spec: SPEC/2026-09-30-carrinho.md</pre>
     <ul class="plain">
       <li>Escrito à mão: <code>Agent: none</code>. Gerado e editado à mão: <code>Agent: claude-code/claude-sonnet-5-5 + manual</code></li>
       <li><span class="highlight">O histórico não se reescreve:</span> sem squash, sem rebase do que já foi enviado, sem <code>push --force</code></li>
@@ -403,7 +407,7 @@ Prompts: P042-P043</pre>
       <li><span class="accent">1.</span> Abrir a URL, ao vivo, e mostrar o fluxo principal</li>
       <li><span class="accent">2.</span> A spec em um minuto: o que a aplicação faz e o que ficou de fora</li>
       <li><span class="accent">3.</span> Três prompts: o que melhor funcionou, o que pior funcionou e o que mudou o rumo do projeto, e por quê</li>
-      <li><span class="accent">4.</span> Os números: linhas, prompts, sessões, horas e custo</li>
+      <li><span class="accent">4.</span> Os números: linhas, specs, prompts, sessões e horas</li>
     </ul>
     <p style="font-size:1.5rem;margin-top:1rem">Sem slides. O repositório e a aplicação bastam.</p>
   </div>
@@ -412,10 +416,10 @@ Prompts: P042-P043</pre>
     <h2>Checklist de entrega</h2>
     <ul class="plain">
       <li>URL pública no <code>README.md</code>, abrindo com um clique</li>
-      <li><code>SPEC.md</code>, <code>PLAN.md</code> e <code>TASKS.md</code> commitados antes do código</li>
-      <li><code>prompts/LOG.md</code> completo e <code>prompts/sessoes/</code> com as exportações brutas</li>
-      <li><code>prompts/custo.md</code> preenchido</li>
-      <li>Commits com <code>Tnnn:</code> na mensagem e os trailers <code>Agent:</code> e <code>Prompts:</code></li>
+      <li>Uma spec datada por parte do sistema em <code>SPEC/</code>, commitada antes do código</li>
+      <li><code>prompts/sessoes/</code> com as exportações brutas de todas as sessões</li>
+      <li>Ferramentas e modelos listados no <code>README.md</code></li>
+      <li>Commits com os trailers <code>Agent:</code> e <code>Spec:</code></li>
       <li>Saída do <code>cloc</code> no <code>README.md</code>, com pelo menos 100 mil linhas</li>
       <li>Nenhum segredo no repositório</li>
     </ul>
