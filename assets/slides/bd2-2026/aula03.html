@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 3 &mdash; Banco de Dados II</title>
+  <title>Árvore B+ &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -181,7 +181,8 @@
     .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
     .phase ul { list-style: none; }
     .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
-    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .phase ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1.1rem; line-height: inherit; }
+    .phase ul li { line-height: 1.5; }
     .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
     .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
     .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
@@ -238,6 +239,29 @@
     .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
     .row-project td { background: rgba(22,101,52,0.08) !important; }
 
+    /* ── Tree diagrams ── */
+    .arvore { width: 100%; height: auto; margin: 0.4rem 0 0.8rem; }
+    .arvore .nd     { fill: #fff; stroke: #64748b; stroke-width: 1.5; }
+    .arvore .nd-int { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .arvore text    { font-family: 'Menlo', 'Courier New', monospace; font-size: 20px; text-anchor: middle; }
+    .arvore .k      { fill: #0f172a; font-weight: 700; }
+    .arvore .k-int  { fill: #64748b; }
+    .arvore .dado   { fill: #92400e; }
+    .arvore .aresta { stroke: #94a3b8; stroke-width: 1.5; }
+    .arvore .nd-cam { fill: #fff; stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .caminho { stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .nivel  { fill: #475569; font-size: 21px; text-anchor: end; font-family: -apple-system, system-ui, sans-serif; }
+    .arvore .cel-hl { fill: rgba(3,105,161,0.14); stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .elo-hl { stroke: #0369a1; stroke-width: 3.5; }
+    .arvore .ann    { fill: #92400e; font-size: 20px; font-weight: 700; text-anchor: middle; font-family: -apple-system, system-ui, sans-serif; }
+    .cards-h .card { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr; column-gap: 1rem; padding: 1rem 1.3rem; }
+    .cards-h .card h3 { grid-column: 1 / -1; margin-bottom: 0.2rem; }
+    .cards-h .card .arvore { margin: 0; }
+    .cards-h .card p { align-self: center; }
+    .card h3 code   { font-size: 1.3rem; }
+    .arvore .cel-over { fill: rgba(146,64,14,0.14); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 5 3; }
+    .arvore .elo    { stroke: #0369a1; stroke-width: 2; }
+
     /* ── Step indicator dots ── */
     #step-dots {
       position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
@@ -261,96 +285,525 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 3<br><span class="accent">Árvore B+</span></h1>
+    <h1>Módulo 3<br><span class="accent">Árvore B+</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>6 de outubro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
   </div>
 
+  <div class="slide slide-content" data-steps="2">
+    <h2 style="font-size:2.3rem">Tabela com 10 milhões de alunos.<br><code>SELECT * FROM aluno WHERE id = 42</code> lê quantas páginas?</h2>
+    <div class="step" data-step="1">
+      <pre>sem índice    lê a tabela inteira, página por página     cerca de 20.000
+com índice    desce uma árvore até a chave 42                          3</pre>
+    </div>
+    <div class="step" data-step="2">
+      <div class="definition"><p>O M1 guardou os registros, e o M2 evitou ler a mesma página duas vezes. Falta saber qual página ler.</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Por que não uma árvore binária</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Cada nó tem uma chave e dois filhos</li>
+          <li>10 milhões de chaves pedem uns 24 níveis</li>
+          <li>Se cada nó está numa página, são 24 leituras de disco por busca</li>
+        </ul>
+      </div>
+      <div class="split-right">
+        <svg class="arvore" viewBox="40 0 515 340" style="width:31rem">
+          <line class="aresta" x1="240" y1="54" x2="130" y2="100"/>
+          <line class="caminho" x1="240" y1="54" x2="350" y2="100"/>
+          <line class="aresta" x1="130" y1="144" x2="75" y2="190"/>
+          <line class="aresta" x1="130" y1="144" x2="185" y2="190"/>
+          <line class="caminho" x1="350" y1="144" x2="295" y2="190"/>
+          <line class="aresta" x1="350" y1="144" x2="405" y2="190"/>
+          <rect class="nd-cam" x="212" y="10" width="56" height="44"/>
+          <text class="k" x="240" y="39">40</text>
+          <rect class="nd" x="102" y="100" width="56" height="44"/>
+          <text class="k" x="130" y="129">20</text>
+          <rect class="nd-cam" x="322" y="100" width="56" height="44"/>
+          <text class="k" x="350" y="129">60</text>
+          <rect class="nd" x="47" y="190" width="56" height="44"/>
+          <text class="k" x="75" y="219">10</text>
+          <rect class="nd" x="157" y="190" width="56" height="44"/>
+          <text class="k" x="185" y="219">30</text>
+          <rect class="nd-cam" x="267" y="190" width="56" height="44"/>
+          <text class="k" x="295" y="219">50</text>
+          <rect class="nd" x="377" y="190" width="56" height="44"/>
+          <text class="k" x="405" y="219">70</text>
+          <text class="nivel" x="545" y="39">leitura 1</text>
+          <text class="nivel" x="545" y="129">leitura 2</text>
+          <text class="nivel" x="545" y="219">leitura 3</text>
+          <line class="caminho" x1="295" y1="234" x2="295" y2="290" stroke-dasharray="4 5"/>
+          <text class="nivel" x="545" y="268">&#8942;</text>
+          <rect class="nd-cam" x="267" y="290" width="56" height="44"/>
+          <text class="k" x="295" y="319">?</text>
+          <text class="nivel" x="545" y="319">leitura 24</text>
+        </svg>
+      </div>
+    </div>
+    <div class="step" data-step="1">
+      <div class="definition"><p>A ideia da árvore B: um nó do tamanho de uma página, com centenas de chaves e centenas de filhos. A árvore fica larga e baixa.</p></div>
+      <p style="font-size:1.35rem">Bayer e McCreight, <em>Organization and Maintenance of Large Ordered Indexes</em>, 1972.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Árvore B e árvore B+</h2>
+    <svg width="0" height="0" style="position:absolute"><defs><marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0369a1"/></marker></defs></svg>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Árvore B</h3>
+        <svg class="arvore" viewBox="0 0 560 200">
+          <line class="aresta" x1="224" y1="54" x2="96" y2="130"/>
+          <line class="aresta" x1="280" y1="54" x2="280" y2="130"/>
+          <line class="aresta" x1="336" y1="54" x2="448" y2="130"/>
+          <rect class="nd" x="224" y="10" width="56" height="44"/>
+          <text class="k" x="252.0" y="39">30</text>
+          <circle class="dado" cx="252.0" cy="68" r="6"/>
+          <rect class="nd" x="280" y="10" width="56" height="44"/>
+          <text class="k" x="308.0" y="39">60</text>
+          <circle class="dado" cx="308.0" cy="68" r="6"/>
+          <rect class="nd" x="40" y="130" width="56" height="44"/>
+          <text class="k" x="68.0" y="159">10</text>
+          <circle class="dado" cx="68.0" cy="188" r="6"/>
+          <rect class="nd" x="96" y="130" width="56" height="44"/>
+          <text class="k" x="124.0" y="159">20</text>
+          <circle class="dado" cx="124.0" cy="188" r="6"/>
+          <rect class="nd" x="224" y="130" width="56" height="44"/>
+          <text class="k" x="252.0" y="159">40</text>
+          <circle class="dado" cx="252.0" cy="188" r="6"/>
+          <rect class="nd" x="280" y="130" width="56" height="44"/>
+          <text class="k" x="308.0" y="159">50</text>
+          <circle class="dado" cx="308.0" cy="188" r="6"/>
+          <rect class="nd" x="420" y="130" width="56" height="44"/>
+          <text class="k" x="448.0" y="159">70</text>
+          <circle class="dado" cx="448.0" cy="188" r="6"/>
+        </svg>
+        <p>Cada chave aparece uma vez, e o dado fica junto dela, em qualquer nível. A busca por 30 para na raiz.</p>
+      </div>
+      <div class="card step" data-step="1">
+        <h3>Árvore B+</h3>
+        <svg class="arvore" viewBox="0 0 560 200">
+          <line class="aresta" x1="224" y1="54" x2="66" y2="130"/>
+          <line class="aresta" x1="280" y1="54" x2="280" y2="130"/>
+          <line class="aresta" x1="336" y1="54" x2="494" y2="130"/>
+          <line class="elo" x1="126" y1="152" x2="190" y2="152" marker-end="url(#seta)"/>
+          <line class="elo" x1="368" y1="152" x2="432" y2="152" marker-end="url(#seta)"/>
+          <rect class="nd-int" x="224" y="10" width="56" height="44"/>
+          <text class="k-int" x="252.0" y="39">30</text>
+          <rect class="nd-int" x="280" y="10" width="56" height="44"/>
+          <text class="k-int" x="308.0" y="39">60</text>
+          <rect class="nd" x="10" y="130" width="56" height="44"/>
+          <text class="k" x="38.0" y="159">10</text>
+          <circle class="dado" cx="38.0" cy="188" r="6"/>
+          <rect class="nd" x="66" y="130" width="56" height="44"/>
+          <text class="k" x="94.0" y="159">20</text>
+          <circle class="dado" cx="94.0" cy="188" r="6"/>
+          <rect class="nd" x="196" y="130" width="56" height="44"/>
+          <text class="k" x="224.0" y="159">30</text>
+          <circle class="dado" cx="224.0" cy="188" r="6"/>
+          <rect class="nd" x="252" y="130" width="56" height="44"/>
+          <text class="k" x="280.0" y="159">40</text>
+          <circle class="dado" cx="280.0" cy="188" r="6"/>
+          <rect class="nd" x="308" y="130" width="56" height="44"/>
+          <text class="k" x="336.0" y="159">50</text>
+          <circle class="dado" cx="336.0" cy="188" r="6"/>
+          <rect class="nd" x="438" y="130" width="56" height="44"/>
+          <text class="k" x="466.0" y="159">60</text>
+          <circle class="dado" cx="466.0" cy="188" r="6"/>
+          <rect class="nd" x="494" y="130" width="56" height="44"/>
+          <text class="k" x="522.0" y="159">70</text>
+          <circle class="dado" cx="522.0" cy="188" r="6"/>
+        </svg>
+        <p>Os dados ficam só nas folhas, que são encadeadas. 30 e 60 aparecem duas vezes: na raiz, só para guiar a descida.</p>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:1rem"><span style="color:var(--highlight)">&#9679;</span> página e slot do registro.<span class="step" data-step="1"> Sem dado, o nó interno cabe mais filhos por página, e as folhas encadeadas leem uma faixa em ordem. É a B+ que os bancos usam, e é a que o <code>minidb</code> vai ter.</span></p>
+  </div>
+
   <div class="slide slide-content">
-    <h2>O problema</h2>
-    <div class="question"><p>Tabela com 10 milhões de linhas. <code>SELECT * FROM aluno WHERE id = 42</code>. Quantas páginas você lê?</p></div>
-    <ul>
-      <li>Sem índice, todas. É a varredura sequencial do M5</li>
-      <li>Com índice, três ou quatro</li>
-      <li>Essa diferença é o motivo de o módulo M3 existir</li>
+    <h2>Nós internos e folhas</h2>
+    <div class="split-body" style="align-items:center">
+      <div class="split-left" style="flex:0 0 34rem">
+        <svg class="arvore" viewBox="0 0 560 250">
+          <line class="aresta" x1="224" y1="54" x2="70" y2="130"/>
+          <line class="aresta" x1="280" y1="54" x2="280" y2="130"/>
+          <line class="aresta" x1="336" y1="54" x2="490" y2="130"/>
+          <line class="elo" x1="130" y1="152" x2="190" y2="152" marker-end="url(#seta)"/>
+          <line class="elo" x1="368" y1="152" x2="428" y2="152" marker-end="url(#seta)"/>
+          <rect class="nd-int" x="224" y="10" width="56" height="44"/>
+          <text class="k-int" x="252" y="39">30</text>
+          <rect class="nd-int" x="280" y="10" width="56" height="44"/>
+          <text class="k-int" x="308" y="39">60</text>
+          <rect class="nd" x="14" y="130" width="56" height="44"/>
+          <text class="k" x="42" y="159">10</text>
+          <circle class="dado" cx="42" cy="188" r="6"/>
+          <rect class="nd" x="70" y="130" width="56" height="44"/>
+          <text class="k" x="98" y="159">20</text>
+          <circle class="dado" cx="98" cy="188" r="6"/>
+          <rect class="nd" x="196" y="130" width="56" height="44"/>
+          <text class="k" x="224" y="159">30</text>
+          <circle class="dado" cx="224" cy="188" r="6"/>
+          <rect class="cel-hl" x="252" y="130" width="56" height="44"/>
+          <text class="k" x="280" y="159">40</text>
+          <circle class="dado" cx="280" cy="188" r="6"/>
+          <rect class="nd" x="308" y="130" width="56" height="44"/>
+          <text class="k" x="336" y="159">50</text>
+          <circle class="dado" cx="336" cy="188" r="6"/>
+          <rect class="nd" x="434" y="130" width="56" height="44"/>
+          <text class="k" x="462" y="159">60</text>
+          <circle class="dado" cx="462" cy="188" r="6"/>
+          <rect class="nd" x="490" y="130" width="56" height="44"/>
+          <text class="k" x="518" y="159">70</text>
+          <circle class="dado" cx="518" cy="188" r="6"/>
+          <line class="caminho" x1="280" y1="196" x2="280" y2="214" stroke-dasharray="3 4"/>
+          <text class="ann" x="280" y="240">página 3, slot 5</text>
+        </svg>
+      </div>
+      <div class="split-right" style="flex:1;justify-content:flex-start">
+        <ul class="plain" style="font-size:1.4rem">
+          <li><span class="accent">Raiz tracejada:</span> nó interno, só chaves para guiar a descida</li>
+          <li><span class="accent">Setas azuis:</span> cada folha aponta para a próxima</li>
+          <li><span style="color:var(--highlight)">&#9679;</span> página e slot do registro</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="plain" style="font-size:1.5rem">
+      <li>À esquerda de 30, chaves menores que 30. Entre 30 e 60, de 30 a 59. À direita, 60 em diante</li>
+      <li>A folha guarda, para cada chave, a página e o slot onde o registro foi gravado no M1</li>
+      <li>Todas as folhas estão na mesma profundidade, e cada nó ocupa uma página</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>Por que não uma tabela hash?</h2>
-    <ul>
-      <li>Hash responde igualdade em tempo constante, e é ótimo nisso</li>
-      <li>Mas não responde <code>WHERE id BETWEEN 10 AND 90</code></li>
-      <li>Também não entrega os dados em ordem</li>
-      <li>Árvore mantém ordem, e por isso é a estrutura padrão de índice</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A estrutura</h2>
-    <ul>
-      <li><span class='accent'>Nós internos</span> guardam apenas chaves e ponteiros, para guiar a descida</li>
-      <li><span class='accent'>Folhas</span> guardam as chaves e os RIDs, e são encadeadas entre si</li>
-      <li>Todas as folhas ficam na mesma profundidade, sempre</li>
-      <li>Cada nó ocupa exatamente uma página</li>
-    </ul>
-    <div class="definition"><p>O encadeamento das folhas é o que permite consulta por faixa lendo folha a folha.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A conta que justifica tudo</h2>
-    <pre>página de 4096 bytes, chave de 8, ponteiro de 8
-&rarr; cerca de 250 filhos por nó
-
-altura 1:        250 linhas
-altura 2:     62.500 linhas
-altura 3: 15.625.000 linhas</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Quinze milhões de linhas, três leituras de página. É por isso que a árvore é rasa e larga, e não profunda.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Inserção e divisão</h2>
-    <ul>
-      <li>Desça até a folha correta, e insira em ordem</li>
-      <li>Se a folha tem espaço, acabou</li>
-      <li>Se não tem, <span class='highlight'>divida</span>: metade das chaves fica, metade vai para uma folha nova</li>
-      <li>A chave do meio sobe para o pai. Se o pai encher, ele também divide</li>
-      <li>Se a raiz dividir, a árvore ganha um nível</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O que não vamos implementar</h2>
-    <div class="definition"><p>Remoção, com fusão e redistribuição de nós.</p></div>
-    <ul>
-      <li>É a parte mais difícil da estrutura, e a que mais gera casos de borda</li>
-      <li>O critério de pronto do semestre só faz <code>INSERT</code> e <code>SELECT</code></li>
-      <li>Nos testes de aceitação não há <code>DELETE</code></li>
-    </ul>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M3, busca e inserção na árvore. Antes disso, o exercício de hoje</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
-  </div>
-  <div class="slide slide-content">
-    <h2>Exercício de hoje</h2>
+    <h2>Exercício 1</h2>
     <div class="question"><p>Árvore B+ com no máximo 3 chaves por nó. Insira, nesta ordem: 10, 20, 5, 30, 25, 40, 15.</p></div>
     <ul class="plain">
-      <li><span class='accent'>1.</span> Desenhe a árvore depois de <strong>cada</strong> divisão de nó, e não apenas o resultado final</li>
-      <li><span class='accent'>2.</span> Qual a altura ao fim, e quantas páginas uma busca por 25 precisa ler?</li>
-      <li><span class='accent'>3.</span> Qual chave ficou na raiz, e por que foi ela e não outra?</li>
-      <li><span class='accent'>4.</span> Com cerca de 250 filhos por nó, quantas linhas cabem em uma árvore de altura 4?</li>
+      <li><span class="accent">1.</span> Desenhe a árvore depois de cada divisão, e não apenas o resultado final</li>
+      <li><span class="accent">2.</span> Qual a altura ao fim, e quantas páginas uma busca por 25 lê?</li>
     </ul>
-    <p style="font-size:1.4rem;margin-top:0.8rem">O item 1 é o que importa: quem desenha as divisões uma vez erra menos no código do M3, que é o módulo mais caro do semestre.</p>
+  </div>
+  <div class="slide slide-appendix" data-steps="2">
+    <span class="appendix-tag">Gabarito</span>
+    <h2>Gabarito: a primeira divisão</h2>
+    <p style="font-size:1.4rem;margin-bottom:0.8rem">No máximo 3 chaves por nó. Ordem: 10, 20, 5, 30, 25, 40, 15.</p>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>10, 20 e 5</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <rect class="nd" x="196" y="125" width="56" height="44"/>
+            <text class="k" x="224" y="154">5</text>
+            <rect class="nd" x="252" y="125" width="56" height="44"/>
+            <text class="k" x="280" y="154">10</text>
+            <rect class="nd" x="308" y="125" width="56" height="44"/>
+            <text class="k" x="336" y="154">20</text>
+          </svg>
+        <p>Cabem numa folha só, em ordem. A folha, que também é a raiz, está cheia.</p>
+      </div>
+      <div class="card step" data-step="1">
+        <h3>Chega o 30</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <rect class="nd" x="168" y="125" width="56" height="44"/>
+            <text class="k" x="196" y="154">5</text>
+            <rect class="nd" x="224" y="125" width="56" height="44"/>
+            <text class="k" x="252" y="154">10</text>
+            <rect class="nd" x="280" y="125" width="56" height="44"/>
+            <text class="k" x="308" y="154">20</text>
+            <rect class="cel-over" x="336" y="125" width="56" height="44"/>
+            <text class="k" x="364" y="154">30</text>
+          </svg>
+        <p>Com ele seriam 4 chaves. Não cabe.</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>Divisão 1</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <line class="aresta" x1="252" y1="54" x2="204" y2="125"/>
+            <line class="aresta" x1="308" y1="54" x2="356" y2="125"/>
+            <line class="elo" x1="263" y1="147.0" x2="295" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="cel-hl" x="252" y="10" width="56" height="44"/>
+            <text class="k" x="280" y="39">20</text>
+            <rect class="nd" x="148" y="125" width="56" height="44"/>
+            <text class="k" x="176" y="154">5</text>
+            <rect class="nd" x="204" y="125" width="56" height="44"/>
+            <text class="k" x="232" y="154">10</text>
+            <rect class="nd" x="300" y="125" width="56" height="44"/>
+            <text class="k" x="328" y="154">20</text>
+            <rect class="nd" x="356" y="125" width="56" height="44"/>
+            <text class="k" x="384" y="154">30</text>
+          </svg>
+        <p>A folha divide em [5 10] e [20 30]. O 20 sobe para uma raiz nova, e a árvore ganha o segundo nível.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-appendix" data-steps="3">
+    <span class="appendix-tag">Gabarito</span>
+    <h2>Gabarito: a segunda divisão</h2>
+    <p style="font-size:1.4rem;margin-bottom:0.8rem">No máximo 3 chaves por nó. Ordem: 10, 20, 5, 30, 25, 40, 15.</p>
+    <div class="cards cards-2 cards-h">
+      <div class="card">
+        <h3>Depois da divisão 1</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <line class="aresta" x1="252" y1="54" x2="204" y2="125"/>
+            <line class="aresta" x1="308" y1="54" x2="356" y2="125"/>
+            <line class="elo" x1="263" y1="147.0" x2="295" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="nd-int" x="252" y="10" width="56" height="44"/>
+            <text class="k-int" x="280" y="39">20</text>
+            <rect class="nd" x="148" y="125" width="56" height="44"/>
+            <text class="k" x="176" y="154">5</text>
+            <rect class="nd" x="204" y="125" width="56" height="44"/>
+            <text class="k" x="232" y="154">10</text>
+            <rect class="nd" x="300" y="125" width="56" height="44"/>
+            <text class="k" x="328" y="154">20</text>
+            <rect class="nd" x="356" y="125" width="56" height="44"/>
+            <text class="k" x="384" y="154">30</text>
+          </svg>
+        <p>A árvore do slide anterior.</p>
+      </div>
+      <div class="card step" data-step="1">
+        <h3>Chega o 25</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <line class="aresta" x1="252" y1="54" x2="176" y2="125"/>
+            <line class="aresta" x1="308" y1="54" x2="356" y2="125"/>
+            <line class="elo" x1="235" y1="147.0" x2="267" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="nd-int" x="252" y="10" width="56" height="44"/>
+            <text class="k-int" x="280" y="39">20</text>
+            <rect class="nd" x="120" y="125" width="56" height="44"/>
+            <text class="k" x="148" y="154">5</text>
+            <rect class="nd" x="176" y="125" width="56" height="44"/>
+            <text class="k" x="204" y="154">10</text>
+            <rect class="nd" x="272" y="125" width="56" height="44"/>
+            <text class="k" x="300" y="154">20</text>
+            <rect class="cel-hl" x="328" y="125" width="56" height="44"/>
+            <text class="k" x="356" y="154">25</text>
+            <rect class="nd" x="384" y="125" width="56" height="44"/>
+            <text class="k" x="412" y="154">30</text>
+          </svg>
+        <p>25 &ge; 20, desce pela direita. A folha fica cheia.</p>
+      </div>
+      <div class="card step" data-step="2">
+        <h3>Chega o 40</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <line class="aresta" x1="252" y1="54" x2="148" y2="125"/>
+            <line class="aresta" x1="308" y1="54" x2="356" y2="125"/>
+            <line class="elo" x1="207" y1="147.0" x2="239" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="nd-int" x="252" y="10" width="56" height="44"/>
+            <text class="k-int" x="280" y="39">20</text>
+            <rect class="nd" x="92" y="125" width="56" height="44"/>
+            <text class="k" x="120" y="154">5</text>
+            <rect class="nd" x="148" y="125" width="56" height="44"/>
+            <text class="k" x="176" y="154">10</text>
+            <rect class="nd" x="244" y="125" width="56" height="44"/>
+            <text class="k" x="272" y="154">20</text>
+            <rect class="nd" x="300" y="125" width="56" height="44"/>
+            <text class="k" x="328" y="154">25</text>
+            <rect class="nd" x="356" y="125" width="56" height="44"/>
+            <text class="k" x="384" y="154">30</text>
+            <rect class="cel-over" x="412" y="125" width="56" height="44"/>
+            <text class="k" x="440" y="154">40</text>
+          </svg>
+        <p>Também vai para a direita, e seriam 4 chaves.</p>
+      </div>
+      <div class="card step" data-step="3">
+        <h3>Divisão 2</h3>
+          <svg class="arvore" viewBox="65 0 430 179">
+            <line class="aresta" x1="224" y1="54" x2="128" y2="125"/>
+            <line class="aresta" x1="280" y1="54" x2="280" y2="125"/>
+            <line class="aresta" x1="336" y1="54" x2="432" y2="125"/>
+            <line class="elo" x1="187" y1="147.0" x2="219" y2="147.0" marker-end="url(#seta)"/>
+            <line class="elo" x1="339" y1="147.0" x2="371" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="nd-int" x="224" y="10" width="56" height="44"/>
+            <text class="k-int" x="252" y="39">20</text>
+            <rect class="cel-hl" x="280" y="10" width="56" height="44"/>
+            <text class="k" x="308" y="39">30</text>
+            <rect class="nd" x="72" y="125" width="56" height="44"/>
+            <text class="k" x="100" y="154">5</text>
+            <rect class="nd" x="128" y="125" width="56" height="44"/>
+            <text class="k" x="156" y="154">10</text>
+            <rect class="nd" x="224" y="125" width="56" height="44"/>
+            <text class="k" x="252" y="154">20</text>
+            <rect class="nd" x="280" y="125" width="56" height="44"/>
+            <text class="k" x="308" y="154">25</text>
+            <rect class="nd" x="376" y="125" width="56" height="44"/>
+            <text class="k" x="404" y="154">30</text>
+            <rect class="nd" x="432" y="125" width="56" height="44"/>
+            <text class="k" x="460" y="154">40</text>
+          </svg>
+        <p>A folha divide em [20 25] e [30 40]. O 30 sobe, e a raiz ainda tem espaço.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Gabarito</span>
+    <h2>Gabarito: a árvore final</h2>
+    <p style="font-size:1.4rem;margin-bottom:0.8rem">No máximo 3 chaves por nó. Ordem: 10, 20, 5, 30, 25, 40, 15.</p>
+    <div class="cards cards-h" style="max-width:52rem">
+      <div class="card">
+        <h3>Chega o 15</h3>
+          <svg class="arvore" viewBox="0 0 560 179">
+            <line class="aresta" x1="224" y1="54" x2="128" y2="125"/>
+            <line class="aresta" x1="280" y1="54" x2="308" y2="125"/>
+            <line class="aresta" x1="336" y1="54" x2="460" y2="125"/>
+            <line class="elo" x1="215" y1="147.0" x2="247" y2="147.0" marker-end="url(#seta)"/>
+            <line class="elo" x1="367" y1="147.0" x2="399" y2="147.0" marker-end="url(#seta)"/>
+            <rect class="nd-int" x="224" y="10" width="56" height="44"/>
+            <text class="k-int" x="252" y="39">20</text>
+            <rect class="nd-int" x="280" y="10" width="56" height="44"/>
+            <text class="k-int" x="308" y="39">30</text>
+            <rect class="nd" x="44" y="125" width="56" height="44"/>
+            <text class="k" x="72" y="154">5</text>
+            <rect class="nd" x="100" y="125" width="56" height="44"/>
+            <text class="k" x="128" y="154">10</text>
+            <rect class="cel-hl" x="156" y="125" width="56" height="44"/>
+            <text class="k" x="184" y="154">15</text>
+            <rect class="nd" x="252" y="125" width="56" height="44"/>
+            <text class="k" x="280" y="154">20</text>
+            <rect class="nd" x="308" y="125" width="56" height="44"/>
+            <text class="k" x="336" y="154">25</text>
+            <rect class="nd" x="404" y="125" width="56" height="44"/>
+            <text class="k" x="432" y="154">30</text>
+            <rect class="nd" x="460" y="125" width="56" height="44"/>
+            <text class="k" x="488" y="154">40</text>
+          </svg>
+        <p>15 &lt; 20, desce pela esquerda. Cabe, e não há divisão.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Busca</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3><code>WHERE id = 40</code></h3>
+        <svg class="arvore" viewBox="0 0 680 180">
+          <line class="aresta" x1="284" y1="54" x2="130" y2="130"/>
+          <line class="caminho" x1="340" y1="54" x2="340" y2="130"/>
+          <line class="aresta" x1="396" y1="54" x2="550" y2="130"/>
+          <line class="elo" x1="190" y1="152" x2="250" y2="152" marker-end="url(#seta)"/>
+          <line class="elo" x1="428" y1="152" x2="488" y2="152" marker-end="url(#seta)"/>
+          <rect class="nd-int" x="284" y="10" width="56" height="44"/>
+          <text class="k-int" x="312" y="39">30</text>
+          <rect class="nd-int" x="340" y="10" width="56" height="44"/>
+          <text class="k-int" x="368" y="39">60</text>
+          <rect class="nd" x="74" y="130" width="56" height="44"/>
+          <text class="k" x="102" y="159">10</text>
+          <rect class="nd" x="130" y="130" width="56" height="44"/>
+          <text class="k" x="158" y="159">20</text>
+          <rect class="nd-cam" x="256" y="130" width="56" height="44"/>
+          <text class="k" x="284" y="159">30</text>
+          <rect class="cel-hl" x="312" y="130" width="56" height="44"/>
+          <text class="k" x="340" y="159">40</text>
+          <rect class="nd-cam" x="368" y="130" width="56" height="44"/>
+          <text class="k" x="396" y="159">50</text>
+          <rect class="nd" x="494" y="130" width="56" height="44"/>
+          <text class="k" x="522" y="159">60</text>
+          <rect class="nd" x="550" y="130" width="56" height="44"/>
+          <text class="k" x="578" y="159">70</text>
+        </svg>
+        <p>Na raiz, 30 &le; 40 &lt; 60: desce pelo filho do meio. Na folha, acha 40 e devolve página e slot. Duas páginas lidas.</p>
+      </div>
+      <div class="card step" data-step="1">
+        <h3><code>WHERE id BETWEEN 20 AND 65</code></h3>
+        <svg class="arvore" viewBox="0 0 680 180">
+          <line class="caminho" x1="284" y1="54" x2="130" y2="130"/>
+          <line class="aresta" x1="340" y1="54" x2="340" y2="130"/>
+          <line class="aresta" x1="396" y1="54" x2="550" y2="130"/>
+          <line class="elo-hl" x1="190" y1="152" x2="250" y2="152" marker-end="url(#seta)"/>
+          <line class="elo-hl" x1="428" y1="152" x2="488" y2="152" marker-end="url(#seta)"/>
+          <rect class="nd-int" x="284" y="10" width="56" height="44"/>
+          <text class="k-int" x="312" y="39">30</text>
+          <rect class="nd-int" x="340" y="10" width="56" height="44"/>
+          <text class="k-int" x="368" y="39">60</text>
+          <rect class="nd-cam" x="74" y="130" width="56" height="44"/>
+          <text class="k" x="102" y="159">10</text>
+          <rect class="cel-hl" x="130" y="130" width="56" height="44"/>
+          <text class="k" x="158" y="159">20</text>
+          <rect class="cel-hl" x="256" y="130" width="56" height="44"/>
+          <text class="k" x="284" y="159">30</text>
+          <rect class="cel-hl" x="312" y="130" width="56" height="44"/>
+          <text class="k" x="340" y="159">40</text>
+          <rect class="cel-hl" x="368" y="130" width="56" height="44"/>
+          <text class="k" x="396" y="159">50</text>
+          <rect class="cel-hl" x="494" y="130" width="56" height="44"/>
+          <text class="k" x="522" y="159">60</text>
+          <rect class="nd" x="550" y="130" width="56" height="44"/>
+          <text class="k" x="578" y="159">70</text>
+        </svg>
+        <p>Desce até o 20, como na consulta ao lado, e segue as setas de folha em folha. Para no 70, que passou de 65.</p>
+      </div>
+    </div>
+    <ul class="plain" style="font-size:1.5rem;margin-top:0.8rem">
+      <li>Em cada nó, escolhe o filho comparando a chave, até chegar a uma folha</li>
+      <li>Número de páginas lidas é igual à altura da árvore</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Onde isso entra no <code>minidb</code></h2>
+    <pre style="font-size:1.2rem"><span class="cmd">SELECT * FROM aluno WHERE id = 42</span>
+
+M1  página e arquivo      lê 4096 bytes no deslocamento certo
+M2  cache de páginas      entrega cada nó, da memória ou do disco
+<span class="highlight">M3  árvore B+             desce três nós e devolve (página 812, slot 7)</span>
+M4  parser e catálogo     entende o texto, sabe que aluno tem índice em id
+M5  executor              escolhe a varredura por índice</pre>
+    <div class="step" data-step="1">
+      <p style="font-size:1.5rem">Cada módulo só usa o que vem antes dele. A árvore não sabe o que é SQL, e o cache não sabe o que é uma árvore. Para ele, um nó é uma página como outra qualquer.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que temos, e o que falta</h2>
+    <div class="phases">
+      <div class="phase phase-3">
+        <h3>Pronto</h3>
+        <div class="dates">M1 e M2</div>
+        <ul>
+          <li>Registros gravados em páginas</li>
+          <li>Páginas lidas pelo cache</li>
+        </ul>
+      </div>
+      <div class="phase phase-1">
+        <h3>Agora</h3>
+        <div class="dates">M3, entrega em 13/10</div>
+        <ul>
+          <li>Achar um registro sem ler a tabela</li>
+          <li>Busca e inserção com divisão</li>
+          <li>Sem remoção</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Depois</h3>
+        <div class="dates">M4 a M7</div>
+        <ul>
+          <li>Ler SQL e executar a consulta</li>
+          <li>Transações e log</li>
+          <li>Sobreviver ao <code>kill -9</code></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.6rem">Quinta, 08/10: busca e inserção sem divisão. Terça, 13/10: divisão de nó. No <code>NOTES.md</code>, digam como vocês representaram um nó dentro da página.</p>
+  </div>
+
+
+
+  <div class="slide slide-content">
+    <h2>Exercício 2</h2>
+    <div class="question"><p>Parta da árvore final do exercício 1, com no máximo 3 chaves por nó. Insira, nesta ordem: 35, 45, 50, 55.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Desenhe a árvore depois de cada divisão. Uma delas chega à raiz</li>
+      <li><span class="accent">2.</span> Qual a altura ao fim? Quantas páginas lê <code>WHERE id BETWEEN 12 AND 33</code>?</li>
+    </ul>
   </div>
 </div>
 
