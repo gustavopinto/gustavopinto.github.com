@@ -308,10 +308,29 @@
   <div class="slide slide-content" data-steps="2">
     <h2>O loop mais simples que existe</h2>
 <pre style="font-size:1.6rem;width:100%"><span class="cmd">while</span> :; <span class="cmd">do</span> cat PROMPT.md | claude -p ; <span class="cmd">done</span></pre>
-    <p style="font-size:1.4rem;margin-bottom:1rem">A técnica &ldquo;Ralph Wiggum&rdquo;, publicada por Geoffrey Huntley em julho de 2025.</p>
+    <p style="font-size:1.4rem;margin-bottom:1rem">A técnica &ldquo;Ralph Wiggum&rdquo;, publicada por Geoffrey Huntley em julho de 2025. Em português: entregue o conteúdo de <code>PROMPT.md</code> ao Claude, espere ele terminar e entregue de novo. Para sempre.</p>
     <ul class="plain">
       <li class="step" data-step="1">O que ela acerta: cada volta começa com a janela de contexto limpa, e o progresso fica no disco, não na memória do modelo</li>
       <li class="step" data-step="2">O que falta: quem dispara, quando para, e quem é chamado quando dá errado. <span class="highlight">São as três perguntas desta aula</span></li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>Um loop para copiar e colar</h2>
+    <p style="font-size:1.4rem">Na pasta da aplicação de vocês, crie um <code>TODO.md</code> com tarefas pequenas:</p>
+<pre style="font-size:1.15rem;width:100%;margin:0.4rem 0 0.6rem">- [ ] Validar o formato do e-mail no cadastro
+- [ ] Escrever um teste para a função de login
+- [ ] Traduzir as mensagens de erro para português</pre>
+    <p style="font-size:1.4rem">E rode no terminal:</p>
+<pre style="font-size:1.15rem;width:100%;margin:0.4rem 0 0.8rem"><span class="cmd">for</span> i <span class="cmd">in</span> 1 2 3 4 5; <span class="cmd">do</span>
+  grep -q -- <span class="cmt">"- \[ \]"</span> TODO.md || <span class="cmd">break</span>   <span class="cmt"># acabaram as tarefas? para</span>
+  claude -p <span class="cmt">"Leia TODO.md. Faça só o primeiro item sem [x] e marque-o com [x]."</span> \
+    --permission-mode acceptEdits
+<span class="cmd">done</span></pre>
+    <ul class="plain" style="font-size:1.35rem">
+      <li class="step" data-step="1">Cada volta é uma sessão nova do Claude, que não lembra da anterior</li>
+      <li class="step" data-step="2">O que já foi feito fica no <code>TODO.md</code>: é por ele que a volta seguinte sabe onde continuar</li>
+      <li class="step" data-step="3">Para quando não sobra item sem <code>[x]</code>, ou depois de cinco voltas, o que vier primeiro</li>
     </ul>
   </div>
 
@@ -321,7 +340,7 @@
       <defs><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0369a1"/></marker></defs>
       <rect x="20" y="160" width="220" height="90" rx="12" fill="#fff" stroke="#0369a1" stroke-width="2"/>
       <text x="130" y="198" text-anchor="middle" font-size="24" font-weight="700" fill="#0369a1">Gatilho</text>
-      <text x="130" y="226" text-anchor="middle" font-size="16" fill="#475569">issue, CI vermelho, cron</text>
+      <text x="130" y="226" text-anchor="middle" font-size="16" fill="#475569">issue, teste quebrado, horário</text>
       <line x1="240" y1="205" x2="322" y2="205" stroke="#0369a1" stroke-width="2.5" marker-end="url(#seta)"/>
       <rect x="330" y="160" width="240" height="90" rx="12" fill="#0f172a"/>
       <text x="450" y="198" text-anchor="middle" font-size="24" font-weight="700" fill="#f1f5f9">Agente</text>
@@ -352,80 +371,48 @@
     <p style="font-size:1.5rem;margin-top:0.6rem">Toda volta termina de um de três jeitos: <span class="success">passou</span>, <span class="accent">tenta de novo</span> ou <span class="highlight">escalou</span>. Um loop sem a terceira saída roda até o dinheiro acabar.</p>
   </div>
 
-  <div class="slide slide-content" data-steps="1">
+  <div class="slide slide-content">
     <h2>1. O gatilho: agenda ou evento</h2>
     <div class="cards cards-2 cards-big">
       <div class="card">
         <h3>Agenda</h3>
-        <p>Um cron. Triagem diária das issues, reexecução noturna dos testes instáveis, migração incremental um arquivo por noite.</p>
+        <p>Um despertador: roda num horário fixo, toda noite ou toda segunda de manhã. Ex.: revisar as issues abertas no dia.</p>
       </div>
       <div class="card">
         <h3>Evento</h3>
-        <p>Algo aconteceu no repositório. Issue aberta, PR aberto, CI que ficou vermelho, deploy que falhou.</p>
+        <p>Algo aconteceu no repositório. Alguém abriu uma issue, um teste quebrou, um deploy falhou.</p>
       </div>
     </div>
-    <div class="definition step" data-step="1" style="margin-top:1.4rem"><p>Um <code>@claude</code> num comentário não é loop: tem uma pessoa pedindo. O loop começa quando ninguém pede.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2 style="margin-bottom:0.8rem">Implementação: o gatilho no GitHub Actions</h2>
-<pre style="font-size:1.15rem;line-height:1.45;width:100%;margin-top:0"><span class="cmt"># .github/workflows/agente-issue.yml</span>
-<span class="cmd">on:</span>
-  issues:
-    types: [opened]               <span class="cmt"># evento: alguém abriu uma issue</span>
-  schedule:
-    - cron: "0 6 * * *"           <span class="cmt"># agenda: todo dia às 6h (UTC), triagem</span>
-
-<span class="cmd">jobs:</span>
-  agente:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20           <span class="cmt"># teto de tempo, independente do agente</span>
-    permissions: { contents: write, pull-requests: write, issues: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: anthropics/claude-code-action@v1
-        env: { ISSUE: "${{ github.event.issue.number }}" }   <span class="cmt"># lido pelo hook</span>
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "Siga loop/PROMPT.md para a issue #${{ github.event.issue.number }}."
-          claude_args: "--max-turns 30"   <span class="cmt"># teto de passos dentro da volta</span></pre>
-    <p style="font-size:1.4rem">O prompt fica num arquivo versionado, não no YAML. Revisar o loop é revisar <code>loop/PROMPT.md</code> num PR, como qualquer código.</p>
+    <h2>Discussão: que gatilho usar?</h2>
+    <div class="question"><p>Que tarefa da aplicação de vocês poderia rodar sozinha, sem ninguém pedir? E o que dispararia ela: um horário ou um evento?</p></div>
+    <p style="font-size:1.4rem;margin-top:1.2rem">Em qualquer caso, o prompt fica num arquivo do repositório (<code>loop/PROMPT.md</code>). Mudar o comportamento do loop é editar esse arquivo, e a mudança passa por revisão como qualquer código.</p>
   </div>
 
-  <div class="slide slide-content" data-steps="2">
+  <div class="slide slide-content" data-steps="1">
     <h2>2. O critério de parada</h2>
     <table class="rel-table" style="font-size:1.45rem">
       <tr><th style="width:50%">Opinião</th><th>Verificável por máquina</th></tr>
       <tr><td>&ldquo;Corrija o bug da issue&rdquo;</td><td>Existe um teste novo que falha no commit anterior e passa neste</td></tr>
-      <tr><td>&ldquo;Deixe o código limpo&rdquo;</td><td><code>npm run lint</code> sai com código 0</td></tr>
-      <tr><td>&ldquo;Não quebre nada&rdquo;</td><td><code>npm test</code> passa, e nenhum teste foi apagado ou marcado <code>skip</code></td></tr>
+      <tr><td>&ldquo;Deixe o código limpo&rdquo;</td><td>O lint roda sem apontar nenhum erro</td></tr>
+      <tr><td>&ldquo;Não quebre nada&rdquo;</td><td>Todos os testes passam, e nenhum teste foi apagado ou desligado</td></tr>
     </table>
     <ul class="plain" style="margin-top:1rem">
       <li class="step" data-step="1">É o critério de aceite do <code>SPEC.md</code> da aula 5. Spec sem critério verificável dá loop sem parada</li>
-      <li class="step" data-step="2"><span class="highlight">O loop satisfaz o portão que vocês escreveram, não o objetivo por trás dele.</span> Se o portão é &ldquo;testes passam&rdquo;, apagar o teste também passa</li>
     </ul>
   </div>
 
-  <div class="slide slide-content">
-    <h2 style="margin-bottom:0.8rem">Implementação: o hook de parada</h2>
-<pre style="font-size:1.1rem;line-height:1.45;width:100%;margin-top:0"><span class="cmt"># .claude/settings.json</span>
-{ "hooks": { "Stop": [ { "hooks": [ { "type": "command", "command": "loop/parada.sh" } ] } ] } }</pre>
-<pre style="font-size:1.1rem;line-height:1.45;width:100%"><span class="cmt">#!/bin/bash</span>
-<span class="cmt"># loop/parada.sh: roda toda vez que o agente diz "terminei"</span>
-mkdir -p .loop
-n=$(( $(cat .loop/tentativas 2>/dev/null || echo 0) + 1 ))
-echo $n > .loop/tentativas
-
-<span class="cmd">if</span> npm test --silent > .loop/saida.txt 2>&1; <span class="cmd">then</span>
-  exit 0                                    <span class="cmt"># passou: pode parar</span>
-<span class="cmd">fi</span>
-<span class="cmd">if</span> [ $n -ge 3 ]; <span class="cmd">then</span>
-  gh issue edit "$ISSUE" --add-label precisa-humano
-  exit 0                                    <span class="cmt"># esgotou: para e escala</span>
-<span class="cmd">fi</span>
-tail -30 .loop/saida.txt >&2
-exit 2                                      <span class="cmt"># falhou: bloqueia a parada e devolve o erro ao agente</span></pre>
-    <p style="font-size:1.4rem">Quem decide se terminou é o script, não o agente. E a escalação também: ela não pode depender de o agente concordar que precisa de ajuda.</p>
+  <div class="slide slide-content" data-steps="4">
+    <h2>Quem decide que terminou?</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">Toda vez que o agente diz &ldquo;terminei&rdquo;, um porteiro confere antes de deixar ele parar:</p>
+    <div class="cards cards-3">
+      <div class="card step" data-step="1"><h3>Os testes passam?</h3><p>Pode parar. O trabalho vai para revisão.</p></div>
+      <div class="card step" data-step="2"><h3>Já foram três tentativas?</h3><p>Para e chama um humano, contando o que foi tentado.</p></div>
+      <div class="card step" data-step="3"><h3>Nenhum dos dois?</h3><p>Não pode parar. O porteiro devolve o erro e o agente tenta de novo.</p></div>
+    </div>
+    <div class="question step" data-step="4" style="margin-top:1.4rem"><p>Por que não basta perguntar ao próprio agente se ele terminou?</p></div>
   </div>
 
   <div class="slide slide-content">
@@ -443,23 +430,23 @@ exit 2                                      <span class="cmt"># falhou: bloqueia
   <div class="slide slide-content" data-steps="4">
     <h2>O que dá errado</h2>
     <ul class="plain">
-      <li class="step" data-step="1"><span class="highlight">Custo descontrolado.</span> Um loop que corrigia o CI, sem teto de voltas, gastou cerca de 8 milhões de tokens em 48 horas</li>
+      <li class="step" data-step="1"><span class="highlight">Custo descontrolado.</span> Um loop que tentava fazer os testes passarem, sem teto de voltas, gastou cerca de 8 milhões de tokens em 48 horas</li>
       <li class="step" data-step="2"><span class="highlight">Correção infinita.</span> A volta 4 desfaz a volta 3, que desfez a volta 2</li>
       <li class="step" data-step="3"><span class="highlight">Verificador de fachada.</span> Aprova sem conferir nada. Se o agente escreve o código e o teste, quem verifica é ele mesmo</li>
-      <li class="step" data-step="4"><span class="highlight">Fadiga de revisão.</span> O loop abre mais PRs do que a dupla consegue ler. A revisão vira carimbo, e o pipeline continua verde</li>
+      <li class="step" data-step="4"><span class="highlight">Fadiga de revisão.</span> O loop abre mais PRs do que a dupla consegue ler. A revisão vira carimbo, e os testes continuam verdes</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
     <h2>Exercício: um loop na aplicação da AP1</h2>
-    <div class="question"><p>Um loop que responde a issues da aplicação de vocês, e sabe quando parar e quando chamar vocês.</p></div>
+    <div class="question"><p>Projetem um loop para a aplicação de vocês e rodem uma versão manual dele, fazendo o papel do gatilho e do porteiro.</p></div>
     <ul class="plain">
-      <li><span class="accent">1.</span> Gatilho: um workflow disparado por <code>issues: opened</code>, com <code>timeout-minutes</code> e <code>--max-turns</code>, e o prompt em <code>loop/PROMPT.md</code></li>
-      <li><span class="accent">2.</span> Parada: um hook <code>Stop</code> que só libera com os testes passando e um teste novo para a issue. No máximo três voltas</li>
-      <li><span class="accent">3.</span> Escalação: rótulo <code>precisa-humano</code> e um comentário com o que foi tentado. Listem as zonas proibidas no prompt</li>
-      <li><span class="accent">4.</span> Abram três issues: uma simples, uma ambígua e uma que exige mexer em zona proibida. O loop deve resolver a primeira e escalar as outras duas</li>
+      <li><span class="accent">1.</span> Escolham uma tarefa recorrente da aplicação e o gatilho dela: agenda ou evento? Justifiquem</li>
+      <li><span class="accent">2.</span> Escrevam o critério de parada de um jeito que uma máquina consiga conferir. &ldquo;Ficar bom&rdquo; não vale</li>
+      <li><span class="accent">3.</span> Listem quando o loop deve parar e chamar vocês, incluindo as partes do código que ele não pode tocar</li>
+      <li><span class="accent">4.</span> Coloquem tudo em <code>loop/PROMPT.md</code> e rodem o agente com ele até três vezes, cada volta numa sessão nova. Depois de cada volta, vocês são o porteiro: rodem os testes e decidam se para, tenta de novo ou escala</li>
     </ul>
-    <p style="font-size:1.4rem;margin-top:0.6rem">Versionem <code>loop/ESTADO.md</code>: sem ele, ninguém reconstitui o que o loop fez. Registrem em <code>diario/2026-10-13.md</code> o que o loop fez com cada issue e quanto custou. Commit no dia.</p>
+    <p style="font-size:1.4rem;margin-top:0.6rem">Anotem cada volta em <code>loop/ESTADO.md</code>: o que o agente fez, se passou e por quê. Registrem em <code>diario/2026-10-13.md</code> onde o loop parou e o que vocês automatizariam primeiro. Commit no dia.</p>
   </div>
 </div>
 <script>
