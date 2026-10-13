@@ -143,6 +143,8 @@ include:
   - .htaccess
   - _pages
 exclude:
+  - _pages/courses/dsai-2026/projetos
+  - _pages/courses/dsai-2026/tex
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor

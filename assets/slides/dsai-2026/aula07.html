@@ -252,6 +252,24 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 70vh; }
+
+    .cards-big .card h3 { font-size: 2rem; }
+    .cards-big .card p  { font-size: 1.65rem; }
   </style>
 </head>
 <body>
@@ -264,71 +282,186 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
-    <h1>Aula 7<br><span class="accent">Loop engineering</span></h1>
+    <h1>Aula 7<br><span class="accent">Loop engineering: o agente que ninguém chamou</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>29 de setembro de 2026</strong></span>
+      <span>&#128197; <strong>13 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>A terceira camada de abstração</h2>
-    <ul>
-      <li>Primeiro veio o <span class='accent'>prompt</span>: você escreve, o modelo responde</li>
-      <li>Depois a <span class='accent'>engenharia de contexto</span>: você cura o que entra na janela</li>
-      <li>Agora o <span class='accent'>loop engineering</span>: você constrói o sistema que prompta o agente por você</li>
+    <h2>Quatro camadas</h2>
+    <table class="rel-table" style="font-size:1.5rem">
+      <tr><th>Camada</th><th>Unidade</th><th>Artefatos</th></tr>
+      <tr><td>Prompt</td><td>Uma instrução</td><td>Prompts, templates</td></tr>
+      <tr><td>Contexto <span style="opacity:0.6">(aula 3)</span></td><td>Uma chamada ao modelo</td><td><code>AGENTS.md</code>, <code>CLAUDE.md</code>, regras</td></tr>
+      <tr><td>Harness <span style="opacity:0.6">(aulas 2, 4, 6)</span></td><td>Uma execução do agente</td><td>Skills, subagentes, hooks, MCP</td></tr>
+      <tr><td class="pk">Loop</td><td class="pk">Execuções recorrentes</td><td class="pk">Gatilhos, condições de parada, arquivo de estado, orçamento, verificador</td></tr>
+    </table>
+    <div class="definition" style="margin-top:1.4rem"><p>Em vez de dar o próximo prompt, o desenvolvedor projeta o sistema que dá o próximo prompt: dispara o agente por agenda ou evento, e para quando uma condição verificável por máquina é atendida.</p></div>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>O loop mais simples que existe</h2>
+<pre style="font-size:1.6rem;width:100%"><span class="cmd">while</span> :; <span class="cmd">do</span> cat PROMPT.md | claude -p ; <span class="cmd">done</span></pre>
+    <p style="font-size:1.4rem;margin-bottom:1rem">A técnica &ldquo;Ralph Wiggum&rdquo;, publicada por Geoffrey Huntley em julho de 2025.</p>
+    <ul class="plain">
+      <li class="step" data-step="1">O que ela acerta: cada volta começa com a janela de contexto limpa, e o progresso fica no disco, não na memória do modelo</li>
+      <li class="step" data-step="2">O que falta: quem dispara, quando para, e quem é chamado quando dá errado. <span class="highlight">São as três perguntas desta aula</span></li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>A definição</h2>
-    <div class="definition"><p>Em vez de conversar com o agente, o desenvolvedor projeta sistemas que disparam execuções por agenda ou por evento do repositório, e as encerram quando uma condição verificável por computador é atendida.</p></div>
-    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Lulla, Nersesyan, Mohsenimofidi, Treude e Baltes, 2026, arXiv:2608.21884</p>
+    <h2>Anatomia de um loop</h2>
+    <svg viewBox="0 0 1390 410" style="width:100%;max-height:52vh" role="img" aria-label="Um gatilho dispara o agente; o verificador confere o resultado; se passou, o loop para e abre PR; se falhou dentro do orçamento, uma nova volta começa; se esgotou ou tocou zona proibida, escala para um humano. Agente e verificador leem e escrevem no arquivo de estado.">
+      <defs><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0369a1"/></marker></defs>
+      <rect x="20" y="160" width="220" height="90" rx="12" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+      <text x="130" y="198" text-anchor="middle" font-size="24" font-weight="700" fill="#0369a1">Gatilho</text>
+      <text x="130" y="226" text-anchor="middle" font-size="16" fill="#475569">issue, CI vermelho, cron</text>
+      <line x1="240" y1="205" x2="322" y2="205" stroke="#0369a1" stroke-width="2.5" marker-end="url(#seta)"/>
+      <rect x="330" y="160" width="240" height="90" rx="12" fill="#0f172a"/>
+      <text x="450" y="198" text-anchor="middle" font-size="24" font-weight="700" fill="#f1f5f9">Agente</text>
+      <text x="450" y="226" text-anchor="middle" font-size="16" fill="#94a3b8">uma volta, contexto limpo</text>
+      <line x1="570" y1="205" x2="652" y2="205" stroke="#0369a1" stroke-width="2.5" marker-end="url(#seta)"/>
+      <rect x="660" y="160" width="240" height="90" rx="12" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+      <text x="780" y="198" text-anchor="middle" font-size="24" font-weight="700" fill="#0369a1">Verificador</text>
+      <text x="780" y="226" text-anchor="middle" font-size="16" fill="#475569">testes, outro agente</text>
+      <path d="M 780 160 C 780 70, 450 70, 450 152" fill="none" stroke="#0369a1" stroke-width="2.5" marker-end="url(#seta)"/>
+      <text x="615" y="78" text-anchor="middle" font-size="18" fill="#475569">falhou, ainda há orçamento: nova volta</text>
+      <line x1="900" y1="185" x2="1052" y2="100" stroke="#166534" stroke-width="2.5" marker-end="url(#seta)"/>
+      <text x="960" y="128" text-anchor="middle" font-size="18" fill="#166534">passou</text>
+      <rect x="1060" y="50" width="310" height="90" rx="12" fill="rgba(22,101,52,0.08)" stroke="#166534" stroke-width="2"/>
+      <text x="1215" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="#166534">Parou</text>
+      <text x="1215" y="116" text-anchor="middle" font-size="16" fill="#475569">abre PR para revisão</text>
+      <line x1="900" y1="225" x2="1052" y2="310" stroke="#92400e" stroke-width="2.5" marker-end="url(#seta)"/>
+      <text x="955" y="305" text-anchor="middle" font-size="18" fill="#92400e">esgotou ou</text>
+      <text x="955" y="327" text-anchor="middle" font-size="18" fill="#92400e">zona proibida</text>
+      <rect x="1060" y="270" width="310" height="90" rx="12" fill="rgba(146,64,14,0.08)" stroke="#92400e" stroke-width="2"/>
+      <text x="1215" y="308" text-anchor="middle" font-size="24" font-weight="700" fill="#92400e">Escalou</text>
+      <text x="1215" y="336" text-anchor="middle" font-size="16" fill="#475569">rótulo precisa-humano</text>
+      <line x1="450" y1="250" x2="450" y2="330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5"/>
+      <line x1="780" y1="250" x2="780" y2="330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5"/>
+      <rect x="330" y="330" width="570" height="64" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5"/>
+      <text x="615" y="358" text-anchor="middle" font-size="19" font-family="Menlo, monospace" fill="#0f172a">loop/ESTADO.md</text>
+      <text x="615" y="382" text-anchor="middle" font-size="16" fill="#475569">o que já foi tentado, quantas voltas, quanto custou</text>
+    </svg>
+    <p style="font-size:1.5rem;margin-top:0.6rem">Toda volta termina de um de três jeitos: <span class="success">passou</span>, <span class="accent">tenta de novo</span> ou <span class="highlight">escalou</span>. Um loop sem a terceira saída roda até o dinheiro acabar.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>1. O gatilho: agenda ou evento</h2>
+    <div class="cards cards-2 cards-big">
+      <div class="card">
+        <h3>Agenda</h3>
+        <p>Um cron. Triagem diária das issues, reexecução noturna dos testes instáveis, migração incremental um arquivo por noite.</p>
+      </div>
+      <div class="card">
+        <h3>Evento</h3>
+        <p>Algo aconteceu no repositório. Issue aberta, PR aberto, CI que ficou vermelho, deploy que falhou.</p>
+      </div>
+    </div>
+    <div class="definition step" data-step="1" style="margin-top:1.4rem"><p>Um <code>@claude</code> num comentário não é loop: tem uma pessoa pedindo. O loop começa quando ninguém pede.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Os blocos de construção</h2>
-    <ul>
-      <li><span class='accent'>Gatilho:</span> agenda, push, issue aberta, teste que quebrou</li>
-      <li><span class='accent'>Condição de parada:</span> verificável por máquina, não por opinião</li>
-      <li><span class='accent'>Arquivo de estado:</span> o que o loop já fez, entre execuções</li>
-      <li><span class='accent'>Subagente verificador:</span> alguém que confere o trabalho do primeiro</li>
-      <li><span class='accent'>Limite de tokens</span> e <span class='accent'>ponto de escalação</span> para o humano</li>
+    <h2 style="margin-bottom:0.8rem">Implementação: o gatilho no GitHub Actions</h2>
+<pre style="font-size:1.15rem;line-height:1.45;width:100%;margin-top:0"><span class="cmt"># .github/workflows/agente-issue.yml</span>
+<span class="cmd">on:</span>
+  issues:
+    types: [opened]               <span class="cmt"># evento: alguém abriu uma issue</span>
+  schedule:
+    - cron: "0 6 * * *"           <span class="cmt"># agenda: todo dia às 6h (UTC), triagem</span>
+
+<span class="cmd">jobs:</span>
+  agente:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20           <span class="cmt"># teto de tempo, independente do agente</span>
+    permissions: { contents: write, pull-requests: write, issues: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anthropics/claude-code-action@v1
+        env: { ISSUE: "${{ github.event.issue.number }}" }   <span class="cmt"># lido pelo hook</span>
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: "Siga loop/PROMPT.md para a issue #${{ github.event.issue.number }}."
+          claude_args: "--max-turns 30"   <span class="cmt"># teto de passos dentro da volta</span></pre>
+    <p style="font-size:1.4rem">O prompt fica num arquivo versionado, não no YAML. Revisar o loop é revisar <code>loop/PROMPT.md</code> num PR, como qualquer código.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>2. O critério de parada</h2>
+    <table class="rel-table" style="font-size:1.45rem">
+      <tr><th style="width:50%">Opinião</th><th>Verificável por máquina</th></tr>
+      <tr><td>&ldquo;Corrija o bug da issue&rdquo;</td><td>Existe um teste novo que falha no commit anterior e passa neste</td></tr>
+      <tr><td>&ldquo;Deixe o código limpo&rdquo;</td><td><code>npm run lint</code> sai com código 0</td></tr>
+      <tr><td>&ldquo;Não quebre nada&rdquo;</td><td><code>npm test</code> passa, e nenhum teste foi apagado ou marcado <code>skip</code></td></tr>
+    </table>
+    <ul class="plain" style="margin-top:1rem">
+      <li class="step" data-step="1">É o critério de aceite do <code>SPEC.md</code> da aula 5. Spec sem critério verificável dá loop sem parada</li>
+      <li class="step" data-step="2"><span class="highlight">O loop satisfaz o portão que vocês escreveram, não o objetivo por trás dele.</span> Se o portão é &ldquo;testes passam&rdquo;, apagar o teste também passa</li>
     </ul>
   </div>
 
   <div class="slide slide-content">
-    <h2>O que o estudo encontrou</h2>
-    <ul>
-      <li>Varredura de <span class='accent'>36.710</span> repositórios</li>
-      <li>Loops autônomos operando em <span class='accent'>217</span> deles</li>
-      <li>Os repositórios versionam a configuração, mas <span class='highlight'>quase nenhum versiona o arquivo de estado</span></li>
-    </ul>
-    <div class="definition"><p>Estado fora do controle de versão significa que ninguém reproduz o que o loop fez, nem audita.</p></div>
+    <h2 style="margin-bottom:0.8rem">Implementação: o hook de parada</h2>
+<pre style="font-size:1.1rem;line-height:1.45;width:100%;margin-top:0"><span class="cmt"># .claude/settings.json</span>
+{ "hooks": { "Stop": [ { "hooks": [ { "type": "command", "command": "loop/parada.sh" } ] } ] } }</pre>
+<pre style="font-size:1.1rem;line-height:1.45;width:100%"><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># loop/parada.sh: roda toda vez que o agente diz "terminei"</span>
+mkdir -p .loop
+n=$(( $(cat .loop/tentativas 2>/dev/null || echo 0) + 1 ))
+echo $n > .loop/tentativas
+
+<span class="cmd">if</span> npm test --silent > .loop/saida.txt 2>&1; <span class="cmd">then</span>
+  exit 0                                    <span class="cmt"># passou: pode parar</span>
+<span class="cmd">fi</span>
+<span class="cmd">if</span> [ $n -ge 3 ]; <span class="cmd">then</span>
+  gh issue edit "$ISSUE" --add-label precisa-humano
+  exit 0                                    <span class="cmt"># esgotou: para e escala</span>
+<span class="cmd">fi</span>
+tail -30 .loop/saida.txt >&2
+exit 2                                      <span class="cmt"># falhou: bloqueia a parada e devolve o erro ao agente</span></pre>
+    <p style="font-size:1.4rem">Quem decide se terminou é o script, não o agente. E a escalação também: ela não pode depender de o agente concordar que precisa de ajuda.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>A ponte com a aula passada</h2>
-    <div class="question"><p>A condição de parada do loop é o critério de aceite do seu SPEC.md.</p></div>
-    <ul>
-      <li>Sem condição verificável, o loop roda para sempre ou para cedo demais</li>
-      <li>É por isso que SDD vem antes desta aula</li>
-      <li>Se usarem loop no projeto, versionem o estado. É requisito</li>
+    <h2>3. O ponto de escalação</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">O loop para e chama alguém quando:</p>
+    <div class="cards cards-2">
+      <div class="card"><h3>Esgotou o orçamento</h3><p>N voltas, N minutos ou N tokens sem passar no verificador.</p></div>
+      <div class="card"><h3>Não houve progresso</h3><p>Duas voltas seguidas falharam pelo mesmo motivo. A terceira vai falhar também.</p></div>
+      <div class="card"><h3>Tocou zona proibida</h3><p>Migração de banco, autenticação, <code>.github/workflows/</code>, segredos. O loop propõe, não aplica.</p></div>
+      <div class="card"><h3>A entrada é ambígua</h3><p>A issue admite duas leituras. Escolher uma é decisão de produto, não de código.</p></div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:1.2rem">Escalar bem é deixar o caso pronto para o humano: o que foi tentado, por que falhou, onde parou. Escalar a cada volta é só notificação, e notificação demais ninguém lê.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="4">
+    <h2>O que dá errado</h2>
+    <ul class="plain">
+      <li class="step" data-step="1"><span class="highlight">Custo descontrolado.</span> Um loop que corrigia o CI, sem teto de voltas, gastou cerca de 8 milhões de tokens em 48 horas</li>
+      <li class="step" data-step="2"><span class="highlight">Correção infinita.</span> A volta 4 desfaz a volta 3, que desfez a volta 2</li>
+      <li class="step" data-step="3"><span class="highlight">Verificador de fachada.</span> Aprova sem conferir nada. Se o agente escreve o código e o teste, quem verifica é ele mesmo</li>
+      <li class="step" data-step="4"><span class="highlight">Fadiga de revisão.</span> O loop abre mais PRs do que a dupla consegue ler. A revisão vira carimbo, e o pipeline continua verde</li>
     </ul>
   </div>
 
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: testes como contrato e revisão de código gerado</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  <div class="slide slide-content">
+    <h2>Exercício: um loop na aplicação da AP1</h2>
+    <div class="question"><p>Um loop que responde a issues da aplicação de vocês, e sabe quando parar e quando chamar vocês.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Gatilho: um workflow disparado por <code>issues: opened</code>, com <code>timeout-minutes</code> e <code>--max-turns</code>, e o prompt em <code>loop/PROMPT.md</code></li>
+      <li><span class="accent">2.</span> Parada: um hook <code>Stop</code> que só libera com os testes passando e um teste novo para a issue. No máximo três voltas</li>
+      <li><span class="accent">3.</span> Escalação: rótulo <code>precisa-humano</code> e um comentário com o que foi tentado. Listem as zonas proibidas no prompt</li>
+      <li><span class="accent">4.</span> Abram três issues: uma simples, uma ambígua e uma que exige mexer em zona proibida. O loop deve resolver a primeira e escalar as outras duas</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.6rem">Versionem <code>loop/ESTADO.md</code>: sem ele, ninguém reconstitui o que o loop fez. Registrem em <code>diario/2026-10-13.md</code> o que o loop fez com cada issue e quanto custou. Commit no dia.</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');
