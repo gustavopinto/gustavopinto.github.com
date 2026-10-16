@@ -165,7 +165,7 @@ body {
 .title-left {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 44px;
 }
 
 .title-quote-block {
@@ -181,20 +181,22 @@ body {
 .contact-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
 }
 
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 15px;
+  gap: 14px;
+  font-size: 24px;
   color: var(--muted-rose);
   text-decoration: none;
   font-weight: 400;
 }
 
 .contact-link svg {
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   color: var(--copper);
 }
@@ -226,28 +228,27 @@ body {
 .profile-roles {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 22px;
 }
 
 .profile-role-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .profile-role-logo {
-  height: 30px;
-  width: auto;
-  max-width: 80px;
+  height: 50px;
+  width: 60px;
   object-fit: contain;
 }
 
 .profile-role-logo.ifood-sm {
-  height: 18px;
+  height: 30px;
 }
 
 .profile-role-text {
-  font-size: 18px;
+  font-size: 30px;
   color: var(--copper);
   font-weight: 400;
 }
@@ -418,6 +419,18 @@ body {
   border: 1px solid rgba(38,9,18,0.1);
 }
 
+.code-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.code-figure img {
+  max-width: 100%;
+  max-height: 62vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(38,9,18,0.2);
+}
+
 /* --- Tips overview grid --- */
 .tips-grid {
   display: grid;
@@ -531,7 +544,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: start;
+  align-items: center;
   margin-top: 8px;
 }
 
@@ -540,11 +553,11 @@ body {
   flex-direction: row;
   gap: 20px;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .tip-read-books .book-cover {
-  max-height: 210px;
+  max-height: 150px;
   width: auto;
   max-width: 100%;
   border-radius: 3px;
@@ -675,12 +688,12 @@ body {
 
 /* --- Closing slide link --- */
 .closing-link {
-  margin-top: 28px;
+  margin-top: 64px;
   text-align: center;
 }
 
 .closing-link a {
-  font-size: 18px;
+  font-size: 26px;
   color: var(--copper);
   text-decoration: none;
   opacity: 0.75;
@@ -740,4 +753,278 @@ mark.hl {
   color: rgba(255,255,255,0.35);
   font-family: 'Inter', Arial, sans-serif;
   z-index: 100;
+}
+
+/* --- Opening: cases, findings, sources --- */
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1150px;
+}
+
+.case-card {
+  background: var(--white);
+  border-left: 4px solid var(--rose);
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 6px 20px rgba(38,9,18,0.08);
+}
+
+.case-place {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+}
+
+.slide.content .case-card p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.slide.content .case-card p.case-note {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: var(--burgundy);
+  margin-bottom: 0;
+}
+
+.slide-sources {
+  position: absolute;
+  bottom: 18px;
+  right: 40px;
+  font-size: 13px;
+  color: var(--neutral);
+}
+
+.finding-list {
+  display: grid;
+  grid-template-columns: 1.25fr 1px 1fr;
+  column-gap: 40px;
+  row-gap: 22px;
+  align-items: center;
+  max-width: 1240px;
+}
+
+.finding-list > .finding-text { grid-column: 1; }
+.finding-list > .finding-echo { grid-column: 3; }
+
+.finding-divider {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: stretch;
+  background: repeating-linear-gradient(to bottom, var(--rose) 0px, var(--rose) 8px, transparent 8px, transparent 16px);
+  opacity: 0.5;
+}
+
+.finding-head {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dark-bg);
+}
+
+.finding-head-ufpa {
+  grid-column: 3;
+  color: var(--rose);
+}
+
+.finding-text {
+  font-size: 21px;
+  line-height: 1.45;
+  color: #3a2a2e;
+}
+
+.finding-src {
+  display: block;
+  font-size: 14px;
+  color: var(--neutral);
+  margin-top: 6px;
+}
+
+.finding-echo {
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--burgundy);
+  background: rgba(165,76,93,0.08);
+  border-left: 3px solid var(--copper);
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.evidence-note {
+  display: block;
+  font-size: 18px;
+  color: var(--muted-rose);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.echo-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 6px;
+}
+
+/* --- Chat + code (assignment slide) --- */
+.chat-code-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.chat-code-layout .code-figure img {
+  max-height: 60vh;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-msg {
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 12px 16px;
+  border-radius: 12px;
+  max-width: 92%;
+}
+
+.chat-who {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+
+.chat-student {
+  align-self: flex-end;
+  background: var(--rose);
+  color: var(--white);
+}
+
+.chat-agent {
+  align-self: flex-start;
+  background: var(--white);
+  color: #3a2a2e;
+  box-shadow: 0 4px 14px rgba(38,9,18,0.08);
+}
+
+/* --- This Work: chart bottom-left, paper right --- */
+.this-work-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.this-work-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.this-work-left .reddit-figure {
+  text-align: left;
+}
+
+.this-work-left .reddit-figure img {
+  max-height: 38vh;
+}
+
+.paper-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.paper-figure img {
+  max-height: 52vh;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(38,9,18,0.2);
+  border: 1px solid rgba(38,9,18,0.1);
+}
+
+.paper-figure figcaption {
+  margin-top: 14px;
+}
+
+.paper-figure figcaption a {
+  font-size: 18px;
+  color: var(--rose);
+  text-decoration: none;
+}
+
+/* --- Tip with a concept card on the right --- */
+.tip-side-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.concept-card {
+  background: var(--dark-bg);
+  border-radius: 16px;
+  padding: 40px 40px 32px;
+  box-shadow: 0 10px 30px rgba(38,9,18,0.25);
+}
+
+.concept-term {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.1;
+  color: var(--copper);
+  margin-bottom: 20px;
+}
+
+.slide.content .concept-card p {
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--light-text);
+  margin-bottom: 18px;
+}
+
+.concept-src {
+  font-size: 14px;
+  color: var(--neutral);
+}
+
+.tip-read-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.blog-figure img {
+  max-height: 50vh;
+}
+
+.context-figure img {
+  max-height: none;
+  width: 100%;
+  background: var(--white);
+  padding: 8px;
 }
