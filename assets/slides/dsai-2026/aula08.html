@@ -252,6 +252,24 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 70vh; }
+
+    .cards-big .card h3 { font-size: 2rem; }
+    .cards-big .card p  { font-size: 1.65rem; }
   </style>
 </head>
 <body>
@@ -264,59 +282,99 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
-    <h1>Aula 8<br><span class="accent">Testes como contrato e revisão de código gerado</span></h1>
+    <h1>Aula 8<br><span class="accent">Forward deployed engineer: o engenheiro que trabalha dentro do cliente</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>1 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>20 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
+  <div class="slide slide-content" data-steps="1">
+    <h2>O que é um FDE</h2>
+    <div class="definition"><p>Engenheiro de software que trabalha dentro da organização do cliente, com os dados, os sistemas e os prazos dela, para fazer o produto funcionar naquele contexto. O que aprende no campo volta para o produto.</p></div>
+    <div class="question step" data-step="1"><p>Até aqui, isso parece consultoria. Onde está a diferença?</p></div>
+  </div>
+
   <div class="slide slide-content">
-    <h2>O que acontece hoje, nos repositórios reais</h2>
-    <ul>
-      <li><span class='highlight'>61,4%</span> dos PRs de agente não recebem nenhuma revisão</li>
-      <li><span class='highlight'>69,9%</span> não têm envolvimento humano: ou ninguém revisa, ou outro agente revisa</li>
-      <li>Entre os que passam, 83,8% são aceitos, e 54,9% sem qualquer modificação</li>
+    <h2>Origem: os Deltas da Palantir</h2>
+    <div class="cards cards-2 cards-big" style="margin-bottom:1.2rem">
+      <div class="card"><h3>Dev</h3><p>&ldquo;Uma capacidade, muitos clientes.&rdquo; Constrói a plataforma.</p></div>
+      <div class="card"><h3>Delta</h3><p>&ldquo;Um cliente, muitas capacidades.&rdquo; Faz a plataforma funcionar dentro de um cliente.</p></div>
+    </div>
+    <p style="font-size:1.6rem">Até 2016, a Palantir tinha mais Deltas do que engenheiros de produto.</p>
+    <p class="fonte">Orosz, The Pragmatic Engineer, ago. 2025</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>FDE não é consultor</h2>
+    <div class="cards cards-3 cards-big">
+      <div class="card step" data-step="1"><h3>Responde pelo produto</h3><p>Trabalha para o fornecedor e influencia o que o produto vai virar.</p></div>
+      <div class="card step" data-step="2"><h3>Conhecimento nos dois sentidos</h3><p>Leva o produto ao domínio do cliente e traz o domínio para o produto.</p></div>
+      <div class="card step" data-step="3"><h3>Produtização</h3><p>O que foi construído para um cliente vira funcionalidade para todos.</p></div>
+    </div>
+    <p class="fonte">ML4SE, <em>O que é um Forward Deployed Engineer?</em>, out. 2026</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Por que o papel voltou com os LLMs</h2>
+    <table class="rel-table" style="font-size:1.5rem">
+      <tr><th style="width:45%">Software tradicional</th><th>LLM</th></tr>
+      <tr><td>Configurado seguindo o manual</td><td>O valor depende dos dados de cada cliente</td></tr>
+      <tr><td>Qualidade conferida antes da venda</td><td>Qualidade só aparece no uso real</td></tr>
+    </table>
+    <ul class="plain" style="margin-top:1rem">
+      <li class="step" data-step="1">95% dos pilotos corporativos de IA generativa não tiveram impacto financeiro mensurável (MIT, 2025). As vagas de FDE cresceram <span class="highlight">1.165%</span> entre 2024 e 2025</li>
     </ul>
-    <div class="definition"><p>O gargalo deixou de ser produzir código. Passou a ser revisar código produzido.</p></div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O agente testa bem, mas não como você imagina</h2>
-    <ul>
-      <li>Cobertura de casos de borda: cerca do <span class='success'>dobro</span> da variedade de checagens de limite</li>
-      <li>Mas adiciona <span class='highlight'>mock</span> com muito mais frequência que humanos</li>
-      <li>E inclui mudança de teste em apenas <span class='highlight'>49,6%</span> dos PRs que mexem em código</li>
+    <h2>Quanto custa, quanto rende</h2>
+    <p style="font-size:1.4rem;margin-bottom:0.8rem">Gasto com IA por desenvolvedor em 27 empresas, out. 2026:</p>
+    <table class="rel-table" style="font-size:1.4rem">
+      <tr><th style="width:34%">Empresa</th><th style="width:22%">Por dev, por mês</th><th>O que mudou</th></tr>
+      <tr><td>Startup .NET, 2 devs</td><td>US$ 3.000</td><td>PRs de 5 a 10 vezes mais frequentes</td></tr>
+      <tr><td>SaaS de capital aberto, ~600 eng.</td><td>até US$ 1.200</td><td>Mais PRs abertos, quase o mesmo ritmo de merge</td></tr>
+      <tr><td>Capital aberto, 5.000 pessoas</td><td>US$ 1.000 a 2.500</td><td>Mesma frequência de PRs, PRs 3 vezes maiores</td></tr>
+    </table>
+    <p style="font-size:1.5rem;margin-top:1.2rem">Onde a qualidade em produção é protegida, a revisão humana continua sendo o gargalo. Poucas empresas sabem dizer quanto o gasto rendeu, e é essa a pergunta que o cliente faz ao FDE.</p>
+    <p class="fonte">Orosz, <em>What&rsquo;s the ROI of software engineers&rsquo; spending on AI?</em>, The Pragmatic Engineer, out. 2026</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="5">
+    <h2>O que continua humano</h2>
+    <table class="rel-table" style="font-size:1.3rem">
+      <tr><th style="width:15%">Etapa</th><th style="width:38%">O agente faz</th><th>Fica com vocês</th></tr>
+      <tr class="step" data-step="1"><td>Requisitos</td><td>Transcreve a conversa com o usuário e rascunha o <code>SPEC.md</code></td><td>Escolher qual problema resolver e o que fica fora do escopo</td></tr>
+      <tr class="step" data-step="2"><td>Dados</td><td>Propõe o esquema do banco e as bibliotecas</td><td>Fixar o modelo de dados, que é caro de migrar depois, e aprovar cada dependência nova</td></tr>
+      <tr class="step" data-step="3"><td>Testes</td><td>Escreve os testes e faz eles passarem</td><td>Definir os critérios de aceite e os casos de borda (entrada nula, permissão, concorrência) e conferir que o teste falha sem a mudança</td></tr>
+      <tr class="step" data-step="4"><td>Revisão</td><td>Resume o diff e aponta problemas</td><td>Aprovar o merge, lendo linha a linha o que toca autenticação, migração e segredos</td></tr>
+      <tr class="step" data-step="5"><td>Produção</td><td>Escreve o workflow de CI e investiga o log do erro</td><td>Decidir o rollback, o orçamento de tokens e o que dizer ao usuário quando cai</td></tr>
+    </table>
+    <p class="step" data-step="5" style="font-size:1.45rem;margin-top:1rem">A coluna da direita é o critério de avaliação da <span class="highlight">AP2</span>.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício: a que distância você está de uma vaga de FDE?</h2>
+    <p style="font-size:1.4rem;margin-bottom:0.4rem">As vagas dizem o que o mercado espera de um FDE. Hoje cada um mede a distância entre isso e o que fez na disciplina.</p>
+    <ul class="plain" style="margin-bottom:0.4rem">
+      <li style="font-size:1.45rem"><span class="accent">1.</span> Encontre uma vaga real de FDE, no LinkedIn ou na página de carreiras de uma empresa. Com o agente, extraia de 6 a 8 requisitos que dê para verificar: &ldquo;integrar APIs de terceiros&rdquo; vale, &ldquo;ser proativo&rdquo; não</li>
+      <li style="font-size:1.45rem"><span class="accent">2.</span> Dê uma nota a você mesmo em cada requisito. Nota 2 ou 3 precisa de um link para a AP1 ou o diário que a comprove:</li>
     </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A regra da disciplina</h2>
-    <div class="definition"><p>Se o teste não falha quando você quebra o código de propósito, ele não é um teste.</p></div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Como ler um PR de 800 linhas</h2>
-    <ul>
-      <li>Comece pelo <span class='accent'>teste</span>, não pelo código</li>
-      <li>Procure o que foi <span class='accent'>removido</span>, não só o que foi adicionado</li>
-      <li>Verifique dependências novas uma a uma</li>
-      <li>Peça ao agente para explicar a decisão, em contexto limpo</li>
+    <table class="rel-table" style="font-size:1.2rem;margin-bottom:0.4rem">
+      <tr><td class="pk" style="width:4rem">0</td><td>Nunca vi</td><td class="pk" style="width:4rem">2</td><td>Fiz com o agente</td></tr>
+      <tr><td class="pk">1</td><td>Vi em aula</td><td class="pk">3</td><td>Fiz e sei explicar sem o agente</td></tr>
+    </table>
+    <ul class="plain">
+      <li style="font-size:1.45rem"><span class="accent">3.</span> Nos três requisitos de nota mais baixa, escreva o que você precisaria construir para subir um ponto</li>
+      <li style="font-size:1.45rem"><span class="accent">4.</span> <em>Opcional:</em> se a vaga fizer sentido para você, candidate-se</li>
     </ul>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: código legado</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+    <p style="font-size:1.35rem;margin-top:0.4rem">No <code>diario/2026-10-20.md</code>, cada aluno registra o link da vaga, a sua tabela, o que acha que já vai bem e o que ainda não vai tão bem. Commit no dia.</p>
   </div>
 </div>
-
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
   const progress = document.getElementById('progress');
