@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo e o primeiro SELECT &mdash; Banco de Dados II</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1.1rem; line-height: inherit; }
+    .phase ul li { line-height: 1.5; }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Tree diagrams ── */
+    .arvore { width: 100%; height: auto; margin: 0.4rem 0 0.8rem; }
+    .arvore .nd     { fill: #fff; stroke: #64748b; stroke-width: 1.5; }
+    .arvore .nd-int { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .arvore text    { font-family: 'Menlo', 'Courier New', monospace; font-size: 20px; text-anchor: middle; }
+    .arvore .k      { fill: #0f172a; font-weight: 700; }
+    .arvore .k-int  { fill: #64748b; }
+    .arvore .dado   { fill: #92400e; }
+    .arvore .aresta { stroke: #94a3b8; stroke-width: 1.5; }
+    .arvore .nd-cam { fill: #fff; stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .caminho { stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .nivel  { fill: #475569; font-size: 21px; text-anchor: end; font-family: -apple-system, system-ui, sans-serif; }
+    .arvore .cel-hl { fill: rgba(3,105,161,0.14); stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .elo-hl { stroke: #0369a1; stroke-width: 3.5; }
+    .arvore .ann    { fill: #92400e; font-size: 20px; font-weight: 700; text-anchor: middle; font-family: -apple-system, system-ui, sans-serif; }
+    .cards-h .card { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr; column-gap: 1rem; padding: 1rem 1.3rem; }
+    .cards-h .card h3 { grid-column: 1 / -1; margin-bottom: 0.2rem; }
+    .cards-h .card .arvore { margin: 0; }
+    .cards-h .card p { align-self: center; }
+    .card h3 code   { font-size: 1.3rem; }
+    .arvore .cel-over { fill: rgba(146,64,14,0.14); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 5 3; }
+    .arvore .elo    { stroke: #0369a1; stroke-width: 2; }
+
+
+    /* ── Tokens ── */
+    .toks { display: flex; flex-wrap: wrap; gap: 0.55rem; width: 100%; }
+    .tok {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem;
+      background: #fff; border: 1.5px solid #cbd5e1; border-radius: 0.5rem;
+      padding: 0.35rem 0.75rem; font-family: 'Menlo', 'Courier New', monospace;
+      font-size: 1.35rem; font-weight: 700; color: var(--text);
+    }
+    .tok small {
+      font-family: -apple-system, system-ui, sans-serif; font-size: 0.8rem; font-weight: 600;
+      color: var(--secondary); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .tok-pal { border-color: rgba(3,105,161,0.45); color: var(--accent); }
+    .tok-lit { border-color: rgba(146,64,14,0.45); color: var(--highlight); }
+    .tok-sim { color: var(--secondary); }
+    .tok-fim { border-style: dashed; color: var(--secondary); }
+    .tok-mal { background: rgba(185,28,28,0.08); border-color: #b91c1c; }
+    .tok-mal small { color: #b91c1c; }
+    .level-x { background: rgba(71,85,105,0.08); border: 1px solid rgba(71,85,105,0.25); }
+    pre .hl { color: #fbbf24; }
+    .slide pre { flex-shrink: 0; }
+    .slide ul.compacto li { font-size: 1.3rem; padding: 0.25rem 0 0.25rem 2rem; }
+    .slide ul.compacto li::before { font-size: 1.4rem; }
+    .arvore .rot { fill: #475569; font-size: 17px; font-style: italic; font-family: -apple-system, system-ui, sans-serif; }
+    .arvore .lit { fill: #92400e; font-weight: 700; }
+    .arvore .buraco { fill: rgba(146,64,14,0.08); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 6 4; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
+
+<div class="slides" id="slides">
+  <div class="slide slide-cover">
+    <span class="tag">Banco de Dados II &mdash; 2026.2</span>
+    <h1>Módulo 4, parte 2<br><span class="accent">Catálogo e o primeiro <code>SELECT</code></span></h1>
+    <div class="cover-meta">
+      <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#127963;&#65039; <strong>UFPA</strong></span>
+      <span>&#128197; <strong>22 de outubro de 2026</strong></span>
+      <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>De onde a gente parou</h2>
+    <p style="font-size:1.5rem;margin-bottom:0.4rem">Na terça, o parser transformou texto em árvore:</p>
+    <pre style="font-size:1.15rem">SELECT * FROM aluno;
+<span class="cmt"># vira</span>
+{"op": "SELECT", "colunas": ["*"], "tabela": "aluno", "where": None}</pre>
+    <div class="step" data-step="1">
+      <div class="question" style="margin-top:0.6rem"><p><code>aluno</code> existe? Tem quais colunas? Mora em que página?</p></div>
+    </div>
+    <div class="step" data-step="2">
+      <p>A árvore não sabe, e o parser não deve saber. Quem sabe é o <strong>catálogo</strong>, e hoje ele vai para o disco. Ao fim da aula, o <code>SELECT *</code> roda.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A meta de hoje</h2>
+    <pre style="font-size:1.15rem;margin-top:0">$ ./minidb dados.db
+<span class="cmd">CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20));</span>
+OK
+<span class="cmd">INSERT INTO aluno VALUES (1, 20260001, 'Ana');</span>
+OK 1
+<span class="cmd">INSERT INTO aluno VALUES (2, 20260002, 'Bruno');</span>
+OK 1
+^D
+$ ./minidb dados.db                  <span class="cmt"># outro processo</span>
+<span class="cmd">SELECT * FROM aluno;</span>
+1|20260001|Ana
+2|20260002|Bruno
+(2 linhas)</pre>
+    <p style="font-size:1.45rem">O segundo processo não viu o <code>CREATE TABLE</code>. Ele sabe que <code>aluno</code> existe, e com quais colunas, porque leu isso do disco. É a demonstração 4 do <code>minidb 0.0</code>, consertada.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>O catálogo</h2>
+    <div class="definition"><p>Catálogo é o conjunto de tabelas em que o banco guarda a descrição das outras tabelas.</p></div>
+    <ul class="plain">
+      <li>Quais tabelas existem, com quais colunas e tipos, onde começam, e quais índices têm</li>
+      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code>, consultáveis com SQL</li>
+    </ul>
+    <div class="step" data-step="1">
+      <p style="font-size:1.45rem;margin-top:0.6rem">O SQLite vai além: guarda o próprio texto do <code>CREATE TABLE</code>, e analisa de novo toda vez que abre o arquivo.</p>
+      <pre style="font-size:1.15rem">sqlite&gt; <span class="cmd">SELECT name, rootpage, sql FROM sqlite_schema;</span>
+aluno|2|CREATE TABLE aluno (id INT, nome TEXT, nota INT)</pre>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O catálogo do <code>minidb</code> é uma tabela</h2>
+    <pre style="font-size:1.12rem;margin-top:0">registro do catálogo, 240 bytes, 17 por página
+
+nome      CHAR(32)    "aluno"
+primeira  INT         2                       <span class="cmt">// primeira página da tabela</span>
+raiz      INT         0                       <span class="cmt">// raiz do índice, 0 se não há (M5)</span>
+sql       CHAR(200)   "CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20))"</pre>
+    <ul class="plain">
+      <li>Guardamos o texto, como o SQLite. Ao abrir o arquivo, o mesmo parser lê o texto e devolve as colunas</li>
+      <li>Nada de formato novo: o catálogo usa as páginas do M1, o cache do M2 e a mesma serialização de registro</li>
+      <li><code>CREATE TABLE</code> é só um <code>INSERT</code> nessa tabela, mais uma página nova para a tabela criada</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O ovo e a galinha</h2>
+    <div class="question" style="margin-bottom:0.4rem"><p style="font-size:1.8rem">O catálogo descreve todas as tabelas. Quem descreve o catálogo?</p></div>
+    <pre style="font-size:1rem;line-height:1.45">ESQUEMA_CATALOGO = Esquema([("nome", "CHAR", 32), ("primeira", "INT", 4),
+                            ("raiz", "INT", 4), ("sql", "CHAR", 200)])
+PAGINA_CATALOGO = 1                                <span class="cmt"># fixa, combinada no código</span>
+
+class Catalogo:
+    def __init__(self, cache):
+        self.tabelas = {}
+        for nome, primeira, raiz, sql in varre(cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO):
+            colunas = analisa(sql)["colunas"]       <span class="cmt"># o parser, de novo</span>
+            self.tabelas[nome] = (primeira, Esquema(colunas))</pre>
+    <p style="font-size:1.45rem">Só duas coisas ficam no código: o esquema do próprio catálogo, e a página onde ele começa. Todo o resto vem do disco.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Várias tabelas no mesmo arquivo</h2>
+    <pre style="font-size:1.1rem;margin-top:0">dados.db
++-----------+-----------+-----------+-----------+-----------+
+| página 0  | página 1  | página 2  | página 3  | página 4  |
+| metadados | catálogo  | aluno     | curso     | aluno     |
++-----------+-----------+-----------+-----------+-----------+
+                              |                       ^
+                              +--- próxima = 4 -------+          <span class="cmt">// a 4 aponta para 0: fim</span></pre>
+    <p style="font-size:1.35rem;margin-bottom:0.4rem">O heap do M1 supunha uma tabela só. Agora cada página sabe qual é a próxima da mesma tabela, e o cabeçalho de 16 bytes ainda tem espaço para isso:</p>
+    <pre style="font-size:1.1rem">byte 0-1    n_slots ocupados
+byte 2-3    tamanho do registro
+byte 4-7    número desta página
+<span class="cmd">byte 8-11   próxima página da mesma tabela</span>     <span class="cmt">// novo. 0 é o fim, porque a 0 nunca é dado</span>
+byte 12-15  reservado                          <span class="cmt">// o M7 ainda cabe aqui</span></pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Olho nu: o catálogo no <code>hexdump</code></h2>
+    <pre style="font-size:1.08rem;margin-top:0">$ hexdump -C -s 4096 -n 96 dados.db
+00001000  <span class="cmd">01 00</span> <span class="cmd">f0 00</span> 01 00 00 00  00 00 00 00 00 00 00 00  |................|
+00001010  61 6c 75 6e 6f 00 00 00  00 00 00 00 00 00 00 00  |aluno...........|
+00001020  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00001030  <span class="cmd">02 00 00 00</span> 00 00 00 00  43 52 45 41 54 45 20 54  |........CREATE T|
+00001040  41 42 4c 45 20 61 6c 75  6e 6f 20 28 69 64 20 49  |ABLE aluno (id I|
+00001050  4e 54 2c 20 6d 61 74 72  69 63 75 6c 61 20 49 4e  |NT, matricula IN|</pre>
+    <ul class="plain">
+      <li><code>00001000</code> é 4096, a página 1. Um slot ocupado, registro de <code>0xf0</code> = 240 bytes, página número 1, sem próxima</li>
+      <li>De <code>00001010</code> a <code>0000102f</code>, os 32 bytes do nome. Em <code>00001030</code>, <code>primeira = 2</code></li>
+      <li>Em <code>00001038</code> começa o texto do <code>CREATE TABLE</code>, que o parser vai ler de volta</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Varrer uma tabela</h2>
+    <pre style="font-size:1.1rem;margin-top:0;line-height:1.55">def varre(cache, primeira, esquema):
+    n = primeira
+    while n != 0:
+        buf = cache.fixa(n)
+        try:
+            n_slots, tam, _, proxima = struct.unpack_from("&lt;HHII", buf, 0)
+            for s in range(n_slots):
+                yield esquema.desserializa(buf, TAM_CABECALHO + s * tam)
+        finally:
+            cache.solta(n)
+        n = proxima</pre>
+    <ul class="plain">
+      <li>É a varredura do M1, seguindo a corrente de páginas em vez de ler o arquivo inteiro</li>
+      <li>O mesmo <code>fixa</code> e <code>solta</code> do M2, com <code>try/finally</code></li>
+      <li>Serve para o catálogo e para qualquer tabela. Muda só o esquema</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Executar sem executor</h2>
+    <pre style="font-size:0.98rem;margin-top:0;line-height:1.45">def executa(sql, catalogo, cache):
+    arvore = analisa(sql)                                   <span class="cmt"># tokenizador e parser</span>
+    if arvore["op"] == "CREATE":
+        catalogo.cria(arvore["tabela"], arvore["colunas"], sql)
+        return "OK"
+    primeira, esquema = catalogo.busca(arvore["tabela"])    <span class="cmt"># semântica: a tabela existe?</span>
+    if arvore["op"] == "INSERT":
+        confere_tipos(esquema, arvore["valores"])           <span class="cmt"># semântica: os tipos batem?</span>
+        insere(cache, primeira, esquema, arvore["valores"])
+        return "OK 1"
+    linhas = ["|".join(map(str, r)) for r in varre(cache, primeira, esquema)]
+    n = len(linhas)
+    return "\n".join(linhas + [f"({n} linha{'s' * (n != 1)})"])</pre>
+    <div class="step" data-step="1">
+      <p style="font-size:1.4rem">É um interpretador de árvore: olha o <code>op</code> e faz. Funciona para <code>SELECT *</code>. No M5 isso vira uma pilha de operadores, e é ali que entram o <code>WHERE</code> e o índice.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Onde isso entra no <code>minidb</code></h2>
+    <pre style="font-size:1.15rem"><span class="cmd">SELECT * FROM aluno;</span>
+
+<span class="hl">M4  tokenizador          5 tokens, mais o FIM</span>
+<span class="hl">M4  parser               {"op": "SELECT", "colunas": ["*"], "tabela": "aluno", ...}</span>
+<span class="hl">M4  catálogo             aluno começa na página 2, registro de 28 bytes</span>
+M2  cache de páginas     entrega as páginas da corrente, da memória ou do disco
+M1  página e arquivo     lê 4096 bytes no deslocamento certo
+<span class="hl">M4  execução            desserializa cada slot e imprime 1|20260001|Ana</span>
+
+M3  árvore B+            ainda parada. Quem decide usar o índice é o M5</pre>
+    <p style="font-size:1.45rem">O parser não sabe o que é página, e o cache não sabe o que é SQL. Cada módulo só usa o que vem antes dele.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>O catálogo também é tabela, e também vaza</h2>
+    <pre style="font-size:1.1rem;margin-top:0">$ python3 injecao.py "x' UNION SELECT 0, sql, 0 FROM sqlite_schema --"
+concatenado: SELECT * FROM aluno WHERE nome = 'x' UNION SELECT 0, sql, 0 FROM sqlite_schema --'
+  devolveu: [(0, 'CREATE TABLE aluno (id INT, nome TEXT, nota INT)', 0)]</pre>
+    <div class="step" data-step="1">
+      <ul class="plain">
+        <li>O <code>--</code> transforma a aspa que sobrou em comentário</li>
+        <li>O <code>UNION</code> junta uma consulta inteira, escolhida pelo atacante</li>
+        <li>Como o catálogo é consultável com SQL, o primeiro passo do ataque é ler o catálogo e descobrir o nome das outras tabelas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que temos, e o que falta</h2>
+    <div class="phases">
+      <div class="phase phase-3">
+        <h3>Pronto</h3>
+        <div class="dates">M1 a M3</div>
+        <ul>
+          <li>Registros gravados em páginas</li>
+          <li>Páginas lidas pelo cache</li>
+          <li>Árvore B+ com busca e inserção</li>
+        </ul>
+      </div>
+      <div class="phase phase-1">
+        <h3>Agora</h3>
+        <div class="dates">M4, entrega em 27/10</div>
+        <ul>
+          <li>Tokenizador e parser dos três comandos</li>
+          <li>Catálogo gravado na página 1</li>
+          <li><code>SELECT *</code> de ponta a ponta</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Depois</h3>
+        <div class="dates">M5 a M7</div>
+        <ul>
+          <li><code>WHERE</code>, índice e operadores</li>
+          <li>Transações e log</li>
+          <li>Sobreviver ao <code>kill -9</code></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.6rem">No laboratório: primeiro o tokenizador e o parser, depois o catálogo e o <code>SELECT *</code>. No <code>NOTES.md</code>, digam onde o catálogo mora e por quê.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Para ir além</h2>
+    <ul class="plain">
+      <li>SQLite, <em>The Schema Table</em>: <code>sqlite.org/schematab.html</code></li>
+      <li>Sciore, <em>Database Design and Implementation</em>, capítulo 7: metadados</li>
+      <li>PostgreSQL, <em>System Catalogs</em>: o capítulo da documentação sobre <code>pg_class</code> e companhia</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-cover">
+    <h1>Dúvidas?</h1>
+    <p style="font-size:2rem;margin-top:1.5rem">Próximo: laboratório do M4. Antes disso, o exercício de hoje</p>
+    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício de hoje</h2>
+    <div class="question"><p>Para trazer no papel ao laboratório.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Escreva, campo a campo, o registro de catálogo de <code>curso (id INT, nome CHAR(40))</code>, criada logo depois de <code>aluno</code>. Em que página ela começa, e quantos bytes tem cada registro dela?</li>
+      <li><span class="accent">2.</span> Em que byte de <code>dados.db</code> começa o texto do <code>CREATE TABLE</code> de <code>curso</code>? Confira com o <code>hexdump</code></li>
+      <li><span class="accent">3.</span> A tabela <code>t (a INT, b INT)</code> recebe 1200 linhas. Quantas páginas tem a corrente dela, e quantas páginas <code>SELECT * FROM t</code> lê, contando o catálogo?</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 2 é a conta do lab01, com o catálogo no lugar do registro.</p>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: o catálogo</h2>
+    <pre style="font-size:0.95rem;margin-top:0;line-height:1.45">def nova_pagina(cache, tam_reg):
+    n = cache.pager.aloca()
+    buf = cache.fixa(n)
+    struct.pack_into("&lt;HHII", buf, 0, 0, tam_reg, n, 0)   <span class="cmt"># 0 slots, sem próxima</span>
+    cache.solta(n, sujou=True)
+    return n
+
+class Catalogo:                                         <span class="cmt"># continua o __init__ da aula</span>
+    def cria(self, nome, colunas, sql):
+        if nome in self.tabelas:
+            raise ErroSemantico(f"tabela {nome} já existe")
+        esquema = Esquema(colunas)
+        primeira = nova_pagina(self.cache, esquema.tamanho)
+        insere(self.cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO, [nome, primeira, 0, sql])
+        self.tabelas[nome] = (primeira, esquema)
+
+    def busca(self, nome):
+        if nome not in self.tabelas:
+            raise ErroSemantico(f"tabela {nome} não existe")
+        return self.tabelas[nome]</pre>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: inserir seguindo a corrente</h2>
+    <pre style="font-size:0.95rem;margin-top:0;line-height:1.45">def insere(cache, primeira, esquema, valores):
+    reg = esquema.serializa(valores)
+    n = primeira
+    while True:
+        buf = cache.fixa(n)
+        n_slots, tam, num, proxima = struct.unpack_from("&lt;HHII", buf, 0)
+        if TAM_CABECALHO + (n_slots + 1) * tam &lt;= TAM_PAGINA:     <span class="cmt"># cabe aqui</span>
+            off = TAM_CABECALHO + n_slots * tam
+            buf[off:off + tam] = reg
+            struct.pack_into("&lt;H", buf, 0, n_slots + 1)
+            cache.solta(n, sujou=True)
+            return (n, n_slots)                                   <span class="cmt"># o RID</span>
+        if proxima == 0:                                          <span class="cmt"># fim da corrente</span>
+            proxima = nova_pagina(cache, tam)
+            struct.pack_into("&lt;I", buf, 8, proxima)               <span class="cmt"># bytes 8-11</span>
+            cache.solta(n, sujou=True)
+        else:
+            cache.solta(n)
+        n = proxima</pre>
+    <p style="font-size:1.25rem">Percorrer a corrente a cada inserção custa caro em tabela grande. Guardar a última página no catálogo resolve. Decisão para o <code>NOTES.md</code>.</p>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: a semântica do <code>INSERT</code></h2>
+    <pre style="font-size:1rem;margin-top:0;line-height:1.45">def confere_tipos(esquema, valores):
+    if len(valores) != len(esquema.colunas):
+        raise ErroSemantico(f"esperava {len(esquema.colunas)} valores, vieram {len(valores)}")
+    for (nome, tipo, n), v in zip(esquema.colunas, valores):
+        if tipo == "INT" and not isinstance(v, int):
+            raise ErroSemantico(f"coluna {nome} é INT, veio {v!r}")
+        if tipo == "CHAR" and not (isinstance(v, str) and len(v.encode()) &lt;= n):
+            raise ErroSemantico(f"coluna {nome} é CHAR({n}), veio {v!r}")</pre>
+    <p style="font-size:1.3rem">Fica fora do parser: ele só sabe que veio um número ou um texto, e não qual coluna espera o quê.</p>
+  </div>
+</div>
+
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
