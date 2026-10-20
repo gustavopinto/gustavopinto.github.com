@@ -29,6 +29,9 @@ classes: ["publications-page"]
 1. Daniel Naiff, [Ronnie Alves](https://sites.google.com/site/alvesrco/), **Gustavo Pinto**. "Beyond Vector Search: Comparing Classical RAG with Hybrid GraphRAG for Climate Science Q&A". Accepted to the 23rd Encontro Nacional de Inteligência Artificial e Computacional (ENIAC'2026). Brazil, 2026.<br>
 [<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](#)
 
+1. [Danilo Monteiro Ribeiro](https://www.linkedin.com/in/prof-danilo-monteiro/), [Ronnie de Souza Santos](https://profiles.ucalgary.ca/ronnie-de-souza-santos), Rodrigo Siqueira, Breno Andrade, Rafael Batista Duarte, Gilberto Sussumu Hida, Julia Alencar, **Gustavo Pinto**. "[What Does It Take to Research with AI? A Rapid Review of Competencies to Train LLM-Literate Researchers](https://arxiv.org/abs/2607.16083)". Accepted to the XXXVII Simpósio Brasileiro de Informática na Educação (SBIE'2026). Brazil, 2026.<br>
+[<i class="fa fa-fw fa-book-open" aria-hidden="true"></i>Preprint](https://arxiv.org/abs/2607.16083)
+
 
 ## 2025
 

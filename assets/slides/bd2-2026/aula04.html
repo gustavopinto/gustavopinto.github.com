@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula 4 &mdash; Banco de Dados II</title>
+  <title>Parser e catálogo &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -181,7 +181,8 @@
     .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
     .phase ul { list-style: none; }
     .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
-    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .phase ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1.1rem; line-height: inherit; }
+    .phase ul li { line-height: 1.5; }
     .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
     .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
     .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
@@ -238,6 +239,54 @@
     .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
     .row-project td { background: rgba(22,101,52,0.08) !important; }
 
+    /* ── Tree diagrams ── */
+    .arvore { width: 100%; height: auto; margin: 0.4rem 0 0.8rem; }
+    .arvore .nd     { fill: #fff; stroke: #64748b; stroke-width: 1.5; }
+    .arvore .nd-int { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .arvore text    { font-family: 'Menlo', 'Courier New', monospace; font-size: 20px; text-anchor: middle; }
+    .arvore .k      { fill: #0f172a; font-weight: 700; }
+    .arvore .k-int  { fill: #64748b; }
+    .arvore .dado   { fill: #92400e; }
+    .arvore .aresta { stroke: #94a3b8; stroke-width: 1.5; }
+    .arvore .nd-cam { fill: #fff; stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .caminho { stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .nivel  { fill: #475569; font-size: 21px; text-anchor: end; font-family: -apple-system, system-ui, sans-serif; }
+    .arvore .cel-hl { fill: rgba(3,105,161,0.14); stroke: #0369a1; stroke-width: 2.5; }
+    .arvore .elo-hl { stroke: #0369a1; stroke-width: 3.5; }
+    .arvore .ann    { fill: #92400e; font-size: 20px; font-weight: 700; text-anchor: middle; font-family: -apple-system, system-ui, sans-serif; }
+    .cards-h .card { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto 1fr; column-gap: 1rem; padding: 1rem 1.3rem; }
+    .cards-h .card h3 { grid-column: 1 / -1; margin-bottom: 0.2rem; }
+    .cards-h .card .arvore { margin: 0; }
+    .cards-h .card p { align-self: center; }
+    .card h3 code   { font-size: 1.3rem; }
+    .arvore .cel-over { fill: rgba(146,64,14,0.14); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 5 3; }
+    .arvore .elo    { stroke: #0369a1; stroke-width: 2; }
+
+
+    /* ── Tokens ── */
+    .toks { display: flex; flex-wrap: wrap; gap: 0.55rem; width: 100%; }
+    .tok {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem;
+      background: #fff; border: 1.5px solid #cbd5e1; border-radius: 0.5rem;
+      padding: 0.35rem 0.75rem; font-family: 'Menlo', 'Courier New', monospace;
+      font-size: 1.35rem; font-weight: 700; color: var(--text);
+    }
+    .tok small {
+      font-family: -apple-system, system-ui, sans-serif; font-size: 0.8rem; font-weight: 600;
+      color: var(--secondary); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .tok-pal { border-color: rgba(3,105,161,0.45); color: var(--accent); }
+    .tok-lit { border-color: rgba(146,64,14,0.45); color: var(--highlight); }
+    .tok-sim { color: var(--secondary); }
+    .tok-fim { border-style: dashed; color: var(--secondary); }
+    .tok-mal { background: rgba(185,28,28,0.08); border-color: #b91c1c; }
+    .tok-mal small { color: #b91c1c; }
+    .level-x { background: rgba(71,85,105,0.08); border: 1px solid rgba(71,85,105,0.25); }
+    pre .hl { color: #fbbf24; }
+    .arvore .rot { fill: #475569; font-size: 17px; font-style: italic; font-family: -apple-system, system-ui, sans-serif; }
+    .arvore .lit { fill: #92400e; font-weight: 700; }
+    .arvore .buraco { fill: rgba(146,64,14,0.08); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 6 4; }
+
     /* ── Step indicator dots ── */
     #step-dots {
       position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
@@ -261,62 +310,442 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Aula 4<br><span class="accent">Parser e catálogo</span></h1>
+    <h1>Módulo 4<br><span class="accent">Parser e catálogo</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>15 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>20 de outubro de 2026</strong></span>
       <span>&#128336; <strong>7h30 &ndash; 9h</strong></span>
     </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2 style="font-size:2.3rem">Páginas, cache e árvore B+ estão prontos.<br>Quem já roda <code>SELECT * FROM aluno</code>?</h2>
+    <div class="step" data-step="1">
+      <p>Ninguém. Até aqui o <code>minidb</code> é uma biblioteca: quem chama <code>insere</code> e <code>le_pagina</code> é o código de teste de vocês, e não uma consulta.</p>
+    </div>
+    <div class="step" data-step="2">
+      <div class="definition" style="margin-top:1.4rem"><p>Hoje o <code>minidb</code> aprende a ler. Ao fim do M4, ele recebe SQL pela entrada padrão, responde, e o primeiro <code>SELECT</code> roda de verdade.</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>A meta do M4</h2>
+    <pre style="font-size:1.15rem;margin-top:0">$ ./minidb dados.db
+<span class="cmd">CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20));</span>
+OK
+<span class="cmd">INSERT INTO aluno VALUES (1, 20260001, 'Ana');</span>
+OK 1
+<span class="cmd">INSERT INTO aluno VALUES (2, 20260002, 'Bruno');</span>
+OK 1
+^D
+$ ./minidb dados.db                  <span class="cmt"># outro processo</span>
+<span class="cmd">SELECT * FROM aluno;</span>
+1|20260001|Ana
+2|20260002|Bruno
+(2 linhas)</pre>
+    <p style="font-size:1.45rem">O segundo processo não viu o <code>CREATE TABLE</code>. Ele sabe que <code>aluno</code> existe, e com quais colunas, porque leu isso do disco. É a demonstração 4 do <code>minidb 0.0</code>, consertada.</p>
   </div>
 
   <div class="slide slide-content">
     <h2>O caminho de uma consulta</h2>
     <div class="levels">
-      <div class="level level-v"><div class="level-icon">1</div><div class="level-text"><h4>Tokenizador</h4><p>Quebra o texto em palavras com significado: SELECT, identificador, número</p></div></div>
-      <div class="level level-c"><div class="level-icon">2</div><div class="level-text"><h4>Analisador sintático</h4><p>Monta a árvore, verificando se a ordem das palavras faz sentido</p></div></div>
-      <div class="level level-f"><div class="level-icon">3</div><div class="level-text"><h4>Análise semântica</h4><p>A tabela existe? A coluna existe? O tipo bate? Isso vem do catálogo</p></div></div>
+      <div class="level level-v"><div class="level-icon">1</div><div class="level-text"><h4>Tokenizador</h4><p>Quebra o texto em tokens: palavra reservada, nome, número, texto, símbolo</p></div></div>
+      <div class="level level-c"><div class="level-icon">2</div><div class="level-text"><h4>Parser</h4><p>Confere a ordem dos tokens contra a gramática e monta a árvore sintática</p></div></div>
+      <div class="level level-f"><div class="level-icon">3</div><div class="level-text"><h4>Análise semântica</h4><p>A tabela existe? A coluna existe? O tipo bate? Quem responde é o catálogo</p></div></div>
+      <div class="level level-x"><div class="level-icon">4</div><div class="level-text"><h4>Execução</h4><p>No M4, um <code>if</code> por comando, direto sobre a árvore. No M5, operadores</p></div></div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:1rem">Cada etapa tem o seu tipo de erro. Misturar as três primeiras é o defeito mais comum deste módulo.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Tokenizador</h2>
+    <pre style="font-size:1.5rem;margin-bottom:1.2rem">SELECT nome FROM aluno WHERE id = 42</pre>
+    <div class="toks"><span class="tok tok-pal">SELECT<small>palavra</small></span><span class="tok ">nome<small>nome</small></span><span class="tok tok-pal">FROM<small>palavra</small></span><span class="tok ">aluno<small>nome</small></span><span class="tok tok-pal">WHERE<small>palavra</small></span><span class="tok ">id<small>nome</small></span><span class="tok tok-sim">=<small>símbolo</small></span><span class="tok tok-lit">42<small>número</small></span><span class="tok tok-fim">FIM<small>fim</small></span></div>
+    <div class="step" data-step="1">
+      <ul class="plain" style="margin-top:1.2rem">
+        <li>Espaço some, e palavra reservada vira maiúscula: <code>select</code> e <code>SELECT</code> dão o mesmo token</li>
+        <li>O token leva tipo e valor. O <code>42</code> já sai como número, e não como o texto <code>"42"</code></li>
+        <li>O tokenizador não sabe se a ordem faz sentido. <code>FROM SELECT 42</code> passa sem reclamar</li>
+      </ul>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>A gramática do minidb</h2>
-    <pre>comando  := create | insert | select
-create   := CREATE TABLE nome ( coluna+ )
-insert   := INSERT INTO nome VALUES ( valor+ )
-select   := SELECT lista FROM nome [ WHERE coluna = valor ]</pre>
-    <p style="font-size:1.5rem;margin-top:0.8rem">Só isso. Sem junção, sem <code>ORDER BY</code>, sem agregação, sem subconsulta. É o suficiente para o critério de pronto.</p>
+    <h2>O tokenizador em código</h2>
+    <pre style="font-size:1rem;margin-top:0;line-height:1.45">def tokeniza(sql):
+    tokens, i = [], 0
+    while i &lt; len(sql):
+        c = sql[i]
+        if c.isspace(): i += 1
+        elif c.isalpha():                               <span class="cmt"># palavra reservada ou nome</span>
+            j = i
+            while j &lt; len(sql) and (sql[j].isalnum() or sql[j] == "_"): j += 1
+            p = sql[i:j]
+            tokens.append(("PALAVRA", p.upper()) if p.upper() in PALAVRAS else ("NOME", p))
+            i = j
+        elif c.isdigit(): ...                           <span class="cmt"># mesmo laço, com isdigit</span>
+        elif c == "'":                                  <span class="cmt"># texto vai até a próxima aspa</span>
+            j = sql.find("'", i + 1)
+            if j &lt; 0: raise ErroLexico(f"aspas sem fechamento na posição {i}")
+            tokens.append(("TEXTO", sql[i + 1:j]))
+            i = j + 1
+        elif c in "(),;*=":
+            tokens.append(("SIMBOLO", c)); i += 1
+        else: raise ErroLexico(f"caractere inesperado {c!r} na posição {i}")
+    return tokens + [("FIM", None)]</pre>
   </div>
 
   <div class="slide slide-content">
+    <h2>A gramática do <code>minidb</code></h2>
+    <pre style="font-size:1.3rem">comando := ( create | insert | select ) [ ; ]
+create  := CREATE TABLE nome ( coluna { , coluna } )
+coluna  := nome INT  |  nome CHAR ( número )
+insert  := INSERT INTO nome VALUES ( valor { , valor } )
+select  := SELECT ( * | nome { , nome } ) FROM nome [ WHERE nome = valor ]
+valor   := número  |  texto</pre>
+    <ul class="plain" style="margin-top:0.6rem">
+      <li><code>[ ]</code> é opcional, <code>{ }</code> repete zero ou mais vezes, <code>|</code> é escolha</li>
+      <li>Sem junção, sem <code>ORDER BY</code>, sem agregação, sem subconsulta, sem <code>OR</code>. É o suficiente para o critério de pronto</li>
+      <li><code>CHAR(n)</code> ocupa sempre <code>n</code> bytes. O registro continua de tamanho fixo, como no M1</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-split">
+    <h2>A árvore sintática</h2>
+    <div class="split-body" style="align-items:center">
+      <div class="split-left" style="flex:0 0 33rem">
+        <p style="font-size:1.3rem;margin-bottom:0.4rem"><code>SELECT nome FROM aluno WHERE id = 42</code></p>
+        <svg class="arvore" viewBox="0 0 640 285"><line class="aresta" x1="320" y1="54" x2="100" y2="130"/><text class="rot" x="190" y="84" text-anchor="end">colunas</text><line class="aresta" x1="320" y1="54" x2="320" y2="130"/><text class="rot" x="330" y="100" text-anchor="start">tabela</text><line class="aresta" x1="320" y1="54" x2="530" y2="130"/><text class="rot" x="445" y="84" text-anchor="start">where</text><line class="aresta" x1="530" y1="174" x2="470" y2="230"/><text class="rot" x="488" y="207" text-anchor="end">coluna</text><line class="aresta" x1="530" y1="174" x2="590" y2="230"/><text class="rot" x="572" y="207" text-anchor="start">valor</text><rect class="nd-cam" x="250" y="10" width="140" height="44" rx="8"/><text class="k" x="320" y="39">SELECT</text><rect class="nd" x="40" y="130" width="120" height="44" rx="8"/><text class="k" x="100" y="159">nome</text><rect class="nd" x="260" y="130" width="120" height="44" rx="8"/><text class="k" x="320" y="159">aluno</text><rect class="nd" x="495" y="130" width="70" height="44" rx="8"/><text class="k" x="530" y="159">=</text><rect class="nd" x="425" y="230" width="90" height="44" rx="8"/><text class="k" x="470" y="259">id</text><rect class="nd" x="550" y="230" width="80" height="44" rx="8"/><text class="k lit" x="590" y="259">42</text></svg>
+      </div>
+      <div class="split-right" style="flex:1;justify-content:flex-start">
+        <ul class="plain">
+          <li>Os tokens viraram estrutura: o parser sabe que <code>42</code> é o valor do <code>WHERE</code>, e não uma coluna</li>
+          <li><code>FROM</code>, <code>WHERE</code> e os parênteses não aparecem. Serviram para o parser decidir, e acabou</li>
+        </ul>
+      </div>
+    </div>
+    <pre style="font-size:1.15rem">{"op": "SELECT", "colunas": ["nome"], "tabela": "aluno", "where": ("id", 42)}</pre>
+    <p style="font-size:1.3rem">Em Python, um dicionário basta. Em C, uma <code>struct</code> com um campo de tipo.</p>
+  </div>
+
+  <div class="slide slide-split" data-steps="1">
+    <h2>Descida recursiva: uma função por regra</h2>
+    <div class="split-body">
+      <div class="split-left" style="flex:0 0 37rem">
+        <pre style="font-size:0.95rem;margin-top:0;line-height:1.45">def select(self):
+    self.espera("PALAVRA", "SELECT")
+    if self.aceita("SIMBOLO", "*"):
+        colunas = ["*"]
+    else:
+        colunas = [self.espera("NOME")]
+        while self.aceita("SIMBOLO", ","):
+            colunas.append(self.espera("NOME"))
+    self.espera("PALAVRA", "FROM")
+    tabela = self.espera("NOME")
+    where = None
+    if self.aceita("PALAVRA", "WHERE"):
+        coluna = self.espera("NOME")
+        self.espera("SIMBOLO", "=")
+        where = (coluna, self.valor())
+    return {"op": "SELECT", "colunas": colunas,
+            "tabela": tabela, "where": where}</pre>
+      </div>
+      <div class="split-right" style="flex:1;justify-content:flex-start">
+        <ul class="plain">
+          <li>Palavra obrigatória vira <code>espera</code></li>
+          <li><code>|</code> e <code>[ ]</code> viram <code>if</code></li>
+          <li><code>{ }</code> vira <code>while</code></li>
+          <li>Regra que chama regra vira chamada de função, como <code>self.valor()</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="step" data-step="1">
+      <p style="font-size:1.4rem"><code>espera</code> consome o token ou levanta erro de sintaxe. <code>aceita</code> consome só se casar, e diz se casou. As duas, inteiras, estão no apêndice.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Três etapas, três erros</h2>
+    <table class="rel-table" style="font-size:1.25rem">
+      <tr><th>Entrada</th><th>Etapa</th><th>Mensagem</th></tr>
+      <tr><td><code>... WHERE nome = 'Ana</code></td><td class="pk">tokenizador</td><td>aspas sem fechamento na posição 33</td></tr>
+      <tr><td><code>SELECT * aluno</code></td><td class="pk">parser</td><td>esperava FROM, veio 'aluno'</td></tr>
+      <tr><td><code>SELECT * FROM aluna</code></td><td class="fk">semântica</td><td>tabela aluna não existe</td></tr>
+      <tr><td><code>INSERT INTO aluno VALUES ('x', 1, 'y')</code></td><td class="fk">semântica</td><td>coluna id é INT, veio 'x'</td></tr>
+    </table>
+    <ul class="plain" style="margin-top:1rem">
+      <li>O parser não abre o catálogo. Ele não sabe se <code>aluna</code> existe, e nem deve saber</li>
+      <li>Se toda falha vira &ldquo;erro de sintaxe&rdquo;, a semântica está misturada com o parser, e o M5 sofre</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Exercício 1</h2>
+    <div class="question"><p><code>INSERT INTO aluno VALUES (3, 20260003, 'Carla');</code></p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Liste os tokens, com o tipo de cada um</li>
+      <li><span class="accent">2.</span> Desenhe a árvore que o parser monta</li>
+      <li><span class="accent">3.</span> Tire as aspas de <code>Carla</code>. O que muda nos tokens, e em que etapa o erro aparece?</li>
+    </ul>
+    <p style="font-size:1.4rem;margin-top:0.8rem">No <code>minidb 0.0</code>, <code>Carla</code> sem aspas funcionava. Por quê?</p>
+  </div>
+
+  <div class="slide slide-appendix" data-steps="2">
+    <span class="appendix-tag">Gabarito</span>
+    <h2>Gabarito do exercício 1</h2>
+    <div class="toks"><span class="tok tok-pal">INSERT<small>palavra</small></span><span class="tok tok-pal">INTO<small>palavra</small></span><span class="tok ">aluno<small>nome</small></span><span class="tok tok-pal">VALUES<small>palavra</small></span><span class="tok tok-sim">(<small>símbolo</small></span><span class="tok tok-lit">3<small>número</small></span><span class="tok tok-sim">,<small>símbolo</small></span><span class="tok tok-lit">20260003<small>número</small></span><span class="tok tok-sim">,<small>símbolo</small></span><span class="tok tok-lit">&#x27;Carla&#x27;<small>texto</small></span><span class="tok tok-sim">)<small>símbolo</small></span><span class="tok tok-sim">;<small>símbolo</small></span><span class="tok tok-fim">FIM<small>fim</small></span></div>
+    <div class="split-body step" data-step="1" style="align-items:center;margin-top:1rem">
+      <div class="split-left" style="flex:0 0 30rem"><svg class="arvore" viewBox="0 0 640 285"><line class="aresta" x1="320" y1="54" x2="110" y2="130"/><text class="rot" x="200" y="84" text-anchor="end">tabela</text><line class="aresta" x1="320" y1="54" x2="470" y2="130"/><text class="rot" x="410" y="84" text-anchor="start">valores</text><line class="aresta" x1="470" y1="174" x2="335" y2="230"/><line class="aresta" x1="470" y1="174" x2="450" y2="230"/><line class="aresta" x1="470" y1="174" x2="582" y2="230"/><rect class="nd-cam" x="250" y="10" width="140" height="44" rx="8"/><text class="k" x="320" y="39">INSERT</text><rect class="nd" x="50" y="130" width="120" height="44" rx="8"/><text class="k" x="110" y="159">aluno</text><rect class="nd-int" x="405" y="130" width="130" height="44" rx="8"/><text class="k-int" x="470" y="159">lista</text><rect class="nd" x="300" y="230" width="70" height="44" rx="8"/><text class="k lit" x="335" y="259">3</text><rect class="nd" x="385" y="230" width="130" height="44" rx="8"/><text class="k lit" x="450" y="259">20260003</text><rect class="nd" x="530" y="230" width="104" height="44" rx="8"/><text class="k lit" x="582" y="259">&#x27;Carla&#x27;</text></svg></div>
+      <div class="split-right" style="flex:1;justify-content:flex-start">
+        <p style="font-size:1.4rem"><code>aluno</code> e os três valores ficam. <code>INSERT</code>, <code>INTO</code>, <code>VALUES</code>, os parênteses, as vírgulas e o <code>;</code> somem.</p>
+      </div>
+    </div>
+    <div class="step" data-step="2">
+      <p style="font-size:1.4rem">Sem aspas, <code>Carla</code> vira um token <code>NOME</code>, e o parser diz <code>esperava valor, veio 'Carla'</code>. É erro de sintaxe. O <code>minidb 0.0</code> não tinha tokens: tudo era texto, e por isso nada era errado.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
     <h2>O catálogo</h2>
     <div class="definition"><p>Catálogo é o conjunto de tabelas em que o banco guarda a descrição das outras tabelas.</p></div>
-    <ul>
-      <li>Quais tabelas existem, com quais colunas, de quais tipos</li>
-      <li>Em que página começa cada tabela, e quais índices existem</li>
-      <li>Um banco de verdade guarda isso em tabelas comuns, consultáveis com SQL</li>
-      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code></li>
+    <ul class="plain">
+      <li>Quais tabelas existem, com quais colunas e tipos, onde começam, e quais índices têm</li>
+      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code>, consultáveis com SQL</li>
     </ul>
+    <div class="step" data-step="1">
+      <p style="font-size:1.45rem;margin-top:0.6rem">O SQLite vai além: guarda o próprio texto do <code>CREATE TABLE</code>, e analisa de novo toda vez que abre o arquivo.</p>
+      <pre style="font-size:1.15rem">sqlite&gt; <span class="cmd">SELECT name, rootpage, sql FROM sqlite_schema;</span>
+aluno|2|CREATE TABLE aluno (id INT, nome TEXT, nota INT)</pre>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O catálogo do <code>minidb</code> é uma tabela</h2>
+    <pre style="font-size:1.12rem;margin-top:0">registro do catálogo, 240 bytes, 17 por página
+
+nome      CHAR(32)    "aluno"
+primeira  INT         2                       <span class="cmt">// primeira página da tabela</span>
+raiz      INT         0                       <span class="cmt">// raiz do índice, 0 se não há (M5)</span>
+sql       CHAR(200)   "CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20))"</pre>
+    <ul class="plain">
+      <li>Guardamos o texto, como o SQLite. Ao abrir o arquivo, o mesmo parser lê o texto e devolve as colunas</li>
+      <li>Nada de formato novo: o catálogo usa as páginas do M1, o cache do M2 e a mesma serialização de registro</li>
+      <li><code>CREATE TABLE</code> é só um <code>INSERT</code> nessa tabela, mais uma página nova para a tabela criada</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O ovo e a galinha</h2>
+    <div class="question" style="margin-bottom:0.4rem"><p style="font-size:1.8rem">O catálogo descreve todas as tabelas. Quem descreve o catálogo?</p></div>
+    <pre style="font-size:1rem;line-height:1.45">ESQUEMA_CATALOGO = Esquema([("nome", "CHAR", 32), ("primeira", "INT", 4),
+                            ("raiz", "INT", 4), ("sql", "CHAR", 200)])
+PAGINA_CATALOGO = 1                                <span class="cmt"># fixa, combinada no código</span>
+
+class Catalogo:
+    def __init__(self, cache):
+        self.tabelas = {}
+        for nome, primeira, raiz, sql in varre(cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO):
+            colunas = analisa(sql)["colunas"]       <span class="cmt"># o parser, de novo</span>
+            self.tabelas[nome] = (primeira, Esquema(colunas))</pre>
+    <p style="font-size:1.45rem">Só duas coisas ficam no código: o esquema do próprio catálogo, e a página onde ele começa. Todo o resto vem do disco.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Várias tabelas no mesmo arquivo</h2>
+    <pre style="font-size:1.1rem;margin-top:0">dados.db
++-----------+-----------+-----------+-----------+-----------+
+| página 0  | página 1  | página 2  | página 3  | página 4  |
+| metadados | catálogo  | aluno     | curso     | aluno     |
++-----------+-----------+-----------+-----------+-----------+
+                              |                       ^
+                              +--- próxima = 4 -------+          <span class="cmt">// a 4 aponta para 0: fim</span></pre>
+    <p style="font-size:1.35rem;margin-bottom:0.4rem">O heap do M1 supunha uma tabela só. Agora cada página sabe qual é a próxima da mesma tabela, e o cabeçalho de 16 bytes ainda tem espaço para isso:</p>
+    <pre style="font-size:1.1rem">byte 0-1    n_slots ocupados
+byte 2-3    tamanho do registro
+byte 4-7    número desta página
+<span class="cmd">byte 8-11   próxima página da mesma tabela</span>     <span class="cmt">// novo. 0 é o fim, porque a 0 nunca é dado</span>
+byte 12-15  reservado                          <span class="cmt">// o M7 ainda cabe aqui</span></pre>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Olho nu: o catálogo no <code>hexdump</code></h2>
+    <pre style="font-size:1.08rem;margin-top:0">$ hexdump -C -s 4096 -n 96 dados.db
+00001000  <span class="cmd">01 00</span> <span class="cmd">f0 00</span> 01 00 00 00  00 00 00 00 00 00 00 00  |................|
+00001010  61 6c 75 6e 6f 00 00 00  00 00 00 00 00 00 00 00  |aluno...........|
+00001020  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00001030  <span class="cmd">02 00 00 00</span> 00 00 00 00  43 52 45 41 54 45 20 54  |........CREATE T|
+00001040  41 42 4c 45 20 61 6c 75  6e 6f 20 28 69 64 20 49  |ABLE aluno (id I|
+00001050  4e 54 2c 20 6d 61 74 72  69 63 75 6c 61 20 49 4e  |NT, matricula IN|</pre>
+    <ul class="plain">
+      <li><code>00001000</code> é 4096, a página 1. Um slot ocupado, registro de <code>0xf0</code> = 240 bytes, página número 1, sem próxima</li>
+      <li>De <code>00001010</code> a <code>0000102f</code>, os 32 bytes do nome. Em <code>00001030</code>, <code>primeira = 2</code></li>
+      <li>Em <code>00001038</code> começa o texto do <code>CREATE TABLE</code>, que o parser vai ler de volta</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Varrer uma tabela</h2>
+    <pre style="font-size:1.1rem;margin-top:0;line-height:1.55">def varre(cache, primeira, esquema):
+    n = primeira
+    while n != 0:
+        buf = cache.fixa(n)
+        try:
+            n_slots, tam, _, proxima = struct.unpack_from("&lt;HHII", buf, 0)
+            for s in range(n_slots):
+                yield esquema.desserializa(buf, TAM_CABECALHO + s * tam)
+        finally:
+            cache.solta(n)
+        n = proxima</pre>
+    <ul class="plain">
+      <li>É a varredura do M1, seguindo a corrente de páginas em vez de ler o arquivo inteiro</li>
+      <li>O mesmo <code>fixa</code> e <code>solta</code> do M2, com <code>try/finally</code></li>
+      <li>Serve para o catálogo e para qualquer tabela. Muda só o esquema</li>
+    </ul>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Executar sem executor</h2>
+    <pre style="font-size:0.98rem;margin-top:0;line-height:1.45">def executa(sql, catalogo, cache):
+    arvore = analisa(sql)                                   <span class="cmt"># tokenizador e parser</span>
+    if arvore["op"] == "CREATE":
+        catalogo.cria(arvore["tabela"], arvore["colunas"], sql)
+        return "OK"
+    primeira, esquema = catalogo.busca(arvore["tabela"])    <span class="cmt"># semântica: a tabela existe?</span>
+    if arvore["op"] == "INSERT":
+        confere_tipos(esquema, arvore["valores"])           <span class="cmt"># semântica: os tipos batem?</span>
+        insere(cache, primeira, esquema, arvore["valores"])
+        return "OK 1"
+    linhas = ["|".join(map(str, r)) for r in varre(cache, primeira, esquema)]
+    n = len(linhas)
+    return "\n".join(linhas + [f"({n} linha{'s' * (n != 1)})"])</pre>
+    <div class="step" data-step="1">
+      <p style="font-size:1.4rem">É um interpretador de árvore: olha o <code>op</code> e faz. Funciona para <code>SELECT *</code>. No M5 isso vira uma pilha de operadores, e é ali que entram o <code>WHERE</code> e o índice.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Onde isso entra no <code>minidb</code></h2>
+    <pre style="font-size:1.15rem"><span class="cmd">SELECT * FROM aluno;</span>
+
+<span class="hl">M4  tokenizador          5 tokens, mais o FIM</span>
+<span class="hl">M4  parser               {"op": "SELECT", "colunas": ["*"], "tabela": "aluno", ...}</span>
+<span class="hl">M4  catálogo             aluno começa na página 2, registro de 28 bytes</span>
+M2  cache de páginas     entrega as páginas da corrente, da memória ou do disco
+M1  página e arquivo     lê 4096 bytes no deslocamento certo
+<span class="hl">M4  execução            desserializa cada slot e imprime 1|20260001|Ana</span>
+
+M3  árvore B+            ainda parada. Quem decide usar o índice é o M5</pre>
+    <p style="font-size:1.45rem">O parser não sabe o que é página, e o cache não sabe o que é SQL. Cada módulo só usa o que vem antes dele.</p>
   </div>
 
   <div class="slide slide-content">
     <h2>Injeção de SQL</h2>
     <div class="question"><p>Por que concatenar string quebra, e parâmetro não?</p></div>
-    <pre><span class="cmt"># concatenação: o texto do usuário vira gramática</span>
+    <pre style="font-size:1.2rem"><span class="cmt"># concatenação: o texto do usuário vira gramática</span>
 sql = "SELECT * FROM aluno WHERE nome = '" + nome + "'"
-<span class="cmt"># nome = "x' OR '1'='1"  &rarr;  a condição sempre é verdadeira</span>
+<span class="cmt"># nome = x' OR '1'='1    →  devolve a tabela inteira</span>
 
 <span class="cmt"># parâmetro: o texto do usuário nunca passa pelo parser</span>
-cursor.execute("SELECT * FROM aluno WHERE nome = %s", (nome,))</pre>
+banco.execute("SELECT * FROM aluno WHERE nome = ?", (nome,))
+<span class="cmt"># nome = x' OR '1'='1    →  devolve nada</span></pre>
+    <p style="font-size:1.4rem">Rodem agora: <code>python3 injecao.py</code>, em <code>/assets/code/bd2-2026/</code>. Só precisa do Python.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>O que o tokenizador vê</h2>
+    <p style="font-size:1.35rem;margin-bottom:0.6rem">Com <code>nome = Ana</code>:</p>
+    <div class="toks"><span class="tok tok-pal">SELECT<small>palavra</small></span><span class="tok tok-sim">*<small>símbolo</small></span><span class="tok tok-pal">FROM<small>palavra</small></span><span class="tok ">aluno<small>nome</small></span><span class="tok tok-pal">WHERE<small>palavra</small></span><span class="tok ">nome<small>nome</small></span><span class="tok tok-sim">=<small>símbolo</small></span><span class="tok tok-lit">&#x27;Ana&#x27;<small>texto</small></span><span class="tok tok-fim">FIM<small>fim</small></span></div>
+    <div class="step" data-step="1">
+      <p style="font-size:1.35rem;margin:1.2rem 0 0.6rem">Com <code>nome = x' OR '1'='1</code>:</p>
+      <div class="toks"><span class="tok tok-pal">SELECT<small>palavra</small></span><span class="tok tok-sim">*<small>símbolo</small></span><span class="tok tok-pal">FROM<small>palavra</small></span><span class="tok ">aluno<small>nome</small></span><span class="tok tok-pal">WHERE<small>palavra</small></span><span class="tok ">nome<small>nome</small></span><span class="tok tok-sim">=<small>símbolo</small></span><span class="tok tok-lit tok-mal">&#x27;x&#x27;<small>texto</small></span><span class="tok tok-pal tok-mal">OR<small>palavra</small></span><span class="tok tok-lit tok-mal">&#x27;1&#x27;<small>texto</small></span><span class="tok tok-sim tok-mal">=<small>símbolo</small></span><span class="tok tok-lit tok-mal">&#x27;1&#x27;<small>texto</small></span><span class="tok tok-fim">FIM<small>fim</small></span></div>
+      <div class="definition" style="margin-top:1.2rem"><p>O usuário deveria entregar um token. Entregou cinco, e um deles é palavra reservada. A árvore mudou de forma.</p></div>
+    </div>
+  </div>
+
+  <div class="slide slide-split">
+    <h2>Parâmetro: um buraco na árvore</h2>
+    <div class="split-body" style="align-items:center">
+      <div class="split-left" style="flex:0 0 31rem">
+        <p style="font-size:1.3rem;margin-bottom:0.4rem"><code>SELECT * FROM aluno WHERE nome = ?</code></p>
+        <svg class="arvore" viewBox="0 0 640 285"><line class="aresta" x1="320" y1="54" x2="100" y2="130"/><text class="rot" x="190" y="84" text-anchor="end">colunas</text><line class="aresta" x1="320" y1="54" x2="320" y2="130"/><text class="rot" x="330" y="100" text-anchor="start">tabela</text><line class="aresta" x1="320" y1="54" x2="530" y2="130"/><text class="rot" x="445" y="84" text-anchor="start">where</text><line class="aresta" x1="530" y1="174" x2="470" y2="230"/><text class="rot" x="488" y="207" text-anchor="end">coluna</text><line class="aresta" x1="530" y1="174" x2="590" y2="230"/><text class="rot" x="572" y="207" text-anchor="start">valor</text><rect class="nd-cam" x="250" y="10" width="140" height="44" rx="8"/><text class="k" x="320" y="39">SELECT</text><rect class="nd" x="40" y="130" width="120" height="44" rx="8"/><text class="k" x="100" y="159">*</text><rect class="nd" x="260" y="130" width="120" height="44" rx="8"/><text class="k" x="320" y="159">aluno</text><rect class="nd" x="495" y="130" width="70" height="44" rx="8"/><text class="k" x="530" y="159">=</text><rect class="nd" x="425" y="230" width="90" height="44" rx="8"/><text class="k" x="470" y="259">nome</text><rect class="buraco" x="550" y="230" width="80" height="44" rx="8"/><text class="k lit" x="590" y="259">?</text></svg>
+      </div>
+      <div class="split-right" style="flex:1;justify-content:flex-start">
+        <ul class="plain">
+          <li>A consulta é tokenizada e analisada antes de o valor existir</li>
+          <li>O valor entra depois, já como folha, qualquer que seja o conteúdo</li>
+          <li><code>x' OR '1'='1</code> vira só um nome estranho, que não bate com aluno nenhum</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.35rem">Escapar aspas à mão é a defesa errada: basta esquecer um caso. Em inglês, <em>prepared statement</em>.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>O catálogo também é tabela, e também vaza</h2>
+    <pre style="font-size:1.1rem;margin-top:0">$ python3 injecao.py "x' UNION SELECT 0, sql, 0 FROM sqlite_schema --"
+concatenado: SELECT * FROM aluno WHERE nome = 'x' UNION SELECT 0, sql, 0 FROM sqlite_schema --'
+  devolveu: [(0, 'CREATE TABLE aluno (id INT, nome TEXT, nota INT)', 0)]</pre>
+    <div class="step" data-step="1">
+      <ul class="plain">
+        <li>O <code>--</code> transforma a aspa que sobrou em comentário</li>
+        <li>O <code>UNION</code> junta uma consulta inteira, escolhida pelo atacante</li>
+        <li>Como o catálogo é consultável com SQL, o primeiro passo do ataque é ler o catálogo e descobrir o nome das outras tabelas</li>
+      </ul>
+    </div>
   </div>
 
   <div class="slide slide-content">
     <h2>A lição do módulo</h2>
     <div class="definition"><p>O parser decide o que é comando e o que é dado. Concatenar string apaga essa fronteira, e é por isso que a injeção existe.</p></div>
     <p style="font-size:1.5rem;margin-top:0.8rem">Quem implementou um parser não esquece mais essa distinção. É o motivo de segurança ser ensinada aqui, e não numa aula separada.</p>
+    <p style="font-size:1.35rem;margin-top:0.8rem">Leitura obrigatória de três segundos: xkcd 327, <em>Exploits of a Mom</em>.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>O que temos, e o que falta</h2>
+    <div class="phases">
+      <div class="phase phase-3">
+        <h3>Pronto</h3>
+        <div class="dates">M1 a M3</div>
+        <ul>
+          <li>Registros gravados em páginas</li>
+          <li>Páginas lidas pelo cache</li>
+          <li>Árvore B+ com busca e inserção</li>
+        </ul>
+      </div>
+      <div class="phase phase-1">
+        <h3>Agora</h3>
+        <div class="dates">M4, entrega em 27/10</div>
+        <ul>
+          <li>Tokenizador e parser dos três comandos</li>
+          <li>Catálogo gravado na página 1</li>
+          <li><code>SELECT *</code> de ponta a ponta</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <h3>Depois</h3>
+        <div class="dates">M5 a M7</div>
+        <ul>
+          <li><code>WHERE</code>, índice e operadores</li>
+          <li>Transações e log</li>
+          <li>Sobreviver ao <code>kill -9</code></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:1.4rem;margin-top:0.6rem">Quinta, 22/10: tokenizador e parser. Terça, 27/10: catálogo e o primeiro <code>SELECT *</code>. No <code>NOTES.md</code>, digam onde o catálogo mora e por quê.</p>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Para ir além</h2>
+    <ul class="plain">
+      <li>Robert Nystrom, <em>Crafting Interpreters</em>, capítulos 4 e 6: tokenizador e descida recursiva, de graça em <code>craftinginterpreters.com</code></li>
+      <li>SQLite, <em>The Schema Table</em>: <code>sqlite.org/schematab.html</code></li>
+      <li>Sciore, <em>Database Design and Implementation</em>, capítulos 7 e 9: metadados e parsing</li>
+      <li>OWASP, <em>SQL Injection Prevention Cheat Sheet</em></li>
+    </ul>
   </div>
 
   <div class="slide slide-cover">
@@ -324,18 +753,95 @@ cursor.execute("SELECT * FROM aluno WHERE nome = %s", (nome,))</pre>
     <p style="font-size:2rem;margin-top:1.5rem">Próxima: laboratório do M4, tokenizador e parser. Antes disso, o exercício de hoje</p>
     <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
+
   <div class="slide slide-content">
-    <h2>Exercício de hoje</h2>
-    <div class="question"><p>Considere a consulta <code>SELECT nome FROM aluno WHERE id = 42</code>.</p></div>
+    <h2>Exercício 2</h2>
+    <div class="question"><p>Para trazer no papel ao laboratório.</p></div>
     <ul class="plain">
-      <li><span class='accent'>1.</span> Liste os tokens que o tokenizador produz, com o tipo de cada um</li>
-      <li><span class='accent'>2.</span> Desenhe a árvore sintática que a gramática do minidb monta para ela</li>
-      <li><span class='accent'>3.</span> Diga em qual etapa cada erro aparece, entre tokenizador, análise sintática e análise semântica: <code>WHERE id == 42</code>, <code>SELECT * FROM WHERE id = 42</code>, e <code>SELECT idade FROM aluno</code></li>
-      <li><span class='accent'>4.</span> Escreva a entrada de catálogo da tabela <code>aluno</code>, com o que o executor vai precisar consultar</li>
+      <li><span class="accent">1.</span> Em que etapa cada um falha, e com que mensagem: <code>SELECT nome FROM aluno WHERE id == 42</code>, <code>SELECT * FROM WHERE id = 42</code>, <code>SELECT idade FROM aluno</code> e <code>SELECT * FROM aluno WHERE nome = 'O'Brien'</code></li>
+      <li><span class="accent">2.</span> Escreva, campo a campo, o registro de catálogo de <code>curso (id INT, nome CHAR(40))</code>, criada logo depois de <code>aluno</code>. Em que página ela começa, e quantos bytes tem cada registro dela?</li>
+      <li><span class="accent">3.</span> Um site manda ao <code>minidb</code> a string concatenada do slide de injeção, com <code>nome = x' OR '1'='1</code>. O que o <code>minidb</code> responde, e em que etapa? Ele está protegido?</li>
     </ul>
-    <p style="font-size:1.4rem;margin-top:0.8rem">O item 3 é a aula de segurança em forma de exercício: separar as três etapas é o que distingue comando de dado.</p>
+    <p style="font-size:1.4rem;margin-top:0.8rem">O item 3 não tem resposta de uma linha. Tragam o argumento.</p>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: o parser</h2>
+    <pre style="font-size:0.95rem;margin-top:0;line-height:1.4">class Parser:
+    def __init__(self, tokens):
+        self.tokens, self.i = tokens, 0
+    def olha(self):
+        return self.tokens[self.i]
+    def aceita(self, tipo, valor):
+        if self.tokens[self.i] == (tipo, valor):
+            self.i += 1
+            return True
+        return False
+    def espera(self, tipo, valor=None):
+        t, v = self.tokens[self.i]
+        if t != tipo or (valor is not None and v != valor):
+            raise ErroSintatico(f"esperava {valor or tipo}, veio {v!r}")
+        self.i += 1
+        return v
+    def valor(self):
+        t, v = self.olha()
+        if t in ("NUMERO", "TEXTO"):
+            self.i += 1
+            return v
+        raise ErroSintatico(f"esperava valor, veio {v!r}")</pre>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: os comandos</h2>
+    <pre style="font-size:1rem;margin-top:0;line-height:1.45">    def comando(self):
+        _, v = self.olha()
+        if v == "CREATE":   arvore = self.create()
+        elif v == "INSERT": arvore = self.insert()
+        elif v == "SELECT": arvore = self.select()
+        else: raise ErroSintatico(f"comando desconhecido {v!r}")
+        self.aceita("SIMBOLO", ";")
+        self.espera("FIM")                <span class="cmt"># sobrou token? é erro</span>
+        return arvore
+
+    def create(self):
+        self.espera("PALAVRA", "CREATE")
+        self.espera("PALAVRA", "TABLE")
+        tabela = self.espera("NOME")
+        self.espera("SIMBOLO", "(")
+        colunas = [self.coluna()]
+        while self.aceita("SIMBOLO", ","):
+            colunas.append(self.coluna())
+        self.espera("SIMBOLO", ")")
+        return {"op": "CREATE", "tabela": tabela, "colunas": colunas}</pre>
+  </div>
+
+  <div class="slide slide-appendix">
+    <span class="appendix-tag">Apêndice</span>
+    <h2>O esqueleto do M4: colunas e tipos</h2>
+    <pre style="font-size:1rem;margin-top:0;line-height:1.45">    def coluna(self):                     <span class="cmt"># devolve (nome, tipo, tamanho em bytes)</span>
+        nome = self.espera("NOME")
+        if self.aceita("PALAVRA", "INT"):
+            return (nome, "INT", 4)
+        self.espera("PALAVRA", "CHAR")
+        self.espera("SIMBOLO", "(")
+        n = self.espera("NUMERO")
+        self.espera("SIMBOLO", ")")
+        return (nome, "CHAR", n)
+
+def confere_tipos(esquema, valores):      <span class="cmt"># semântica do INSERT, fora do parser</span>
+    if len(valores) != len(esquema.colunas):
+        raise ErroSemantico(f"esperava {len(esquema.colunas)} valores, vieram {len(valores)}")
+    for (nome, tipo, n), v in zip(esquema.colunas, valores):
+        if tipo == "INT" and not isinstance(v, int):
+            raise ErroSemantico(f"coluna {nome} é INT, veio {v!r}")
+        if tipo == "CHAR" and not (isinstance(v, str) and len(v.encode()) &lt;= n):
+            raise ErroSemantico(f"coluna {nome} é CHAR({n}), veio {v!r}")</pre>
+    <p style="font-size:1.25rem">O <code>insert</code> segue o mesmo molde do <code>create</code>, trocando <code>coluna</code> por <code>valor</code>.</p>
   </div>
 </div>
+
 
 <script>
   const slides   = Array.from(document.querySelectorAll('.slide'));
