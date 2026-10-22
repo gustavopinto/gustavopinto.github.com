@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo e o primeiro SELECT &mdash; Banco de Dados II</title>
+  <title>Análise semântica e execução &mdash; Banco de Dados II</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -290,6 +290,10 @@
     .arvore .lit { fill: #92400e; font-weight: 700; }
     .arvore .buraco { fill: rgba(146,64,14,0.08); stroke: #92400e; stroke-width: 2.5; stroke-dasharray: 6 4; }
 
+    .level.feito { opacity: 0.45; }
+    .rel-table .ok   { color: var(--success); font-weight: 700; }
+    .rel-table .erro { color: #b91c1c; font-weight: 700; }
+
     /* ── Step indicator dots ── */
     #step-dots {
       position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
@@ -315,7 +319,7 @@
 <div class="slides" id="slides">
   <div class="slide slide-cover">
     <span class="tag">Banco de Dados II &mdash; 2026.2</span>
-    <h1>Módulo 4, parte 2<br><span class="accent">Catálogo e o primeiro <code>SELECT</code></span></h1>
+    <h1>Módulo 4, parte 2<br><span class="accent">Análise semântica e execução</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
@@ -324,307 +328,167 @@
     </div>
   </div>
 
-  <div class="slide slide-content" data-steps="2">
-    <h2>De onde a gente parou</h2>
-    <p style="font-size:1.5rem;margin-bottom:0.4rem">Na terça, o parser transformou texto em árvore:</p>
-    <pre style="font-size:1.15rem">SELECT * FROM aluno;
-<span class="cmt"># vira</span>
-{"op": "SELECT", "colunas": ["*"], "tabela": "aluno", "where": None}</pre>
+  <div class="slide slide-content" data-steps="1">
+    <h2>O caminho de uma consulta</h2>
+    <div class="levels">
+      <div class="level level-v feito"><div class="level-icon">1</div><div class="level-text"><h4>Tokenizador</h4><p>Quebra o texto em tokens: palavra reservada, nome, número, texto, símbolo</p></div></div>
+      <div class="level level-c feito"><div class="level-icon">2</div><div class="level-text"><h4>Parser</h4><p>Confere a ordem dos tokens contra a gramática e monta a árvore sintática</p></div></div>
+      <div class="level level-f"><div class="level-icon">3</div><div class="level-text"><h4>Análise semântica</h4><p>A tabela existe? A coluna existe? O tipo bate? Quem responde é o catálogo</p></div></div>
+      <div class="level level-x"><div class="level-icon">4</div><div class="level-text"><h4>Execução</h4><p>No M4, um <code>if</code> por comando, direto sobre a árvore. No M5, operadores</p></div></div>
+    </div>
     <div class="step" data-step="1">
-      <div class="question" style="margin-top:0.6rem"><p><code>aluno</code> existe? Tem quais colunas? Mora em que página?</p></div>
+      <p style="font-size:1.4rem;margin-top:1rem">Na terça, as etapas 1 e 2. Hoje, a 3 e a 4, e a aula inteira usa um único comando.</p>
     </div>
-    <div class="step" data-step="2">
-      <p>A árvore não sabe, e o parser não deve saber. Quem sabe é o <strong>catálogo</strong>, e hoje ele vai para o disco. Ao fim da aula, o <code>SELECT *</code> roda.</p>
-    </div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>A meta de hoje</h2>
-    <pre style="font-size:1.15rem;margin-top:0">$ ./minidb dados.db
-<span class="cmd">CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20));</span>
-OK
-<span class="cmd">INSERT INTO aluno VALUES (1, 20260001, 'Ana');</span>
-OK 1
-<span class="cmd">INSERT INTO aluno VALUES (2, 20260002, 'Bruno');</span>
-OK 1
-^D
-$ ./minidb dados.db                  <span class="cmt"># outro processo</span>
-<span class="cmd">SELECT * FROM aluno;</span>
-1|20260001|Ana
-2|20260002|Bruno
-(2 linhas)</pre>
-    <p style="font-size:1.45rem">O segundo processo não viu o <code>CREATE TABLE</code>. Ele sabe que <code>aluno</code> existe, e com quais colunas, porque leu isso do disco. É a demonstração 4 do <code>minidb 0.0</code>, consertada.</p>
   </div>
 
   <div class="slide slide-content" data-steps="1">
-    <h2>O catálogo</h2>
-    <div class="definition"><p>Catálogo é o conjunto de tabelas em que o banco guarda a descrição das outras tabelas.</p></div>
+    <h2>O comando de hoje</h2>
+    <pre style="font-size:1.4rem;margin:0 0 1rem">INSERT INTO aluno VALUES (1, 20260001, 'Ana');</pre>
+    <p style="font-size:1.3rem;margin-bottom:0.5rem"><span class="accent">Etapa 1, tokenizador:</span> treze tokens, contando o <code>FIM</code></p>
+    <div class="toks"><span class="tok tok-pal">INSERT<small>palavra</small></span><span class="tok tok-pal">INTO<small>palavra</small></span><span class="tok ">aluno<small>nome</small></span><span class="tok tok-pal">VALUES<small>palavra</small></span><span class="tok tok-sim">(<small>símbolo</small></span><span class="tok tok-lit">1<small>número</small></span><span class="tok tok-sim">,<small>símbolo</small></span><span class="tok tok-lit">20260001<small>número</small></span><span class="tok tok-sim">,<small>símbolo</small></span><span class="tok tok-lit">&#x27;Ana&#x27;<small>texto</small></span><span class="tok tok-sim">)<small>símbolo</small></span><span class="tok tok-sim">;<small>símbolo</small></span><span class="tok tok-fim">FIM<small>fim</small></span></div>
+    <div class="step" data-step="1" style="width:100%">
+      <p style="font-size:1.3rem;margin:1.2rem 0 0.3rem"><span class="accent">Etapa 2, parser:</span> a árvore</p>
+      <pre style="font-size:1.2rem">{"op": "INSERT", "tabela": "aluno", "valores": [1, 20260001, "Ana"]}</pre>
+      <p style="font-size:1.4rem">É daqui que a aula de hoje parte. O texto acabou: as etapas 3 e 4 só olham a árvore.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="1">
+    <h2>Análise semântica</h2>
+    <div class="definition"><p>Análise semântica é conferir a árvore contra o que existe no banco.</p></div>
+    <p style="font-size:1.6rem;margin-bottom:0.4rem">Para o nosso <code>INSERT</code>, são três perguntas:</p>
     <ul class="plain">
-      <li>Quais tabelas existem, com quais colunas e tipos, onde começam, e quais índices têm</li>
-      <li>No PostgreSQL: <code>pg_class</code>, <code>pg_attribute</code>, <code>pg_index</code>, consultáveis com SQL</li>
+      <li>A tabela <code>aluno</code> existe?</li>
+      <li>Ela tem três colunas, uma para cada valor?</li>
+      <li>Cada valor tem o tipo da sua coluna?</li>
     </ul>
     <div class="step" data-step="1">
-      <p style="font-size:1.45rem;margin-top:0.6rem">O SQLite vai além: guarda o próprio texto do <code>CREATE TABLE</code>, e analisa de novo toda vez que abre o arquivo.</p>
-      <pre style="font-size:1.15rem">sqlite&gt; <span class="cmd">SELECT name, rootpage, sql FROM sqlite_schema;</span>
-aluno|2|CREATE TABLE aluno (id INT, nome TEXT, nota INT)</pre>
+      <p style="font-size:1.5rem;margin-top:0.8rem">Nenhuma resposta está na árvore. O parser sabe que veio um nome e três valores, mas não sabe que tabelas existem. Quem sabe é o <strong>catálogo</strong>.</p>
     </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>O catálogo do <code>minidb</code> é uma tabela</h2>
-    <pre style="font-size:1.12rem;margin-top:0">registro do catálogo, 240 bytes, 17 por página
+    <h2>O catálogo</h2>
+    <div class="definition"><p>O catálogo é uma tabela que descreve as outras tabelas. Uma linha por tabela.</p></div>
+    <pre style="font-size:1.2rem">página 1 do arquivo, registro de 236 bytes
 
 nome      CHAR(32)    "aluno"
-primeira  INT         2                       <span class="cmt">// primeira página da tabela</span>
-raiz      INT         0                       <span class="cmt">// raiz do índice, 0 se não há (M5)</span>
-sql       CHAR(200)   "CREATE TABLE aluno (id INT, matricula INT, nome CHAR(20))"</pre>
-    <ul class="plain">
-      <li>Guardamos o texto, como o SQLite. Ao abrir o arquivo, o mesmo parser lê o texto e devolve as colunas</li>
-      <li>Nada de formato novo: o catálogo usa as páginas do M1, o cache do M2 e a mesma serialização de registro</li>
-      <li><code>CREATE TABLE</code> é só um <code>INSERT</code> nessa tabela, mais uma página nova para a tabela criada</li>
-    </ul>
+primeira  INT         2                         <span class="cmt">// página onde aluno começa</span>
+colunas   CHAR(200)   "id INT, matricula INT, nome CHAR(20)"</pre>
+    <p style="font-size:1.45rem">As três respostas estão nessa linha: a tabela existe porque a linha existe, e as colunas, com seus tipos, estão no último campo. De brinde, a linha diz em que página escrever.</p>
   </div>
 
   <div class="slide slide-content">
-    <h2>O ovo e a galinha</h2>
-    <div class="question" style="margin-bottom:0.4rem"><p style="font-size:1.8rem">O catálogo descreve todas as tabelas. Quem descreve o catálogo?</p></div>
-    <pre style="font-size:1rem;line-height:1.45">ESQUEMA_CATALOGO = Esquema([("nome", "CHAR", 32), ("primeira", "INT", 4),
-                            ("raiz", "INT", 4), ("sql", "CHAR", 200)])
+    <h2>O catálogo mora no disco</h2>
+    <pre style="font-size:1.05rem;margin-top:0;line-height:1.5">ESQUEMA_CATALOGO = Esquema([("nome", "CHAR", 32), ("primeira", "INT", 4),
+                            ("colunas", "CHAR", 200)])
 PAGINA_CATALOGO = 1                                <span class="cmt"># fixa, combinada no código</span>
 
 class Catalogo:
-    def __init__(self, cache):
+    def __init__(self, cache):                     <span class="cmt"># ao abrir o arquivo</span>
         self.tabelas = {}
-        for nome, primeira, raiz, sql in varre(cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO):
-            colunas = analisa(sql)["colunas"]       <span class="cmt"># o parser, de novo</span>
-            self.tabelas[nome] = (primeira, Esquema(colunas))</pre>
-    <p style="font-size:1.45rem">Só duas coisas ficam no código: o esquema do próprio catálogo, e a página onde ele começa. Todo o resto vem do disco.</p>
+        for nome, primeira, colunas in le_registros(cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO):
+            self.tabelas[nome] = (primeira, Esquema(analisa_colunas(colunas)))
+
+    def busca(self, nome):
+        if nome not in self.tabelas:
+            raise ErroSemantico(f"tabela {nome} não existe")
+        return self.tabelas[nome]</pre>
+    <p style="font-size:1.4rem">Só duas coisas ficam no código: o esquema do próprio catálogo e a página onde ele está. O resto é lido do disco, e por isso um processo novo sabe que <code>aluno</code> existe.</p>
+  </div>
+
+  <div class="slide slide-content" data-steps="4">
+    <h2>A semântica rodando à mão</h2>
+    <pre style="font-size:1.25rem;margin:0 0 0.6rem">INSERT INTO aluno VALUES (1, 20260001, 'Ana');</pre>
+    <table class="rel-table" style="font-size:1.15rem">
+      <tr><th>Pergunta</th><th>O catálogo responde</th><th style="width:7rem">Veredito</th></tr>
+      <tr class="step" data-step="1"><td><code>aluno</code> existe?</td><td>sim, começa na página 2</td><td class="ok">passa</td></tr>
+      <tr class="step" data-step="2"><td>3 valores para quantas colunas?</td><td>3: <code>id</code>, <code>matricula</code>, <code>nome</code></td><td class="ok">passa</td></tr>
+      <tr class="step" data-step="3"><td><code>id</code> recebe <code>1</code></td><td><code>id</code> é <code>INT</code></td><td class="ok">passa</td></tr>
+      <tr class="step" data-step="3"><td><code>matricula</code> recebe <code>20260001</code></td><td><code>matricula</code> é <code>INT</code></td><td class="ok">passa</td></tr>
+      <tr class="step" data-step="3"><td><code>nome</code> recebe <code>'Ana'</code></td><td><code>nome</code> é <code>CHAR(20)</code>, e <code>'Ana'</code> tem 3 bytes</td><td class="ok">passa</td></tr>
+    </table>
+    <div class="step" data-step="4">
+      <p style="font-size:1.4rem;margin-top:1rem">Tudo passa, e o comando segue para a execução já sabendo duas coisas: o esquema de <code>aluno</code> e a página 2.</p>
+    </div>
+  </div>
+
+  <div class="slide slide-content" data-steps="2">
+    <h2>Quando a semântica recusa</h2>
+    <pre style="font-size:1.25rem;margin:0 0 0.6rem">INSERT INTO aluno VALUES (1, 'Ana', 20260001);</pre>
+    <p style="font-size:1.4rem">Os mesmos valores, em outra ordem. O tokenizador e o parser aceitam: a árvore é válida.</p>
+    <div class="step" data-step="1" style="width:100%">
+      <table class="rel-table" style="font-size:1.15rem;margin-top:0.8rem">
+        <tr><th>Pergunta</th><th>O catálogo responde</th><th style="width:7rem">Veredito</th></tr>
+        <tr><td><code>id</code> recebe <code>1</code></td><td><code>id</code> é <code>INT</code></td><td class="ok">passa</td></tr>
+        <tr><td><code>matricula</code> recebe <code>'Ana'</code></td><td><code>matricula</code> é <code>INT</code></td><td class="erro">falha</td></tr>
+      </table>
+      <pre style="font-size:1.1rem;margin-top:0.8rem">erro semântico: coluna matricula é INT, veio 'Ana'</pre>
+    </div>
+    <div class="step" data-step="2">
+      <p style="font-size:1.4rem">A semântica vem antes da execução, então nenhum byte foi escrito. O banco recusa o comando inteiro, e não fica meio registro na página.</p>
+    </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Várias tabelas no mesmo arquivo</h2>
-    <pre style="font-size:1.1rem;margin-top:0">dados.db
-+-----------+-----------+-----------+-----------+-----------+
-| página 0  | página 1  | página 2  | página 3  | página 4  |
-| metadados | catálogo  | aluno     | curso     | aluno     |
-+-----------+-----------+-----------+-----------+-----------+
-                              |                       ^
-                              +--- próxima = 4 -------+          <span class="cmt">// a 4 aponta para 0: fim</span></pre>
-    <p style="font-size:1.35rem;margin-bottom:0.4rem">O heap do M1 supunha uma tabela só. Agora cada página sabe qual é a próxima da mesma tabela, e o cabeçalho de 16 bytes ainda tem espaço para isso:</p>
-    <pre style="font-size:1.1rem">byte 0-1    n_slots ocupados
-byte 2-3    tamanho do registro
-byte 4-7    número desta página
-<span class="cmd">byte 8-11   próxima página da mesma tabela</span>     <span class="cmt">// novo. 0 é o fim, porque a 0 nunca é dado</span>
-byte 12-15  reservado                          <span class="cmt">// o M7 ainda cabe aqui</span></pre>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Olho nu: o catálogo no <code>hexdump</code></h2>
-    <pre style="font-size:1.08rem;margin-top:0">$ hexdump -C -s 4096 -n 96 dados.db
-00001000  <span class="cmd">01 00</span> <span class="cmd">f0 00</span> 01 00 00 00  00 00 00 00 00 00 00 00  |................|
-00001010  61 6c 75 6e 6f 00 00 00  00 00 00 00 00 00 00 00  |aluno...........|
-00001020  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
-00001030  <span class="cmd">02 00 00 00</span> 00 00 00 00  43 52 45 41 54 45 20 54  |........CREATE T|
-00001040  41 42 4c 45 20 61 6c 75  6e 6f 20 28 69 64 20 49  |ABLE aluno (id I|
-00001050  4e 54 2c 20 6d 61 74 72  69 63 75 6c 61 20 49 4e  |NT, matricula IN|</pre>
-    <ul class="plain">
-      <li><code>00001000</code> é 4096, a página 1. Um slot ocupado, registro de <code>0xf0</code> = 240 bytes, página número 1, sem próxima</li>
-      <li>De <code>00001010</code> a <code>0000102f</code>, os 32 bytes do nome. Em <code>00001030</code>, <code>primeira = 2</code></li>
-      <li>Em <code>00001038</code> começa o texto do <code>CREATE TABLE</code>, que o parser vai ler de volta</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Varrer uma tabela</h2>
-    <pre style="font-size:1.1rem;margin-top:0;line-height:1.55">def varre(cache, primeira, esquema):
-    n = primeira
-    while n != 0:
-        buf = cache.fixa(n)
-        try:
-            n_slots, tam, _, proxima = struct.unpack_from("&lt;HHII", buf, 0)
-            for s in range(n_slots):
-                yield esquema.desserializa(buf, TAM_CABECALHO + s * tam)
-        finally:
-            cache.solta(n)
-        n = proxima</pre>
-    <ul class="plain">
-      <li>É a varredura do M1, seguindo a corrente de páginas em vez de ler o arquivo inteiro</li>
-      <li>O mesmo <code>fixa</code> e <code>solta</code> do M2, com <code>try/finally</code></li>
-      <li>Serve para o catálogo e para qualquer tabela. Muda só o esquema</li>
-    </ul>
+    <h2>A semântica em pseudocódigo</h2>
+    <pre style="font-size:1.3rem;margin-top:0;line-height:1.6">confere(tabela, valores):
+    se tabela não está no catálogo:
+        erro "tabela não existe"
+    colunas = colunas da tabela, lidas do catálogo
+    se número de valores ≠ número de colunas:
+        erro "esperava N valores, vieram M"
+    para cada par (coluna, valor):
+        se coluna é INT e valor não é número:
+            erro "coluna é INT"
+        se coluna é CHAR(n) e valor não é texto de até n bytes:
+            erro "coluna é CHAR(n)"</pre>
+    <p style="font-size:1.45rem">É toda a análise semântica do <code>INSERT</code>. Nada aqui olha token: a tabela e os valores vêm da árvore, e as colunas vêm do catálogo.</p>
   </div>
 
   <div class="slide slide-content" data-steps="1">
-    <h2>Executar sem executor</h2>
-    <pre style="font-size:0.98rem;margin-top:0;line-height:1.45">def executa(sql, catalogo, cache):
-    arvore = analisa(sql)                                   <span class="cmt"># tokenizador e parser</span>
-    if arvore["op"] == "CREATE":
-        catalogo.cria(arvore["tabela"], arvore["colunas"], sql)
-        return "OK"
-    primeira, esquema = catalogo.busca(arvore["tabela"])    <span class="cmt"># semântica: a tabela existe?</span>
-    if arvore["op"] == "INSERT":
-        confere_tipos(esquema, arvore["valores"])           <span class="cmt"># semântica: os tipos batem?</span>
-        insere(cache, primeira, esquema, arvore["valores"])
-        return "OK 1"
-    linhas = ["|".join(map(str, r)) for r in varre(cache, primeira, esquema)]
-    n = len(linhas)
-    return "\n".join(linhas + [f"({n} linha{'s' * (n != 1)})"])</pre>
+    <h2>A execução em pseudocódigo</h2>
+    <pre style="font-size:1.3rem;margin-top:0;line-height:1.6">executa(sql):
+    árvore = analisa(sql)                         <span class="cmt">// etapas 1 e 2</span>
+    se árvore é INSERT:
+        confere(árvore.tabela, árvore.valores)    <span class="cmt">// etapa 3</span>
+        registro = serializa(árvore.valores)      <span class="cmt">// etapa 4: 28 bytes</span>
+        página = fixa(primeira página da tabela)
+        escreve registro no primeiro slot livre
+        soma 1 ao número de slots ocupados
+        solta(página), marcada como suja
+        devolve "OK 1"</pre>
     <div class="step" data-step="1">
-      <p style="font-size:1.4rem">É um interpretador de árvore: olha o <code>op</code> e faz. Funciona para <code>SELECT *</code>. No M5 isso vira uma pilha de operadores, e é ali que entram o <code>WHERE</code> e o índice.</p>
+      <p style="font-size:1.4rem">A execução não tem nada novo: <code>serializa</code> é do M1, <code>fixa</code> e <code>solta</code> são do M2. O que muda é quem fornece os argumentos: a página vem do catálogo, os valores vêm da árvore.</p>
     </div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Onde isso entra no <code>minidb</code></h2>
-    <pre style="font-size:1.15rem"><span class="cmd">SELECT * FROM aluno;</span>
-
-<span class="hl">M4  tokenizador          5 tokens, mais o FIM</span>
-<span class="hl">M4  parser               {"op": "SELECT", "colunas": ["*"], "tabela": "aluno", ...}</span>
-<span class="hl">M4  catálogo             aluno começa na página 2, registro de 28 bytes</span>
-M2  cache de páginas     entrega as páginas da corrente, da memória ou do disco
-M1  página e arquivo     lê 4096 bytes no deslocamento certo
-<span class="hl">M4  execução            desserializa cada slot e imprime 1|20260001|Ana</span>
-
-M3  árvore B+            ainda parada. Quem decide usar o índice é o M5</pre>
-    <p style="font-size:1.45rem">O parser não sabe o que é página, e o cache não sabe o que é SQL. Cada módulo só usa o que vem antes dele.</p>
-  </div>
-
-  <div class="slide slide-content" data-steps="1">
-    <h2>O catálogo também é tabela, e também vaza</h2>
-    <pre style="font-size:1.1rem;margin-top:0">$ python3 injecao.py "x' UNION SELECT 0, sql, 0 FROM sqlite_schema --"
-concatenado: SELECT * FROM aluno WHERE nome = 'x' UNION SELECT 0, sql, 0 FROM sqlite_schema --'
-  devolveu: [(0, 'CREATE TABLE aluno (id INT, nome TEXT, nota INT)', 0)]</pre>
-    <div class="step" data-step="1">
-      <ul class="plain">
-        <li>O <code>--</code> transforma a aspa que sobrou em comentário</li>
-        <li>O <code>UNION</code> junta uma consulta inteira, escolhida pelo atacante</li>
-        <li>Como o catálogo é consultável com SQL, o primeiro passo do ataque é ler o catálogo e descobrir o nome das outras tabelas</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>O que temos, e o que falta</h2>
-    <div class="phases">
-      <div class="phase phase-3">
-        <h3>Pronto</h3>
-        <div class="dates">M1 a M3</div>
-        <ul>
-          <li>Registros gravados em páginas</li>
-          <li>Páginas lidas pelo cache</li>
-          <li>Árvore B+ com busca e inserção</li>
-        </ul>
-      </div>
-      <div class="phase phase-1">
-        <h3>Agora</h3>
-        <div class="dates">M4, entrega em 27/10</div>
-        <ul>
-          <li>Tokenizador e parser dos três comandos</li>
-          <li>Catálogo gravado na página 1</li>
-          <li><code>SELECT *</code> de ponta a ponta</li>
-        </ul>
-      </div>
-      <div class="phase phase-2">
-        <h3>Depois</h3>
-        <div class="dates">M5 a M7</div>
-        <ul>
-          <li><code>WHERE</code>, índice e operadores</li>
-          <li>Transações e log</li>
-          <li>Sobreviver ao <code>kill -9</code></li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:1.4rem;margin-top:0.6rem">No laboratório: primeiro o tokenizador e o parser, depois o catálogo e o <code>SELECT *</code>. No <code>NOTES.md</code>, digam onde o catálogo mora e por quê.</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Para ir além</h2>
-    <ul class="plain">
-      <li>SQLite, <em>The Schema Table</em>: <code>sqlite.org/schematab.html</code></li>
-      <li>Sciore, <em>Database Design and Implementation</em>, capítulo 7: metadados</li>
-      <li>PostgreSQL, <em>System Catalogs</em>: o capítulo da documentação sobre <code>pg_class</code> e companhia</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próximo: laboratório do M4. Antes disso, o exercício de hoje</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 
   <div class="slide slide-content">
     <h2>Exercício de hoje</h2>
     <div class="question"><p>Para trazer no papel ao laboratório.</p></div>
     <ul class="plain">
-      <li><span class="accent">1.</span> Escreva, campo a campo, o registro de catálogo de <code>curso (id INT, nome CHAR(40))</code>, criada logo depois de <code>aluno</code>. Em que página ela começa, e quantos bytes tem cada registro dela?</li>
-      <li><span class="accent">2.</span> Em que byte de <code>dados.db</code> começa o texto do <code>CREATE TABLE</code> de <code>curso</code>? Confira com o <code>hexdump</code></li>
-      <li><span class="accent">3.</span> A tabela <code>t (a INT, b INT)</code> recebe 1200 linhas. Quantas páginas tem a corrente dela, e quantas páginas <code>SELECT * FROM t</code> lê, contando o catálogo?</li>
+      <li><span class="accent">1.</span> Em que etapa cada comando falha, e com qual mensagem?
+        <pre style="font-size:1.05rem;margin:0.4rem 0 0">(a) INSERT INTO alunos VALUES (2, 20260002, 'Bruno');
+(b) INSERT INTO aluno VALUES (2, 20260002);
+(c) INSERT INTO aluno VALUES (2, 20260002, Bruno);
+(d) INSERT INTO aluno VALUES (2, 20260002, 'Maria Eduarda Albuquerque');</pre></li>
+      <li><span class="accent">2.</span> A página 2 está vazia e roda o <code>INSERT</code> da Ana. Escreva a saída de <code>hexdump -C -s 8192 -n 48 dados.db</code> e marque onde o registro começa e termina</li>
+      <li><span class="accent">3.</span> Quantos <code>INSERT</code> cabem na página 2? O que o <code>executa</code> do slide 10 faz no seguinte?</li>
     </ul>
-    <p style="font-size:1.4rem;margin-top:0.8rem">O item 2 é a conta do lab01, com o catálogo no lugar do registro.</p>
   </div>
 
   <div class="slide slide-appendix">
-    <span class="appendix-tag">Apêndice</span>
-    <h2>O esqueleto do M4: o catálogo</h2>
-    <pre style="font-size:0.95rem;margin-top:0;line-height:1.45">def nova_pagina(cache, tam_reg):
-    n = cache.pager.aloca()
-    buf = cache.fixa(n)
-    struct.pack_into("&lt;HHII", buf, 0, 0, tam_reg, n, 0)   <span class="cmt"># 0 slots, sem próxima</span>
-    cache.solta(n, sujou=True)
-    return n
-
-class Catalogo:                                         <span class="cmt"># continua o __init__ da aula</span>
-    def cria(self, nome, colunas, sql):
-        if nome in self.tabelas:
-            raise ErroSemantico(f"tabela {nome} já existe")
-        esquema = Esquema(colunas)
-        primeira = nova_pagina(self.cache, esquema.tamanho)
-        insere(self.cache, PAGINA_CATALOGO, ESQUEMA_CATALOGO, [nome, primeira, 0, sql])
-        self.tabelas[nome] = (primeira, esquema)
-
-    def busca(self, nome):
-        if nome not in self.tabelas:
-            raise ErroSemantico(f"tabela {nome} não existe")
-        return self.tabelas[nome]</pre>
-  </div>
-
-  <div class="slide slide-appendix">
-    <span class="appendix-tag">Apêndice</span>
-    <h2>O esqueleto do M4: inserir seguindo a corrente</h2>
-    <pre style="font-size:0.95rem;margin-top:0;line-height:1.45">def insere(cache, primeira, esquema, valores):
-    reg = esquema.serializa(valores)
-    n = primeira
-    while True:
-        buf = cache.fixa(n)
-        n_slots, tam, num, proxima = struct.unpack_from("&lt;HHII", buf, 0)
-        if TAM_CABECALHO + (n_slots + 1) * tam &lt;= TAM_PAGINA:     <span class="cmt"># cabe aqui</span>
-            off = TAM_CABECALHO + n_slots * tam
-            buf[off:off + tam] = reg
-            struct.pack_into("&lt;H", buf, 0, n_slots + 1)
-            cache.solta(n, sujou=True)
-            return (n, n_slots)                                   <span class="cmt"># o RID</span>
-        if proxima == 0:                                          <span class="cmt"># fim da corrente</span>
-            proxima = nova_pagina(cache, tam)
-            struct.pack_into("&lt;I", buf, 8, proxima)               <span class="cmt"># bytes 8-11</span>
-            cache.solta(n, sujou=True)
-        else:
-            cache.solta(n)
-        n = proxima</pre>
-    <p style="font-size:1.25rem">Percorrer a corrente a cada inserção custa caro em tabela grande. Guardar a última página no catálogo resolve. Decisão para o <code>NOTES.md</code>.</p>
-  </div>
-
-  <div class="slide slide-appendix">
-    <span class="appendix-tag">Apêndice</span>
-    <h2>O esqueleto do M4: a semântica do <code>INSERT</code></h2>
-    <pre style="font-size:1rem;margin-top:0;line-height:1.45">def confere_tipos(esquema, valores):
-    if len(valores) != len(esquema.colunas):
-        raise ErroSemantico(f"esperava {len(esquema.colunas)} valores, vieram {len(valores)}")
-    for (nome, tipo, n), v in zip(esquema.colunas, valores):
-        if tipo == "INT" and not isinstance(v, int):
-            raise ErroSemantico(f"coluna {nome} é INT, veio {v!r}")
-        if tipo == "CHAR" and not (isinstance(v, str) and len(v.encode()) &lt;= n):
-            raise ErroSemantico(f"coluna {nome} é CHAR({n}), veio {v!r}")</pre>
-    <p style="font-size:1.3rem">Fica fora do parser: ele só sabe que veio um número ou um texto, e não qual coluna espera o quê.</p>
+    <span class="appendix-tag">Gabarito</span>
+    <h2>Gabarito do item 2</h2>
+    <pre style="font-size:1.1rem;margin-top:0">$ hexdump -C -s 8192 -n 48 dados.db
+00002000  <span class="cmd">01 00</span> <span class="cmd">1c 00</span> 02 00 00 00  00 00 00 00 00 00 00 00  |................|
+00002010  <span class="hl">01 00 00 00</span> <span class="hl">a1 24 35 01</span>  <span class="hl">41 6e 61</span> 00 00 00 00 00  |.....$5.Ana.....|
+00002020  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|</pre>
+    <ul class="plain">
+      <li><code>00002000</code> é 8192, a página 2. No cabeçalho, um slot ocupado e registro de <code>0x1c</code> = 28 bytes</li>
+      <li>O registro começa em <code>00002010</code>: <code>id = 1</code>, <code>matricula = 0x013524a1</code> = 20260001, e <code>Ana</code></li>
+      <li><code>nome</code> é <code>CHAR(20)</code>: depois de <code>Ana</code> vêm 17 bytes zero. O registro termina em <code>0000202b</code></li>
+    </ul>
   </div>
 </div>
 
