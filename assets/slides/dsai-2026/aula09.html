@@ -252,6 +252,24 @@
   
     .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
     .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 70vh; }
+
+    .cards-big .card h3 { font-size: 2rem; }
+    .cards-big .card p  { font-size: 1.65rem; }
   </style>
 </head>
 <body>
@@ -264,59 +282,46 @@
 <button class="nav-btn" id="btn-next">&rsaquo;</button>
 
 <div class="slides" id="slides">
-
   <div class="slide slide-cover">
     <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
-    <h1>Aula 9<br><span class="accent">Código legado</span></h1>
+    <h1>Aula 9<br><span class="accent">Kickoff da AP2: herdando um projeto legado</span></h1>
     <div class="cover-meta">
       <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
       <span>&#127963;&#65039; <strong>UFPA</strong></span>
-      <span>&#128197; <strong>6 de outubro de 2026</strong></span>
+      <span>&#128197; <strong>22 de outubro de 2026</strong></span>
       <span>&#128336; <strong>20h</strong></span>
     </div>
   </div>
 
-  <div class="slide slide-content">
-    <h2>O cenário real</h2>
-    <div class="definition"><p>Brownfield é o desenvolvimento sobre uma base existente, com histórico, dependências e decisões que você não tomou.</p></div>
+  <div class="slide slide-content" data-steps="1">
+    <h2>A atividade</h2>
     <ul>
-      <li>Quase todo curso da área trabalha só com projeto novo</li>
-      <li>O egresso encontra o oposto na primeira semana de trabalho</li>
+      <li>Mesmas duplas da AP1</li>
+      <li>Cada dupla escolhe <span class="accent">uma AP1 feita por colegas</span>: nunca a própria, um projeto por dupla</li>
+      <li>Estudar, entender o que foi feito, definir o que falta e implementar</li>
+      <li>Como <span class="highlight">FDE</span>: dono do negócio e da técnica. O autor original é o cliente</li>
     </ul>
+    <div class="definition step" data-step="1"><p>Em hipótese alguma se reescreve o projeto. Projeto reescrito não será considerado.</p></div>
+  </div>
+
+  <div class="slide slide-content" data-steps="3">
+    <h2>Antes de mudar, investiguem</h2>
+    <div class="cards cards-3 cards-big">
+      <div class="card step" data-step="1"><h3>Entender</h3><p>Rodar localmente, mapear a arquitetura, entrevistar o cliente.</p></div>
+      <div class="card step" data-step="2"><h3>Investigar o uso</h3><p>O que foi construído foi usado? Há gamificação, e ela funciona? Toda resposta com evidência.</p></div>
+      <div class="card step" data-step="3"><h3>Evoluir</h3><p>Novas specs, backlog em issues, commits pequenos com teste.</p></div>
+    </div>
   </div>
 
   <div class="slide slide-content">
-    <h2>Um caso documentado</h2>
-    <ul>
-      <li>Um engenheiro sênior, apoiado por quatro agentes, entregou uma iniciativa dimensionada para quatro pessoas</li>
-      <li>Metade do tempo planejado, com 90% do código gerado aceito na primeira revisão</li>
-      <li>O gargalo não foi o modelo: foi <span class='accent'>qualidade da especificação e conhecimento do domínio</span></li>
+    <h2>Artefatos e entrega de hoje</h2>
+    <p style="font-size:1.6rem;margin-bottom:1rem">Os de sempre: specs datadas em <code>SPEC/</code>, sessões do agente em <code>prompts/sessoes/</code>, commits com <code>Agent:</code> e <code>Spec:</code>, histórico sem reescrita.</p>
+    <div class="definition"><p>Meta: chegar a 100 mil linhas no <code>cloc</code> da AP1, sem atalhos. Nada de código duplicado, gerado em massa ou morto só para inflar a contagem.</p></div>
+    <ul class="plain">
+      <li><span class="accent">1.</span> Repositório registrado, com 2 ou 3 linhas explicando a escolha</li>
+      <li><span class="accent">2.</span> Fork <code>dsai-ap2-&lt;nome&gt;</code> criado</li>
+      <li><span class="accent">3.</span> Issue &ldquo;Primeiras impressões&rdquo;: roda? O que parece feito? Há sinal de uso? Três perguntas para o cliente</li>
     </ul>
-    <p style="font-size:1.3rem;margin-top:0.8rem;opacity:0.75">Vilas Boas, Pinto, Monteiro, Carida e Ribeiro, 2026, arXiv:2605.18461</p>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Onde a autorrevisão falha</h2>
-    <ul>
-      <li>O agente que escreveu a modernização é mau juiz da própria modernização</li>
-      <li>Ele descreve o que fez de forma convincente, inclusive quando errou</li>
-      <li>Use contexto limpo, ou outro agente, para revisar</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-content">
-    <h2>Estratégia prática</h2>
-    <ul>
-      <li>Primeiro mapeie: peça um resumo da arquitetura e verifique contra o código</li>
-      <li>Depois cubra com teste o que você vai mudar</li>
-      <li>Só então mude, em pedaços pequenos, um commit por mudança</li>
-    </ul>
-  </div>
-
-  <div class="slide slide-cover">
-    <h1>Dúvidas?</h1>
-    <p style="font-size:2rem;margin-top:1.5rem">Próxima: qualidade, segurança e custo</p>
-    <div class="cover-meta"><span>&#128231; <strong>gpinto@ufpa.br</strong></span></div>
   </div>
 </div>
 
