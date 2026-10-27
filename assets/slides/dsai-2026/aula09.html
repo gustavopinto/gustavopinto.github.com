@@ -316,12 +316,54 @@
   <div class="slide slide-content">
     <h2>Artefatos e entrega de hoje</h2>
     <p style="font-size:1.6rem;margin-bottom:1rem">Os de sempre: specs datadas em <code>SPEC/</code>, sessões do agente em <code>prompts/sessoes/</code>, commits com <code>Agent:</code> e <code>Spec:</code>, histórico sem reescrita.</p>
-    <div class="definition"><p>Meta: chegar a 100 mil linhas no <code>cloc</code> da AP1, sem atalhos. Nada de código duplicado, gerado em massa ou morto só para inflar a contagem.</p></div>
+    <div class="definition"><p>Meta: 100 mil linhas <strong>novas</strong> no <code>cloc</code> da AP1, além do que o projeto já tinha, sem atalhos. Nada de código duplicado, gerado em massa ou morto só para inflar a contagem.</p></div>
     <ul class="plain">
       <li><span class="accent">1.</span> Repositório registrado, com 2 ou 3 linhas explicando a escolha</li>
       <li><span class="accent">2.</span> Fork <code>dsai-ap2-&lt;nome&gt;</code> criado</li>
       <li><span class="accent">3.</span> Issue &ldquo;Primeiras impressões&rdquo;: roda? O que parece feito? Há sinal de uso? Três perguntas para o cliente</li>
     </ul>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Restrições</h2>
+    <ul class="plain">
+      <li><span class="accent">1.</span> <strong>Sem reescrita.</strong> Trocar linguagem ou framework, abrir repositório novo ou apagar módulos para refazer anula a AP2</li>
+      <li><span class="accent">2.</span> <strong>Refatoração localizada</strong>, justificada numa issue e coberta por teste</li>
+      <li><span class="accent">3.</span> <strong>100 mil linhas novas</strong>: a diferença entre o fork e o último commit da AP1 (<code>cloc --diff</code>). O que já existia não conta</li>
+      <li><span class="accent">4.</span> <strong>Fora da contagem:</strong> código duplicado, gerado em massa ou morto, e arquivos gerados (lockfiles, <code>build/</code>, <code>vendor/</code>, minificados)</li>
+      <li><span class="accent">5.</span> <strong>Histórico sem reescrita</strong>: nada de <code>push --force</code> na <code>main</code></li>
+      <li><span class="accent">6.</span> <strong>O cliente não escreve código.</strong> Commits dos autores originais no fork não contam</li>
+    </ul>
+    <div class="definition"><p>Sem URL pública no ar e CI verde, a AP2 não é avaliada. Critério abaixo do mínimo vale zero.</p></div>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Métricas (1/2): volume e processo <span style="color:var(--secondary)">(27 pts)</span></h2>
+    <table class="rel-table" style="font-size:1.25rem">
+      <tr><th>Critério</th><th>Métrica</th><th>Mínimo</th><th>Pontos</th></tr>
+      <tr><td>Tamanho</td><td>Linhas novas no <code>cloc</code>, descontado o que a AP1 já tinha</td><td>100 mil</td><td>8</td></tr>
+      <tr><td>Duplicação</td><td>Código duplicado medido com <code>jscpd</code></td><td>até 5%</td><td>3</td></tr>
+      <tr><td>Specs</td><td>Spec datada em <code>SPEC/</code> para cada funcionalidade nova, commitada antes do primeiro commit de código que a cita</td><td>100% das funcionalidades</td><td>5</td></tr>
+      <tr><td>Commits com agente</td><td>Commits com os trailers <code>Agent:</code> e <code>Spec:</code></td><td>80% dos commits</td><td>3</td></tr>
+      <tr><td>Frequência</td><td>Dias distintos com commit; tamanho mediano do commit</td><td>2 dias por semana; mediana &lt; 400 linhas</td><td>3</td></tr>
+      <tr><td>Sessões</td><td>Sessão em <code>prompts/sessoes/</code> para cada dia com commit de agente</td><td>100% dos dias</td><td>3</td></tr>
+      <tr><td>Autoria</td><td>Parcela de commits de cada integrante da dupla</td><td>30% cada</td><td>2</td></tr>
+    </table>
+  </div>
+
+  <div class="slide slide-content">
+    <h2>Métricas (2/2): qualidade e entrega <span style="color:var(--secondary)">(23 pts)</span></h2>
+    <table class="rel-table" style="font-size:1.25rem">
+      <tr><th>Critério</th><th>Métrica</th><th>Mínimo</th><th>Pontos</th></tr>
+      <tr><td>Testes</td><td>Cobertura de linhas do código novo (diff coverage)</td><td>70%</td><td>5</td></tr>
+      <tr><td>Testes que testam</td><td>Testes novos que falham quando a mudança é revertida</td><td>amostra de 5, todos falham</td><td>4</td></tr>
+      <tr><td>CI</td><td>Pipeline verde no último commit da <code>main</code>; builds verdes ao longo do projeto</td><td>verde; 80% dos builds</td><td>3</td></tr>
+      <tr><td>Revisão</td><td>Merges na <code>main</code> feitos por PR aprovado pela dupla</td><td>100%</td><td>3</td></tr>
+      <tr><td>Segurança</td><td>Segredos no histórico (<code>gitleaks</code>) e alertas críticos de dependência</td><td>zero</td><td>3</td></tr>
+      <tr><td>Produção</td><td>URL pública responde e serve a versão do último commit da <code>main</code></td><td>no ar no dia</td><td>3</td></tr>
+      <tr><td>Custo</td><td>Tokens ou custo registrados em cada sessão</td><td>100% das sessões</td><td>2</td></tr>
+    </table>
+    <p class="fonte">Tudo é extraído do repositório por script. O que não está no repositório não aconteceu.</p>
   </div>
 </div>
 
