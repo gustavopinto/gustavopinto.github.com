@@ -1,0 +1,711 @@
+{
+ "title": "Níveis de adoção de IA na engenharia de software",
+ "lang": "pt-BR",
+ "handle": "linkedin.com/in/ghlp",
+ "author": {
+  "name": "Gustavo Pinto",
+  "roles": [
+   "AI Staff Engineer, iFood",
+   "Professor, UFPA"
+  ],
+  "contacts": [
+   [
+    "linkedin",
+    "linkedin.com/in/ghlp"
+   ],
+   [
+    "mail",
+    "mail@gustavopinto.org"
+   ],
+   [
+    "web",
+    "gustavopinto.org"
+   ],
+   [
+    "news",
+    "ML4SE.substack.com"
+   ]
+  ]
+ },
+ "slides": [
+  {
+   "layout": "cover",
+   "title": "Níveis de adoção de IA",
+   "subtitle": "do autocomplete à fábrica: um guia para FDEs"
+  },
+  {
+   "layout": "qr",
+   "lines": [
+    "Pegue o celular! 📱",
+    "Entre em **menti.com**",
+    "e use o código",
+    "**4392 9443**"
+   ],
+   "image": "img/menti-qr.png"
+  },
+  {
+   "layout": "table",
+   "title": "Uma escada em sete degraus",
+   "columns": [
+    "Nível",
+    "Prática",
+    "Papel humano",
+    "Artefato típico"
+   ],
+   "widths": [
+    56,
+    470,
+    210,
+    208
+   ],
+   "late_columns": 2,
+   "rows": [
+    [
+     "0",
+     "**Sem IA.** Código escrito à mão; IA proibida ou não adotada",
+     "Autor",
+     "—"
+    ],
+    [
+     "1",
+     "**Autocomplete e chat.** Sugestões de linha e perguntas avulsas",
+     "Autor que consulta",
+     "—"
+    ],
+    [
+     "2",
+     "**Agente supervisionado.** Agente no IDE; cada passo é aprovado",
+     "Par, revisor linha a linha",
+     "—"
+    ],
+    [
+     "3",
+     "**Contexto codificado.** Regras, `AGENTS.md`, skills e testes guiam o agente",
+     "Revisor de diffs",
+     "Configuração versionada"
+    ],
+    [
+     "4",
+     "**Delegação assíncrona.** Agentes em background abrem PRs",
+     "Gerente de tarefas",
+     "Specs, planos, issues"
+    ],
+    [
+     "5",
+     "**Workflow e orquestração.** Agentes no CI e orquestradores",
+     "Designer do processo",
+     "Orquestrador, pipelines"
+    ],
+    [
+     "6",
+     "**Fábrica autônoma.** Spec entra, software sai",
+     "Designer da verificação",
+     "Cenários, harness"
+    ]
+   ],
+   "note": "Síntese de Yegge (2026)[^yegge-gt], Shapiro (2026)[^shapiro], ACMM (Anderson, 2026)[^acmm] e RAMP (Denisov-Blanch et al., 2026)[^ramp]."
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 0",
+   "title": "Sem IA",
+   "bullets": [
+    "Samsung (vazamento)[^samsung] e JPMorgan (regulação)[^jpm] restringiram o `ChatGPT` em 2023",
+    "Projetos como `Gentoo` e `NetBSD` proíbem código gerado, por **copyright**[^gentoo]"
+   ],
+   "shots": [
+    [
+     "img/niveis/gentoo.jpg",
+     "Gentoo, abr/2024",
+     "gentoo"
+    ]
+   ],
+   "desc": "O código é escrito sem IA, por proibição ou por escolha."
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 0: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Ainda nada: primeiro, mapear o que é sensível",
+      "Dados pessoais (CPF, e-mail, telefone), segredos, contratos"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Política de uso combinada com o cliente",
+      "Um gateway único para os modelos"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Classificar dados e repositórios",
+      "Anonimizar dados pessoais antes do prompt"
+     ]
+    }
+   ],
+   "example": "o iFood põe todo LLM atrás de uma plataforma de LLM própria, para anonimizar dados pessoais antes de o prompt sair[^ifood]"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 1",
+   "title": "Autocomplete e chat",
+   "bullets": [
+    "`Copilot` e `Cursor Tab` sugerem a próxima linha",
+    "`ChatGPT` e `Gemini` respondem no chat",
+    "Peng et al.: com `Copilot`, **55,8% mais rápido**[^peng]"
+   ],
+   "shots": [
+    [
+     "img/niveis/tab-sugestao.jpg",
+     "Sugestão inline: Tab aceita (ilustração)",
+     "contain"
+    ],
+    [
+     "img/niveis/peng.jpg",
+     "Peng et al., 2023",
+     "peng"
+    ]
+   ],
+   "desc": "A IA sugere a próxima linha ou responde perguntas; quem programa copia, cola e adapta."
+  },
+  {
+   "layout": "practice",
+   "title": "Nível 1 na prática",
+   "shots": [
+    [
+     "img/niveis/so-uso.jpg",
+     "Stack Overflow 2025: uso",
+     "contain",
+     "so25"
+    ],
+    [
+     "img/niveis/so-confianca.jpg",
+     "Stack Overflow 2025: confiança",
+     "contain",
+     "so25"
+    ]
+   ],
+   "left": {
+    "title": "Cases",
+    "bullets": [
+     "**84%** usam ou pretendem usar IA[^so25]",
+     "**46%** desconfiam da precisão[^so25]",
+     "Google: a parte do código novo escrita por IA subiu de **3%** (2022)[^google22] para **mais de 25%** (2024)[^google24]"
+    ]
+   },
+   "right": {
+    "title": "Riscos e desafios",
+    "bullets": [
+     "**19,7%** dos pacotes sugeridos não existem: _slopsquatting_[^slop]",
+     "Código copiado sem contexto",
+     "Atrofia de quem está aprendendo"
+    ]
+   }
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 1: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Trechos isolados: regex, mapeamento JSON, SQL",
+      "Dúvidas sobre uma API desconhecida"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Cole o contrato OpenAPI e um payload real",
+      "Uma pergunta por vez"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Rode antes de colar",
+      "Confira se o pacote sugerido existe"
+     ]
+    }
+   ],
+   "example": "o Mercado Livre liberou o `Copilot` para 9 mil devs e relata cerca de 50% menos tempo escrevendo código[^meli]"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 2",
+   "title": "Agente supervisionado",
+   "bullets": [
+    "`Claude Code`, `Cursor` e o modo agente do `Copilot`",
+    "Zup: criamos o `CodeGen`, nosso próprio agente CLI, por segurança, privacidade e compliance[^codegen]",
+    "Para Shapiro, **9 em cada 10** devs que se dizem “AI-native” estão neste nível (impressão dele, sem pesquisa)[^shapiro-orig]"
+   ],
+   "shots": [
+    [
+     "img/niveis/claude.jpg",
+     "Claude Code",
+     "claude-code"
+    ],
+    [
+     "img/niveis/codegen.jpg",
+     "Pinto et al., Zup, abr/2026",
+     "codegen"
+    ]
+   ],
+   "desc": "Um agente lê e edita arquivos e roda comandos; cada ação pode passar por aprovação."
+  },
+  {
+   "layout": "practice",
+   "title": "Nível 2 na prática",
+   "shots": [
+    [
+     "img/niveis/sandbox.jpg",
+     "Anthropic, out/2025",
+     "sandbox"
+    ],
+    [
+     "img/niveis/replit.jpg",
+     "The Stack, jul/2025",
+     "replit"
+    ]
+   ],
+   "left": {
+    "title": "Cases",
+    "bullets": [
+     "METR: com `Cursor`, devs experientes levaram **19% mais tempo**, mas se acharam mais rápidos[^metr25]",
+     "Anthropic: com sandbox, **84%** menos pedidos de permissão[^sandbox]",
+     "Zup + `Claude Code` + MCP do `Figma`: 8 telas de 10 dias para **2 horas**[^zup-claude]"
+    ]
+   },
+   "right": {
+    "title": "Riscos e desafios",
+    "bullets": [
+     "`Replit`: agente **apagou o banco de produção** em pleno code freeze[^replit]",
+     "Fadiga de aprovação vira YOLO sem sandbox",
+     "Tokens: cada passo reenvia arquivos e contexto; média de **US$ 13** por dev por dia ativo no `Claude Code`[^cc-costs]"
+    ]
+   }
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 2: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Mudanças em poucos arquivos: um endpoint, um mapper, uma política",
+      "Bugs com passo a passo para reproduzir"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Peça o plano antes do código",
+      "Aponte os arquivos e o teste que deve passar",
+      "Modelo de fronteira só quando precisa"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Commit antes de cada pedido[^anthropic-teams]",
+      "Credenciais de homologação, nunca de produção"
+     ]
+    }
+   ],
+   "example": "no iFood, cada pessoa tem **US$ 100** para modelos de fronteira e uso livre de modelos eficientes, como `DeepSeek` (política interna)"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 3",
+   "title": "Contexto codificado",
+   "bullets": [
+    "`AGENTS.md`[^agentsmd], `CLAUDE.md` e `.cursor/rules`",
+    "Skills e servidores MCP com a documentação interna",
+    "Esse entorno do agente (regras, ferramentas, testes, sandbox) é o _harness_[^harness]"
+   ],
+   "shots": [
+    [
+     "img/niveis/fowler.jpg",
+     "Böckeler, fev/2026",
+     "fowler"
+    ],
+    [
+     "img/niveis/agentsmd.jpg",
+     "agents.md",
+     "agentsmd"
+    ]
+   ],
+   "desc": "As regras do time viram arquivos que o agente lê antes de agir, e os testes conferem o resultado."
+  },
+  {
+   "layout": "practice",
+   "title": "Nível 3 na prática",
+   "shots": [
+    [
+     "img/niveis/skills-matriz.jpg",
+     "502 skills do iFood: o que a descrição diz × o que a skill faz"
+    ],
+    [
+     "img/niveis/pillar.jpg",
+     "Pillar Security, mar/2025",
+     "pillar"
+    ]
+   ],
+   "left": {
+    "title": "Cases",
+    "bullets": [
+     "`AGENTS.md` em **60 mil** projetos open source[^agentsmd]",
+     "iFood: catálogo central com **502 skills** para ~8 mil engenheiros",
+     "RAMP, 441 repos com agentes: sem arquivo de regras, a complexidade do código sobe **53%**; com regras, 27%[^ramp]"
+    ]
+   },
+   "right": {
+    "title": "Riscos e desafios",
+    "bullets": [
+     "**1 em 3** skills faz algo diferente do que a descrição diz",
+     "**73,8%** dos arquivos de regras nunca são atualizados[^ramp]",
+     "Rules File Backdoor: unicode invisível nas regras[^pillar]"
+    ]
+   }
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 3: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "O que o time repete: novo endpoint no padrão, nova política no gateway"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "`AGENTS.md` com o guia de APIs: nomes, erros, paginação, versão",
+      "Skills e MCP com a documentação interna",
+      "Invista no _harness_, não no prompt[^codegen]"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Lint e testes de contrato no CI",
+      "Revisar o que a skill executa, não só a descrição",
+      "Erro repetido vira regra no arquivo"
+     ]
+    }
+   ],
+   "example": "no iFood, o `Claude Code` com MCP de GitLab, banco e Kubernetes roda num cron de **1 em 1 minuto**: vigia logs e pods, consulta produção e ajusta MRs (uso interno)"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 4",
+   "title": "Delegação assíncrona",
+   "bullets": [
+    "`Codex`, `Devin`, `Jules` e o coding agent do `Copilot`",
+    "Shapiro: o dev passa a atuar como gerente[^shapiro]",
+    "Ferino et al.: a **confiança** decide quanto passar[^ferino]"
+   ],
+   "shots": [
+    [
+     "img/niveis/osmani.jpg",
+     "Osmani, jan/2026",
+     "osmani"
+    ],
+    [
+     "img/niveis/ferino.jpg",
+     "Ferino et al., ICSE 2027",
+     "ferino"
+    ]
+   ],
+   "desc": "A tarefa vira issue ou spec, o agente trabalha em segundo plano e devolve um **PR**."
+  },
+  {
+   "layout": "practice",
+   "title": "Nível 4 na prática",
+   "shots": [
+    [
+     "img/niveis/stripe.jpg",
+     "Stripe, fev/2026",
+     "stripe"
+    ],
+    [
+     "img/niveis/spotify.jpg",
+     "Spotify, nov/2025",
+     "spotify"
+    ],
+    [
+     "img/niveis/nubank.jpg",
+     "Devin sobre o Nubank",
+     "nubank"
+    ]
+   ],
+   "left": {
+    "title": "Cases",
+    "bullets": [
+     "Stripe `Minions`: **+1.000 PRs** mergeados por semana[^stripe]",
+     "Spotify `Honk`: **+1.500 PRs** em produção[^spotify]",
+     "Nubank: `Devin` dividiu um ETL de 6 milhões de linhas, **8 a 12x** mais eficiente[^nubank]"
+    ]
+   },
+   "right": {
+    "title": "Riscos e desafios",
+    "bullets": [
+     "A **revisão** humana vira gargalo[^spotify]",
+     "Uber: o orçamento de IA de 2026 acabou em **abril**, com até US$ 2.000 por engenheiro/mês[^uber]",
+     "O dev perde o modelo mental do código"
+    ]
+   }
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 4: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Issues fechadas: migração, testes, correção de vulnerabilidade"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Spec com critério de aceite e fora de escopo",
+      "Fronteira para planejar, modelo eficiente para executar"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Teste que falha sem a mudança",
+      "Leitura humana do que toca auth, dados e segredos[^aula08]",
+      "Custo por PR entregue, não por pessoa"
+     ]
+    }
+   ],
+   "example": "no Itaú, com specs, playbooks e revisão humana, o `Devin` migrou 59 BFFs de .NET para Java **6x** mais rápido[^itau-devin]"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 5",
+   "title": "Workflow e orquestração",
+   "bullets": [
+    "`Claude Code` e `Codex` rodando no GitHub Actions",
+    "`CodeRabbit` e o `Copilot` fazem a primeira revisão de PR",
+    "Yegge orquestra dezenas de agentes com o `Gas Town`[^yegge-gt]"
+   ],
+   "shots": [
+    [
+     "img/niveis/gastown.jpg",
+     "Yegge, jan/2026",
+     "yegge-gt"
+    ],
+    [
+     "img/niveis/park.jpg",
+     "Park et al., set/2026",
+     "park"
+    ]
+   ],
+   "desc": "Agentes viram etapas do processo, disparados por eventos, e vários rodam ao mesmo tempo."
+  },
+  {
+   "layout": "practice",
+   "title": "Nível 5 na prática",
+   "shots": [
+    [
+     "img/niveis/airbnb.jpg",
+     "Airbnb, mar/2025",
+     "airbnb"
+    ],
+    [
+     "img/niveis/itau.jpg",
+     "Devin sobre o Itaú",
+     "itau-devin"
+    ],
+    [
+     "img/niveis/aikido.jpg",
+     "Aikido, dez/2025",
+     "aikido"
+    ]
+   ],
+   "left": {
+    "title": "Cases",
+    "bullets": [
+     "Airbnb: **3.500 testes** migrados em 6 semanas[^airbnb]",
+     "Itaú: **70%** dos alertas de SAST resolvidos[^itau-devin]",
+     "FAHZ (Ambev) + Zup: revisão automática passou a cobrir **94%** dos PRs, antes 11%[^fahz]"
+    ]
+   },
+   "right": {
+    "title": "Riscos e desafios",
+    "bullets": [
+     "PromptPwnd: issue injeta prompt no CI[^aikido]",
+     "s1ngularity: malware usou CLIs de IA[^nx]",
+     "`Gas Town`: **milhares de dólares** por mês[^yegge-gt]"
+    ]
+   }
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 5: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Etapas do pipeline: alertas de SAST, migrações em lote, primeira revisão"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Gatilhos por evento: alerta, issue, PR",
+      "APIs como ferramentas MCP, com escopo mínimo",
+      "Roteador de modelos no gateway: AT&T gastou **56%** menos[^att]"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Menor privilégio e filtro de dados pessoais",
+      "Humano antes de ação irreversível",
+      "Teto e painel de tokens por agente[^uber]"
+     ]
+    }
+   ],
+   "example": "no iFood, um gestor criou um revisor automático que comenta em **todo MR** do time (uso interno)"
+  },
+  {
+   "layout": "sidebar",
+   "side": "Nível 6",
+   "title": "Fábrica autônoma",
+   "bullets": [
+    "StrongDM: cenários fora do repositório conferem o resultado[^factory]",
+    "OpenAI: com _harness engineering_, **1 milhão de linhas** e nenhuma escrita à mão[^harness]",
+    "Shapiro chama de _dark factory_[^shapiro]"
+   ],
+   "shots": [
+    [
+     "img/niveis/factory.jpg",
+     "Willison sobre a StrongDM, fev/2026",
+     "factory"
+    ]
+   ],
+   "desc": "Uma spec entra e software sai; ninguém escreve nem revisa o código, e o humano desenha a **verificação**."
+  },
+  {
+   "layout": "howto",
+   "title": "Nível 6: como fazer",
+   "cards": [
+    {
+     "title": "O que passar",
+     "bullets": [
+      "Um serviço inteiro, a partir da spec"
+     ]
+    },
+    {
+     "title": "Como passar",
+     "bullets": [
+      "Cenários de negócio fora do repositório",
+      "Gêmeos das APIs de terceiros: mocks e sandboxes"
+     ]
+    },
+    {
+     "title": "Como confiar",
+     "bullets": [
+      "Medir cenários satisfeitos, não linhas",
+      "Canário e rollback automático"
+     ]
+    }
+   ],
+   "example": "o Itaú simulou um Pix por voz: 18 dias no ciclo normal, 5 com humanos nas decisões críticas, **14 horas** só com agentes[^itau-produto]"
+  },
+  {
+   "layout": "titlebar",
+   "title": "Em qualquer nível, estas decisões são do FDE",
+   "bullets": [
+    "**Escopo**: qual problema resolver, o que fica fora e qual é o critério de aceite",
+    "**Contrato**: fixar a API e aprovar cada dependência nova",
+    "**Revisão**: ler linha a linha o que toca auth, dados pessoais e segredos",
+    "**Produção**: rollback, orçamento de tokens e o que dizer ao cliente quando cai"
+   ],
+   "refs": [
+    "aula08"
+   ],
+   "big": true
+  },
+  {
+   "layout": "lessons",
+   "items": [
+    "Cada framework mede uma coisa | indivíduo, repositório, feedback ou organização",
+    "A verificação limita a subida | testes, cenários e harness decidem até onde delegar",
+    "O nível depende da tarefa | `Tab`, `Cmd+K` ou agente no `Cursor`[^karpathy]; confiança[^ferino]",
+    "Pouca evidência no topo | relatos de equipes pequenas e de quem vende a ferramenta"
+   ]
+  },
+  {
+   "layout": "folks"
+  }
+ ],
+ "bib": {
+  "yegge-gt": "https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04",
+  "yegge-pe": "https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the",
+  "shapiro": "https://simonwillison.net/2026/Jan/28/the-five-levels/",
+  "acmm": "https://arxiv.org/abs/2604.09388",
+  "ramp": "https://arxiv.org/abs/2608.25241",
+  "ai4se": "https://arxiv.org/abs/2409.18048",
+  "metr25": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+  "metr26": "https://metr.org/blog/2026-02-24-uplift-update/",
+  "gentoo": "https://linuxiac.com/gentoo-council-implements-ban-on-ai-assisted-contributions/",
+  "curl": "https://www.theregister.com/2026/01/21/curl_ends_bug_bounty/",
+  "consensus": "https://theconsensus.dev/p/2026/03/02/source-available-projects-and-their-ai-contribution-policies.html",
+  "peng": "https://arxiv.org/abs/2302.06590",
+  "barke": "https://arxiv.org/abs/2206.15000",
+  "karpathy": "https://www.latent.space/p/s3",
+  "so25": "https://survey.stackoverflow.co/2025/ai",
+  "google22": "https://research.google/blog/ml-enhanced-code-completion-improves-developer-productivity/",
+  "google24": "https://itdaily.com/news/cloud/google-ai-code",
+  "slop": "https://arxiv.org/abs/2406.10279",
+  "sandbox": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+  "replit": "https://www.thestack.technology/vibe-coding-ceo-deletes-production-database/",
+  "fowler": "https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html",
+  "agentsmd": "https://agents.md/",
+  "pillar": "https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents",
+  "osmani": "https://addyosmani.com/blog/future-agentic-coding/",
+  "ferino": "https://arxiv.org/abs/2610.34317",
+  "stripe": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents",
+  "spotify": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1",
+  "aidev": "https://arxiv.org/abs/2507.15003",
+  "park": "https://arxiv.org/abs/2609.24234",
+  "airbnb": "https://medium.com/airbnb-engineering/accelerating-large-scale-test-migration-with-llms-9565c208023b",
+  "googlemig": "https://arxiv.org/abs/2501.06972",
+  "aikido": "https://www.aikido.dev/blog/promptpwnd-github-actions-ai-agents",
+  "nx": "https://www.kaspersky.com/blog/nx-build-s1ngularity-supply-chain-attack/54223/",
+  "factory": "https://simonwillison.net/2026/Feb/7/software-factory/",
+  "harness": "https://openai.com/index/harness-engineering/",
+  "attractor": "https://github.com/strongdm/attractor",
+  "meli": "https://www.zenml.io/llmops-database/github-copilot-deployment-at-scale-enhancing-developer-productivity",
+  "porto": "https://tiinside.com.br/25/08/2025/porto-acelera-transformacao-digital-e-alcanca-38-de-ganho-em-eficiencia-com-plataforma-flow/",
+  "ifood": "https://tech.ifood.com.br/en/engenharia/escalando-a-engenharia-com-confianca-o-papel-da-ia-rag-e-governanca-no-ifood/",
+  "itau-devin": "https://devin.ai/customers/itau",
+  "nubank": "https://devin.ai/customers/nubank",
+  "itau-produto": "https://tiinside.com.br/03/06/2026/como-agentes-de-ia-estao-redefinindo-o-desenvolvimento-de-produtos-e-software-no-itau/",
+  "anthropic-teams": "https://claude.com/blog/how-anthropic-teams-use-claude-code",
+  "aula08": "https://gustavopinto.org/assets/slides/dsai-2026/aula08.html",
+  "samsung": "https://techcrunch.com/2023/05/02/samsung-bans-use-of-generative-ai-tools-like-chatgpt-after-april-internal-data-leak/",
+  "uber": "https://startupfortune.com/uber-burned-its-entire-2026-ai-budget-by-april-then-fixed-it/",
+  "att": "https://www.pymnts.com/news/artificial-intelligence/2026/att-slashes-ai-costs-by-adopting-model-routers-and-open-source/",
+  "revolut": "https://startupfortune.com/revolut-says-self-hosted-open-ai-models-cut-its-coding-costs-90/",
+  "cc-costs": "https://code.claude.com/docs/en/costs",
+  "codegen": "https://arxiv.org/abs/2604.09805",
+  "claude-code": "https://www.claude.com/product/claude-code",
+  "jpm": "https://edition.cnn.com/2023/02/22/tech/jpmorgan-chatgpt-employees/index.html",
+  "zup-claude": "https://zup.com.br/zup-parceira-claude-code-telecom/",
+  "shapiro-orig": "https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/",
+  "fahz": "https://zup.com.br/cases/fahz-code-review-ia-generativa/"
+ }
+}

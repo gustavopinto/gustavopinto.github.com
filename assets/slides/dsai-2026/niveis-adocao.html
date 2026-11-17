@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Níveis de adoção de IA &mdash; Desenvolvimento de Software Apoiado por IA</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #e2e8f0;
+      --slide-bg:  #f8fafc;
+      --text:      #0f172a;
+      --accent:    #0369a1;
+      --secondary: #475569;
+      --highlight: #92400e;
+      --success:   #166534;
+      --radius:    0.75rem;
+    }
+
+    html, body {
+      height: 100%; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Progress / counter ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 5px;
+      background: var(--accent); transition: width 0.3s ease; z-index: 200;
+    }
+    #counter {
+      position: fixed; bottom: 1.4rem; right: 2rem;
+      font-size: 1.1rem; color: var(--secondary); z-index: 200;
+    }
+    #nav-hint {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      font-size: 1rem; color: var(--secondary); opacity: 0.5; z-index: 200; white-space: nowrap;
+    }
+
+    /* ── Nav buttons ── */
+    .nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.12);
+      color: var(--secondary); width: 3.4rem; height: 3.4rem; border-radius: 50%;
+      cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; z-index: 200;
+    }
+    .nav-btn:hover { background: rgba(3,105,161,0.12); color: var(--accent); border-color: var(--accent); }
+    #btn-prev { left: 1rem; }
+    #btn-next { right: 1rem; }
+
+    /* ── Slides ── */
+    .slides { width: 100vw; height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3.5rem 7rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── Variants ── */
+    .slide-cover {
+      background: linear-gradient(140deg, #0f172a 0%, #0c2340 60%, #0f172a 100%);
+      text-align: center; align-items: center;
+    }
+    .slide-cover h1, .slide-cover p, .slide-cover li { color: #f1f5f9; }
+    .slide-cover .cover-meta span { color: #94a3b8; }
+    .slide-cover .cover-meta span strong { color: #f1f5f9; }
+
+    .slide-content {
+      background: var(--slide-bg); text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .slide-split {
+      background: var(--slide-bg); align-items: flex-start;
+      flex-direction: column; text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .split-body { display: flex; gap: 3rem; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+    .split-left { flex: 1; }
+    .split-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+
+    .slide-appendix {
+      background: #fdf8f0; text-align: left; align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .appendix-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--secondary); opacity: 0.5; text-transform: uppercase;
+    }
+
+    /* ── Typography ── */
+    .slide h1 { font-size: 4.2rem; font-weight: 800; line-height: 1.15; }
+    .slide h2 { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; }
+    .slide h3 { font-size: 2rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.8rem; }
+    .slide p  { font-size: 1.9rem; line-height: 1.6; color: var(--secondary); }
+    .slide ul { list-style: none; }
+    .slide ul li {
+      font-size: 2rem; line-height: 1.5; padding: 0.6rem 0 0.6rem 2.4rem;
+      position: relative; color: var(--text);
+    }
+    .slide ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--accent); font-size: 2.1rem; line-height: 1.3;
+    }
+    .slide ul.plain li { font-size: 1.7rem; }
+    .slide ul.plain li::before { font-size: 1.8rem; }
+
+    .tag {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 1rem; font-weight: 700; padding: 0.35rem 1.2rem; border-radius: 999px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .accent    { color: var(--accent); }
+    .highlight { color: var(--highlight); }
+    .success   { color: var(--success); }
+
+    /* ── Cover meta ── */
+    .cover-meta { display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
+    .cover-meta span { font-size: 1.4rem; color: #94a3b8; }
+    .cover-meta span strong { color: #f1f5f9; }
+
+    /* ── Cards ── */
+    .cards { display: grid; gap: 1.3rem; width: 100%; }
+    .cards-2 { grid-template-columns: 1fr 1fr; }
+    .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cards-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius);
+      padding: 1.5rem 1.7rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card h3  { font-size: 1.55rem; color: var(--highlight); margin-bottom: 0.5rem; }
+    .card p   { font-size: 1.35rem; color: var(--secondary); }
+    .card .note { font-size: 1.1rem; color: var(--secondary); margin-top: 0.6rem; opacity: 0.8; }
+    .card code { font-size: 1.1rem; background: #f1f5f9; padding: 0.1rem 0.4rem; border-radius: 4px; color: var(--accent); }
+
+    /* ── Step system ── */
+    .step {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .step.visible { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ── Question box ── */
+    .question {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin-bottom: 1.5rem; width: 100%;
+    }
+    .question p { font-size: 2.1rem; color: var(--text); font-weight: 600; }
+
+    /* ── Definition box ── */
+    .definition {
+      background: rgba(3,105,161,0.07); border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.4rem 2rem; margin: 0.8rem 0 1.4rem; max-width: 60rem;
+    }
+    .definition p { font-size: 1.85rem; color: var(--text); font-style: italic; }
+
+    /* ── Eval table ── */
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 1.6rem; }
+    .eval-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .eval-table td { padding: 1rem 1.2rem; vertical-align: middle; }
+    .eval-table td:first-child { width: 15rem; }
+    .eval-table td:last-child { color: var(--highlight); font-weight: 700; font-size: 1.9rem; width: 6rem; text-align: right; }
+
+    /* ── Calendar / timeline ── */
+    .phases { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.5rem; }
+    .phase {
+      flex: 1; border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .phase-1 { background: rgba(3,105,161,0.08); border-color: rgba(3,105,161,0.25); }
+    .phase-2 { background: rgba(146,64,14,0.08); border-color: rgba(146,64,14,0.25); }
+    .phase-3 { background: rgba(22,101,52,0.08); border-color: rgba(22,101,52,0.25); }
+    .phase h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .phase .dates { font-size: 1.1rem; color: var(--secondary); margin-bottom: 0.6rem; }
+    .phase ul { list-style: none; }
+    .phase ul li { font-size: 1.1rem; color: var(--text); padding: 0.15rem 0 0.15rem 1.2rem; }
+    .phase ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+    .key-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; width: 100%; }
+    .key-date { display: flex; gap: 0.8rem; align-items: baseline; font-size: 1.25rem; }
+    .key-date .kd-date { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 5rem; }
+    .key-date .kd-label { color: var(--text); }
+
+    /* ── 3-levels diagram ── */
+    .levels { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .level {
+      border-radius: var(--radius); padding: 1.2rem 1.8rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .level-v { background: rgba(146,64,14,0.08); border: 1px solid rgba(146,64,14,0.25); }
+    .level-c { background: rgba(3,105,161,0.08);  border: 1px solid rgba(3,105,161,0.25); }
+    .level-f { background: rgba(22,101,52,0.08);  border: 1px solid rgba(22,101,52,0.25); }
+    .level-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .level-text h4 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .level-text p  { font-size: 1.3rem; color: var(--secondary); }
+
+    /* ── Relational table example ── */
+    .rel-table { border-collapse: collapse; font-size: 1.35rem; width: 100%; }
+    .rel-table th { background: var(--accent); color: #fff; padding: 0.7rem 1.2rem; text-align: left; font-weight: 600; }
+    .rel-table td { padding: 0.65rem 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .rel-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .rel-table .pk { color: var(--accent); font-weight: 700; }
+    .rel-table .fk { color: var(--highlight); font-weight: 700; }
+    .table-label { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── Code block (installation) ── */
+    pre {
+      background: #1e293b; color: #e2e8f0; border-radius: var(--radius);
+      padding: 1.2rem 1.6rem; font-size: 1.3rem; font-family: 'Menlo', 'Courier New', monospace;
+      margin: 0.8rem 0; overflow-x: auto; line-height: 1.6;
+    }
+    pre .cmd  { color: #38bdf8; }
+    pre .cmt  { color: #64748b; font-style: italic; }
+    .install-section { margin-bottom: 1.2rem; width: 100%; }
+    .install-section h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 1.05rem; table-layout: fixed; }
+    .sched-table th {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 0.7rem; text-align: left; font-weight: 600; font-size: 1rem;
+    }
+    .sched-table th:nth-child(1) { width: 3.5rem; }
+    .sched-table th:nth-child(2) { width: 5rem; }
+    .sched-table th:nth-child(3) { width: 3.5rem; }
+    .sched-table td {
+      padding: 0.35rem 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sched-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+    .row-holiday td { background: rgba(239,68,68,0.08) !important; color: #b91c1c; font-style: italic; }
+    .row-eval    td { background: rgba(251,191,36,0.18) !important; font-weight: 700; color: #78350f; }
+    .row-project td { background: rgba(22,101,52,0.08) !important; }
+
+    /* ── Step indicator dots ── */
+    #step-dots {
+      position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      display: none; gap: 0.4rem; z-index: 200;
+    }
+    #step-dots.visible { display: flex; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); transition: background 0.2s;
+    }
+    .dot.active { background: var(--accent); }
+  
+    .phase ul li { padding-left: 0.95rem; line-height: 1.45; }
+    .phase ul li::before { content: '·'; font-size: 1.1rem; line-height: 1.45; top: 0.15rem; }
+
+    /* ── Figuras vindas do deck original ── */
+    .slide figure { width: 100%; margin: 0; text-align: center; }
+    .slide figure img { display: block; max-width: 100%; max-height: 56vh; margin: 0 auto;
+                        border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.12); }
+    .fig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; width: 100%; }
+    .fig-grid img { width: 100%; max-height: 23vh; object-fit: contain; border-radius: 0.4rem;
+                    display: block; box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fig-2 { display: flex; gap: 1.6rem; align-items: center; justify-content: center; width: 100%; }
+    .fig-2 img { max-height: 34vh; max-width: 47%; border-radius: 0.4rem;
+                 box-shadow: 0 1px 5px rgba(0,0,0,0.12); }
+    .fonte { font-size: 1.2rem !important; margin-top: 0.6rem; opacity: 0.7; }
+    .slide-fig { padding: 2.2rem 4rem; }
+    .slide-fig h2 { font-size: 2.2rem; margin-bottom: 0.7rem; }
+    .slide-fig figure img { max-height: 70vh; }
+
+    .cards-big .card h3 { font-size: 2rem; }
+    .cards-big .card p  { font-size: 1.65rem; }
+  
+    /* ── Níveis de adoção ── */
+    .slide a { color: inherit; text-decoration: underline; text-decoration-color: rgba(3,105,161,0.4); }
+    .slide.nivel { padding: 2.4rem 5rem; }
+    .slide.nivel h2 { font-size: 2.4rem; margin-bottom: 1rem; }
+    .nivel-tag {
+      position: absolute; top: 1.5rem; right: 2rem;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--accent); opacity: 0.7; text-transform: uppercase;
+    }
+    .nivel ul.plain li { font-size: 1.45rem; padding: 0.35rem 0 0.35rem 2rem; }
+    .nivel ul.plain li::before { font-size: 1.6rem; line-height: 1.2; }
+    .nivel .split-left { flex: 1 1 52%; }
+    .shots { flex: 0 0 40% !important; flex-direction: column; gap: 1rem; }
+    .shots figure, .row-shots figure { margin: 0; }
+    .shots img { width: 100%; height: 30vh; object-fit: cover; object-position: top left;
+                 border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.15); display: block; }
+    figcaption { font-size: 1rem; color: var(--secondary); margin-top: 0.3rem; text-align: center; }
+    .row-shots { display: flex; gap: 1.2rem; width: 100%; margin-bottom: 1.2rem; justify-content: center; }
+    .row-shots figure { flex: 1; max-width: 50%; }
+    .row-shots img { width: 100%; height: 27vh; object-fit: cover; object-position: top;
+                     border-radius: 0.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.15); display: block; }
+    .row-shots img.contain { object-fit: contain; height: auto; max-height: 27vh; box-shadow: none; }
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; width: 100%; }
+    .duo .card { padding: 1.1rem 1.4rem; }
+    .duo .card ul.plain li { font-size: 1.2rem; padding: 0.25rem 0 0.25rem 1.6rem; }
+    .duo .card ul.plain li::before { font-size: 1.3rem; }
+    .card.risco { border-left: 5px solid #b91c1c; }
+    .card.risco h3 { color: #b91c1c; }
+    .synth { font-size: 1.3rem; }
+    .synth td, .synth th { padding: 0.6rem 1rem; }
+    .synth code { font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="nav-hint">&larr; &rarr; ou Espaço para navegar &nbsp;|&nbsp; F para tela cheia</div>
+<div id="step-dots"></div>
+<button class="nav-btn" id="btn-prev">&lsaquo;</button>
+<button class="nav-btn" id="btn-next">&rsaquo;</button>
+
+<div class="slides" id="slides">
+  <div class="slide slide-cover">
+    <span class="tag">Desenvolvimento de Software Apoiado por IA &mdash; 2026.4</span>
+    <h1>Níveis de adoção de IA<br><span class="accent">na engenharia de software</span></h1>
+    <div class="cover-meta">
+      <span>&#128104;&#8205;&#127979; <strong>Prof. Gustavo Pinto</strong></span>
+      <span>&#127963;&#65039; <strong>UFPA</strong></span>
+    </div>
+  </div>
+
+  <!-- ── Tabela de síntese ── -->
+  <div class="slide slide-content nivel" data-steps="9">
+    <h2>Uma escada em sete degraus</h2>
+    <table class="rel-table synth">
+      <tr>
+        <th style="width:4.5rem">Nível</th><th>Prática</th>
+        <th class="step" data-step="8">Papel humano</th>
+        <th class="step" data-step="9">Artefato típico</th>
+      </tr>
+      <tr class="step" data-step="1"><td class="pk">0</td><td><strong>Sem IA.</strong> Código escrito à mão; IA proibida ou não adotada</td><td class="step" data-step="8">Autor</td><td class="step" data-step="9">&mdash;</td></tr>
+      <tr class="step" data-step="2"><td class="pk">1</td><td><strong>Autocomplete e chat.</strong> Sugestões de linha e perguntas avulsas; copiar e colar</td><td class="step" data-step="8">Autor que consulta</td><td class="step" data-step="9">&mdash;</td></tr>
+      <tr class="step" data-step="3"><td class="pk">2</td><td><strong>Agente supervisionado.</strong> Agente no IDE edita e roda comandos; cada passo é aprovado</td><td class="step" data-step="8">Par, revisor linha a linha</td><td class="step" data-step="9">&mdash;</td></tr>
+      <tr class="step" data-step="4"><td class="pk">3</td><td><strong>Contexto codificado.</strong> Regras, <code>AGENTS.md</code>, skills e testes guiam o agente</td><td class="step" data-step="8">Revisor de diffs</td><td class="step" data-step="9">Configuração versionada</td></tr>
+      <tr class="step" data-step="5"><td class="pk">4</td><td><strong>Delegação assíncrona.</strong> Agentes em background abrem PRs, vários em paralelo</td><td class="step" data-step="8">Gerente de tarefas</td><td class="step" data-step="9">Specs, planos, issues</td></tr>
+      <tr class="step" data-step="6"><td class="pk">5</td><td><strong>Workflow e orquestração.</strong> Agentes no CI, no review e em migrações; orquestradores coordenam dezenas</td><td class="step" data-step="8">Designer do processo</td><td class="step" data-step="9">Orquestrador, pipelines</td></tr>
+      <tr class="step" data-step="7"><td class="pk">6</td><td><strong>Fábrica autônoma.</strong> Spec entra, software sai; ninguém lê o código</td><td class="step" data-step="8">Designer da verificação</td><td class="step" data-step="9">Cenários, harness</td></tr>
+    </table>
+    <p class="fonte">Síntese de Yegge (2026), Shapiro (2026), ACMM (Anderson, 2026) e RAMP (Denisov-Blanch et al., 2026).</p>
+  </div>
+
+  <!-- ── Nível 0 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 0 de 6</span>
+    <h2>Nível 0: sem IA</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Todo o código é escrito à mão; a IA é proibida ou simplesmente não foi adotada</li>
+          <li>Corresponde ao nível 1 de Yegge e ao L0 da taxonomia ai4se</li>
+          <li>Ainda é escolha defensável onde pesam copyright, regulação ou segredo industrial</li>
+          <li><strong>METR (jul/2025):</strong> RCT com 16 devs experientes e 246 tarefas. Com IA, levaram <span class="highlight">19% mais tempo</span>, mas acreditavam ter ficado 20% mais rápidos</li>
+          <li><strong>METR (fev/2026):</strong> com ferramentas do fim de 2025, a estimativa virou ganho de 18%. Viés de seleção: parte dos devs já se recusava a trabalhar sem IA</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR, 2025</a>; <a href="https://metr.org/blog/2026-02-24-uplift-update/">METR, 2026</a>; <a href="https://arxiv.org/abs/2409.18048">ai4se taxonomy</a>; <a href="https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the">Yegge via Pragmatic Engineer</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/metr.jpg" alt="Post do METR sobre o RCT de 2025"><figcaption>METR, jul/2025</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 0 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/gentoo.jpg" alt="Gentoo proíbe contribuições com IA"><figcaption>Gentoo, abr/2024</figcaption></figure>
+      <figure><img src="img/niveis/curl.jpg" alt="curl encerra bug bounty"><figcaption>curl, jan/2026</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li>Gentoo (abr/2024) e NetBSD proíbem contribuições geradas por IA, citando copyright e qualidade</li>
+          <li>Levantamento de 112 projetos (mar/2026): só 4 com proibição total, entre eles Zig, NetBSD, GIMP e QEMU</li>
+          <li>curl encerra o bug bounty em jan/2026 por excesso de relatórios gerados por IA</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li>Proibição difícil de fiscalizar: como provar quem escreveu o código?</li>
+          <li>Custo de oportunidade em tarefas triviais e repetitivas</li>
+          <li>Em troca, evita o custo de revisar material de baixa qualidade e a incerteza jurídica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 1 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 1 de 6</span>
+    <h2>Nível 1: autocomplete e chat</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>A IA sugere a próxima linha ou responde perguntas; a pessoa copia, cola e adapta</li>
+          <li>Shapiro chama de <em>spicy autocomplete</em> (nível 0 dele); no Cursor, é o <code>Tab</code> e o <code>Cmd+K</code> do slider de Karpathy</li>
+          <li><strong>Barke et al. (OOPSLA 2023):</strong> dois modos de uso. <span class="accent">Aceleração</span> quando se sabe o próximo passo, <span class="accent">exploração</span> quando não se sabe</li>
+          <li><strong>Peng et al. (2023):</strong> experimento controlado, servidor HTTP em JavaScript. O grupo com Copilot terminou <span class="highlight">55,8% mais rápido</span></li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://arxiv.org/abs/2206.15000">Barke et al.</a>; <a href="https://arxiv.org/abs/2302.06590">Peng et al.</a>; <a href="https://simonwillison.net/2026/Jan/28/the-five-levels/">Shapiro via Willison</a>; <a href="https://www.latent.space/p/s3">Karpathy, Software 3.0</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/peng.jpg" alt="Paper de Peng et al. no arXiv"><figcaption>Peng et al., 2023</figcaption></figure>
+        <figure><img src="img/niveis/barke.jpg" alt="Paper Grounded Copilot no arXiv"><figcaption>Barke et al., OOPSLA 2023</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 1 na prática</h2>
+    <div class="row-shots">
+      <figure><img class="contain" src="img/niveis/so-uso.jpg" alt="Stack Overflow Survey 2025: uso de ferramentas de IA"><figcaption>Stack Overflow Survey 2025: uso</figcaption></figure>
+      <figure><img class="contain" src="img/niveis/so-confianca.jpg" alt="Stack Overflow Survey 2025: confiança na precisão da IA"><figcaption>Stack Overflow Survey 2025: confiança</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li>Stack Overflow 2025: <strong>84%</strong> usam ou pretendem usar IA; <strong>46%</strong> desconfiam da precisão</li>
+          <li>66% citam soluções &ldquo;quase certas, mas não exatamente&rdquo; como principal problema</li>
+          <li>Google: completion por ML gerava cerca de 3% dos caracteres novos em 2022; em 2024, mais de um quarto do código novo vinha de IA (unidade não divulgada)</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li><strong>Alucinação de pacotes:</strong> 19,7% dos pacotes recomendados não existiam (Spracklen et al., USENIX Security 2025), o que abre espaço para <em>slopsquatting</em></li>
+          <li>Código copiado sem o contexto do projeto</li>
+          <li>Atrofia de habilidades em quem está aprendendo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 2 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 2 de 6</span>
+    <h2>Nível 2: agente supervisionado</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>O agente lê e edita arquivos e roda comandos dentro do IDE; cada ação passa por aprovação</li>
+          <li>Yegge, níveis 2 e 3: começa com permissões ligadas e, com a confiança, passa ao modo <em>YOLO</em></li>
+          <li>Shapiro, níveis 1 e 2: <em>coding intern</em> e <em>junior developer</em>, com revisão de cada linha</li>
+          <li>Shapiro estima que 90% de quem se diz &ldquo;AI-native&rdquo; está aqui, e que a sensação é de ter chegado</li>
+          <li>Ferramentas típicas: modo agente do Cursor e do Copilot</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://simonwillison.net/2026/Jan/28/the-five-levels/">Shapiro via Willison</a>; <a href="https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the">Yegge via Pragmatic Engineer</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/shapiro.jpg" alt="Os cinco níveis de Shapiro no blog de Simon Willison"><figcaption>Shapiro, jan/2026</figcaption></figure>
+        <figure><img src="img/niveis/yegge.jpg" alt="Entrevista de Steve Yegge no Pragmatic Engineer"><figcaption>Yegge, fev/2026</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 2 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/sandbox.jpg" alt="Post da Anthropic sobre sandboxing no Claude Code"><figcaption>Anthropic, out/2025</figcaption></figure>
+      <figure><img src="img/niveis/replit.jpg" alt="Notícia sobre o agente do Replit apagando banco de produção"><figcaption>The Stack, jul/2025</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li>O próprio RCT do METR usou este nível: Cursor Pro com Claude 3.5 e 3.7 Sonnet</li>
+          <li>Anthropic (out/2025): sandbox de sistema de arquivos e rede reduziu os pedidos de permissão em <strong>84%</strong> no uso interno</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li><strong>Replit e SaaStr (jul/2025):</strong> durante um code freeze, o agente apagou o banco de produção e depois informou mal o que tinha feito</li>
+          <li>Fadiga de aprovação: aprovar tudo vira modo YOLO sem sandbox</li>
+          <li>Percepção de produtividade descolada da medida (METR)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 3 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 3 de 6</span>
+    <h2>Nível 3: contexto codificado</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Convenções e preferências viram arquivos versionados: <code>AGENTS.md</code>, <code>CLAUDE.md</code>, rules, skills</li>
+          <li>Testes passam a ser a rede de segurança que torna a saída do agente confiável</li>
+          <li>ACMM, níveis 2 e 3: <em>Instructed</em> e <em>Measured</em>. &ldquo;Não dá para pular níveis&rdquo;</li>
+          <li>Böckeler (Thoughtworks): <em>context engineering</em> é curar o que o modelo vê para obter resultados melhores</li>
+          <li>Shapiro, nível 3: a maior parte do código é gerada, e a pessoa revisa em tempo integral</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html">Böckeler, 2026</a>; <a href="https://arxiv.org/abs/2604.09388">Anderson, ACMM</a>; <a href="https://agents.md/">agents.md</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/fowler.jpg" alt="Artigo Context Engineering for Coding Agents"><figcaption>Böckeler, fev/2026</figcaption></figure>
+        <figure><img src="img/niveis/agentsmd.jpg" alt="Site do padrão AGENTS.md"><figcaption>agents.md</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 3 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/ramp.jpg" alt="Paper RAMP no arXiv"><figcaption>Denisov-Blanch et al., ago/2026</figcaption></figure>
+      <figure><img src="img/niveis/pillar.jpg" alt="Post da Pillar Security sobre Rules File Backdoor"><figcaption>Pillar Security, mar/2025</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li><code>AGENTS.md</code> está em mais de 60 mil projetos open source; em dez/2025 foi doado à Agentic AI Foundation (Linux Foundation)</li>
+          <li><strong>RAMP</strong>, 441 repositórios: agentes aumentam commits em 28 a 38% em qualquer nível. Sem configuração commitada, a complexidade cognitiva cresce 53% (contra 27%) e os warnings, 1,7 vez mais</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li><strong>Configurar e esquecer:</strong> 73,8% desses artefatos são commitados uma vez e nunca mais alterados</li>
+          <li><strong>Rules File Backdoor:</strong> instruções em unicode invisível dentro de arquivos de regras, que sobrevivem a forks</li>
+          <li>Contexto inchado e contraditório piora o agente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 4 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 4 de 6</span>
+    <h2>Nível 4: delegação assíncrona</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>A tarefa vira issue ou spec; o agente roda em background, no terminal ou na nuvem, e devolve um PR</li>
+          <li>Yegge, níveis 5 e 6: o IDE é abandonado e vários agentes rodam em paralelo</li>
+          <li>Shapiro, nível 4: a pessoa atua como gerente de engenharia ou de produto</li>
+          <li>Osmani: de <em>conductor</em> (um agente, síncrono) para <em>orchestrator</em> (vários, cada um com seu contexto)</li>
+          <li><strong>Ferino et al. (ICSE 2027):</strong> a confiança foi o único fator significativo para passar da delegação parcial à total</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://arxiv.org/abs/2610.34317">Ferino et al.</a>; <a href="https://addyosmani.com/blog/future-agentic-coding/">Osmani, 2026</a>; <a href="https://simonwillison.net/2026/Jan/28/the-five-levels/">Shapiro via Willison</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/osmani.jpg" alt="Post de Addy Osmani sobre conductors e orchestrators"><figcaption>Osmani, jan/2026</figcaption></figure>
+        <figure><img src="img/niveis/ferino.jpg" alt="Paper de Ferino et al. no arXiv"><figcaption>Ferino et al., out/2026</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 4 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/stripe.jpg" alt="Post da Stripe sobre Minions"><figcaption>Stripe, fev/2026</figcaption></figure>
+      <figure><img src="img/niveis/spotify.jpg" alt="Post da Spotify sobre o agente Honk"><figcaption>Spotify, nov/2025</figcaption></figure>
+      <figure><img src="img/niveis/aidev.jpg" alt="Paper AIDev no arXiv"><figcaption>Li, Zhang e Hassan, 2025</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li><strong>Stripe Minions:</strong> mais de mil PRs mergeados por semana, sem código escrito por humanos, mas com revisão humana; disparados do Slack</li>
+          <li><strong>Spotify Honk:</strong> mais de 1.500 PRs mergeados em produção até nov/2025</li>
+          <li><strong>AIDev:</strong> 456 mil PRs de cinco agentes no GitHub</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li>A revisão humana vira o gargalo (Spotify)</li>
+          <li>PRs de agentes saem mais rápido, mas são aceitos com menos frequência (AIDev)</li>
+          <li>A pessoa perde o modelo mental do código que não escreveu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 5 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 5 de 6</span>
+    <h2>Nível 5: workflow e orquestração</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Agentes viram etapas do processo: CI, code review, triagem de issues, migrações em lote</li>
+          <li>Yegge, níveis 7 e 8: dez ou mais agentes geridos à mão e, depois, um orquestrador próprio (Gas Town)</li>
+          <li>ACMM, níveis 4 e 5: os loops de feedback se fecham sozinhos; o sistema propõe e humanos aprovam</li>
+          <li><strong>Park et al. (2026):</strong> sete estágios de supervisão. Planejar, monitorar, esperar, revisar, ensinar, corrigir à mão, atualizar artefatos</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://arxiv.org/abs/2609.24234">Park et al.</a>; <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04">Yegge, Gas Town</a>; <a href="https://arxiv.org/abs/2604.09388">Anderson, ACMM</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/gastown.jpg" alt="Post Welcome to Gas Town"><figcaption>Yegge, jan/2026</figcaption></figure>
+        <figure><img src="img/niveis/park.jpg" alt="Paper The Work Behind Delegation no arXiv"><figcaption>Park et al., set/2026</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 5 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/airbnb.jpg" alt="Post da Airbnb sobre migração de testes com LLMs"><figcaption>Airbnb, mar/2025</figcaption></figure>
+      <figure><img src="img/niveis/googlemig.jpg" alt="Paper do Google sobre migrações com IA"><figcaption>Nikolov et al., 2025</figcaption></figure>
+      <figure><img src="img/niveis/aikido.jpg" alt="Post da Aikido sobre PromptPwnd"><figcaption>Aikido, dez/2025</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li><strong>Airbnb:</strong> 3.500 arquivos de teste migrados de Enzyme para RTL em 6 semanas (estimativa manual: 1,5 ano). Pipeline com retries, 97% automático</li>
+          <li><strong>Google:</strong> em migrações internas, 80% das modificações foram geradas por IA</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li><strong>PromptPwnd:</strong> uma issue maliciosa injeta instruções no agente que roda no GitHub Actions</li>
+          <li><strong>s1ngularity (ago/2025):</strong> malware usou CLIs de IA instaladas, com flags de bypass, para caçar segredos</li>
+          <li>Custo: Gas Town consome milhares de dólares por mês</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Nível 6 ── -->
+  <div class="slide slide-split nivel">
+    <span class="nivel-tag">Nível 6 de 6</span>
+    <h2>Nível 6: fábrica autônoma</h2>
+    <div class="split-body">
+      <div class="split-left">
+        <ul class="plain">
+          <li>Spec entra, software sai. Ninguém escreve nem revisa o código</li>
+          <li>Shapiro, nível 5: a <em>dark factory</em>, nome tirado da fábrica da Fanuc, onde as luzes ficam apagadas porque não há humanos</li>
+          <li>O trabalho humano passa a ser desenhar o sistema que prova que o software funciona</li>
+          <li>ACMM, nível 6: agentes fazem merge e rollback sem aprovação humana</li>
+        </ul>
+        <p class="fonte">Fontes: <a href="https://simonwillison.net/2026/Feb/7/software-factory/">Willison, 2026</a>; <a href="https://arxiv.org/abs/2604.09388">Anderson, ACMM</a></p>
+      </div>
+      <div class="split-right shots">
+        <figure><img src="img/niveis/factory.jpg" alt="Post de Simon Willison sobre a software factory da StrongDM"><figcaption>Willison sobre a StrongDM, fev/2026</figcaption></figure>
+        <figure><img src="img/niveis/acmm.jpg" alt="Paper ACMM no arXiv"><figcaption>Anderson, abr/2026</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide slide-content nivel" data-steps="1">
+    <h2>Nível 6 na prática</h2>
+    <div class="row-shots">
+      <figure><img src="img/niveis/harness.jpg" alt="Post da OpenAI sobre harness engineering"><figcaption>OpenAI, fev/2026</figcaption></figure>
+      <figure><img src="img/niveis/attractor.jpg" alt="Repositório strongdm/attractor no GitHub, só com specs em Markdown"><figcaption>StrongDM, Attractor: o agente publicado só como specs</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card">
+        <h3>Cases</h3>
+        <ul class="plain">
+          <li><strong>StrongDM:</strong> código não é escrito nem revisado por humanos. Cenários ficam fora do repositório, como holdout, e serviços externos (Okta, Jira, Slack) viram gêmeos digitais</li>
+          <li><strong>OpenAI:</strong> produto interno com cerca de 1 milhão de linhas e nenhuma escrita à mão, de 3 a 7 engenheiros em 5 meses</li>
+          <li><strong>ACMM:</strong> do nível 2 ao 6, 5 vezes mais PRs e 37 vezes mais issues, num único projeto</li>
+        </ul>
+      </div>
+      <div class="card risco step" data-step="1">
+        <h3>Riscos e desafios</h3>
+        <ul class="plain">
+          <li>A revisão humana muda de lugar: passa a ser escrever cenários</li>
+          <li>Os cenários podem ser contornados pelo agente, se ele os vir</li>
+          <li>Quem responde por um defeito em software que ninguém leu?</li>
+          <li>Custo em tokens e evidência ainda restrita a equipes pequenas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Fechamento ── -->
+  <div class="slide slide-content nivel" data-steps="3">
+    <h2>O que atravessa os níveis</h2>
+    <div class="cards cards-2 cards-big">
+      <div class="card"><h3>Cada framework mede uma coisa</h3><p>O indivíduo (Yegge, Shapiro), o repositório (RAMP), o feedback (ACMM) ou a organização (DORA).</p></div>
+      <div class="card step" data-step="1"><h3>A verificação limita a subida</h3><p>Testes, cenários e harness decidem até onde se pode delegar. O modelo vem depois.</p></div>
+      <div class="card step" data-step="2"><h3>O nível depende da tarefa</h3><p>O slider de Karpathy, os modos de Barke e a confiança em Ferino et al. apontam para escolhas por tarefa.</p></div>
+      <div class="card step" data-step="3"><h3>Pouca evidência no topo</h3><p>Os níveis 5 e 6 se apoiam em relatos de equipes pequenas e de quem vende a ferramenta.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const counter  = document.getElementById('counter');
+  const stepDots = document.getElementById('step-dots');
+  let cur = 0, curStep = 0;
+
+  function totalSteps(sl) { return parseInt(sl.dataset.steps || 0); }
+
+  function applyStep(sl, step) {
+    sl.querySelectorAll('.step').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      el.classList.toggle('visible', s <= step);
+    });
+  }
+
+  function updateDots(sl) {
+    const ts = totalSteps(sl);
+    if (ts === 0) { stepDots.classList.remove('visible'); return; }
+    stepDots.classList.add('visible');
+    stepDots.innerHTML = '';
+    for (let i = 0; i <= ts; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === curStep ? ' active' : '');
+      stepDots.appendChild(d);
+    }
+  }
+
+  function updateUI() {
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+    counter.textContent  = (cur + 1) + ' / ' + slides.length;
+    updateDots(slides[cur]);
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= slides.length) return;
+    slides[cur].classList.remove('active');
+    cur = n; curStep = 0;
+    slides[cur].classList.add('active');
+    applyStep(slides[cur], 0);
+    updateUI();
+  }
+
+  function next() {
+    const ts = totalSteps(slides[cur]);
+    if (curStep < ts) { curStep++; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur + 1);
+  }
+
+  function prev() {
+    if (curStep > 0) { curStep--; applyStep(slides[cur], curStep); updateDots(slides[cur]); }
+    else goTo(cur - 1);
+  }
+
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End')  goTo(slides.length - 1);
+    if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let touchX = null;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>
